@@ -45,6 +45,12 @@ const ICONS: Record<string, React.ReactNode> = {
       <path d="M12 5V2" />
     </>
   ),
+  hotel: (
+    <>
+      <path d="M3 21h18M5 21V5a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1v16M15 8h3a1 1 0 0 1 1 1v12" />
+      <path d="M8 7h.01M11 7h.01M8 11h.01M11 11h.01M8 15h.01M11 15h.01" />
+    </>
+  ),
 };
 
 const SECTIONS = [
@@ -96,11 +102,19 @@ const SECTIONS = [
     count: "8.666",
     unit: "entri",
   },
+  {
+    key: "hotel",
+    no: "07",
+    title: "Hotel & Akomodasi",
+    desc: "Pasokan kamar, okupansi (TPK), dan lama menginap hotel berbintang — data resmi Satu Data Jakarta / BPS.",
+    count: "120",
+    unit: "hotel",
+  },
 ];
 
 const STATS = [
-  { value: "12.236", label: "Total entri lapangan" },
-  { value: "6", label: "Kategori data" },
+  { value: "12.356", label: "Total entri lapangan" },
+  { value: "7", label: "Kategori data" },
   { value: "4.079", label: "Titik ber-koordinat" },
   { value: "GCI", label: "Metodologi acuan" },
 ];
