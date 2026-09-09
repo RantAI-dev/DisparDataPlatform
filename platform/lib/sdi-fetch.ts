@@ -107,6 +107,31 @@ export async function fetchSdiDetail(
     ? meta.komponen_data_table
     : [];
 
+  const columns: SdiColumn[] = komponen.map((k) => ({
+    key: k.header_komponen,
+    label: null,
+    type: k.tipe_data_komponen ?? null,
+    description: k.desc_komponen ?? null,
+  }));
+
+  // SDI sering TIDAK mendeklarasikan `periode_data` di komponen_data_table
+  // walau tiap baris membawanya (mis. dataset bulanan Rata-rata Lama Menginap:
+  // period "202403" ada di baris tapi tabel generik membuangnya). Bila kolom
+  // periode benar-benar ada di data tapi tak dideklarasikan, munculkan sebagai
+  // kolom PALING KIRI supaya dimensi waktu ikut tertarik & bisa dijadikan grafik.
+  const declared = new Set(columns.map((c) => c.key));
+  if (
+    !declared.has("periode_data") &&
+    allRows.some((r) => r.periode_data != null && r.periode_data !== "")
+  ) {
+    columns.unshift({
+      key: "periode_data",
+      label: "Periode",
+      type: "periode",
+      description: "Periode data (YYYYMM) — ditarik dari baris walau tidak dideklarasikan SDI.",
+    });
+  }
+
   return {
     slug,
     title: meta.title ?? slug,
@@ -117,12 +142,7 @@ export async function fetchSdiDetail(
     klasifikasi: meta.klasifikasi_data ?? null,
     kontak: meta.kontak ?? null,
     author: meta.author ?? null,
-    columns: komponen.map((k) => ({
-      key: k.header_komponen,
-      label: null,
-      type: k.tipe_data_komponen ?? null,
-      description: k.desc_komponen ?? null,
-    })),
+    columns,
     rows: allRows,
     total: tableTotal,
   };

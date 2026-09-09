@@ -285,6 +285,88 @@ export default async function SeniPertunjukanPage() {
               </div>
             </div>
 
+            {/* Tabel artis yang SUDAH pernah tampil di Jakarta (versi tabel dari
+                status kehadiran) — hanya yang terbukti tampil, terurut tahun terakhir. */}
+            {(() => {
+              const playedList = artisSorted
+                .filter((a) => played(a))
+                .map((a) => ({ a, ap: appearanceFor(a) }))
+                .sort((x, y) => {
+                  const yx = x.ap ? Math.max(...x.ap.years) : 0;
+                  const yy = y.ap ? Math.max(...y.ap.years) : 0;
+                  if (yy !== yx) return yy - yx;
+                  return x.a.localeCompare(y.a);
+                });
+              if (playedList.length === 0) return null;
+              return (
+                <div>
+                  <div className="mb-2 flex items-center gap-2">
+                    <span
+                      className="inline-flex items-center rounded-full px-2.5 py-1 text-[11px] font-bold uppercase tracking-wider text-white"
+                      style={{ background: ACCENT }}
+                    >
+                      Artis yang sudah tampil di Jakarta
+                    </span>
+                    <span className="apple-fine text-ink-muted-48">
+                      {playedList.length} artis · sumber: verifikasi publik / korpus event Dispar
+                    </span>
+                  </div>
+                  <div className="overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm">
+                    <div className="overflow-x-auto">
+                      <table className="w-full border-collapse text-[13px]">
+                        <thead>
+                          <tr
+                            style={{ background: ACCENT }}
+                            className="text-left text-[11px] uppercase tracking-wider text-white"
+                          >
+                            <th className="px-3 py-2.5 font-semibold">Artis</th>
+                            <th className="px-3 py-2.5 font-semibold">Negara</th>
+                            <th className="px-3 py-2.5 font-semibold">Tahun tampil</th>
+                            <th className="px-3 py-2.5 font-semibold">Venue</th>
+                            <th className="px-3 py-2.5 font-semibold">Sumber</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {playedList.map(({ a, ap }) => (
+                            <tr key={a} className="border-t border-slate-100">
+                              <td className="px-3 py-2 font-medium text-ink">{a}</td>
+                              <td className="px-3 py-2 text-slate-600">
+                                {artistMeta.get(a) ?? "—"}
+                              </td>
+                              <td className="px-3 py-2 tabular-nums text-slate-700">
+                                {ap ? ap.years.join(", ") : "—"}
+                              </td>
+                              <td className="px-3 py-2 text-slate-700">{ap?.venue ?? "—"}</td>
+                              <td className="px-3 py-2">
+                                {ap ? (
+                                  <a
+                                    href={ap.source}
+                                    target="_blank"
+                                    rel="noreferrer"
+                                    className="font-medium hover:underline"
+                                    style={{ color: "#2563eb" }}
+                                  >
+                                    Verifikasi ↗
+                                  </a>
+                                ) : (
+                                  <span
+                                    className="text-slate-400"
+                                    title="Muncul di korpus nama event Dispar (SDI), belum diverifikasi sumber publik terpisah"
+                                  >
+                                    Korpus event Dispar
+                                  </span>
+                                )}
+                              </td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              );
+            })()}
+
             {/* Matriks peringkat × tahun */}
             {CHARTS.filter((c) => byChart.has(c.key)).map((c) => {
               const yr = byChart.get(c.key)!;
