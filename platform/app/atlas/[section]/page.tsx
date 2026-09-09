@@ -38,6 +38,10 @@ const SouvenirView = dynamic(
   () => import("@/components/SouvenirView").then((m) => m.SouvenirView),
   { ssr: false, loading }
 );
+const HotelView = dynamic(
+  () => import("@/components/HotelView").then((m) => m.HotelView),
+  { ssr: false, loading }
+);
 
 export default function AtlasSectionPage({
   params,
@@ -56,6 +60,8 @@ export default function AtlasSectionPage({
       return <Dashboard restaurants={RESTAURANTS} />;
     case "souvenir":
       return <SouvenirView />;
+    case "hotel":
+      return <HotelView />;
     default:
       notFound();
   }

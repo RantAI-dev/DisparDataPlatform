@@ -12,6 +12,7 @@ import { GCI_EVENTS } from "../lib/events";
 import { GOLF_COURSES } from "../lib/golf";
 import { RESTAURANTS } from "../lib/restaurants";
 import { SOUVENIR_SHOPS } from "../lib/souvenir";
+import { HOTEL_REGISTRY } from "../lib/hotel";
 
 const url = process.env.DATABASE_URL;
 if (!url) throw new Error("DATABASE_URL belum di-set (lihat .env).");
@@ -120,6 +121,24 @@ const KINDS: {
         city: r.city ?? null,
         lat: r.lat ?? null,
         lng: r.lng ?? null,
+        data: r,
+      })),
+  },
+  {
+    kind: "hotel",
+    title: "Hotel & Akomodasi",
+    description:
+      "Hotel berbintang DKI Jakarta (Rekapitulasi Usaha & Kamar Hotel, Satu Data Jakarta) — jumlah kamar, klasifikasi, wilayah.",
+    rows: () =>
+      HOTEL_REGISTRY.map((r, i) => ({
+        kind: "hotel",
+        ext_id: `hotel-${i + 1}`,
+        name: r.nama,
+        category: r.golongan ?? null,
+        area: r.wilayah ?? null,
+        city: "DKI Jakarta",
+        lat: null,
+        lng: null,
         data: r,
       })),
   },

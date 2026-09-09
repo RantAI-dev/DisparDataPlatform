@@ -1,0 +1,3688 @@
+{
+  "meta": {
+    "built": "2026-09-09",
+    "sources": [
+      "Satu Data Jakarta — Rekapitulasi Usaha & Kamar Hotel",
+      "Satu Data Jakarta / BPS — Tingkat Penghunian Kamar Hotel Berbintang",
+      "Satu Data Jakarta / BPS — Rata-rata Lama Menginap Wisman & Wisnus Hotel Berbintang"
+    ],
+    "registryPeriod": "202301–202311",
+    "totals": {
+      "hotels": 120,
+      "rooms": 24049,
+      "tpkPeriods": 29,
+      "losPeriods": 31
+    }
+  },
+  "registry": [
+    {
+      "nama": "ACCOR/ FAIRMONT JAKARTA",
+      "jenis_usaha": "HOTEL",
+      "golongan": "BINTANG 5",
+      "kamar": 488,
+      "alamat": "JL ASIA AFRIKA NO. 8, GELORA, SENAYAN, TANAH ABANG, JAKARTA PUSAT 10270",
+      "wilayah": "JAKARTA PUSAT",
+      "periode": "202311"
+    },
+    {
+      "nama": "AKOMODASI HOTEL",
+      "jenis_usaha": "HOTEL",
+      "golongan": "BINTANG 4",
+      "kamar": 229,
+      "alamat": "JL PLUIT SELATAN NO.1 , KECAMATAN PENJARINGAN DKI JAKARTA 14450.",
+      "wilayah": "JAKARTA UTARA",
+      "periode": "202308"
+    },
+    {
+      "nama": "AKOMODASI KAMAR",
+      "jenis_usaha": "HOTEL",
+      "golongan": "NON BINTANG",
+      "kamar": 207,
+      "alamat": "JL. PERINTIS KEMERDEKAAN NO.42, PEGANGSAAN DUA, KELAPA GADING",
+      "wilayah": "JAKARTA UTARA",
+      "periode": "202308"
+    },
+    {
+      "nama": "AKOMODASI PERHOTELAN",
+      "jenis_usaha": "HOTEL",
+      "golongan": "BINTANG 4",
+      "kamar": 197,
+      "alamat": "JL. CIKINI RAYA NO.66 RT.14 RW.5 CIKINI KEC. MENTENG KOTA JAKARTA PUSAT",
+      "wilayah": "JAKARTA PUSAT",
+      "periode": "202302"
+    },
+    {
+      "nama": "ALILA SCBD",
+      "jenis_usaha": "HOTEL",
+      "golongan": "BINTANG 5",
+      "kamar": 105,
+      "alamat": "JL. JENDERAL SUDIRMAN KAVLING 52-53 JAKARTA SELATAN 12190",
+      "wilayah": "JAKARTA SELATAN",
+      "periode": "202309"
+    },
+    {
+      "nama": "ALL SEASONS JAKARTA THAMRIN",
+      "jenis_usaha": "HOTEL",
+      "golongan": "BINTANG 3",
+      "kamar": 166,
+      "alamat": "JL. TALANG BETUTU NO.2, KB. MELATI, KECAMATAN TANAH ABANG, KOTA JAKARTA PUSAT, DAERAH KHUSUS IBUKOTA JAKARTA 10320",
+      "wilayah": "JAKARTA PUSAT",
+      "periode": "202305"
+    },
+    {
+      "nama": "AMARIS HOTEL PASAR BARU JAKARTA",
+      "jenis_usaha": "HOTEL",
+      "golongan": "BINTANG 2",
+      "kamar": 102,
+      "alamat": "JL. PASAR BARU TIMUR NO. 20-21, JAKARTA PUSAT 10710",
+      "wilayah": "JAKARTA PUSAT",
+      "periode": "202310"
+    },
+    {
+      "nama": "AMBHARA HOTEL JAKARTA",
+      "jenis_usaha": "HOTEL",
+      "golongan": "BINTANG 4",
+      "kamar": 223,
+      "alamat": "JL.ISKANDARSYAH RAYA NO 1 KEL.MELAWAI KEC KEB BARU JAKARTA SELATAN",
+      "wilayah": "JAKARTA SELATAN",
+      "periode": "202301"
+    },
+    {
+      "nama": "ARTOTEL THAMRIN JAKARTA",
+      "jenis_usaha": "HOTEL",
+      "golongan": "BINTANG 3",
+      "kamar": 107,
+      "alamat": "JALAN SUNDA NO. 3 MENTENG - JAKARTA 10350",
+      "wilayah": "JAKARTA PUSAT",
+      "periode": "202302"
+    },
+    {
+      "nama": "ASTON BELLEVUE RADIO DALAM",
+      "jenis_usaha": "HOTEL",
+      "golongan": "BINTANG 4",
+      "kamar": 150,
+      "alamat": "JL. HAJI NAWI NO. 1  GANDARIA SELATAN.",
+      "wilayah": "JAKARTA SELATAN",
+      "periode": "202303"
+    },
+    {
+      "nama": "ASTON KARTIKA GROGOL HOTEL AND CONFERENCE CENTER",
+      "jenis_usaha": "HOTEL",
+      "golongan": "BINTANG 4",
+      "kamar": 187,
+      "alamat": "JL  KYAI TAPA 101  GROGOL JAKARTA BARAT",
+      "wilayah": "JAKARTA BARAT",
+      "periode": "202306"
+    },
+    {
+      "nama": "ASTON KEMAYORAN CITY HOTEL",
+      "jenis_usaha": "HOTEL",
+      "golongan": "BINTANG 3",
+      "kamar": 140,
+      "alamat": "JL  HBR MOTIK BLOK B10 NO 4  KEMAYORAN  JAKARTA PUSAT",
+      "wilayah": "JAKARTA PUSAT",
+      "periode": "202306"
+    },
+    {
+      "nama": "ASTON PRIORITY SIMATUPANG",
+      "jenis_usaha": "HOTEL",
+      "golongan": "BINTANG 4",
+      "kamar": 277,
+      "alamat": "JLN TB SIMATUPANG KAV. 9 KEBAGUSAN PASAR MINGGU JAKARTA SELATAN",
+      "wilayah": "JAKARTA SELATAN",
+      "periode": "202304"
+    },
+    {
+      "nama": "AYANA MIDPLAZA, JAKARTA",
+      "jenis_usaha": "HOTEL",
+      "golongan": "BINTANG 5",
+      "kamar": 366,
+      "alamat": "JL. JENDERAL SUDIRMAN KAV 10 - 11 JAKARTA 10220, INDONESIA",
+      "wilayah": "JAKARTA PUSAT",
+      "periode": "202311"
+    },
+    {
+      "nama": "BAMBOO INN HOTEL   CAFE",
+      "jenis_usaha": "HOTEL",
+      "golongan": "BINTANG 1",
+      "kamar": 74,
+      "alamat": "JL. KOTA BAMBU SELATAN NO.9 SILIPI",
+      "wilayah": "JAKARTA BARAT",
+      "periode": "202301"
+    },
+    {
+      "nama": "BI EXECUTIVE HOTEL",
+      "jenis_usaha": "HOTEL",
+      "golongan": "BINTANG 3",
+      "kamar": 106,
+      "alamat": "JL. RE MARTADINATA NO.2 PADEMANGAN, JAKARTA UTARA",
+      "wilayah": "JAKARTA UTARA",
+      "periode": "202310"
+    },
+    {
+      "nama": "BLUE SKY HOTEL PETAMBURAN",
+      "jenis_usaha": "HOTEL",
+      "golongan": "BINTANG 3",
+      "kamar": 96,
+      "alamat": "JL. AIPDA KS TUBUN NO.19 PETAMBURAN JAKARTA PUSAT",
+      "wilayah": "JAKARTA TIMUR",
+      "periode": "202301"
+    },
+    {
+      "nama": "CIPTA HOTEL PANCORAN",
+      "jenis_usaha": "HOTEL",
+      "golongan": "BINTANG 3",
+      "kamar": 109,
+      "alamat": "JL. RAYA PASAR MINGGU KAV.19 A PANCORAN",
+      "wilayah": "JAKARTA SELATAN",
+      "periode": "202302"
+    },
+    {
+      "nama": "CITY ICON RESIDENCE",
+      "jenis_usaha": "HOTEL",
+      "golongan": "NON BINTANG",
+      "kamar": 56,
+      "alamat": "MANGGA BESAR RAYA NO. 98",
+      "wilayah": "JAKARTA PUSAT",
+      "periode": "202301"
+    },
+    {
+      "nama": "CLASSIC HOTEL",
+      "jenis_usaha": "HOTEL",
+      "golongan": "BINTANG 3",
+      "kamar": 129,
+      "alamat": "JLN KH SAMANHUDI NO 43-45",
+      "wilayah": "JAKARTA PUSAT",
+      "periode": "202311"
+    },
+    {
+      "nama": "DAFAM EXPRESS JAKSA JAKARTA",
+      "jenis_usaha": "HOTEL",
+      "golongan": "BINTANG 2",
+      "kamar": 102,
+      "alamat": "JLN JAKSA NO.27 KEBON SIRIH MENTENG JAKARTA 10340",
+      "wilayah": "JAKARTA PUSAT",
+      "periode": "202302"
+    },
+    {
+      "nama": "EL HOTEL ROYALE JAKARTA",
+      "jenis_usaha": "HOTEL",
+      "golongan": "BINTANG 4",
+      "kamar": 303,
+      "alamat": "JL GADING KIRANA",
+      "wilayah": "JAKARTA UTARA",
+      "periode": "202308"
+    },
+    {
+      "nama": "FAVEHOTEL GATOT SUBROTO JAKARTA",
+      "jenis_usaha": "HOTEL",
+      "golongan": "BINTANG 2",
+      "kamar": 150,
+      "alamat": "JL  KARTIKA CANDRA NO KAV  A9  RT 5 RW 2  KARET SEMANGGI  KECAMATAN SETIABUDI  KOTA JAKARTA SELATAN  DAERAH KHUSUS IBUKOTA JAKARTA 12930",
+      "wilayah": "JAKARTA SELATAN",
+      "periode": "202307"
+    },
+    {
+      "nama": "FAVEHOTEL KELAPA GADING - JAKARTA",
+      "jenis_usaha": "HOTEL",
+      "golongan": "BINTANG 2",
+      "kamar": 121,
+      "alamat": "JL. RAYA GADING INDAH NO.8 KLP. GADING TIM. KEC. KLP. GADING KOTA JKT UTARA DAERAH KHUSUS IBUKOTA JAKARTA 14240",
+      "wilayah": "JAKARTA UTARA",
+      "periode": "202304"
+    },
+    {
+      "nama": "FAVEHOTEL LTC GLODOK",
+      "jenis_usaha": "HOTEL",
+      "golongan": "BINTANG 2",
+      "kamar": 203,
+      "alamat": "JL. HAYAM WURUK NO.127, JAKARTA 11180",
+      "wilayah": "JAKARTA BARAT",
+      "periode": "202310"
+    },
+    {
+      "nama": "FAVEHOTEL PASAR BARU",
+      "jenis_usaha": "HOTEL",
+      "golongan": "BINTANG 2",
+      "kamar": 84,
+      "alamat": "JL. KH SAMANHUDI NO 26  SAWAH BESAR",
+      "wilayah": "JAKARTA PUSAT",
+      "periode": "202303"
+    },
+    {
+      "nama": "FAVEHOTEL PGC CILILITAN",
+      "jenis_usaha": "HOTEL",
+      "golongan": "BINTANG 2",
+      "kamar": 194,
+      "alamat": "JL. MAYJEN SUTOYO NO.76 2 13, RT.2/RW.13, CILILITAN, KEC. KRAMAT JATI, KOTA JAKARTA TIMUR, DAERAH KHUSUS IBUKOTA JAKARTA 13640",
+      "wilayah": "JAKARTA TIMUR",
+      "periode": "202310"
+    },
+    {
+      "nama": "FOX LITE HOTEL GROGOL JAKARTA",
+      "jenis_usaha": "HOTEL",
+      "golongan": "BINTANG 3",
+      "kamar": 60,
+      "alamat": "JALAN RAYA DAAN MOGOT NO 2 GROGOL PETAMBURAN",
+      "wilayah": "JAKARTA BARAT",
+      "periode": "202302"
+    },
+    {
+      "nama": "FRASER RESIDENCE SUDIRMAN JAKARTA",
+      "jenis_usaha": "HOTEL",
+      "golongan": "BINTANG 5",
+      "kamar": 107,
+      "alamat": "JL  SETIABUDI RAYA NO 9 JAKARTA SELATAN",
+      "wilayah": "JAKARTA SELATAN",
+      "periode": "202307"
+    },
+    {
+      "nama": "GOLDEN BOUTIQUE HOTEL MELAWAI",
+      "jenis_usaha": "HOTEL",
+      "golongan": "BINTANG 4",
+      "kamar": 101,
+      "alamat": "JL  MELAWAI VIII NO  6 8 KEL  MELAWAI  KEC  KEBAYORAN BARU  JAKARTA SELATAN",
+      "wilayah": "JAKARTA SELATAN",
+      "periode": "202306"
+    },
+    {
+      "nama": "GOODRICH SUITES ARTOTEL PORTFOLIO",
+      "jenis_usaha": "HOTEL",
+      "golongan": "BINTANG 5",
+      "kamar": 76,
+      "alamat": "JALAN PANGERAN ANTASARI NO. 60  CIPETE UTARA  KEBAYORAN BARU",
+      "wilayah": "JAKARTA SELATAN",
+      "periode": "202303"
+    },
+    {
+      "nama": "GRAN MELIA HOTEL JAKARTA",
+      "jenis_usaha": "HOTEL",
+      "golongan": "BINTANG 5",
+      "kamar": 346,
+      "alamat": "JL HR RASUNA SAID KAV. X-0 KUNINGAN JAKARTA SELATAN",
+      "wilayah": "JAKARTA SELATAN",
+      "periode": "202302"
+    },
+    {
+      "nama": "GRAND ASIA HOTEL",
+      "jenis_usaha": "HOTEL",
+      "golongan": "BINTANG 3",
+      "kamar": 102,
+      "alamat": "JL. BANDENGAN SELATAN NO.88 JAKARTA UTARA",
+      "wilayah": "JAKARTA UTARA",
+      "periode": "202301"
+    },
+    {
+      "nama": "GRAND DAFAM ANCOL JAKARTA",
+      "jenis_usaha": "HOTEL",
+      "golongan": "BINTANG 4",
+      "kamar": 225,
+      "alamat": "JL. LODAN RAYA NO.2A JAKARTA 14430",
+      "wilayah": "JAKARTA UTARA",
+      "periode": "202301"
+    },
+    {
+      "nama": "GRAND WHIZ POINS SIMATUPANG JAKARTA",
+      "jenis_usaha": "HOTEL",
+      "golongan": "BINTANG 4",
+      "kamar": 159,
+      "alamat": "JL. R A KARTINI NO.1 KEL. LEBAK BULUS KEC. CILANDAK - JAKARTA SELATAN",
+      "wilayah": "JAKARTA SELATAN",
+      "periode": "202301"
+    },
+    {
+      "nama": "HARRIS SUITES PURI MANSION",
+      "jenis_usaha": "HOTEL",
+      "golongan": "BINTANG 4",
+      "kamar": 192,
+      "alamat": "JL LINGKAR LUAR PURI MANSION ESTATE KEMBANGAN",
+      "wilayah": "JAKARTA BARAT",
+      "periode": "202310"
+    },
+    {
+      "nama": "HOLIDAY INN   SUITES JAKARTA GAJAH MADA AN IHG HOTEL",
+      "jenis_usaha": "HOTEL",
+      "golongan": "BINTANG 4",
+      "kamar": 442,
+      "alamat": "JL GAJAH MADA NO 211 JAKARTA 11120",
+      "wilayah": "JAKARTA BARAT",
+      "periode": "202303"
+    },
+    {
+      "nama": "HOLIDAY INN JAKARTA KEMAYORAM",
+      "jenis_usaha": "HOTEL",
+      "golongan": "BINTANG 4",
+      "kamar": 255,
+      "alamat": "JL. GRIYA UTAMA BLOK B NO. 1 JAKARTA UTARA",
+      "wilayah": "JAKARTA UTARA",
+      "periode": "202301"
+    },
+    {
+      "nama": "HORISON SUITES   RESIDENCES RASUNA JAKARTA",
+      "jenis_usaha": "HOTEL",
+      "golongan": "BINTANG 4",
+      "kamar": 147,
+      "alamat": "KOMPLEK APARTEMEN TAMAN RASUNA  TOWER A JL. HR RASUNA SAID JAKARTA SELATAN 12960",
+      "wilayah": "JAKARTA SELATAN",
+      "periode": "202301"
+    },
+    {
+      "nama": "HORISON SUITES AND RESIDENCES RASUNA JAKARTA",
+      "jenis_usaha": "HOTEL",
+      "golongan": "BINTANG 4",
+      "kamar": 147,
+      "alamat": "APARTEMEN TAMAN RASUNA, TOWER A,",
+      "wilayah": "JAKARTA SELATAN",
+      "periode": "202311"
+    },
+    {
+      "nama": "HOTEL",
+      "jenis_usaha": "HOTEL",
+      "golongan": "BINTANG 4",
+      "kamar": 240,
+      "alamat": "PIK AVENUE, KAMAL MUARA, KEC. PENJARINGAN, KOTA JKT UTARA, DAERAH KHUSUS IBUKOTA JAKARTA 14470, INDONESIA",
+      "wilayah": "JAKARTA UTARA",
+      "periode": "202309"
+    },
+    {
+      "nama": "HOTEL 88 BLOK M",
+      "jenis_usaha": "HOTEL",
+      "golongan": "BINTANG 2",
+      "kamar": 74,
+      "alamat": "JL. MELAWAI V NO.20. RT 3   RW 1. MELAWAI. KEC. KEBAYORAN BARU. JAKARTA SELATAN. DKI JAKARTA. 12160",
+      "wilayah": "JAKARTA SELATAN",
+      "periode": "202304"
+    },
+    {
+      "nama": "HOTEL 88 GROGOL",
+      "jenis_usaha": "HOTEL",
+      "golongan": "BINTANG 2",
+      "kamar": 95,
+      "alamat": "JL  DR  SUSILO RAYA C1  GROGOL PETAMBURAN  GROGOL",
+      "wilayah": "JAKARTA BARAT",
+      "periode": "202307"
+    },
+    {
+      "nama": "HOTEL 88 MANGGA BESAR 62",
+      "jenis_usaha": "HOTEL",
+      "golongan": "BINTANG 2",
+      "kamar": 161,
+      "alamat": "JL. MANGGA BESAR RAYA NO.62",
+      "wilayah": "JAKARTA BARAT",
+      "periode": "202303"
+    },
+    {
+      "nama": "HOTEL ALMA",
+      "jenis_usaha": "HOTEL",
+      "golongan": "BINTANG 1",
+      "kamar": 102,
+      "alamat": "KS TUBUN 10 A",
+      "wilayah": "JAKARTA BARAT",
+      "periode": "202306"
+    },
+    {
+      "nama": "HOTEL ALOFT WAHID HASYIM",
+      "jenis_usaha": "HOTEL",
+      "golongan": "BINTANG 4",
+      "kamar": 180,
+      "alamat": "JL. KH WAHID HASYIM NO.92 KEB.SIRIH KEC. MENTENG",
+      "wilayah": "JAKARTA PUSAT",
+      "periode": "202302"
+    },
+    {
+      "nama": "HOTEL AMARIS TENDEAN JAKARTA",
+      "jenis_usaha": "HOTEL",
+      "golongan": "BINTANG 2",
+      "kamar": 99,
+      "alamat": "JL. KAPTEN P. TENDEAN NO. 11 MAMPANG PRAPATAN JAKARTA SELATAN",
+      "wilayah": "JAKARTA SELATAN",
+      "periode": "202309"
+    },
+    {
+      "nama": "HOTEL AROSA",
+      "jenis_usaha": "HOTEL",
+      "golongan": "BINTANG 3",
+      "kamar": 159,
+      "alamat": "JL. RC VETERAN NO. 3 ,KELURAHAN BINTARO, KECAMATAN PESANGGRAHAN, JAKARTA SELATAN",
+      "wilayah": "JAKARTA SELATAN",
+      "periode": "202308"
+    },
+    {
+      "nama": "HOTEL AYANA MIDPLAZA JAKARTA",
+      "jenis_usaha": "HOTEL",
+      "golongan": "BINTANG 5",
+      "kamar": 366,
+      "alamat": "JL  JEND  SUDIRMAN KAV 10 11  JAKARTA PUSAT",
+      "wilayah": "JAKARTA PUSAT",
+      "periode": "202306"
+    },
+    {
+      "nama": "HOTEL BIDAKARA JAKARTA",
+      "jenis_usaha": "HOTEL",
+      "golongan": "BINTANG 4",
+      "kamar": 174,
+      "alamat": "JL. GATOT SUBROTO KAV.71-73  KEL.MENTENG DALAM KEC. TEBET",
+      "wilayah": "JAKARTA SELATAN",
+      "periode": "202303"
+    },
+    {
+      "nama": "HOTEL CLAY",
+      "jenis_usaha": "HOTEL",
+      "golongan": "BINTANG 2",
+      "kamar": 81,
+      "alamat": "JL. BLORA NO. 20 MENTENG JAKARTA PUSAT",
+      "wilayah": "JAKARTA PUSAT",
+      "periode": "202308"
+    },
+    {
+      "nama": "HOTEL DAILY INN JAKARTA",
+      "jenis_usaha": "HOTEL",
+      "golongan": "BINTANG 3",
+      "kamar": 98,
+      "alamat": "JL. JEND AHMAD YANI KAV-67",
+      "wilayah": "JAKARTA PUSAT",
+      "periode": "202302"
+    },
+    {
+      "nama": "HOTEL DES INDES MENTENG",
+      "jenis_usaha": "HOTEL",
+      "golongan": "BINTANG 3",
+      "kamar": 74,
+      "alamat": "L. HOS. COKROAMINOTO NO.84 - 86, RT.3/RW.5, MENTENG, KEC. MENTENG, KOTA JAKARTA PUSAT, DAERAH KHUSUS IBUKOTA JAKARTA 10310",
+      "wilayah": "JAKARTA PUSAT",
+      "periode": "202308"
+    },
+    {
+      "nama": "HOTEL DIRADJA",
+      "jenis_usaha": "HOTEL",
+      "golongan": "BINTANG 3",
+      "kamar": 223,
+      "alamat": "JL. KAPTEN PIERE TENDEAN NO. 38 MAMPANG PRAPATAN JAKARTA SELATAN",
+      "wilayah": "JAKARTA SELATAN",
+      "periode": "202304"
+    },
+    {
+      "nama": "HOTEL GOLDEN BOUTIQUE",
+      "jenis_usaha": "HOTEL",
+      "golongan": "BINTANG 4",
+      "kamar": 257,
+      "alamat": "JALAN ANGKASA NO 1 RT RW 07 05 GUNUNG SAHARI UTARA SAWAH BESAR",
+      "wilayah": "JAKARTA PUSAT",
+      "periode": "202307"
+    },
+    {
+      "nama": "HOTEL GRAN MAHAKAM",
+      "jenis_usaha": "HOTEL",
+      "golongan": "BINTANG 5",
+      "kamar": 158,
+      "alamat": "JALAN MAHAKAM I NO. 6  KRAMAT PELA  KEBAYORAN BARU",
+      "wilayah": "JAKARTA SELATAN",
+      "periode": "202303"
+    },
+    {
+      "nama": "HOTEL GRAND MERCURE JAKARTA KEMAYORAN",
+      "jenis_usaha": "HOTEL",
+      "golongan": "BINTANG 5",
+      "kamar": 505,
+      "alamat": "JL. H. BENYAMIN SUEB KAV B6 SUPERBLOK MEGA KEMAYORAN KOTA BARU BANDAR KEMAYORAN",
+      "wilayah": "JAKARTA PUSAT",
+      "periode": "202303"
+    },
+    {
+      "nama": "HOTEL GRANDHIKA ISKANDARSYAH JAKARTA",
+      "jenis_usaha": "HOTEL",
+      "golongan": "BINTANG 4",
+      "kamar": 235,
+      "alamat": "JL. ISKANDARSYAH RAYA NO.65, MELAWAI, KEC. KBY. BARU, KOTA JAKARTA SELATAN, DAERAH KHUSUS IBUKOTA JAKARTA 12160",
+      "wilayah": "JAKARTA SELATAN",
+      "periode": "202309"
+    },
+    {
+      "nama": "HOTEL IBIS STYLES JAKARTA GAJAH MADA",
+      "jenis_usaha": "HOTEL",
+      "golongan": "BINTANG 4",
+      "kamar": 150,
+      "alamat": "JL  KH ZAINUL ARIFIN NO 5DAN 7 PETOJO UTARA JAKARTA PUSAT 10130",
+      "wilayah": "JAKARTA PUSAT",
+      "periode": "202307"
+    },
+    {
+      "nama": "HOTEL INDONESIA KEMPINSKI JAKARTA",
+      "jenis_usaha": "HOTEL",
+      "golongan": "BINTANG 5",
+      "kamar": 289,
+      "alamat": "JL. MH THAMRIN NO. 1",
+      "wilayah": "JAKARTA PUSAT",
+      "periode": "202311"
+    },
+    {
+      "nama": "HOTEL KAISAR",
+      "jenis_usaha": "HOTEL",
+      "golongan": "BINTANG 3",
+      "kamar": 316,
+      "alamat": "JL.PLN NO.01 KEL.DUREN TIGA KEC PANCORAN JAKARTA SELATAN",
+      "wilayah": "JAKARTA SELATAN",
+      "periode": "202302"
+    },
+    {
+      "nama": "HOTEL KURETAKESO KEMANG",
+      "jenis_usaha": "HOTEL",
+      "golongan": "BINTANG 3",
+      "kamar": 108,
+      "alamat": "JALAN BANGKA RAYA NO.7A, KEMANG, JAKARTA SELATAN",
+      "wilayah": "JAKARTA SELATAN",
+      "periode": "202309"
+    },
+    {
+      "nama": "HOTEL MERCURE CONVENTION CENTER ANCOL JAKARTA",
+      "jenis_usaha": "HOTEL",
+      "golongan": "BINTANG 4",
+      "kamar": 438,
+      "alamat": "JALAN PANTAI INDAH TAMAN IMPIAN JAYA ANCOL",
+      "wilayah": "JAKARTA UTARA",
+      "periode": "202302"
+    },
+    {
+      "nama": "HOTEL MERCURE JAKARTA KOTA",
+      "jenis_usaha": "HOTEL",
+      "golongan": "BINTANG 4",
+      "kamar": 243,
+      "alamat": "JL. HAYAM WURUK NO. 123 TAMAN SARI - MANGGA BESAR JAKARTA BARAT 11160",
+      "wilayah": "JAKARTA BARAT",
+      "periode": "202302"
+    },
+    {
+      "nama": "HOTEL NEO  KEBAYORAN",
+      "jenis_usaha": "HOTEL",
+      "golongan": "BINTANG 3",
+      "kamar": 102,
+      "alamat": "JL. CILEDUG RAYA NO. 35 CIPULIR KEBAYORAN LAMA",
+      "wilayah": "JAKARTA SELATAN",
+      "periode": "202302"
+    },
+    {
+      "nama": "HOTEL PARAGON WAHID HASYIM",
+      "jenis_usaha": "HOTEL",
+      "golongan": "BINTANG 3",
+      "kamar": 78,
+      "alamat": "JL K H WAHID HASYIM NO 29 MENTENG",
+      "wilayah": "JAKARTA PUSAT",
+      "periode": "202306"
+    },
+    {
+      "nama": "HOTEL SANTIKA KELAPA GADING JAKARTA",
+      "jenis_usaha": "HOTEL",
+      "golongan": "BINTANG 3",
+      "kamar": 146,
+      "alamat": "MAHAKA SQUARE  JL  KELAPA NIAS RAYA BLOK HF3  KELAPA GADING  JAKARTA UTARA 14240",
+      "wilayah": "JAKARTA UTARA",
+      "periode": "202306"
+    },
+    {
+      "nama": "HOTEL SANTIKA TAMAN MINI INDONESIA INDAH",
+      "jenis_usaha": "HOTEL",
+      "golongan": "BINTANG 3",
+      "kamar": 124,
+      "alamat": "JL. PINTU 1 TMII, CEGER, CIPAYUNG, JAKARTA TIMUR",
+      "wilayah": "JAKARTA TIMUR",
+      "periode": "202305"
+    },
+    {
+      "nama": "IBIS BUDGET JAKARTA DAAN MOGOT",
+      "jenis_usaha": "HOTEL",
+      "golongan": "BINTANG 2",
+      "kamar": 195,
+      "alamat": "JL. DAAN MOGOT NO. 50 B JAKARTA BARAT",
+      "wilayah": "JAKARTA BARAT",
+      "periode": "202302"
+    },
+    {
+      "nama": "IBIS STYLES JAKARTA MANGGA DUA SQUARE",
+      "jenis_usaha": "HOTEL",
+      "golongan": "BINTANG 3",
+      "kamar": 211,
+      "alamat": "JL. GUNUNG SAHARI RAYA NO. 1 JAKARTA UTARA",
+      "wilayah": "JAKARTA UTARA",
+      "periode": "202301"
+    },
+    {
+      "nama": "IBIS STYLES JAKARTA SUNTER",
+      "jenis_usaha": "HOTEL",
+      "golongan": "BINTANG 3",
+      "kamar": 145,
+      "alamat": "JL GAYA MOTOR I, SUNGAI BAMBU, SUNTER, TANJUNG PRIOK, JAKARTA UTARA",
+      "wilayah": "JAKARTA UTARA",
+      "periode": "202308"
+    },
+    {
+      "nama": "IBIS STYLES JAKARTA TANAH ABANG",
+      "jenis_usaha": "HOTEL",
+      "golongan": "BINTANG 4",
+      "kamar": 201,
+      "alamat": "JL. FACHRUDDIN NO. 22  KAMPUNG BALI  TANAH ABANG",
+      "wilayah": "JAKARTA PUSAT",
+      "periode": "202303"
+    },
+    {
+      "nama": "INTERCONTINENTAL JAKARTA PONDOK INDAH",
+      "jenis_usaha": "HOTEL",
+      "golongan": "BINTANG 5",
+      "kamar": 311,
+      "alamat": "JL. METRO PONDOK INDAH KAV. IV TA, JAKARTA 12310",
+      "wilayah": "JAKARTA SELATAN",
+      "periode": "202311"
+    },
+    {
+      "nama": "INTERCONTINENTAL RESIDENCES JAKARTA PONDOK INDAH",
+      "jenis_usaha": "HOTEL",
+      "golongan": "BINTANG 5",
+      "kamar": 193,
+      "alamat": "JL. METRO PONDOK INDAH KAV. IV TA, JAKARTA 12310",
+      "wilayah": "JAKARTA SELATAN",
+      "periode": "202311"
+    },
+    {
+      "nama": "JUSENNY HOTEL BY SLEEPZZZ",
+      "jenis_usaha": "HOTEL",
+      "golongan": "BINTANG 3",
+      "kamar": 72,
+      "alamat": "JL. SENAYAN NO. 29 BLOK S KEBAYORAN BARU",
+      "wilayah": "JAKARTA SELATAN",
+      "periode": "202301"
+    },
+    {
+      "nama": "LE MERIDIEN HOTEL JAKARTA",
+      "jenis_usaha": "HOTEL",
+      "golongan": "BINTANG 5",
+      "kamar": 318,
+      "alamat": "JL. JENDERAL SUDIRMAN NO.KAV 18 - 20, KARET TENGSIN, TANAH ABANG, JAKARTA, 10220",
+      "wilayah": "JAKARTA PUSAT",
+      "periode": "202311"
+    },
+    {
+      "nama": "LIBERTY HOTEL THAMRIN JAKARTA",
+      "jenis_usaha": "HOTEL",
+      "golongan": "BINTANG 3",
+      "kamar": 60,
+      "alamat": "JL SUNGAI GERONG NO 2 THAMRIN JAKARTA PUSAT",
+      "wilayah": "JAKARTA PUSAT",
+      "periode": "202307"
+    },
+    {
+      "nama": "LUMINOR HOTEL KOTA",
+      "jenis_usaha": "HOTEL",
+      "golongan": "BINTANG 3",
+      "kamar": 153,
+      "alamat": "JL MANGGA BESAR RAYA NO 73 TAMANSARI TANGKI. JAKARTA BARAT",
+      "wilayah": "JAKARTA BARAT",
+      "periode": "202304"
+    },
+    {
+      "nama": "LUMINOR HOTEL PECENONGAN",
+      "jenis_usaha": "HOTEL",
+      "golongan": "BINTANG 3",
+      "kamar": 199,
+      "alamat": "JL. PECENONGAN NO.35  RT.2 RW.3  KB. KLP. KECAMATAN GAMBIR DAERAH KHUSUS IBUKOTA JAKARTA 10120",
+      "wilayah": "JAKARTA PUSAT",
+      "periode": "202303"
+    },
+    {
+      "nama": "LUMIRE HOTEL AND CONVENTION CENTER",
+      "jenis_usaha": "HOTEL",
+      "golongan": "BINTANG 4",
+      "kamar": 343,
+      "alamat": "JL. SENEN RAYA 135",
+      "wilayah": "JAKARTA PUSAT",
+      "periode": "202302"
+    },
+    {
+      "nama": "MANDARIN ORIENTAL JAKARTA HOTEL",
+      "jenis_usaha": "HOTEL",
+      "golongan": "BINTANG 5",
+      "kamar": 272,
+      "alamat": "JALAN MH THAMRIN 10310",
+      "wilayah": "JAKARTA PUSAT",
+      "periode": "202311"
+    },
+    {
+      "nama": "MAPLE HOTEL",
+      "jenis_usaha": "HOTEL",
+      "golongan": "BINTANG 3",
+      "kamar": 96,
+      "alamat": "JL KALI SEKRETARIS NO.55 TANJUNG DUREN UTARA GROGOL PETAMBURAN",
+      "wilayah": "JAKARTA BARAT",
+      "periode": "202302"
+    },
+    {
+      "nama": "MENARA PENINSULA HOTEL",
+      "jenis_usaha": "HOTEL",
+      "golongan": "BINTANG 4",
+      "kamar": 380,
+      "alamat": "JL. LET JEND S. PARMAN KAV-78",
+      "wilayah": "JAKARTA BARAT",
+      "periode": "202301"
+    },
+    {
+      "nama": "MERCURE JAKARTA BATAVIA",
+      "jenis_usaha": "HOTEL",
+      "golongan": "BINTANG 4",
+      "kamar": 376,
+      "alamat": "JL. KALI BESAR BARAT NO. 44-46 ROA MALAKA TAMBORA",
+      "wilayah": "JAKARTA BARAT",
+      "periode": "202302"
+    },
+    {
+      "nama": "MERCURE JAKARTA SABANG",
+      "jenis_usaha": "HOTEL",
+      "golongan": "BINTANG 4",
+      "kamar": 163,
+      "alamat": "JALAN AGUS SALIM NO. 11-13",
+      "wilayah": "JAKARTA PUSAT",
+      "periode": "202302"
+    },
+    {
+      "nama": "MILLENNIUM HOTEL SIRIH JAKARTA",
+      "jenis_usaha": "HOTEL",
+      "golongan": "BINTANG 4",
+      "kamar": 401,
+      "alamat": "JL. FACHRUDIN NO. 3",
+      "wilayah": "JAKARTA PUSAT",
+      "periode": "202310"
+    },
+    {
+      "nama": "NOVOTEL JAKARTA CIKINI",
+      "jenis_usaha": "HOTEL",
+      "golongan": "BINTANG 4",
+      "kamar": 245,
+      "alamat": "JL. CIKINI RAYA NO. 107 - 109 CIKINI MENTENG",
+      "wilayah": "JAKARTA PUSAT",
+      "periode": "202301"
+    },
+    {
+      "nama": "NOVOTEL JAKARTA GAJAH MADA",
+      "jenis_usaha": "HOTEL",
+      "golongan": "BINTANG 4",
+      "kamar": 230,
+      "alamat": "JL. GAJAH MADA NO.188",
+      "wilayah": "JAKARTA BARAT",
+      "periode": "202303"
+    },
+    {
+      "nama": "NOVOTEL JAKARTA MANGGA DUA SQUARE",
+      "jenis_usaha": "HOTEL",
+      "golongan": "BINTANG 4",
+      "kamar": 362,
+      "alamat": "JL. GUNUNG SAHARI RAYA NO. 1 JAKARTA UTARA",
+      "wilayah": "JAKARTA UTARA",
+      "periode": "202301"
+    },
+    {
+      "nama": "P HOTEL",
+      "jenis_usaha": "HOTEL",
+      "golongan": "BINTANG 2",
+      "kamar": 361,
+      "alamat": "JL.PRAMUKA RAYA NO.149 JAKARTA PUSAT",
+      "wilayah": "JAKARTA PUSAT",
+      "periode": "202302"
+    },
+    {
+      "nama": "PERHOTELAN",
+      "jenis_usaha": "HOTEL",
+      "golongan": "BINTANG 3",
+      "kamar": 211,
+      "alamat": "JL. HAYAM WURUK NO 35",
+      "wilayah": "JAKARTA PUSAT",
+      "periode": "202309"
+    },
+    {
+      "nama": "PERHOTELAN - AKOMODASI",
+      "jenis_usaha": "HOTEL",
+      "golongan": "BINTANG 5",
+      "kamar": 250,
+      "alamat": "JL PEGANGSAAN TIMUR NO 17, CIKINI - MENTENG, JAKARTA PUSAT",
+      "wilayah": "JAKARTA PUSAT",
+      "periode": "202305"
+    },
+    {
+      "nama": "PULLMAN JAKARTA CENTRAL PARK",
+      "jenis_usaha": "HOTEL",
+      "golongan": "BINTANG 5",
+      "kamar": 317,
+      "alamat": "PODOMORO CITY JL  LET JEND S PARMAN KAV  28  JAKARTA  11470",
+      "wilayah": "JAKARTA BARAT",
+      "periode": "202307"
+    },
+    {
+      "nama": "RAFFLES JAKARTA",
+      "jenis_usaha": "HOTEL",
+      "golongan": "BINTANG 5",
+      "kamar": 173,
+      "alamat": "CIPUTRA WORLD 1JL. PROF. DR. SATRIO KAV. 3-5JAKARTA SELATAN 12940",
+      "wilayah": "JAKARTA SELATAN",
+      "periode": "202301"
+    },
+    {
+      "nama": "RED PLANET HOTEL JAKARTA",
+      "jenis_usaha": "HOTEL",
+      "golongan": "BINTANG 2",
+      "kamar": 161,
+      "alamat": "JL. KH. SAMANHUDI NO.25 PASAR BARU",
+      "wilayah": "JAKARTA PUSAT",
+      "periode": "202304"
+    },
+    {
+      "nama": "ROYAL PALM HOTEL   CONFERENCE CENTER",
+      "jenis_usaha": "HOTEL",
+      "golongan": "BINTANG 3",
+      "kamar": 156,
+      "alamat": "JL. OUTER RING ROAD MUTIARA TAMAN PALEM BLOK C1 CENGKARENG JAKARTA BARAT",
+      "wilayah": "JAKARTA BARAT",
+      "periode": "202301"
+    },
+    {
+      "nama": "SARI PACIFIC JAKARTA",
+      "jenis_usaha": "HOTEL",
+      "golongan": "BINTANG 4",
+      "kamar": 349,
+      "alamat": "JALAN MH. THAMRIN NO 6 JAKARTA 10340",
+      "wilayah": "JAKARTA PUSAT",
+      "periode": "202311"
+    },
+    {
+      "nama": "SHANGRI-LA JAKARTA",
+      "jenis_usaha": "HOTEL",
+      "golongan": "BINTANG 5",
+      "kamar": 662,
+      "alamat": "KOTA BNI, JL. JEND. SUDIRMAN KAV. 1, JAKARTA 10220, INDONESIA",
+      "wilayah": "JAKARTA PUSAT",
+      "periode": "202311"
+    },
+    {
+      "nama": "SHERATON GRAND JAKARTA GANDARIA CITY HOTEL",
+      "jenis_usaha": "HOTEL",
+      "golongan": "BINTANG 5",
+      "kamar": 293,
+      "alamat": "JL. SULTAN ISKANDAR MUDA 5 NO. 8, RT 010/RW 006, KEBAYORAN LAMA UTARA, KEBAYORAN LAMA",
+      "wilayah": "JAKARTA SELATAN",
+      "periode": "202311"
+    },
+    {
+      "nama": "SOMERSET BERLIAN JAKARTA",
+      "jenis_usaha": "HOTEL",
+      "golongan": "NON BINTANG",
+      "kamar": 121,
+      "alamat": "JL PERMATA BERLIAN V PERMATA HIJAU",
+      "wilayah": "JAKARTA SELATAN",
+      "periode": "202302"
+    },
+    {
+      "nama": "SOTIS HOTEL FALATEHAN JAKARTA",
+      "jenis_usaha": "HOTEL",
+      "golongan": "BINTANG 3",
+      "kamar": 70,
+      "alamat": "JL  FALATEHAN I NO  21 22 BLOK M JAKARTA SELATAN BLOK M",
+      "wilayah": "JAKARTA SELATAN",
+      "periode": "202306"
+    },
+    {
+      "nama": "SPARKS LIFE JAKARTA",
+      "jenis_usaha": "HOTEL",
+      "golongan": "BINTANG 3",
+      "kamar": 136,
+      "alamat": "JL. MANGGA BESAR RAYA NO. 44 RT 002 RW 002 TAMANSARI",
+      "wilayah": "JAKARTA BARAT",
+      "periode": "202301"
+    },
+    {
+      "nama": "SWISS HOTEL JAKARTA PIK AVENUE",
+      "jenis_usaha": "HOTEL",
+      "golongan": "BINTANG 5",
+      "kamar": 412,
+      "alamat": "JL. PANTAI INDAH KAPUK KEL. KAMAL MUARA  KEC. PENJARINGAN RT. 06 RW. 02",
+      "wilayah": "JAKARTA UTARA",
+      "periode": "202303"
+    },
+    {
+      "nama": "SWISS-BELHOTEL PONDOK INDAH",
+      "jenis_usaha": "HOTEL",
+      "golongan": "BINTANG 4",
+      "kamar": 159,
+      "alamat": "JL. METRO PONDOK INDAH SECTOR 2 BLOCK SA - PONDOK INDAH",
+      "wilayah": "JAKARTA SELATAN",
+      "periode": "202303"
+    },
+    {
+      "nama": "SWISS-BELINN SIMATUPANG JAKARTA",
+      "jenis_usaha": "HOTEL",
+      "golongan": "BINTANG 3",
+      "kamar": 159,
+      "alamat": "JL. KARTINI NO.32 LEBAK BULUSJAKARTA SELATAN",
+      "wilayah": "JAKARTA SELATAN",
+      "periode": "202301"
+    },
+    {
+      "nama": "SWISS-BELINN WAHID HASYIM JAKARTA",
+      "jenis_usaha": "HOTEL",
+      "golongan": "BINTANG 3",
+      "kamar": 120,
+      "alamat": "JL. K.H. WAHID HASYIM NO.135 KEBON KACANGTANAH ABANG - JAKARTA PUSAT",
+      "wilayah": "JAKARTA PUSAT",
+      "periode": "202301"
+    },
+    {
+      "nama": "SWISS-BELRESIDENCES KALIBATA JAKARTA",
+      "jenis_usaha": "HOTEL",
+      "golongan": "BINTANG 4",
+      "kamar": 212,
+      "alamat": "JL. KALIBATA RAYA NO. 22 JAKARTA SELATAN",
+      "wilayah": "JAKARTA SELATAN",
+      "periode": "202302"
+    },
+    {
+      "nama": "SWISSOTEL JAKARTA PIK AVENUE",
+      "jenis_usaha": "HOTEL",
+      "golongan": "BINTANG 5",
+      "kamar": 412,
+      "alamat": "PANTAI INDAH KAPUK BOULEVARD PIK AVENUE 14470 JAKARTA",
+      "wilayah": "JAKARTA UTARA",
+      "periode": "202302"
+    },
+    {
+      "nama": "THE 1O1 HOTEL JAKARTA SEDAYU DARMAWANGSA",
+      "jenis_usaha": "HOTEL",
+      "golongan": "BINTANG 4",
+      "kamar": 150,
+      "alamat": "JALAN DARMAWANGSA IX NO. 14 KEBAYORAN BARU 12160",
+      "wilayah": "JAKARTA SELATAN",
+      "periode": "202303"
+    },
+    {
+      "nama": "THE BELLEZZA SUITES HOTEL",
+      "jenis_usaha": "HOTEL",
+      "golongan": "BINTANG 3",
+      "kamar": 70,
+      "alamat": "JL. ARTERI PERMATA HIJAU NO.N.34, RT.4/RW.2, GROGOL UTARA, KEC. KBY. LAMA, KOTA JAKARTA SELATAN, DAERAH KHUSUS IBUKOTA JAKARTA 12210",
+      "wilayah": "JAKARTA SELATAN",
+      "periode": "202305"
+    },
+    {
+      "nama": "THE JAYAKARTA SP JAKARTA HOTEL AND SPA",
+      "jenis_usaha": "HOTEL",
+      "golongan": "BINTANG 4",
+      "kamar": 333,
+      "alamat": "JL  HAYAM WURUK NO  126",
+      "wilayah": "JAKARTA BARAT",
+      "periode": "202306"
+    },
+    {
+      "nama": "THE LANGHAM JAKARTA",
+      "jenis_usaha": "HOTEL",
+      "golongan": "BINTANG 5",
+      "kamar": 224,
+      "alamat": "DISTRICT 8 SCBD LOT 28 JAKARTA 12190 INDONESIA",
+      "wilayah": "JAKARTA SELATAN",
+      "periode": "202304"
+    },
+    {
+      "nama": "THE PLAZA HOTEL GLODOK",
+      "jenis_usaha": "HOTEL",
+      "golongan": "BINTANG 2",
+      "kamar": 91,
+      "alamat": "GLODOK PLAZA LT. 3 - JL. PINANGSIA RAYA NO.1 RT.1 RW.6 MANGGA BESAR KEC. TAMAN SARI",
+      "wilayah": "JAKARTA BARAT",
+      "periode": "202301"
+    },
+    {
+      "nama": "THE RITZ-CARLTON JAKARTA PACIFIC PLACE",
+      "jenis_usaha": "HOTEL",
+      "golongan": "BINTANG 5",
+      "kamar": 62,
+      "alamat": "JL. JEND. SUDIRMAN KAWASAN SCBD KAV 52-53, JAKARTA SELATAN",
+      "wilayah": "JAKARTA SELATAN",
+      "periode": "202308"
+    },
+    {
+      "nama": "THE WESTIN JAKARTA",
+      "jenis_usaha": "HOTEL",
+      "golongan": "BINTANG 5",
+      "kamar": 256,
+      "alamat": "JL. HR RASUNA SAID KAV C-22 JAKARTA 12940",
+      "wilayah": "JAKARTA SELATAN",
+      "periode": "202304"
+    },
+    {
+      "nama": "VERANDA HOTEL PAKUBUWONO",
+      "jenis_usaha": "HOTEL",
+      "golongan": "BINTANG 4",
+      "kamar": 184,
+      "alamat": "JL KYAI MAJA NO. 63 KEBAYORAN BARU JAKARTA SELATAN 12130",
+      "wilayah": "JAKARTA SELATAN",
+      "periode": "202305"
+    },
+    {
+      "nama": "WHIZ PRIME HOTEL KELAPA GADING",
+      "jenis_usaha": "HOTEL",
+      "golongan": "BINTANG 3",
+      "kamar": 160,
+      "alamat": "RUKO INKOPAL BLOK B 18 JLN. BOULEVARD BARAT RAYA KELAPA GADING - JAKARTA UTARA",
+      "wilayah": "JAKARTA UTARA",
+      "periode": "202301"
+    },
+    {
+      "nama": "YELLO HOTEL MANGGARAI",
+      "jenis_usaha": "HOTEL",
+      "golongan": "BINTANG 3",
+      "kamar": 102,
+      "alamat": "JL. MINANGKABAU NO 9 KELURAHAN PASAR MANGGIS KECAMATAN SETIABUDI JAKARTA SELATAN",
+      "wilayah": "JAKARTA SELATAN",
+      "periode": "202301"
+    },
+    {
+      "nama": "YUAN GARDEN PASAR BARU HOTEL",
+      "jenis_usaha": "HOTEL",
+      "golongan": "BINTANG 4",
+      "kamar": 328,
+      "alamat": "JL. PINTU AIR V NO . 53 PASAR BARU SAWAH BESAR JAKARTA 10710",
+      "wilayah": "JAKARTA PUSAT",
+      "periode": "202301"
+    },
+    {
+      "nama": "ZURI EXPRESS MANGGA DUA",
+      "jenis_usaha": "HOTEL",
+      "golongan": "BINTANG 3",
+      "kamar": 124,
+      "alamat": "JL. MANGGA DUA DALAM NO. 55-56",
+      "wilayah": "JAKARTA PUSAT",
+      "periode": "202302"
+    }
+  ],
+  "tpk": [
+    {
+      "periode": "202402",
+      "bintang": "BINTANG 5",
+      "nilai": 51.85
+    },
+    {
+      "periode": "202402",
+      "bintang": "BINTANG 4",
+      "nilai": 48.48
+    },
+    {
+      "periode": "202402",
+      "bintang": "BINTANG 3",
+      "nilai": 52.9
+    },
+    {
+      "periode": "202402",
+      "bintang": "BINTANG 2",
+      "nilai": 54.86
+    },
+    {
+      "periode": "202402",
+      "bintang": "BINTANG 1",
+      "nilai": 31.77
+    },
+    {
+      "periode": "202403",
+      "bintang": "BINTANG 5",
+      "nilai": 44.05
+    },
+    {
+      "periode": "202403",
+      "bintang": "BINTANG 4",
+      "nilai": 45.23
+    },
+    {
+      "periode": "202403",
+      "bintang": "BINTANG 3",
+      "nilai": 44.28
+    },
+    {
+      "periode": "202403",
+      "bintang": "BINTANG 2",
+      "nilai": 44.51
+    },
+    {
+      "periode": "202403",
+      "bintang": "BINTANG 1",
+      "nilai": 32.17
+    },
+    {
+      "periode": "202405",
+      "bintang": "BINTANG 5",
+      "nilai": 40.95
+    },
+    {
+      "periode": "202405",
+      "bintang": "BINTANG 4",
+      "nilai": 58.07
+    },
+    {
+      "periode": "202405",
+      "bintang": "BINTANG 3",
+      "nilai": 55.05
+    },
+    {
+      "periode": "202405",
+      "bintang": "BINTANG 2",
+      "nilai": 56.5
+    },
+    {
+      "periode": "202405",
+      "bintang": "BINTANG 1",
+      "nilai": 40.01
+    },
+    {
+      "periode": "202508",
+      "bintang": "BINTANG 5",
+      "nilai": 45.91
+    },
+    {
+      "periode": "202508",
+      "bintang": "BINTANG 4",
+      "nilai": 56.59
+    },
+    {
+      "periode": "202508",
+      "bintang": "BINTANG 3",
+      "nilai": 55.97
+    },
+    {
+      "periode": "202508",
+      "bintang": "BINTANG 2",
+      "nilai": 55.23
+    },
+    {
+      "periode": "202508",
+      "bintang": "BINTANG 1",
+      "nilai": 47.25
+    },
+    {
+      "periode": "202410",
+      "bintang": "BINTANG 5",
+      "nilai": 54.14
+    },
+    {
+      "periode": "202410",
+      "bintang": "BINTANG 4",
+      "nilai": 59.38
+    },
+    {
+      "periode": "202410",
+      "bintang": "BINTANG 3",
+      "nilai": 59.38
+    },
+    {
+      "periode": "202410",
+      "bintang": "BINTANG 2",
+      "nilai": 59.92
+    },
+    {
+      "periode": "202410",
+      "bintang": "BINTANG 1",
+      "nilai": 38.18
+    },
+    {
+      "periode": "202505",
+      "bintang": "BINTANG 5",
+      "nilai": 43.39
+    },
+    {
+      "periode": "202505",
+      "bintang": "BINTANG 4",
+      "nilai": 52.92
+    },
+    {
+      "periode": "202505",
+      "bintang": "BINTANG 3",
+      "nilai": 54.15
+    },
+    {
+      "periode": "202505",
+      "bintang": "BINTANG 2",
+      "nilai": 53.76
+    },
+    {
+      "periode": "202505",
+      "bintang": "BINTANG 1",
+      "nilai": 45.45
+    },
+    {
+      "periode": "202512",
+      "bintang": "BINTANG 5",
+      "nilai": 53.1
+    },
+    {
+      "periode": "202512",
+      "bintang": "BINTANG 4",
+      "nilai": 62.52
+    },
+    {
+      "periode": "202512",
+      "bintang": "BINTANG 3",
+      "nilai": 62.3
+    },
+    {
+      "periode": "202512",
+      "bintang": "BINTANG 2",
+      "nilai": 61.35
+    },
+    {
+      "periode": "202512",
+      "bintang": "BINTANG 1",
+      "nilai": 51.7
+    },
+    {
+      "periode": "202401",
+      "bintang": "BINTANG 5",
+      "nilai": 50.11
+    },
+    {
+      "periode": "202401",
+      "bintang": "BINTANG 4",
+      "nilai": 51.85
+    },
+    {
+      "periode": "202401",
+      "bintang": "BINTANG 3",
+      "nilai": 51.95
+    },
+    {
+      "periode": "202401",
+      "bintang": "BINTANG 2",
+      "nilai": 57.5
+    },
+    {
+      "periode": "202401",
+      "bintang": "BINTANG 1",
+      "nilai": 34.33
+    },
+    {
+      "periode": "202404",
+      "bintang": "BINTANG 5",
+      "nilai": 33.03
+    },
+    {
+      "periode": "202404",
+      "bintang": "BINTANG 4",
+      "nilai": 47.05
+    },
+    {
+      "periode": "202404",
+      "bintang": "BINTANG 3",
+      "nilai": 44.23
+    },
+    {
+      "periode": "202404",
+      "bintang": "BINTANG 2",
+      "nilai": 50.7
+    },
+    {
+      "periode": "202404",
+      "bintang": "BINTANG 1",
+      "nilai": 36.78
+    },
+    {
+      "periode": "202407",
+      "bintang": "BINTANG 5",
+      "nilai": 39.17
+    },
+    {
+      "periode": "202407",
+      "bintang": "BINTANG 4",
+      "nilai": 56.42
+    },
+    {
+      "periode": "202407",
+      "bintang": "BINTANG 3",
+      "nilai": 60.16
+    },
+    {
+      "periode": "202407",
+      "bintang": "BINTANG 2",
+      "nilai": 60.11
+    },
+    {
+      "periode": "202407",
+      "bintang": "BINTANG 1",
+      "nilai": 40.26
+    },
+    {
+      "periode": "202408",
+      "bintang": "BINTANG 5",
+      "nilai": 39.21
+    },
+    {
+      "periode": "202408",
+      "bintang": "BINTANG 4",
+      "nilai": 60.44
+    },
+    {
+      "periode": "202408",
+      "bintang": "BINTANG 3",
+      "nilai": 55.32
+    },
+    {
+      "periode": "202408",
+      "bintang": "BINTANG 2",
+      "nilai": 58.03
+    },
+    {
+      "periode": "202408",
+      "bintang": "BINTANG 1",
+      "nilai": 38.67
+    },
+    {
+      "periode": "202502",
+      "bintang": "BINTANG 5",
+      "nilai": 53.69
+    },
+    {
+      "periode": "202502",
+      "bintang": "BINTANG 4",
+      "nilai": 59.39
+    },
+    {
+      "periode": "202502",
+      "bintang": "BINTANG 3",
+      "nilai": 61.43
+    },
+    {
+      "periode": "202502",
+      "bintang": "BINTANG 2",
+      "nilai": 61.88
+    },
+    {
+      "periode": "202502",
+      "bintang": "BINTANG 1",
+      "nilai": 52.83
+    },
+    {
+      "periode": "202504",
+      "bintang": "BINTANG 5",
+      "nilai": 40.93
+    },
+    {
+      "periode": "202504",
+      "bintang": "BINTANG 4",
+      "nilai": 46.06
+    },
+    {
+      "periode": "202504",
+      "bintang": "BINTANG 3",
+      "nilai": 49.13
+    },
+    {
+      "periode": "202504",
+      "bintang": "BINTANG 2",
+      "nilai": 51.11
+    },
+    {
+      "periode": "202504",
+      "bintang": "BINTANG 1",
+      "nilai": 49.03
+    },
+    {
+      "periode": "202506",
+      "bintang": "BINTANG 5",
+      "nilai": 45.93
+    },
+    {
+      "periode": "202506",
+      "bintang": "BINTANG 4",
+      "nilai": 54.59
+    },
+    {
+      "periode": "202506",
+      "bintang": "BINTANG 3",
+      "nilai": 54.55
+    },
+    {
+      "periode": "202506",
+      "bintang": "BINTANG 2",
+      "nilai": 52.63
+    },
+    {
+      "periode": "202506",
+      "bintang": "BINTANG 1",
+      "nilai": 48.57
+    },
+    {
+      "periode": "202507",
+      "bintang": "BINTANG 5",
+      "nilai": 47.6
+    },
+    {
+      "periode": "202507",
+      "bintang": "BINTANG 4",
+      "nilai": 59.17
+    },
+    {
+      "periode": "202507",
+      "bintang": "BINTANG 3",
+      "nilai": 58.7
+    },
+    {
+      "periode": "202507",
+      "bintang": "BINTANG 2",
+      "nilai": 55.81
+    },
+    {
+      "periode": "202507",
+      "bintang": "BINTANG 1",
+      "nilai": 50.64
+    },
+    {
+      "periode": "202409",
+      "bintang": "BINTANG 5",
+      "nilai": 38.83
+    },
+    {
+      "periode": "202409",
+      "bintang": "BINTANG 4",
+      "nilai": 58.22
+    },
+    {
+      "periode": "202409",
+      "bintang": "BINTANG 3",
+      "nilai": 58.6
+    },
+    {
+      "periode": "202409",
+      "bintang": "BINTANG 2",
+      "nilai": 57.19
+    },
+    {
+      "periode": "202409",
+      "bintang": "BINTANG 1",
+      "nilai": 33.65
+    },
+    {
+      "periode": "202509",
+      "bintang": "BINTANG 5",
+      "nilai": 43.95
+    },
+    {
+      "periode": "202509",
+      "bintang": "BINTANG 4",
+      "nilai": 56.22
+    },
+    {
+      "periode": "202509",
+      "bintang": "BINTANG 3",
+      "nilai": 55.91
+    },
+    {
+      "periode": "202509",
+      "bintang": "BINTANG 2",
+      "nilai": 54.63
+    },
+    {
+      "periode": "202509",
+      "bintang": "BINTANG 1",
+      "nilai": 46.35
+    },
+    {
+      "periode": "202602",
+      "bintang": "BINTANG 5",
+      "nilai": 41.37
+    },
+    {
+      "periode": "202602",
+      "bintang": "BINTANG 4",
+      "nilai": 53.01
+    },
+    {
+      "periode": "202602",
+      "bintang": "BINTANG 3",
+      "nilai": 55.08
+    },
+    {
+      "periode": "202602",
+      "bintang": "BINTANG 2",
+      "nilai": 55.04
+    },
+    {
+      "periode": "202602",
+      "bintang": "BINTANG 1",
+      "nilai": 56.48
+    },
+    {
+      "periode": "202604",
+      "bintang": "BINTANG 5",
+      "nilai": 45.43
+    },
+    {
+      "periode": "202604",
+      "bintang": "BINTANG 4",
+      "nilai": 56.63
+    },
+    {
+      "periode": "202604",
+      "bintang": "BINTANG 3",
+      "nilai": 57.47
+    },
+    {
+      "periode": "202604",
+      "bintang": "BINTANG 2",
+      "nilai": 57.93
+    },
+    {
+      "periode": "202604",
+      "bintang": "BINTANG 1",
+      "nilai": 55.04
+    },
+    {
+      "periode": "202406",
+      "bintang": "BINTANG 5",
+      "nilai": 39.19
+    },
+    {
+      "periode": "202406",
+      "bintang": "BINTANG 4",
+      "nilai": 57.59
+    },
+    {
+      "periode": "202406",
+      "bintang": "BINTANG 3",
+      "nilai": 54
+    },
+    {
+      "periode": "202406",
+      "bintang": "BINTANG 2",
+      "nilai": 54.72
+    },
+    {
+      "periode": "202406",
+      "bintang": "BINTANG 1",
+      "nilai": 37.31
+    },
+    {
+      "periode": "202501",
+      "bintang": "BINTANG 5",
+      "nilai": 47.83
+    },
+    {
+      "periode": "202501",
+      "bintang": "BINTANG 4",
+      "nilai": 54.7
+    },
+    {
+      "periode": "202501",
+      "bintang": "BINTANG 3",
+      "nilai": 53.57
+    },
+    {
+      "periode": "202501",
+      "bintang": "BINTANG 2",
+      "nilai": 59.63
+    },
+    {
+      "periode": "202501",
+      "bintang": "BINTANG 1",
+      "nilai": 48.05
+    },
+    {
+      "periode": "202510",
+      "bintang": "BINTANG 5",
+      "nilai": 49.88
+    },
+    {
+      "periode": "202510",
+      "bintang": "BINTANG 4",
+      "nilai": 61.71
+    },
+    {
+      "periode": "202510",
+      "bintang": "BINTANG 3",
+      "nilai": 59.59
+    },
+    {
+      "periode": "202510",
+      "bintang": "BINTANG 2",
+      "nilai": 59.28
+    },
+    {
+      "periode": "202510",
+      "bintang": "BINTANG 1",
+      "nilai": 46.98
+    },
+    {
+      "periode": "202603",
+      "bintang": "BINTANG 5",
+      "nilai": 36.36
+    },
+    {
+      "periode": "202603",
+      "bintang": "BINTANG 4",
+      "nilai": 43.73
+    },
+    {
+      "periode": "202603",
+      "bintang": "BINTANG 3",
+      "nilai": 44.94
+    },
+    {
+      "periode": "202603",
+      "bintang": "BINTANG 2",
+      "nilai": 50.54
+    },
+    {
+      "periode": "202603",
+      "bintang": "BINTANG 1",
+      "nilai": 54.57
+    },
+    {
+      "periode": "202411",
+      "bintang": "BINTANG 5",
+      "nilai": 56.85
+    },
+    {
+      "periode": "202411",
+      "bintang": "BINTANG 4",
+      "nilai": 63.61
+    },
+    {
+      "periode": "202411",
+      "bintang": "BINTANG 3",
+      "nilai": 62.26
+    },
+    {
+      "periode": "202411",
+      "bintang": "BINTANG 2",
+      "nilai": 61.31
+    },
+    {
+      "periode": "202411",
+      "bintang": "BINTANG 1",
+      "nilai": 39.38
+    },
+    {
+      "periode": "202412",
+      "bintang": "BINTANG 5",
+      "nilai": 48.34
+    },
+    {
+      "periode": "202412",
+      "bintang": "BINTANG 4",
+      "nilai": 67.63
+    },
+    {
+      "periode": "202412",
+      "bintang": "BINTANG 3",
+      "nilai": 65.87
+    },
+    {
+      "periode": "202412",
+      "bintang": "BINTANG 2",
+      "nilai": 65.71
+    },
+    {
+      "periode": "202412",
+      "bintang": "BINTANG 1",
+      "nilai": 47.12
+    },
+    {
+      "periode": "202503",
+      "bintang": "BINTANG 5",
+      "nilai": 28.54
+    },
+    {
+      "periode": "202503",
+      "bintang": "BINTANG 4",
+      "nilai": 37.26
+    },
+    {
+      "periode": "202503",
+      "bintang": "BINTANG 3",
+      "nilai": 40.94
+    },
+    {
+      "periode": "202503",
+      "bintang": "BINTANG 2",
+      "nilai": 44.66
+    },
+    {
+      "periode": "202503",
+      "bintang": "BINTANG 1",
+      "nilai": 46.53
+    },
+    {
+      "periode": "202601",
+      "bintang": "BINTANG 5",
+      "nilai": 38.09
+    },
+    {
+      "periode": "202601",
+      "bintang": "BINTANG 4",
+      "nilai": 54.47
+    },
+    {
+      "periode": "202601",
+      "bintang": "BINTANG 3",
+      "nilai": 57.39
+    },
+    {
+      "periode": "202601",
+      "bintang": "BINTANG 2",
+      "nilai": 56.61
+    },
+    {
+      "periode": "202601",
+      "bintang": "BINTANG 1",
+      "nilai": 60.27
+    },
+    {
+      "periode": "202511",
+      "bintang": "BINTANG 5",
+      "nilai": 53.02
+    },
+    {
+      "periode": "202511",
+      "bintang": "BINTANG 4",
+      "nilai": 68.25
+    },
+    {
+      "periode": "202511",
+      "bintang": "BINTANG 3",
+      "nilai": 64.43
+    },
+    {
+      "periode": "202511",
+      "bintang": "BINTANG 2",
+      "nilai": 59.72
+    },
+    {
+      "periode": "202511",
+      "bintang": "BINTANG 1",
+      "nilai": 50.49
+    },
+    {
+      "periode": "202605",
+      "bintang": "BINTANG 5",
+      "nilai": 45.55
+    },
+    {
+      "periode": "202605",
+      "bintang": "BINTANG 4",
+      "nilai": 55.44
+    },
+    {
+      "periode": "202605",
+      "bintang": "BINTANG 3",
+      "nilai": 55.91
+    },
+    {
+      "periode": "202605",
+      "bintang": "BINTANG 2",
+      "nilai": 55.87
+    },
+    {
+      "periode": "202605",
+      "bintang": "BINTANG 1",
+      "nilai": 54.91
+    }
+  ],
+  "los": [
+    {
+      "periode": "202403",
+      "bintang": "BINTANG 5",
+      "tamu": "WISATAWAN MANCANEGARA",
+      "nilai": 2.64
+    },
+    {
+      "periode": "202403",
+      "bintang": "BINTANG 4",
+      "tamu": "WISATAWAN MANCANEGARA",
+      "nilai": 2.2
+    },
+    {
+      "periode": "202403",
+      "bintang": "BINTANG 3",
+      "tamu": "WISATAWAN MANCANEGARA",
+      "nilai": 1.74
+    },
+    {
+      "periode": "202403",
+      "bintang": "BINTANG 2",
+      "tamu": "WISATAWAN MANCANEGARA",
+      "nilai": 2.88
+    },
+    {
+      "periode": "202403",
+      "bintang": "BINTANG 1",
+      "tamu": "WISATAWAN MANCANEGARA",
+      "nilai": 1.69
+    },
+    {
+      "periode": "202403",
+      "bintang": "BINTANG 5",
+      "tamu": "WISATAWAN NUSANTARA",
+      "nilai": 1.78
+    },
+    {
+      "periode": "202403",
+      "bintang": "BINTANG 4",
+      "tamu": "WISATAWAN NUSANTARA",
+      "nilai": 1.47
+    },
+    {
+      "periode": "202403",
+      "bintang": "BINTANG 3",
+      "tamu": "WISATAWAN NUSANTARA",
+      "nilai": 1.36
+    },
+    {
+      "periode": "202403",
+      "bintang": "BINTANG 2",
+      "tamu": "WISATAWAN NUSANTARA",
+      "nilai": 1.49
+    },
+    {
+      "periode": "202403",
+      "bintang": "BINTANG 1",
+      "tamu": "WISATAWAN NUSANTARA",
+      "nilai": 1.54
+    },
+    {
+      "periode": "202506",
+      "bintang": "BINTANG 5",
+      "tamu": "WISATAWAN MANCANEGARA",
+      "nilai": 2.11
+    },
+    {
+      "periode": "202506",
+      "bintang": "BINTANG 4",
+      "tamu": "WISATAWAN MANCANEGARA",
+      "nilai": 2.01
+    },
+    {
+      "periode": "202506",
+      "bintang": "BINTANG 3",
+      "tamu": "WISATAWAN MANCANEGARA",
+      "nilai": 1.84
+    },
+    {
+      "periode": "202506",
+      "bintang": "BINTANG 2",
+      "tamu": "WISATAWAN MANCANEGARA",
+      "nilai": 1.82
+    },
+    {
+      "periode": "202506",
+      "bintang": "BINTANG 1",
+      "tamu": "WISATAWAN MANCANEGARA",
+      "nilai": 1.53
+    },
+    {
+      "periode": "202506",
+      "bintang": "BINTANG 5",
+      "tamu": "WISATAWAN NUSANTARA",
+      "nilai": 1.81
+    },
+    {
+      "periode": "202506",
+      "bintang": "BINTANG 4",
+      "tamu": "WISATAWAN NUSANTARA",
+      "nilai": 1.53
+    },
+    {
+      "periode": "202506",
+      "bintang": "BINTANG 3",
+      "tamu": "WISATAWAN NUSANTARA",
+      "nilai": 1.48
+    },
+    {
+      "periode": "202506",
+      "bintang": "BINTANG 2",
+      "tamu": "WISATAWAN NUSANTARA",
+      "nilai": 1.33
+    },
+    {
+      "periode": "202506",
+      "bintang": "BINTANG 1",
+      "tamu": "WISATAWAN NUSANTARA",
+      "nilai": 1.39
+    },
+    {
+      "periode": "202503",
+      "bintang": "BINTANG 1",
+      "tamu": "WISATAWAN NUSANTARA",
+      "nilai": 1.81
+    },
+    {
+      "periode": "202601",
+      "bintang": "BINTANG 5",
+      "tamu": "WISATAWAN MANCANEGARA",
+      "nilai": 1.68
+    },
+    {
+      "periode": "202601",
+      "bintang": "BINTANG 4",
+      "tamu": "WISATAWAN MANCANEGARA",
+      "nilai": 1.96
+    },
+    {
+      "periode": "202601",
+      "bintang": "BINTANG 3",
+      "tamu": "WISATAWAN MANCANEGARA",
+      "nilai": 1.86
+    },
+    {
+      "periode": "202601",
+      "bintang": "BINTANG 2",
+      "tamu": "WISATAWAN MANCANEGARA",
+      "nilai": 2.16
+    },
+    {
+      "periode": "202601",
+      "bintang": "BINTANG 1",
+      "tamu": "WISATAWAN MANCANEGARA",
+      "nilai": 1.94
+    },
+    {
+      "periode": "202601",
+      "bintang": "BINTANG 5",
+      "tamu": "WISATAWAN NUSANTARA",
+      "nilai": 1.45
+    },
+    {
+      "periode": "202601",
+      "bintang": "BINTANG 4",
+      "tamu": "WISATAWAN NUSANTARA",
+      "nilai": 1.58
+    },
+    {
+      "periode": "202601",
+      "bintang": "BINTANG 3",
+      "tamu": "WISATAWAN NUSANTARA",
+      "nilai": 1.46
+    },
+    {
+      "periode": "202601",
+      "bintang": "BINTANG 2",
+      "tamu": "WISATAWAN NUSANTARA",
+      "nilai": 1.37
+    },
+    {
+      "periode": "202601",
+      "bintang": "BINTANG 1",
+      "tamu": "WISATAWAN NUSANTARA",
+      "nilai": 1.51
+    },
+    {
+      "periode": "202512",
+      "bintang": "BINTANG 5",
+      "tamu": "WISATAWAN MANCANEGARA",
+      "nilai": 2.14
+    },
+    {
+      "periode": "202512",
+      "bintang": "BINTANG 4",
+      "tamu": "WISATAWAN MANCANEGARA",
+      "nilai": 2.2
+    },
+    {
+      "periode": "202512",
+      "bintang": "BINTANG 3",
+      "tamu": "WISATAWAN MANCANEGARA",
+      "nilai": 1.86
+    },
+    {
+      "periode": "202512",
+      "bintang": "BINTANG 2",
+      "tamu": "WISATAWAN MANCANEGARA",
+      "nilai": 1.93
+    },
+    {
+      "periode": "202512",
+      "bintang": "BINTANG 1",
+      "tamu": "WISATAWAN MANCANEGARA",
+      "nilai": 1.76
+    },
+    {
+      "periode": "202512",
+      "bintang": "BINTANG 5",
+      "tamu": "WISATAWAN NUSANTARA",
+      "nilai": 1.77
+    },
+    {
+      "periode": "202512",
+      "bintang": "BINTANG 4",
+      "tamu": "WISATAWAN NUSANTARA",
+      "nilai": 1.58
+    },
+    {
+      "periode": "202512",
+      "bintang": "BINTANG 3",
+      "tamu": "WISATAWAN NUSANTARA",
+      "nilai": 1.49
+    },
+    {
+      "periode": "202512",
+      "bintang": "BINTANG 2",
+      "tamu": "WISATAWAN NUSANTARA",
+      "nilai": 1.35
+    },
+    {
+      "periode": "202512",
+      "bintang": "BINTANG 1",
+      "tamu": "WISATAWAN NUSANTARA",
+      "nilai": 1.41
+    },
+    {
+      "periode": "202602",
+      "bintang": "BINTANG 3",
+      "tamu": "WISATAWAN NUSANTARA",
+      "nilai": 1.53
+    },
+    {
+      "periode": "202602",
+      "bintang": "BINTANG 2",
+      "tamu": "WISATAWAN NUSANTARA",
+      "nilai": 1.43
+    },
+    {
+      "periode": "202602",
+      "bintang": "BINTANG 1",
+      "tamu": "WISATAWAN NUSANTARA",
+      "nilai": 1.63
+    },
+    {
+      "periode": "202603",
+      "bintang": "BINTANG 5",
+      "tamu": "WISATAWAN MANCANEGARA",
+      "nilai": 1.95
+    },
+    {
+      "periode": "202603",
+      "bintang": "BINTANG 4",
+      "tamu": "WISATAWAN MANCANEGARA",
+      "nilai": 2.05
+    },
+    {
+      "periode": "202603",
+      "bintang": "BINTANG 3",
+      "tamu": "WISATAWAN MANCANEGARA",
+      "nilai": 1.97
+    },
+    {
+      "periode": "202603",
+      "bintang": "BINTANG 2",
+      "tamu": "WISATAWAN MANCANEGARA",
+      "nilai": 1.98
+    },
+    {
+      "periode": "202603",
+      "bintang": "BINTANG 1",
+      "tamu": "WISATAWAN MANCANEGARA",
+      "nilai": 1.86
+    },
+    {
+      "periode": "202603",
+      "bintang": "BINTANG 5",
+      "tamu": "WISATAWAN NUSANTARA",
+      "nilai": 1.47
+    },
+    {
+      "periode": "202603",
+      "bintang": "BINTANG 4",
+      "tamu": "WISATAWAN NUSANTARA",
+      "nilai": 1.64
+    },
+    {
+      "periode": "202603",
+      "bintang": "BINTANG 3",
+      "tamu": "WISATAWAN NUSANTARA",
+      "nilai": 1.57
+    },
+    {
+      "periode": "202603",
+      "bintang": "BINTANG 2",
+      "tamu": "WISATAWAN NUSANTARA",
+      "nilai": 1.45
+    },
+    {
+      "periode": "202603",
+      "bintang": "BINTANG 1",
+      "tamu": "WISATAWAN NUSANTARA",
+      "nilai": 1.57
+    },
+    {
+      "periode": "202604",
+      "bintang": "BINTANG 5",
+      "tamu": "WISATAWAN MANCANEGARA",
+      "nilai": 1.84
+    },
+    {
+      "periode": "202604",
+      "bintang": "BINTANG 4",
+      "tamu": "WISATAWAN MANCANEGARA",
+      "nilai": 2.17
+    },
+    {
+      "periode": "202604",
+      "bintang": "BINTANG 3",
+      "tamu": "WISATAWAN MANCANEGARA",
+      "nilai": 1.87
+    },
+    {
+      "periode": "202604",
+      "bintang": "BINTANG 2",
+      "tamu": "WISATAWAN MANCANEGARA",
+      "nilai": 3.08
+    },
+    {
+      "periode": "202604",
+      "bintang": "BINTANG 1",
+      "tamu": "WISATAWAN MANCANEGARA",
+      "nilai": 1.67
+    },
+    {
+      "periode": "202604",
+      "bintang": "BINTANG 5",
+      "tamu": "WISATAWAN NUSANTARA",
+      "nilai": 1.66
+    },
+    {
+      "periode": "202402",
+      "bintang": "BINTANG 5",
+      "tamu": "WISATAWAN MANCANEGARA",
+      "nilai": 2.24
+    },
+    {
+      "periode": "202402",
+      "bintang": "BINTANG 4",
+      "tamu": "WISATAWAN MANCANEGARA",
+      "nilai": 2.59
+    },
+    {
+      "periode": "202402",
+      "bintang": "BINTANG 3",
+      "tamu": "WISATAWAN MANCANEGARA",
+      "nilai": 1.89
+    },
+    {
+      "periode": "202402",
+      "bintang": "BINTANG 2",
+      "tamu": "WISATAWAN MANCANEGARA",
+      "nilai": 2.74
+    },
+    {
+      "periode": "202402",
+      "bintang": "BINTANG 1",
+      "tamu": "WISATAWAN MANCANEGARA",
+      "nilai": 1.42
+    },
+    {
+      "periode": "202402",
+      "bintang": "BINTANG 5",
+      "tamu": "WISATAWAN NUSANTARA",
+      "nilai": 2.11
+    },
+    {
+      "periode": "202402",
+      "bintang": "BINTANG 4",
+      "tamu": "WISATAWAN NUSANTARA",
+      "nilai": 1.69
+    },
+    {
+      "periode": "202402",
+      "bintang": "BINTANG 3",
+      "tamu": "WISATAWAN NUSANTARA",
+      "nilai": 1.42
+    },
+    {
+      "periode": "202402",
+      "bintang": "BINTANG 2",
+      "tamu": "WISATAWAN NUSANTARA",
+      "nilai": 1.75
+    },
+    {
+      "periode": "202402",
+      "bintang": "BINTANG 1",
+      "tamu": "WISATAWAN NUSANTARA",
+      "nilai": 1.45
+    },
+    {
+      "periode": "202404",
+      "bintang": "BINTANG 5",
+      "tamu": "WISATAWAN MANCANEGARA",
+      "nilai": 2.52
+    },
+    {
+      "periode": "202404",
+      "bintang": "BINTANG 4",
+      "tamu": "WISATAWAN MANCANEGARA",
+      "nilai": 1.96
+    },
+    {
+      "periode": "202404",
+      "bintang": "BINTANG 3",
+      "tamu": "WISATAWAN MANCANEGARA",
+      "nilai": 1.77
+    },
+    {
+      "periode": "202404",
+      "bintang": "BINTANG 2",
+      "tamu": "WISATAWAN MANCANEGARA",
+      "nilai": 2.1
+    },
+    {
+      "periode": "202404",
+      "bintang": "BINTANG 1",
+      "tamu": "WISATAWAN MANCANEGARA",
+      "nilai": 1.61
+    },
+    {
+      "periode": "202404",
+      "bintang": "BINTANG 5",
+      "tamu": "WISATAWAN NUSANTARA",
+      "nilai": 2.6
+    },
+    {
+      "periode": "202404",
+      "bintang": "BINTANG 4",
+      "tamu": "WISATAWAN NUSANTARA",
+      "nilai": 1.75
+    },
+    {
+      "periode": "202404",
+      "bintang": "BINTANG 3",
+      "tamu": "WISATAWAN NUSANTARA",
+      "nilai": 1.41
+    },
+    {
+      "periode": "202404",
+      "bintang": "BINTANG 2",
+      "tamu": "WISATAWAN NUSANTARA",
+      "nilai": 1.55
+    },
+    {
+      "periode": "202404",
+      "bintang": "BINTANG 1",
+      "tamu": "WISATAWAN NUSANTARA",
+      "nilai": 1.5
+    },
+    {
+      "periode": "202405",
+      "bintang": "BINTANG 5",
+      "tamu": "WISATAWAN MANCANEGARA",
+      "nilai": 1.92
+    },
+    {
+      "periode": "202405",
+      "bintang": "BINTANG 4",
+      "tamu": "WISATAWAN MANCANEGARA",
+      "nilai": 2.04
+    },
+    {
+      "periode": "202405",
+      "bintang": "BINTANG 3",
+      "tamu": "WISATAWAN MANCANEGARA",
+      "nilai": 1.91
+    },
+    {
+      "periode": "202405",
+      "bintang": "BINTANG 2",
+      "tamu": "WISATAWAN MANCANEGARA",
+      "nilai": 1.92
+    },
+    {
+      "periode": "202405",
+      "bintang": "BINTANG 1",
+      "tamu": "WISATAWAN MANCANEGARA",
+      "nilai": 1.38
+    },
+    {
+      "periode": "202405",
+      "bintang": "BINTANG 5",
+      "tamu": "WISATAWAN NUSANTARA",
+      "nilai": 2.25
+    },
+    {
+      "periode": "202405",
+      "bintang": "BINTANG 4",
+      "tamu": "WISATAWAN NUSANTARA",
+      "nilai": 1.59
+    },
+    {
+      "periode": "202405",
+      "bintang": "BINTANG 3",
+      "tamu": "WISATAWAN NUSANTARA",
+      "nilai": 1.39
+    },
+    {
+      "periode": "202405",
+      "bintang": "BINTANG 2",
+      "tamu": "WISATAWAN NUSANTARA",
+      "nilai": 1.39
+    },
+    {
+      "periode": "202405",
+      "bintang": "BINTANG 1",
+      "tamu": "WISATAWAN NUSANTARA",
+      "nilai": 1.27
+    },
+    {
+      "periode": "202407",
+      "bintang": "BINTANG 5",
+      "tamu": "WISATAWAN MANCANEGARA",
+      "nilai": 1.42
+    },
+    {
+      "periode": "202407",
+      "bintang": "BINTANG 4",
+      "tamu": "WISATAWAN MANCANEGARA",
+      "nilai": 1.76
+    },
+    {
+      "periode": "202407",
+      "bintang": "BINTANG 3",
+      "tamu": "WISATAWAN MANCANEGARA",
+      "nilai": 1.89
+    },
+    {
+      "periode": "202407",
+      "bintang": "BINTANG 2",
+      "tamu": "WISATAWAN MANCANEGARA",
+      "nilai": 1.74
+    },
+    {
+      "periode": "202407",
+      "bintang": "BINTANG 1",
+      "tamu": "WISATAWAN MANCANEGARA",
+      "nilai": 1.5
+    },
+    {
+      "periode": "202407",
+      "bintang": "BINTANG 5",
+      "tamu": "WISATAWAN NUSANTARA",
+      "nilai": 1.32
+    },
+    {
+      "periode": "202407",
+      "bintang": "BINTANG 4",
+      "tamu": "WISATAWAN NUSANTARA",
+      "nilai": 1.5
+    },
+    {
+      "periode": "202407",
+      "bintang": "BINTANG 3",
+      "tamu": "WISATAWAN NUSANTARA",
+      "nilai": 1.45
+    },
+    {
+      "periode": "202407",
+      "bintang": "BINTANG 2",
+      "tamu": "WISATAWAN NUSANTARA",
+      "nilai": 1.38
+    },
+    {
+      "periode": "202407",
+      "bintang": "BINTANG 1",
+      "tamu": "WISATAWAN NUSANTARA",
+      "nilai": 1.37
+    },
+    {
+      "periode": "202410",
+      "bintang": "BINTANG 4",
+      "tamu": "WISATAWAN MANCANEGARA",
+      "nilai": 2.26
+    },
+    {
+      "periode": "202410",
+      "bintang": "BINTANG 3",
+      "tamu": "WISATAWAN MANCANEGARA",
+      "nilai": 2.11
+    },
+    {
+      "periode": "202410",
+      "bintang": "BINTANG 2",
+      "tamu": "WISATAWAN MANCANEGARA",
+      "nilai": 1.88
+    },
+    {
+      "periode": "202410",
+      "bintang": "BINTANG 1",
+      "tamu": "WISATAWAN MANCANEGARA",
+      "nilai": 1.64
+    },
+    {
+      "periode": "202410",
+      "bintang": "BINTANG 5",
+      "tamu": "WISATAWAN NUSANTARA",
+      "nilai": 1.71
+    },
+    {
+      "periode": "202410",
+      "bintang": "BINTANG 4",
+      "tamu": "WISATAWAN NUSANTARA",
+      "nilai": 1.72
+    },
+    {
+      "periode": "202410",
+      "bintang": "BINTANG 3",
+      "tamu": "WISATAWAN NUSANTARA",
+      "nilai": 1.44
+    },
+    {
+      "periode": "202410",
+      "bintang": "BINTANG 2",
+      "tamu": "WISATAWAN NUSANTARA",
+      "nilai": 1.44
+    },
+    {
+      "periode": "202410",
+      "bintang": "BINTANG 1",
+      "tamu": "WISATAWAN NUSANTARA",
+      "nilai": 1.42
+    },
+    {
+      "periode": "202409",
+      "bintang": "BINTANG 5",
+      "tamu": "WISATAWAN MANCANEGARA",
+      "nilai": 1.43
+    },
+    {
+      "periode": "202409",
+      "bintang": "BINTANG 4",
+      "tamu": "WISATAWAN MANCANEGARA",
+      "nilai": 1.92
+    },
+    {
+      "periode": "202409",
+      "bintang": "BINTANG 3",
+      "tamu": "WISATAWAN MANCANEGARA",
+      "nilai": 1.7
+    },
+    {
+      "periode": "202409",
+      "bintang": "BINTANG 2",
+      "tamu": "WISATAWAN MANCANEGARA",
+      "nilai": 1.62
+    },
+    {
+      "periode": "202409",
+      "bintang": "BINTANG 1",
+      "tamu": "WISATAWAN MANCANEGARA",
+      "nilai": 1.52
+    },
+    {
+      "periode": "202409",
+      "bintang": "BINTANG 5",
+      "tamu": "WISATAWAN NUSANTARA",
+      "nilai": 1.29
+    },
+    {
+      "periode": "202409",
+      "bintang": "BINTANG 4",
+      "tamu": "WISATAWAN NUSANTARA",
+      "nilai": 1.47
+    },
+    {
+      "periode": "202409",
+      "bintang": "BINTANG 3",
+      "tamu": "WISATAWAN NUSANTARA",
+      "nilai": 1.42
+    },
+    {
+      "periode": "202409",
+      "bintang": "BINTANG 2",
+      "tamu": "WISATAWAN NUSANTARA",
+      "nilai": 1.38
+    },
+    {
+      "periode": "202410",
+      "bintang": "BINTANG 5",
+      "tamu": "WISATAWAN MANCANEGARA",
+      "nilai": 1.94
+    },
+    {
+      "periode": "202409",
+      "bintang": "BINTANG 1",
+      "tamu": "WISATAWAN NUSANTARA",
+      "nilai": 1.21
+    },
+    {
+      "periode": "202502",
+      "bintang": "BINTANG 5",
+      "tamu": "WISATAWAN MANCANEGARA",
+      "nilai": 2
+    },
+    {
+      "periode": "202502",
+      "bintang": "BINTANG 4",
+      "tamu": "WISATAWAN MANCANEGARA",
+      "nilai": 1.91
+    },
+    {
+      "periode": "202502",
+      "bintang": "BINTANG 3",
+      "tamu": "WISATAWAN MANCANEGARA",
+      "nilai": 1.68
+    },
+    {
+      "periode": "202502",
+      "bintang": "BINTANG 2",
+      "tamu": "WISATAWAN MANCANEGARA",
+      "nilai": 2.15
+    },
+    {
+      "periode": "202502",
+      "bintang": "BINTANG 1",
+      "tamu": "WISATAWAN MANCANEGARA",
+      "nilai": 1.89
+    },
+    {
+      "periode": "202502",
+      "bintang": "BINTANG 5",
+      "tamu": "WISATAWAN NUSANTARA",
+      "nilai": 1.82
+    },
+    {
+      "periode": "202502",
+      "bintang": "BINTANG 4",
+      "tamu": "WISATAWAN NUSANTARA",
+      "nilai": 1.6
+    },
+    {
+      "periode": "202502",
+      "bintang": "BINTANG 3",
+      "tamu": "WISATAWAN NUSANTARA",
+      "nilai": 1.58
+    },
+    {
+      "periode": "202502",
+      "bintang": "BINTANG 2",
+      "tamu": "WISATAWAN NUSANTARA",
+      "nilai": 1.39
+    },
+    {
+      "periode": "202502",
+      "bintang": "BINTANG 1",
+      "tamu": "WISATAWAN NUSANTARA",
+      "nilai": 1.52
+    },
+    {
+      "periode": "202504",
+      "bintang": "BINTANG 5",
+      "tamu": "WISATAWAN MANCANEGARA",
+      "nilai": 2.36
+    },
+    {
+      "periode": "202504",
+      "bintang": "BINTANG 4",
+      "tamu": "WISATAWAN MANCANEGARA",
+      "nilai": 1.91
+    },
+    {
+      "periode": "202504",
+      "bintang": "BINTANG 3",
+      "tamu": "WISATAWAN MANCANEGARA",
+      "nilai": 2.03
+    },
+    {
+      "periode": "202504",
+      "bintang": "BINTANG 2",
+      "tamu": "WISATAWAN MANCANEGARA",
+      "nilai": 1.51
+    },
+    {
+      "periode": "202504",
+      "bintang": "BINTANG 1",
+      "tamu": "WISATAWAN MANCANEGARA",
+      "nilai": 1.89
+    },
+    {
+      "periode": "202504",
+      "bintang": "BINTANG 5",
+      "tamu": "WISATAWAN NUSANTARA",
+      "nilai": 2.05
+    },
+    {
+      "periode": "202504",
+      "bintang": "BINTANG 4",
+      "tamu": "WISATAWAN NUSANTARA",
+      "nilai": 1.64
+    },
+    {
+      "periode": "202504",
+      "bintang": "BINTANG 3",
+      "tamu": "WISATAWAN NUSANTARA",
+      "nilai": 1.55
+    },
+    {
+      "periode": "202504",
+      "bintang": "BINTANG 2",
+      "tamu": "WISATAWAN NUSANTARA",
+      "nilai": 1.47
+    },
+    {
+      "periode": "202504",
+      "bintang": "BINTANG 1",
+      "tamu": "WISATAWAN NUSANTARA",
+      "nilai": 1.57
+    },
+    {
+      "periode": "202505",
+      "bintang": "BINTANG 5",
+      "tamu": "WISATAWAN MANCANEGARA",
+      "nilai": 2.24
+    },
+    {
+      "periode": "202505",
+      "bintang": "BINTANG 4",
+      "tamu": "WISATAWAN MANCANEGARA",
+      "nilai": 2.02
+    },
+    {
+      "periode": "202505",
+      "bintang": "BINTANG 3",
+      "tamu": "WISATAWAN MANCANEGARA",
+      "nilai": 1.88
+    },
+    {
+      "periode": "202505",
+      "bintang": "BINTANG 2",
+      "tamu": "WISATAWAN MANCANEGARA",
+      "nilai": 1.77
+    },
+    {
+      "periode": "202505",
+      "bintang": "BINTANG 1",
+      "tamu": "WISATAWAN MANCANEGARA",
+      "nilai": 1.82
+    },
+    {
+      "periode": "202505",
+      "bintang": "BINTANG 5",
+      "tamu": "WISATAWAN NUSANTARA",
+      "nilai": 1.85
+    },
+    {
+      "periode": "202505",
+      "bintang": "BINTANG 4",
+      "tamu": "WISATAWAN NUSANTARA",
+      "nilai": 1.51
+    },
+    {
+      "periode": "202505",
+      "bintang": "BINTANG 3",
+      "tamu": "WISATAWAN NUSANTARA",
+      "nilai": 1.51
+    },
+    {
+      "periode": "202505",
+      "bintang": "BINTANG 2",
+      "tamu": "WISATAWAN NUSANTARA",
+      "nilai": 1.38
+    },
+    {
+      "periode": "202505",
+      "bintang": "BINTANG 1",
+      "tamu": "WISATAWAN NUSANTARA",
+      "nilai": 1.47
+    },
+    {
+      "periode": "202508",
+      "bintang": "BINTANG 5",
+      "tamu": "WISATAWAN MANCANEGARA",
+      "nilai": 1.59
+    },
+    {
+      "periode": "202508",
+      "bintang": "BINTANG 4",
+      "tamu": "WISATAWAN MANCANEGARA",
+      "nilai": 1.94
+    },
+    {
+      "periode": "202508",
+      "bintang": "BINTANG 3",
+      "tamu": "WISATAWAN MANCANEGARA",
+      "nilai": 1.8
+    },
+    {
+      "periode": "202508",
+      "bintang": "BINTANG 2",
+      "tamu": "WISATAWAN MANCANEGARA",
+      "nilai": 1.87
+    },
+    {
+      "periode": "202508",
+      "bintang": "BINTANG 1",
+      "tamu": "WISATAWAN MANCANEGARA",
+      "nilai": 1.48
+    },
+    {
+      "periode": "202508",
+      "bintang": "BINTANG 5",
+      "tamu": "WISATAWAN NUSANTARA",
+      "nilai": 1.7
+    },
+    {
+      "periode": "202508",
+      "bintang": "BINTANG 4",
+      "tamu": "WISATAWAN NUSANTARA",
+      "nilai": 1.61
+    },
+    {
+      "periode": "202508",
+      "bintang": "BINTANG 3",
+      "tamu": "WISATAWAN NUSANTARA",
+      "nilai": 1.46
+    },
+    {
+      "periode": "202508",
+      "bintang": "BINTANG 2",
+      "tamu": "WISATAWAN NUSANTARA",
+      "nilai": 1.37
+    },
+    {
+      "periode": "202508",
+      "bintang": "BINTANG 1",
+      "tamu": "WISATAWAN NUSANTARA",
+      "nilai": 1.4
+    },
+    {
+      "periode": "202510",
+      "bintang": "BINTANG 5",
+      "tamu": "WISATAWAN MANCANEGARA",
+      "nilai": 1.79
+    },
+    {
+      "periode": "202510",
+      "bintang": "BINTANG 4",
+      "tamu": "WISATAWAN MANCANEGARA",
+      "nilai": 2.06
+    },
+    {
+      "periode": "202510",
+      "bintang": "BINTANG 3",
+      "tamu": "WISATAWAN MANCANEGARA",
+      "nilai": 1.92
+    },
+    {
+      "periode": "202510",
+      "bintang": "BINTANG 2",
+      "tamu": "WISATAWAN MANCANEGARA",
+      "nilai": 1.94
+    },
+    {
+      "periode": "202510",
+      "bintang": "BINTANG 1",
+      "tamu": "WISATAWAN MANCANEGARA",
+      "nilai": 1.45
+    },
+    {
+      "periode": "202510",
+      "bintang": "BINTANG 5",
+      "tamu": "WISATAWAN NUSANTARA",
+      "nilai": 1.79
+    },
+    {
+      "periode": "202510",
+      "bintang": "BINTANG 4",
+      "tamu": "WISATAWAN NUSANTARA",
+      "nilai": 1.59
+    },
+    {
+      "periode": "202510",
+      "bintang": "BINTANG 3",
+      "tamu": "WISATAWAN NUSANTARA",
+      "nilai": 1.45
+    },
+    {
+      "periode": "202510",
+      "bintang": "BINTANG 2",
+      "tamu": "WISATAWAN NUSANTARA",
+      "nilai": 1.41
+    },
+    {
+      "periode": "202510",
+      "bintang": "BINTANG 1",
+      "tamu": "WISATAWAN NUSANTARA",
+      "nilai": 1.47
+    },
+    {
+      "periode": "202511",
+      "bintang": "BINTANG 5",
+      "tamu": "WISATAWAN MANCANEGARA",
+      "nilai": 1.94
+    },
+    {
+      "periode": "202511",
+      "bintang": "BINTANG 4",
+      "tamu": "WISATAWAN MANCANEGARA",
+      "nilai": 2.16
+    },
+    {
+      "periode": "202511",
+      "bintang": "BINTANG 3",
+      "tamu": "WISATAWAN MANCANEGARA",
+      "nilai": 1.92
+    },
+    {
+      "periode": "202511",
+      "bintang": "BINTANG 2",
+      "tamu": "WISATAWAN MANCANEGARA",
+      "nilai": 1.86
+    },
+    {
+      "periode": "202511",
+      "bintang": "BINTANG 1",
+      "tamu": "WISATAWAN MANCANEGARA",
+      "nilai": 1.42
+    },
+    {
+      "periode": "202511",
+      "bintang": "BINTANG 5",
+      "tamu": "WISATAWAN NUSANTARA",
+      "nilai": 1.72
+    },
+    {
+      "periode": "202511",
+      "bintang": "BINTANG 4",
+      "tamu": "WISATAWAN NUSANTARA",
+      "nilai": 1.66
+    },
+    {
+      "periode": "202511",
+      "bintang": "BINTANG 3",
+      "tamu": "WISATAWAN NUSANTARA",
+      "nilai": 1.44
+    },
+    {
+      "periode": "202406",
+      "bintang": "BINTANG 5",
+      "tamu": "WISATAWAN MANCANEGARA",
+      "nilai": 1.51
+    },
+    {
+      "periode": "202406",
+      "bintang": "BINTANG 4",
+      "tamu": "WISATAWAN MANCANEGARA",
+      "nilai": 1.58
+    },
+    {
+      "periode": "202406",
+      "bintang": "BINTANG 3",
+      "tamu": "WISATAWAN MANCANEGARA",
+      "nilai": 1.92
+    },
+    {
+      "periode": "202406",
+      "bintang": "BINTANG 2",
+      "tamu": "WISATAWAN MANCANEGARA",
+      "nilai": 2.14
+    },
+    {
+      "periode": "202406",
+      "bintang": "BINTANG 1",
+      "tamu": "WISATAWAN MANCANEGARA",
+      "nilai": 1.68
+    },
+    {
+      "periode": "202406",
+      "bintang": "BINTANG 5",
+      "tamu": "WISATAWAN NUSANTARA",
+      "nilai": 1.56
+    },
+    {
+      "periode": "202406",
+      "bintang": "BINTANG 4",
+      "tamu": "WISATAWAN NUSANTARA",
+      "nilai": 1.52
+    },
+    {
+      "periode": "202406",
+      "bintang": "BINTANG 3",
+      "tamu": "WISATAWAN NUSANTARA",
+      "nilai": 1.36
+    },
+    {
+      "periode": "202406",
+      "bintang": "BINTANG 2",
+      "tamu": "WISATAWAN NUSANTARA",
+      "nilai": 1.59
+    },
+    {
+      "periode": "202406",
+      "bintang": "BINTANG 1",
+      "tamu": "WISATAWAN NUSANTARA",
+      "nilai": 1.18
+    },
+    {
+      "periode": "202408",
+      "bintang": "BINTANG 5",
+      "tamu": "WISATAWAN MANCANEGARA",
+      "nilai": 1.36
+    },
+    {
+      "periode": "202408",
+      "bintang": "BINTANG 4",
+      "tamu": "WISATAWAN MANCANEGARA",
+      "nilai": 1.99
+    },
+    {
+      "periode": "202408",
+      "bintang": "BINTANG 3",
+      "tamu": "WISATAWAN MANCANEGARA",
+      "nilai": 1.83
+    },
+    {
+      "periode": "202408",
+      "bintang": "BINTANG 2",
+      "tamu": "WISATAWAN MANCANEGARA",
+      "nilai": 1.65
+    },
+    {
+      "periode": "202408",
+      "bintang": "BINTANG 1",
+      "tamu": "WISATAWAN MANCANEGARA",
+      "nilai": 1.36
+    },
+    {
+      "periode": "202408",
+      "bintang": "BINTANG 5",
+      "tamu": "WISATAWAN NUSANTARA",
+      "nilai": 1.25
+    },
+    {
+      "periode": "202408",
+      "bintang": "BINTANG 4",
+      "tamu": "WISATAWAN NUSANTARA",
+      "nilai": 1.51
+    },
+    {
+      "periode": "202408",
+      "bintang": "BINTANG 3",
+      "tamu": "WISATAWAN NUSANTARA",
+      "nilai": 1.35
+    },
+    {
+      "periode": "202408",
+      "bintang": "BINTANG 2",
+      "tamu": "WISATAWAN NUSANTARA",
+      "nilai": 1.4
+    },
+    {
+      "periode": "202408",
+      "bintang": "BINTANG 1",
+      "tamu": "WISATAWAN NUSANTARA",
+      "nilai": 1.32
+    },
+    {
+      "periode": "202411",
+      "bintang": "BINTANG 5",
+      "tamu": "WISATAWAN MANCANEGARA",
+      "nilai": 2.08
+    },
+    {
+      "periode": "202411",
+      "bintang": "BINTANG 4",
+      "tamu": "WISATAWAN MANCANEGARA",
+      "nilai": 1.86
+    },
+    {
+      "periode": "202411",
+      "bintang": "BINTANG 3",
+      "tamu": "WISATAWAN MANCANEGARA",
+      "nilai": 2.1
+    },
+    {
+      "periode": "202411",
+      "bintang": "BINTANG 2",
+      "tamu": "WISATAWAN MANCANEGARA",
+      "nilai": 1.77
+    },
+    {
+      "periode": "202411",
+      "bintang": "BINTANG 1",
+      "tamu": "WISATAWAN MANCANEGARA",
+      "nilai": 1.95
+    },
+    {
+      "periode": "202411",
+      "bintang": "BINTANG 5",
+      "tamu": "WISATAWAN NUSANTARA",
+      "nilai": 1.94
+    },
+    {
+      "periode": "202411",
+      "bintang": "BINTANG 4",
+      "tamu": "WISATAWAN NUSANTARA",
+      "nilai": 1.73
+    },
+    {
+      "periode": "202411",
+      "bintang": "BINTANG 3",
+      "tamu": "WISATAWAN NUSANTARA",
+      "nilai": 1.44
+    },
+    {
+      "periode": "202411",
+      "bintang": "BINTANG 2",
+      "tamu": "WISATAWAN NUSANTARA",
+      "nilai": 1.37
+    },
+    {
+      "periode": "202411",
+      "bintang": "BINTANG 1",
+      "tamu": "WISATAWAN NUSANTARA",
+      "nilai": 1.5
+    },
+    {
+      "periode": "202509",
+      "bintang": "BINTANG 5",
+      "tamu": "WISATAWAN MANCANEGARA",
+      "nilai": 1.83
+    },
+    {
+      "periode": "202509",
+      "bintang": "BINTANG 4",
+      "tamu": "WISATAWAN MANCANEGARA",
+      "nilai": 1.98
+    },
+    {
+      "periode": "202509",
+      "bintang": "BINTANG 3",
+      "tamu": "WISATAWAN MANCANEGARA",
+      "nilai": 1.89
+    },
+    {
+      "periode": "202509",
+      "bintang": "BINTANG 2",
+      "tamu": "WISATAWAN MANCANEGARA",
+      "nilai": 1.83
+    },
+    {
+      "periode": "202509",
+      "bintang": "BINTANG 1",
+      "tamu": "WISATAWAN MANCANEGARA",
+      "nilai": 1.49
+    },
+    {
+      "periode": "202509",
+      "bintang": "BINTANG 5",
+      "tamu": "WISATAWAN NUSANTARA",
+      "nilai": 1.61
+    },
+    {
+      "periode": "202509",
+      "bintang": "BINTANG 4",
+      "tamu": "WISATAWAN NUSANTARA",
+      "nilai": 1.61
+    },
+    {
+      "periode": "202509",
+      "bintang": "BINTANG 3",
+      "tamu": "WISATAWAN NUSANTARA",
+      "nilai": 1.46
+    },
+    {
+      "periode": "202509",
+      "bintang": "BINTANG 2",
+      "tamu": "WISATAWAN NUSANTARA",
+      "nilai": 1.42
+    },
+    {
+      "periode": "202509",
+      "bintang": "BINTANG 1",
+      "tamu": "WISATAWAN NUSANTARA",
+      "nilai": 1.42
+    },
+    {
+      "periode": "202507",
+      "bintang": "BINTANG 5",
+      "tamu": "WISATAWAN MANCANEGARA",
+      "nilai": 2.12
+    },
+    {
+      "periode": "202507",
+      "bintang": "BINTANG 4",
+      "tamu": "WISATAWAN MANCANEGARA",
+      "nilai": 1.97
+    },
+    {
+      "periode": "202507",
+      "bintang": "BINTANG 3",
+      "tamu": "WISATAWAN MANCANEGARA",
+      "nilai": 1.84
+    },
+    {
+      "periode": "202507",
+      "bintang": "BINTANG 2",
+      "tamu": "WISATAWAN MANCANEGARA",
+      "nilai": 1.92
+    },
+    {
+      "periode": "202507",
+      "bintang": "BINTANG 1",
+      "tamu": "WISATAWAN MANCANEGARA",
+      "nilai": 1.99
+    },
+    {
+      "periode": "202507",
+      "bintang": "BINTANG 5",
+      "tamu": "WISATAWAN NUSANTARA",
+      "nilai": 1.61
+    },
+    {
+      "periode": "202507",
+      "bintang": "BINTANG 4",
+      "tamu": "WISATAWAN NUSANTARA",
+      "nilai": 1.58
+    },
+    {
+      "periode": "202507",
+      "bintang": "BINTANG 3",
+      "tamu": "WISATAWAN NUSANTARA",
+      "nilai": 1.5
+    },
+    {
+      "periode": "202507",
+      "bintang": "BINTANG 2",
+      "tamu": "WISATAWAN NUSANTARA",
+      "nilai": 1.4
+    },
+    {
+      "periode": "202507",
+      "bintang": "BINTANG 1",
+      "tamu": "WISATAWAN NUSANTARA",
+      "nilai": 1.47
+    },
+    {
+      "periode": "202511",
+      "bintang": "BINTANG 2",
+      "tamu": "WISATAWAN NUSANTARA",
+      "nilai": 1.39
+    },
+    {
+      "periode": "202511",
+      "bintang": "BINTANG 1",
+      "tamu": "WISATAWAN NUSANTARA",
+      "nilai": 1.49
+    },
+    {
+      "periode": "202602",
+      "bintang": "BINTANG 5",
+      "tamu": "WISATAWAN MANCANEGARA",
+      "nilai": 1.7
+    },
+    {
+      "periode": "202602",
+      "bintang": "BINTANG 4",
+      "tamu": "WISATAWAN MANCANEGARA",
+      "nilai": 1.93
+    },
+    {
+      "periode": "202602",
+      "bintang": "BINTANG 3",
+      "tamu": "WISATAWAN MANCANEGARA",
+      "nilai": 1.82
+    },
+    {
+      "periode": "202602",
+      "bintang": "BINTANG 2",
+      "tamu": "WISATAWAN MANCANEGARA",
+      "nilai": 2.11
+    },
+    {
+      "periode": "202602",
+      "bintang": "BINTANG 1",
+      "tamu": "WISATAWAN MANCANEGARA",
+      "nilai": 1.75
+    },
+    {
+      "periode": "202602",
+      "bintang": "BINTANG 5",
+      "tamu": "WISATAWAN NUSANTARA",
+      "nilai": 1.55
+    },
+    {
+      "periode": "202602",
+      "bintang": "BINTANG 4",
+      "tamu": "WISATAWAN NUSANTARA",
+      "nilai": 1.67
+    },
+    {
+      "periode": "202311",
+      "bintang": "BINTANG 5",
+      "tamu": "WISATAWAN MANCANEGARA",
+      "nilai": 2.72
+    },
+    {
+      "periode": "202311",
+      "bintang": "BINTANG 4",
+      "tamu": "WISATAWAN MANCANEGARA",
+      "nilai": 2.39
+    },
+    {
+      "periode": "202311",
+      "bintang": "BINTANG 3",
+      "tamu": "WISATAWAN MANCANEGARA",
+      "nilai": 2.32
+    },
+    {
+      "periode": "202311",
+      "bintang": "BINTANG 2",
+      "tamu": "WISATAWAN MANCANEGARA",
+      "nilai": 2.76
+    },
+    {
+      "periode": "202311",
+      "bintang": "BINTANG 1",
+      "tamu": "WISATAWAN MANCANEGARA",
+      "nilai": 2.4
+    },
+    {
+      "periode": "202311",
+      "bintang": "BINTANG 5",
+      "tamu": "WISATAWAN NUSANTARA",
+      "nilai": 1.8
+    },
+    {
+      "periode": "202311",
+      "bintang": "BINTANG 4",
+      "tamu": "WISATAWAN NUSANTARA",
+      "nilai": 1.8
+    },
+    {
+      "periode": "202311",
+      "bintang": "BINTANG 3",
+      "tamu": "WISATAWAN NUSANTARA",
+      "nilai": 1.48
+    },
+    {
+      "periode": "202311",
+      "bintang": "BINTANG 2",
+      "tamu": "WISATAWAN NUSANTARA",
+      "nilai": 1.45
+    },
+    {
+      "periode": "202311",
+      "bintang": "BINTANG 1",
+      "tamu": "WISATAWAN NUSANTARA",
+      "nilai": 1.32
+    },
+    {
+      "periode": "202312",
+      "bintang": "BINTANG 5",
+      "tamu": "WISATAWAN MANCANEGARA",
+      "nilai": 2.4
+    },
+    {
+      "periode": "202312",
+      "bintang": "BINTANG 4",
+      "tamu": "WISATAWAN MANCANEGARA",
+      "nilai": 2.17
+    },
+    {
+      "periode": "202312",
+      "bintang": "BINTANG 3",
+      "tamu": "WISATAWAN MANCANEGARA",
+      "nilai": 2.45
+    },
+    {
+      "periode": "202312",
+      "bintang": "BINTANG 2",
+      "tamu": "WISATAWAN MANCANEGARA",
+      "nilai": 2.18
+    },
+    {
+      "periode": "202312",
+      "bintang": "BINTANG 1",
+      "tamu": "WISATAWAN MANCANEGARA",
+      "nilai": 1.63
+    },
+    {
+      "periode": "202312",
+      "bintang": "BINTANG 5",
+      "tamu": "WISATAWAN NUSANTARA",
+      "nilai": 1.91
+    },
+    {
+      "periode": "202312",
+      "bintang": "BINTANG 4",
+      "tamu": "WISATAWAN NUSANTARA",
+      "nilai": 1.7
+    },
+    {
+      "periode": "202312",
+      "bintang": "BINTANG 3",
+      "tamu": "WISATAWAN NUSANTARA",
+      "nilai": 1.5
+    },
+    {
+      "periode": "202312",
+      "bintang": "BINTANG 2",
+      "tamu": "WISATAWAN NUSANTARA",
+      "nilai": 1.5
+    },
+    {
+      "periode": "202312",
+      "bintang": "BINTANG 1",
+      "tamu": "WISATAWAN NUSANTARA",
+      "nilai": 1.37
+    },
+    {
+      "periode": "202401",
+      "bintang": "BINTANG 5",
+      "tamu": "WISATAWAN MANCANEGARA",
+      "nilai": 2.67
+    },
+    {
+      "periode": "202401",
+      "bintang": "BINTANG 4",
+      "tamu": "WISATAWAN MANCANEGARA",
+      "nilai": 2.43
+    },
+    {
+      "periode": "202401",
+      "bintang": "BINTANG 3",
+      "tamu": "WISATAWAN MANCANEGARA",
+      "nilai": 2.33
+    },
+    {
+      "periode": "202401",
+      "bintang": "BINTANG 2",
+      "tamu": "WISATAWAN MANCANEGARA",
+      "nilai": 2.48
+    },
+    {
+      "periode": "202401",
+      "bintang": "BINTANG 1",
+      "tamu": "WISATAWAN MANCANEGARA",
+      "nilai": 1.93
+    },
+    {
+      "periode": "202401",
+      "bintang": "BINTANG 5",
+      "tamu": "WISATAWAN NUSANTARA",
+      "nilai": 1.88
+    },
+    {
+      "periode": "202401",
+      "bintang": "BINTANG 4",
+      "tamu": "WISATAWAN NUSANTARA",
+      "nilai": 1.84
+    },
+    {
+      "periode": "202401",
+      "bintang": "BINTANG 3",
+      "tamu": "WISATAWAN NUSANTARA",
+      "nilai": 1.6
+    },
+    {
+      "periode": "202401",
+      "bintang": "BINTANG 2",
+      "tamu": "WISATAWAN NUSANTARA",
+      "nilai": 1.56
+    },
+    {
+      "periode": "202401",
+      "bintang": "BINTANG 1",
+      "tamu": "WISATAWAN NUSANTARA",
+      "nilai": 1.76
+    },
+    {
+      "periode": "202412",
+      "bintang": "BINTANG 5",
+      "tamu": "WISATAWAN MANCANEGARA",
+      "nilai": 1.99
+    },
+    {
+      "periode": "202412",
+      "bintang": "BINTANG 4",
+      "tamu": "WISATAWAN MANCANEGARA",
+      "nilai": 2.11
+    },
+    {
+      "periode": "202412",
+      "bintang": "BINTANG 3",
+      "tamu": "WISATAWAN MANCANEGARA",
+      "nilai": 2.09
+    },
+    {
+      "periode": "202412",
+      "bintang": "BINTANG 2",
+      "tamu": "WISATAWAN MANCANEGARA",
+      "nilai": 1.9
+    },
+    {
+      "periode": "202412",
+      "bintang": "BINTANG 1",
+      "tamu": "WISATAWAN MANCANEGARA",
+      "nilai": 2.59
+    },
+    {
+      "periode": "202412",
+      "bintang": "BINTANG 5",
+      "tamu": "WISATAWAN NUSANTARA",
+      "nilai": 1.82
+    },
+    {
+      "periode": "202412",
+      "bintang": "BINTANG 4",
+      "tamu": "WISATAWAN NUSANTARA",
+      "nilai": 1.62
+    },
+    {
+      "periode": "202412",
+      "bintang": "BINTANG 3",
+      "tamu": "WISATAWAN NUSANTARA",
+      "nilai": 1.55
+    },
+    {
+      "periode": "202412",
+      "bintang": "BINTANG 2",
+      "tamu": "WISATAWAN NUSANTARA",
+      "nilai": 1.47
+    },
+    {
+      "periode": "202412",
+      "bintang": "BINTANG 1",
+      "tamu": "WISATAWAN NUSANTARA",
+      "nilai": 1.59
+    },
+    {
+      "periode": "202501",
+      "bintang": "BINTANG 5",
+      "tamu": "WISATAWAN MANCANEGARA",
+      "nilai": 1.73
+    },
+    {
+      "periode": "202501",
+      "bintang": "BINTANG 4",
+      "tamu": "WISATAWAN MANCANEGARA",
+      "nilai": 1.93
+    },
+    {
+      "periode": "202501",
+      "bintang": "BINTANG 3",
+      "tamu": "WISATAWAN MANCANEGARA",
+      "nilai": 1.98
+    },
+    {
+      "periode": "202501",
+      "bintang": "BINTANG 2",
+      "tamu": "WISATAWAN MANCANEGARA",
+      "nilai": 2.05
+    },
+    {
+      "periode": "202501",
+      "bintang": "BINTANG 1",
+      "tamu": "WISATAWAN MANCANEGARA",
+      "nilai": 1.56
+    },
+    {
+      "periode": "202501",
+      "bintang": "BINTANG 5",
+      "tamu": "WISATAWAN NUSANTARA",
+      "nilai": 1.73
+    },
+    {
+      "periode": "202501",
+      "bintang": "BINTANG 4",
+      "tamu": "WISATAWAN NUSANTARA",
+      "nilai": 1.63
+    },
+    {
+      "periode": "202501",
+      "bintang": "BINTANG 3",
+      "tamu": "WISATAWAN NUSANTARA",
+      "nilai": 1.52
+    },
+    {
+      "periode": "202501",
+      "bintang": "BINTANG 2",
+      "tamu": "WISATAWAN NUSANTARA",
+      "nilai": 1.44
+    },
+    {
+      "periode": "202501",
+      "bintang": "BINTANG 1",
+      "tamu": "WISATAWAN NUSANTARA",
+      "nilai": 1.52
+    },
+    {
+      "periode": "202503",
+      "bintang": "BINTANG 5",
+      "tamu": "WISATAWAN MANCANEGARA",
+      "nilai": 1.69
+    },
+    {
+      "periode": "202503",
+      "bintang": "BINTANG 4",
+      "tamu": "WISATAWAN MANCANEGARA",
+      "nilai": 2.15
+    },
+    {
+      "periode": "202503",
+      "bintang": "BINTANG 3",
+      "tamu": "WISATAWAN MANCANEGARA",
+      "nilai": 2.23
+    },
+    {
+      "periode": "202503",
+      "bintang": "BINTANG 2",
+      "tamu": "WISATAWAN MANCANEGARA",
+      "nilai": 2.11
+    },
+    {
+      "periode": "202503",
+      "bintang": "BINTANG 1",
+      "tamu": "WISATAWAN MANCANEGARA",
+      "nilai": 2
+    },
+    {
+      "periode": "202503",
+      "bintang": "BINTANG 5",
+      "tamu": "WISATAWAN NUSANTARA",
+      "nilai": 1.66
+    },
+    {
+      "periode": "202503",
+      "bintang": "BINTANG 4",
+      "tamu": "WISATAWAN NUSANTARA",
+      "nilai": 1.74
+    },
+    {
+      "periode": "202503",
+      "bintang": "BINTANG 3",
+      "tamu": "WISATAWAN NUSANTARA",
+      "nilai": 1.67
+    },
+    {
+      "periode": "202503",
+      "bintang": "BINTANG 2",
+      "tamu": "WISATAWAN NUSANTARA",
+      "nilai": 1.54
+    },
+    {
+      "periode": "202605",
+      "bintang": "BINTANG 5",
+      "tamu": "WISATAWAN MANCANEGARA",
+      "nilai": 1.95
+    },
+    {
+      "periode": "202605",
+      "bintang": "BINTANG 4",
+      "tamu": "WISATAWAN MANCANEGARA",
+      "nilai": 2.12
+    },
+    {
+      "periode": "202605",
+      "bintang": "BINTANG 3",
+      "tamu": "WISATAWAN MANCANEGARA",
+      "nilai": 2.05
+    },
+    {
+      "periode": "202605",
+      "bintang": "BINTANG 2",
+      "tamu": "WISATAWAN MANCANEGARA",
+      "nilai": 2.57
+    },
+    {
+      "periode": "202605",
+      "bintang": "BINTANG 1",
+      "tamu": "WISATAWAN MANCANEGARA",
+      "nilai": 1.96
+    },
+    {
+      "periode": "202605",
+      "bintang": "BINTANG 5",
+      "tamu": "WISATAWAN NUSANTARA",
+      "nilai": 1.73
+    },
+    {
+      "periode": "202605",
+      "bintang": "BINTANG 4",
+      "tamu": "WISATAWAN NUSANTARA",
+      "nilai": 1.61
+    },
+    {
+      "periode": "202605",
+      "bintang": "BINTANG 3",
+      "tamu": "WISATAWAN NUSANTARA",
+      "nilai": 1.57
+    },
+    {
+      "periode": "202605",
+      "bintang": "BINTANG 2",
+      "tamu": "WISATAWAN NUSANTARA",
+      "nilai": 1.4
+    },
+    {
+      "periode": "202605",
+      "bintang": "BINTANG 1",
+      "tamu": "WISATAWAN NUSANTARA",
+      "nilai": 1.46
+    },
+    {
+      "periode": "202604",
+      "bintang": "BINTANG 4",
+      "tamu": "WISATAWAN NUSANTARA",
+      "nilai": 1.59
+    },
+    {
+      "periode": "202604",
+      "bintang": "BINTANG 3",
+      "tamu": "WISATAWAN NUSANTARA",
+      "nilai": 1.55
+    },
+    {
+      "periode": "202604",
+      "bintang": "BINTANG 2",
+      "tamu": "WISATAWAN NUSANTARA",
+      "nilai": 1.39
+    },
+    {
+      "periode": "202604",
+      "bintang": "BINTANG 1",
+      "tamu": "WISATAWAN NUSANTARA",
+      "nilai": 1.57
+    }
+  ]
+}

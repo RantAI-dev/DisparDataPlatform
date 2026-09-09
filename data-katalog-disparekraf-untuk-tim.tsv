@@ -1,0 +1,23 @@
+No.	Nama Dataset	Tema	Tier	Jumlah Baris	Deskripsi Singkat	Sumber Utama	Akses (dispar.rantai.dev)
+1	Wisman DKI Jakarta per Negara	Wisatawan	Sekunder (kurasi Disparekraf)	604	Kunjungan wisatawan mancanegara ke DKI per negara asal; klasifikasi negara BPS distandarkan	BPS (dibersihkan)	/sdi/wisman-jakarta-per-negara
+2	Wisman DKI Jakarta per Bulan	Wisatawan	Sekunder (kurasi Disparekraf)	28	Total kunjungan wisman ke DKI per bulan (agregasi seluruh negara asal)	BPS (dibersihkan)	/sdi/wisman-jakarta-per-bulan
+3	Wisman per Pintu Masuk	Wisatawan	Sekunder (kurasi Disparekraf)	480	Kunjungan wisman per pintu masuk (dinormalisasi)	BPS (dibersihkan)	/sdi/wisman-jakarta-per-pintu-masuk
+4	Restoran Jakarta TripAdvisor (Kuliner GCI)	Kuliner	Sekunder (kurasi Disparekraf)	38	Restoran Jakarta terdaftar TripAdvisor untuk indikator Kuliner GCI	TripAdvisor + verifikasi	/sdi/restoran-tripadvisor-jakarta
+5	Artis Top 10 Global Chart (Billboard & Spotify, 2021–2025)	Seni Pertunjukan	Sekunder (kurasi Disparekraf)	100	Artis Top-10 chart global 5 tahun terakhir + status pernah tampil di Jakarta	Billboard, Spotify + riset	/sdi/artis-top-global-chart
+6	Restoran & Zona KHAS Tersertifikasi Halal Jakarta	Wisata Ramah Muslim	Sekunder (kurasi Disparekraf)	134	Restoran & zona kuliner halal aman & sehat tersertifikasi	BPJPH/LPPOM MUI + riset	/sdi/restoran-halal-jakarta
+7	Hotel Ramah Muslim Jakarta	Wisata Ramah Muslim	Sekunder (kurasi Disparekraf)	49	Hotel dengan fasilitas ramah muslim di Jakarta	Riset sumber terbuka + geocode	/sdi/hotel-ramah-muslim-jakarta
+8	Inovasi & Program Wisata Ramah Muslim Jakarta	Wisata Ramah Muslim	Sekunder (kurasi Disparekraf)	43	Inovasi, program, desa/kampung wisata ramah muslim, aplikasi, event, branding	Riset sumber terbuka	/sdi/inovasi-wisata-ramah-muslim-jakarta
+9	Mall & Fasilitas Ramah Muslim Jakarta	Wisata Ramah Muslim	Sekunder (kurasi Disparekraf)	43	Mall dengan mushola/fasilitas ramah muslim	Riset sumber terbuka + geocode	/sdi/mall-ramah-muslim-jakarta
+10	RPH Tersertifikasi Halal Jakarta	Wisata Ramah Muslim	Sekunder (kurasi Disparekraf)	16	Rumah Potong Hewan tersertifikasi halal	BPJPH/LPPOM MUI	/sdi/rph-halal-jakarta
+11	Produk Kreatif Makanan Tersertifikasi Halal Jakarta	Wisata Ramah Muslim	Sekunder (kurasi Disparekraf)	24	Produk kreatif makanan bersertifikat halal	BPJPH/LPPOM MUI	/sdi/produk-kreatif-makanan-halal-jakarta
+12	Bandara Ramah Muslim (melayani Jakarta)	Wisata Ramah Muslim	Sekunder (kurasi Disparekraf)	4	Bandara pelayan Jakarta dengan fasilitas ramah muslim	Riset sumber terbuka	/sdi/bandara-ramah-muslim-jakarta
+13	Pengakuan & Capaian Pariwisata Ramah Muslim	Wisata Ramah Muslim	Sekunder (kurasi Disparekraf)	15	Penghargaan & capaian Jakarta di pariwisata ramah muslim (mis. GMTI)	GMTI/CrescentRating + riset	/sdi/capaian-pariwisata-ramah-muslim
+14	Warisan Islam & Wisata Budaya Muslim Jakarta	Wisata Ramah Muslim	Sekunder (kurasi Disparekraf)	25	Masjid bersejarah, museum, kampung, situs warisan Islam	Riset sumber terbuka	/sdi/warisan-islam-wisata-budaya-muslim-jakarta
+15	Jumlah Pengunjung Event Jakarta 2026	Event	Sekunder (kurasi Disparekraf)	804	Jumlah pengunjung event pariwisata & ekraf Semester I 2026, digeocode (alamat/lat/lon)	Disparekraf + geocode	/sdi/jumlah-pengunjung-event-2026
+16	Toko Suvenir Jakarta (TripAdvisor)	Belanja	Sekunder (kurasi Disparekraf)	67	Toko suvenir/oleh-oleh/kerajinan terdaftar TripAdvisor + verifikasi relevansi	TripAdvisor + verifikasi	/sdi/toko-suvenir-tripadvisor-2026 · /atlas/souvenir
+17	Restoran & Kafe GCI Jakarta	Kuliner	Sekunder (kurasi Disparekraf)	2577	Seluruh restoran & kafe se-Jakarta (termasuk resto hotel bintang 3–4) untuk Global City Index	OSM + Places + kurasi	/atlas/gci
+18	Pertunjukan & Budaya GCI	Seni Pertunjukan	Sekunder (kurasi Disparekraf)	308	Konser, festival, tari, teater, seni rupa, film 2025–2026	Riset sumber terbuka	/atlas/pertunjukan
+19	Direktori Restoran Kurasi	Kuliner	Sekunder (kurasi Disparekraf)	604	Restoran & kafe pilihan Jakarta dengan sitasi publik terverifikasi	Kurasi + sitasi publik	/atlas/restaurants
+20	Lapangan Golf Jakarta	Rekreasi	Sekunder (kurasi Disparekraf)	14	Lapangan & driving range golf di Jakarta	OSM + panduan golf publik	/atlas/golf
+21	Hotel & Akomodasi DKI Jakarta (gold)	Akomodasi	Sekunder (datamart Disparekraf)	120 hotel	Pasokan kamar per hotel + okupansi TPK bulanan per bintang + Lama Menginap Wisman/Wisnus; datamart gold dari data resmi	Satu Data Jakarta / BPS	/atlas/hotel
+22	Katalog Data Primer SDI Disparekraf	Katalog SDI	Primer (Satu Data Jakarta)	182 dataset	Seluruh dataset primer Disparekraf di Satu Data Jakarta (wisman, akomodasi/hotel, event, kuliner, dll) yang disurvei & ditampilkan platform	satudata.jakarta.go.id	/sdi
