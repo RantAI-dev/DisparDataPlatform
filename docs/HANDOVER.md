@@ -61,9 +61,9 @@ mengubahnya, bicarakan dulu.
 ## 3. Setup hari pertama
 
 ```bash
-git clone https://github.com/RantAI-dev/jakarta-restaurant-data.git
-cd jakarta-restaurant-data
-git checkout deploy/portainer-selfhost   # branch yang di-deploy
+git clone https://github.com/RantAI-dev/DisparDataPlatform.git
+cd DisparDataPlatform
+# Semua kerja ada di `main`. Lihat §7 soal repo lama yang masih melayani deploy.
 
 # app yang LIVE
 cd platform-v2
@@ -134,7 +134,9 @@ Alamat yang sering dipakai:
 
 1. Kerjakan di `platform-v2/` (**bukan** `platform/` — itu v1 yang beku).
 2. `npx tsc --noEmit` harus lulus.
-3. Commit, push ke `deploy/portainer-selfhost`.
+3. Commit, push ke `main` — **lalu baca §7**: stack masih menarik dari repo lama,
+   jadi perubahan belum akan tayang sampai §7 diselesaikan atau didorong juga ke
+   sana.
 4. `/deploy-v2`, atau ikuti `platform-v2/DEPLOY.md`.
 
 **Push saja tidak men-deploy apa pun** — auto-update stack sengaja dimatikan.
@@ -193,32 +195,34 @@ bersihkan cache uv/bun/npm + `btrfs balance`.
 
 ---
 
-## 7. Rencana pindah repo
+## 7. Pindah repo — SETENGAH JALAN, baca ini
 
-Repo ini akan dipindahkan ke **`RantAI-dev/DisparDataPlatform`**. Yang penting
-diingat saat pemindahan:
+Kode sudah pindah ke **`RantAI-dev/DisparDataPlatform`** (branch `main`, riwayat
+penuh). **Tetapi kedua Portainer stack MASIH menarik dari repo lama**
+`RantAI-dev/jakarta-restaurant-data`, branch `deploy/portainer-selfhost`.
 
-```bash
-git remote add origin https://github.com/RantAI-dev/DisparDataPlatform.git
-git branch -M main
-git push -u origin main
-```
+> **Akibatnya, sampai `GitConfig` stack diperbarui: push ke repo baru TIDAK akan
+> pernah ter-deploy.** Redeploy akan diam-diam membangun ulang kode lama dan
+> terlihat sukses. Ini jebakan paling berbahaya di repo ini saat ini.
 
-> **Kedua Portainer stack menarik dari repo LAMA, branch
-> `deploy/portainer-selfhost`.** Memindahkan repo (atau menjadikan semuanya
-> `main`) akan **memutus deploy** sampai `GitConfig` tiap stack diperbarui:
->
-> - stack **1** (`dispar-platform`) — `URL` dan `ReferenceName`
-> - stack **6** (`dispar-lakehouse`) — `URL` dan `ReferenceName`
->
-> Lakukan lewat Portainer UI (Stack → Git settings) atau
-> `PUT /api/stacks/{id}/git`. Sesudahnya jalankan `/status-infra` dan pastikan
-> `https://dispar.rantai.dev` masih `200`.
->
-> Kalau repo baru dibuat **private**, stack juga perlu kredensial git
-> (`GitConfig.Authentication`) — sekarang `null` karena repo lama publik.
-> Sisi baiknya: repo private menghilangkan seluruh kelas risiko "jangan sampai
-> secret ter-commit" yang membayangi repo ini.
+Selama masa peralihan ada dua pilihan, pilih satu dan konsisten:
+
+- **(A) Selesaikan pindahnya** — perbarui `GitConfig` stack **1**
+  (`dispar-platform`) dan **6** (`dispar-lakehouse`): ganti `URL` ke repo baru dan
+  `ReferenceName` ke `refs/heads/main`. Lewat Portainer UI (Stack → Git settings)
+  atau `PUT /api/stacks/{id}/git`. Sesudahnya jalankan `/status-infra` dan
+  pastikan <https://dispar.rantai.dev> masih `200`.
+- **(B) Belum siap pindah** — tiap kali ada perubahan yang harus tayang, dorong
+  juga ke repo lama:
+  ```bash
+  git push lama main:deploy/portainer-selfhost
+  ```
+  (remote `lama` = `jakarta-restaurant-data`, sudah terpasang di klon Evan.)
+
+Repo baru dibuat **public**. Konsekuensinya sama dengan repo lama: disiplin
+"jangan pernah commit rahasia" tetap berlaku sepenuhnya. Kalau nanti dijadikan
+private, stack juga butuh kredensial git (`GitConfig.Authentication`, sekarang
+`null`) — dan sebagai gantinya seluruh kelas risiko itu hilang.
 
 ---
 
