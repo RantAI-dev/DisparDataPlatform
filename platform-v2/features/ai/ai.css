@@ -1,0 +1,1322 @@
+/* =============================================================
+ * RantAI Design System — AI Page (chat / generative-ui / charts)
+ * Adapted from rantaiclaw-ui/globals.css for platform-v2.
+ * Light theme by default (matches dispar palette), brand orange.
+ * ============================================================= */
+
+.ai-shell {
+  /* Brand identity (dispar oranye, softer than rantaiclaw blue) */
+  --brand-navy: #5c1c00;
+  --brand-deep-blue: #c9531a;
+  --brand-sky: #ed6b23;
+  --brand-ink: #8b2e0a;
+
+  /* Foreground-alpha L/C/H triplet for surface tints. Black-on-light → uses 0 0 0. */
+  --af: 0 0 0;
+
+  /* Foreground / surfaces (light) */
+  --background: #ffffff;
+  --foreground: #1c1a17;
+  --card: #ffffff;
+  --card-foreground: #1c1a17;
+  --popover: #ffffff;
+  --popover-foreground: #1c1a17;
+  --primary: #ed6b23;
+  --primary-foreground: #ffffff;
+  --secondary: #f4ede6;
+  --secondary-foreground: #1c1a17;
+  --muted: #faf6f2;
+  --muted-foreground: #6b6459;
+  --accent: #ed6b23;
+  --accent-foreground: #ffffff;
+  --destructive: #dc2626;
+  --destructive-foreground: #ffffff;
+  --success: #16a34a;
+  --warning: #b45309;
+  --border: #ece6df;
+  --input: #ece6df;
+  --ring: #ed6b23;
+
+  /* Chart / dot scale (orange family) */
+  --chart-1: #ffae72;
+  --chart-2: #ff8a4a;
+  --chart-3: #ed6b23;
+  --chart-4: #c9531a;
+  --chart-5: #8b2e0a;
+
+  /* Accent dots */
+  --accent-orange: #bb7851;
+  --accent-blue: #0d63d0;
+  --accent-green: #16a34a;
+  --accent-teal: #388ca1;
+  --accent-seagreen: #32836a;
+  --accent-purple: #574399;
+  --accent-red: #bb5153;
+  --accent-cornflower: #517fbb;
+
+  /* Radius scale */
+  --radius: 6px;
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+  --radius-xl: 12px;
+  --radius-2xl: 16px;
+  --radius-3xl: 24px;
+  --radius-full: 9999px;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 4px 12px -2px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 12px 32px -8px rgba(0, 0, 0, 0.12);
+
+  /* Easing & motion */
+  --ease-out-soft: cubic-bezier(0.16, 1, 0.3, 1);
+  --duration-fast: 180ms;
+  --duration-base: 280ms;
+  --duration-slow: 480ms;
+
+  /* Fonts */
+  --font-sans: var(--font-plus-jakarta), "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+
+  color-scheme: light;
+}
+
+/* Scope everything to .ai-shell so we don't pollute the rest of the dispar app. */
+.ai-shell * {
+  border-color: var(--border);
+}
+
+.ai-shell {
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: var(--foreground);
+  background: var(--background);
+}
+
+/* ---------- Selection ---------- */
+.ai-shell ::selection {
+  background: color-mix(in oklab, var(--brand-sky) 30%, transparent);
+}
+
+/* ---------- Thin scrollbars ---------- */
+.ai-shell *::-webkit-scrollbar {
+  width: 9px;
+  height: 9px;
+}
+.ai-shell *::-webkit-scrollbar-thumb {
+  background: oklch(var(--af) / 9%);
+  border-radius: 999px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+.ai-shell *::-webkit-scrollbar-thumb:hover {
+  background: oklch(var(--af) / 16%);
+  background-clip: padding-box;
+}
+.ai-shell *::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* ============================================================
+ * Chat shell layout — full-bleed column with topbar, transcript, composer
+ * ============================================================ */
+.ai-shell .ai-app {
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - 80px); /* subtract the dispar nav */
+  background: var(--background);
+}
+
+.ai-shell .ai-topbar {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 28px;
+  border-bottom: 1px solid var(--border);
+  background: color-mix(in oklab, var(--background) 88%, transparent);
+  backdrop-filter: blur(8px);
+}
+.ai-shell .ai-topbar h1 {
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+.ai-shell .ai-topbar .crumb {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  color: var(--muted-foreground);
+  border: 1px solid var(--border);
+  padding: 3px 9px;
+  border-radius: 999px;
+}
+.ai-shell .ai-topbar .crumb .chan-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: var(--brand-sky);
+}
+.ai-shell .ai-topbar-spacer {
+  flex: 1;
+}
+.ai-shell .ai-topbar .pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  height: 30px;
+  padding: 0 11px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--muted-foreground);
+  background: var(--card);
+}
+.ai-shell .ai-topbar .pill .chan-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+}
+.ai-shell .ai-topbar .icon-btn {
+  display: inline-grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+  background: var(--card);
+  color: var(--muted-foreground);
+  cursor: pointer;
+  transition: all var(--duration-fast);
+}
+.ai-shell .ai-topbar .icon-btn:hover {
+  color: var(--foreground);
+  background: var(--muted);
+}
+
+/* ============================================================
+ * Scroll area + transcript
+ * ============================================================ */
+.ai-shell .scroll-area {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+}
+
+.ai-shell .transcript {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 28px 28px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+}
+
+.ai-shell .turn {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.ai-shell .msg-user {
+  align-self: flex-end;
+  max-width: 78%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 5px;
+}
+.ai-shell .msg-user .bubble {
+  background: linear-gradient(135deg, color-mix(in oklab, var(--brand-sky) 18%, var(--card)), color-mix(in oklab, var(--brand-deep-blue) 14%, var(--card)));
+  border: 1px solid color-mix(in oklab, var(--brand-sky) 22%, transparent);
+  color: var(--foreground);
+  padding: 11px 14px;
+  border-radius: 14px 14px 4px 14px;
+  font-size: 14px;
+  line-height: 1.55;
+  letter-spacing: -0.005em;
+  white-space: pre-wrap;
+  box-shadow: 0 1px 2px oklch(var(--af) / 4%);
+}
+
+.ai-shell .msg-meta {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--muted-foreground);
+}
+.ai-shell .msg-meta .chan-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+}
+
+.ai-shell .msg-bot {
+  display: flex;
+  gap: 13px;
+  align-items: flex-start;
+}
+.ai-shell .bot-ava {
+  width: 30px;
+  height: 30px;
+  flex: none;
+  border-radius: var(--radius-md);
+  margin-top: 2px;
+  display: grid;
+  place-items: center;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 700;
+  color: #ffffff;
+  background: linear-gradient(150deg, var(--brand-sky), var(--brand-deep-blue));
+  box-shadow: 0 2px 6px color-mix(in oklab, var(--brand-sky) 30%, transparent);
+}
+.ai-shell .bot-body {
+  min-width: 0;
+  flex: 1;
+}
+.ai-shell .bot-name {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 7px;
+}
+.ai-shell .bot-name b {
+  font-size: 12.5px;
+  font-weight: 600;
+}
+.ai-shell .bot-name .tag {
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted-foreground);
+  border: 1px solid var(--border);
+  padding: 1px 6px;
+  border-radius: 999px;
+  background: var(--card);
+}
+
+/* thinking / "is working..." animation */
+.ai-shell .think-body {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding-top: 4px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--muted-foreground);
+}
+
+.ai-shell .dots {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+}
+.ai-shell .dots i {
+  width: 5px;
+  height: 5px;
+  border-radius: 999px;
+  background: var(--brand-sky);
+  display: inline-block;
+  animation: aiDot 1.2s infinite ease-in-out both;
+}
+.ai-shell .dots i:nth-child(1) { animation-delay: -0.32s; }
+.ai-shell .dots i:nth-child(2) { animation-delay: -0.16s; }
+.ai-shell .dots i:nth-child(3) { animation-delay: 0s; }
+
+@keyframes aiDot {
+  0%, 80%, 100% { transform: scale(0.6); opacity: 0.4; }
+  40% { transform: scale(1); opacity: 1; }
+}
+
+/* ============================================================
+ * Prose / markdown (chat body)
+ * ============================================================ */
+.ai-shell .prose {
+  font-size: 14.5px;
+  line-height: 1.68;
+  color: color-mix(in oklab, var(--foreground) 92%, var(--background));
+  letter-spacing: -0.003em;
+}
+.ai-shell .prose > *:first-child { margin-top: 0; }
+.ai-shell .prose > *:last-child { margin-bottom: 0; }
+.ai-shell .prose .md-p {
+  margin: 0 0 11px;
+}
+.ai-shell .prose .md-bold {
+  font-weight: 600;
+  color: var(--foreground);
+}
+.ai-shell .prose .md-em { font-style: italic; }
+.ai-shell .prose .md-ul,
+.ai-shell .prose .md-ol {
+  margin: 4px 0 12px;
+  padding-left: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.ai-shell .prose .md-li {
+  position: relative;
+  padding-left: 20px;
+  line-height: 1.6;
+}
+.ai-shell .prose .md-ul > .md-li::before {
+  content: "";
+  position: absolute;
+  left: 4px;
+  top: 9px;
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: var(--brand-sky);
+  flex: none;
+}
+.ai-shell .prose .md-ol {
+  counter-reset: li;
+}
+.ai-shell .prose .md-ol > .md-li {
+  counter-increment: li;
+  padding-left: 26px;
+}
+.ai-shell .prose .md-ol > .md-li::before {
+  content: counter(li) ".";
+  position: absolute;
+  left: 2px;
+  top: 1px;
+  font-family: var(--font-mono);
+  font-size: 0.82em;
+  font-weight: 600;
+  color: var(--brand-sky);
+  min-width: 18px;
+}
+
+/* ---- Inline code ---- */
+.ai-shell .prose .md-code {
+  font-family: var(--font-mono);
+  font-size: 0.85em;
+  background: oklch(var(--af) / 6%);
+  padding: 1.5px 6px;
+  border-radius: 5px;
+  color: color-mix(in oklab, var(--brand-sky) 60%, var(--foreground));
+  border: 1px solid oklch(var(--af) / 5%);
+}
+
+/* ---- Fenced code block ---- */
+.ai-shell .prose .code-block {
+  position: relative;
+  margin: 10px 0 12px;
+  background: var(--muted);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+.ai-shell .prose .code-block .md-code-lang {
+  display: inline-block;
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted-foreground);
+  padding: 2px 7px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--background);
+}
+.ai-shell .prose .code-block pre {
+  margin: 0;
+  padding: 14px 16px;
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  line-height: 1.65;
+  color: color-mix(in oklab, var(--foreground) 85%, var(--background));
+  overflow-x: auto;
+  white-space: pre;
+}
+
+/* ---- Headings ---- */
+.ai-shell .prose .md-h {
+  font-weight: 600;
+  margin: 16px 0 8px;
+  letter-spacing: -0.01em;
+  line-height: 1.3;
+  color: var(--foreground);
+}
+.ai-shell .prose .md-h1 { font-size: 19px; }
+.ai-shell .prose .md-h2 { font-size: 16px; }
+.ai-shell .prose .md-h3 { font-size: 14.5px; color: var(--brand-ink); }
+.ai-shell .prose .md-h4 { font-size: 14px; color: var(--muted-foreground); text-transform: none; }
+
+/* ---- Links ---- */
+.ai-shell .prose .md-link {
+  color: var(--brand-sky);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  text-decoration-thickness: 1px;
+}
+.ai-shell .prose .md-link:hover {
+  opacity: 0.85;
+  text-decoration-thickness: 2px;
+}
+
+/* ---- Blockquote ---- */
+.ai-shell .prose .md-bq {
+  margin: 10px 0 12px;
+  padding: 8px 14px;
+  border-left: 3px solid var(--brand-sky);
+  background: color-mix(in oklab, var(--brand-sky) 5%, transparent);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  color: var(--muted-foreground);
+  font-style: italic;
+  line-height: 1.6;
+}
+
+/* ---- Horizontal rule ---- */
+.ai-shell .prose .md-hr {
+  border: 0;
+  border-top: 1px solid var(--border);
+  margin: 14px 0;
+}
+
+/* ============================================================
+ * GFM Table — rendered inside .prose as a styled card
+ * ============================================================ */
+.ai-shell .prose .md-table-wrap {
+  margin: 12px 0 14px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--card);
+  overflow: hidden;
+  box-shadow: 0 1px 2px oklch(var(--af) / 3%);
+}
+.ai-shell .prose .md-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+.ai-shell .prose .md-table .md-th {
+  background: oklch(var(--af) / 4%);
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted-foreground);
+  font-weight: 600;
+  text-align: left;
+  padding: 9px 14px;
+  border-bottom: 1px solid var(--border);
+  white-space: nowrap;
+}
+.ai-shell .prose .md-table .md-td {
+  padding: 9px 14px;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+  color: var(--foreground);
+  line-height: 1.5;
+}
+.ai-shell .prose .md-table .md-td-num {
+  font-variant-numeric: tabular-nums;
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  color: var(--brand-ink);
+  text-align: right;
+  white-space: nowrap;
+}
+.ai-shell .prose .md-table .md-tr:last-child .md-td {
+  border-bottom: 0;
+}
+.ai-shell .prose .md-table .md-tr:hover .md-td {
+  background: oklch(var(--af) / 2%);
+}
+
+/* ============================================================
+ * Generative UI (```ui JSON blocks)
+ * ============================================================ */
+.ai-shell .gu-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 6px 0;
+}
+.ai-shell .gu-heading {
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--foreground);
+}
+.ai-shell .gu-card {
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border-left: 3px solid var(--gu-accent, var(--brand-sky));
+  background: var(--card);
+  border-top: 1px solid var(--border);
+  border-right: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  border-radius: var(--radius-md);
+}
+.ai-shell .gu-card-title {
+  font-size: 13px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--foreground);
+}
+.ai-shell .gu-card-title .cdot {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: var(--gu-accent, var(--brand-sky));
+  flex: none;
+}
+
+.ai-shell .stat-strip {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  margin-bottom: 0;
+}
+.ai-shell .stat-cell {
+  background: var(--background);
+  padding: 14px 16px;
+}
+.ai-shell .stat-cell .s-fig {
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+}
+.ai-shell .stat-cell .s-fig small {
+  font-size: 13px;
+  color: var(--muted-foreground);
+  font-weight: 400;
+}
+.ai-shell .stat-cell .s-lab {
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted-foreground);
+  margin-top: 5px;
+}
+
+.ai-shell .gu-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12.5px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+.ai-shell .gu-table th,
+.ai-shell .gu-table td {
+  border-bottom: 1px solid var(--border);
+  padding: 8px 11px;
+  text-align: left;
+}
+.ai-shell .gu-table th {
+  background: oklch(var(--af) / 4%);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--muted-foreground);
+}
+.ai-shell .gu-table td {
+  font-variant-numeric: tabular-nums;
+}
+.ai-shell .gu-table tr:last-child td {
+  border-bottom: 0;
+}
+
+.ai-shell .gu-callout {
+  border: 1px solid var(--gu-accent, var(--brand-sky));
+  border-radius: var(--radius-md);
+  padding: 11px 13px;
+  font-size: 13px;
+  line-height: 1.5;
+  background: color-mix(in oklab, var(--gu-accent, var(--brand-sky)) 8%, transparent);
+}
+
+.ai-shell .gu-choices {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.ai-shell .gu-choice-prompt {
+  font-size: 12.5px;
+  color: var(--muted-foreground);
+  margin-bottom: 8px;
+}
+
+.ai-shell .gu-composing {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--muted-foreground);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 9px 13px;
+  background: oklch(var(--af) / 1.5%);
+}
+
+/* ============================================================
+ * Chart container (echarts)
+ * ============================================================ */
+.ai-shell .chart-card {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--card);
+  overflow: hidden;
+}
+.ai-shell .chart-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--border);
+  background: oklch(var(--af) / 2%);
+}
+.ai-shell .chart-head .cdot {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: var(--brand-sky);
+}
+.ai-shell .chart-head .title {
+  font-size: 12.5px;
+  font-weight: 600;
+}
+.ai-shell .chart-head .badge {
+  margin-left: auto;
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 3px 9px;
+  border-radius: 999px;
+  color: var(--brand-sky);
+  background: color-mix(in oklab, var(--brand-sky) 14%, transparent);
+}
+.ai-shell .chart-body {
+  padding: 10px 6px 8px;
+  height: 280px;
+}
+.ai-shell .chart-body.tall {
+  height: 360px;
+}
+
+/* ============================================================
+ * Activity disclosure (SQL + tools trace)
+ * ============================================================ */
+.ai-shell .activity {
+  margin-bottom: 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: oklch(var(--af) / 1.5%);
+}
+.ai-shell .act-head {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 9px 12px;
+  cursor: pointer;
+  user-select: none;
+  width: 100%;
+  background: transparent;
+  border: 0;
+  font-family: inherit;
+  font-size: 12px;
+  color: var(--muted-foreground);
+  transition: background var(--duration-fast);
+}
+.ai-shell .act-head:hover {
+  background: oklch(var(--af) / 3%);
+}
+.ai-shell .act-head .chev {
+  width: 13px;
+  height: 13px;
+  transition: transform var(--duration-fast);
+}
+.ai-shell .act-head.open .chev {
+  transform: rotate(90deg);
+}
+.ai-shell .act-head .act-label {
+  font-weight: 600;
+  color: var(--foreground);
+}
+.ai-shell .act-head .act-sub {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  color: var(--muted-foreground);
+}
+.ai-shell .act-list {
+  border-top: 1px solid var(--border);
+  background: var(--card);
+}
+.ai-shell .act-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--border);
+}
+.ai-shell .act-row:last-child {
+  border-bottom: 0;
+}
+.ai-shell .act-row .act-tool {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--foreground);
+}
+.ai-shell .act-row .act-tool .arrow {
+  margin: 0 6px;
+  color: var(--muted-foreground);
+}
+.ai-shell .act-row .act-tool .tgt {
+  color: var(--muted-foreground);
+  font-size: 10.5px;
+}
+.ai-shell .act-row .act-res {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  color: var(--muted-foreground);
+  margin-top: 2px;
+}
+.ai-shell .act-status {
+  margin-left: auto;
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 2px 7px;
+  border-radius: 999px;
+}
+.ai-shell .act-status.ok {
+  color: var(--accent-green);
+  background: color-mix(in oklab, var(--accent-green) 12%, transparent);
+}
+.ai-shell .act-status.err {
+  color: var(--destructive);
+  background: color-mix(in oklab, var(--destructive) 12%, transparent);
+}
+.ai-shell .act-status.run {
+  color: var(--brand-sky);
+  background: color-mix(in oklab, var(--brand-sky) 12%, transparent);
+}
+
+.ai-shell pre.sql-pre {
+  margin: 6px 12px 12px;
+  padding: 12px 14px;
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  line-height: 1.65;
+  color: color-mix(in oklab, var(--foreground) 85%, var(--background));
+  background: var(--muted);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  white-space: pre-wrap;
+  overflow-x: auto;
+}
+
+/* ============================================================
+ * Datasets list (catalog answer)
+ * ============================================================ */
+.ai-shell .ds-list {
+  margin: 6px 0 0;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: var(--card);
+  overflow: hidden;
+}
+.ai-shell .ds-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--border);
+  font-size: 12.5px;
+}
+.ai-shell .ds-item:last-child { border-bottom: 0; }
+.ai-shell .ds-item .cdot {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: var(--brand-sky);
+  flex: none;
+}
+.ai-shell .ds-item .ds-name {
+  font-weight: 600;
+  color: var(--foreground);
+}
+.ai-shell .ds-item .ds-tier {
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted-foreground);
+  border: 1px solid var(--border);
+  padding: 1px 6px;
+  border-radius: 999px;
+}
+.ai-shell .ds-item .ds-rows {
+  margin-left: auto;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--muted-foreground);
+  font-variant-numeric: tabular-nums;
+}
+
+/* ============================================================
+ * Chat empty state (welcome)
+ * ============================================================ */
+.ai-shell .chat-empty {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  padding: 24px;
+  text-align: center;
+}
+.ai-shell .chat-empty .ce-mark {
+  width: 56px;
+  height: 56px;
+  border-radius: var(--radius-xl);
+  display: grid;
+  place-items: center;
+  background: linear-gradient(150deg, color-mix(in oklab, var(--brand-sky) 30%, transparent), color-mix(in oklab, var(--brand-deep-blue) 30%, transparent));
+  color: var(--brand-sky);
+  box-shadow: 0 4px 16px color-mix(in oklab, var(--brand-sky) 22%, transparent);
+}
+.ai-shell .chat-empty h2 {
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  margin: 0;
+  color: var(--brand-ink);
+}
+.ai-shell .chat-empty p {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--muted-foreground);
+  margin: 4px 0 0;
+}
+.ai-shell .ce-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  width: 100%;
+  max-width: 500px;
+  margin-top: 6px;
+}
+.ai-shell .ce-chip {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: var(--card);
+  padding: 11px 13px;
+  text-align: left;
+  font-size: 12.5px;
+  color: var(--muted-foreground);
+  cursor: pointer;
+  transition: all var(--duration-fast);
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+.ai-shell .ce-chip:hover {
+  border-color: color-mix(in oklab, var(--brand-sky) 40%, transparent);
+  color: var(--foreground);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px color-mix(in oklab, var(--brand-sky) 10%, transparent);
+}
+.ai-shell .ce-chip .chip-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  background: var(--brand-sky);
+  flex: none;
+}
+
+/* ============================================================
+ * Composer
+ * ============================================================ */
+.ai-shell .composer-wrap {
+  flex: none;
+  padding: 14px 28px 20px;
+}
+.ai-shell .composer-inner {
+  max-width: 780px;
+  margin: 0 auto;
+}
+.ai-shell .composer {
+  border: 1px solid var(--input);
+  border-radius: var(--radius-xl);
+  background: var(--card);
+  transition: border-color var(--duration-fast), box-shadow var(--duration-fast);
+  overflow: hidden;
+  box-shadow: 0 1px 3px oklch(var(--af) / 4%);
+}
+.ai-shell .composer:focus-within {
+  border-color: color-mix(in oklab, var(--brand-sky) 55%, transparent);
+  box-shadow: 0 0 0 3px color-mix(in oklab, var(--brand-sky) 16%, transparent);
+}
+.ai-shell .composer textarea {
+  width: 100%;
+  resize: none;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  font-size: 14px;
+  line-height: 1.55;
+  padding: 14px 16px 6px;
+  max-height: 160px;
+}
+.ai-shell .composer textarea::placeholder {
+  color: var(--muted-foreground);
+}
+.ai-shell .composer-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 9px 9px 12px;
+}
+.ai-shell .cchip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  color: var(--muted-foreground);
+  padding: 5px 10px;
+  border-radius: var(--radius-md);
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all var(--duration-fast);
+  background: transparent;
+}
+.ai-shell .cchip:hover {
+  border-color: var(--border);
+  color: var(--foreground);
+}
+.ai-shell .cchip svg {
+  width: 13px;
+  height: 13px;
+}
+.ai-shell .cchip.active {
+  border-color: color-mix(in oklab, var(--brand-sky) 50%, transparent);
+  color: var(--brand-sky);
+  background: color-mix(in oklab, var(--brand-sky) 8%, transparent);
+}
+.ai-shell .send-btn {
+  margin-left: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 34px;
+  padding: 0 16px;
+  border: 0;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: #ffffff;
+  background: var(--brand-sky);
+  transition: opacity var(--duration-fast), transform var(--duration-fast);
+  box-shadow: 0 2px 6px color-mix(in oklab, var(--brand-sky) 25%, transparent);
+}
+.ai-shell .send-btn:hover {
+  opacity: 0.88;
+}
+.ai-shell .send-btn:active {
+  transform: scale(0.96);
+}
+.ai-shell .send-btn:disabled {
+  opacity: 0.4;
+  cursor: default;
+  box-shadow: none;
+}
+.ai-shell .send-btn svg {
+  width: 15px;
+  height: 15px;
+}
+
+.ai-shell .composer-hint {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 9px;
+  padding: 0 2px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--muted-foreground);
+  flex-wrap: wrap;
+}
+.ai-shell .composer-hint .kbd {
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  padding: 1.5px 5px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: var(--card);
+  color: var(--muted-foreground);
+}
+
+/* ============================================================
+ * Badges
+ * ============================================================ */
+.ai-shell .badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 3px 9px;
+  border-radius: 999px;
+  border: 1px solid transparent;
+}
+.ai-shell .badge .bd {
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+}
+.ai-shell .badge.green {
+  color: var(--accent-green);
+  background: color-mix(in oklab, var(--accent-green) 14%, transparent);
+}
+.ai-shell .badge.green .bd { background: var(--accent-green); }
+.ai-shell .badge.sky {
+  color: var(--brand-sky);
+  background: color-mix(in oklab, var(--brand-sky) 14%, transparent);
+}
+.ai-shell .badge.sky .bd { background: var(--brand-sky); }
+.ai-shell .badge.amber {
+  color: var(--accent-orange);
+  background: color-mix(in oklab, var(--accent-orange) 16%, transparent);
+}
+.ai-shell .badge.amber .bd { background: var(--accent-orange); }
+.ai-shell .badge.dim {
+  color: var(--muted-foreground);
+  background: oklch(var(--af) / 5%);
+}
+.ai-shell .badge.dim .bd { background: var(--muted-foreground); }
+.ai-shell .badge.red {
+  color: var(--destructive);
+  background: color-mix(in oklab, var(--destructive) 16%, transparent);
+}
+.ai-shell .badge.red .bd { background: var(--destructive); }
+
+/* ============================================================
+ * Error banner
+ * ============================================================ */
+.ai-shell .err-banner {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 10px 14px;
+  border-radius: var(--radius-md);
+  border: 1px solid color-mix(in oklab, var(--destructive) 35%, transparent);
+  background: color-mix(in oklab, var(--destructive) 8%, transparent);
+  color: var(--destructive);
+  font-size: 12.5px;
+  margin-bottom: 12px;
+}
+.ai-shell .err-banner svg {
+  width: 14px;
+  height: 14px;
+  flex: none;
+  margin-top: 1px;
+}
+
+/* ============================================================
+ * Entry animation
+ * ============================================================ */
+@keyframes fadeUp {
+  from { transform: translateY(8px); opacity: 0; }
+  to { transform: none; opacity: 1; }
+}
+.ai-shell .fade-up {
+  animation: fadeUp var(--duration-base) var(--ease-out-soft) both;
+}
+
+/* ============================================================
+ * Cursor (streaming)
+ * ============================================================ */
+.ai-shell .cursor {
+  display: inline-block;
+  width: 7px;
+  height: 14px;
+  margin-left: 1px;
+  vertical-align: text-bottom;
+  background: var(--brand-sky);
+  border-radius: 1px;
+  animation: aiBlink 1s steps(2, start) infinite;
+}
+@keyframes aiBlink {
+  50% { opacity: 0; }
+}
+
+/* ============================================================
+ * Dock (floating panel on every page)
+ * ============================================================ */
+.ai-shell .ai-dock-btn {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 50;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--brand-sky);
+  color: #ffffff;
+  display: grid;
+  place-items: center;
+  border: 0;
+  cursor: pointer;
+  box-shadow: 0 8px 24px color-mix(in oklab, var(--brand-sky) 40%, transparent);
+  transition: transform var(--duration-fast), opacity var(--duration-fast);
+}
+.ai-shell .ai-dock-btn:hover {
+  transform: scale(1.06);
+  opacity: 0.92;
+}
+.ai-shell .ai-dock-btn::after {
+  content: "";
+  position: absolute;
+  inset: -4px;
+  border-radius: 999px;
+  border: 2px solid color-mix(in oklab, var(--brand-sky) 40%, transparent);
+  animation: aiPulse 2.5s ease-out infinite;
+  pointer-events: none;
+}
+@keyframes aiPulse {
+  0% { transform: scale(0.85); opacity: 1; }
+  100% { transform: scale(1.35); opacity: 0; }
+}
+
+.ai-shell .ai-dock-panel {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  top: 0;
+  z-index: 60;
+  width: 100%;
+  max-width: 460px;
+  display: flex;
+  flex-direction: column;
+  background: var(--background);
+  border-left: 1px solid var(--border);
+  box-shadow: -16px 0 48px oklch(var(--af) / 12%);
+  animation: aiDockIn var(--duration-base) var(--ease-out-soft);
+}
+@keyframes aiDockIn {
+  from { transform: translateX(100%); opacity: 0; }
+  to { transform: none; opacity: 1; }
+}
+.ai-shell .ai-dock-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--border);
+  background: var(--background);
+}
+.ai-shell .ai-dock-head .ai-ava {
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-md);
+  display: grid;
+  place-items: center;
+  color: #ffffff;
+  background: linear-gradient(150deg, var(--brand-sky), var(--brand-deep-blue));
+}
+.ai-shell .ai-dock-head .title {
+  font-size: 14px;
+  font-weight: 600;
+}
+.ai-shell .ai-dock-head .sub {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--muted-foreground);
+}
+.ai-shell .ai-dock-head .close {
+  margin-left: auto;
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+  background: var(--card);
+  color: var(--muted-foreground);
+  cursor: pointer;
+  transition: all var(--duration-fast);
+}
+.ai-shell .ai-dock-head .close:hover {
+  color: var(--foreground);
+  background: var(--muted);
+}
+
+.ai-shell .ai-dock-body {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+}
+
+.ai-shell .ai-dock-foot {
+  flex: none;
+  padding: 10px 14px 14px;
+  border-top: 1px solid var(--border);
+  background: var(--background);
+}
+
+/* ============================================================
+ * Compact dock on mobile — full screen
+ * ============================================================ */
+@media (max-width: 640px) {
+  .ai-shell .ai-dock-panel {
+    max-width: 100%;
+  }
+  .ai-shell .transcript {
+    padding: 16px 14px 12px;
+  }
+  .ai-shell .composer-wrap {
+    padding: 10px 14px 16px;
+  }
+  .ai-shell .ce-grid {
+    grid-template-columns: 1fr;
+  }
+  .ai-shell .ai-topbar {
+    padding: 10px 14px;
+  }
+}

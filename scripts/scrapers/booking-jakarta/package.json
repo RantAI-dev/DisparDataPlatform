@@ -1,0 +1,16 @@
+{
+  "name": "booking-jakarta-poc",
+  "version": "0.1.0",
+  "private": true,
+  "description": "POC scraper: hotel availability in DKI Jakarta from Booking.com public search. Read README.md — this is research-grade, exit to Booking Demand API for production.",
+  "type": "module",
+  "scripts": {
+    "start": "bun run src/index.ts",
+    "schema": "bun run src/schema.ts",
+    "smoke": "bun run src/smoke.ts"
+  },
+  "dependencies": {
+    "@clickhouse/client": "^1.12.0",
+    "playwright": "^1.49.0"
+  }
+}

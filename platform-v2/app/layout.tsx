@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Plus_Jakarta_Sans } from "next/font/google";
 import { Nav } from "@/components/Nav";
+import { AiDock } from "@/components/AiDock";
 import "./globals.css";
 
 const sans = Plus_Jakarta_Sans({
@@ -34,6 +35,7 @@ export default function RootLayout({
       <body>
         <Nav />
         {children}
+        <AiDock />
       </body>
     </html>
   );
