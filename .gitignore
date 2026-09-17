@@ -35,3 +35,18 @@ __pycache__/
 # Repo naskah buku (clone terpisah, punya .git sendiri) — jangan ikut ter-commit
 # ke repo ini. Aplikasi webnya ada di buku/, dan isinya sudah diimpor ke sana.
 /buku-statistika-pariwisata-perkotaan/
+
+# Berkas kredensial lokal untuk handover (JANGAN PERNAH di-commit — repo ini publik)
+*.local.md
+secrets/
+
+# Deliverable pribadi di root (laporan/paparan bulanan) — simpan lokal, jangan
+# membengkakkan clone. Yang sudah final tempatnya di report/ atau dokumen/.
+/*.docx
+/*.pptx
+/Progress-Tracker-*.pdf
+
+# Setelan Claude Code per-orang (izin lokal). settings.json yang di-share
+# TETAP di-commit; yang .local ini tidak.
+.claude/settings.local.json
+.claude/worktrees/

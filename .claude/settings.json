@@ -1,0 +1,33 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__portainer__StackList",
+      "mcp__portainer__StackInspect",
+      "mcp__portainer__StackFileInspect",
+      "mcp__portainer__EndpointList",
+      "mcp__portainer__EndpointInspect",
+      "mcp__portainer__snapshotContainersList",
+      "mcp__portainer__snapshotInspect",
+      "mcp__portainer__systemInfo",
+      "mcp__portainer__systemVersion",
+      "mcp__portainer__docker_proxy",
+      "Bash(npx tsc --noEmit)",
+      "Bash(npm run build)",
+      "Bash(npm run dev)",
+      "Bash(git status:*)",
+      "Bash(git diff:*)",
+      "Bash(git log:*)",
+      "Bash(curl -s http://192.168.18.187:*)",
+      "Bash(curl -sk https://192.168.18.187:*)"
+    ],
+    "ask": [
+      "mcp__portainer__StackGitRedeploy",
+      "mcp__portainer__StackUpdate",
+      "mcp__portainer__StackUpdateGit",
+      "mcp__portainer__StackDelete",
+      "mcp__portainer__StackStop",
+      "mcp__portainer__StackStart",
+      "mcp__portainer__EndpointDelete"
+    ]
+  }
+}

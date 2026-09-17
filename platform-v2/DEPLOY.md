@@ -1,94 +1,69 @@
-# Deploy — Platform Data Dispar (Vercel)
+# Deploy — app dispar-v2 (Portainer self-host)
 
-Platform ini di-deploy sebagai **project Vercel terpisah** dari app Atlas, dari
-repo yang sama (`RantAI-dev/jakarta-restaurant-data`) dengan **Root Directory =
-`platform`**. Jadi dapet subdomain sendiri, beda dari Atlas.
+App ini **tidak** di-deploy ke Vercel. Ia berjalan sebagai container di server
+Docker `192.168.18.187`, dikelola Portainer.
 
-- Nama project      : `dispar-data-platform` → `https://dispar-data-platform.vercel.app`
-- Root Directory    : `platform`
-- Framework         : Next.js (auto-detect)
-- DB prod           : Neon (via Vercel Marketplace)
-- CI/CD             : Vercel Git integration — push ke `main` = deploy production, tiap PR = preview URL
+> Berkas `vercel.json` yang masih ada di direktori ini adalah sisa warisan dari
+> v1 dan tidak dipakai.
 
-> Build **tidak** butuh DB (semua page yang query DB bersifat dynamic / di-fetch
-> saat request). Jadi deploy pertama tetap sukses walau Neon belum ke-attach —
-> page baru berfungsi setelah `DATABASE_URL` ke-set. Aman urutannya bebas.
+## Tempatnya di server
 
----
+Service `dispar-v2` didefinisikan di **`../lakehouse/compose.yaml`**, bagian dari
+Portainer stack **`dispar-lakehouse` (Id 6)** — bukan stack `dispar-platform`.
+Alasannya: app harus berada di network `lakenet` supaya bisa menjangkau
+`lake-clickhouse`.
 
-## 1. Buat project Vercel ke-2 (sekali saja)
-
-Repo sudah ke-link ke project Atlas. Buat project **kedua** dari repo yang sama:
-
-1. Vercel Dashboard → **Add New… → Project**.
-2. Pilih repo `RantAI-dev/jakarta-restaurant-data` (boleh dipakai ulang untuk >1 project).
-3. **Project Name**: `dispar-data-platform`.
-4. **Root Directory**: klik *Edit* → pilih **`platform`**. (WAJIB — kalau tidak, Vercel build root Atlas.)
-5. Framework Preset: **Next.js** (harusnya auto). Build/Install command: biarkan default
-   (`next build` / `npm install` — `.npmrc` sudah `legacy-peer-deps=true` untuk react-leaflet).
-6. **Jangan Deploy dulu** — lanjut set DB & env di langkah 2–3, baru Deploy.
-
-## 2. Pasang Neon (DB prod)
-
-Di project `dispar-data-platform`:
-
-1. Tab **Storage** (atau Integrations → Marketplace) → **Neon** → *Add / Connect*.
-2. Buat database baru (region terdekat, mis. Singapore). Neon otomatis meng-inject
-   env **`DATABASE_URL`** (dan `POSTGRES_*`) ke semua Environment (Production/Preview/Development).
-3. Pastikan `DATABASE_URL` muncul di **Settings → Environment Variables**.
-
-## 3. Env var tambahan
-
-Settings → Environment Variables → tambah:
-
-| Key           | Value                                  | Environment            |
-|---------------|----------------------------------------|------------------------|
-| `SYNC_SECRET` | string acak panjang (mis. `openssl rand -hex 24`) | Production (+ Preview) |
-
-`DATABASE_URL` sudah dari Neon (langkah 2) — jangan diisi manual.
-
-## 4. Deploy
-
-**Deployments → Deploy** (atau cukup push ke `main`). Build ± 1–2 menit.
-
-## 5. Isi data DB prod (sekali, setelah Neon aktif)
-
-Tabel + data belum ada di Neon. Jalankan dari lokal, pakai connection string prod:
-
-```bash
-cd platform
-vercel link                       # pilih project dispar-data-platform (sekali)
-vercel env pull .env.production.local   # tarik DATABASE_URL dari Neon
-
-# 1) buat semua tabel (schema.ts)
-npx drizzle-kit push
-# (drizzle-kit baca DATABASE_URL dari env; export dulu bila perlu:
-#   export $(grep -v '^#' .env.production.local | xargs) )
-
-# 2) seed katalog + data Atlas
-npx tsx --env-file=.env.production.local scripts/db-seed-catalog.ts
-npx tsx --env-file=.env.production.local scripts/db-seed-atlas.ts
-
-# 3) sync data SDI (fetch API Satu Data Jakarta → tabel record). Agak lama.
-npx tsx --env-file=.env.production.local scripts/db-sync-dataset.ts all
+```
+Internet → Cloudflare Tunnel (dispar-cloudflared) → localhost:13031
+         → dispar-v2 (Next standalone, PORT=3032) → lake-clickhouse:8123
 ```
 
-> `.env.production.local` sudah di-gitignore — jangan commit.
+| Hal | Nilai |
+|---|---|
+| Stack | `dispar-lakehouse`, Id **6**, endpoint **3** |
+| Compose | `lakehouse/compose.yaml`, service `dispar-v2` |
+| Branch git | **`deploy/portainer-selfhost`** |
+| Image | `dispar-v2:latest` (di-build di server dari `../platform-v2`) |
+| Port | `13031` (dilihat publik lewat tunnel) dan `13032` (akses langsung LAN) |
+| Auto-update | **mati** — push saja tidak men-deploy apa pun |
 
-**Alternatif sync SDI via HTTP** (tanpa lokal), setelah `SYNC_SECRET` ke-set & deploy:
+## Langkah deploy
 
-```bash
-curl -X POST https://dispar-data-platform.vercel.app/api/admin/sync \
-  -H "x-sync-secret: <SYNC_SECRET>"
-```
+Cara termudah: jalankan **`/deploy-v2`** dari Claude Code. Manualnya:
 
-## 6. CI/CD (otomatis, tak perlu konfigurasi lain)
+1. `npx tsc --noEmit` lulus; commit; **push ke `deploy/portainer-selfhost`**
+   (stack menarik dari git, bukan dari mesin lokal).
+2. Simpan `Env` stack 6 apa adanya: `GET /api/stacks/6` → `.Env`.
+3. Paksa rebuild: hapus container `dispar-v2`, lalu
+   `DELETE /images/dispar-v2:latest`.
+4. Redeploy: `PUT /api/stacks/6/git/redeploy?endpointId=3`, **sertakan `Env`
+   lengkap** dari langkah 2.
+5. Verifikasi — keduanya harus `200`:
+   ```bash
+   curl -s -o /dev/null -w "%{http_code}\n" http://192.168.18.187:13032/
+   curl -s -o /dev/null -w "%{http_code}\n" https://dispar.rantai.dev/
+   ```
 
-Vercel Git integration aktif begitu project ke-link:
+## Tiga jebakan yang pernah menjatuhkan produksi
 
-- Push / merge ke **`main`** → **Production deploy** otomatis.
-- Buka **Pull Request** → **Preview deploy** dengan URL unik per PR.
-- Rollback: Deployments → pilih deploy lama → *Promote to Production*.
+1. **`Env` wajib dikirim ulang utuh saat redeploy.** Kalau tidak, compose jatuh
+   ke nilai default, Lakekeeper gagal auth ke volume Postgres lama, dan
+   **ClickHouse + katalog ikut mati** — bukan cuma app-nya.
+2. **Image tidak dibangun ulang kalau image lama masih ada.** Wajib hapus dulu,
+   kalau tidak deploy jadi no-op yang terlihat sukses.
+3. **`PORT: 3032` wajib ada di environment compose.** Dockerfile menetapkan
+   `PORT=3000`; tanpa penyelarasan, container "running" tapi tak ada yang
+   mendengar.
 
-Update data (SDI/atlas) tanpa ganti kode: cukup jalankan ulang langkah 5
-(atau `curl` sync) — tidak perlu redeploy karena page DB bersifat dynamic.
+Tambahan: port **13031** hanya bisa dipegang satu container. `dispar-v2`
+memegangnya sekarang — `dispar-app` (v1) harus tetap dalam keadaan berhenti.
+
+## Environment yang dibaca app
+
+| Env | Nilai di container | Keterangan |
+|---|---|---|
+| `CH_URL` | `http://lake-clickhouse:8123` | ClickHouse di network `lakenet` |
+| `CH_USER` | `dispar_app` | read-only |
+| `CH_PASSWORD` | dari stack Env `CH_APP_PASSWORD` | |
+| `PORT` | `3032` | wajib — lihat jebakan #3 |
+| `LLM_URL` / `LLM_MODEL` / `LLM_KEY` | belum di-set | `/ai` belum aktif di produksi sampai diisi |

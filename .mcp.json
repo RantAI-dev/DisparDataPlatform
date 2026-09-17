@@ -1,0 +1,14 @@
+{
+  "mcpServers": {
+    "portainer": {
+      "type": "stdio",
+      "command": "uvx",
+      "args": ["--from", "mcp-portainer~=2.43.0", "mcp-portainer"],
+      "env": {
+        "PORTAINER_URL": "${PORTAINER_URL:-https://192.168.18.187:9443}",
+        "PORTAINER_API_KEY": "${PORTAINER_API_KEY}",
+        "PORTAINER_TLS_VERIFY": "${PORTAINER_TLS_VERIFY:-false}"
+      }
+    }
+  }
+}
