@@ -7,33 +7,47 @@ Runbook manusia yang setara: `docs/DEPLOY-RUNBOOK.md`.
 
 Jalankan berurutan, **berhenti dan lapor kalau ada langkah yang gagal**:
 
-1. **Pastikan kode sudah aman**
+1. **Preflight — jalankan ini DULU, selalu**
+   ```bash
+   bash scripts/preflight-portainer.sh
+   ```
+   Keluar bukan-0 → **berhenti** dan tunjukkan pesannya apa adanya ke pengguna.
+   Pesan itu sudah memuat cara memperbaikinya (biasanya env belum di-set atau
+   token dicabut; keduanya butuh Claude Code dijalankan ulang). Jangan menebak,
+   jangan mencoba jalur lain.
+
+2. **Pastikan kode sudah aman**
    - `cd platform-v2 && npx tsc --noEmit` harus lulus.
    - Semua perubahan sudah di-commit dan **di-push ke branch
      `main` DAN ke repo lama** (`git push origin main && git push lama main`) — stack 6
      masih menarik dari repo lama, dan dari git, bukan dari mesin lokal.
 
-2. **Rekam keadaan sekarang** (untuk rollback)
+3. **Rekam keadaan sekarang** (untuk rollback)
    - `StackInspect` stack **6** → simpan `.Env` **lengkap** dan catat
      `GitConfig.ConfigHash` yang sedang jalan.
 
-3. **Paksa rebuild image**
+4. **Paksa rebuild image**
    - Hapus container `dispar-v2`, lalu `DELETE /images/dispar-v2:latest` lewat
      `docker_proxy`. Tanpa ini image lama dipakai ulang dan deploy jadi no-op.
 
-4. **Redeploy stack 6**
+5. **Redeploy stack 6**
    - `StackGitRedeploy` id `6`, endpoint `3`, **sertakan `Env` lengkap** dari
      langkah 2. Kalau `Env` tidak dikirim, ClickHouse + katalog akan mati.
    - Pastikan `PORT: 3032` ada di environment service `dispar-v2`.
 
-5. **Verifikasi sungguhan**
+6. **Verifikasi sungguhan**
    ```bash
    curl -s -o /dev/null -w "%{http_code}\n" http://192.168.18.187:13032/
    curl -s -o /dev/null -w "%{http_code}\n" https://dispar.rantai.dev/
    ```
    Keduanya harus `200`. Status container "running" saja **tidak cukup**.
 
-6. **Lapor** — commit apa yang ter-deploy, dan hasil kedua curl di atas.
+7. **Lapor** — commit apa yang ter-deploy, dan hasil kedua curl di atas.
 
 Kalau produksi rusak: redeploy ulang dari commit sebelumnya (langkah 2 mencatat
 `ConfigHash`-nya), lalu laporkan apa yang terjadi.
+
+**JANGAN menghapus stack.** `StackDelete` sengaja di-`deny` di
+`.claude/settings.json`: sesi Claude tidak bisa MEMBUAT stack kembali, jadi
+menghapus = layanan mati sampai ada manusia membuatnya ulang lewat Portainer UI.
+Ini pernah terjadi. Redeploy tidak pernah butuh delete.

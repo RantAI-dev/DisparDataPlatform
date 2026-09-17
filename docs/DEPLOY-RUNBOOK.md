@@ -31,11 +31,34 @@ export PORTAINER_TLS_VERIFY=false       # sertifikat self-signed
 > **Status 17 Sep 2026: API key yang lama sudah tidak sah** (`401 Invalid JWT`).
 > Server Portainer sendiri sehat. Buat token baru sebelum mencoba deploy.
 
-Uji dulu — harus membalas daftar stack, bukan `401`:
+**Uji semuanya sekaligus** — ini pemeriksaan yang harus dilewati sebelum deploy:
 
 ```bash
-curl -sk -H "X-API-Key: $PORTAINER_API_KEY" "$PORTAINER_URL/api/stacks" | head -c 200
+bash scripts/preflight-portainer.sh
 ```
+
+Ia memeriksa berurutan (env → jaringan → auth → environment → stack) dan berhenti
+di kegagalan pertama sambil memberi tahu cara memperbaikinya. Keluar `0` = aman
+deploy. Kalau Claude-mu bilang "tidak bisa deploy", **jalankan ini dulu** sebelum
+menebak-nebak.
+
+### Kalau MCP portainer tidak jalan
+
+Dua penyebab, dan keduanya memunculkan `401 Invalid JWT token` yang sama —
+preflight di atas membedakannya untukmu:
+
+| Penyebab | Gejala | Perbaikan |
+|---|---|---|
+| **Env belum di-set** (paling sering) | `PORTAINER_API_KEY` kosong. `.mcp.json` memakai `${PORTAINER_API_KEY}`; kalau kosong, MCP jalan tanpa kredensial. | export ketiga env di atas, lalu **jalankan ulang Claude Code** |
+| **Token dicabut/kedaluwarsa** | env terisi tapi server menolak | buat token baru di Portainer → My account → Access tokens, export ulang, jalankan ulang Claude Code |
+
+> **MCP membaca env hanya saat start.** Meng-export env di terminal lain, atau
+> setelah Claude Code jalan, tidak berpengaruh. Set dulu → baru buka Claude Code.
+> Taruh di `~/.bashrc`/`~/.zshrc` supaya tidak terulang.
+
+Bedakan dari pesan Portainer sendiri:
+`"A valid authorization token is missing"` = tidak ada kredensial terkirim;
+`"Invalid JWT token"` = terkirim tapi ditolak.
 
 ---
 

@@ -11,23 +11,30 @@
       "mcp__portainer__systemInfo",
       "mcp__portainer__systemVersion",
       "mcp__portainer__docker_proxy",
+      "mcp__portainer__StackGitRedeploy",
+      "Bash(bash scripts/preflight-portainer.sh)",
       "Bash(npx tsc --noEmit)",
       "Bash(npm run build)",
       "Bash(npm run dev)",
       "Bash(git status:*)",
       "Bash(git diff:*)",
       "Bash(git log:*)",
+      "Bash(git push origin main)",
+      "Bash(git push lama main)",
       "Bash(curl -s http://192.168.18.187:*)",
-      "Bash(curl -sk https://192.168.18.187:*)"
+      "Bash(curl -sk https://192.168.18.187:*)",
+      "Bash(curl -s -o /dev/null:*)"
     ],
     "ask": [
-      "mcp__portainer__StackGitRedeploy",
       "mcp__portainer__StackUpdate",
       "mcp__portainer__StackUpdateGit",
-      "mcp__portainer__StackDelete",
       "mcp__portainer__StackStop",
-      "mcp__portainer__StackStart",
-      "mcp__portainer__EndpointDelete"
+      "mcp__portainer__StackStart"
+    ],
+    "deny": [
+      "mcp__portainer__StackDelete",
+      "mcp__portainer__EndpointDelete",
+      "mcp__portainer__EndpointDeleteBatch"
     ]
   }
 }
