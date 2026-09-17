@@ -6,7 +6,7 @@ Laporkan kondisi Platform Data Dispar apa adanya. **Hanya baca — jangan ubah a
 
 Periksa dan rangkum:
 
-1. **Stack** — `StackList`, khususnya id `1` (`dispar-platform`) dan `6`
+1. **Stack** — `StackList`, khususnya id `19` (`dispar-platform`, bukan git) dan `6`
    (`dispar-lakehouse`). Catat status dan commit git yang sedang jalan.
 
 2. **Container** — `docker_proxy` `/containers/json` dengan

@@ -108,10 +108,10 @@ gambaran utuh.
 Satu host: **`192.168.18.187`** (Ubuntu 26.04, 12 CPU / 33 GB, Docker 29.6.1),
 Portainer CE 2.39.4, **environment ID `3`**.
 
-| Stack | Id | Isi | Port host |
-|---|---|---|---|
-| `dispar-platform` | 1 | `dispar-app` (v1, siaga), `dispar-db` Postgres, `dispar-cloudflared` | 5433 |
-| `dispar-lakehouse` | 6 | `lake-rustfs`, `lake-catalog`, `lake-clickhouse`, `lake-meta`, **`dispar-v2`** | 19000/19001, 18181, **18123**/19440, 15433, **13031**/13032 |
+| Stack | Id | Sumber | Isi | Port host |
+|---|---|---|---|---|
+| `dispar-platform` | **19** | Web editor (§7) | `dispar-app` (v1, siaga), `dispar-db` Postgres, `dispar-cloudflared` | 5433 |
+| `dispar-lakehouse` | **6** | git, repo **lama** (§7) | `lake-rustfs`, `lake-catalog`, `lake-clickhouse`, `lake-meta`, **`dispar-v2`** | 19000/19001, 18181, **18123**/19440, 15433, **13031**/13032 |
 
 Di luar stack: **`lake-dagster`** (:13030) container standalone. Redeploy stack
 tidak menyentuhnya — dan kalau terhapus, compose **tidak** membuatnya ulang.
@@ -195,34 +195,52 @@ bersihkan cache uv/bun/npm + `btrfs balance`.
 
 ---
 
-## 7. Pindah repo — SETENGAH JALAN, baca ini
+## 7. Pindah repo — sudah pindah, dengan dua sisa
 
-Kode sudah pindah ke **`RantAI-dev/DisparDataPlatform`** (branch `main`, riwayat
-penuh). **Tetapi kedua Portainer stack MASIH menarik dari repo lama**
-`RantAI-dev/jakarta-restaurant-data`, branch `deploy/portainer-selfhost`.
+Kode ada di **`RantAI-dev/DisparDataPlatform`**, branch **`main`** (satu-satunya
+branch). Repo lama `jakarta-restaurant-data` masih ada dan **masih dipakai untuk
+deploy**. Dua sisa yang harus kamu tahu:
 
-> **Akibatnya, sampai `GitConfig` stack diperbarui: push ke repo baru TIDAK akan
-> pernah ter-deploy.** Redeploy akan diam-diam membangun ulang kode lama dan
-> terlihat sukses. Ini jebakan paling berbahaya di repo ini saat ini.
+### (1) Stack lakehouse masih menarik dari repo lama
 
-Selama masa peralihan ada dua pilihan, pilih satu dan konsisten:
+**URL repo sebuah stack Portainer tidak bisa diubah** — payload
+`PUT /api/stacks/{id}/git` tidak punya field `RepositoryURL`; dikirim pun diabaikan
+diam-diam. Jadi stack **6** (`dispar-lakehouse`, yang memuat app v2) tetap menarik
+dari `jakarta-restaurant-data` branch `main`.
 
-- **(A) Selesaikan pindahnya** — perbarui `GitConfig` stack **1**
-  (`dispar-platform`) dan **6** (`dispar-lakehouse`): ganti `URL` ke repo baru dan
-  `ReferenceName` ke `refs/heads/main`. Lewat Portainer UI (Stack → Git settings)
-  atau `PUT /api/stacks/{id}/git`. Sesudahnya jalankan `/status-infra` dan
-  pastikan <https://dispar.rantai.dev> masih `200`.
-- **(B) Belum siap pindah** — tiap kali ada perubahan yang harus tayang, dorong
-  juga ke repo lama:
-  ```bash
-  git push lama main:deploy/portainer-selfhost
-  ```
-  (remote `lama` = `jakarta-restaurant-data`, sudah terpasang di klon Evan.)
+> **Konsekuensi harian: dorong ke dua tempat, atau perubahanmu tidak akan tayang.**
+> ```bash
+> git push origin main    # DisparDataPlatform — sumber kebenaran
+> git push lama main      # jakarta-restaurant-data — yang ditarik stack 6
+> ```
+> Kalau lupa yang kedua, redeploy akan membangun ulang kode lama dan **terlihat
+> sukses**. Tidak ada peringatan.
 
-Repo baru dibuat **public**. Konsekuensinya sama dengan repo lama: disiplin
-"jangan pernah commit rahasia" tetap berlaku sepenuhnya. Kalau nanti dijadikan
-private, stack juga butuh kredensial git (`GitConfig.Authentication`, sekarang
-`null`) — dan sebagai gantinya seluruh kelas risiko itu hilang.
+Memindahkannya benar-benar = hapus stack 6 lalu buat ulang dari repo baru. Volume
+aman (sudah diuji: `StackDelete` tanpa `removeVolumes` mempertahankan named volume),
+tapi berarti ClickHouse/RustFS/Lakekeeper + situs publik mati beberapa menit, dan
+`lake-dagster` harus disambungkan ulang ke network baru:
+
+```bash
+# sebelum hapus stack 6: hentikan dagster supaya network bisa dilepas
+# sesudah stack 6 hidup lagi:
+docker network connect dispar-lakehouse_lakenet lake-dagster && docker start lake-dagster
+```
+Jangan buat ulang container dagster — ia tidak punya volume, riwayat run-nya ada di
+dalam container.
+
+### (2) `dispar-platform` bukan git stack lagi
+
+Stack ini sempat dihapus saat migrasi dan dibuat ulang lewat **Web editor**
+(Id berubah **1 → 19**). Artinya compose-nya hidup di dalam Portainer, bukan di
+repo, dan `dispar-app` memakai image `dispar-platform-dispar-app:latest` yang sudah
+ada — bukan di-build dari `platform/compose.yaml`.
+
+Mengubah `platform/compose.yaml` di repo **tidak berpengaruh apa-apa** pada stack
+ini. Isinya (Postgres cadangan + Cloudflare Tunnel) nyaris tak pernah berubah, jadi
+dibiarkan. Untuk mengembalikannya jadi git stack: hapus, lalu buat ulang dengan
+**Repository** → repo baru, ref `refs/heads/main`, compose path
+`platform/compose.yaml`, plus tiga Environment variable.
 
 ---
 

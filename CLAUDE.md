@@ -54,13 +54,27 @@ Internet → Cloudflare Tunnel (dispar-cloudflared, host network)
 
 **Publik: <https://dispar.rantai.dev>**
 
-| Stack Portainer | Id | Compose | Isi |
+| Stack Portainer | Id | Sumber | Isi |
 |---|---|---|---|
-| `dispar-platform` | **1** | `platform/compose.yaml` | `dispar-app` (v1, siaga, tanpa port), `dispar-db` (Postgres :5433), `dispar-cloudflared` |
-| `dispar-lakehouse` | **6** | `lakehouse/compose.yaml` | `lake-rustfs` :19000/19001, `lake-catalog` :18181, `lake-clickhouse` :18123/19440, `lake-meta` :15433, **`dispar-v2` :13031+:13032** |
+| `dispar-platform` | **19** | **Web editor** (bukan git) | `dispar-app` (v1, siaga, tanpa port), `dispar-db` (Postgres :5433), `dispar-cloudflared` |
+| `dispar-lakehouse` | **6** | git → `lakehouse/compose.yaml` | `lake-rustfs` :19000/19001, `lake-catalog` :18181, `lake-clickhouse` :18123/19440, `lake-meta` :15433, **`dispar-v2` :13031+:13032** |
 
-Keduanya **git stack** dari repo ini, branch **`deploy/portainer-selfhost`**.
 Auto-update **mati** — push saja tidak mengubah apa pun sampai kamu redeploy.
+
+> **Dua hal ganjil yang harus diingat (keadaan 17 Sep 2026):**
+>
+> 1. **Stack 6 masih menarik dari repo LAMA** `RantAI-dev/jakarta-restaurant-data`
+>    branch `main`, bukan dari `DisparDataPlatform`. **URL repo sebuah stack
+>    Portainer tidak bisa diubah** — payload `PUT /api/stacks/{id}/git` tidak punya
+>    field `RepositoryURL`. Satu-satunya cara memindahkan = hapus & buat ulang stack.
+>    Sampai itu dilakukan, setiap perubahan yang harus tayang **wajib didorong juga
+>    ke repo lama**: `git push lama main`.
+> 2. **Stack `dispar-platform` bukan git stack lagi.** Ia dibuat ulang lewat Web
+>    editor (Id berubah 1 → 19), jadi compose-nya hidup di dalam Portainer dan
+>    `dispar-app` memakai image `dispar-platform-dispar-app:latest` yang sudah ada,
+>    bukan di-build dari `platform/compose.yaml`. Isinya jarang berubah, jadi ini
+>    dibiarkan — tapi jangan heran kalau mengubah `platform/compose.yaml` di repo
+>    tidak berpengaruh apa-apa.
 
 **Di luar stack:** `lake-dagster` (:13030) jalan sebagai container **standalone**,
 bukan bagian stack mana pun. Redeploy stack 6 **tidak** menyentuhnya — dan kalau

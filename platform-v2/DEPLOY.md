@@ -22,7 +22,8 @@ Internet → Cloudflare Tunnel (dispar-cloudflared) → localhost:13031
 |---|---|
 | Stack | `dispar-lakehouse`, Id **6**, endpoint **3** |
 | Compose | `lakehouse/compose.yaml`, service `dispar-v2` |
-| Branch git | **`deploy/portainer-selfhost`** |
+| Branch git | **`main`** |
+| Repo yang ditarik stack | **repo LAMA** `RantAI-dev/jakarta-restaurant-data` (URL stack tak bisa diubah) |
 | Image | `dispar-v2:latest` (di-build di server dari `../platform-v2`) |
 | Port | `13031` (dilihat publik lewat tunnel) dan `13032` (akses langsung LAN) |
 | Auto-update | **mati** — push saja tidak men-deploy apa pun |
@@ -31,7 +32,7 @@ Internet → Cloudflare Tunnel (dispar-cloudflared) → localhost:13031
 
 Cara termudah: jalankan **`/deploy-v2`** dari Claude Code. Manualnya:
 
-1. `npx tsc --noEmit` lulus; commit; **push ke `deploy/portainer-selfhost`**
+1. `npx tsc --noEmit` lulus; commit; **push ke `main` DAN ke repo lama** (`git push origin main && git push lama main`)
    (stack menarik dari git, bukan dari mesin lokal).
 2. Simpan `Env` stack 6 apa adanya: `GET /api/stacks/6` → `.Env`.
 3. Paksa rebuild: hapus container `dispar-v2`, lalu

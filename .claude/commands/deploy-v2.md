@@ -9,7 +9,8 @@ Jalankan berurutan, **berhenti dan lapor kalau ada langkah yang gagal**:
 1. **Pastikan kode sudah aman**
    - `cd platform-v2 && npx tsc --noEmit` harus lulus.
    - Semua perubahan sudah di-commit dan **di-push ke branch
-     `deploy/portainer-selfhost`** — stack menarik dari git, bukan dari mesin lokal.
+     `main` DAN ke repo lama** (`git push origin main && git push lama main`) — stack 6
+     masih menarik dari repo lama, dan dari git, bukan dari mesin lokal.
 
 2. **Rekam keadaan sekarang** (untuk rollback)
    - `StackInspect` stack **6** → simpan `.Env` **lengkap** dan catat
