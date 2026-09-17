@@ -33,7 +33,7 @@ menggandakan diam-diam.
 cd platform-v2
 npm install
 cp .env.example .env.local     # isi CH_* (dan LLM_* bila menyentuh /ai)
-npm run dev                    # http://localhost:3031
+npm run dev                    # http://localhost:3032
 npx tsc --noEmit               # WAJIB lulus sebelum selesai
 ```
 

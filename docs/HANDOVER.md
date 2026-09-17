@@ -69,7 +69,7 @@ git checkout deploy/portainer-selfhost   # branch yang di-deploy
 cd platform-v2
 npm install
 cp .env.example .env.local               # isi CH_* (nilai dari Evan/Portainer)
-npm run dev                              # http://localhost:3031
+npm run dev                              # http://localhost:3032 (bukan 3031)
 ```
 
 Kalau beranda tampil dengan data, koneksi ke lakehouse sudah benar.

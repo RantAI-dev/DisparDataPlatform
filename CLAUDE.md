@@ -116,7 +116,7 @@ curl -s "$CH_URL/?user=$CH_USER&password=$CH_PASSWORD" \
 cd platform-v2
 cp .env.example .env.local   # isi CH_* ke 187, dan LLM_* kalau menyentuh /ai
 npm install
-npm run dev                  # http://localhost:3031
+npm run dev                  # http://localhost:3032
 npx tsc --noEmit             # WAJIB lulus sebelum commit
 ```
 
@@ -173,6 +173,17 @@ Jangan klaim "sudah jalan" tanpa menjalankannya.
 di-commit.
 
 ---
+
+## Skill — tiga pekerjaan utama
+
+Tiga jenis pekerjaan paling sering di repo ini punya skill sendiri di
+`.claude/skills/`. **Panggil skill-nya sebelum mulai**, jangan mengarang prosedur:
+
+| Skill | Dipakai saat |
+|---|---|
+| `crawling-data` | mengambil data dari luar lakehouse — crawl, scrape, geocode, enrich, Places/OSM/Booking |
+| `laporan-bulanan-tenaga-ahli` | menyusun laporan bulanan 7 tenaga ahli (docx→pdf) |
+| `menambah-halaman-dispar-v2` | menambah/mengubah halaman atau route API di `platform-v2/` |
 
 ## MCP yang dipakai
 

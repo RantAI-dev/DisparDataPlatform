@@ -36,7 +36,7 @@ yang belum ada di lake menghasilkan 404, bukan fetch langsung.
 ```bash
 npm install
 cp .env.example .env.local   # isi CH_* ke server 187
-npm run dev                  # http://localhost:3031
+npm run dev                  # http://localhost:3032
 npx tsc --noEmit             # wajib lulus sebelum commit
 ```
 
