@@ -312,7 +312,7 @@ export function GmtiView() {
             <a href="#directory" className="press-scale pill-primary">
               Lihat daftar
             </a>
-            <a href="/atlas/gmti/map" className="press-scale pill-secondary">
+            <a href="/gmti/map" className="press-scale pill-secondary">
               Buka peta
             </a>
           </div>
@@ -357,7 +357,7 @@ export function GmtiView() {
                 </li>
               ))}
             </ul>
-            <a href="/atlas/gmti/map" className="press-scale link-blue apple-caption mt-4 inline-block">
+            <a href="/gmti/map" className="press-scale link-blue apple-caption mt-4 inline-block">
               Lihat sebaran seluruh {GMTI_META.kecamatan} kecamatan di peta ↗
             </a>
           </div>

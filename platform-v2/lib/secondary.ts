@@ -165,7 +165,7 @@ export function secondaryDatasets(): SecondaryDataset[] {
         "Seluruh masjid & mushalla DKI Jakarta yang terdaftar di SIMAS Kemenag RI, semua tipologi (Masjid Negara sampai Mushalla Pendidikan) — nama, nomor ID masjid, alamat, kota administrasi, dan kecamatan. Data registrasi Kemenag, bukan sensus lapangan.",
       tags: ["halal", "masjid", "mushalla", "ibadah", "simas", "gmti", "ramah-muslim", "sekunder"],
       rows: 8331,
-      href: "/atlas/gmti",
+      href: "/gmti",
       external: false,
     },
     {

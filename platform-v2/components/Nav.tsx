@@ -11,6 +11,7 @@ const ITEMS = [
   { href: "/gci", label: "GCI" },
   { href: "/gpci", label: "GPCI" },
   { href: "/atlas", label: "Atlas" },
+  { href: "/gmti", label: "GMTI" },
   { href: "/scraped-hotels", label: "Hotel POC" },
   { href: "/docs", label: "API" },
   { href: "/ai", label: "AI" },
