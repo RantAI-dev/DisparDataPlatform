@@ -38,13 +38,6 @@ const ICONS: Record<string, React.ReactNode> = {
       <path d="M8 8V6a4 4 0 0 1 8 0v2" />
     </>
   ),
-  gmti: (
-    <>
-      <path d="M4 21h16M5 21V10l7-5 7 5v11" />
-      <path d="M12 21v-5a2 2 0 0 1 4 0v5" />
-      <path d="M12 5V2" />
-    </>
-  ),
   hotel: (
     <>
       <path d="M3 21h18M5 21V5a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1v16M15 8h3a1 1 0 0 1 1 1v12" />
@@ -95,16 +88,8 @@ const SECTIONS = [
     unit: "listing",
   },
   {
-    key: "gmti",
-    no: "06",
-    title: "GMTI — Jakarta Ramah Muslim",
-    desc: "Masjid & mushalla se-DKI dari SIMAS Kemenag, digabung dengan seluruh dataset halal Dispar: restoran bersertifikat, hotel, mall, RPH, warisan Islam.",
-    count: "8.666",
-    unit: "entri",
-  },
-  {
     key: "hotel",
-    no: "07",
+    no: "06",
     title: "Hotel & Akomodasi",
     desc: "Pasokan kamar, okupansi (TPK), dan lama menginap hotel berbintang — data resmi Satu Data Jakarta / BPS.",
     count: "120",
