@@ -3,6 +3,7 @@ description: Deploy app dispar-v2 ke server Portainer 187 (build ulang image + r
 ---
 
 Deploy `platform-v2/` ke produksi. Gunakan agen `deploy-portainer`.
+Runbook manusia yang setara: `docs/DEPLOY-RUNBOOK.md`.
 
 Jalankan berurutan, **berhenti dan lapor kalau ada langkah yang gagal**:
 

@@ -60,6 +60,7 @@ npm run dev                     # http://localhost:3032
 |---|---|
 | Engineer baru di tim | **[`docs/HANDOVER.md`](docs/HANDOVER.md)** — akses, setup, runbook, utang teknis |
 | Memakai Claude Code di repo ini | **[`CLAUDE.md`](CLAUDE.md)** — peta kerja, aturan, jebakan |
+| **Mau men-deploy perubahan** | **[`docs/DEPLOY-RUNBOOK.md`](docs/DEPLOY-RUNBOOK.md)** — langkah lengkap, jebakan, verifikasi, rollback |
 | Mau paham mesin datanya | [`lakehouse/README.md`](lakehouse/README.md) |
 | Mau memakai datanya lewat API | <https://dispar.rantai.dev/docs> |
 

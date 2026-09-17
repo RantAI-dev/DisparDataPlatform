@@ -139,8 +139,8 @@ tapi ingat kamu sedang melihat data sungguhan.
 
 ### Deploy app v2 ke Portainer
 
-Lihat `docs/HANDOVER.md` §Deploy untuk langkah lengkap, atau pakai
-`/deploy-v2`. Tiga jebakan yang sudah pernah menjatuhkan produksi:
+Langkah lengkap ada di **`docs/DEPLOY-RUNBOOK.md`** (jebakan, verifikasi,
+rollback), atau pakai `/deploy-v2`. Tiga jebakan yang sudah pernah menjatuhkan produksi:
 
 1. **Redeploy stack WAJIB mengirim `Env` lengkap.** Ambil dulu
    `GET /api/stacks/6` → `.Env`, kirim ulang utuh. Kalau tidak, compose jatuh ke

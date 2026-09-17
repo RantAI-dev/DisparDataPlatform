@@ -137,7 +137,8 @@ Alamat yang sering dipakai:
 3. Commit, push ke `main` — **lalu baca §7**: stack masih menarik dari repo lama,
    jadi perubahan belum akan tayang sampai §7 diselesaikan atau didorong juga ke
    sana.
-4. `/deploy-v2`, atau ikuti `platform-v2/DEPLOY.md`.
+4. `/deploy-v2`, atau ikuti **[`DEPLOY-RUNBOOK.md`](DEPLOY-RUNBOOK.md)** —
+   runbook lengkap yang bisa dijalankan sendirian.
 
 **Push saja tidak men-deploy apa pun** — auto-update stack sengaja dimatikan.
 

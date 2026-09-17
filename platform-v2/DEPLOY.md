@@ -30,7 +30,10 @@ Internet → Cloudflare Tunnel (dispar-cloudflared) → localhost:13031
 
 ## Langkah deploy
 
-Cara termudah: jalankan **`/deploy-v2`** dari Claude Code. Manualnya:
+Runbook lengkap (jebakan, verifikasi, rollback, batas yang sudah diketahui):
+**[`../docs/DEPLOY-RUNBOOK.md`](../docs/DEPLOY-RUNBOOK.md)**.
+
+Cara termudah: jalankan **`/deploy-v2`** dari Claude Code. Ringkasan manual:
 
 1. `npx tsc --noEmit` lulus; commit; **push ke `main` DAN ke repo lama** (`git push origin main && git push lama main`)
    (stack menarik dari git, bukan dari mesin lokal).
