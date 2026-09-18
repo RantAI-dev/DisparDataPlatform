@@ -76,7 +76,7 @@ function pickDefaultDim(dims: Column[], rows: Row[]): string {
 function isNumericCol(col: Column, rows: Row[]): boolean {
   // Kolom yang jelas kategori/waktu → BUKAN measure meski isinya angka.
   const k = col.key.toLowerCase();
-  if (/(^|_)(tahun|triwulan|semester|kuartal|bulan|periode|tanggal|waktu|kode|id|no|nomor|nama|wilayah|kecamatan|kelurahan|kota|lokasi|kategori|jenis|status|slug)(_|$)/.test(k)) return false;
+  if (/(^|_)(tahun|triwulan|semester|kuartal|bulan|periode|tanggal|waktu|kode|id|no|nomor|nama|wilayah|kecamatan|kelurahan|kota|lokasi|kategori|jenis|status|slug|latitude|longitude|lat|lon|importance)(_|$)/.test(k)) return false;
   // Hint tipe cuma sinyal POSITIF (lakehouse simpan semua sbg String → jangan
   // pakai 'string/text' utk mendiskualifikasi; andalkan sampling nilai).
   const t = (col.type || "").toLowerCase();
