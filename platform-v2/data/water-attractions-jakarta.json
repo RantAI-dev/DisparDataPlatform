@@ -1,0 +1,593 @@
+{
+  "slug": "water-attractions-jakarta",
+  "title": "Atraksi Wisata Air DKI Jakarta (silver SDI + join potensi DTW)",
+  "description": "28 venue atraksi wisata air di DKI Jakarta: 23 venue silver SDI (fix bug lat/lon-tertukar otomatis) + 2 silver rusak diperbaiki Photon + 3 venue Nominatim/OSM (waterpark/marina/diving yang tak tercakup SDI). Kategori mengikuti standar resmi Kemenpar 'Aktivitas Wisata Air'.",
+  "columns": [
+    {
+      "type": "string",
+      "key": "id"
+    },
+    {
+      "type": "string",
+      "key": "nama"
+    },
+    {
+      "type": "string[]",
+      "key": "kategori_kemenpar"
+    },
+    {
+      "type": "string",
+      "key": "alamat"
+    },
+    {
+      "type": "Float64?",
+      "key": "latitude"
+    },
+    {
+      "type": "Float64?",
+      "key": "longitude"
+    },
+    {
+      "type": "string (OK / out-of-range / missing)",
+      "key": "koordinat_status"
+    },
+    {
+      "type": "bool (true = lat/lon raw silver view tertukar, sudah di-fix)",
+      "key": "koordinat_sumber_silver_di_swap"
+    },
+    {
+      "type": "string",
+      "key": "sumber"
+    },
+    {
+      "type": "Date?",
+      "key": "periode_data"
+    },
+    {
+      "type": "string (jenis dari potensi_DTW)",
+      "key": "klasifikasi_potensi"
+    },
+    {
+      "type": "string",
+      "key": "deskripsi_potensi"
+    },
+    {
+      "type": "string",
+      "key": "pengelola"
+    },
+    {
+      "type": "string",
+      "key": "telepon"
+    }
+  ],
+  "rows": [
+    {
+      "id": "water-attr-jakarta-atlantis-water-adventure",
+      "nama": "ATLANTIS WATER ADVENTURE",
+      "kategori_kemenpar": [
+        "atraksi_air_lain",
+        "waterpark_taman_air"
+      ],
+      "alamat": "JL. LODAN TIMUR, ANCOL, KEC. PADEMANGAN, JKT UTARA, DAERAH KHUSUS IBUKOTA JAKARTA 14430",
+      "latitude": -6.12403,
+      "longitude": 106.83911,
+      "koordinat_status": "OK",
+      "koordinat_sumber_silver_di_swap": true,
+      "sumber": "SDI destinasi.par",
+      "periode_data": "2024-12-01",
+      "klasifikasi_potensi": "",
+      "deskripsi_potensi": "",
+      "pengelola": "",
+      "telepon": ""
+    },
+    {
+      "id": "water-attr-jakarta-beach-city-international-stadium",
+      "nama": "BEACH CITY INTERNATIONAL STADIUM",
+      "kategori_kemenpar": [
+        "pantai_pulau_rekreasi"
+      ],
+      "alamat": "BEACH CITY INTERNATIONAL STADIUM, JL. KW. WISATA ANCOL, ANCOL, PADEMANGAN, NORTH JAKARTA CITY, JAKARTA 14430",
+      "latitude": -6.11743,
+      "longitude": 106.85822,
+      "koordinat_status": "OK",
+      "koordinat_sumber_silver_di_swap": true,
+      "sumber": "SDI destinasi.par",
+      "periode_data": "2025-12-01",
+      "klasifikasi_potensi": "",
+      "deskripsi_potensi": "",
+      "pengelola": "",
+      "telepon": ""
+    },
+    {
+      "id": "water-attr-jakarta-dunia-air-tawar",
+      "nama": "DUNIA AIR TAWAR",
+      "kategori_kemenpar": [
+        "atraksi_air_lain"
+      ],
+      "alamat": "DUNIA AIR TAWAR & DUNIA SERANGGA TMII, JL. TAMAN MINI RAYA, RT.1/RW.10, CEGER, KEC. CIPAYUNG, KOTA JAKARTA TIMUR, DAERAH KHUSUS IBUKOTA JAKARTA 13550, INDONESIA",
+      "latitude": -6.30464,
+      "longitude": 106.89527,
+      "koordinat_status": "OK",
+      "koordinat_sumber_silver_di_swap": true,
+      "sumber": "SDI destinasi.par",
+      "periode_data": "2024-06-01",
+      "klasifikasi_potensi": "",
+      "deskripsi_potensi": "",
+      "pengelola": "",
+      "telepon": ""
+    },
+    {
+      "id": "water-attr-jakarta-ecopark-ancol",
+      "nama": "ECOPARK ANCOL",
+      "kategori_kemenpar": [
+        "atraksi_air_lain"
+      ],
+      "alamat": "JLN. LODAN TIMUR NO.7, RW.10, PADEMANGAN , JAKARTA UTARA , DKI JAKARTA , 13820",
+      "latitude": -6.12343,
+      "longitude": 106.83465,
+      "koordinat_status": "OK",
+      "koordinat_sumber_silver_di_swap": true,
+      "sumber": "SDI destinasi.par",
+      "periode_data": "2024-12-01",
+      "klasifikasi_potensi": "",
+      "deskripsi_potensi": "",
+      "pengelola": "",
+      "telepon": ""
+    },
+    {
+      "id": "water-attr-jakarta-hutan-mangrove-pulau-pramuka",
+      "nama": "HUTAN MANGROVE PULAU PRAMUKA",
+      "kategori_kemenpar": [
+        "pantai_pulau_rekreasi"
+      ],
+      "alamat": "PULAU PANGGANG, KEPULAUAN SERIBU UTARA, KAB. ADMINISTRASI KEPULAUAN SERIBU, DAERAH KHUSUS IBUKOTA JAKARTA 14530",
+      "latitude": -5.73437,
+      "longitude": 106.61505,
+      "koordinat_status": "OK",
+      "koordinat_sumber_silver_di_swap": true,
+      "sumber": "SDI destinasi.par",
+      "periode_data": "2025-12-01",
+      "klasifikasi_potensi": "",
+      "deskripsi_potensi": "",
+      "pengelola": "",
+      "telepon": ""
+    },
+    {
+      "id": "water-attr-jakarta-jakarta-aquarium",
+      "nama": "JAKARTA AQUARIUM",
+      "kategori_kemenpar": [
+        "waterpark_taman_air"
+      ],
+      "alamat": "ALAN LETJEN S PARMAN KAV 28, TANJUNG DUREN SELATAN, GROGOL PETAMBURAN, JAKARTA BARAT.",
+      "latitude": -6.17419,
+      "longitude": 106.78993,
+      "koordinat_status": "OK",
+      "koordinat_sumber_silver_di_swap": true,
+      "sumber": "SDI destinasi.par",
+      "periode_data": "2024-12-01",
+      "klasifikasi_potensi": "",
+      "deskripsi_potensi": "",
+      "pengelola": "",
+      "telepon": ""
+    },
+    {
+      "id": "water-attr-jakarta-kepulauan-seribu",
+      "nama": "KEPULAUAN SERIBU",
+      "kategori_kemenpar": [
+        "atraksi_air_lain",
+        "pantai_pulau_rekreasi"
+      ],
+      "alamat": "TERLETAK DISEBELAH UTARA JAKARTA TEPAT BERHADAPAN DENGAN TELUK JAKARTA. SECARA GEOGRAFIS ADALAH PADA 5?24? - 5?45? LS DAN 106?25? - 106?40? BT DENGAN(11,8?KM?)",
+      "latitude": -5.74561,
+      "longitude": 106.61466,
+      "koordinat_status": "OK",
+      "koordinat_sumber_silver_di_swap": false,
+      "sumber": "SDI destinasi.par+SDI potensi_DTW (join)",
+      "periode_data": "2026-06-01",
+      "klasifikasi_potensi": "WISATA ALAM, BAHARI, SEJARAH",
+      "deskripsi_potensi": "NAMANYA KEPULAUAN  SERIBU BUKAN BERARTI PULAU-PULAU DI DALAM GUGUSAN KEPUALAUN ITU BERJUMLAH SERIBU, NAMUN TERDIRI ATAS 110 PULAU. DAYA TARIK WISATA ANTARA SUNSET, PANTAI PASIR PUTIH, LUMBA-LUMBA, PENANGKARAN PENYU, BIOTA LAUT, HUTAN PULAU, BANGUNAN CAGAR BUDAYA, OLAHRAGA AIR, SNORKELING, PEMANDANGAN BAWAH LAUT, TERUMBU KARANG, DAN IKAN HIAS. CAGAR ALAM, DAN KULINER.",
+      "pengelola": "PEMERINTAH DAERAH DAN SWASTA",
+      "telepon": "\\N"
+    },
+    {
+      "id": "water-attr-jakarta-masjid-sunda-kelapa",
+      "nama": "MASJID SUNDA KELAPA",
+      "kategori_kemenpar": [
+        "pelabuhan_rekreasi_marina"
+      ],
+      "alamat": "JALAN TAMAN SUNDA KELAPA NO.16, RT.6/RW.4, MENTENG, KOTA JAKARTA PUSAT, DKI JAKARTA",
+      "latitude": -6.30464,
+      "longitude": 106.89527,
+      "koordinat_status": "OK",
+      "koordinat_sumber_silver_di_swap": true,
+      "sumber": "SDI destinasi.par",
+      "periode_data": "2025-06-01",
+      "klasifikasi_potensi": "",
+      "deskripsi_potensi": "",
+      "pengelola": "",
+      "telepon": ""
+    },
+    {
+      "id": "water-attr-jakarta-museum-bahari",
+      "nama": "MUSEUM BAHARI",
+      "kategori_kemenpar": [
+        "atraksi_air_lain"
+      ],
+      "alamat": "JALAN PASAR IKAN NO. 1 JAKARTA UTARA",
+      "latitude": -6.12752,
+      "longitude": 106.80877,
+      "koordinat_status": "OK",
+      "koordinat_sumber_silver_di_swap": false,
+      "sumber": "SDI destinasi.par+SDI potensi_DTW (join)",
+      "periode_data": "2026-06-01",
+      "klasifikasi_potensi": "WISATA SEJARAH DAN BUDAYA, WISATA PENDIDIKAN",
+      "deskripsi_potensi": "GEDUNG BERSEJARAH/KOLONIAL BELANDA MASIH ASLI. MENARA SYAHBANDAR DI JAMAN KOLONIAL BELANDA MERUPAKAN BANGUNAN TERTINGGI DI TELUK JAKARTA, DIBANGUN TAHUN 1813 SATU-SATUNYA MUSEUM KHUSUS KEBAHARIAN DENGAN BERBAGAI JENIS KOLEKSI PERAHU TRADISIONAL, ALAT NAVIGASI KUNO, PETA, JALUR PELAYARAN KUNO, BERBAGAI MACAM ALAT PENANGKAP IKAN TRADISIONAL DARI BERBAGAI DAERAH",
+      "pengelola": "DINAS PARIWISATA DAN KEBUDAYAAN PROVINSI DKI JAKARTA",
+      "telepon": "021-6693406"
+    },
+    {
+      "id": "water-attr-jakarta-pantai-ancol",
+      "nama": "PANTAI ANCOL",
+      "kategori_kemenpar": [
+        "pantai_pulau_rekreasi"
+      ],
+      "alamat": "JALAN LODAN TIMUR NOMOR 7, ANCOL, JAKARTA UTARA.",
+      "latitude": -6.11959,
+      "longitude": 106.84921,
+      "koordinat_status": "OK",
+      "koordinat_sumber_silver_di_swap": true,
+      "sumber": "SDI destinasi.par",
+      "periode_data": "2024-12-01",
+      "klasifikasi_potensi": "",
+      "deskripsi_potensi": "",
+      "pengelola": "",
+      "telepon": ""
+    },
+    {
+      "id": "water-attr-jakarta-pasar-seni-ancol",
+      "nama": "PASAR SENI ANCOL",
+      "kategori_kemenpar": [
+        "atraksi_air_lain"
+      ],
+      "alamat": "TAMAN IMPIAN JAYA, JL. LODAN TIMUR NO.7, RW.10, ANCOL, KEC. PADEMANGAN, JKT UTARA, DAERAH KHUSUS IBUKOTA JAKARTA 14430",
+      "latitude": -6.12632,
+      "longitude": 106.83899,
+      "koordinat_status": "OK",
+      "koordinat_sumber_silver_di_swap": true,
+      "sumber": "SDI destinasi.par",
+      "periode_data": "2024-12-01",
+      "klasifikasi_potensi": "",
+      "deskripsi_potensi": "",
+      "pengelola": "",
+      "telepon": ""
+    },
+    {
+      "id": "water-attr-jakarta-pulau-cipir",
+      "nama": "PULAU CIPIR",
+      "kategori_kemenpar": [
+        "pantai_pulau_rekreasi"
+      ],
+      "alamat": "KELURAHAN PULAU UNTUNG JAWA, KECAMATAN KEPULAUAN SERIBU SELATAN, KAB. KEPULAUAN SERIBU, PROV. DKI  JAKARTA",
+      "latitude": -6.03829,
+      "longitude": 106.73618,
+      "koordinat_status": "OK",
+      "koordinat_sumber_silver_di_swap": true,
+      "sumber": "SDI destinasi.par",
+      "periode_data": "2024-06-01",
+      "klasifikasi_potensi": "",
+      "deskripsi_potensi": "",
+      "pengelola": "",
+      "telepon": ""
+    },
+    {
+      "id": "water-attr-jakarta-pulau-kelor",
+      "nama": "PULAU KELOR",
+      "kategori_kemenpar": [
+        "pantai_pulau_rekreasi"
+      ],
+      "alamat": "PULAU UNTUNG JAWA, KEC. KEPULAUAN SERIBU SELATAN, KEPULAUAN SERIBU, DKI JAKARTA",
+      "latitude": -6.02525,
+      "longitude": 106.74532,
+      "koordinat_status": "OK",
+      "koordinat_sumber_silver_di_swap": true,
+      "sumber": "SDI destinasi.par",
+      "periode_data": "2024-06-01",
+      "klasifikasi_potensi": "",
+      "deskripsi_potensi": "",
+      "pengelola": "",
+      "telepon": ""
+    },
+    {
+      "id": "water-attr-jakarta-pulau-lancang",
+      "nama": "PULAU LANCANG",
+      "kategori_kemenpar": [
+        "pantai_pulau_rekreasi"
+      ],
+      "alamat": "BERADA PADA GUGUSAN KEPULAUAN SERIBU YANG SECARA ADMINISTRATIF TERMASUK DALAM WILAYAH KABUPATEN ADMINISTRATIF KEPULAUAN SERIBU, PROVINSI DKI JAKARTA.",
+      "latitude": -5.92906,
+      "longitude": 106.58565,
+      "koordinat_status": "OK",
+      "koordinat_sumber_silver_di_swap": true,
+      "sumber": "SDI destinasi.par",
+      "periode_data": "2024-12-01",
+      "klasifikasi_potensi": "",
+      "deskripsi_potensi": "",
+      "pengelola": "",
+      "telepon": ""
+    },
+    {
+      "id": "water-attr-jakarta-pulau-onrust",
+      "nama": "PULAU ONRUST",
+      "kategori_kemenpar": [
+        "pantai_pulau_rekreasi"
+      ],
+      "alamat": "KEC. KEPULAUAN SERIBU SELATAN, KAB. KEPULAUAN SERIBU, PROV. DKI  JAKARTA",
+      "latitude": -6.03205,
+      "longitude": 106.73367,
+      "koordinat_status": "OK",
+      "koordinat_sumber_silver_di_swap": true,
+      "sumber": "SDI destinasi.par",
+      "periode_data": "2024-06-01",
+      "klasifikasi_potensi": "",
+      "deskripsi_potensi": "",
+      "pengelola": "",
+      "telepon": ""
+    },
+    {
+      "id": "water-attr-jakarta-pulau-panggang",
+      "nama": "PULAU PANGGANG",
+      "kategori_kemenpar": [
+        "pantai_pulau_rekreasi"
+      ],
+      "alamat": "KELURAHAN PULAU PANGGANG, KECAMATAN KEPULAUAN SERIBU UTARA, KABUPATEN ADMINISTRASI KEPULAUAN SERIBU, DKI JAKARTA 14530",
+      "latitude": -5.74189,
+      "longitude": 106.60232,
+      "koordinat_status": "OK",
+      "koordinat_sumber_silver_di_swap": false,
+      "sumber": "SDI destinasi.par",
+      "periode_data": "2026-06-01",
+      "klasifikasi_potensi": "",
+      "deskripsi_potensi": "",
+      "pengelola": "",
+      "telepon": ""
+    },
+    {
+      "id": "water-attr-jakarta-pulau-pari",
+      "nama": "PULAU PARI",
+      "kategori_kemenpar": [
+        "pantai_pulau_rekreasi"
+      ],
+      "alamat": "PULAU PARI, KEPULAUAN SERIBU SELATAN, KAB. KEPULAUAN SERIBU, DAERAH KHUSUS IBU KOTA JAKARTA",
+      "latitude": -5.87328,
+      "longitude": 106.52012,
+      "koordinat_status": "OK",
+      "koordinat_sumber_silver_di_swap": true,
+      "sumber": "SDI destinasi.par",
+      "periode_data": "2024-06-01",
+      "klasifikasi_potensi": "",
+      "deskripsi_potensi": "",
+      "pengelola": "",
+      "telepon": ""
+    },
+    {
+      "id": "water-attr-jakarta-pulau-payung",
+      "nama": "PULAU PAYUNG",
+      "kategori_kemenpar": [
+        "pantai_pulau_rekreasi"
+      ],
+      "alamat": "PULAU PAYUNG, KELURAHAN PULAU TIDUNG, KECAMATAN KEPULAUAN SERIBU SELATAN, KABUPATEN ADMINISTRASI KEPULAUAN SERIBU, PROVINSI DKI JAKARTA 14520",
+      "latitude": -5.82054,
+      "longitude": 106.55239,
+      "koordinat_status": "OK",
+      "koordinat_sumber_silver_di_swap": false,
+      "sumber": "SDI destinasi.par",
+      "periode_data": "2026-06-01",
+      "klasifikasi_potensi": "",
+      "deskripsi_potensi": "",
+      "pengelola": "",
+      "telepon": ""
+    },
+    {
+      "id": "water-attr-jakarta-pulau-pramuka",
+      "nama": "PULAU PRAMUKA",
+      "kategori_kemenpar": [
+        "pantai_pulau_rekreasi"
+      ],
+      "alamat": "PULAU PRAMUKA, KELURAHAN PULAU PANGGANG, KECAMATAN KEPULAUAN SERIBU UTARA, KABUPATEN ADMINISTRASI KEPULAUAN SERIBU, DKI JAKARTA 14530",
+      "latitude": -5.74561,
+      "longitude": 106.61466,
+      "koordinat_status": "OK",
+      "koordinat_sumber_silver_di_swap": false,
+      "sumber": "SDI destinasi.par",
+      "periode_data": "2026-06-01",
+      "klasifikasi_potensi": "",
+      "deskripsi_potensi": "",
+      "pengelola": "",
+      "telepon": ""
+    },
+    {
+      "id": "water-attr-jakarta-pulau-sabira",
+      "nama": "PULAU SABIRA",
+      "kategori_kemenpar": [
+        "pantai_pulau_rekreasi"
+      ],
+      "alamat": "PULAU HARAPAN, KEPULAUAN SERIBU UTARA, KAB. ADMINISTRASI KEPULAUAN SERIBU, DAERAH KHUSUS IBUKOTA JAKARTA",
+      "latitude": -5.6350469,
+      "longitude": 106.5803541,
+      "koordinat_status": "OK (photon-fix)",
+      "koordinat_sumber_silver_di_swap": true,
+      "sumber": "SDI destinasi.par",
+      "periode_data": "2025-12-01",
+      "klasifikasi_potensi": "",
+      "deskripsi_potensi": "",
+      "pengelola": "",
+      "telepon": "",
+      "koordinat_sumber_sumber": "Photon (OSM)",
+      "koordinat_photon_name": "Kepulauan Seribu",
+      "koordinat_photon_display": "",
+      "koordinat_photon_osmid": 5802442,
+      "koordinat_photon_osmtype": "R"
+    },
+    {
+      "id": "water-attr-jakarta-pulau-sepa",
+      "nama": "PULAU SEPA",
+      "kategori_kemenpar": [
+        "pantai_pulau_rekreasi"
+      ],
+      "alamat": "JAVA SEA, PULAU SEPA RESORT, KEPULAUAN SERIBU UTARA, KAB. ADMINISTRASI KEPULAUAN SERIBU, DAERAH KHUSUS IBUKOTA JAKARTA 14540",
+      "latitude": -5.5704505,
+      "longitude": 106.5847536,
+      "koordinat_status": "OK (photon-fix)",
+      "koordinat_sumber_silver_di_swap": true,
+      "sumber": "SDI destinasi.par",
+      "periode_data": "2025-12-01",
+      "klasifikasi_potensi": "",
+      "deskripsi_potensi": "",
+      "pengelola": "",
+      "telepon": "",
+      "koordinat_sumber_sumber": "Photon (OSM)",
+      "koordinat_photon_name": "Pulau Sepa Timur",
+      "koordinat_photon_display": "",
+      "koordinat_photon_osmid": 156132028,
+      "koordinat_photon_osmtype": "W"
+    },
+    {
+      "id": "water-attr-jakarta-pulau-tidung-besar",
+      "nama": "PULAU TIDUNG BESAR",
+      "kategori_kemenpar": [
+        "pantai_pulau_rekreasi"
+      ],
+      "alamat": "GUGUSAN KEPULAUAN SERIBU, KABUPATEN KEPULAUAN SERIBU, PROVINSI DKI JAKARTA",
+      "latitude": -5.79641,
+      "longitude": 106.49285,
+      "koordinat_status": "OK",
+      "koordinat_sumber_silver_di_swap": true,
+      "sumber": "SDI destinasi.par",
+      "periode_data": "2024-12-01",
+      "klasifikasi_potensi": "",
+      "deskripsi_potensi": "",
+      "pengelola": "",
+      "telepon": ""
+    },
+    {
+      "id": "water-attr-jakarta-pulau-tidung-kecil",
+      "nama": "PULAU TIDUNG KECIL",
+      "kategori_kemenpar": [
+        "pantai_pulau_rekreasi"
+      ],
+      "alamat": "GUGUSAN KEPULAUAN SERIBU, KELURAHAN PULAU TIDUNG, KECAMATAN KEPULAUAN SERIBU SELATAN KABUPATEN KEPULAUAN SEIBU, PROV DKI JAKARTA",
+      "latitude": -5.80269,
+      "longitude": 106.52316,
+      "koordinat_status": "OK",
+      "koordinat_sumber_silver_di_swap": true,
+      "sumber": "SDI destinasi.par",
+      "periode_data": "2024-12-01",
+      "klasifikasi_potensi": "",
+      "deskripsi_potensi": "",
+      "pengelola": "",
+      "telepon": ""
+    },
+    {
+      "id": "water-attr-jakarta-pulau-untung-jawa",
+      "nama": "PULAU UNTUNG JAWA",
+      "kategori_kemenpar": [
+        "pantai_pulau_rekreasi"
+      ],
+      "alamat": "KEC. KEPULAUAN SERIBU SEL., KAB. ADMINISTRASI KEPULAUAN SERIBU, DAERAH KHUSUS IBUKOTA JAKARTA",
+      "latitude": -5.97649,
+      "longitude": 106.70587,
+      "koordinat_status": "OK",
+      "koordinat_sumber_silver_di_swap": true,
+      "sumber": "SDI destinasi.par",
+      "periode_data": "2024-12-01",
+      "klasifikasi_potensi": "",
+      "deskripsi_potensi": "",
+      "pengelola": "",
+      "telepon": ""
+    },
+    {
+      "id": "water-attr-jakarta-taman-impian-jaya-ancol",
+      "nama": "TAMAN IMPIAN JAYA ANCOL",
+      "kategori_kemenpar": [
+        "atraksi_air_lain"
+      ],
+      "alamat": "JL. LODAN TIMUR NO.7, RT.14/RW.10, ANCOL, KEC. PADEMANGAN, JAKARTA UTARA, DAERAH KHUSUS IBUKOTA JAKARTA 14430",
+      "latitude": -6.12556,
+      "longitude": 106.83353,
+      "koordinat_status": "OK",
+      "koordinat_sumber_silver_di_swap": false,
+      "sumber": "SDI destinasi.par",
+      "periode_data": "2026-06-01",
+      "klasifikasi_potensi": "",
+      "deskripsi_potensi": "",
+      "pengelola": "",
+      "telepon": ""
+    },
+    {
+      "id": "water-attr-jakarta-osm-way-507135456",
+      "nama": "CX Water Park",
+      "kategori_kemenpar": [
+        "waterpark_taman_air"
+      ],
+      "alamat": "CX Water Park, Jalan Centex, RW 03, Ciracas, Jakarta Timur, Daerah Khusus Ibukota Jakarta, 13740, Indonesia",
+      "latitude": -6.3192352,
+      "longitude": 106.8778451,
+      "koordinat_status": "OK (nominatim-osm)",
+      "koordinat_sumber_silver_di_swap": false,
+      "sumber": "Nominatim (leisure/water_park) osm_way_507135456",
+      "periode_data": null,
+      "klasifikasi_potensi": "",
+      "deskripsi_potensi": "",
+      "pengelola": "",
+      "telepon": ""
+    },
+    {
+      "id": "water-attr-jakarta-osm-way-156270903",
+      "nama": "Jetski Pantai Mutiara",
+      "kategori_kemenpar": [
+        "berpetualang_perahu_kapal",
+        "pantai_pulau_rekreasi"
+      ],
+      "alamat": "Jetski Pantai Mutiara, Jalan Pantai Mutiara, RW 16, Pluit, Penjaringan, Jakarta Utara, Daerah Khusus Ibukota Jakarta, 14440, Indonesia",
+      "latitude": -6.103722,
+      "longitude": 106.7903517,
+      "koordinat_status": "OK (nominatim-osm)",
+      "koordinat_sumber_silver_di_swap": false,
+      "sumber": "Nominatim (amenity/cafe) osm_way_156270903",
+      "periode_data": null,
+      "klasifikasi_potensi": "",
+      "deskripsi_potensi": "",
+      "pengelola": "",
+      "telepon": ""
+    },
+    {
+      "id": "water-attr-jakarta-osm-node-2132034789",
+      "nama": "Diving Spot",
+      "kategori_kemenpar": [
+        "atraksi_air_lain"
+      ],
+      "alamat": "Diving Spot, Jalan Kyai Mursalin, RW 01, Pulau Panggang, Kepulauan Seribu Utara, Kepulauan Seribu, Daerah Khusus Ibukota Jakarta, Indonesia",
+      "latitude": -5.7457879,
+      "longitude": 106.5892053,
+      "koordinat_status": "OK (nominatim-osm)",
+      "koordinat_sumber_silver_di_swap": false,
+      "sumber": "Nominatim (tourism/attraction) osm_node_2132034789",
+      "periode_data": null,
+      "klasifikasi_potensi": "",
+      "deskripsi_potensi": "",
+      "pengelola": "",
+      "telepon": ""
+    }
+  ],
+  "tags": [
+    "atraksi-air",
+    "water-attractions",
+    "kemenpar",
+    "jakarta",
+    "silver-sdi",
+    "photon-geocode",
+    "nominatim-osm",
+    "sekunder",
+    "nominatim-osm-merging"
+  ]
+}

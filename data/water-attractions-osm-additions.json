@@ -1,0 +1,108 @@
+{
+"summary": {
+"added_candidates": 3,
+"skipped_dup_name": 0,
+"skipped_dup_geom": 4,
+"skipped_no_bbox": 0,
+"skipped_irrelevant": 19,
+"skipped_dup_name_examples": [],
+"skipped_dup_geom_examples": [
+[
+"marina ancol",
+"Marina Ancol"
+],
+[
+"diving jakarta",
+"Diving Spot"
+],
+[
+"diving jakarta",
+"Diving Spot"
+],
+[
+"diving jakarta",
+"Diving Spot"
+]
+],
+"added_by_category": {
+"water park jakarta": 1,
+"water park kepulauan seribu": 0,
+"waterbom jakarta": 0,
+"water adventure jakarta": 0,
+"Atlantis Water Adventure": 0,
+"Dunia Fantasi Splash": 0,
+"marina jakarta": 0,
+"marina ancol": 0,
+"jetski jakarta": 1,
+"jetski pluit": 0,
+"wakeboard jakarta": 0,
+"banana boat jakarta": 0,
+"wake park jakarta": 0,
+"water sport jakarta": 0,
+"diving jakarta": 1,
+"scuba diving jakarta": 0,
+"snorkeling jakarta": 0,
+"diving center jakarta": 0,
+"boat rental jakarta": 0,
+"pantai mutiara jakarta": 0,
+"pantai ancol": 0,
+"pantai indah kapuk": 0
+}
+},
+"rows": [
+{
+"id": "water-attr-jakarta-osm-way-507135456",
+"nama": "CX Water Park",
+"kategori_kemenpar": [],
+"kategori_osm": "leisure/water_park",
+"alamat": "CX Water Park, Jalan Centex, RW 03, Ciracas, Jakarta Timur, Daerah Khusus Ibukota Jakarta, 13740, Indonesia",
+"latitude": -6.3192352,
+"longitude": 106.8778451,
+"koordinat_status": "OK",
+"koordinat_sumber_silver_di_swap": false,
+"sumber": "Nominatim (leisure/water_park) osm_way_507135456",
+"periode_data": null,
+"klasifikasi_potensi": "",
+"deskripsi_potensi": "",
+"pengelola": "",
+"telepon": "",
+"importance": 8.313649195082044e-05
+},
+{
+"id": "water-attr-jakarta-osm-way-156270903",
+"nama": "Jetski Pantai Mutiara",
+"kategori_kemenpar": [],
+"kategori_osm": "amenity/cafe",
+"alamat": "Jetski Pantai Mutiara, Jalan Pantai Mutiara, RW 16, Pluit, Penjaringan, Jakarta Utara, Daerah Khusus Ibukota Jakarta, 14440, Indonesia",
+"latitude": -6.103722,
+"longitude": 106.7903517,
+"koordinat_status": "OK",
+"koordinat_sumber_silver_di_swap": false,
+"sumber": "Nominatim (amenity/cafe) osm_way_156270903",
+"periode_data": null,
+"klasifikasi_potensi": "",
+"deskripsi_potensi": "",
+"pengelola": "",
+"telepon": "",
+"importance": 8.313649195082044e-05
+},
+{
+"id": "water-attr-jakarta-osm-node-2132034789",
+"nama": "Diving Spot",
+"kategori_kemenpar": [],
+"kategori_osm": "tourism/attraction",
+"alamat": "Diving Spot, Jalan Kyai Mursalin, RW 01, Pulau Panggang, Kepulauan Seribu Utara, Kepulauan Seribu, Daerah Khusus Ibukota Jakarta, Indonesia",
+"latitude": -5.7457879,
+"longitude": 106.5892053,
+"koordinat_status": "OK",
+"koordinat_sumber_silver_di_swap": false,
+"sumber": "Nominatim (tourism/attraction) osm_node_2132034789",
+"periode_data": null,
+"klasifikasi_potensi": "",
+"deskripsi_potensi": "",
+"pengelola": "",
+"telepon": "",
+"importance": 8.313649195082044e-05
+}
+]
+}

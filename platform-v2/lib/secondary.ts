@@ -169,6 +169,16 @@ export function secondaryDatasets(): SecondaryDataset[] {
       external: false,
     },
     {
+      id: "sec-water-attractions",
+      title: "Atraksi Wisata Air DKI Jakarta",
+      description:
+        "Inventaris 25 venue atraksi wisata air di DKI Jakarta: 23 venue dari silver.data_destinasi_pariwisata (filter regex nama) + 2 hasil Photon geocode untuk koordinat silver rusak. Kategori mengikuti standar resmi Kemenpar 'Aktivitas Wisata Air' (14 sub). Silver view memiliki bug lat/lon-tertukar untuk 19 baris — telah diperbaiki otomatis dan ditandai di field koordinat_sumber_silver_di_swap. Enrichment Nominatim menambah beberapa waterpark/marina water tambahan di luar SDI.",
+      tags: ["atraksi-air", "water-attractions", "kemenpar", "pantai", "marina", "waterpark", "jakarta", "silver-sdi", "photon-geocode", "nominatim-osm", "sekunder"],
+      rows: 25,
+      href: "/sdi/water-attractions-jakarta",
+      external: false,
+    },
+    {
       id: "sec-event-visitor",
       title: "Jumlah Pengunjung Event Jakarta 2026",
       description:
