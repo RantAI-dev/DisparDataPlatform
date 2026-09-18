@@ -179,6 +179,16 @@ export function secondaryDatasets(): SecondaryDataset[] {
       external: false,
     },
     {
+      id: "sec-wellness-jakarta",
+      title: "Venue Wellness DKI Jakarta (Nominatim + Google Places API New)",
+      description:
+        "Inventaris 84 venue wellness DKI Jakarta dari dua sumber: (1) Nominatim forward-search + filter kategori OSM untuk venue independen (47 baris mentah, 35 ditambahkan setelah dedup), (2) Google Places API (New) Text Search untuk hotel-spa kelas atas yang tidak terdaftar di OSM (49 baris; Essentials tier, gratis 10k/bulan). Field mask Essentials saja (formattedAddress, displayName, location, types) — tidak menyentuh tier Pro/Enterprise/Atmosphere. Dedup by nama ternormalisasi + jarak <500 m antar sumber. Distribusi kategori: 34 Spa & Pijat, 20 Hotel Spa Premium, 16 Fitness & Gym, 12 Klinik Kecantikan & Estetika, 1 Pengobatan Tradisional & Alternatif, 1 Kesehatan Mental & Nutrisi. Distribusi kota adm: 40 JakSel, 38 JakPus, 4 JakBar, 2 JakTim. Termasuk venue branded: The Spa at Four Seasons, Spa Treatments Mandarin Oriental, The Ritz-Carlton Spa, The St. Regis Spa, Kempinski The Spa, SPA by JW, Inaria Spa at InterContinental, Mulia Spa, Fairmont Spa, Heavenly Spa by Westin, Park Hyatt Spa, Sheraton Grand Spa, plus jaringan independen (Gold's Gym, Celebrity Fitness, Fitness First Platinum, Anytime Fitness, KX Pilates, Colour Yoga, Delta Spa, Rasa Spa, dll).",
+      tags: ["wellness", "wellness-tourism", "spa", "hotel-spa", "fitness", "kecantikan", "klinik", "jakarta", "nominatim-osm", "google-places", "sekunder"],
+      rows: 84,
+      href: "/sdi/wellness-jakarta",
+      external: false,
+    },
+    {
       id: "sec-event-visitor",
       title: "Jumlah Pengunjung Event Jakarta 2026",
       description:

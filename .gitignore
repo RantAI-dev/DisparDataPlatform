@@ -28,6 +28,13 @@ next-env.d.ts
 
 # vercel
 .vercel
+
+# Wellness crawler caches & intermediate (jangan commit; boleh dibuat ulang dari
+# scripts/crawl_osm_wellness.py dan scripts/enrich_wellness_google.ts).
+data/wellness-jakarta-google-additions.json
+data/wellness-jakarta-osm-additions.json
+scripts/google_wellness_cache.json
+scripts/osm_wellness_cache.json
 scripts/.address-tsv-cache.json
 __pycache__/
 *.log
