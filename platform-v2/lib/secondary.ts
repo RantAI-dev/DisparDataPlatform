@@ -189,6 +189,56 @@ export function secondaryDatasets(): SecondaryDataset[] {
       external: false,
     },
     {
+      id: "sec-usaha-wellness",
+      title: "Usaha Penyedia dan Tempat Layanan Wellness Tourism DKI Jakarta",
+      description:
+        "Perluasan dataset wellness-jakarta (84 venue) dengan fokus 'usaha terdaftar': nama_dagang (brand), jenis_usaha (Rantai/Bermerek/Independen), asosiasi (inferensi berdasarkan kategori, bukan hasil lookup direktori resmi), dan status_usaha ('Perlu verifikasi NIB'). Distribusi jenis usaha: 6 Rantai/Franchise, 19 Hotel Spa Premium (bermerek), 59 Independen. Kolom asosiasi & status_usaha bersifat inferensi/placeholder — perlu verifikasi NIB manual sebelum dipakai sebagai data legalitas resmi.",
+      tags: ["wellness", "wellness-tourism", "usaha", "nib", "legalitas", "jakarta", "sekunder"],
+      rows: 84,
+      href: "/sdi/usaha-wellness-jakarta",
+      external: false,
+    },
+    {
+      id: "sec-asosiasi-ekraf",
+      title: "Asosiasi/Organisasi/Badan/EO Ekonomi Kreatif DKI Jakarta",
+      description:
+        "Inventaris asosiasi, organisasi, badan, dan EO (event organizer) yang berkaitan dengan ekonomi kreatif di DKI Jakarta. Sumber: (1) EKRAF Hub sebaran-pelaku-kreatif (filter province_id=31, work_status=Asosiasi) — otomatis, tanpa kontak; (2) kurasi manual dari situs resmi/Dispar DKI dengan verifikasi telepon/email publik. Distribusi kategori: 23 Asosiasi, 2 Badan, 6 EO, 3 Organisasi.",
+      tags: ["ekraf", "asosiasi", "organisasi", "event-organizer", "jakarta", "ekraf-hub", "sekunder"],
+      rows: 34,
+      href: "/sdi/asosiasi-organisasi-badan-eo-ekraf-jakarta",
+      external: false,
+    },
+    {
+      id: "sec-asosiasi-pariwisata",
+      title: "Asosiasi/Organisasi/Badan/EO Pariwisata DKI Jakarta",
+      description:
+        "Inventaris asosiasi, organisasi, badan, dan EO (event organizer) yang berkaitan dengan pariwisata di DKI Jakarta. Sumber: kurasi manual dari direktori Dispar DKI, situs resmi asosiasi, dan press release publik — Dispar DKI tidak menyediakan direktori publik terpusat untuk asosiasi wisata; baris yang kontaknya tidak tersedia publik ditandai '—'. Distribusi kategori: 11 Asosiasi, 4 Badan, 8 EO, 3 Organisasi.",
+      tags: ["pariwisata", "asosiasi", "organisasi", "event-organizer", "jakarta", "sekunder"],
+      rows: 26,
+      href: "/sdi/asosiasi-organisasi-badan-eo-pariwisata-jakarta",
+      external: false,
+    },
+    {
+      id: "sec-desa-wisata",
+      title: "Desa/Kampung Wisata DKI Jakarta (SDI + Perluasan)",
+      description:
+        "Inventaris desa/kampung wisata di DKI Jakarta dari Satu Data Jakarta (dataset data-desa-wisata, id 9984). DKI Jakarta tidak memiliki banyak 'desa' administratif — banyak entri berupa kampung wisata atau kelurahan wisata (mis. Kampung Bhinneka, Agro Edu Wisata Ragunan, Kampung Samtama). Distribusi kota: 7 Jakarta Pusat, 8 Jakarta Selatan, 8 Kepulauan Seribu, 6 Jakarta Barat, 14 Jakarta Timur, 5 Jakarta Utara. Distribusi tipe: 23 Kampung Wisata, 17 Destinasi Wisata, 8 Desa Wisata.",
+      tags: ["desa-wisata", "kampung-wisata", "satu-data-jakarta", "jakarta", "sdi", "sekunder"],
+      rows: 48,
+      href: "/sdi/desa-wisata-jakarta",
+      external: false,
+    },
+    {
+      id: "sec-hotel-transit",
+      title: "Hotel Transit DKI Jakarta (≤5 km dari simpul transport)",
+      description:
+        "Inventaris hotel dalam buffer 5 km dari 24 simpul transport utama DKI Jakarta (bandara, stasiun KAI, terminal bus, halte MRT/LRT). Basis: registry 120 hotel resmi Satu Data Jakarta. Koordinat via Nominatim forward-search; hotel yang tidak bisa di-geocode ditandai di cache.",
+      tags: ["hotel", "transit", "transportasi", "satu-data-jakarta", "jakarta", "nominatim-osm", "sekunder"],
+      rows: 43,
+      href: "/sdi/hotel-transit-jakarta",
+      external: false,
+    },
+    {
       id: "sec-event-visitor",
       title: "Jumlah Pengunjung Event Jakarta 2026",
       description:
