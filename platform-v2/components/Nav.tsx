@@ -30,7 +30,7 @@ export function Nav() {
       {/* Aksen oranye tipis di atas — identitas enjoy.jakarta */}
       <div style={{ height: 3, background: ORANGE }} />
       <div className="mx-auto max-w-[1320px] px-6 h-[74px] flex items-center justify-between gap-4">
-        <div className="flex items-center gap-2 min-w-0">
+        <div className="flex items-center gap-2 min-w-0 shrink-0">
           {/* Kembali — global, ke halaman sebelumnya. Sembunyi di beranda. */}
           {showBack && (
             <button
@@ -71,7 +71,7 @@ export function Nav() {
             </div>
           </Link>
         </div>
-        <nav className="flex items-center gap-1 text-[13px] font-medium">
+        <nav className="flex items-center gap-1 text-[13px] font-medium min-w-0 overflow-x-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
           {ITEMS.map((it) => {
             const active =
               path === it.href || path.startsWith(it.href + "/");
@@ -79,7 +79,7 @@ export function Nav() {
               <Link
                 key={it.href}
                 href={it.href}
-                className="px-3.5 py-2 rounded-lg transition-colors"
+                className="shrink-0 px-3.5 py-2 rounded-lg transition-colors"
                 style={
                   active
                     ? { background: ORANGE, color: "#fff" }
