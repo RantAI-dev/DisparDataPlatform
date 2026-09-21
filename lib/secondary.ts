@@ -2,6 +2,7 @@ import { GCI_RESTAURANTS } from "./gci";
 import { GCI_EVENTS } from "./events";
 import { RESTAURANTS } from "./restaurants";
 import { GOLF_COURSES } from "./golf";
+import tripadvisorKuliner from "../data/sekunder/restoran-tripadvisor-jakarta.json";
 
 /**
  * Data sekunder — dataset hasil pendataan Jakarta Atlas (Dinas Pariwisata)
@@ -54,6 +55,15 @@ export function secondaryDatasets(): SecondaryDataset[] {
       tags: ["golf", "olahraga", "wisata", "sekunder"],
       rows: GOLF_COURSES.length,
       href: "/golf",
+    },
+    {
+      id: "sec-tripadvisor-kuliner",
+      title: "Kuliner TripAdvisor Jakarta",
+      description:
+        "Restoran DKI Jakarta bersumber TripAdvisor untuk indikator kuliner GCI (kriteria Kearney: TripAdvisor & Michelin). Michelin belum ada di Jakarta (kolom kosong). Tabel mentah hasil crawl.",
+      tags: ["gci", "kuliner", "tripadvisor", "michelin", "sekunder"],
+      rows: tripadvisorKuliner.rows.length,
+      href: "/gci?tab=tripadvisor",
     },
   ];
 }

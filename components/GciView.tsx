@@ -26,6 +26,7 @@ import {
   translate,
   type Lang,
 } from "@/lib/i18n";
+import tripadvisorData from "@/data/sekunder/restoran-tripadvisor-jakarta.json";
 
 const TIER_FILTERS = ["Semua", ...TIER_ORDER] as const;
 type TierFilter = (typeof TIER_FILTERS)[number];
@@ -35,6 +36,12 @@ type SourceFilter = (typeof SOURCE_FILTERS)[number];
 
 const PAGE = 200;
 
+// Kolom & baris apa adanya dari hasil crawl TripAdvisor — lihat
+// data/sekunder/restoran-tripadvisor-jakarta.json. Kolom "michelin" sengaja
+// kosong: Jakarta belum punya restoran berbintang Michelin.
+const TA_COLUMNS = tripadvisorData.columns;
+const TA_ROWS = tripadvisorData.rows as Record<string, string>[];
+
 /** Rating ditampilkan gaya Indonesia: 4,9 */
 function fmtRating(r?: number): string {
   if (r === undefined) return "—";
@@ -43,6 +50,15 @@ function fmtRating(r?: number): string {
 
 export function GciView() {
   const [lang, setLang] = useState<Lang>(DEFAULT_LANG);
+  // ?tab=tripadvisor buka langsung tab raw (dipakai link dari katalog /sdi).
+  const [view, setView] = useState<"gci" | "tripadvisor">(() => {
+    if (typeof window !== "undefined") {
+      const params = new URLSearchParams(window.location.search);
+      if (params.get("tab") === "tripadvisor") return "tripadvisor";
+    }
+    return "gci";
+  });
+  const [taQ, setTaQ] = useState("");
   const [tier, setTier] = useState<TierFilter>("Semua");
   const [city, setCity] = useState<string>("Semua");
   const [src, setSrc] = useState<SourceFilter>("Semua");
@@ -91,6 +107,14 @@ export function GciView() {
   useEffect(() => {
     setVisible(PAGE);
   }, [tier, city, src, q]);
+
+  const taFiltered = useMemo(() => {
+    const needle = taQ.trim().toLowerCase();
+    if (!needle) return TA_ROWS;
+    return TA_ROWS.filter((row) =>
+      TA_COLUMNS.some((c) => String(row[c.key] ?? "").toLowerCase().includes(needle))
+    );
+  }, [taQ]);
 
   const paged = filtered.slice(0, visible);
 
@@ -174,7 +198,124 @@ export function GciView() {
         </div>
       </section>
 
+      {/* TAB — Restoran GCI (kurasi) vs Kuliner TripAdvisor (raw) */}
+      <section className="border-b border-hairline bg-paper">
+        <div className="mx-auto max-w-[1320px] px-6 py-3">
+          <div className="inline-flex p-1 bg-canvas border border-hairline rounded-full">
+            <button
+              onClick={() => setView("gci")}
+              className={`press-scale rounded-full px-4 py-1.5 apple-caption whitespace-nowrap ${
+                view === "gci"
+                  ? "bg-[color:var(--accent)] text-white"
+                  : "text-ink-muted-80 hover:text-ink"
+              }`}
+            >
+              Restoran GCI
+            </button>
+            <button
+              onClick={() => setView("tripadvisor")}
+              className={`press-scale rounded-full px-4 py-1.5 apple-caption whitespace-nowrap ${
+                view === "tripadvisor"
+                  ? "bg-[color:var(--accent)] text-white"
+                  : "text-ink-muted-80 hover:text-ink"
+              }`}
+            >
+              Kuliner TripAdvisor
+            </button>
+          </div>
+        </div>
+      </section>
+
+      {view === "tripadvisor" && (
+        <>
+          <section className="frosted border-b border-hairline sticky top-[56px] z-20">
+            <div className="mx-auto max-w-[1320px] px-6 py-3 flex flex-wrap items-center gap-3">
+              <span className="atlas-mono text-ink-muted-48">FILTER ·</span>
+              <input
+                value={taQ}
+                onChange={(e) => setTaQ(e.target.value)}
+                placeholder="Cari nama / masakan / alamat…"
+                className="bg-canvas border border-hairline rounded-full h-9 px-4 apple-caption text-ink placeholder:text-ink-muted-48 focus:outline-none focus:border-[color:var(--accent)] min-w-[200px]"
+              />
+              <span className="ml-auto atlas-mono text-ink-muted-48">
+                {taFiltered.length}/{TA_ROWS.length} entri
+              </span>
+            </div>
+          </section>
+
+          <section className="flex-1">
+            <div className="mx-auto max-w-[1320px] px-6 py-6">
+              <p className="apple-caption text-ink-muted-48 mb-3">
+                Tabel mentah hasil crawl TripAdvisor — belum diolah/di-dedup ke
+                format GCI. Kolom &quot;Michelin&quot; kosong: Jakarta belum
+                punya restoran berbintang Michelin.
+              </p>
+              <div className="overflow-x-auto border border-hairline rounded-lg bg-canvas">
+                <table className="w-full border-collapse text-left">
+                  <thead>
+                    <tr className="border-b border-hairline bg-paper">
+                      <Th className="w-12 text-right pr-3">No.</Th>
+                      {TA_COLUMNS.map((c) => (
+                        <Th key={c.key}>{c.label}</Th>
+                      ))}
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {taFiltered.map((row, i) => (
+                      <tr
+                        key={i}
+                        className="border-b border-hairline last:border-0 hover:bg-paper transition-colors"
+                      >
+                        <td className="px-3 py-3 text-right atlas-mono text-ink-muted-48 tabular align-top">
+                          {i + 1}
+                        </td>
+                        {TA_COLUMNS.map((c) => {
+                          const val = row[c.key];
+                          const isUrl =
+                            c.key === "url_tripadvisor" || c.key === "gmaps";
+                          return (
+                            <td
+                              key={c.key}
+                              className="px-3 py-3 align-top apple-caption text-ink-muted-80 max-w-[280px]"
+                            >
+                              {isUrl && val ? (
+                                <a
+                                  href={val}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="text-[color:var(--accent)] hover:underline"
+                                >
+                                  Buka
+                                </a>
+                              ) : (
+                                val || "—"
+                              )}
+                            </td>
+                          );
+                        })}
+                      </tr>
+                    ))}
+                    {taFiltered.length === 0 && (
+                      <tr>
+                        <td
+                          colSpan={TA_COLUMNS.length + 1}
+                          className="px-3 py-12 text-center apple-caption text-ink-muted-48"
+                        >
+                          Tidak ada entri yang cocok dengan pencarian.
+                        </td>
+                      </tr>
+                    )}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </section>
+        </>
+      )}
+
       {/* FILTER STRIP */}
+      {view === "gci" && (
+      <>
       <section className="frosted border-b border-hairline sticky top-[56px] z-20">
         <div className="mx-auto max-w-[1320px] px-6 py-3 flex flex-wrap items-center gap-3">
           <span className="atlas-mono text-ink-muted-48">FILTER ·</span>
@@ -371,6 +512,8 @@ export function GciView() {
           </p>
         </div>
       </section>
+      </>
+      )}
 
       {/* FOOTER */}
       <footer className="border-t border-hairline bg-paper">
