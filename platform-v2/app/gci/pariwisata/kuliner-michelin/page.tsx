@@ -17,6 +17,7 @@ export const dynamic = "force-dynamic";
 
 const SLUG_KEL = "jumlah-restoran-per-kelurahan"; // sebaran per kelurahan (2024 & 2026)
 const SLUG_USAHA = "data-usaha-jasa-makanan-dan-minuman-jenis-usaha-restoran-di-dki-jakarta"; // arsip 2014
+const SLUG_TRIPADVISOR = "restoran-tripadvisor-jakarta"; // kriteria Kearney: TripAdvisor & Michelin
 
 export default async function KulinerMichelinPage() {
   const safe = async (s: string) => {
@@ -26,7 +27,11 @@ export default async function KulinerMichelinPage() {
       return [];
     }
   };
-  const [perKelAll, usaha] = await Promise.all([safe(SLUG_KEL), safe(SLUG_USAHA)]);
+  const [perKelAll, usaha, tripadvisor] = await Promise.all([
+    safe(SLUG_KEL),
+    safe(SLUG_USAHA),
+    safe(SLUG_TRIPADVISOR),
+  ]);
 
   // Pakai tahun terbaru saja agar tidak dobel antar-tahun.
   const latestYear = perKelAll
@@ -92,6 +97,11 @@ export default async function KulinerMichelinPage() {
         <div className="space-y-3">
           <RawDataDisclosure slug={SLUG_KEL} title={`Jumlah restoran per kelurahan (${latestYear ?? ""})`} count={perKelAll.length} />
           <RawDataDisclosure slug={SLUG_USAHA} title="Daftar usaha restoran (arsip 2014)" count={usaha.length} />
+          <RawDataDisclosure
+            slug={SLUG_TRIPADVISOR}
+            title="Kuliner TripAdvisor Jakarta (kriteria Kearney: TripAdvisor & Michelin)"
+            count={tripadvisor.length}
+          />
         </div>
       </Section>
     </PariwisataShell>
