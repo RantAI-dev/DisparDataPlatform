@@ -62,9 +62,9 @@ export function secondaryDatasets(): SecondaryDataset[] {
       id: "sec-wisnus-kota-tujuan",
       title: "Perjalanan Wisatawan Nusantara Menurut Kabupaten/Kota Tujuan (BPS DKI Jakarta)",
       description:
-        "Jumlah perjalanan wisnus bulanan menurut kota/kabupaten TUJUAN di DKI Jakarta (mobile positioning data). Sumber: tabel statistik BPS Provinsi DKI Jakarta (var 1330), diunduh manual 28 Sep 2026. Cakupan 2019–2024 dan Jan–Mei 2026; 2025 belum diunggah. Tervalidasi terhadap rilis BPS TW IV 2025.",
+        "Jumlah perjalanan wisnus bulanan menurut kota/kabupaten TUJUAN di DKI Jakarta (mobile positioning data). Sumber: tabel statistik BPS Provinsi DKI Jakarta (var 1330), diunduh manual 28 Sep 2026. Cakupan 2019–2025 lengkap dan Jan–Mei 2026. Tervalidasi terhadap rilis BPS TW II & TW IV 2025.",
       tags: ["wisnus", "nusantara", "kota-tujuan", "bps", "sekunder"],
-      rows: 462,
+      rows: 534,
       href: "/sdi/wisnus-perjalanan-per-kota-tujuan",
       external: false,
     },
