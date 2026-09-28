@@ -11,8 +11,6 @@ import { BarBreakdown } from "@/components/charts/BarBreakdown";
 import type { LosRow, PintuBulananRow, Point, WismanData } from "@/lib/dashboard/data";
 import { BULAN, ModeToggle, PendingData, SectionHead, idNum } from "./Kit";
 
-type Mode = "tahunan" | "bulanan";
-
 const labelBulan = (periode: string) => {
   const [y, m] = periode.split("-");
   return `${BULAN[Number(m) - 1] ?? m} ${y}`;
@@ -42,7 +40,6 @@ export function WismanStat({
   /** Pintu masuk per BULAN (BPS) — dipakai bila ada untuk bulan terpilih; selain itu jatuh ke data semesteran SDI. */
   pintuBulanan?: PintuBulananRow[];
 }) {
-  const [mode, setMode] = useState<Mode>("tahunan");
   const years = useMemo(() => [...new Set(data.bulanan.map((r) => r.tahun))].sort(), [data.bulanan]);
   const [year, setYear] = useState(years.includes("2025") ? "2025" : years[years.length - 1] ?? "");
   const periods = data.bulanan.map((r) => r.periode);
@@ -115,144 +112,130 @@ export function WismanStat({
 
   return (
     <div>
-      <div className="mb-5 flex flex-wrap items-center gap-3">
-        <ModeToggle<Mode>
-          value={mode}
-          onChange={setMode}
-          options={[
-            { value: "tahunan", label: "1 · Tahunan" },
-            { value: "bulanan", label: "2 · Bulanan" },
-          ]}
-        />
-        <span className="apple-fine text-ink-muted-48">
-          Data tersedia {labelBulan(periods[0])} – {labelBulan(periods[periods.length - 1])}
-        </span>
+      <p className="mb-5 apple-fine text-ink-muted-48">
+        Data tersedia {labelBulan(periods[0])} – {labelBulan(periods[periods.length - 1])}
+      </p>
+
+      <SectionHead title="1 · Tahunan" desc="Capaian vs target RPJMD dan komposisi wisman per tahun." />
+      <KpiRow>
+        {years.map((y) => (
+          <Kpi key={y} label={`Capaian ${yLabel(y)}`} value={total(y)} sub={target[y] ? `target RPJMD ${idNum(target[y])}` : "target RPJMD belum ditetapkan"} />
+        ))}
+        <Kpi label={`Pertumbuhan ${lastFull ?? ""}`} value={growth != null ? `${idNum(growth, 1)}%` : "—"} delta={growth} sub={prevFull ? `vs ${prevFull}` : undefined} />
+      </KpiRow>
+
+      <div className="mt-4">
+        <ChartCard title="Capaian vs Target Wisman" sub="Capaian = batang (kunjungan wisman) · Target RPJMD = garis">
+          <ComboBarLine
+            categories={years.map(yLabel)}
+            bar={{ name: "Capaian", values: years.map(total) }}
+            line={{ name: "Target RPJMD", values: years.map((y) => target[y] ?? null) }}
+            dualAxis={false}
+          />
+          <p className="mt-2 apple-fine text-ink-muted-48">
+            Target: RPJMD 2025–2029 Tabel III.2 indikator 2.1.c. Tahun 2024 belum punya target (sebelum periode RPJMD).
+            {last && partial(last) ? ` ${last} masih berjalan — capaian parsial s/d ${BULAN[nMonths(last) - 1]}.` : ""}
+          </p>
+        </ChartCard>
       </div>
 
-      {mode === "tahunan" ? (
-        <>
-          <KpiRow>
-            {years.map((y) => (
-              <Kpi key={y} label={`Capaian ${yLabel(y)}`} value={total(y)} sub={target[y] ? `target RPJMD ${idNum(target[y])}` : "target RPJMD belum ditetapkan"} />
-            ))}
-            <Kpi label={`Pertumbuhan ${lastFull ?? ""}`} value={growth != null ? `${idNum(growth, 1)}%` : "—"} delta={growth} sub={prevFull ? `vs ${prevFull}` : undefined} />
-          </KpiRow>
+      <div className="mt-6 mb-3 flex flex-wrap items-center gap-2">
+        <span className="apple-fine uppercase tracking-wider text-ink-muted-48">Komposisi tahun</span>
+        <ModeToggle value={year} onChange={setYear} options={years.map((y) => ({ value: y, label: y }))} />
+      </div>
+      <ChartGrid cols={2}>
+        <ChartCard title={`Persentase Wisman berdasarkan Kebangsaan · ${yLabel(year)}`} sub="8 negara terbesar + lainnya">
+          <Donut data={topN(negaraYear)} />
+        </ChartCard>
+        <ChartCard
+          title={`Persentase Wisman berdasarkan Pintu Masuk · ${year}`}
+          sub={`Soekarno-Hatta, Halim, Tanjung Priok · semester ${semYear.join(" & ") || "—"}`}
+        >
+          <Donut data={[...pintuYear.entries()].map(([label, value]) => ({ label, value }))} />
+        </ChartCard>
+      </ChartGrid>
 
-          <div className="mt-4">
-            <ChartCard title="Capaian vs Target Wisman" sub="Capaian = batang (kunjungan wisman) · Target RPJMD = garis">
-              <ComboBarLine
-                categories={years.map(yLabel)}
-                bar={{ name: "Capaian", values: years.map(total) }}
-                line={{ name: "Target RPJMD", values: years.map((y) => target[y] ?? null) }}
-                dualAxis={false}
-              />
-              <p className="mt-2 apple-fine text-ink-muted-48">
-                Target: RPJMD 2025–2029 Tabel III.2 indikator 2.1.c. Tahun 2024 belum punya target (sebelum periode RPJMD).
-                {last && partial(last) ? ` ${last} masih berjalan — capaian parsial s/d ${BULAN[nMonths(last) - 1]}.` : ""}
-              </p>
-            </ChartCard>
-          </div>
+      <SectionHead title="2 · Bulanan" desc="Tren bulanan, perbandingan year-on-year, komposisi per bulan, dan lama menginap." />
+      <ChartCard title="Grafik Wisman per bulan" sub="kunjungan wisman per bulan, seluruh periode">
+        <VerticalBars data={data.bulanan.map((r) => ({ label: r.periode, value: r.jumlah }))} unit=" kunjungan" labelFmt={labelBulan} />
+      </ChartCard>
 
-          <div className="mt-6 mb-3 flex flex-wrap items-center gap-2">
-            <span className="apple-fine uppercase tracking-wider text-ink-muted-48">Komposisi tahun</span>
-            <ModeToggle value={year} onChange={setYear} options={years.map((y) => ({ value: y, label: y }))} />
-          </div>
-          <ChartGrid cols={2}>
-            <ChartCard title={`Persentase Wisman berdasarkan Kebangsaan · ${yLabel(year)}`} sub="8 negara terbesar + lainnya">
-              <Donut data={topN(negaraYear)} />
-            </ChartCard>
-            <ChartCard
-              title={`Persentase Wisman berdasarkan Pintu Masuk · ${year}`}
-              sub={`Soekarno-Hatta, Halim, Tanjung Priok · semester ${semYear.join(" & ") || "—"}`}
-            >
-              <Donut data={[...pintuYear.entries()].map(([label, value]) => ({ label, value }))} />
-            </ChartCard>
-          </ChartGrid>
-        </>
-      ) : (
-        <>
-          <ChartCard title="Grafik Wisman per bulan" sub="kunjungan wisman per bulan, seluruh periode">
-            <VerticalBars data={data.bulanan.map((r) => ({ label: r.periode, value: r.jumlah }))} unit=" kunjungan" labelFmt={labelBulan} />
+      <div className="mt-4">
+        <ChartGrid cols={2}>
+          <ChartCard title="Wisman year-on-year" sub="bulan yang sama dibandingkan lintas tahun · • = tahun berjalan">
+            <GroupedBars series={yoySeries} categories={BULAN} unit=" kunjungan" colors={["#f4a672", "#ed6b23", "#0e7c42"]} />
           </ChartCard>
+          <ChartCard title="Pertumbuhan YoY per bulan (%)" sub="vs bulan yang sama tahun sebelumnya">
+            <VerticalBars data={yoyPct} unit="%" labelFmt={labelBulan} color="#0e7c42" />
+          </ChartCard>
+        </ChartGrid>
+      </div>
 
-          <div className="mt-4">
-            <ChartGrid cols={2}>
-              <ChartCard title="Wisman year-on-year" sub="bulan yang sama dibandingkan lintas tahun · • = tahun berjalan">
-                <GroupedBars series={yoySeries} categories={BULAN} unit=" kunjungan" colors={["#f4a672", "#ed6b23", "#0e7c42"]} />
-              </ChartCard>
-              <ChartCard title="Pertumbuhan YoY per bulan (%)" sub="vs bulan yang sama tahun sebelumnya">
-                <VerticalBars data={yoyPct} unit="%" labelFmt={labelBulan} color="#0e7c42" />
-              </ChartCard>
-            </ChartGrid>
-          </div>
-
-          <div className="mt-6 mb-3 flex flex-wrap items-center gap-2">
-            <span className="apple-fine uppercase tracking-wider text-ink-muted-48">Pilih bulan</span>
-            <select
-              value={month}
-              onChange={(e) => setMonth(e.target.value)}
-              className="rounded-lg border border-hairline bg-white px-3 py-1.5 text-[13px] font-semibold text-ink shadow-sm"
+      <div className="mt-6 mb-3 flex flex-wrap items-center gap-2">
+        <span className="apple-fine uppercase tracking-wider text-ink-muted-48">Pilih bulan</span>
+        <select
+          value={month}
+          onChange={(e) => setMonth(e.target.value)}
+          className="rounded-lg border border-hairline bg-white px-3 py-1.5 text-[13px] font-semibold text-ink shadow-sm"
+        >
+          {periods.map((p) => (
+            <option key={p} value={p}>
+              {labelBulan(p)}
+            </option>
+          ))}
+        </select>
+      </div>
+      <KpiRow>
+        <Kpi label={`Wisman ${labelBulan(month)}`} value={mRow?.jumlah ?? 0} sub="kunjungan" />
+        <Kpi label="YoY bulan ini" value={yoyMonth != null ? `${idNum(yoyMonth, 1)}%` : "—"} delta={yoyMonth} sub={prevYearSame ? `vs ${labelBulan(prevYearSame.periode)}` : "tak ada pembanding"} />
+        <Kpi label="Negara terbanyak" value={topN(negaraMonth, 1)[0]?.label ?? "—"} sub={topN(negaraMonth, 1)[0] ? `${idNum(topN(negaraMonth, 1)[0].value)} kunjungan` : undefined} />
+        <Kpi label="Lama menginap wisman" value={losAvg("Wisman").find((p) => p.label === month)?.value.toLocaleString("id-ID") ?? "—"} sub="hari · hotel bintang (rata-rata kelas)" />
+      </KpiRow>
+      <div className="mt-4">
+        <ChartGrid cols={2}>
+          <ChartCard title={`Persentase Wisman berdasarkan Kebangsaan · ${labelBulan(month)}`} sub="8 negara terbesar + lainnya">
+            <Donut data={topN(negaraMonth)} />
+          </ChartCard>
+          {pintuBln.length ? (
+            <ChartCard title={`Persentase Wisman berdasarkan Pintu Masuk · ${labelBulan(month)}`} sub="data bulanan BPS DKI Jakarta">
+              <Donut data={pintuBln} />
+            </ChartCard>
+          ) : (
+            <ChartCard
+              title={`Persentase Wisman berdasarkan Pintu Masuk · Semester ${semOfMonth} ${mRow?.tahun ?? ""}`}
+              sub="data bulanan BPS belum tersedia untuk bulan ini — ditampilkan data semesteran SDI"
             >
-              {periods.map((p) => (
-                <option key={p} value={p}>
-                  {labelBulan(p)}
-                </option>
-              ))}
-            </select>
-          </div>
-          <KpiRow>
-            <Kpi label={`Wisman ${labelBulan(month)}`} value={mRow?.jumlah ?? 0} sub="kunjungan" />
-            <Kpi label="YoY bulan ini" value={yoyMonth != null ? `${idNum(yoyMonth, 1)}%` : "—"} delta={yoyMonth} sub={prevYearSame ? `vs ${labelBulan(prevYearSame.periode)}` : "tak ada pembanding"} />
-            <Kpi label="Negara terbanyak" value={topN(negaraMonth, 1)[0]?.label ?? "—"} sub={topN(negaraMonth, 1)[0] ? `${idNum(topN(negaraMonth, 1)[0].value)} kunjungan` : undefined} />
-            <Kpi label="Lama menginap wisman" value={losAvg("Wisman").find((p) => p.label === month)?.value.toLocaleString("id-ID") ?? "—"} sub="hari · hotel bintang (rata-rata kelas)" />
-          </KpiRow>
-          <div className="mt-4">
-            <ChartGrid cols={2}>
-              <ChartCard title={`Persentase Wisman berdasarkan Kebangsaan · ${labelBulan(month)}`} sub="8 negara terbesar + lainnya">
-                <Donut data={topN(negaraMonth)} />
-              </ChartCard>
-              {pintuBln.length ? (
-                <ChartCard title={`Persentase Wisman berdasarkan Pintu Masuk · ${labelBulan(month)}`} sub="data bulanan BPS DKI Jakarta">
-                  <Donut data={pintuBln} />
-                </ChartCard>
+              {pintuSem.size ? (
+                <Donut data={[...pintuSem.entries()].map(([label, value]) => ({ label, value }))} />
               ) : (
-                <ChartCard
-                  title={`Persentase Wisman berdasarkan Pintu Masuk · Semester ${semOfMonth} ${mRow?.tahun ?? ""}`}
-                  sub="data bulanan BPS belum tersedia untuk bulan ini — ditampilkan data semesteran SDI"
-                >
-                  {pintuSem.size ? (
-                    <Donut data={[...pintuSem.entries()].map(([label, value]) => ({ label, value }))} />
-                  ) : (
-                    <div className="py-10 text-center text-[13px] text-ink-muted-48">Semester ini belum dirilis.</div>
-                  )}
-                </ChartCard>
+                <div className="py-10 text-center text-[13px] text-ink-muted-48">Semester ini belum dirilis.</div>
               )}
-            </ChartGrid>
-          </div>
+            </ChartCard>
+          )}
+        </ChartGrid>
+      </div>
 
-          <SectionHead title="Length of Stay — rata-rata lama menginap" desc="Rata-rata lama menginap (hari) per bulan, wisman vs wisnus." />
-          <ChartGrid cols={2}>
-            <ChartCard title="RTL Bintang · tren bulanan" sub="rata-rata sederhana Bintang 1–5 (hari)">
-              <GroupedLines
-                series={[
-                  { name: "Wisman", data: losAvg("Wisman") },
-                  { name: "Wisnus", data: losAvg("Wisnus") },
-                ]}
-              />
-            </ChartCard>
-            <ChartCard title={`RTL Bintang per kelas · ${losLast ? labelBulan(losLast) : "—"}`} sub="wisman · hari">
-              <BarBreakdown data={losKelas("Wisman")} unit=" hari" />
-            </ChartCard>
-          </ChartGrid>
-          <div className="mt-4">
-            <PendingData
-              title="RTL Non Bintang"
-              need="Lama menginap di hotel non-bintang tidak tersedia di portal publik. Sesuai MoM, dipakai data rekapitulasi internal (Alifia / Via)."
-              source="rekap internal Disparekraf"
-            />
-          </div>
-        </>
-      )}
+      <SectionHead title="Length of Stay — rata-rata lama menginap" desc="Rata-rata lama menginap (hari) per bulan, wisman vs wisnus." />
+      <ChartGrid cols={2}>
+        <ChartCard title="RTL Bintang · tren bulanan" sub="rata-rata sederhana Bintang 1–5 (hari)">
+          <GroupedLines
+            series={[
+              { name: "Wisman", data: losAvg("Wisman") },
+              { name: "Wisnus", data: losAvg("Wisnus") },
+            ]}
+          />
+        </ChartCard>
+        <ChartCard title={`RTL Bintang per kelas · ${losLast ? labelBulan(losLast) : "—"}`} sub="wisman · hari">
+          <BarBreakdown data={losKelas("Wisman")} unit=" hari" />
+        </ChartCard>
+      </ChartGrid>
+      <div className="mt-4">
+        <PendingData
+          title="RTL Non Bintang"
+          need="Lama menginap di hotel non-bintang tidak tersedia di portal publik. Sesuai MoM, dipakai data rekapitulasi internal (Alifia / Via)."
+          source="rekap internal Disparekraf"
+        />
+      </div>
     </div>
   );
 }
