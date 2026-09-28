@@ -12,6 +12,14 @@ import { ModeToggle, PendingData, SectionHead, idNum } from "./Kit";
 
 const label = (p: string) => (p === "S1 2025" ? "2025 (Sem I)" : p);
 
+/** Nama pendek untuk legenda donut (legenda ECharts terpotong jadi berhalaman bila nama panjang). */
+const PENDEK: Record<string, string> = {
+  "Aplikasi dan Pengembang Permainan": "Aplikasi & Game",
+  "Televisi dan Radio": "TV & Radio",
+  "Film, Animasi, dan Video": "Film & Animasi",
+  "Desain Komunikasi Visual": "DKV",
+};
+
 export function PdrbEkrafStat() {
   const periode: string[] = [...M.periode];
   const iLast = periode.length - 1;
@@ -28,10 +36,12 @@ export function PdrbEkrafStat() {
   const target = cats.map((c) => T[c === "S1 2025" ? "2025" : c] ?? null);
 
   const totalSub = PDRB_SUBSEKTOR.reduce((a, s) => a + s.adhb[iSub], 0);
-  const sebaran = PDRB_SUBSEKTOR.map((s) => ({ label: s.nama, value: Math.round((s.adhb[iSub] / totalSub) * 10000) / 100 })).sort(
-    (a, b) => b.value - a.value,
-  );
-  const nilaiSub = PDRB_SUBSEKTOR.map((s) => ({ label: s.nama, value: s.adhb[iSub] })).sort((a, b) => b.value - a.value);
+  const pct = (v: number) => Math.round((v / totalSub) * 10000) / 100;
+  const urut = PDRB_SUBSEKTOR.map((s) => ({ label: s.nama, value: s.adhb[iSub] })).sort((a, b) => b.value - a.value);
+  // Donut: 5 terbesar + "Lainnya" (total tetap 100%) — 16 irisan tak terbaca & legenda terpotong.
+  const sisa = urut.slice(5).reduce((a, s) => a + s.value, 0);
+  const sebaran = [...urut.slice(0, 5).map((s) => ({ label: PENDEK[s.label] ?? s.label, value: pct(s.value) })), { label: "Lainnya", value: pct(sisa) }];
+  const nilaiSub = urut.slice(0, 10);
   const tumbuhSub = PDRB_SUBSEKTOR.map((s) => ({ label: s.nama, value: s.tumbuh[iSub] })).sort((a, b) => b.value - a.value);
 
   return (
@@ -71,10 +81,10 @@ export function PdrbEkrafStat() {
         <ModeToggle value={sub} onChange={setSub} options={PDRB_SUB_PERIODE.map((p) => ({ value: p as string, label: label(p) }))} />
       </div>
       <ChartGrid cols={2}>
-        <ChartCard title={`Distribusi per subsektor · ${label(sub)}`} sub="% terhadap total PDRB Ekraf (ADHB)">
+        <ChartCard title={`Distribusi per subsektor · ${label(sub)}`} sub="% terhadap total PDRB Ekraf (ADHB) · 5 terbesar + lainnya">
           <Donut data={sebaran} />
         </ChartCard>
-        <ChartCard title={`Nilai per subsektor · ${label(sub)}`} sub="Rp miliar (ADHB)">
+        <ChartCard title={`10 subsektor dengan nilai terbesar · ${label(sub)}`} sub="Rp miliar (ADHB)">
           <BarBreakdown data={nilaiSub} unit=" miliar" />
         </ChartCard>
       </ChartGrid>
