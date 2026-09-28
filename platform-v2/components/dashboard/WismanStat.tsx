@@ -8,7 +8,7 @@ import { VerticalBars } from "@/components/charts/VerticalBars";
 import { GroupedBars } from "@/components/charts/GroupedBars";
 import { GroupedLines } from "@/components/charts/GroupedLines";
 import { BarBreakdown } from "@/components/charts/BarBreakdown";
-import type { LosRow, Point, WismanData } from "@/lib/dashboard/data";
+import type { LosRow, PintuBulananRow, Point, WismanData } from "@/lib/dashboard/data";
 import { BULAN, ModeToggle, PendingData, SectionHead, idNum } from "./Kit";
 
 type Mode = "tahunan" | "bulanan";
@@ -34,10 +34,13 @@ export function WismanStat({
   data,
   los,
   target,
+  pintuBulanan = [],
 }: {
   data: WismanData;
   los: LosRow[];
   target: Record<string, number>;
+  /** Pintu masuk per BULAN (BPS) — dipakai bila ada untuk bulan terpilih; selain itu jatuh ke data semesteran SDI. */
+  pintuBulanan?: PintuBulananRow[];
 }) {
   const [mode, setMode] = useState<Mode>("tahunan");
   const years = useMemo(() => [...new Set(data.bulanan.map((r) => r.tahun))].sort(), [data.bulanan]);
@@ -82,6 +85,9 @@ export function WismanStat({
   const pintuSem = new Map<string, number>();
   for (const r of data.pintu)
     if (mRow && r.tahun === mRow.tahun && r.semester === semOfMonth) pintuSem.set(titlePintu(r.pintu), r.jumlah);
+  const pintuBln = pintuBulanan
+    .filter((r) => r.periode === month)
+    .map((r) => ({ label: r.pintu.replace(/^(Bandara|Pelabuhan) /, ""), value: r.jumlah }));
 
   const yoySeries = years.map((y) => ({
     name: partial(y) ? `${y} •` : y,
@@ -205,16 +211,22 @@ export function WismanStat({
               <ChartCard title={`Persentase Wisman berdasarkan Kebangsaan · ${labelBulan(month)}`} sub="8 negara terbesar + lainnya">
                 <Donut data={topN(negaraMonth)} />
               </ChartCard>
-              <ChartCard
-                title={`Persentase Wisman berdasarkan Pintu Masuk · Semester ${semOfMonth} ${mRow?.tahun ?? ""}`}
-                sub="sumber SDI hanya merilis per semester — bulan ditampilkan dalam semesternya"
-              >
-                {pintuSem.size ? (
-                  <Donut data={[...pintuSem.entries()].map(([label, value]) => ({ label, value }))} />
-                ) : (
-                  <div className="py-10 text-center text-[13px] text-ink-muted-48">Semester ini belum dirilis.</div>
-                )}
-              </ChartCard>
+              {pintuBln.length ? (
+                <ChartCard title={`Persentase Wisman berdasarkan Pintu Masuk · ${labelBulan(month)}`} sub="data bulanan BPS DKI Jakarta">
+                  <Donut data={pintuBln} />
+                </ChartCard>
+              ) : (
+                <ChartCard
+                  title={`Persentase Wisman berdasarkan Pintu Masuk · Semester ${semOfMonth} ${mRow?.tahun ?? ""}`}
+                  sub="data bulanan BPS belum tersedia untuk bulan ini — ditampilkan data semesteran SDI"
+                >
+                  {pintuSem.size ? (
+                    <Donut data={[...pintuSem.entries()].map(([label, value]) => ({ label, value }))} />
+                  ) : (
+                    <div className="py-10 text-center text-[13px] text-ink-muted-48">Semester ini belum dirilis.</div>
+                  )}
+                </ChartCard>
+              )}
             </ChartGrid>
           </div>
 

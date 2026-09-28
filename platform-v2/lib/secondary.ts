@@ -49,6 +49,26 @@ export function secondaryDatasets(): SecondaryDataset[] {
       external: false,
     },
     {
+      id: "sec-wisman-pintu-bulanan-bps",
+      title: "Wisman per Pintu Masuk dan Bulan (BPS DKI Jakarta)",
+      description:
+        "Kunjungan wisman bulanan menurut pintu masuk DKI Jakarta (Soekarno-Hatta, Halim Perdana Kusuma, Tanjung Priok). Sumber: tabel statistik BPS Provinsi DKI Jakarta, diunduh manual 28 Sep 2026. Saat ini tersedia 2024.",
+      tags: ["wisman", "pintu-masuk", "bulanan", "bps", "sekunder"],
+      rows: 36,
+      href: "/sdi/wisman-per-pintu-masuk-bulanan-bps",
+      external: false,
+    },
+    {
+      id: "sec-wisnus-kota-tujuan",
+      title: "Perjalanan Wisatawan Nusantara Menurut Kabupaten/Kota Tujuan (BPS DKI Jakarta)",
+      description:
+        "Jumlah perjalanan wisnus bulanan menurut kota/kabupaten TUJUAN di DKI Jakarta (mobile positioning data). Sumber: tabel statistik BPS Provinsi DKI Jakarta (var 1330), diunduh manual 28 Sep 2026. Cakupan 2019–2024 dan Jan–Mei 2026; 2025 belum diunggah. Tervalidasi terhadap rilis BPS TW IV 2025.",
+      tags: ["wisnus", "nusantara", "kota-tujuan", "bps", "sekunder"],
+      rows: 462,
+      href: "/sdi/wisnus-perjalanan-per-kota-tujuan",
+      external: false,
+    },
+    {
       id: "sec-tripadvisor",
       title: "Restoran Jakarta TripAdvisor (Kuliner GCI)",
       description:

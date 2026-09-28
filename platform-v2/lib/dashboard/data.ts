@@ -118,3 +118,39 @@ export async function getSertifikasi(): Promise<SertifikasiRow[]> {
   );
   return rows.map((r) => ({ tahun: r.tahun, bidang: r.bidang, jumlah: Number(r.jumlah) }));
 }
+
+export type WisnusRow = { periode: string; tahun: string; bulan: number; kota: string; jumlah: number };
+
+/** Perjalanan wisnus bulanan per kota/kabupaten TUJUAN (BPS, dataset sekunder). */
+export async function getWisnusKotaTujuan(): Promise<WisnusRow[]> {
+  const rows = await safe(
+    q<{ periode: string; kota: string; jumlah: string }>(
+      `SELECT formatDateTime(periode, '%Y-%m') AS periode, kota_tujuan AS kota, toString(sum(jumlah_perjalanan)) AS jumlah
+       FROM silver.wisnus_perjalanan_per_kota_tujuan
+       WHERE periode IS NOT NULL AND kota_tujuan IS NOT NULL
+       GROUP BY periode, kota ORDER BY periode, kota`,
+    ),
+  );
+  return rows.map((r) => ({
+    periode: r.periode,
+    tahun: r.periode.slice(0, 4),
+    bulan: Number(r.periode.slice(5, 7)),
+    kota: r.kota,
+    jumlah: Number(r.jumlah),
+  }));
+}
+
+export type PintuBulananRow = { periode: string; pintu: string; jumlah: number };
+
+/** Wisman bulanan per pintu masuk (BPS, dataset sekunder) — menggantikan data semesteran bila tersedia. */
+export async function getPintuBulanan(): Promise<PintuBulananRow[]> {
+  const rows = await safe(
+    q<{ periode: string; pintu: string; jumlah: string }>(
+      `SELECT formatDateTime(periode, '%Y-%m') AS periode, pintu_masuk AS pintu, toString(sum(jumlah_kunjungan)) AS jumlah
+       FROM silver.wisman_per_pintu_masuk_bulanan_bps
+       WHERE periode IS NOT NULL
+       GROUP BY periode, pintu ORDER BY periode`,
+    ),
+  );
+  return rows.map((r) => ({ periode: r.periode, pintu: r.pintu, jumlah: Number(r.jumlah) }));
+}
