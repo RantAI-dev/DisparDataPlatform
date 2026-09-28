@@ -4,7 +4,8 @@ import { getWisman, TARGET_WISMAN } from "@/lib/dashboard/data";
 import { PDRB_MAKRO, TARGET_KONTRIBUSI_RPJMD } from "@/lib/dashboard/pdrb-ekraf";
 import { KpiStat } from "@/components/charts/KpiStat";
 
-export const revalidate = 3600;
+// Dinamis: saat build (image Docker) ClickHouse tak terjangkau — ISR akan membekukan halaman kosong.
+export const dynamic = "force-dynamic";
 
 /** Beranda Dashboard: ringkasan KPI utama + pintu ke tiap sub-menu. */
 export default async function Page() {

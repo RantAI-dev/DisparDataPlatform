@@ -7,7 +7,8 @@ import { GroupedBars } from "@/components/charts/GroupedBars";
 import { KpiStat } from "@/components/charts/KpiStat";
 import { PendingData, SectionHead, SourceNote } from "@/components/dashboard/Kit";
 
-export const revalidate = 3600;
+// Dinamis: saat build (image Docker) ClickHouse tak terjangkau — ISR akan membekukan halaman kosong.
+export const dynamic = "force-dynamic";
 
 const titleCase = (s: string) => s.toLowerCase().replace(/\b\w/g, (c) => c.toUpperCase());
 
