@@ -154,3 +154,40 @@ export async function getPintuBulanan(): Promise<PintuBulananRow[]> {
   );
   return rows.map((r) => ({ periode: r.periode, pintu: r.pintu, jumlah: Number(r.jumlah) }));
 }
+
+export type TkEkraf = {
+  /** DKI per tahun: total, laki-laki, perempuan, dan total nasional (jumlah seluruh provinsi). */
+  dki: { tahun: string; total: number; laki: number; perempuan: number; nasional: number }[];
+  /** Nasional per subsektor per tahun (rincian subsektor per provinsi belum dipublikasikan). */
+  subsektorNasional: { tahun: string; subsektor: string; jumlah: number }[];
+};
+
+/** Tenaga kerja ekonomi kreatif — Satu Data Ekraf (Kemenekraf, olahan Sakernas BPS). */
+export async function getTenagaKerjaEkraf(): Promise<TkEkraf> {
+  const [dki, sub] = await Promise.all([
+    safe(
+      q<{ tahun: string; total: string; laki: string; perempuan: string; nasional: string }>(
+        `SELECT toString(toUInt16(tahun)) AS tahun,
+                toString(sumIf(jumlah_tenaga_kerja, kode_wilayah = 31 AND jenis_kelamin = 'Total')) AS total,
+                toString(sumIf(jumlah_tenaga_kerja, kode_wilayah = 31 AND jenis_kelamin = 'Laki-laki')) AS laki,
+                toString(sumIf(jumlah_tenaga_kerja, kode_wilayah = 31 AND jenis_kelamin = 'Perempuan')) AS perempuan,
+                toString(sumIf(jumlah_tenaga_kerja, jenis_kelamin = 'Total')) AS nasional
+         FROM silver.tenaga_kerja_ekraf_per_provinsi
+         WHERE tahun IS NOT NULL
+         GROUP BY tahun ORDER BY tahun`,
+      ),
+    ),
+    safe(
+      q<{ tahun: string; subsektor: string; jumlah: string }>(
+        `SELECT toString(toUInt16(tahun)) AS tahun, subsektor, toString(sum(jumlah_tenaga_kerja)) AS jumlah
+         FROM silver.tenaga_kerja_ekraf_per_subsektor_nasional
+         WHERE tahun IS NOT NULL AND subsektor IS NOT NULL
+         GROUP BY tahun, subsektor ORDER BY tahun`,
+      ),
+    ),
+  ]);
+  return {
+    dki: dki.map((r) => ({ tahun: r.tahun, total: Number(r.total), laki: Number(r.laki), perempuan: Number(r.perempuan), nasional: Number(r.nasional) })),
+    subsektorNasional: sub.map((r) => ({ tahun: r.tahun, subsektor: r.subsektor, jumlah: Number(r.jumlah) })),
+  };
+}

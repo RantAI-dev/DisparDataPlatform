@@ -69,6 +69,26 @@ export function secondaryDatasets(): SecondaryDataset[] {
       external: false,
     },
     {
+      id: "sec-tk-ekraf-provinsi",
+      title: "Tenaga Kerja Ekonomi Kreatif Menurut Provinsi dan Jenis Kelamin (Satu Data Ekraf)",
+      description:
+        "Jumlah tenaga kerja ekonomi kreatif per provinsi 2020–2024 (Total, Laki-laki, Perempuan). Sumber: Satu Data Ekraf — Kemenekraf, olahan Sakernas BPS Agustus (satudata.ekraf.go.id dataset 8w13umewjrtrk1q & hxi9b9y1vq2rf2p). DKI Jakarta 2024: 1.257.285 orang.",
+      tags: ["ekraf", "tenaga-kerja", "provinsi", "sakernas", "kemenekraf", "sekunder"],
+      rows: 522,
+      href: "/sdi/tenaga-kerja-ekraf-per-provinsi",
+      external: false,
+    },
+    {
+      id: "sec-tk-ekraf-subsektor",
+      title: "Tenaga Kerja Ekonomi Kreatif Menurut Subsektor — Nasional (Satu Data Ekraf)",
+      description:
+        "Jumlah tenaga kerja ekonomi kreatif Indonesia per 16 subsektor 2020–2024; rincian subsektor per provinsi belum dipublikasikan. Sumber: Satu Data Ekraf — Kemenekraf, olahan Sakernas BPS (dataset 17o8miba9bfiyx1).",
+      tags: ["ekraf", "tenaga-kerja", "subsektor", "nasional", "sakernas", "kemenekraf", "sekunder"],
+      rows: 80,
+      href: "/sdi/tenaga-kerja-ekraf-per-subsektor-nasional",
+      external: false,
+    },
+    {
       id: "sec-tripadvisor",
       title: "Restoran Jakarta TripAdvisor (Kuliner GCI)",
       description:
