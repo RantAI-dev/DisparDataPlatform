@@ -11,7 +11,7 @@ export const DASHBOARD_MENU = [
     group: "Kinerja Ekonomi Kreatif",
     items: [
       { href: "/dashboard/pdrb-ekraf", label: "PDRB Ekonomi Kreatif", sub: "2017–2025 · kontribusi vs target RPJMD" },
-      { href: "/dashboard/tenaga-kerja", label: "Tenaga Kerja Ekraf", sub: "subsektor · wilayah · tren" },
+      { href: "/dashboard/tenaga-kerja", label: "Tenaga Kerja Ekraf", sub: "jumlah · subsektor · tren" },
     ],
   },
 ] as const;

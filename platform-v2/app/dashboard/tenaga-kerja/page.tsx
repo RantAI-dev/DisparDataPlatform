@@ -1,24 +1,14 @@
 import { getSertifikasi, getTenagaKerjaEkraf } from "@/lib/dashboard/data";
-import { HUB_DIAMBIL, HUB_PER_KOTA, HUB_SUMBER } from "@/lib/dashboard/ekraf-hub";
 import { ChartCard, ChartGrid, Kpi, KpiRow } from "@/components/pariwisata/DashboardKit";
 import { BarBreakdown } from "@/components/charts/BarBreakdown";
 import { ComboBarLine } from "@/components/charts/ComboBarLine";
 import { GroupedBars } from "@/components/charts/GroupedBars";
-import { PendingData, SectionHead, SourceNote, idNum } from "@/components/dashboard/Kit";
+import { SectionHead, SourceNote, idNum } from "@/components/dashboard/Kit";
 
 // Dinamis: saat build (image Docker) ClickHouse tak terjangkau — ISR akan membekukan halaman kosong.
 export const dynamic = "force-dynamic";
 
 const titleCase = (s: string) => s.toLowerCase().replace(/\b\w/g, (c) => c.toUpperCase());
-
-/** Proxy EKRAF Hub: badge peringatan supaya tidak dibaca sebagai angka tenaga kerja resmi. */
-function ProxyBadge() {
-  return (
-    <span className="ml-1 rounded-full bg-amber-100 px-2 py-0.5 text-[10.5px] font-semibold text-amber-800">
-      proxy · akun terdaftar EKRAF Hub, bukan statistik tenaga kerja
-    </span>
-  );
-}
 
 export default async function Page() {
   const [tk, sert] = await Promise.all([getTenagaKerjaEkraf(), getSertifikasi()]);
@@ -66,30 +56,11 @@ export default async function Page() {
       )}
 
       <SectionHead title="2 · Rincian berdasarkan subsektor ekonomi kreatif" />
-      <ChartGrid cols={2}>
-        <ChartCard title={`Tenaga kerja ekraf per subsektor · Nasional ${subYear}`} sub="orang · rincian subsektor per provinsi belum dipublikasikan Kemenekraf">
+      <ChartCard title={`Tenaga kerja ekraf per subsektor · Nasional ${subYear}`} sub="orang · rincian subsektor per provinsi belum dipublikasikan Kemenekraf">
           <BarBreakdown data={subNas} unit=" orang" />
         </ChartCard>
-        <PendingData
-          title="Rincian subsektor khusus DKI Jakarta"
-          need="Satu Data Ekraf baru merilis rincian subsektor tingkat nasional. Rincian subsektor untuk DKI menunggu data Hub Ekraf / Kemenekraf (tindak lanjut MoM: Tim Hub Ekraf & Pak Umar)."
-          source="satudata.ekraf.go.id"
-        />
-      </ChartGrid>
 
-      <SectionHead title="3 · Sebaran per kota/kabupaten administrasi" />
-      <ChartGrid cols={2}>
-        <PendingData
-          title="Tenaga kerja ekraf per kota/kabupaten administrasi DKI"
-          need="Statistik resmi (Sakernas) tidak dirilis sampai tingkat kota/kabupaten. Sebagai gambaran sementara ditampilkan sebaran pelaku kreatif terdaftar di EKRAF Hub."
-        />
-        <ChartCard title="Pelaku kreatif terdaftar per wilayah" sub={`EKRAF Hub · diambil ${HUB_DIAMBIL}`}>
-          <div className="-mt-2 mb-2"><ProxyBadge /></div>
-          <BarBreakdown data={HUB_PER_KOTA} unit=" akun" />
-        </ChartCard>
-      </ChartGrid>
-
-      <SectionHead title="4 · Tren tenaga kerja ekraf DKI Jakarta" desc="5 tahun terakhir yang tersedia." />
+      <SectionHead title="3 · Tren tenaga kerja ekraf DKI Jakarta" desc="5 tahun terakhir yang tersedia." />
       <ChartGrid cols={2}>
         <ChartCard title="Tenaga kerja ekraf DKI & porsi nasional" sub="batang = orang · garis = % terhadap nasional">
           <ComboBarLine
@@ -125,9 +96,8 @@ export default async function Page() {
       </ChartGrid>
 
       <SourceNote>
-        Sumber: Satu Data Ekraf (Kemenekraf, olahan Sakernas BPS Agustus) — satudata.ekraf.go.id; EKRAF Hub — {HUB_SUMBER}
-        (akun pelaku kreatif terdaftar, bukan statistik tenaga kerja); Satu Data Jakarta — tenaga kerja pariwisata &amp; ekraf
-        tersertifikasi (2023–2025).
+        Sumber: Satu Data Ekraf (Kemenekraf, olahan Sakernas BPS Agustus) — satudata.ekraf.go.id; Satu Data Jakarta — tenaga
+        kerja pariwisata &amp; ekraf tersertifikasi (2023–2025).
       </SourceNote>
     </>
   );
