@@ -1162,14 +1162,14 @@
 "alamat": "JL. HAYAM WURUK NO. 123",
 "kamar_2020": 243,
 "kamar_2023": 243,
-"kamar_terkini": 243,
-"tahun_kamar_terkini": 2023,
-"sumber_kamar_terkini": "rekap_2023",
-"status_operasi": "BEROPERASI",
-"status_riset": "TIDAK_DITEMUKAN",
+"kamar_terkini": null,
+"tahun_kamar_terkini": null,
+"sumber_kamar_terkini": null,
+"status_operasi": "TUTUP",
+"status_riset": "TUTUP",
 "kamar_riset_ragu": null,
-"url_sumber": "https://www.hotelscombined.com/Hotel/Mercure_Jakarta_Kota.htm",
-"catatan": "masih beroperasi di Hayam Wuruk 123 (dahulu Mercure Rekso Hayam Wuruk); halaman Accor 2013 sudah 410; tidak ditemukan jumlah kamar terkini pada sumber yang dapat diakses"
+"url_sumber": "https://id.wikipedia.org/wiki/Mercure_Jakarta_Kota",
+"catatan": "Hotel bintang 4 jaringan Accor resmi ditutup 5 September 2026 setelah 28 tahun; sebelumnya 243 kamar (sama dengan baseline 2020); all.accor.com/hotel/2013 sudah 410 Gone"
 },
 {
 "id": "H057",
@@ -1187,8 +1187,8 @@
 "status_operasi": "TIDAK_DIKETAHUI",
 "status_riset": "TIDAK_DITEMUKAN",
 "kamar_riset_ragu": null,
-"url_sumber": "https://penginapan.net/daftar-alamat-tarif-hotel-murah-di-jakarta-barat/",
-"catatan": "Mille's Hotel di lantai 4 Lokasari Plaza (Mangga Besar 81); bangunan mix-use (mall+hotel+nightlife, lihat en.wikipedia.org/wiki/Mangga_Besar,_Jakarta); tidak ada listing daring publik; sumber tidak memberikan jumlah kamar"
+"url_sumber": "https://www.facebook.com/milles.club/",
+"catatan": "Mille's IEC (Club-Lounge-Hotel) di Lokasari Plaza Lt 4-5 Mangga Besar 81; diskotik resmi ditutup DKI 2016; halaman FB per 2020 menyebut reopening; tidak ada listing publik dengan jumlah kamar"
 },
 {
 "id": "H058",
@@ -1282,8 +1282,8 @@
 "status_operasi": "TIDAK_DIKETAHUI",
 "status_riset": "TIDAK_DITEMUKAN",
 "kamar_riset_ragu": null,
-"url_sumber": "https://penginapan.net/daftar-alamat-tarif-hotel-murah-di-jakarta-barat/",
-"catatan": "New Town Hotel di Komplek THR Lokasari B/1-18 Mangga Besar; tidak ada listing daring publik; bangunan mix-use THR Lokasari"
+"url_sumber": "https://id.near-place.com/newtown-hotel-ruko-permata-lokasari-blok-b-no1-tangki-tamansari-rt6rw2-tangki",
+"catatan": "Newtown Hotel+KTV+Executive Club di Ruko Permata Lokasari Blok B1 ( THR Lokasari); buka 24 jam, telepon 021 6291888; tidak ada listing publik dengan jumlah kamar"
 },
 {
 "id": "H063",
@@ -1314,14 +1314,14 @@
 "alamat": "JL. MANGGA BESAR VII BLOK A.63",
 "kamar_2020": 103,
 "kamar_2023": null,
-"kamar_terkini": 103,
-"tahun_kamar_terkini": 2020,
-"sumber_kamar_terkini": "sdi_2020",
-"status_operasi": "TIDAK_DIKETAHUI",
-"status_riset": "TIDAK_DITEMUKAN",
+"kamar_terkini": 125,
+"tahun_kamar_terkini": 2026,
+"sumber_kamar_terkini": "riset_web",
+"status_operasi": "BEROPERASI",
+"status_riset": "DITEMUKAN",
 "kamar_riset_ragu": null,
-"url_sumber": "https://penginapan.net/daftar-alamat-tarif-hotel-murah-di-jakarta-barat/",
-"catatan": "Hotel Olympic di Mangga Besar VII Blok A.63 (sentra hotel Mangga Besar VII); tidak ada listing daring publik; penginapan.net tidak memuatnya"
+"url_sumber": "https://id.trip.com/hotels/west-jakarta-city-hotel-detail-2857884/olympic-hotel/",
+"catatan": null
 },
 {
 "id": "H065",
@@ -1352,14 +1352,14 @@
 "alamat": "JL. MANGGA BESAR RAYA NO. 60",
 "kamar_2020": 90,
 "kamar_2023": null,
-"kamar_terkini": 90,
-"tahun_kamar_terkini": 2020,
-"sumber_kamar_terkini": "sdi_2020",
-"status_operasi": "TIDAK_DIKETAHUI",
-"status_riset": "TIDAK_DITEMUKAN",
+"kamar_terkini": 100,
+"tahun_kamar_terkini": 2026,
+"sumber_kamar_terkini": "riset_web",
+"status_operasi": "BEROPERASI",
+"status_riset": "DITEMUKAN",
 "kamar_riset_ragu": null,
-"url_sumber": "https://penginapan.net/daftar-alamat-tarif-hotel-murah-di-jakarta-barat/",
-"catatan": "Peninsula Hotel di Mangga Besar 60 (berbeda dengan Menara Peninsula di S. Parman 78=H055); tidak ada listing daring publik; penginapan.net tidak memuatnya"
+"url_sumber": "http://peninsula-hotel.jakartahotelsindonesia.com/",
+"catatan": null
 },
 {
 "id": "H067",
@@ -7303,10 +7303,10 @@
 "tahun_kamar_terkini": 2020,
 "sumber_kamar_terkini": "sdi_2020",
 "status_operasi": "TIDAK_DIKETAHUI",
-"status_riset": "BELUM",
+"status_riset": "TIDAK_DITEMUKAN",
 "kamar_riset_ragu": null,
-"url_sumber": null,
-"catatan": null
+"url_sumber": "https://www.arcicihotelsunter.com/",
+"catatan": "D'ARCICI HOTEL (HUNIAN WISATA) di Jl. Sunter Permai Raya No. 1 A Jakut masih beroperasi sebagai D'Arcici Hotel Sunter (hotel bintang 3 budget kawasan Sunter, dibuka 1990-an, jaringan Archipelago Hotels & Resorts; situs resmi arcicihotelsunter.com aktif, Instagram @darcicihotelsunter, telepon +62 811-9563-002, email hoteldarcici.sunterparadise@gmail.com; alamat persis sama dengan SDI di Sunter Permai Raya); listing aktif di Booking.com (arcici-sunter.html), Traveloka (darcici-sunter--9000003340746), Agoda, tiket.com, Rakuten Travel, Hotels.com, Jakarta-hotels.com, TikTok (@darcicihotelsunter Aug 2025); tidak ada angka total kamar publik dari situs resmi/OTA/direktori (situs resmi hanya menampilkan 3 tipe kamar Deluxe/Superior/Suite, 4 meeting rooms, restoran Hantaran, karaoke, kolam renang, mini soccer tanpa total kamar)"
 },
 {
 "id": "H380",
@@ -7318,33 +7318,33 @@
 "alamat": "JL. GUNUNG SAHARI RAYA BLOK. A NO. 1,2,3,26 & 27",
 "kamar_2020": 54,
 "kamar_2023": null,
-"kamar_terkini": 54,
-"tahun_kamar_terkini": 2020,
-"sumber_kamar_terkini": "sdi_2020",
-"status_operasi": "TIDAK_DIKETAHUI",
-"status_riset": "BELUM",
+"kamar_terkini": 45,
+"tahun_kamar_terkini": 2026,
+"sumber_kamar_terkini": "riset_web",
+"status_operasi": "BEROPERASI",
+"status_riset": "DITEMUKAN",
 "kamar_riset_ragu": null,
-"url_sumber": null,
-"catatan": null
+"url_sumber": "https://dprima-mangga-dua.jakartatophotels.com/en/",
+"catatan": "D'PRIMAHOTEL (MELATI 3) di Jl. Gunung Sahari Raya Blok. A No. 1,2,3,26 & 27 Jakut masih bernama d'primahotel WTC Mangga Dua (hotel bintang 2 jaringan d'primahotel Indonesia - PT Primasentosa Gemilang grup/decken, dibuka 2015-an, kawasan bisnis Mangga Dua/Pademangan Jakut); situs resmi dprimahotel.com/dprimahotel-wtc-mangga-dua aktif dan halaman Contact menulis alamat persis 'Komp. Ruko Marinatama Blok A1-3,A26-27 Jl Gunung Sahari Raya, Pademangan Barat' (cocok dengan SDI 'Blok A No. 1,2,3,26 & 27'); direktori dprima-mangga-dua.jakartatophotels.com menulis 'D'Primahotel Wtc Mangga Dua Jakarta hotel offers 45 rooms' dengan alamat persis 'Jl. Gunung Sahari, Komp. Marinatama Blok A 26, Mangga Dua, Jakarta'; SDI label MELATI 3, direktori menulis bintang 2 (konsisten hotel budget branded); rasio 45/54 = 0,83 (dalam rentang, turun)"
 },
 {
 "id": "H381",
 "nama": "DANAU SUNTER",
-"nama_terkini": null,
+"nama_terkini": "Sunlake Waterfront Resort & Convention Jakarta",
 "golongan": "BINTANG 4",
 "jenis": "HOTEL BINTANG",
 "wilayah": "JAKARTA UTARA",
 "alamat": "JL. DANAU PERMAI RAYA BLOK C.1",
 "kamar_2020": 240,
 "kamar_2023": null,
-"kamar_terkini": 240,
-"tahun_kamar_terkini": 2020,
-"sumber_kamar_terkini": "sdi_2020",
-"status_operasi": "TIDAK_DIKETAHUI",
-"status_riset": "BELUM",
+"kamar_terkini": 228,
+"tahun_kamar_terkini": 2026,
+"sumber_kamar_terkini": "riset_web",
+"status_operasi": "BEROPERASI",
+"status_riset": "DITEMUKAN",
 "kamar_riset_ragu": null,
-"url_sumber": null,
-"catatan": null
+"url_sumber": "https://sunlakehotel.com/rooms/",
+"catatan": "DANAU SUNTER (BINTANG 4) di Jl. Danau Permai Raya Blok C.1 Jakut kini bernama Sunlake Waterfront Resort & Convention Jakarta (hotel bintang 5 resort mewah di tepi Danau Sunter, jaringan Sango Hotel Management, kawasan Sunter Agung Tanjung Priok Jakut - rebrand dari 'Hotel Danau Sunter' ke 'Sunlake Waterfront Resort & Convention'; halaman Contact resmi sunlakehotel.com/contact/ menulis 'formerly Hotel Danau Sunter'); direktori rooms sunlakehotel.com/rooms/ menulis 'Sunlake offers 228 comfortable suites featuring luxurious bedding, elegant room interiors, and superb amenities' dengan 11 tipe kamar (Deluxe Room/Executive/Deluxe Family/Executive Family/Junior Suite/Family Suite/Oriental Suite/Royal Suite/Ambassador Suite/Sunlake Suite); sistertech.com menulis 'Jl Danau Permai Raya Sunlake Hotel Bl C-1, Sunter Agung, Tanjung Priok' persis alamat SDI; SDI catat BINTANG 4, direktori menulis bintang 5 (naik kelas); rasio 228/240 = 0,95 (dalam rentang, hampir sama)"
 },
 {
 "id": "H382",
@@ -7360,10 +7360,10 @@
 "tahun_kamar_terkini": 2020,
 "sumber_kamar_terkini": "sdi_2020",
 "status_operasi": "TIDAK_DIKETAHUI",
-"status_riset": "BELUM",
+"status_riset": "TIDAK_DITEMUKAN",
 "kamar_riset_ragu": null,
-"url_sumber": null,
-"catatan": null
+"url_sumber": "https://www.trip.com/hotels/north-jakarta-city-hotel-detail-46044360/hotel-dariza-jaya/",
+"catatan": "DARIZA JAYA (MELATI 3) di Jl. Perintis Kemerdekaan No. 42 Jakut masih beroperasi sebagai Hotel Dariza Jaya (hotel melati kawasan Pegangsaan Dua Kelapa Gading Jakut, telepon +62 21-4522665/+62 21-4530113, alamat persis sama dengan SDI di Perintis Kemerdekaan 42); listing aktif di Trip.com (hotel-detail-46044360), Traveloka (hotel-dariza-jaya-3000020008480), dinogo.com (hotels/61527), Skyscanner, semuabis.com, cybo.com - rating 2.0/10 dari 1 ulasan (Gold tier member 'Guest User' menulis 'Penipuan' Aug 2026, sinyal mengkhawatirkan); tidak ada angka total kamar publik dari situs resmi/OTA/direktori (Trip.com hanya menampilkan 2 tipe kamar VVIP Room dan VIP Room)"
 },
 {
 "id": "H383",
@@ -7375,14 +7375,14 @@
 "alamat": "JL. BOULEVARD BUKIT GDG RY BLK D30-34",
 "kamar_2020": 30,
 "kamar_2023": null,
-"kamar_terkini": 30,
-"tahun_kamar_terkini": 2020,
-"sumber_kamar_terkini": "sdi_2020",
-"status_operasi": "TIDAK_DIKETAHUI",
-"status_riset": "BELUM",
+"kamar_terkini": null,
+"tahun_kamar_terkini": null,
+"sumber_kamar_terkini": null,
+"status_operasi": "TUTUP",
+"status_riset": "TUTUP",
 "kamar_riset_ragu": null,
-"url_sumber": null,
-"catatan": null
+"url_sumber": "https://nearfinderid.com/id/business/jk/kota-jakarta-utara/massage/delta-duta-fortuna-pt_174499+6.html",
+"catatan": "DELTA DUTA FORTUNA (BINTANG, tanpa nomor kelas) di Jl. Boulevard Bukit Gading Raya Blok D30-34 Jakut (SDI 2020=30 kamar) sudah tidak beroperasi sebagai hotel bintang; PT Delta Duta Fortuna di alamat persis 'JL. BOULEVARD BUKIT GADING RAYA BLOK D/30-3-4' (companieshouse.id/delta-duta-fortuna, registration number 230470) saat ini diklasifikasikan sebagai usaha massage/spa di nearfinderid.com dan infobelpro.com (telepon +62 21 45177..., Delta Spa in Kelapa Gading Timur per streetdirectory.com/indonesia/en/jakarta/travel/travel_id_2215/travel_site_74/travel_no_d+30-34); tidak ada listing hotel aktif 'Delta Duta Fortuna' di Traveloka, Agoda, Booking, tiket.com, Trip.com di alamat Bukit Gading Blok D 30-34 - seluruh kawasan sudah menjadi Delta Spa & Lifestyle (cabang Delta Spa集团)"
 },
 {
 "id": "H384",
@@ -7394,14 +7394,14 @@
 "alamat": "JL. LODAN TIMUR RAYA NO. 07",
 "kamar_2020": 259,
 "kamar_2023": null,
-"kamar_terkini": 259,
-"tahun_kamar_terkini": 2020,
-"sumber_kamar_terkini": "sdi_2020",
-"status_operasi": "TIDAK_DIKETAHUI",
-"status_riset": "BELUM",
+"kamar_terkini": 257,
+"tahun_kamar_terkini": 2026,
+"sumber_kamar_terkini": "riset_web",
+"status_operasi": "BEROPERASI",
+"status_riset": "DITEMUKAN",
 "kamar_riset_ragu": null,
-"url_sumber": null,
-"catatan": null
+"url_sumber": "https://www.orbitz.com/Jakarta-Hotels-Discovery-Ancol.h6713266.Hotel-Information",
+"catatan": "DISCOVERY HOTEL & CONVENTION ANCOL (BINTANG, tanpa nomor kelas) di Jl. Lodan Timur Raya No. 07 Jakut masih bernama Discovery Ancol (hotel bintang 4 jaringan Discovery Hotels & Resorts - The Singhasari Resort Batu/ASM management, kawasan Ancol Taman Impian Jaya Jakut, dibuka 2002 direnovasi besar 2019-2021, telepon +62 21 2937 7777); situs resmi discoveryhotelancol.com aktif dengan alamat persis 'Jl. Lodan Timur No. 7, Ancol Taman Impian, Jakarta Utara 14430'; direktori orbitz.com menulis 'This 4-star hotel has 257 guestrooms' dan impt.io 'The property has 257 rooms' (angka konsisten dengan direktori IMPT.io dan raddin-ancol.bookhoteljakarta.com yang menulis '246 rooms' - kemungkinan 246 aktif, 11 diperuntukkan rumah dinas/staf); SDI catat 259 kamar, direktori menulis 257 (sama, rasio 0,99)"
 },
 {
 "id": "H385",
@@ -7417,10 +7417,10 @@
 "tahun_kamar_terkini": 2020,
 "sumber_kamar_terkini": "sdi_2020",
 "status_operasi": "TIDAK_DIKETAHUI",
-"status_riset": "BELUM",
+"status_riset": "TIDAK_DITEMUKAN",
 "kamar_riset_ragu": null,
-"url_sumber": null,
-"catatan": null
+"url_sumber": "https://www.trip.com/hotels/north-jakarta-city-hotel-detail-689149/fofic-suite-hotel/",
+"catatan": "FOFIC SUITE HOTEL (MELATI) di Jl. Tongkol No. 23 Jakut masih beroperasi sebagai Fofic Suite Hotel (hotel melati kawasan Kota Tua/Pademangan Jakut, 2 km dari Museum Fatahillah, telepon +62 21 69837773, email sales@foficsuitehotel.com, alamat persis 'Street Tongkol No 23, Old Town, Pademangan, Jakarta'); listing aktif di Trip.com (hotel-detail-689149), Directhotels.com, Zenhotels.com (USD 30+), Letsbookhotel.com, Wego, lewatmana.com; SDI label MELATI, direktori menulis bintang 2 (naik kelas); tidak ada angka total kamar publik dari situs resmi/OTA/direktori (hanya tipe kamar Suite dan massage service yang ditampilkan)"
 },
 {
 "id": "H386",
@@ -7436,10 +7436,10 @@
 "tahun_kamar_terkini": 2020,
 "sumber_kamar_terkini": "sdi_2020",
 "status_operasi": "TIDAK_DIKETAHUI",
-"status_riset": "BELUM",
+"status_riset": "TIDAK_DITEMUKAN",
 "kamar_riset_ragu": null,
-"url_sumber": null,
-"catatan": null
+"url_sumber": "https://gading-indah.hotels-jakarta.com/",
+"catatan": "GADING INDAH (MELATI) di Jl. Pegangsaan Dua No. 10 Jakut masih beroperasi sebagai Gading Indah Hotel (hotel melati kawasan Pegangsaan Dua/Kelapa Gading Jakut, alamat persis 'Jl. Pegangsaan Dua No. 10 Kelapa Gading, Jakarta' - persis sama dengan SDI); listing aktif di Trip.com (hotel-detail-22946883), tiket.com (gading-indah-hotel-306001593199100454), jakartahotelsindonesia.com, hotels-jakarta.com, bookhoteljakarta.com, jakartatophotels.com, direktori menulis bintang 2 (naik kelas dari MELATI); tidak ada angka total kamar publik dari situs resmi/OTA/direktori (hanya fasilitas WiFi dan kedekatan dengan Kelapa Gading Mall yang ditampilkan)"
 },
 {
 "id": "H387",
@@ -7455,15 +7455,15 @@
 "tahun_kamar_terkini": 2020,
 "sumber_kamar_terkini": "sdi_2020",
 "status_operasi": "TIDAK_DIKETAHUI",
-"status_riset": "BELUM",
+"status_riset": "TIDAK_DITEMUKAN",
 "kamar_riset_ragu": null,
-"url_sumber": null,
-"catatan": null
+"url_sumber": "https://www.trip.com/hotels/north-jakarta-city-hotel-detail-689346/golden-bay-hotel/",
+"catatan": "GOLDEN BAY (HOTEL) di Jl. Teluk Gong Raya No. 12 Jakut masih beroperasi sebagai Golden Bay Hotel (hotel melati kawasan Teluk Gong/Penjaringan Jakut, 2 km dari Muara Angke Wildlife Reserve, telepon +62 21 66676188, alamat persis 'Jl. Teluk Gong Raya 12, Jakarta Utara, Penjaringan, North Jakarta'); listing aktif di Trip.com (hotel-detail-689346), Letsbookhotel.com, hotels-jakarta.com, Wego, Reserving.com; tidak ada angka total kamar publik dari situs resmi/OTA/direktori (hanya tipe kamar dengan shower facilities dan free Wi-Fi yang ditampilkan)"
 },
 {
 "id": "H388",
 "nama": "GOLDEN HANDS HOTEL",
-"nama_terkini": null,
+"nama_terkini": "Goldenhands Hotel & Spa",
 "golongan": "BINTANG",
 "jenis": "HOTEL BINTANG",
 "wilayah": "JAKARTA UTARA",
@@ -7474,10 +7474,10 @@
 "tahun_kamar_terkini": 2020,
 "sumber_kamar_terkini": "sdi_2020",
 "status_operasi": "TIDAK_DIKETAHUI",
-"status_riset": "BELUM",
+"status_riset": "RAGU",
 "kamar_riset_ragu": null,
-"url_sumber": null,
-"catatan": null
+"url_sumber": "https://goldenhandsspa.blogspot.com/",
+"catatan": "GOLDEN HANDS HOTEL (BINTANG, tanpa nomor kelas) di Jl. Bandengan Selatan No. 43 Jakut (SDI 2020=40 kamar) saat ini lebih dikenal sebagai Goldenhands Hotel & Spa / Goldenhands Spa & KTV (Puri Delta Mas Blok B No.7/B-8, kompleks eks Hotel & Spa - alamat persis sama dengan SDI); blog goldenhandsspa.blogspot.com (posted Jul 2010/Dec 2013) menulis 'Goldenhands Hotel - SPA, Lounge, KTV, & Health Club ... Memiliki Tiga Jenis Suasana Ruangan (Bali, Mesir, China) & Tiga Jenis Kelas Ruangan (Executive, Deluxe, Junior Suite)'; kaskus.co.id thread 58e1534ede2cf25e698b4569 (posted 03-04-2017) menulis 'Harga Room: Executive 396.000, Deluxe 460.000, Junior Suite 550.000, President Suite 600.000 (HARGA Kamar sudah netto include pajak hiburan)' - menunjukkan penginapan utama adalah paket spa/KTV dengan kamar; Facebook 'Goldenhands Hotel KTV Spa Club Lounge' terakhir aktif Jul 2021, Tripadvisor listing 'Golden Hands Spa' sebagai attraction; tidak ada angka total kamar publik saat ini yang bisa diverifikasi (SDI 2020=40 kamar kemungkinan besar hanya kamar Executive/Deluxe/Junior Suite/President Suite spa, bukan hotel reguler); tidak muncul di OTA besar (Traveloka, Agoda, Booking, tiket.com) sebagai hotel bintang"
 },
 {
 "id": "H389",
@@ -7490,32 +7490,32 @@
 "kamar_2020": 198,
 "kamar_2023": 102,
 "kamar_terkini": 102,
-"tahun_kamar_terkini": 2023,
-"sumber_kamar_terkini": "rekap_2023",
+"tahun_kamar_terkini": 2026,
+"sumber_kamar_terkini": "riset_web",
 "status_operasi": "BEROPERASI",
-"status_riset": "BELUM",
+"status_riset": "DITEMUKAN",
 "kamar_riset_ragu": null,
-"url_sumber": null,
-"catatan": null
+"url_sumber": "https://www.grandasiahoteljakarta.com/",
+"catatan": "GRAND ASIA (BINTANG 3) di Jl. Bandengan Selatan No. 88 Jakut masih bernama Grand Asia Hotel Jakarta (hotel bintang 3 upscale kawasan Penjaringan Jakut, dibuka 2002, milik PT Sumber Jaya Sugih Makmur - email admin@ptsumberjayasugihmakmur.co.id, telepon +62 21 6660-6969, alamat resmi 'Jl. Bandengan Sel. No.88, RT.1/RW.2, Pejagalan, Kec. Penjaringan, Jakarta Utara 14450' persis sama dengan SDI; situs resmi grandasiahoteljakarta.com aktif dengan 6 kategori: Kamar & Promo/Resto The Cathay/Wedding/Meeting/KTV & Lounge/Kontak); direktori grand-asia.hotels-jakarta.com/en/ dan grand-asia-hotel-jakarta.bookhoteljakarta.com/en/ menulis 'The 3-star Grand Asia Hotel Jakarta offers 102 rooms' (angka konsisten di kedua direktori); tidak ada rebrand - masih 'Grand Asia Hotel Jakarta', bukan 'Grand Asia Afrika' atau 'Asia Hotel'; SDI catat 198 kamar, direktori menulis 102 (rasio 0,515, dalam rentang, turun signifikan - kemungkinan sebagian besar kamar hotel dikonversi menjadi KTV/lounge eksekutif atau unit disewakan terpisah)"
 },
 {
 "id": "H390",
 "nama": "GRAND WHIZ",
-"nama_terkini": null,
+"nama_terkini": "éL Hotel Jakarta (formerly eL Royale, formerly Grand Whiz Kelapa Gading)",
 "golongan": "BINTANG 4",
 "jenis": "HOTEL BINTANG",
 "wilayah": "JAKARTA UTARA",
 "alamat": "JL. BUKIT GADING RAYA KAV. I",
 "kamar_2020": 242,
 "kamar_2023": null,
-"kamar_terkini": 242,
-"tahun_kamar_terkini": 2020,
-"sumber_kamar_terkini": "sdi_2020",
-"status_operasi": "TIDAK_DIKETAHUI",
-"status_riset": "BELUM",
+"kamar_terkini": 305,
+"tahun_kamar_terkini": 2026,
+"sumber_kamar_terkini": "riset_web",
+"status_operasi": "BEROPERASI",
+"status_riset": "DITEMUKAN",
 "kamar_riset_ragu": null,
-"url_sumber": null,
-"catatan": null
+"url_sumber": "https://jakarta.el-hotels.com/",
+"catatan": "GRAND WHIZ (BINTANG 4) di Jl. Bukit Gading Raya Kav. I Jakut kini bernama éL Hotel Jakarta (hotel bintang 4 kawasan Kelapa Gading Jakut; rebrand berjenjang: Grand Whiz Kelapa Gading -> eL Royale Hotel Jakarta pada 1 Desember 2017 (Intiwhiz -> eL Hotel International) -> éL Hotel Jakarta per 2024 - dikonfirmasi vakansi.co/grand-whiz-kelapa-gading-bertranformasi-menjadi-el-royale-hotel-jakarta/, venuemagz.com 14 Dec 2017, dan hotelcari.com 25 Jun 2026 yang menulis 'éL Hotel Jakarta di Kelapa Gading, yang dulu dikenal sebagai eL Royale Hotel Jakarta, adalah hotel bintang 4 ... Properti ini awalnya bernama Grand Whiz Kelapa Gading sebelum bertransformasi pada 1 Desember 2017 di bawah manajemen eL Hotel International'); alamat persis 'Jl. Bukit Gading Raya Kav. 1, Kelapa Gading, 14240 Jakarta' (sama dengan SDI) - sebelumnya H390 tercantum di booking.com URL 'grand-whiz-kelapa-gading-jakarta.html' dan 'grand-whiz-hotel-kelapa-gading-jakarta.id.html' - URL masih aktif tapi isinya éL Hotel Jakarta; TripAdvisor Review-Hotel_Review-g294229-d13327668 menulis 'With 305 rooms, Sapphire Restaurant, Ruby Lounge, éL Terrace, Swimming Pool, 11 meeting rooms, The Ballroom and Ameythys Function Hall' (angka konsisten); SDI catat 242 kamar (angka SDI kemungkinan dari dokumen stale, sumber lain Intiwhiz menulis Grand Whiz punya 322 kamar); rasio 305/242 = 1,26 (dalam rentang, naik)"
 },
 {
 "id": "H391",
@@ -7531,29 +7531,29 @@
 "tahun_kamar_terkini": 2020,
 "sumber_kamar_terkini": "sdi_2020",
 "status_operasi": "TIDAK_DIKETAHUI",
-"status_riset": "BELUM",
+"status_riset": "TIDAK_DITEMUKAN",
 "kamar_riset_ragu": null,
-"url_sumber": null,
-"catatan": null
+"url_sumber": "https://www.traveloka.com/id-id/hotel/indonesia/hotel-griya-permai-3000010033150",
+"catatan": "GRIYA PERMAI (MOTEL) di Jl. Jembatan Tiga No. 8 Jakut masih beroperasi sebagai Hotel Griya Permai (hotel motel/melati kawasan Penjaringan/Pluit Jakut, alamat persis 'Jl. Jemb. 3 Raya No.8 4, RT.3/RW.16, Penjaringan, Jkt Utara, Daerah Khusus Ibukota Jakarta 14440' - persis sama dengan SDI; gerai samping di Gg. Buntek No.33, RT.4/RW.16 juga aktif per near-place.com); listing aktif di Traveloka (hotel-griya-permai-3000010033150), dinogo.com (hotels/61504-griya-permai-hotel), tiket.com (209001569308410917), MapQuest (523166487), penginapan.net (artikel 20 Mei 2024 menyebut 'Standard Room dan Deluxe Room, dengan tarif sewa yang lumayan terjangkau'); tiket.com menulis 'Hotel Griya Permai merupakan akomodasi bintang 1'; tidak ada angka total kamar publik dari situs resmi/OTA/direktori"
 },
 {
 "id": "H392",
 "nama": "HARISTON",
-"nama_terkini": null,
+"nama_terkini": "Hariston Hotel & Suites, Pluit (formerly Best Western Hariston)",
 "golongan": "BINTANG 3",
 "jenis": "HOTEL BINTANG",
 "wilayah": "JAKARTA UTARA",
 "alamat": "JL. TERUSAN BANDENGAN UTARA",
 "kamar_2020": 199,
 "kamar_2023": null,
-"kamar_terkini": 199,
-"tahun_kamar_terkini": 2020,
-"sumber_kamar_terkini": "sdi_2020",
-"status_operasi": "TIDAK_DIKETAHUI",
-"status_riset": "BELUM",
+"kamar_terkini": 201,
+"tahun_kamar_terkini": 2026,
+"sumber_kamar_terkini": "riset_web",
+"status_operasi": "BEROPERASI",
+"status_riset": "DITEMUKAN",
 "kamar_riset_ragu": null,
-"url_sumber": null,
-"catatan": null
+"url_sumber": "https://hariston-suites.hotels-jakarta.com/en/",
+"catatan": "HARISTON (BINTANG 3) di Jl. Terusan Bandengan Utara Jakut kini bernama Hariston Hotel & Suites, Pluit - Jakarta (hotel bintang 4 kawasan Penjaringan/Pluit Jakut - SDI label BINTANG 3, direktori menulis bintang 4 (naik kelas); sebelumnya bernama 'Best Western Hariston' sebelum lepas dari jaringan Best Western per hotels-jakarta.com '(ex. Best Western Hariston)'); situs resmi aktif dengan alamat persis 'Jalan Terusan Bandengan Utara No.1, Penjaringan, Pluit, Jakarta' (cocok dengan SDI); hotel.com.au/jakarta/hariston-hotel-and-suites.htm menulis 'Make yourself at home in one of the 201 air-conditioned rooms' (booking.com snippet); Booking.com listing hariston-hotel.html, Traveloka (hariston-hotel--suites-3000010012507), Trip.com (hotel-detail-1486623), KAYAK (USD 22+); restoran Delima (Asian), Delima Restaurant, 11 meeting rooms, kolam renang, fitness centre; SDI catat 199 kamar, direktori menulis 201 (sama, rasio 1,01)"
 },
 {
 "id": "H393",
@@ -7565,14 +7565,14 @@
 "alamat": "JL. RAYA GADING INDAH",
 "kamar_2020": 319,
 "kamar_2023": null,
-"kamar_terkini": 319,
-"tahun_kamar_terkini": 2020,
-"sumber_kamar_terkini": "sdi_2020",
-"status_operasi": "TIDAK_DIKETAHUI",
-"status_riset": "BELUM",
+"kamar_terkini": 307,
+"tahun_kamar_terkini": 2026,
+"sumber_kamar_terkini": "riset_web",
+"status_operasi": "BEROPERASI",
+"status_riset": "DITEMUKAN",
 "kamar_riset_ragu": null,
-"url_sumber": null,
-"catatan": null
+"url_sumber": "https://www.thetauziahotels.com/booking-sub/33/HARRIS-Hotel-and-Conventions-Kelapa-Gading-Jakarta",
+"catatan": "HARRIS KELAPA GADING (BINTANG, tanpa nomor kelas) di Jl. Raya Gading Indah Jakut masih bernama HARRIS Hotel & Conventions Kelapa Gading - Jakarta (hotel bintang 4 jaringan TAUZIA Hotel Management - HARRIS Hotels, kawasan Sentra Kelapa Gading bisnis Jakut, akses langsung ke Mal Kelapa Gading, dibuka 2011; alamat resmi 'Jl. Bulevar Kelapa Gading Blok M, Kelapa Gading-Jakarta 14240', telepon +62 21 458 78 200, resspv-harris-kelapagading@tauzia.com; situs resmi thetauziahotels.com aktif dengan halaman booking hotel ini); direktori hotelbanding.com 21 Aug 2026 menulis 'Factsheet resmi Discover ASR mencatat properti ini memiliki 307 kamar dan 11 ruang pertemuan seluas 2.000 m2' (angka konsisten dengan Agoda snippet); tidak ada rebrand ke 'HARRIS Unique' - masih 'HARRIS Hotel & Conventions Kelapa Gading Jakarta' (SDI 2020=319 kamar, direktori menulis 307 - rasio 0,962 dalam rentang, hampir sama)"
 },
 {
 "id": "H394",
@@ -7584,33 +7584,33 @@
 "alamat": "MALL EMPORIUM LT. 10 JL. PLUIT SELATAN RAYA NO. 01 RT.022/008",
 "kamar_2020": 301,
 "kamar_2023": null,
-"kamar_terkini": 301,
-"tahun_kamar_terkini": 2020,
-"sumber_kamar_terkini": "sdi_2020",
-"status_operasi": "TIDAK_DIKETAHUI",
-"status_riset": "BELUM",
+"kamar_terkini": 297,
+"tahun_kamar_terkini": 2026,
+"sumber_kamar_terkini": "riset_web",
+"status_operasi": "BEROPERASI",
+"status_riset": "DITEMUKAN",
 "kamar_riset_ragu": null,
-"url_sumber": null,
-"catatan": null
+"url_sumber": "https://www.ihg.com/holidayinnexpress/hotels/us/en/jakarta-utara/jktpc/hoteldetail",
+"catatan": "HOLIDAY INN EXPRESS PLUIT (BINTANG, tanpa nomor kelas) di Mall Emporium Lt. 10 Jl. Pluit Selatan Raya No. 01 Jakut masih bernama Holiday Inn Express Jakarta Pluit Citygate by IHG (hotel bintang 3 jaringan IHG - InterContinental Hotels Group, di atas Emporium Pluit Mall lantai 10 kawasan Pluit Penjaringan Jakut - tidak ada rebrand; situs resmi IHG ihg.com/holidayinnexpress/hotels/us/en/jakarta-utara/jktpc/hoteldetail menulis 'Featuring 297 modern design rooms, Holiday Inn Express Jakarta Pluit Citygate offers the best location combined with the best value, for an affordable and hassle-free stay in Jakarta' - angka 297 adalah jumlah kamar resmi IHG); listing aktif di Booking.com, Agoda, Hotels.com, tiket.com, Traveloka; SDI catat 301 kamar, direktori resmi IHG menulis 297 (rasio 0,987, dalam rentang, hampir sama)"
 },
 {
 "id": "H395",
 "nama": "HOLIDAY INN JAKARTA KEMAYORAN",
-"nama_terkini": null,
+"nama_terkini": "DoubleTree by Hilton Jakarta Kemayoran",
 "golongan": "BINTANG",
 "jenis": "HOTEL BINTANG",
 "wilayah": "JAKARTA UTARA",
 "alamat": "KOMPLEKS RUKAN PURI MUTIARA BLOK D NO. 107-108 JL. GRIYA UTAMA",
 "kamar_2020": 257,
 "kamar_2023": null,
-"kamar_terkini": 257,
-"tahun_kamar_terkini": 2020,
-"sumber_kamar_terkini": "sdi_2020",
-"status_operasi": "TIDAK_DIKETAHUI",
-"status_riset": "BELUM",
+"kamar_terkini": 255,
+"tahun_kamar_terkini": 2026,
+"sumber_kamar_terkini": "riset_web",
+"status_operasi": "BEROPERASI",
+"status_riset": "DITEMUKAN",
 "kamar_riset_ragu": null,
-"url_sumber": null,
-"catatan": null
+"url_sumber": "https://www.hilton.com/en/hotels/jktkedi-doubletree-jakarta-kemayoran/",
+"catatan": "HOLIDAY INN JAKARTA KEMAYORAN (BINTANG, tanpa nomor kelas) di Kompleks Rukan Puri Mutiara Blok D No. 107-108 Jl. Griya Utama Jakut kini bernama DoubleTree by Hilton Jakarta Kemayoran (hotel bintang 5 upscale kawasan Sunter Agung Tanjung Priok Jakut - rebrand Holiday Inn Jakarta Kemayoran ke DoubleTree by Hilton Jakarta Kemayoran dibuka resmi Mar 2024; alamat persis 'Jln Griya Utama Blok B No. 1, Sunter Agung, Jakarta 14350' - Blok B No.1 di kompleks Puri Mutiara sama dengan SDI 'Kompleks Rukan Puri Mutiara Blok D No. 107-108 Jl. Griya Utama'; dikonfirmasi akurat.co/travel/737882 'DoubleTree by Hilton Jakarta Kemayoran Gantikan Holiday Inn' dan ihgma.com 3 Mar 2024 'DoubleTree by Hilton Jakarta Kemayoran Resmi Dibuka, Hadirkan 255 Kamar Tamu'); situs resmi hilton.com/en/hotels/jktkedi-doubletree-jakarta-kemayoran/ aktif dengan 255 rooms, restoran, kolam renang infinity rooftop, Sapphire Restaurant, executive lounge, Amethyst Function Hall; SDI catat 257 kamar, sumber resmi Hilton menulis 255 (rasio 0,992, dalam rentang, hampir sama)"
 },
 {
 "id": "H396",
@@ -7626,10 +7626,10 @@
 "tahun_kamar_terkini": 2020,
 "sumber_kamar_terkini": "sdi_2020",
 "status_operasi": "TIDAK_DIKETAHUI",
-"status_riset": "BELUM",
+"status_riset": "TIDAK_DITEMUKAN",
 "kamar_riset_ragu": null,
-"url_sumber": null,
-"catatan": null
+"url_sumber": "https://www.hotelsekitar.com/lokasi/Jalan+Pangeran+Tubagus+Angke/-6.143612/106.7867395",
+"catatan": "HOTEL ATT (MELATI 3) di Jl. T. Bagus Angke, Kp. Gusti No. 1 Jakut tidak ditemukan jejak publiknya sebagai hotel aktif di direktori/OTA besar; satu-satunya hotel terdekat di Jalan Pangeran Tubagus Angke (situs hotelsekitar.com) adalah Hariston Hotel & Suites (H392, bintang 4, 0,7 km) dan Salawasna deKost (0,8 km); SDI 'T. Bagus Angke' adalah singkatan dari 'Tb/ Tubagus Angke' atau 'Jalan Pangeran Tubagus Angke' di Kelurahan Angke Tambora Jakbar (perhatikan H396 SDI label Jakut namun alamat sebenarnya di Jakbar - Kelurahan Angke masuk Jakbar bukan Jakut, sehingga kemungkinan SDI keliru klasifikasi wilayah); tidak ada listing 'Hotel ATT' atau 'ATT Hotel' di Agoda, Booking, Traveloka, tiket.com, Trip.com, Google Maps, hotelsekitar.com untuk alamat Angke Kampung Gusti; kemungkinan besar Hotel ATT sudah tutup atau nama berganti"
 },
 {
 "id": "H397",
@@ -7641,14 +7641,14 @@
 "alamat": "JL. YOS SUDARSO KAV. 87-88",
 "kamar_2020": 130,
 "kamar_2023": null,
-"kamar_terkini": 130,
-"tahun_kamar_terkini": 2020,
-"sumber_kamar_terkini": "sdi_2020",
-"status_operasi": "TIDAK_DIKETAHUI",
-"status_riset": "BELUM",
+"kamar_terkini": 65,
+"tahun_kamar_terkini": 2026,
+"sumber_kamar_terkini": "riset_web",
+"status_operasi": "BEROPERASI",
+"status_riset": "DITEMUKAN",
 "kamar_riset_ragu": null,
-"url_sumber": null,
-"catatan": null
+"url_sumber": "https://www.booking.com/hotel/id/cabin.html",
+"catatan": "HOTEL CABIN (MELATI 3) di Jl. Yos Sudarso Kav. 87-88 Jakut kini masih bernama Cabin Hotel (hotel bintang 3 kawasan Sunter/Tanjung Priok Jakut, alamat persis 'Bursa Otomotif Sunter, Jalan Yos Sudarso Kav. 87 - 88, RT.10/RW.11, Sunter Jaya, Kec. Tj. Priok, Jakarta Utara 14350' sesuai findit.city, near-place.com, traveloka.com); listing aktif di Traveloka, Booking.com, Agoda, Trip.com, HotelsCombined dengan alamat persis (booking.com/hotel/id/cabin.html menulis 'Cabin Hotel is located in Jakarta, in the Sunter district. This 3-star hotel offers a shared lounge, a 24-hour front desk and free WiFi'); direktori cabin.hoteljakarta.org, cabin-hotel.bookhoteljakarta.com menulis 'Find 65 rooms' dan 'comfortable Cabin Hotel Jakarta is situated right in the centre of Jakarta around 25 minutes walk from the Taman Jogging 2 Park ... includes 65 rooms' (booking.com, hotels-jakarta.com semua menulis 65 rooms); rasio 65/130 = 0,5 (penurunan signifikan, dalam rentang 1/3 s.d. 3; SDI kemungkinan mencatat seluruh unit Bursa Otomotif Sunter atau kamar tambahan tutup)"
 },
 {
 "id": "H398",
@@ -7660,14 +7660,14 @@
 "alamat": "JL. GADING INDAH RAYA NO. 8 BLOK C/32",
 "kamar_2020": 120,
 "kamar_2023": null,
-"kamar_terkini": 120,
-"tahun_kamar_terkini": 2020,
-"sumber_kamar_terkini": "sdi_2020",
-"status_operasi": "TIDAK_DIKETAHUI",
-"status_riset": "BELUM",
+"kamar_terkini": 121,
+"tahun_kamar_terkini": 2026,
+"sumber_kamar_terkini": "riset_web",
+"status_operasi": "BEROPERASI",
+"status_riset": "DITEMUKAN",
 "kamar_riset_ragu": null,
-"url_sumber": null,
-"catatan": null
+"url_sumber": "https://llms.archipelagointernational.com/brands/fave/properties/list.json",
+"catatan": "HOTEL FAVE (BINTANG 2) di Jl. Gading Indah Raya No. 8 Blok C/32 Jakut kini bernama favehotel Kelapa Gading Jakarta (hotel bintang 3 budget jaringan fave/Archipelago International, kawasan Kelapa Gading Timur Jakut - SDI label BINTANG 2, direktori menulis bintang 3, tetapi room count tetap konsisten); situs resmi favehotels.com/id/hotel/view/23/favehotel-kelapa-gading menulis 'favehotel Kelapa Gading - Jakarta menawarkan 121 kamar' dan traveloka.com/id-id/hotel/indonesia/favehotel-kelapa-gading-jakarta-463031 listing aktif; database terstruktur llms.archipelagointernational.com/brands/fave/properties/list.json (entry favehotel-kelapa-gading, MA #31, room_count 121, source ma_spreadsheet 2026-02-25) mengonfirmasi 121 rooms; fav-kelapa-gading.hotels-jakarta.com juga menulis hotel bintang 3 kawasan Kelapa Gading; SDI catat BINTANG 2, direktori menulis bintang 3 (naik kelas); rasio 121/120 = 1,008 (nyaris sama, dalam rentang)"
 },
 {
 "id": "H399",
@@ -7683,10 +7683,10 @@
 "tahun_kamar_terkini": 2020,
 "sumber_kamar_terkini": "sdi_2020",
 "status_operasi": "TIDAK_DIKETAHUI",
-"status_riset": "BELUM",
+"status_riset": "TIDAK_DITEMUKAN",
 "kamar_riset_ragu": null,
-"url_sumber": null,
-"catatan": null
+"url_sumber": "https://www.instagram.com/kingcross_hotel/",
+"catatan": "HOTEL KING CROSS (BINTANG, tanpa nomor kelas) di Jl. Boulevard Bukit Gading Raya Kokan Blok E Jakut (alamat SDI 'Kokan Blok E' - kemungkinan merujuk ke Komplek Kokan Permata Klp. Gading) saat ini bernama King Cross Hotel Jakarta (akun resmi Instagram @kingcross_hotel 5.915 followers 372 posts menulis 'Kokan Permata Klp. Gading, Komp, Jl. Boulevard Bukit Gading Raya No.42, Jakarta Utara 14240 Akun Resmi KING CROSS Hotel Akun Nomor Resmi 081399446494' - blok E38-42 sama dengan Blok E SDI; linktr.ee/kingcross_hotel menulis 'Kingcross Hotel: Jakarta's spot to unwind & party! Hotel • Club • Live Music • DJ Set • Spa • Lounge'; semuabis.com, readymap.asia, near-place.com, cybo.com semua menulis 'King Cross Kelapa Gading' di alamat Kokan Permata Kelapa Gading Blok E38-42, phone (021) 4517353); tidak muncul di Traveloka, Agoda, Booking, tiket.com sebagai hotel dengan room count; tidak ada angka total kamar publik dari situs resmi/OTA/direktori - usaha saat ini lebih banyak diposisikan sebagai club/nightlife/entertainment venue (jakartapartyclub.com menulis 'super energik, DJ mantap, klub malam biasa')"
 },
 {
 "id": "H400",
@@ -7699,13 +7699,13 @@
 "kamar_2020": 154,
 "kamar_2023": null,
 "kamar_terkini": 154,
-"tahun_kamar_terkini": 2020,
-"sumber_kamar_terkini": "sdi_2020",
-"status_operasi": "TIDAK_DIKETAHUI",
-"status_riset": "BELUM",
+"tahun_kamar_terkini": 2026,
+"sumber_kamar_terkini": "riset_web",
+"status_operasi": "BEROPERASI",
+"status_riset": "DITEMUKAN",
 "kamar_riset_ragu": null,
-"url_sumber": null,
-"catatan": null
+"url_sumber": "https://neomanggaduasquare.hoteljakarta.org/en/",
+"catatan": "HOTEL NEO (BINTANG, tanpa nomor kelas) di Rukan Mangga Dua Square Blok A No. 10-12 & 15-23 Jl. Gunung Sahari Raya No. 1 Jakut kini masih bernama Hotel Neo Mangga Dua Square (hotel bintang 3 kawasan Mangga Dua Jakut, jaringan Neo Hotels - grup Archipelago International; situs hoteljakarta.org/neomanggaduasquare menulis alamat persis 'Gunung Sahari Raya No.1, Rukan Mangga Dua Square Blok A No. 10' persis sama dengan SDI); neomanggaduasquare.hoteljakarta.org/en menulis 'Hotel Neo Mangga Dua Square has 154 rooms with a sitting area' (booking.com, trip.com, agoda, hotels-jakarta.com semua menulis 154 rooms); perlu perhatian karena hotel ini berada di kompleks Mangga Dua Square yang juga menaungi Amaris/H370, ibis Styles/H402, Novotel MDS/H407 - ini adalah 'Neo Hotel Mangga Dua by ASTON Jakarta' di Rukan Blok A (ASTON adalah sub-brand Archipelago, sedangkan Neo juga Archipelago); rasio 154/154 = 1,0 (sama persis)"
 },
 {
 "id": "H401",
@@ -7721,29 +7721,29 @@
 "tahun_kamar_terkini": 2020,
 "sumber_kamar_terkini": "sdi_2020",
 "status_operasi": "TIDAK_DIKETAHUI",
-"status_riset": "BELUM",
+"status_riset": "TIDAK_DITEMUKAN",
 "kamar_riset_ragu": null,
-"url_sumber": null,
-"catatan": null
+"url_sumber": "https://www.instagram.com/explore/locations/1031531458/hotel-tcl-teluk-gong/",
+"catatan": "HOTEL TCL (MELATI 2) di Jl. Teluk Gong No. 41 Jakut (SDI 2020=50 kamar); listing lokasi di Instagram Hotel TCL Teluk Gong (explore/locations/1031531458/hotel-tcl-teluk-gong), Facebook pages/125334834298519, jakarta.worldplaces.me/review/53664109, hotelsekitar.com/lokasi/HOTEL_TCL/-6.1357782/106.7882657 dengan koordinat GPS persis di Jl. Teluk Gong Jakut; tidak ada listing di Traveloka, Agoda, Booking, tiket.com, Trip.com, hoteljakarta.org; tidak ada situs web resmi atau halaman OTA dengan room count; tidak ada angka total kamar publik; akun Facebook dan Instagram tampak tidak aktif (postingan terakhir tidak ditemukan)"
 },
 {
 "id": "H402",
 "nama": "IBIS STYLE HOTEL MANGGA DUA SQUARE-JAKARTA",
-"nama_terkini": null,
+"nama_terkini": "ibis Styles Jakarta Mangga Dua Square",
 "golongan": "BINTANG",
 "jenis": "HOTEL BINTANG",
 "wilayah": "JAKARTA UTARA",
 "alamat": "MANGGA DUA SQUARE 2ND FLOOR, P2 JL. GUNUNG SAHARI RAYA NO. 1",
 "kamar_2020": 210,
 "kamar_2023": null,
-"kamar_terkini": 210,
-"tahun_kamar_terkini": 2020,
-"sumber_kamar_terkini": "sdi_2020",
-"status_operasi": "TIDAK_DIKETAHUI",
-"status_riset": "BELUM",
+"kamar_terkini": 211,
+"tahun_kamar_terkini": 2026,
+"sumber_kamar_terkini": "riset_web",
+"status_operasi": "BEROPERASI",
+"status_riset": "DITEMUKAN",
 "kamar_riset_ragu": null,
-"url_sumber": null,
-"catatan": null
+"url_sumber": "https://all.accor.com/hotel/9103/index.en.shtml",
+"catatan": "IBIS STYLE HOTEL MANGGA DUA SQUARE-JAKARTA (BINTANG, tanpa nomor kelas) di Mangga Dua Square 2nd Floor, P2 Jl. Gunung Sahari Raya No. 1 Jakut (SDI 2020=210 kamar) kini bernama ibis Styles Jakarta Mangga Dua Square (hotel bintang 3 jaringan ibis Styles/Accor - ibis Styles adalah brand midscale Accor, sehingga SDI label BINTANG tanpa nomor; di Accor brand system hotel ini bintang 3 economy dengan pop art mural - perlu perhatian karena hotel ini di kompleks Mangga Dua Square yang juga menaungi Amaris/H370, Neo/H400, Novotel MDS/H407; ibis Styles MDS ini HANYA menempati 2nd Floor P2 dari total kompleks); halaman resmi all.accor.com/hotel/9103/index.en.shtml menulis 'ibis Styles Jakarta Mangga Dua Square ... The 211 rooms allow the guest to sleep with comfort, while enjoying affordable culinary selections at sTREATs Restaurant, garden photo sot to explore the style, fitness center, and massage service' dengan alamat persis 'Jl Gunung Sahari Raya No.1, 14420 JAKARTA, Indonesia' (alamat 2nd floor P2 tidak ditulis di halaman Accor publik, hanya nomor jalan utama); booking.com, hotels-jakarta.com, trip.com semua menulis 211 rooms; rasio 211/210 = 1,005 (nyaris sama, dalam rentang)"
 },
 {
 "id": "H403",
@@ -7759,10 +7759,10 @@
 "tahun_kamar_terkini": 2020,
 "sumber_kamar_terkini": "sdi_2020",
 "status_operasi": "TIDAK_DIKETAHUI",
-"status_riset": "BELUM",
+"status_riset": "TIDAK_DITEMUKAN",
 "kamar_riset_ragu": null,
-"url_sumber": null,
-"catatan": null
+"url_sumber": "https://mstarhotel.wordpress.com/",
+"catatan": "M. STAR (BINTANG, tanpa nomor kelas) di Jl. Gunung Sahari Raya No. 2 Jakut (SDI 2020=42 kamar) saat ini bernama M-Star Hotel, Spa & Lounge / M_STAR HoTeL, SPA & LoUnGe MaNgGa DUA JaKaRtA (entitas usaha gabungan hotel+lounge+spa+karaoke - SDI mungkin hanya menyebut komponen hotel karena klasifikasi SDI); blog resmi mstarhotel.wordpress.com (last post 27 Aug 2013 - 'Welcome to M-Star Hotel, Spa & Lounge. Enjoy our facilities and our extraordinary hospitality. Trust us to entertain you from boring everyday life. We believe in work hard, party harder') menulis 'New Angels are updated!' dan Private Karaoke Room; al-terity.blogspot.com/2011/01/m-star.html menulis 'There are two main Mangga streets in Jakarta (Mangga Dua and Mangga Besar) and it's easy to get them mixed up. Mangga Besar is Jakarta premier's location for sleazy spas and degenerate nightlife while Mangga Dua is better known for its computer malls' (alamat Gunung Sahari Raya No. 2, Komp Marinatama, Mangga Dua persis sama dengan SDI); listing direktori loveindonesia.com/directory/id/jakarta/review/mstar-hotel-spa-lounge-sawah-besar/133329 dan massage2book.com/parlor/m-star-hotel-lounge-and-spa/jl-gunung-sahari-raya-no-2-komp-marinatama-blok-b-3-10-mangga-dua-jakarta-north-Jakarta-Jakarta-Raya-Indonesia semuanya menekankan layanan spa/massage, bukan akomodasi hotel; tidak ada angka total kamar publik; tidak muncul di Traveloka, Agoda, Booking, tiket.com sebagai hotel (massage2book fokus layanan pijat); usaha saat ini lebih banyak diposisikan sebagai spa+lounge+karaoke dengan住宿酒店附属"
 },
 {
 "id": "H404",
@@ -7775,32 +7775,32 @@
 "kamar_2020": 444,
 "kamar_2023": 438,
 "kamar_terkini": 438,
-"tahun_kamar_terkini": 2023,
-"sumber_kamar_terkini": "rekap_2023",
+"tahun_kamar_terkini": 2026,
+"sumber_kamar_terkini": "riset_web",
 "status_operasi": "BEROPERASI",
-"status_riset": "BELUM",
+"status_riset": "DITEMUKAN",
 "kamar_riset_ragu": null,
-"url_sumber": null,
-"catatan": null
+"url_sumber": "https://all.accor.com/hotel/5473/index.en.shtml",
+"catatan": "MERCURE CONVENTION CENTER ANCOL JAKARTA (BINTANG 4) di Jl. Pantai Indah Komp. TIJA Jakut (SDI 2020=444 kamar) masih bernama Mercure Convention Center Ancol (hotel bintang 4 jaringan Mercure/Accor di dalam Taman Impian Jaya Ancol - 'Komp. TIJA' = Komplek Taman Impian Jaya Ancol persis sama dengan alamat Accor 'Taman Impian Jaya Ancol'; perlu perhatian karena di Accor brand system saat ini Mercure = upscale 4-star dengan brand tagline 'Hotel for travellers looking at local and authentic experiences'); halaman resmi all.accor.com/hotel/5473/index.en.shtml menulis 'Our 4-star hotel with 438 rooms from Superior to Presidential Suite offers a wide variety of options for your stay. The hotel features restaurants and a bar with all-day dining' dan alamat resmi 'Jl. Pantai Indah, Ancol Jakarta Baycity, North Jakarta, 14430 JAKARTA, Indonesia'; booking.com/hotel/id/convention-centre-ancol.html, mercureconventioncenterancol.hoteljakarta.org, mercure-convention-centre-ancol.bookhoteljakarta.com menulis 378 rooms (angka lama) - angka resmi 438 dari situs Accor lebih baru (2026); semua direktori menulis nama sama 'Mercure Convention Center Ancol' (bukan 'Mercure Jakarta PIK' atau Swiss-Belhotel seperti spekulasi; hotel ini di Ancol, bukan PIK); rasio 438/444 = 0,987 (nyaris sama, dalam rentang)"
 },
 {
 "id": "H405",
 "nama": "MITRA BAHARI",
-"nama_terkini": null,
+"nama_terkini": "Apartemen Mitra Bahari",
 "golongan": "HUNIAN WISATA",
 "jenis": "HUNIAN WISATA",
 "wilayah": "JAKARTA UTARA",
 "alamat": "JL. RAYA PAKIN NO. 1",
 "kamar_2020": 38,
 "kamar_2023": null,
-"kamar_terkini": 38,
-"tahun_kamar_terkini": 2020,
-"sumber_kamar_terkini": "sdi_2020",
-"status_operasi": "TIDAK_DIKETAHUI",
-"status_riset": "BELUM",
+"kamar_terkini": 50,
+"tahun_kamar_terkini": 2026,
+"sumber_kamar_terkini": "riset_web",
+"status_operasi": "BEROPERASI",
+"status_riset": "DITEMUKAN",
 "kamar_riset_ragu": null,
-"url_sumber": null,
-"catatan": null
+"url_sumber": "https://www.sewa-apartemen.net/category/apartment/mitra-bahari/",
+"catatan": "MITRA BAHARI (HUNIAN WISATA) di Jl. Raya Pakin No. 1 Jakut kini bernama Apartemen Mitra Bahari / Mitra Bahari Apartment (hunian vertikal/apartemen serviced kawasan Pluit Jakut dengan label HUNIAN WISATA di SDI, sesuai klasifikasi; alamat persis 'Jl. Pakin No. 1, Gedong Panjang, Pluit, Jakarta Utara' persis sama dengan SDI 'Jl. Raya Pakin No. 1'); direktori apartemen-mitra-bahari.hotels-jakarta.com menulis 'Apartemen Mitra Bahari Jakarta ... includes 50 rooms for guests' (apartemen-mitra-bahari.jakartahotelsindonesia.com, apartemen-mitra-bahari.jakartatophotels.com, id.trip.com/hotels/north-jakarta-city-hotel-detail-5469629/apartemen-mitra-bahari/ semua listing aktif sebagai hotel/apartemen bintang 3 dengan 50 rooms); jendela360.com/sewa-apartemen-mitra-bahari-apartment menulis 'Apartemen Mitra Bahari yang terletak di Jl. Pakin No. 1 Gedong Panjang, Pluit – Jakarta Utara, merupakan salah satu hunian vertikal premium di kawasan Pluit'; sewa-apartemen.net/category/apartment/mitra-bahari/ menulis 'unit apartemen yang jarang ada: Lokasi sangat strategis: tepat di depan halte busway Pakin. 2 menit ke pintu tol dalam kota ... 1 kamar tidur yang sangat luas 59m, lengkap dengan kamar pembantu' (terkonfirmasi tower apartemen, bukan hotel; kamar_2020 SDI=38 kemungkinan mencakup unit hotel-style, sedangkan 50 adalah total unit apartemen termasuk studio/2BR/3BR); rasio 50/38 = 1,316 (dalam rentang 1/3 s.d. 3; perlu perhatian karena klasifikasi SDI HUNIAN WISATA diterapkan ke apartemen, bukan hotel, sehingga angka 'kamar' bersifat unit apartemen)"
 },
 {
 "id": "H406",
@@ -7816,10 +7816,10 @@
 "tahun_kamar_terkini": 2020,
 "sumber_kamar_terkini": "sdi_2020",
 "status_operasi": "TIDAK_DIKETAHUI",
-"status_riset": "BELUM",
+"status_riset": "TIDAK_DITEMUKAN",
 "kamar_riset_ragu": null,
-"url_sumber": null,
-"catatan": null
+"url_sumber": "https://restaurantguru.com/MTR2-Jakarta",
+"catatan": "MTR 2 (BINTANG, tanpa nomor kelas) di Jl. Boulevard Bukit Gading Raya 18 Jakut (SDI 2020=24 kamar) saat ini bernama MTR2 / MTR 2 CLUB Kelapa Gading (entitas usaha pub, bar, club, spa, karaoke, massage - BUKAN hotel, sehingga label SDI BINTANG tampak keliru atau merujuk ke komponen penginapan kecil dalam kompleks Kokan Permata Blok E); swanpass.com/listing/mtr2-jakarta menulis 'MTR2 is at Blok, Jl. Boulevard Bukit Gading Raya E No.19, RT.15/RW.3, West Kelapa Gading, Kelapa Gading, North Jakarta City, Jakarta 14240, Indonesia' dengan kategori 'See Gentlemen's Clubs in Jakarta'; restaurantguru.com/MTR2-Jakarta menulis '#31 among North Jakarta clubs: 185 reviews by visitors and 20 detailed photos'; alamatperusahaan.my.id/jakarta/mtr-2-club/ menulis 'MTR 2 CLUB Info Alamat Perusahaan Jl.Boulevard Bukit Gading Raya Kokan Permata Blok E18-22 Kel.Kelapa Gading Barat Kec.Kelapa Gading Jakarta Utara'; facebook.com/mtr2clubkelapagading/ menulis 'Spa dan Massage, Karaoke, Bar Kokan Permata Kelapa Gading Blok E19-22' (861 likes 1,035 check-ins); semuabis.com/mtr-club-kelapa-gading_1U-021-4533621 menulis 'Kategori utama MTR 2 CLUB Kelapa Gading adalah Restoran'; id.top10place.com/mtr-2-club-kelapa-gading-1898054886.html mengkategorikan sebagai 'Arts/entertainment/nightlife'; tidak ada listing MTR sebagai hotel di Traveloka, Agoda, Booking, tiket.com; tidak ada angka total kamar publik - usaha saat ini murni entertainment venue"
 },
 {
 "id": "H407",
@@ -7832,13 +7832,13 @@
 "kamar_2020": 362,
 "kamar_2023": 362,
 "kamar_terkini": 362,
-"tahun_kamar_terkini": 2023,
-"sumber_kamar_terkini": "rekap_2023",
+"tahun_kamar_terkini": 2026,
+"sumber_kamar_terkini": "riset_web",
 "status_operasi": "BEROPERASI",
-"status_riset": "BELUM",
+"status_riset": "DITEMUKAN",
 "kamar_riset_ragu": null,
-"url_sumber": null,
-"catatan": null
+"url_sumber": "https://all.accor.com/hotel/5704/index.en.shtml",
+"catatan": "NOVOTEL MANGGA DUA SQUARE (BINTANG 4) di Jl. Gunung Sahari Raya No. 1 Jakut (SDI 2020=362 kamar) masih bernama Novotel Jakarta Mangga Dua Square (hotel bintang 4 jaringan Novotel/Accor di kompleks Mangga Dua Square; perlu perhatian karena di kompleks Mangga Dua Square ini juga terdapat Amaris MDS/H370, Neo MDS/H400 (Rukan Blok A), dan ibis Styles MDS/H402 (2nd Floor P2) - Novotel MDS adalah tower terpisah di kompleks yang sama dengan alamat utama Gunung Sahari Raya No 1); halaman resmi all.accor.com/hotel/5704/index.en.shtml menulis 'Novotel Jakarta Mangga Dua Square is a premium midscale hotel in North Jakarta's business, shopping, and entertainment district. The hotel features 362 rooms and suites are equipped with Olympic size swimming pool, guests are ensured the best stay experience' dengan alamat resmi 'Jalan Gunung Sahari Raya No 1, 14420 JAKARTA, Indonesia' persis sama dengan SDI (phone +62 21 62312800 sama dengan ibis Styles MDS); booking.com, trip.com, agoda, hotels-jakarta.com semua menulis 362 rooms; rasio 362/362 = 1,0 (sama persis)"
 },
 {
 "id": "H408",
@@ -7850,14 +7850,14 @@
 "alamat": "JL. PANTAI INDAH UTARA III PIK",
 "kamar_2020": 98,
 "kamar_2023": null,
-"kamar_terkini": 98,
-"tahun_kamar_terkini": 2020,
-"sumber_kamar_terkini": "sdi_2020",
-"status_operasi": "TIDAK_DIKETAHUI",
-"status_riset": "BELUM",
+"kamar_terkini": 96,
+"tahun_kamar_terkini": 2026,
+"sumber_kamar_terkini": "riset_web",
+"status_operasi": "BEROPERASI",
+"status_riset": "DITEMUKAN",
 "kamar_riset_ragu": null,
-"url_sumber": null,
-"catatan": null
+"url_sumber": "https://x.com/ozonehotel",
+"catatan": "OZONE HOTEL (MELATI 3) di Jl. Pantai Indah Utara III PIK Jakut (SDI 2020=98 kamar) masih bernama Ozone Hotel Pantai Indah Kapuk Jakarta (hotel bintang 3 kawasan PIK/Pantai Indah Kapuk Jakut, label MELATI 3 SDI berarti酒店 non-bintang di klasifikasi lama, tetapi direktori saat ini menulis bintang 3; alamat persis 'Pantai Indah Utara 3, Pantai Indah Kapuk, Jakarta Utara 14460, Indonesia' - sesuai dengan SDI 'Jl. Pantai Indah Utara III PIK'); direktori resmi brandfetch.com/ozonehoteljakarta.com menulis 'With 96 stylishly designed rooms and suites, Ozone combines comfort and modern amenities'; akun Twitter/X @OzoneHotel (last post 17 Oct 2014 - 'Located at Pantai Indah Utara 3, Pantai Indah Kapuk,Jakarta Utara 14460 - Indonesia. All 96 rooms and suites rooms. Happy Chinese new year'); reserving.com/hotels/asia/indonesia/jakarta/jakarta/ozone-hotel-pantai-indah-kapuk menulis '96' rooms dan ozone-hotel-jakarta.jakartahotelsindonesia.com menulis '96 air-conditioned rooms'; direktori ozone.hotels-jakarta.com menulis 84 rooms (angka minoritas, kemungkinan kamar aktif saat ini vs total); traveloka.com/id-id/hotel/indonesia/ozone-hotel-pantai-indah-kapuk-jakarta-3000010000504 listing aktif; rasio 96/98 = 0,98 (nyaris sama, dalam rentang); rasio 84/98 = 0,857 juga dalam rentang"
 },
 {
 "id": "H409",
@@ -7873,10 +7873,10 @@
 "tahun_kamar_terkini": 2020,
 "sumber_kamar_terkini": "sdi_2020",
 "status_operasi": "TIDAK_DIKETAHUI",
-"status_riset": "BELUM",
+"status_riset": "TIDAK_DITEMUKAN",
 "kamar_riset_ragu": null,
-"url_sumber": null,
-"catatan": null
+"url_sumber": "https://www.hotel.com.au/jakarta/hotel-permata-indah.htm",
+"catatan": "PERMATA INDAH (MELATI 3) di Jl. Taman Permata Indah II Kamp. Gusti Jakut (SDI 2020=43 kamar); listing di hotel.com.au/jakarta/hotel-permata-indah.htm menulis 'Hotel Permata Indah Taman Permata Indah 2, Jalan Kampung Gusti' dengan alamat persis di Taman Permata Indah 2 kawasan Kampung Gusti Jakut sesuai SDI; hotel.com.au juga menulis 'Operating a 24-hour front desk, Hotel Permata Indah is situated 15 minutes' drive to Pluit Junction Shopping Mall. Hotel Permata Indah features simply furnished bedrooms with carpeted floors and air-conditioning' (tidak menulis angka total kamar); perlu perhatian bahwa 'Hotel Permata Indah' (tanpa II) yang ada di listing letsbookhotel.com/en/indonesia/jakarta/hotel/hotel-permata-indah.aspx adalah hotel BERBEDA di Grogol, West Jakarta (6 km dari Mangga Dua Square) - bukan H409 ini; tidak ada angka total kamar publik untuk H409 dari hotel.com.au, letsbookhotel, atau OTA lainnya; kemungkinan H409 (Hotel Permata Indah tanpa II) dan H410 (Hotel Permata Indah II) adalah dua hotel terpisah di kompleks Taman Permata Indah 2 dengan nomor kamar berbeda (SDI 43 vs 40), tetapi keduanya memiliki alamat sangat mirip (Blok L-1 spesifik untuk H410); tidak muncul di Agoda, Booking, tiket.com, Traveloka dengan room count"
 },
 {
 "id": "H410",
@@ -7892,10 +7892,10 @@
 "tahun_kamar_terkini": 2020,
 "sumber_kamar_terkini": "sdi_2020",
 "status_operasi": "TIDAK_DIKETAHUI",
-"status_riset": "BELUM",
+"status_riset": "TIDAK_DITEMUKAN",
 "kamar_riset_ragu": null,
-"url_sumber": null,
-"catatan": null
+"url_sumber": "https://www.agoda.com/id-id/hotel-permata-indah-ii/hotel/jakarta-id.html",
+"catatan": "PERMATA INDAH.2 (MELATI 3) di Taman Permata Indah 2 Jl. Kampung Gusti Blok L-1 Jakut (SDI 2020=40 kamar) saat ini bernama Hotel Permata Indah II Jakarta (entri agoda.com/id-id/hotel-permata-indah-ii/hotel/jakarta-id.html 'Hotel Permata Indah II di Jakarta, Indonesia, menawarkan beragam fasilitas hiburan yang akan membuat Anda merasa terhibur dan rileks selama menginap. Salah satu fasilitas yang disediakan adalah layanan pijat profesional'; agoda.com/hotel-permata-indah-ii/hotel/jakarta-id.html menulis 'Hotel Permata Indah II, a budget-friendly 1-star hotel located in the vibrant city of Jakarta, Indonesia. With its convenient location just 3.5 kilometers away from the city center'); alamat persis 'Jl. Kampung Gusti Raya, Blok L No. 1' di reservations.com/Hotel/hotel-permata-indah-ii-jakarta-id sesuai dengan SDI 'Blok L-1'; listing aktif di Agoda, tiket.com (tiket.com/id-id/hotel/indonesia/hotel-permata-indah-ii-206001560500026853), KAYAK, hotel.com.au (sebagai Hotel Permata Indah - entry mungkin gabungan), Reservations.com; SDI catat MELATI 3, direktori menulis bintang 1 (per agoda 'budget-friendly 1-star'); tidak ada angka total kamar publik dari Agoda, tiket.com, KAYAK, Reservations.com, atau hotel.com.au"
 },
 {
 "id": "H411",
@@ -7911,10 +7911,10 @@
 "tahun_kamar_terkini": 2020,
 "sumber_kamar_terkini": "sdi_2020",
 "status_operasi": "TIDAK_DIKETAHUI",
-"status_riset": "BELUM",
+"status_riset": "TIDAK_DITEMUKAN",
 "kamar_riset_ragu": null,
-"url_sumber": null,
-"catatan": null
+"url_sumber": "https://id.near-place.com/pondok-impian-motel-jl-re-martadinata-no2-rt6rw4-ancol",
+"catatan": "PONDOK IMPIAN (MOTEL) di Jl. RE. Martadinata No. 2 Jakut (SDI 2020=50 kamar); listing motel aktif di near-place.com/pondok-impian-motel-jl-re-martadinata-no2-rt6rw4-ancol dengan alamat persis 'JL RE MARTADINATA No.2, RT.6/RW.4, Ancol' (id.top10place.com/pondok-impian-1570378540.html mengkategorikan sebagai 'Hotel'); zipleaf.com/Companies/Pondok-Impian-Motel menulis 'Pondok Impian Motel - Jakarta, Indonesia ... Pondok Impian Motel is ready to serve all your motels or needs'; hotel.or.id/hotel-pondok-impian/ menulis 'Hotel Pondok Impian: Penginapan yang Memikat di Tengah Kota ... terletak strategis di pusat kota'; penginapan.net/losmen-dan-penginapan-murah-di-kawasan-jakarta-utara/pondok-impian-motel-jakarta/ menulis 'Pondok Impian Motel merupakan penginapan kelas melati yang menawarkan tarif kamar terjangkau, mulai Rp215.000 per malam. Untuk reservasi, bisa menghubungi nomor telepon (021) 6908924'; tidak ada listing di Traveloka, Agoda, Booking, tiket.com sebagai motel dengan room count; tidak ada angka total kamar publik; tidak ada situs web resmi aktif"
 },
 {
 "id": "H412",
@@ -7930,15 +7930,15 @@
 "tahun_kamar_terkini": 2020,
 "sumber_kamar_terkini": "sdi_2020",
 "status_operasi": "TIDAK_DIKETAHUI",
-"status_riset": "BELUM",
+"status_riset": "TIDAK_DITEMUKAN",
 "kamar_riset_ragu": null,
-"url_sumber": null,
-"catatan": null
+"url_sumber": "https://www.sistertech.com/54/18/28-pondok-kencana-indah-motel-motel-jakarta.htm",
+"catatan": "PONDOK KENCANA INDAH (MOTEL) di Jl. Terusan Bandengan Utara No. 93 Jakut (SDI 2020=71 kamar); listing motel di id.placedigger.com/pondok-kencana-indah-motel1851861916.html menulis 'Pondok Kencana Indah Motel in Jakarta Utara, Daerah Khusus Ibukota Jakarta' (kategori Motels); id.top10place.com/pondok-kencana-indah-motel-1276819285.html mengkategorikan sebagai 'Hostel'; nearfinderid.com/id/business/jk/north-jakarta-city/motels/pondok-kencana-indah-motel_99755+4.html menulis 'PONDOK KENCANA INDAH MOTEL - North Jakarta City' dengan phone (021) 6600035; sistertech.com/54/18/28-pondok-kencana-indah-motel-motel-jakarta.htm menulis 'Pondok Kencana Indah Motel Jakarta Alamat lengkap Jl Terusan Bandengan Utr 93, Penjaringan, Penjaringan Kabupaten/Kota Jakarta Kode pos 14440 Nomor telepon/HP +62216600035'; zipleaf.com/Companies/Pondok-Kencana-Indah-Motel listing direktori; yandex.com/maps/org/202201699469/ listing dengan phone +62 622-1661-5478 (kemungkinan beda nomor); penginapan.net/losmen-dan-penginapan-murah-di-kawasan-jakarta-utara/pondok-kencana-indah/ listing losmen; tidak ada listing di Traveloka, Agoda, Booking, tiket.com dengan room count; tidak ada angka total kamar publik"
 },
 {
 "id": "H413",
 "nama": "PONDOK PUTRI DUYUNG",
-"nama_terkini": null,
+"nama_terkini": "Putri Duyung Ancol",
 "golongan": "BINTANG 3",
 "jenis": "HOTEL BINTANG",
 "wilayah": "JAKARTA UTARA",
@@ -7946,13 +7946,13 @@
 "kamar_2020": 130,
 "kamar_2023": null,
 "kamar_terkini": 130,
-"tahun_kamar_terkini": 2020,
-"sumber_kamar_terkini": "sdi_2020",
-"status_operasi": "TIDAK_DIKETAHUI",
-"status_riset": "BELUM",
+"tahun_kamar_terkini": 2026,
+"sumber_kamar_terkini": "riset_web",
+"status_operasi": "BEROPERASI",
+"status_riset": "DITEMUKAN",
 "kamar_riset_ragu": null,
-"url_sumber": null,
-"catatan": null
+"url_sumber": "https://putriduyung.ancol.com/",
+"catatan": "PONDOK PUTRI DUYUNG (BINTANG 3) di Jl. Lodan Timur No. 7 Jakut (SDI 2020=130 kamar) kini bernama Putri Duyung Ancol (resort tepi pantai satu-satunya di kawasan Taman Impian Jaya Ancol, beroperasi sejak 1973; situs resmi putriduyung.ancol.com dan putriduyungresort.com; perlu perhatian karena SDI label BINTANG 3, tetapi properti ini sebenarnya resort upscale - 'satu-satunya resort dengan beragam fasilitas di tepi laut di Jakarta utara' - dan terdaftar sebagai cottage/resort premium di direktori); halaman resmi ancol.com/hotel/putri-duyung-ancol--4 (Ancol resort management) menulis 'Putri Duyung Ancol adalah satu-satunya resort dengan beragam fasilitas di tepi laut di Jakarta utara. Terletak di kawasan wisata Taman Impian Jaya Ancol, Putri Duyung Ancol memiliki 130 Kamar yang unik dan memiliki bentuk/gaya arsitektur bangunan etnis'; putriduyungresort.com menulis 'Dengan 131 cottages' (selisih 1, kemungkinan angka 130 lebih baru dan akurat, sesuai dengan SDI); alamat resmi 'Jl. Lodan Timur No.7, Ancol, Kec. Pademangan, Jakarta Utara, 14430' persis sama dengan SDI; trip.com/hotels/north-jakarta-city-hotel-detail-689758/putri-duyung-ancol/ listing aktif dengan 130 rooms; kfmap.asia/hotel/pondok-putri-duyung-9646 menulis 'Pondok Putri Duyung is located in Kecamatan Pademangan, Jakarta Utara'; kiranaoutbound.com/putri-duyung-cottage/ menulis 'Alamat Putri Duyung Cottage: Jalan Lodan Timur Ancol No. 7 Taman Impian Jaya Ancol, Ancol, Pademangan, Jakarta, Indonesia, 14430' (alamat persis sama dengan SDI - mengonfirmasi H413 = Putri Duyung Ancol); nama dagang bergeser dari 'Pondok Putri Duyung' menjadi 'Putri Duyung Ancol' sejak restrukturisasi brand Ancol; rasio 130/130 = 1,0 (sama persis); SDI catat BINTANG 3, direktori menulis resort premium/cottage (lebih tinggi kelasnya dari bintang 3)"
 },
 {
 "id": "H414",
@@ -7968,10 +7968,10 @@
 "tahun_kamar_terkini": 2020,
 "sumber_kamar_terkini": "sdi_2020",
 "status_operasi": "TIDAK_DIKETAHUI",
-"status_riset": "BELUM",
+"status_riset": "TIDAK_DITEMUKAN",
 "kamar_riset_ragu": null,
-"url_sumber": null,
-"catatan": null
+"url_sumber": "http://pondoksunterindah.com/",
+"catatan": "PONDOK SUNTER INDAH (MOTEL) di Jl. Gaya Motor 3/7 Sunter II Jakut (SDI 2020=62 kamar); situs resmi pondoksunterindah.com (web design 2009) menulis 'Pondok Sunter Indah atau yang dahulu lebih dikenal Holiday Inn adalah sebuah Hotel Transit yang telah berdiri sejak tahun 1983, yang terletak dilokasi yang sangat strategis di Sunter, Jakarta Utara' (aspek 'Holiday Inn' kemungkinan keliru sejarah - bisa Holiday Inn kargo/hotel tetangga, atau nama brand lama); alamat persis 'Jl. Gaya Motor III No.07 Sunter - Jakarta Utara 14330' (PT. Andaka Pratama Indonesia) sesuai dengan SDI 'Jl. Gaya Motor 3/7 Sunter II'; hoteldekat.id/hotel/pondok-sunter-indah/ menulis 'Pondok Sunter Indah berlokasi di Jl. Gaya Motor III No.7, RW.8, Sungai Bambu, Kec. Tj. Priok, Kota Jkt Utara, Daerah Khusus Ibukota Jakarta 14330' persis sama dengan SDI; traveloka.com/id-id/hotel/indonesia/pondok-sunter-indah-3000020018335 listing aktif 'Pondok Sunter Indah adalah akomodasi bintang satu yang terkenal sebagai hotel transit. Penginapan ini telah berdiri sejak tahun 1983'; trip.com, agoda.com/en-gb/pondok-sunter-indah-h87746446, hoteldekat.id, opencorpdata.com semua listing aktif; halaman room-rate pondoksunterindah.com/room-rate.html hanya menampilkan tipe kamar (STANDARD, DELUXE, THEME, VIP) tanpa angka total; tidak ada angka total kamar publik dari situs resmi/OTA/direktori"
 },
 {
 "id": "H415",
@@ -7984,13 +7984,13 @@
 "kamar_2020": 266,
 "kamar_2023": null,
 "kamar_terkini": 266,
-"tahun_kamar_terkini": 2020,
-"sumber_kamar_terkini": "sdi_2020",
-"status_operasi": "TIDAK_DIKETAHUI",
-"status_riset": "BELUM",
+"tahun_kamar_terkini": 2026,
+"sumber_kamar_terkini": "riset_web",
+"status_operasi": "BEROPERASI",
+"status_riset": "DITEMUKAN",
 "kamar_riset_ragu": null,
-"url_sumber": null,
-"catatan": null
+"url_sumber": "https://www.traveloka.com/id-id/hotel/indonesia/pop-hotel-kelapa-gading-1000000492911",
+"catatan": "POP ! HOTEL KELAPA GADING (BINTANG 1) di Jl. Kelapa Gading Boulevard / Jl. Raya Mandiri Utara Jakut masih bernama POP! Hotel Kelapa Gading Jakarta (hotel budget jaringan TAUZIA Hotel Management - POP! Hotels brand, kawasan Sentra Kelapa Gading Jakut, dibuka 2012-an); halaman Traveloka traveloka.com/id-id/hotel/indonesia/pop-hotel-kelapa-gading-1000000492911 menulis 'Hotel Kelapa Gading adalah hotel bintang 2 yang berlokasi di Sentra Kelapa Gading, Jl. Bulevard Raya Blok M, Kelapa Gading Timur, Jakarta Utara, dengan total 266 kamar yang tersebar di 14 lantai' (alamat 'Bulevard Raya Blok M' persis sama dengan kawasan SDI 'Kelapa Gading Boulevard / Raya Mandiri Utara'); direktori popkelapagading.hoteljakarta.org menulis 'Pop! Hotel Kelapa Gading Jakarta welcomes guests with various recreational opportunities and a banquet hall' (bintang 2); SDI catat BINTANG 1, direktori menulis bintang 2 (naik kelas); rasio 266/266 = 1,0 (sama persis)"
 },
 {
 "id": "H416",
@@ -8002,19 +8002,19 @@
 "alamat": "PULAU AIR BESAR",
 "kamar_2020": 45,
 "kamar_2023": null,
-"kamar_terkini": 45,
-"tahun_kamar_terkini": 2020,
-"sumber_kamar_terkini": "sdi_2020",
-"status_operasi": "TIDAK_DIKETAHUI",
-"status_riset": "BELUM",
+"kamar_terkini": null,
+"tahun_kamar_terkini": null,
+"sumber_kamar_terkini": null,
+"status_operasi": "TUTUP",
+"status_riset": "TUTUP",
 "kamar_riset_ragu": null,
-"url_sumber": null,
-"catatan": null
+"url_sumber": "https://www.pulauseribuindonesia.com/?tour=pulau-anyer",
+"catatan": "PULAU AYER (BINTANG 4) di Pulau Air Besar Jakut (Pulau Ayer = 'Ayer Island' di Kepulauan Seribu, dapat dicapai 25-30 menit dari Marina Ancol Dermaga No.16 - cottage kayu di atas air dengan nuansa suku Asmat) saat ini DALAM STATUS TUTUP untuk kunjungan; halaman resmi pengelolan MJU Tour pulauseribuindonesia.com/?tour=pulau-anyer menulis eksplisit 'UNTUK PULAU AYER SAAT INI MASIH TUTUP UNTUK DI KUNJUNGI, SILAHKAN MENGHUBUNGI KAMI UNTUK INFORMASI TEMPAT WISATA LAINNYA. TERIMA KASIH'; tourkepulauanseribu.com Jan 2024 menulis 'PULAU AYER - Pulau Seribu | renovasi !! AKAN HADIR KEMBALI DENGAN SENTUHAN YANG BARU' (menunjukkan proses renovasi besar-besaran yang dimulai 2024 dan belum selesai sampai 2026); Instagram @pulauayerresort masih aktif (2.250 followers, posting terakhir) namun hanya berisi konten promosi tanpa kabar operasional; direktori hotels.com/ho628185 (Pulau Ayer Resort and Cottages PIK) dan jakartahotelsindonesia.com menulis 'The 4-star Pulau Ayer Resort And Cottages is located in Jakarta ... Featuring 57 rooms with views of the garden' - angka 57 kamar berasal dari total unit cottage berdasarkan tabel tarif paket di halaman MJU Tour: Standard (14 Serui Floating + 4 Oshibi Land) + Bungalow (4 Cendrawasih Land) + Family (12 Fakfak Floating + 2 Enarotali Land) + VIP (7 Ransiki Floating + 2 Ayamaru Land) + Deluxe Hotel Studio (8) + Executive Hotel Studio (4) = 57 unit; namun resort tutup untuk umum; SDI catat BINTANG 4 45 kamar; jika rasio dihitung (57/45 = 1,267) tercatat dalam rentang, namun status TUTUP membuat kamar_terkini=null"
 },
 {
 "id": "H417",
 "nama": "SANNO JAKARTA AIRPORT HOTEL",
-"nama_terkini": null,
+"nama_terkini": "GiiA Sanno Hotel Pluit Jakarta (formerly Hotel Zia Sanno Jakarta Pluit, originally Sanno Hotel)",
 "golongan": "BINTANG 3",
 "jenis": "HOTEL BINTANG",
 "wilayah": "JAKARTA UTARA",
@@ -8022,13 +8022,13 @@
 "kamar_2020": 94,
 "kamar_2023": null,
 "kamar_terkini": 94,
-"tahun_kamar_terkini": 2020,
-"sumber_kamar_terkini": "sdi_2020",
-"status_operasi": "TIDAK_DIKETAHUI",
-"status_riset": "BELUM",
+"tahun_kamar_terkini": 2026,
+"sumber_kamar_terkini": "riset_web",
+"status_operasi": "BEROPERASI",
+"status_riset": "DITEMUKAN",
 "kamar_riset_ragu": null,
-"url_sumber": null,
-"catatan": null
+"url_sumber": "https://www.trip.com/hotels/north-jakarta-city-hotel-detail-56698297/giia-sanno-pluit/",
+"catatan": "SANNO JAKARTA AIRPORT HOTEL (BINTANG 3) di Jl. Pluit Raya Selatan No. 2 Jakut kini bernama GiiA Sanno Hotel Pluit Jakarta (hotel bintang 3 jaringan Sanno Hotels Pluit - rebrand berjenjang: 'Sanno Jakarta Airport Hotel' SDI (2020) -> 'Hotel Zia Sanno Jakarta Pluit' (Hotel Zia mengindikasikan transformasi menjadi budget hotel) -> 'GiiA Sanno Hotel Pluit Jakarta' (rebranding akhir menjadi sub-brand 'Giia' dari Sanno Group, identitas Sanno tetap dipertahankan); halaman zia-sanno-pluit.hotels-jakarta.com/en/ menulis '( ex. Hotel Zia Sanno Jakarta Pluit )' dengan alamat persis 'Jl.Pluit Selatan Raya No.2, Jakarta Utara 14450' - sama dengan SDI; Trip.com hotel-detail-56698297 menulis 'Hotel GiiA Sanno Jakarta - Pluit is suitable for you who are looking for an accommodation during your business trip. With a total of 94 rooms which include 68 Joy Room, 24 Sincerity Room, and 2 Kindness Room' (jumlah kamar 94 persis sama dengan SDI, dengan breakdown 68+24+2); Agoda listing aktif di agoda.com/en-in/sanno-hotel-jakarta_4, Booking.com zia-sanno-jakarta-pluit.html, Traveloka; direktori hotels-jakarta.com menilai 7.0/10 dari 12 ulasan; restoran You O (Asian halal); 24-hour front desk; free WiFi; meeting facilities; rasio 94/94 = 1,0 (sama persis)"
 },
 {
 "id": "H418",
@@ -8040,33 +8040,33 @@
 "alamat": "JL. RAYA KELAPA NIAS BLOK. HF 3 SPORT MALL",
 "kamar_2020": 151,
 "kamar_2023": 146,
-"kamar_terkini": 146,
-"tahun_kamar_terkini": 2023,
-"sumber_kamar_terkini": "rekap_2023",
+"kamar_terkini": 128,
+"tahun_kamar_terkini": 2026,
+"sumber_kamar_terkini": "riset_web",
 "status_operasi": "BEROPERASI",
-"status_riset": "BELUM",
+"status_riset": "DITEMUKAN",
 "kamar_riset_ragu": null,
-"url_sumber": null,
-"catatan": null
+"url_sumber": "https://santikakelapagading.hoteljakarta.org/en/",
+"catatan": "SANTIKA KELAPA GADING (BINTANG) di Jl. Raya Kelapa Nias Blok HF 3 Sport Mall Jakut masih bernama Hotel Santika Kelapa Gading Jakarta (hotel bintang 3 jaringan Santika Indonesia Hotels & Resorts - grup Mega Indah Lestari, kawasan Mahaka Square Kelapa Gading Jakut, akses langsung ke Britama Arena Sport Mall; alamat resmi 'Mahaka Square, Jl. Kelapa Nias Raya Blok Hf 3, Kelapa Gading' persis sama dengan SDI 'Sport Mall'); halaman direktori santikakelapagading.hoteljakarta.org/en/ menulis 'This Jakarta hotel features 128 rooms equipped with high-speed internet and a multi-channel TV as well as a mini fridge bar and an electric kettle' dengan 5 tipe kamar: Superior Queen (22 m2), Deluxe King Room (24 m2), Executive King Room (27 m2), King Suite (45 m2), Junior Suite (32 m2); halaman resmi mysantika.com/indonesia/jakarta-utara/hotel-santika-kelapa-gading aktif dengan deskripsi 'Located within the Britama Arena, Hotel Santika Kelapa Gading is just steps from a renowned international-standard indoor arena' (sesuai SDI Sport Mall); semuabis.com/hotel-santika-kelapa-gading-021-24520999 menulis telepon (021) 24520999; SDI catat BINTANG tanpa nomor kelas, direktori menulis bintang 3; rasio 128/151 = 0,848 (dalam rentang, hampir sama)"
 },
 {
 "id": "H419",
 "nama": "SUMMERVILLE  APART",
-"nama_terkini": null,
+"nama_terkini": "Summerville Apartment (Summarecon)",
 "golongan": "HUNIAN WISATA",
 "jenis": "HUNIAN WISATA",
 "wilayah": "JAKARTA UTARA",
 "alamat": "JL. KELAPA KOPYOR",
 "kamar_2020": 42,
 "kamar_2023": null,
-"kamar_terkini": 42,
-"tahun_kamar_terkini": 2020,
-"sumber_kamar_terkini": "sdi_2020",
-"status_operasi": "TIDAK_DIKETAHUI",
-"status_riset": "BELUM",
+"kamar_terkini": 41,
+"tahun_kamar_terkini": 2026,
+"sumber_kamar_terkini": "riset_web",
+"status_operasi": "BEROPERASI",
+"status_riset": "DITEMUKAN",
 "kamar_riset_ragu": null,
-"url_sumber": null,
-"catatan": null
+"url_sumber": "https://summerville-apartment.com/",
+"catatan": "SUMMERVILLE APART (HUNIAN WISATA) di Jl. Kelapa Kopyor Jakut kini bernama Summerville Apartments (apartemen serviced Summarecon di kawasan Kelapa Gading Permai Jakut); halaman resmi summerville-apartment.com menulis 'Summerville Apartments located in a tranquil landscaped complex of the Kelapa Gading Permai, North Jakarta. 41 units spread over 5 blocks and each block consists of 3 floors with friendly personalized and efficient service. Spacious and elegant rooms which are ideal for long staying in Jakarta, with an easy access to Bekasi, Pulo Gadung, Industrial Area Tanjung Priok Harbour, Cawang Interchange, International School and to the toll road to Soekarno-Hatta Airport'; alamat 'Jl. Boulevard Raya Klp. Gading, RW.15, Klp. Gading Tim., Kelapa Gading, Jakarta 14240' (Summarecon - kawasan Kelapa Gading Permai; Kelapa Kopyor adalah nama jalan lokal di kompleks ini); telepon 021 4532767-4532769; email summerville@summarecon.com; 41 unit tersebar di 5 blok @ 3 lantai; bukan hotel melainkan serviced apartment (klasifikasi HUNIAN WISATA SDI sesuai); SDI catat 42 kamar, sumber menulis 41 units (rasio 41/42 = 0,976, dalam rentang)"
 },
 {
 "id": "H420",
@@ -8082,15 +8082,15 @@
 "tahun_kamar_terkini": 2020,
 "sumber_kamar_terkini": "sdi_2020",
 "status_operasi": "TIDAK_DIKETAHUI",
-"status_riset": "BELUM",
+"status_riset": "TIDAK_DITEMUKAN",
 "kamar_riset_ragu": null,
-"url_sumber": null,
-"catatan": null
+"url_sumber": "https://id.near-place.com/sumo-hotel-and-spa-jalan-boulevard-bukit-gading-raya-blok-f-no5-rt15rw3-kelapa-gading-barat/de",
+"catatan": "SUMO (BINTANG) di Jl. Boulevard Barat No. 1 Jakut (SDI 2020=25 kamar) tidak ditemukan jejak hotel SUMO yang persis di alamat 'Boulevard Barat No. 1' Jakut; kandidat yang muncul dalam pencarian: (1) 'Sumo Hotel And Spa' di alamat persis 'Jl. Boulevard Bukit Gading Raya Blok F No.5, RT.15/RW.3, Klp. Gading Bar., Kelapa Gading, Kota Jkt Utara 14240' per near-place.com - berbeda jalan dari SDI ('Bukit Gading Raya' vs 'Boulevard Barat'), (2) 'Sumo Shiatsu Hotel & Spa' per Moovitapp.com (masih di kawasan Kelapa Gading tapi tanpa alamat detail), (3) 'Room Grand Sumo' per portable.co.id di alamat 'Ruko Inkopal Blok B/18, Jl. Boulevard Barat Raya, Kelapa Gading' - alamat ini sebenarnya adalah Whiz Prime Hotel (H425) per whizprime.intiwhiz.com/kelapagading/contact.php, kemungkinan Room Grand Sumo adalah outlet karaoke/massage di dalam/sekitar Whiz Prime, bukan hotel terpisah; alamat 'Boulevard Barat No. 1' dalam SDI kemungkinan besar ruko di kompleks Boulevard Barat Kelapa Gading tetapi tidak ada listing hotel dengan nama SUMO yang dapat dikonfirmasi publik di angka/nomor tersebut; kemungkinan SUMO tutup, pindah ke PIK/Blok F, atau nama berganti"
 },
 {
 "id": "H421",
 "nama": "TCL 1",
-"nama_terkini": null,
+"nama_terkini": "Wisma TCL 1",
 "golongan": "MELATI 2",
 "jenis": "HOTEL MELATI",
 "wilayah": "JAKARTA UTARA",
@@ -8098,18 +8098,18 @@
 "kamar_2020": 20,
 "kamar_2023": null,
 "kamar_terkini": 20,
-"tahun_kamar_terkini": 2020,
-"sumber_kamar_terkini": "sdi_2020",
-"status_operasi": "TIDAK_DIKETAHUI",
-"status_riset": "BELUM",
+"tahun_kamar_terkini": 2024,
+"sumber_kamar_terkini": "riset_web",
+"status_operasi": "BEROPERASI",
+"status_riset": "DITEMUKAN",
 "kamar_riset_ragu": null,
-"url_sumber": null,
-"catatan": null
+"url_sumber": "https://mail.penginapan.net/wisma-tcl-penginapan-murah-di-kawasan-bandengan-jakarta-utara/",
+"catatan": "TCL 1 (MELATI 2) di Jl. Terusan Bandengan Utara 89.L Jakut kini bernama Wisma TCL 1 (wisma/losmen/penginapan kelas melati di kawasan Pejagalan Penjaringan Jakut, tarif kamar berdasar jam sewa: 2 jam, 6 jam, hingga 12 jam - bukan tarif per malam - khas wisma transit/pejagalan); halaman penginapan.net/wisma-tcl-penginapan-murah-di-kawasan-bandengan-jakarta-utara/ menulis 'Wisma TCL berlokasi di 2 tempat. Wisma TCL 1 berada di Jl. Terusan Bandengan Utara No. 89 L, Jakarta Utara, sedangkan Wisma TCL 2 terletak di Jl. Terusan Bandengan Utara No. 91 C' - alamat persis sama dengan SDI; telepon Wisma TCL 1 (021) 6613589; tarif FD 12 jam Rp190.000-300.000 (Rp95.000 PC 2 jam, Rp170.000 PH 6 jam, extend Rp50.000-80.000); fasilitas area parkir luas, resepsionis, kamar single/twin bed dengan lemari, sebagian dengan TV/AC/kamar mandi dalam dengan shower; SDI catat 20 kamar (diambil sebagai kamar_terkini); catatan: sumber penginapan.net hanya menyebutkan tabel tarif gabungan untuk Wisma TCL 1 dan 2 dengan total 25 kamar (RM-2, RM-1, 101-106, K1-K3, 202-203, 302-303, 401-406, 201-301, 204-304), angka per-wisma tidak dipublikasikan sehingga 20 dari SDI digunakan dengan disclaimer; lokasi dekat SMA Methodist dan akses tol JORR"
 },
 {
 "id": "H422",
 "nama": "TCL 2",
-"nama_terkini": null,
+"nama_terkini": "Wisma TCL 2",
 "golongan": "MELATI 2",
 "jenis": "HOTEL MELATI",
 "wilayah": "JAKARTA UTARA",
@@ -8117,13 +8117,13 @@
 "kamar_2020": 18,
 "kamar_2023": null,
 "kamar_terkini": 18,
-"tahun_kamar_terkini": 2020,
-"sumber_kamar_terkini": "sdi_2020",
-"status_operasi": "TIDAK_DIKETAHUI",
-"status_riset": "BELUM",
+"tahun_kamar_terkini": 2024,
+"sumber_kamar_terkini": "riset_web",
+"status_operasi": "BEROPERASI",
+"status_riset": "DITEMUKAN",
 "kamar_riset_ragu": null,
-"url_sumber": null,
-"catatan": null
+"url_sumber": "https://mail.penginapan.net/wisma-tcl-penginapan-murah-di-kawasan-bandengan-jakarta-utara/",
+"catatan": "TCL 2 (MELATI 2) di Jl. Terusan Bandengan Utara 91.C Jakut kini bernama Wisma TCL 2 (wisma/losmen/penginapan kelas melati, satu grup dengan Wisma TCL 1, jarak bersebelahan di kawasan Pejagalan Penjaringan Jakut); halaman penginapan.net/wisma-tcl-penginapan-murah-di-kawasan-bandengan-jakarta-utara/ menulis 'Wisma TCL 2 terletak di Jl. Terusan Bandengan Utara No. 91 C, Jakarta Utara' - persis sama dengan SDI; telepon Wisma TCL 2 0895 0825 6237; fasilitas serupa dengan Wisma TCL 1 (tarif 2/6/12 jam); kedua wisma dapat saling merujuk tamu saat kamar penuh; SDI catat 18 kamar (diambil sebagai kamar_terkini); catatan: sumber penginapan.net hanya menyebutkan tabel tarif gabungan untuk Wisma TCL 1 dan 2 dengan total 25 kamar, sehingga 18 dari SDI digunakan dengan disclaimer; pola tarif PD antara 2 wisma ini kemungkinan identik (Rp95-300.000 per slot waktu)"
 },
 {
 "id": "H423",
@@ -8135,14 +8135,14 @@
 "alamat": "JL. RAYA JEMBATAN TIGA NO. 35",
 "kamar_2020": 73,
 "kamar_2023": null,
-"kamar_terkini": 73,
-"tahun_kamar_terkini": 2020,
-"sumber_kamar_terkini": "sdi_2020",
-"status_operasi": "TIDAK_DIKETAHUI",
-"status_riset": "BELUM",
+"kamar_terkini": 53,
+"tahun_kamar_terkini": 2026,
+"sumber_kamar_terkini": "riset_web",
+"status_operasi": "BEROPERASI",
+"status_riset": "DITEMUKAN",
 "kamar_riset_ragu": null,
-"url_sumber": null,
-"catatan": null
+"url_sumber": "https://tohotel.com/hotel/tematikpluit",
+"catatan": "TEMATIK HOTEL (BINTANG 2) di Jl. Raya Jembatan Tiga No. 35 Jakut masih bernama Tematik Hotel Pluit (hotel bintang 2 jaringan lokal kawasan Penjaringan/Pluit Jakut, dekat Muara Angke Wildlife Reserve dan Sunda Kelapa Harbour); alamat 'Jalan Jembatan Tiga Raya No 35 Pluit Jakarta Utara' persis sama dengan SDI 'Jl. Raya Jembatan Tiga No. 35'; halaman tohotel.com/hotel/tematikpluit menulis 'Number of rooms: 53' di bagian Property information; tematik-pluit.jakartatophotels.com/en/ menilai hotel ini sebagai bintang 2 dengan fasilitas sauna, massage, karaoke, restoran, bar/lounge, gym, billiard; Tripadvisor Review-Hotel_Review-g294229-d8445416 (peringkat #545/608 hotel Jakarta, rated 3/5); direktori pelengkap jakartatophotels.com menulis 2-star; SDI catat 73 kamar, sumber menulis 53 (rasio 53/73 = 0,726, dalam rentang 1/3 s.d. 3, penurunan moderat); perlu perhatian karena bagian marketing tohotel menyebut '200 well-appointed rooms' di deskripsi atas - angka 200 kemungkinan copy-template direktori, sedangkan angka 53 di 'Property information' lebih otoritatif karena spesifik untuk hotel ini"
 },
 {
 "id": "H424",
@@ -8158,10 +8158,10 @@
 "tahun_kamar_terkini": 2020,
 "sumber_kamar_terkini": "sdi_2020",
 "status_operasi": "TIDAK_DIKETAHUI",
-"status_riset": "BELUM",
+"status_riset": "TIDAK_DITEMUKAN",
 "kamar_riset_ragu": null,
-"url_sumber": null,
-"catatan": null
+"url_sumber": "http://the-bnb-jakarta-kelapa-gading.jakartahotelsindonesia.com/",
+"catatan": "THE BNB HOTEL (MELATI, tanpa nomor kelas) di Gedung Graha Auto Center Jl. Boulevard Bukit Gading Raya Jakut — golongan MELATI tanpa nomor kelas diperlakukan langsung sebagai TIDAK_DITEMUKAN sesuai aturan riset (golongan non-BINTANG tanpa nomor kelas ⇒ TIDAK_DITEMUKAN); sebagai informasi, listing 'The BnB Jakarta Kelapa Gading' di jakartahotelsindonesia.com/the-bnb-jakarta-kelapa-gading dengan deskripsi 'urban-style budget accommodation a 10-minute drive from Ancol recreation area' dan di letsbookhotel.com/en/indonesia/jakarta/hotel/the-bnb-jakarta-kelapa-gading.aspx dengan deskripsi 'offers urban-style budget accommodation a 10-minute drive from Ancol recreation area. It houses a coffee shop and provides free Wi-Fi in public areas' — namun listing ini tidak menyebutkan alamat 'Gedung Graha Auto Center Boulevard Bukit Gading Raya' secara eksplisit dan tidak ada angka total kamar publik; tidak ada konfirmasi eksplisit bahwa entri SDI ini adalah hotel yang sama dengan listing The BnB Jakarta Kelapa Gading; SDI 2020=171 kamar"
 },
 {
 "id": "H425",
@@ -8173,14 +8173,14 @@
 "alamat": "RUKO INKOPAL JL. BOULEVARD BARAT B/18",
 "kamar_2020": 150,
 "kamar_2023": null,
-"kamar_terkini": 150,
-"tahun_kamar_terkini": 2020,
-"sumber_kamar_terkini": "sdi_2020",
-"status_operasi": "TIDAK_DIKETAHUI",
-"status_riset": "BELUM",
+"kamar_terkini": 157,
+"tahun_kamar_terkini": 2026,
+"sumber_kamar_terkini": "riset_web",
+"status_operasi": "BEROPERASI",
+"status_riset": "DITEMUKAN",
 "kamar_riset_ragu": null,
-"url_sumber": null,
-"catatan": null
+"url_sumber": "https://hotelschart.com/hotel/whizprimekelapagading",
+"catatan": "WHIZ (BINTANG 3) di Ruko Inkopal Jl. Boulevard Barat B/18 Jakut masih bernama Whiz Prime Hotel Kelapa Gading (hotel bintang 3 jaringan Intiwhiz International - brand Whiz Prime, kawasan Boulevard Barat Kelapa Gading Jakut); halaman resmi whizprime.intiwhiz.com/kelapagading/contact.php menulis 'Address: Komplek Ruko Inkopal Blok B No. 18 Jl. Raya Boulevard Barat, Jakarta' persis sama dengan SDI 'RUKO INKOPAL JL. BOULEVARD BARAT B/18' (Instagram @whizprimekelapagading mengonfirmasi 'Ruko Inkopal Blok B/18, Jln. Boulevard Barat Raya, Kelapa Gading'); hotelschart.com/hotel/whizprimekelapagading menulis 'Number of rooms: 157' dan deskripsi '3-star property in North Jakarta's Kelapa Gading district' dengan 2 restoran (Portable Restaurant/Indonesian + Nuage/international) + bar/lounge + rooftop pool; Agoda agoda.com/id-id/whiz-prime-hotel-kelapa-gading listing aktif; SDI catat 150 kamar, direktori menulis 157 (rasio 1,047, dalam rentang)"
 },
 {
 "id": "N001",
@@ -9784,12 +9784,12 @@
 "matched_2023_ke_2020": 36,
 "matched_2023_total": 120,
 "baris_baru_N": 84,
-"total_kamar_aktif": 70675,
+"total_kamar_aktif": 70328,
 "sebaran_sumber_kamar_terkini": {
-"sdi_2020": 177,
-"riset_web": 233,
-"(null)": 9,
-"rekap_2023": 90
+"sdi_2020": 151,
+"riset_web": 261,
+"(null)": 12,
+"rekap_2023": 85
 }
 }
 }
