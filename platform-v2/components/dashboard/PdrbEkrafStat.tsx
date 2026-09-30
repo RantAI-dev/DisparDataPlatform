@@ -53,7 +53,7 @@ export function PdrbEkrafStat() {
         <Kpi label="Pertumbuhan 2024" value={`${idNum(M.tumbuhEkraf[iFull], 2)}%`} sub={`PDRB DKI ${idNum(M.tumbuhDki[iFull], 2)}%`} />
       </KpiRow>
 
-      <SectionHead title="Kontribusi" desc="Kontribusi PDRB Ekonomi Kreatif terhadap PDRB Provinsi DKI Jakarta (%, ADHB) — KPI utama RPJMD." />
+      <SectionHead title="Kontribusi" desc="Kontribusi Sektor Ekonomi Kreatif terhadap PDRB Provinsi DKI Jakarta (%, ADHB) — KPI utama RPJMD." />
       <ChartCard title="Capaian vs Target RPJMD 2025–2029" sub="Capaian = batang · Target RPJMD = garis">
         <ComboBarLine
           categories={cats.map(label)}
@@ -82,7 +82,7 @@ export function PdrbEkrafStat() {
       </div>
       <ChartGrid cols={2}>
         <ChartCard title={`Distribusi per subsektor · ${label(sub)}`} sub="% terhadap total PDRB Ekraf (ADHB) · 5 terbesar + lainnya">
-          <Donut data={sebaran} />
+          <Donut showPercent data={sebaran} />
         </ChartCard>
         <ChartCard title={`10 subsektor dengan nilai terbesar · ${label(sub)}`} sub="Rp miliar (ADHB)">
           <BarBreakdown data={nilaiSub} unit=" miliar" />

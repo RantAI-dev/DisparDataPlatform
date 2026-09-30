@@ -72,7 +72,7 @@ export function WisnusStat({ rows }: { rows: WisnusRow[] }) {
           ))}
         </select>
         <span className="apple-fine text-ink-muted-48">
-          Filter memakai Kota <b>Tujuan</b> (bukan Kota Asal) — pergerakan riil wisatawan yang masuk ke Jakarta.
+          Berdasarkan Kota/Kabupaten Tujuan Wisatawan Nusantara
         </span>
       </div>
 
@@ -102,7 +102,7 @@ export function WisnusStat({ rows }: { rows: WisnusRow[] }) {
       </div>
       <ChartGrid cols={2}>
         <ChartCard title={`Persentase per kota tujuan · ${yLabel(year)}`} sub="% dari total perjalanan ke DKI Jakarta">
-          <Donut data={perKota(year)} />
+          <Donut showPercent data={perKota(year)} />
         </ChartCard>
         <ChartCard title={`Perjalanan per kota tujuan · ${yLabel(year)}`} sub="perjalanan">
           <BarBreakdown data={perKota(year)} unit=" perjalanan" />

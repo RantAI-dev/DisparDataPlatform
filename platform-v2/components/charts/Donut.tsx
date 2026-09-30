@@ -11,8 +11,11 @@ const PALETTE = [
 const MUTED = "#cbd5e1"; // untuk slice "Lainnya"
 const idfmt = (v: number) => v.toLocaleString("id-ID");
 
-/** Proporsi (donut ECharts) — legend scroll di bawah, pie di tengah. */
-export function Donut({ data }: { data: Point[] }) {
+/**
+ * Proporsi (donut ECharts) — legend scroll di bawah, pie di tengah.
+ * `showPercent`: persentase tiap irisan tampil permanen (tanpa hover); irisan < ~2% disembunyikan agar tak tumpang tindih.
+ */
+export function Donut({ data, showPercent = false }: { data: Point[]; showPercent?: boolean }) {
   if (!data.length)
     return (
       <div className="text-[13px] text-slate-400 py-6 text-center">
@@ -43,11 +46,22 @@ export function Donut({ data }: { data: Point[] }) {
     series: [
       {
         type: "pie",
-        radius: ["52%", "74%"],
+        radius: showPercent ? ["44%", "64%"] : ["52%", "74%"],
         center: ["50%", "44%"],
         avoidLabelOverlap: true,
         itemStyle: { borderColor: "#fff", borderWidth: 2 },
-        label: { show: false },
+        label: showPercent
+          ? {
+              show: true,
+              position: "outside",
+              formatter: (p: { percent: number }) => `${p.percent.toLocaleString("id-ID", { maximumFractionDigits: 1 })}%`,
+              color: "#33302b",
+              fontSize: 11,
+              fontWeight: 600,
+            }
+          : { show: false },
+        labelLine: { show: showPercent, length: 6, length2: 6 },
+        minShowLabelAngle: 7,
         data: data.map((d) => ({
           name: d.label,
           value: d.value,

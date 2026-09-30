@@ -13,10 +13,10 @@ export default async function Page() {
       <div className="mb-4">
         <div className="apple-fine uppercase tracking-wider text-ink-muted-48">Kinerja Pariwisata</div>
         <h2 className="text-[22px] font-bold tracking-tight text-ink">Wisatawan Nusantara</h2>
-        <p className="apple-fine text-ink-muted-48">Fokus realisasi capaian, tanpa target. Filter utama: Kota Tujuan (bukan Kota Asal).</p>
+        <p className="apple-fine text-ink-muted-48">Wisatawan Nusantara Berdasarkan Kota Tujuan</p>
       </div>
 
-      <SectionHead title="Tahunan · Capaian" desc="Jumlah perjalanan wisatawan nusantara menurut kabupaten/kota tujuan di DKI Jakarta, 2019–2026 (BPS, mobile positioning data)." />
+      <SectionHead title="Tahunan · Capaian" desc="Jumlah perjalanan wisatawan nusantara menurut kabupaten/kota tujuan di DKI Jakarta, 2019–2026 (Berdasarkan data BPS)." />
       <WisnusStat rows={wisnus} />
 
       <SectionHead title="Bulanan · Length of Stay" desc="Rata-rata lama menginap wisatawan nusantara di hotel bintang (hari)." />

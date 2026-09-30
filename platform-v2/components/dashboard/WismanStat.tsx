@@ -145,13 +145,13 @@ export function WismanStat({
       </div>
       <ChartGrid cols={2}>
         <ChartCard title={`Persentase Wisman berdasarkan Kebangsaan · ${yLabel(year)}`} sub="8 negara terbesar + lainnya">
-          <Donut data={topN(negaraYear)} />
+          <Donut showPercent data={topN(negaraYear)} />
         </ChartCard>
         <ChartCard
           title={`Persentase Wisman berdasarkan Pintu Masuk · ${year}`}
           sub={`Soekarno-Hatta, Halim, Tanjung Priok · semester ${semYear.join(" & ") || "—"}`}
         >
-          <Donut data={[...pintuYear.entries()].map(([label, value]) => ({ label, value }))} />
+          <Donut showPercent data={[...pintuYear.entries()].map(([label, value]) => ({ label, value }))} />
         </ChartCard>
       </ChartGrid>
 
@@ -194,11 +194,11 @@ export function WismanStat({
       <div className="mt-4">
         <ChartGrid cols={2}>
           <ChartCard title={`Persentase Wisman berdasarkan Kebangsaan · ${labelBulan(month)}`} sub="8 negara terbesar + lainnya">
-            <Donut data={topN(negaraMonth)} />
+            <Donut showPercent data={topN(negaraMonth)} />
           </ChartCard>
           {pintuBln.length ? (
             <ChartCard title={`Persentase Wisman berdasarkan Pintu Masuk · ${labelBulan(month)}`} sub="data bulanan BPS DKI Jakarta">
-              <Donut data={pintuBln} />
+              <Donut showPercent data={pintuBln} />
             </ChartCard>
           ) : (
             <ChartCard
@@ -206,7 +206,7 @@ export function WismanStat({
               sub="data bulanan BPS belum tersedia untuk bulan ini — ditampilkan data semesteran SDI"
             >
               {pintuSem.size ? (
-                <Donut data={[...pintuSem.entries()].map(([label, value]) => ({ label, value }))} />
+                <Donut showPercent data={[...pintuSem.entries()].map(([label, value]) => ({ label, value }))} />
               ) : (
                 <div className="py-10 text-center text-[13px] text-ink-muted-48">Semester ini belum dirilis.</div>
               )}
