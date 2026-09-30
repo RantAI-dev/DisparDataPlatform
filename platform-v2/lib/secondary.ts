@@ -299,6 +299,16 @@ export function secondaryDatasets(): SecondaryDataset[] {
       external: false,
     },
     {
+      id: "sec-hotel-kamar",
+      title: "Hotel & Jumlah Kamar DKI Jakarta (terkini)",
+      description:
+        "Daftar hotel bintang & non-bintang DKI Jakarta dengan jumlah kamar terkini — gabungan registri SDI 2020, rekap 2023, dan riset web per hotel (sumber & tahun dicatat per baris). Riset masih berjalan; data diperbarui berkala.",
+      tags: ["hotel", "kamar", "akomodasi", "gpci", "sekunder"],
+      rows: 484,
+      href: "/sdi/hotel-kamar-jakarta",
+      external: false,
+    },
+    {
       id: "sec-gci-resto",
       title: "Restoran & Kafe GCI Jakarta",
       description:
