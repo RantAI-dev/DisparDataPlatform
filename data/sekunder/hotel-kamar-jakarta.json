@@ -1,7 +1,7 @@
 {
 "slug": "hotel-kamar-jakarta",
 "title": "Hotel & Jumlah Kamar DKI Jakarta (terkini)",
-"description": "Daftar hotel DKI Jakarta dengan jumlah kamar terkini, digabung dari tiga sumber: (1) baseline SDI 2020 hasil dedup nama+alamat, (2) rekapitulasi usaha & kamar hotel 2023, dan (3) riset web per hotel. Prioritas `kamar_terkini`: riset DITEMUKAN > rekap 2023 > SDI 2020; riset TUTUP membuat `kamar_terkini` null.",
+"description": "Daftar hotel DKI Jakarta dengan jumlah kamar terkini, digabung dari tiga sumber: (1) baseline SDI 2020 hasil dedup nama+alamat, (2) rekapitulasi usaha & kamar hotel 2023, dan (3) riset web per hotel. Prioritas `kamar_terkini`: riset DITEMUKAN > rekap 2023 > SDI 2020; riset TUTUP membuat `kamar_terkini` null. 25 hotel dari rekap 2023 yang ternyata sama dengan hotel di baseline 2020 (beda penulisan nama) digabung ke satu baris; jejaknya ada di kolom `catatan`.",
 "columns": [
 {
 "key": "id",
@@ -496,7 +496,7 @@
 "wilayah": "JAKARTA BARAT",
 "alamat": "GD. LTC GLODOK JL. HAYAM WURUK NO. 127",
 "kamar_2020": 203,
-"kamar_2023": null,
+"kamar_2023": 203,
 "kamar_terkini": 203,
 "tahun_kamar_terkini": 2026,
 "sumber_kamar_terkini": "riset_web",
@@ -504,7 +504,7 @@
 "status_riset": "DITEMUKAN",
 "kamar_riset_ragu": null,
 "url_sumber": "https://www.favehotels.com/id/hotel/view/27/favehotel-ltc-glodok",
-"catatan": null
+"catatan": "Digabung dengan N017 (rekap 2023 'FAVEHOTEL LTC GLODOK')"
 },
 {
 "id": "H022",
@@ -743,7 +743,7 @@
 "wilayah": "JAKARTA BARAT",
 "alamat": "JL. MANGGA BESAR NO. 62",
 "kamar_2020": 161,
-"kamar_2023": null,
+"kamar_2023": 161,
 "kamar_terkini": 161,
 "tahun_kamar_terkini": 2026,
 "sumber_kamar_terkini": "riset_web",
@@ -751,7 +751,7 @@
 "status_riset": "DITEMUKAN",
 "kamar_riset_ragu": null,
 "url_sumber": "https://www.traveloka.com/en-en/hotel/indonesia/hotel-88-mangga-besar-62-lokasari-by-wh-3000010001135",
-"catatan": "naung ke jaringan Waringin Hospitality"
+"catatan": "naung ke jaringan Waringin Hospitality; Digabung dengan N033 (rekap 2023 'HOTEL 88 MANGGA BESAR 62')"
 },
 {
 "id": "H035",
@@ -1028,7 +1028,7 @@
 "wilayah": "JAKARTA BARAT",
 "alamat": "JL. HAYAM WURUK NO. 126",
 "kamar_2020": 335,
-"kamar_2023": null,
+"kamar_2023": 333,
 "kamar_terkini": 334,
 "tahun_kamar_terkini": 2026,
 "sumber_kamar_terkini": "riset_web",
@@ -1036,7 +1036,7 @@
 "status_riset": "DITEMUKAN",
 "kamar_riset_ragu": null,
 "url_sumber": "https://www.kayak.com/West-Jakarta-Hotels-The-Jayakarta-Jakarta.56265.ksp",
-"catatan": null
+"catatan": "Digabung dengan N078 (rekap 2023 'THE JAYAKARTA SP JAKARTA HOTEL AND SPA')"
 },
 {
 "id": "H050",
@@ -1617,7 +1617,7 @@
 "wilayah": "JAKARTA BARAT",
 "alamat": "JL. MANGGA BESAR RAYA NO. 44",
 "kamar_2020": 113,
-"kamar_2023": null,
+"kamar_2023": 136,
 "kamar_terkini": 135,
 "tahun_kamar_terkini": 2026,
 "sumber_kamar_terkini": "riset_web",
@@ -1625,7 +1625,7 @@
 "status_riset": "DITEMUKAN",
 "kamar_riset_ragu": null,
 "url_sumber": "https://www.agoda.com/id-id/sparks-life-jakarta/hotel/jakarta-id.html",
-"catatan": "Sparks Hotel bintang 3 di Mangga Besar 42 di-rebranding ke Sparks Life Jakarta ARTOTEL Curated; Agoda menulis 'Sparks Life Jakarta, ARTOTEL Curated memiliki total 135 kamar'; sebelumnya kamar_2020 SDI=113"
+"catatan": "Sparks Hotel bintang 3 di Mangga Besar 42 di-rebranding ke Sparks Life Jakarta ARTOTEL Curated; Agoda menulis 'Sparks Life Jakarta, ARTOTEL Curated memiliki total 135 kamar'; sebelumnya kamar_2020 SDI=113; Digabung dengan N070 (rekap 2023 'SPARKS LIFE JAKARTA')"
 },
 {
 "id": "H081",
@@ -1940,7 +1940,7 @@
 "wilayah": "JAKARTA PUSAT",
 "alamat": "JL. KH. ZAINUL ARIFIN NO. 5 & 7 RT.002/001",
 "kamar_2020": 150,
-"kamar_2023": null,
+"kamar_2023": 150,
 "kamar_terkini": 150,
 "tahun_kamar_terkini": 2026,
 "sumber_kamar_terkini": "riset_web",
@@ -1948,7 +1948,7 @@
 "status_riset": "DITEMUKAN",
 "kamar_riset_ragu": null,
 "url_sumber": "https://www.hrs.com/en/hotel/625765",
-"catatan": "ALL SEASONS di Jl. KH. Zainul Arifin 5 & 7 Jakpus kini menjadi ibis Styles Jakarta Gajah Mada (Accor); HRS menulis 143 Rooms + 7 Suites = 150 total kamar"
+"catatan": "ALL SEASONS di Jl. KH. Zainul Arifin 5 & 7 Jakpus kini menjadi ibis Styles Jakarta Gajah Mada (Accor); HRS menulis 143 Rooms + 7 Suites = 150 total kamar; Digabung dengan N044 (rekap 2023 'HOTEL IBIS STYLES JAKARTA GAJAH MADA')"
 },
 {
 "id": "H098",
@@ -1997,7 +1997,7 @@
 "wilayah": "JAKARTA PUSAT",
 "alamat": "JL. PASAR BARU TIMUR NO. 20-21 RT. 004/03",
 "kamar_2020": 102,
-"kamar_2023": null,
+"kamar_2023": 102,
 "kamar_terkini": 102,
 "tahun_kamar_terkini": 2026,
 "sumber_kamar_terkini": "riset_web",
@@ -2005,7 +2005,7 @@
 "status_riset": "DITEMUKAN",
 "kamar_riset_ragu": null,
 "url_sumber": "http://amaris-hotel-pasar-baru.jakartahotelsindonesia.com/en/",
-"catatan": "Amaris di Jl. Pasar Baru Timur No.20-21 Jakpus kini bernama Amaris Hotel Pasar Baru Jakarta (Santika/Amaris group, 2-star); direktori menulis 102 kamar; sama dengan kamar_2020 SDI"
+"catatan": "Amaris di Jl. Pasar Baru Timur No.20-21 Jakpus kini bernama Amaris Hotel Pasar Baru Jakarta (Santika/Amaris group, 2-star); direktori menulis 102 kamar; sama dengan kamar_2020 SDI; Digabung dengan N005 (rekap 2023 'AMARIS HOTEL PASAR BARU JAKARTA')"
 },
 {
 "id": "H101",
@@ -2263,15 +2263,15 @@
 "wilayah": "JAKARTA PUSAT",
 "alamat": "JL. AIPDA KS. TUBUN NO. 19 RT. 005/006",
 "kamar_2020": 98,
-"kamar_2023": null,
-"kamar_terkini": 98,
-"tahun_kamar_terkini": 2020,
-"sumber_kamar_terkini": "sdi_2020",
+"kamar_2023": 96,
+"kamar_terkini": 96,
+"tahun_kamar_terkini": 2023,
+"sumber_kamar_terkini": "rekap_2023",
 "status_operasi": "TIDAK_DIKETAHUI",
 "status_riset": "TIDAK_DITEMUKAN",
 "kamar_riset_ragu": null,
 "url_sumber": "https://www.blue-sky.co.id/hotel/blue-sky-hotel-petamburan",
-"catatan": "Blue Sky Smart Hotel di Aipda KS Tubun 19 berganti nama menjadi Blue Sky Hotel Petamburan (kelompok Blue Sky Group, bintang 3); Agoda dan JakartaTopHotels tidak menampilkan jumlah kamar publik; situs resmi juga tidak menyebut angka kamar"
+"catatan": "Blue Sky Smart Hotel di Aipda KS Tubun 19 berganti nama menjadi Blue Sky Hotel Petamburan (kelompok Blue Sky Group, bintang 3); Agoda dan JakartaTopHotels tidak menampilkan jumlah kamar publik; situs resmi juga tidak menyebut angka kamar; Digabung dengan N011 (rekap 2023 'BLUE SKY HOTEL PETAMBURAN')"
 },
 {
 "id": "H115",
@@ -2529,7 +2529,7 @@
 "wilayah": "JAKARTA PUSAT",
 "alamat": "JL. PEGANGSAAN TIMUR NO. 17",
 "kamar_2020": 253,
-"kamar_2023": null,
+"kamar_2023": 250,
 "kamar_terkini": 249,
 "tahun_kamar_terkini": 2026,
 "sumber_kamar_terkini": "riset_web",
@@ -2537,7 +2537,7 @@
 "status_riset": "DITEMUKAN",
 "kamar_riset_ragu": null,
 "url_sumber": "https://doubletree-by-hilton-diponegoro.hotels-jakarta.com/id/",
-"catatan": "DoubleTree by Hilton di Pegangsaan Timur 17 Cikini Jakpus (dibuka 2014 sebagai hotel DoubleTree pertama di Indonesia); direktori menulis 'menawarkan 249 kamar'; nama dan brand tidak berubah; sedikit turun dari kamar_2020 SDI=253"
+"catatan": "DoubleTree by Hilton di Pegangsaan Timur 17 Cikini Jakpus (dibuka 2014 sebagai hotel DoubleTree pertama di Indonesia); direktori menulis 'menawarkan 249 kamar'; nama dan brand tidak berubah; sedikit turun dari kamar_2020 SDI=253; Digabung dengan N063 (rekap 2023 'PERHOTELAN - AKOMODASI')"
 },
 {
 "id": "H129",
@@ -3004,7 +3004,7 @@
 "wilayah": "JAKARTA PUSAT",
 "alamat": "JL. KH. SAMANHUDI NO. 26 RT. 005/003",
 "kamar_2020": 90,
-"kamar_2023": null,
+"kamar_2023": 84,
 "kamar_terkini": 84,
 "tahun_kamar_terkini": 2026,
 "sumber_kamar_terkini": "riset_web",
@@ -3012,7 +3012,7 @@
 "status_riset": "DITEMUKAN",
 "kamar_riset_ragu": null,
 "url_sumber": "https://fave-pasar-baru.hotels-jakarta.com/en/",
-"catatan": "Hotel Fave (BINTANG 2, jaringan favehotels) di Samanhudi 26 Pasar Baru sekarang bernama favehotel Pasar Baru (bintang 2); hotels-jakarta.com menulis 'Each of the 84 rooms'; sedikit turun dari kamar_2020 SDI=90"
+"catatan": "Hotel Fave (BINTANG 2, jaringan favehotels) di Samanhudi 26 Pasar Baru sekarang bernama favehotel Pasar Baru (bintang 2); hotels-jakarta.com menulis 'Each of the 84 rooms'; sedikit turun dari kamar_2020 SDI=90; Digabung dengan N018 (rekap 2023 'FAVEHOTEL PASAR BARU')"
 },
 {
 "id": "H154",
@@ -3213,7 +3213,7 @@
 "wilayah": "JAKARTA PUSAT",
 "alamat": "JL. MH. THAMRIN NO. 6",
 "kamar_2020": 418,
-"kamar_2023": null,
+"kamar_2023": 349,
 "kamar_terkini": 418,
 "tahun_kamar_terkini": 2026,
 "sumber_kamar_terkini": "riset_web",
@@ -3221,7 +3221,7 @@
 "status_riset": "DITEMUKAN",
 "kamar_riset_ragu": null,
 "url_sumber": "https://www.hotel-today.com/in/id/jakarta/sari-pacific-jakarta.html",
-"catatan": "HOTEL SARI PAN PACIFIC di Jl. MH. Thamrin No.6 Jakpus kini bernama Sari Pacific Jakarta, Autograph Collection (bergabung ke Marriott Autograph Collection Nov 2022, sebelumnya Pan Pacific); situs Marriott jktak-sari-pacific-jakarta-autograph-collection dan direktori hotel-today.com menulis '418 rooms'; tiket.com menulis 'one of the 418 air-conditioned rooms'; sama dengan kamar_2020 SDI=418"
+"catatan": "HOTEL SARI PAN PACIFIC di Jl. MH. Thamrin No.6 Jakpus kini bernama Sari Pacific Jakarta, Autograph Collection (bergabung ke Marriott Autograph Collection Nov 2022, sebelumnya Pan Pacific); situs Marriott jktak-sari-pacific-jakarta-autograph-collection dan direktori hotel-today.com menulis '418 rooms'; tiket.com menulis 'one of the 418 air-conditioned rooms'; sama dengan kamar_2020 SDI=418; Digabung dengan N066 (rekap 2023 'SARI PACIFIC JAKARTA')"
 },
 {
 "id": "H165",
@@ -4847,15 +4847,15 @@
 "wilayah": "JAKARTA PUSAT",
 "alamat": "JL. SAMANHUDI NO. 25",
 "kamar_2020": 168,
-"kamar_2023": null,
-"kamar_terkini": 168,
-"tahun_kamar_terkini": 2020,
-"sumber_kamar_terkini": "sdi_2020",
+"kamar_2023": 161,
+"kamar_terkini": 161,
+"tahun_kamar_terkini": 2023,
+"sumber_kamar_terkini": "rekap_2023",
 "status_operasi": "TIDAK_DIKETAHUI",
 "status_riset": "TIDAK_DITEMUKAN",
 "kamar_riset_ragu": null,
 "url_sumber": "https://www.semuabis.com/tune-hotel-pasar-baru-jakarta-indonesia-021-29392111",
-"catatan": "Tune Hotels (SDI catat MELATI 3) di Jl. Samanhudi No. 25 Jakpus masih beroperasi dengan nama Tune Hotel Pasar Baru (bukan Ma Blankon atau favehotel seperti hipotesis awal; Tune Hotels group masih mengelola); direktori semuabis.com dan flyin.com mencantumkan alamat Jl. KH. Samanhudi No.25 Jakpus dan nomor telepon (021) 29392111; tidak ada angka total kamar publik dari situs resmi/OTA/direktori"
+"catatan": "Tune Hotels (SDI catat MELATI 3) di Jl. Samanhudi No. 25 Jakpus masih beroperasi dengan nama Tune Hotel Pasar Baru (bukan Ma Blankon atau favehotel seperti hipotesis awal; Tune Hotels group masih mengelola); direktori semuabis.com dan flyin.com mencantumkan alamat Jl. KH. Samanhudi No.25 Jakpus dan nomor telepon (021) 29392111; tidak ada angka total kamar publik dari situs resmi/OTA/direktori; Digabung dengan N064 (rekap 2023 'RED PLANET HOTEL JAKARTA')"
 },
 {
 "id": "H251",
@@ -4961,7 +4961,7 @@
 "wilayah": "JAKARTA SELATAN",
 "alamat": "JL. KAPTEN P. TENDEAN  NO. 11 RT. 014/002",
 "kamar_2020": 99,
-"kamar_2023": null,
+"kamar_2023": 99,
 "kamar_terkini": 99,
 "tahun_kamar_terkini": 2026,
 "sumber_kamar_terkini": "riset_web",
@@ -4969,7 +4969,7 @@
 "status_riset": "DITEMUKAN",
 "kamar_riset_ragu": null,
 "url_sumber": "https://www.hotelprio.com/en/hotel/indonesia-id/301541-hotel-amaris-tendean-jakarta/",
-"catatan": "Amaris Hotel Tendean (SDI catat HOTEL) di Jl. Kapten P. Tendean No. 11 Jaksel masih bernama Amaris Hotel Tendean (brand Santika Indonesia Hotels & Resorts, dibuka 2012); direktori hotelprio.com menulis 'Number of rooms are 99' (direktori jakartatophotels.com menyebut 100, sumber kurang otoritatif); sama dengan kamar_2020 SDI=99"
+"catatan": "Amaris Hotel Tendean (SDI catat HOTEL) di Jl. Kapten P. Tendean No. 11 Jaksel masih bernama Amaris Hotel Tendean (brand Santika Indonesia Hotels & Resorts, dibuka 2012); direktori hotelprio.com menulis 'Number of rooms are 99' (direktori jakartatophotels.com menyebut 100, sumber kurang otoritatif); sama dengan kamar_2020 SDI=99; Digabung dengan N036 (rekap 2023 'HOTEL AMARIS TENDEAN JAKARTA')"
 },
 {
 "id": "H257",
@@ -5455,7 +5455,7 @@
 "wilayah": "JAKARTA SELATAN",
 "alamat": "JL. KARTIKA CHANDRA (D/H KOMP. TANGKAS BARU A9) RT. 005/002",
 "kamar_2020": 150,
-"kamar_2023": null,
+"kamar_2023": 150,
 "kamar_terkini": 150,
 "tahun_kamar_terkini": 2026,
 "sumber_kamar_terkini": "riset_web",
@@ -5463,7 +5463,7 @@
 "status_riset": "DITEMUKAN",
 "kamar_riset_ragu": null,
 "url_sumber": "https://favehotels.com/id/hotel/view/6/favehotel-gatot-subroto",
-"catatan": "FAVE HOTEL GATOT SUBROTO (BINTANG) di Jl. Kartika Chandra (d/h Komp. Tangkas Baru A9) Jaksel masih bernama favehotel Gatot Subroto (hotel bintang 3 ARCHIPELAGO di Kartika Chandra Kavling sepanjang Jl. Gatot Subroto); situs resmi favehotels.com/id/hotel/view/6 menulis 'Memiliki total 150 kamar standar'; sama dengan kamar_2020 SDI=150 (rasio 1,0)"
+"catatan": "FAVE HOTEL GATOT SUBROTO (BINTANG) di Jl. Kartika Chandra (d/h Komp. Tangkas Baru A9) Jaksel masih bernama favehotel Gatot Subroto (hotel bintang 3 ARCHIPELAGO di Kartika Chandra Kavling sepanjang Jl. Gatot Subroto); situs resmi favehotels.com/id/hotel/view/6 menulis 'Memiliki total 150 kamar standar'; sama dengan kamar_2020 SDI=150 (rasio 1,0); Digabung dengan N015 (rekap 2023 'FAVEHOTEL GATOT SUBROTO JAKARTA')"
 },
 {
 "id": "H283",
@@ -5588,7 +5588,7 @@
 "wilayah": "JAKARTA SELATAN",
 "alamat": "JL. HR. RASUNA SAID KAV. X-O NO. 1-4",
 "kamar_2020": 404,
-"kamar_2023": null,
+"kamar_2023": 346,
 "kamar_terkini": 334,
 "tahun_kamar_terkini": 2026,
 "sumber_kamar_terkini": "riset_web",
@@ -5596,7 +5596,7 @@
 "status_riset": "DITEMUKAN",
 "kamar_riset_ragu": null,
 "url_sumber": "https://id.wikipedia.org/wiki/Gran_Meli%C3%A1_Jakarta",
-"catatan": "Grand Melia Jakarta (BINTANG 5) di Jl. HR. Rasuna Said Kav. X-O No. 1-4 Jaksel masih bernama Gran Meliá Jakarta (hotel bintang 5 jaringan Meliá Hotels International asal Spanyol, masih tercantum aktif di situs resmi melia.com dan dikunjungi kunjungan industri Juni 2026); Wikipedia menulis 'memiliki jumlah kamar sebanyak 334' dan direktori gran-melia.jakartahotelsindonesia.com juga menulis 334 (direktori hotelprio.com menulis 336, situs lama menyebut 407-428); rasio 334/404 = 0,83 (dalam rentang)"
+"catatan": "Grand Melia Jakarta (BINTANG 5) di Jl. HR. Rasuna Said Kav. X-O No. 1-4 Jaksel masih bernama Gran Meliá Jakarta (hotel bintang 5 jaringan Meliá Hotels International asal Spanyol, masih tercantum aktif di situs resmi melia.com dan dikunjungi kunjungan industri Juni 2026); Wikipedia menulis 'memiliki jumlah kamar sebanyak 334' dan direktori gran-melia.jakartahotelsindonesia.com juga menulis 334 (direktori hotelprio.com menulis 336, situs lama menyebut 407-428); rasio 334/404 = 0,83 (dalam rentang); Digabung dengan N022 (rekap 2023 'GRAN MELIA HOTEL JAKARTA')"
 },
 {
 "id": "H290",
@@ -5721,15 +5721,15 @@
 "wilayah": "JAKARTA SELATAN",
 "alamat": "JL. FALATEHAN I NO. 21-22",
 "kamar_2020": 65,
-"kamar_2023": null,
-"kamar_terkini": 65,
-"tahun_kamar_terkini": 2020,
-"sumber_kamar_terkini": "sdi_2020",
+"kamar_2023": 70,
+"kamar_terkini": 70,
+"tahun_kamar_terkini": 2023,
+"sumber_kamar_terkini": "rekap_2023",
 "status_operasi": "TIDAK_DIKETAHUI",
 "status_riset": "TIDAK_DITEMUKAN",
 "kamar_riset_ragu": null,
 "url_sumber": "https://www.falatehan.sotishotels.com/rooms-2/",
-"catatan": "Hotel Sotis (MELATI 3) di Jl. Falatehan I No. 21-22 Jaksel masih beroperasi sebagai Sotis Hotel Falatehan Blok M (situs resmi falatehan.sotishotels.com aktif 2026, listing aktif di Traveloka/tiket.com/Agoda sebagai hotel bintang 3 Melawai); situs resmi hanya menampilkan tipe kamar (menyebut '15 club rooms' untuk satu tipe) tanpa angka total kamar publik"
+"catatan": "Hotel Sotis (MELATI 3) di Jl. Falatehan I No. 21-22 Jaksel masih beroperasi sebagai Sotis Hotel Falatehan Blok M (situs resmi falatehan.sotishotels.com aktif 2026, listing aktif di Traveloka/tiket.com/Agoda sebagai hotel bintang 3 Melawai); situs resmi hanya menampilkan tipe kamar (menyebut '15 club rooms' untuk satu tipe) tanpa angka total kamar publik; Digabung dengan N069 (rekap 2023 'SOTIS HOTEL FALATEHAN JAKARTA')"
 },
 {
 "id": "H297",
@@ -6348,7 +6348,7 @@
 "wilayah": "JAKARTA SELATAN",
 "alamat": "JL. KALIBATA RAYA NO. 22",
 "kamar_2020": 212,
-"kamar_2023": null,
+"kamar_2023": 212,
 "kamar_terkini": 212,
 "tahun_kamar_terkini": 2026,
 "sumber_kamar_terkini": "riset_web",
@@ -6356,7 +6356,7 @@
 "status_riset": "DITEMUKAN",
 "kamar_riset_ragu": null,
 "url_sumber": "https://www.swiss-belhotel.com/rooms/swiss-belresidences-kalibata",
-"catatan": "SWISS-BELL RESIDENCE (HUNIAN WISATA) di Jl. Kalibata Raya No. 22 Jaksel kini bernama Swiss-Belresidences Kalibata (apartment hotel bintang 4 jaringan Swiss-Belhotel International, kawasan Kalibata; SDI tulis 'SWISS-BELL RESIDENCE', resmi pakai 'Swiss-Belresidences' dengan 's' di akhir); situs resmi swiss-belhotel.com/rooms/swiss-belresidences-kalibata aktif dan listing Booking.com menulis 'The hotel features 212 guestrooms including Deluxe, Grand Deluxe and Junior Suite' (bookhoteljakarta, top-hotels-in-jakarta, dan travel aggregators semuanya menyebut 212); sama dengan kamar_2020 SDI=212 (rasio 1,0)"
+"catatan": "SWISS-BELL RESIDENCE (HUNIAN WISATA) di Jl. Kalibata Raya No. 22 Jaksel kini bernama Swiss-Belresidences Kalibata (apartment hotel bintang 4 jaringan Swiss-Belhotel International, kawasan Kalibata; SDI tulis 'SWISS-BELL RESIDENCE', resmi pakai 'Swiss-Belresidences' dengan 's' di akhir); situs resmi swiss-belhotel.com/rooms/swiss-belresidences-kalibata aktif dan listing Booking.com menulis 'The hotel features 212 guestrooms including Deluxe, Grand Deluxe and Junior Suite' (bookhoteljakarta, top-hotels-in-jakarta, dan travel aggregators semuanya menyebut 212); sama dengan kamar_2020 SDI=212 (rasio 1,0); Digabung dengan N075 (rekap 2023 'SWISS-BELRESIDENCES KALIBATA JAKARTA')"
 },
 {
 "id": "H330",
@@ -6424,7 +6424,7 @@
 "wilayah": "JAKARTA SELATAN",
 "alamat": "JL. HAJI NAWI NO. 1",
 "kamar_2020": 156,
-"kamar_2023": null,
+"kamar_2023": 150,
 "kamar_terkini": 156,
 "tahun_kamar_terkini": 2026,
 "sumber_kamar_terkini": "riset_web",
@@ -6432,7 +6432,7 @@
 "status_riset": "DITEMUKAN",
 "kamar_riset_ragu": null,
 "url_sumber": "https://www.expedia.com/Jakarta-Hotels-Aston-Bellevue-Radio-Dalam.h10538680.Hotel-Information",
-"catatan": "THE BELLEVUE RADIO DALAM (HUNIAN WISATA) di Jl. Haji Nawi No. 1 Jaksel kini bernama Aston Bellevue Radio Dalam (dikelola Archipelago, hotel/apartemen servis bintang 4 kawasan Radio Dalam/Cilandak Jaksel; situs astonbellevueradiodalam.com dan listing hotels.com menulis 'Aston Bellevue Radio Dalam'); sub-bagian kamar hotel di bangunan yang sama juga dipasarkan sebagai 'Nemuru Grand Bellevue Radio Dalam' (merek serviced-residence Archipelago, 37 unit, mungkin hanya kamar-kamar kategori tertentu); direktori Expedia menulis 'All 156 rooms have comforts such as laptop-friendly workspaces' (hotels.com/agoda juga menulis 156); rasio 156/156 = 1,0 (dalam rentang, sama)"
+"catatan": "THE BELLEVUE RADIO DALAM (HUNIAN WISATA) di Jl. Haji Nawi No. 1 Jaksel kini bernama Aston Bellevue Radio Dalam (dikelola Archipelago, hotel/apartemen servis bintang 4 kawasan Radio Dalam/Cilandak Jaksel; situs astonbellevueradiodalam.com dan listing hotels.com menulis 'Aston Bellevue Radio Dalam'); sub-bagian kamar hotel di bangunan yang sama juga dipasarkan sebagai 'Nemuru Grand Bellevue Radio Dalam' (merek serviced-residence Archipelago, 37 unit, mungkin hanya kamar-kamar kategori tertentu); direktori Expedia menulis 'All 156 rooms have comforts such as laptop-friendly workspaces' (hotels.com/agoda juga menulis 156); rasio 156/156 = 1,0 (dalam rentang, sama); Digabung dengan N006 (rekap 2023 'ASTON BELLEVUE RADIO DALAM')"
 },
 {
 "id": "H334",
@@ -6595,7 +6595,7 @@
 "wilayah": "JAKARTA SELATAN",
 "alamat": "JL. KYAI MAJA NO. 63",
 "kamar_2020": 184,
-"kamar_2023": null,
+"kamar_2023": 184,
 "kamar_terkini": 167,
 "tahun_kamar_terkini": 2026,
 "sumber_kamar_terkini": "riset_web",
@@ -6603,7 +6603,7 @@
 "status_riset": "DITEMUKAN",
 "kamar_riset_ragu": null,
 "url_sumber": "https://veranda-pakubuwono.top-hotels-in-jakarta.com/en/",
-"catatan": "VERANDA (BINTANG, tanpa nomor kelas) di Jl. Kyai Maja No. 63 Jaksel kini bernama Veranda Hotel Pakubuwono (dikelola Pulauintan Development/Veranda Hotels, hotel bintang 4 kawasan Kebayoran Baru - sebelumnya 'Veranda Hotel @ Pakubuwono By Breezbay Japan'; situs resmi verandahotels.com/pakubuwono aktif dengan alamat persis dan 6 tipe kamar: Deluxe King, Deluxe Queen, Deluxe Twin, Grand Deluxe Queen, Grand Deluxe Twin, Executive Queen tanpa angka total di beranda); direktori veranda-pakubuwono.top-hotels-in-jakarta.com dan hoteljakarta.org sama-sama menulis 'this 4-star hotel has 167 rooms'; sarana-jaya.co.id (pengembang awal Perumda Pembangunan Sarana Jaya + PT Graha Pakubuwono Kusuma, skema BTO) menyebut original project 9 lantai/184 kamar; rasio 167/184 = 0,91 (dalam rentang, turun setelah rebrand/renovasi)"
+"catatan": "VERANDA (BINTANG, tanpa nomor kelas) di Jl. Kyai Maja No. 63 Jaksel kini bernama Veranda Hotel Pakubuwono (dikelola Pulauintan Development/Veranda Hotels, hotel bintang 4 kawasan Kebayoran Baru - sebelumnya 'Veranda Hotel @ Pakubuwono By Breezbay Japan'; situs resmi verandahotels.com/pakubuwono aktif dengan alamat persis dan 6 tipe kamar: Deluxe King, Deluxe Queen, Deluxe Twin, Grand Deluxe Queen, Grand Deluxe Twin, Executive Queen tanpa angka total di beranda); direktori veranda-pakubuwono.top-hotels-in-jakarta.com dan hoteljakarta.org sama-sama menulis 'this 4-star hotel has 167 rooms'; sarana-jaya.co.id (pengembang awal Perumda Pembangunan Sarana Jaya + PT Graha Pakubuwono Kusuma, skema BTO) menyebut original project 9 lantai/184 kamar; rasio 167/184 = 0,91 (dalam rentang, turun setelah rebrand/renovasi); Digabung dengan N081 (rekap 2023 'VERANDA HOTEL PAKUBUWONO')"
 },
 {
 "id": "H343",
@@ -6804,7 +6804,7 @@
 "wilayah": "JAKARTA TIMUR",
 "alamat": "JL. MAYJEN SUTOYO NO. 76 / JL. DEWI SARTIKA RT. 001/013",
 "kamar_2020": 194,
-"kamar_2023": null,
+"kamar_2023": 194,
 "kamar_terkini": 194,
 "tahun_kamar_terkini": 2026,
 "sumber_kamar_terkini": "riset_web",
@@ -6812,7 +6812,7 @@
 "status_riset": "DITEMUKAN",
 "kamar_riset_ragu": null,
 "url_sumber": "https://www.favehotels.com/en/hotel/view/19/favehotel-pgc-cililitan",
-"catatan": "FAVE HOTEL PGC (BINTANG, tanpa nomor kelas) di Jl. Mayjen Sutoyo No. 76 / Jl. Dewi Sartika RT. 001/013 Jaktim masih bernama favehotel PGC Cililitan (SDI label BINTANG, direktori menulis bintang 3 kawasan Cililitan/PGC Jaktim; bagian dari jaringan favehotels/Archipelago International); situs resmi favehotels.com/en/hotel/view/19/favehotel-pgc-cililitan menulis 'Dilengkapi dengan 194 kamar berdasarkan 5 kategori, 10 ruangan pertemuan berukuran medium, dan 1 ballroom termasuk Video LED, LIME restoran, Teras Pitoeng Cafe'; Facebook, Instagram, dan hotelprio.com juga menulis 194 rooms (mbizmarket.co.id menulis 196 - angka tidak otoritatif); rasio 194/194 = 1,0 (dalam rentang, sama)"
+"catatan": "FAVE HOTEL PGC (BINTANG, tanpa nomor kelas) di Jl. Mayjen Sutoyo No. 76 / Jl. Dewi Sartika RT. 001/013 Jaktim masih bernama favehotel PGC Cililitan (SDI label BINTANG, direktori menulis bintang 3 kawasan Cililitan/PGC Jaktim; bagian dari jaringan favehotels/Archipelago International); situs resmi favehotels.com/en/hotel/view/19/favehotel-pgc-cililitan menulis 'Dilengkapi dengan 194 kamar berdasarkan 5 kategori, 10 ruangan pertemuan berukuran medium, dan 1 ballroom termasuk Video LED, LIME restoran, Teras Pitoeng Cafe'; Facebook, Instagram, dan hotelprio.com juga menulis 194 rooms (mbizmarket.co.id menulis 196 - angka tidak otoritatif); rasio 194/194 = 1,0 (dalam rentang, sama); Digabung dengan N019 (rekap 2023 'FAVEHOTEL PGC CILILITAN')"
 },
 {
 "id": "H354",
@@ -7165,7 +7165,7 @@
 "wilayah": "JAKARTA UTARA",
 "alamat": "JL. LODAN RAYA NO. 2A",
 "kamar_2020": 358,
-"kamar_2023": null,
+"kamar_2023": 225,
 "kamar_terkini": 200,
 "tahun_kamar_terkini": 2026,
 "sumber_kamar_terkini": "riset_web",
@@ -7173,7 +7173,7 @@
 "status_riset": "DITEMUKAN",
 "kamar_riset_ragu": null,
 "url_sumber": "https://granddafamancol.com/",
-"catatan": "ASTON MARINA (HUNIAN WISATA) di Jl. Lodan Raya No. 2A Jakut (Marina Mediterania Tower A, Ancol) kini bernama Grand Dafam Ancol Jakarta (rebrand dari Aston Marina Ancol ke jaringan Dafam/Plaza Indonesia group; situs resmi granddafamancol.com aktif dan menulis 'Grand Dafam Ancol Jakarta is a 4-star hotel strategically located at the northern of Jakarta. With a total of 200 suite rooms, the hotel offers various types of rooms to meet the needs and preferences of every guest'); direktori aston-marina.hotels-jakarta.com menulis 'Grand Dafam Ancol Jakarta (ex. Aston Marina Ancol) ... There are 161 rooms' dan aroundus.com 'around 200 rooms' (angka resmi 200 dari situs utama); rasio 200/358 = 0,56 (dalam rentang, turun signifikan; angka SDI 358 kemungkinan mencakup seluruh unit Marina Mediterania Tower A residensial sedangkan 200 hanya kamar hotel)"
+"catatan": "ASTON MARINA (HUNIAN WISATA) di Jl. Lodan Raya No. 2A Jakut (Marina Mediterania Tower A, Ancol) kini bernama Grand Dafam Ancol Jakarta (rebrand dari Aston Marina Ancol ke jaringan Dafam/Plaza Indonesia group; situs resmi granddafamancol.com aktif dan menulis 'Grand Dafam Ancol Jakarta is a 4-star hotel strategically located at the northern of Jakarta. With a total of 200 suite rooms, the hotel offers various types of rooms to meet the needs and preferences of every guest'); direktori aston-marina.hotels-jakarta.com menulis 'Grand Dafam Ancol Jakarta (ex. Aston Marina Ancol) ... There are 161 rooms' dan aroundus.com 'around 200 rooms' (angka resmi 200 dari situs utama); rasio 200/358 = 0,56 (dalam rentang, turun signifikan; angka SDI 358 kemungkinan mencakup seluruh unit Marina Mediterania Tower A residensial sedangkan 200 hanya kamar hotel); Digabung dengan N023 (rekap 2023 'GRAND DAFAM ANCOL JAKARTA')"
 },
 {
 "id": "H373",
@@ -7355,15 +7355,15 @@
 "wilayah": "JAKARTA UTARA",
 "alamat": "JL. PERINTIS KEMERDEKAAN NO. 42",
 "kamar_2020": 210,
-"kamar_2023": null,
-"kamar_terkini": 210,
-"tahun_kamar_terkini": 2020,
-"sumber_kamar_terkini": "sdi_2020",
+"kamar_2023": 207,
+"kamar_terkini": 207,
+"tahun_kamar_terkini": 2023,
+"sumber_kamar_terkini": "rekap_2023",
 "status_operasi": "TIDAK_DIKETAHUI",
 "status_riset": "TIDAK_DITEMUKAN",
 "kamar_riset_ragu": null,
 "url_sumber": "https://www.trip.com/hotels/north-jakarta-city-hotel-detail-46044360/hotel-dariza-jaya/",
-"catatan": "DARIZA JAYA (MELATI 3) di Jl. Perintis Kemerdekaan No. 42 Jakut masih beroperasi sebagai Hotel Dariza Jaya (hotel melati kawasan Pegangsaan Dua Kelapa Gading Jakut, telepon +62 21-4522665/+62 21-4530113, alamat persis sama dengan SDI di Perintis Kemerdekaan 42); listing aktif di Trip.com (hotel-detail-46044360), Traveloka (hotel-dariza-jaya-3000020008480), dinogo.com (hotels/61527), Skyscanner, semuabis.com, cybo.com - rating 2.0/10 dari 1 ulasan (Gold tier member 'Guest User' menulis 'Penipuan' Aug 2026, sinyal mengkhawatirkan); tidak ada angka total kamar publik dari situs resmi/OTA/direktori (Trip.com hanya menampilkan 2 tipe kamar VVIP Room dan VIP Room)"
+"catatan": "DARIZA JAYA (MELATI 3) di Jl. Perintis Kemerdekaan No. 42 Jakut masih beroperasi sebagai Hotel Dariza Jaya (hotel melati kawasan Pegangsaan Dua Kelapa Gading Jakut, telepon +62 21-4522665/+62 21-4530113, alamat persis sama dengan SDI di Perintis Kemerdekaan 42); listing aktif di Trip.com (hotel-detail-46044360), Traveloka (hotel-dariza-jaya-3000020008480), dinogo.com (hotels/61527), Skyscanner, semuabis.com, cybo.com - rating 2.0/10 dari 1 ulasan (Gold tier member 'Guest User' menulis 'Penipuan' Aug 2026, sinyal mengkhawatirkan); tidak ada angka total kamar publik dari situs resmi/OTA/direktori (Trip.com hanya menampilkan 2 tipe kamar VVIP Room dan VIP Room); Digabung dengan N002 (rekap 2023 'AKOMODASI KAMAR')"
 },
 {
 "id": "H383",
@@ -7602,7 +7602,7 @@
 "wilayah": "JAKARTA UTARA",
 "alamat": "KOMPLEKS RUKAN PURI MUTIARA BLOK D NO. 107-108 JL. GRIYA UTAMA",
 "kamar_2020": 257,
-"kamar_2023": null,
+"kamar_2023": 255,
 "kamar_terkini": 255,
 "tahun_kamar_terkini": 2026,
 "sumber_kamar_terkini": "riset_web",
@@ -7610,7 +7610,7 @@
 "status_riset": "DITEMUKAN",
 "kamar_riset_ragu": null,
 "url_sumber": "https://www.hilton.com/en/hotels/jktkedi-doubletree-jakarta-kemayoran/",
-"catatan": "HOLIDAY INN JAKARTA KEMAYORAN (BINTANG, tanpa nomor kelas) di Kompleks Rukan Puri Mutiara Blok D No. 107-108 Jl. Griya Utama Jakut kini bernama DoubleTree by Hilton Jakarta Kemayoran (hotel bintang 5 upscale kawasan Sunter Agung Tanjung Priok Jakut - rebrand Holiday Inn Jakarta Kemayoran ke DoubleTree by Hilton Jakarta Kemayoran dibuka resmi Mar 2024; alamat persis 'Jln Griya Utama Blok B No. 1, Sunter Agung, Jakarta 14350' - Blok B No.1 di kompleks Puri Mutiara sama dengan SDI 'Kompleks Rukan Puri Mutiara Blok D No. 107-108 Jl. Griya Utama'; dikonfirmasi akurat.co/travel/737882 'DoubleTree by Hilton Jakarta Kemayoran Gantikan Holiday Inn' dan ihgma.com 3 Mar 2024 'DoubleTree by Hilton Jakarta Kemayoran Resmi Dibuka, Hadirkan 255 Kamar Tamu'); situs resmi hilton.com/en/hotels/jktkedi-doubletree-jakarta-kemayoran/ aktif dengan 255 rooms, restoran, kolam renang infinity rooftop, Sapphire Restaurant, executive lounge, Amethyst Function Hall; SDI catat 257 kamar, sumber resmi Hilton menulis 255 (rasio 0,992, dalam rentang, hampir sama)"
+"catatan": "HOLIDAY INN JAKARTA KEMAYORAN (BINTANG, tanpa nomor kelas) di Kompleks Rukan Puri Mutiara Blok D No. 107-108 Jl. Griya Utama Jakut kini bernama DoubleTree by Hilton Jakarta Kemayoran (hotel bintang 5 upscale kawasan Sunter Agung Tanjung Priok Jakut - rebrand Holiday Inn Jakarta Kemayoran ke DoubleTree by Hilton Jakarta Kemayoran dibuka resmi Mar 2024; alamat persis 'Jln Griya Utama Blok B No. 1, Sunter Agung, Jakarta 14350' - Blok B No.1 di kompleks Puri Mutiara sama dengan SDI 'Kompleks Rukan Puri Mutiara Blok D No. 107-108 Jl. Griya Utama'; dikonfirmasi akurat.co/travel/737882 'DoubleTree by Hilton Jakarta Kemayoran Gantikan Holiday Inn' dan ihgma.com 3 Mar 2024 'DoubleTree by Hilton Jakarta Kemayoran Resmi Dibuka, Hadirkan 255 Kamar Tamu'); situs resmi hilton.com/en/hotels/jktkedi-doubletree-jakarta-kemayoran/ aktif dengan 255 rooms, restoran, kolam renang infinity rooftop, Sapphire Restaurant, executive lounge, Amethyst Function Hall; SDI catat 257 kamar, sumber resmi Hilton menulis 255 (rasio 0,992, dalam rentang, hampir sama); Digabung dengan N027 (rekap 2023 'HOLIDAY INN JAKARTA KEMAYORAM')"
 },
 {
 "id": "H396",
@@ -7659,7 +7659,7 @@
 "wilayah": "JAKARTA UTARA",
 "alamat": "JL. GADING INDAH RAYA NO. 8 BLOK C/32",
 "kamar_2020": 120,
-"kamar_2023": null,
+"kamar_2023": 121,
 "kamar_terkini": 121,
 "tahun_kamar_terkini": 2026,
 "sumber_kamar_terkini": "riset_web",
@@ -7667,7 +7667,7 @@
 "status_riset": "DITEMUKAN",
 "kamar_riset_ragu": null,
 "url_sumber": "https://llms.archipelagointernational.com/brands/fave/properties/list.json",
-"catatan": "HOTEL FAVE (BINTANG 2) di Jl. Gading Indah Raya No. 8 Blok C/32 Jakut kini bernama favehotel Kelapa Gading Jakarta (hotel bintang 3 budget jaringan fave/Archipelago International, kawasan Kelapa Gading Timur Jakut - SDI label BINTANG 2, direktori menulis bintang 3, tetapi room count tetap konsisten); situs resmi favehotels.com/id/hotel/view/23/favehotel-kelapa-gading menulis 'favehotel Kelapa Gading - Jakarta menawarkan 121 kamar' dan traveloka.com/id-id/hotel/indonesia/favehotel-kelapa-gading-jakarta-463031 listing aktif; database terstruktur llms.archipelagointernational.com/brands/fave/properties/list.json (entry favehotel-kelapa-gading, MA #31, room_count 121, source ma_spreadsheet 2026-02-25) mengonfirmasi 121 rooms; fav-kelapa-gading.hotels-jakarta.com juga menulis hotel bintang 3 kawasan Kelapa Gading; SDI catat BINTANG 2, direktori menulis bintang 3 (naik kelas); rasio 121/120 = 1,008 (nyaris sama, dalam rentang)"
+"catatan": "HOTEL FAVE (BINTANG 2) di Jl. Gading Indah Raya No. 8 Blok C/32 Jakut kini bernama favehotel Kelapa Gading Jakarta (hotel bintang 3 budget jaringan fave/Archipelago International, kawasan Kelapa Gading Timur Jakut - SDI label BINTANG 2, direktori menulis bintang 3, tetapi room count tetap konsisten); situs resmi favehotels.com/id/hotel/view/23/favehotel-kelapa-gading menulis 'favehotel Kelapa Gading - Jakarta menawarkan 121 kamar' dan traveloka.com/id-id/hotel/indonesia/favehotel-kelapa-gading-jakarta-463031 listing aktif; database terstruktur llms.archipelagointernational.com/brands/fave/properties/list.json (entry favehotel-kelapa-gading, MA #31, room_count 121, source ma_spreadsheet 2026-02-25) mengonfirmasi 121 rooms; fav-kelapa-gading.hotels-jakarta.com juga menulis hotel bintang 3 kawasan Kelapa Gading; SDI catat BINTANG 2, direktori menulis bintang 3 (naik kelas); rasio 121/120 = 1,008 (nyaris sama, dalam rentang); Digabung dengan N016 (rekap 2023 'FAVEHOTEL KELAPA GADING - JAKARTA')"
 },
 {
 "id": "H399",
@@ -7735,7 +7735,7 @@
 "wilayah": "JAKARTA UTARA",
 "alamat": "MANGGA DUA SQUARE 2ND FLOOR, P2 JL. GUNUNG SAHARI RAYA NO. 1",
 "kamar_2020": 210,
-"kamar_2023": null,
+"kamar_2023": 211,
 "kamar_terkini": 211,
 "tahun_kamar_terkini": 2026,
 "sumber_kamar_terkini": "riset_web",
@@ -7743,7 +7743,7 @@
 "status_riset": "DITEMUKAN",
 "kamar_riset_ragu": null,
 "url_sumber": "https://all.accor.com/hotel/9103/index.en.shtml",
-"catatan": "IBIS STYLE HOTEL MANGGA DUA SQUARE-JAKARTA (BINTANG, tanpa nomor kelas) di Mangga Dua Square 2nd Floor, P2 Jl. Gunung Sahari Raya No. 1 Jakut (SDI 2020=210 kamar) kini bernama ibis Styles Jakarta Mangga Dua Square (hotel bintang 3 jaringan ibis Styles/Accor - ibis Styles adalah brand midscale Accor, sehingga SDI label BINTANG tanpa nomor; di Accor brand system hotel ini bintang 3 economy dengan pop art mural - perlu perhatian karena hotel ini di kompleks Mangga Dua Square yang juga menaungi Amaris/H370, Neo/H400, Novotel MDS/H407; ibis Styles MDS ini HANYA menempati 2nd Floor P2 dari total kompleks); halaman resmi all.accor.com/hotel/9103/index.en.shtml menulis 'ibis Styles Jakarta Mangga Dua Square ... The 211 rooms allow the guest to sleep with comfort, while enjoying affordable culinary selections at sTREATs Restaurant, garden photo sot to explore the style, fitness center, and massage service' dengan alamat persis 'Jl Gunung Sahari Raya No.1, 14420 JAKARTA, Indonesia' (alamat 2nd floor P2 tidak ditulis di halaman Accor publik, hanya nomor jalan utama); booking.com, hotels-jakarta.com, trip.com semua menulis 211 rooms; rasio 211/210 = 1,005 (nyaris sama, dalam rentang)"
+"catatan": "IBIS STYLE HOTEL MANGGA DUA SQUARE-JAKARTA (BINTANG, tanpa nomor kelas) di Mangga Dua Square 2nd Floor, P2 Jl. Gunung Sahari Raya No. 1 Jakut (SDI 2020=210 kamar) kini bernama ibis Styles Jakarta Mangga Dua Square (hotel bintang 3 jaringan ibis Styles/Accor - ibis Styles adalah brand midscale Accor, sehingga SDI label BINTANG tanpa nomor; di Accor brand system hotel ini bintang 3 economy dengan pop art mural - perlu perhatian karena hotel ini di kompleks Mangga Dua Square yang juga menaungi Amaris/H370, Neo/H400, Novotel MDS/H407; ibis Styles MDS ini HANYA menempati 2nd Floor P2 dari total kompleks); halaman resmi all.accor.com/hotel/9103/index.en.shtml menulis 'ibis Styles Jakarta Mangga Dua Square ... The 211 rooms allow the guest to sleep with comfort, while enjoying affordable culinary selections at sTREATs Restaurant, garden photo sot to explore the style, fitness center, and massage service' dengan alamat persis 'Jl Gunung Sahari Raya No.1, 14420 JAKARTA, Indonesia' (alamat 2nd floor P2 tidak ditulis di halaman Accor publik, hanya nomor jalan utama); booking.com, hotels-jakarta.com, trip.com semua menulis 211 rooms; rasio 211/210 = 1,005 (nyaris sama, dalam rentang); Digabung dengan N048 (rekap 2023 'IBIS STYLES JAKARTA MANGGA DUA SQUARE')"
 },
 {
 "id": "H403",
@@ -8202,25 +8202,6 @@
 "catatan": null
 },
 {
-"id": "N002",
-"nama": "AKOMODASI KAMAR",
-"nama_terkini": null,
-"golongan": "NON BINTANG",
-"jenis": null,
-"wilayah": "JAKARTA UTARA",
-"alamat": "JL. PERINTIS KEMERDEKAAN NO.42, PEGANGSAAN DUA, KELAPA GADING",
-"kamar_2020": null,
-"kamar_2023": 207,
-"kamar_terkini": 207,
-"tahun_kamar_terkini": 2023,
-"sumber_kamar_terkini": "rekap_2023",
-"status_operasi": "BEROPERASI",
-"status_riset": "BELUM",
-"kamar_riset_ragu": null,
-"url_sumber": null,
-"catatan": null
-},
-{
 "id": "N003",
 "nama": "AKOMODASI PERHOTELAN",
 "nama_terkini": null,
@@ -8250,44 +8231,6 @@
 "kamar_2020": null,
 "kamar_2023": 105,
 "kamar_terkini": 105,
-"tahun_kamar_terkini": 2023,
-"sumber_kamar_terkini": "rekap_2023",
-"status_operasi": "BEROPERASI",
-"status_riset": "BELUM",
-"kamar_riset_ragu": null,
-"url_sumber": null,
-"catatan": null
-},
-{
-"id": "N005",
-"nama": "AMARIS HOTEL PASAR BARU JAKARTA",
-"nama_terkini": null,
-"golongan": "BINTANG 2",
-"jenis": null,
-"wilayah": "JAKARTA PUSAT",
-"alamat": "JL. PASAR BARU TIMUR NO. 20-21, JAKARTA PUSAT 10710",
-"kamar_2020": null,
-"kamar_2023": 102,
-"kamar_terkini": 102,
-"tahun_kamar_terkini": 2023,
-"sumber_kamar_terkini": "rekap_2023",
-"status_operasi": "BEROPERASI",
-"status_riset": "BELUM",
-"kamar_riset_ragu": null,
-"url_sumber": null,
-"catatan": null
-},
-{
-"id": "N006",
-"nama": "ASTON BELLEVUE RADIO DALAM",
-"nama_terkini": null,
-"golongan": "BINTANG 4",
-"jenis": null,
-"wilayah": "JAKARTA SELATAN",
-"alamat": "JL. HAJI NAWI NO. 1  GANDARIA SELATAN.",
-"kamar_2020": null,
-"kamar_2023": 150,
-"kamar_terkini": 150,
 "tahun_kamar_terkini": 2023,
 "sumber_kamar_terkini": "rekap_2023",
 "status_operasi": "BEROPERASI",
@@ -8373,25 +8316,6 @@
 "catatan": null
 },
 {
-"id": "N011",
-"nama": "BLUE SKY HOTEL PETAMBURAN",
-"nama_terkini": null,
-"golongan": "BINTANG 3",
-"jenis": null,
-"wilayah": "JAKARTA TIMUR",
-"alamat": "JL. AIPDA KS TUBUN NO.19 PETAMBURAN JAKARTA PUSAT",
-"kamar_2020": null,
-"kamar_2023": 96,
-"kamar_terkini": 96,
-"tahun_kamar_terkini": 2023,
-"sumber_kamar_terkini": "rekap_2023",
-"status_operasi": "BEROPERASI",
-"status_riset": "BELUM",
-"kamar_riset_ragu": null,
-"url_sumber": null,
-"catatan": null
-},
-{
 "id": "N012",
 "nama": "CITY ICON RESIDENCE",
 "nama_terkini": null,
@@ -8449,101 +8373,6 @@
 "catatan": null
 },
 {
-"id": "N015",
-"nama": "FAVEHOTEL GATOT SUBROTO JAKARTA",
-"nama_terkini": null,
-"golongan": "BINTANG 2",
-"jenis": null,
-"wilayah": "JAKARTA SELATAN",
-"alamat": "JL  KARTIKA CANDRA NO KAV  A9  RT 5 RW 2  KARET SEMANGGI  KECAMATAN SETIABUDI  KOTA JAKARTA SELATAN  DAERAH KHUSUS IBUKOTA JAKARTA 12930",
-"kamar_2020": null,
-"kamar_2023": 150,
-"kamar_terkini": 150,
-"tahun_kamar_terkini": 2023,
-"sumber_kamar_terkini": "rekap_2023",
-"status_operasi": "BEROPERASI",
-"status_riset": "BELUM",
-"kamar_riset_ragu": null,
-"url_sumber": null,
-"catatan": null
-},
-{
-"id": "N016",
-"nama": "FAVEHOTEL KELAPA GADING - JAKARTA",
-"nama_terkini": null,
-"golongan": "BINTANG 2",
-"jenis": null,
-"wilayah": "JAKARTA UTARA",
-"alamat": "JL. RAYA GADING INDAH NO.8 KLP. GADING TIM. KEC. KLP. GADING KOTA JKT UTARA DAERAH KHUSUS IBUKOTA JAKARTA 14240",
-"kamar_2020": null,
-"kamar_2023": 121,
-"kamar_terkini": 121,
-"tahun_kamar_terkini": 2023,
-"sumber_kamar_terkini": "rekap_2023",
-"status_operasi": "BEROPERASI",
-"status_riset": "BELUM",
-"kamar_riset_ragu": null,
-"url_sumber": null,
-"catatan": null
-},
-{
-"id": "N017",
-"nama": "FAVEHOTEL LTC GLODOK",
-"nama_terkini": null,
-"golongan": "BINTANG 2",
-"jenis": null,
-"wilayah": "JAKARTA BARAT",
-"alamat": "JL. HAYAM WURUK NO.127, JAKARTA 11180",
-"kamar_2020": null,
-"kamar_2023": 203,
-"kamar_terkini": 203,
-"tahun_kamar_terkini": 2023,
-"sumber_kamar_terkini": "rekap_2023",
-"status_operasi": "BEROPERASI",
-"status_riset": "BELUM",
-"kamar_riset_ragu": null,
-"url_sumber": null,
-"catatan": null
-},
-{
-"id": "N018",
-"nama": "FAVEHOTEL PASAR BARU",
-"nama_terkini": null,
-"golongan": "BINTANG 2",
-"jenis": null,
-"wilayah": "JAKARTA PUSAT",
-"alamat": "JL. KH SAMANHUDI NO 26  SAWAH BESAR",
-"kamar_2020": null,
-"kamar_2023": 84,
-"kamar_terkini": 84,
-"tahun_kamar_terkini": 2023,
-"sumber_kamar_terkini": "rekap_2023",
-"status_operasi": "BEROPERASI",
-"status_riset": "BELUM",
-"kamar_riset_ragu": null,
-"url_sumber": null,
-"catatan": null
-},
-{
-"id": "N019",
-"nama": "FAVEHOTEL PGC CILILITAN",
-"nama_terkini": null,
-"golongan": "BINTANG 2",
-"jenis": null,
-"wilayah": "JAKARTA TIMUR",
-"alamat": "JL. MAYJEN SUTOYO NO.76 2 13, RT.2/RW.13, CILILITAN, KEC. KRAMAT JATI, KOTA JAKARTA TIMUR, DAERAH KHUSUS IBUKOTA JAKARTA 13640",
-"kamar_2020": null,
-"kamar_2023": 194,
-"kamar_terkini": 194,
-"tahun_kamar_terkini": 2023,
-"sumber_kamar_terkini": "rekap_2023",
-"status_operasi": "BEROPERASI",
-"status_riset": "BELUM",
-"kamar_riset_ragu": null,
-"url_sumber": null,
-"catatan": null
-},
-{
 "id": "N020",
 "nama": "FOX LITE HOTEL GROGOL JAKARTA",
 "nama_terkini": null,
@@ -8573,44 +8402,6 @@
 "kamar_2020": null,
 "kamar_2023": 76,
 "kamar_terkini": 76,
-"tahun_kamar_terkini": 2023,
-"sumber_kamar_terkini": "rekap_2023",
-"status_operasi": "BEROPERASI",
-"status_riset": "BELUM",
-"kamar_riset_ragu": null,
-"url_sumber": null,
-"catatan": null
-},
-{
-"id": "N022",
-"nama": "GRAN MELIA HOTEL JAKARTA",
-"nama_terkini": null,
-"golongan": "BINTANG 5",
-"jenis": null,
-"wilayah": "JAKARTA SELATAN",
-"alamat": "JL HR RASUNA SAID KAV. X-0 KUNINGAN JAKARTA SELATAN",
-"kamar_2020": null,
-"kamar_2023": 346,
-"kamar_terkini": 346,
-"tahun_kamar_terkini": 2023,
-"sumber_kamar_terkini": "rekap_2023",
-"status_operasi": "BEROPERASI",
-"status_riset": "BELUM",
-"kamar_riset_ragu": null,
-"url_sumber": null,
-"catatan": null
-},
-{
-"id": "N023",
-"nama": "GRAND DAFAM ANCOL JAKARTA",
-"nama_terkini": null,
-"golongan": "BINTANG 4",
-"jenis": null,
-"wilayah": "JAKARTA UTARA",
-"alamat": "JL. LODAN RAYA NO.2A JAKARTA 14430",
-"kamar_2020": null,
-"kamar_2023": 225,
-"kamar_terkini": 225,
 "tahun_kamar_terkini": 2023,
 "sumber_kamar_terkini": "rekap_2023",
 "status_operasi": "BEROPERASI",
@@ -8677,25 +8468,6 @@
 "catatan": null
 },
 {
-"id": "N027",
-"nama": "HOLIDAY INN JAKARTA KEMAYORAM",
-"nama_terkini": null,
-"golongan": "BINTANG 4",
-"jenis": null,
-"wilayah": "JAKARTA UTARA",
-"alamat": "JL. GRIYA UTAMA BLOK B NO. 1 JAKARTA UTARA",
-"kamar_2020": null,
-"kamar_2023": 255,
-"kamar_terkini": 255,
-"tahun_kamar_terkini": 2023,
-"sumber_kamar_terkini": "rekap_2023",
-"status_operasi": "BEROPERASI",
-"status_riset": "BELUM",
-"kamar_riset_ragu": null,
-"url_sumber": null,
-"catatan": null
-},
-{
 "id": "N028",
 "nama": "HORISON SUITES   RESIDENCES RASUNA JAKARTA",
 "nama_terkini": null,
@@ -8712,26 +8484,7 @@
 "status_riset": "BELUM",
 "kamar_riset_ragu": null,
 "url_sumber": null,
-"catatan": null
-},
-{
-"id": "N029",
-"nama": "HORISON SUITES AND RESIDENCES RASUNA JAKARTA",
-"nama_terkini": null,
-"golongan": "BINTANG 4",
-"jenis": null,
-"wilayah": "JAKARTA SELATAN",
-"alamat": "APARTEMEN TAMAN RASUNA, TOWER A,",
-"kamar_2020": null,
-"kamar_2023": 147,
-"kamar_terkini": 147,
-"tahun_kamar_terkini": 2023,
-"sumber_kamar_terkini": "rekap_2023",
-"status_operasi": "BEROPERASI",
-"status_riset": "BELUM",
-"kamar_riset_ragu": null,
-"url_sumber": null,
-"catatan": null
+"catatan": "Digabung dengan N029 (rekap 2023 'HORISON SUITES AND RESIDENCES RASUNA JAKARTA')"
 },
 {
 "id": "N030",
@@ -8791,25 +8544,6 @@
 "catatan": null
 },
 {
-"id": "N033",
-"nama": "HOTEL 88 MANGGA BESAR 62",
-"nama_terkini": null,
-"golongan": "BINTANG 2",
-"jenis": null,
-"wilayah": "JAKARTA BARAT",
-"alamat": "JL. MANGGA BESAR RAYA NO.62",
-"kamar_2020": null,
-"kamar_2023": 161,
-"kamar_terkini": 161,
-"tahun_kamar_terkini": 2023,
-"sumber_kamar_terkini": "rekap_2023",
-"status_operasi": "BEROPERASI",
-"status_riset": "BELUM",
-"kamar_riset_ragu": null,
-"url_sumber": null,
-"catatan": null
-},
-{
 "id": "N034",
 "nama": "HOTEL ALMA",
 "nama_terkini": null,
@@ -8839,25 +8573,6 @@
 "kamar_2020": null,
 "kamar_2023": 180,
 "kamar_terkini": 180,
-"tahun_kamar_terkini": 2023,
-"sumber_kamar_terkini": "rekap_2023",
-"status_operasi": "BEROPERASI",
-"status_riset": "BELUM",
-"kamar_riset_ragu": null,
-"url_sumber": null,
-"catatan": null
-},
-{
-"id": "N036",
-"nama": "HOTEL AMARIS TENDEAN JAKARTA",
-"nama_terkini": null,
-"golongan": "BINTANG 2",
-"jenis": null,
-"wilayah": "JAKARTA SELATAN",
-"alamat": "JL. KAPTEN P. TENDEAN NO. 11 MAMPANG PRAPATAN JAKARTA SELATAN",
-"kamar_2020": null,
-"kamar_2023": 99,
-"kamar_terkini": 99,
 "tahun_kamar_terkini": 2023,
 "sumber_kamar_terkini": "rekap_2023",
 "status_operasi": "BEROPERASI",
@@ -9000,25 +8715,6 @@
 "catatan": null
 },
 {
-"id": "N044",
-"nama": "HOTEL IBIS STYLES JAKARTA GAJAH MADA",
-"nama_terkini": null,
-"golongan": "BINTANG 4",
-"jenis": null,
-"wilayah": "JAKARTA PUSAT",
-"alamat": "JL  KH ZAINUL ARIFIN NO 5DAN 7 PETOJO UTARA JAKARTA PUSAT 10130",
-"kamar_2020": null,
-"kamar_2023": 150,
-"kamar_terkini": 150,
-"tahun_kamar_terkini": 2023,
-"sumber_kamar_terkini": "rekap_2023",
-"status_operasi": "BEROPERASI",
-"status_riset": "BELUM",
-"kamar_riset_ragu": null,
-"url_sumber": null,
-"catatan": null
-},
-{
 "id": "N045",
 "nama": "HOTEL KURETAKESO KEMANG",
 "nama_terkini": null,
@@ -9067,25 +8763,6 @@
 "kamar_2020": null,
 "kamar_2023": 78,
 "kamar_terkini": 78,
-"tahun_kamar_terkini": 2023,
-"sumber_kamar_terkini": "rekap_2023",
-"status_operasi": "BEROPERASI",
-"status_riset": "BELUM",
-"kamar_riset_ragu": null,
-"url_sumber": null,
-"catatan": null
-},
-{
-"id": "N048",
-"nama": "IBIS STYLES JAKARTA MANGGA DUA SQUARE",
-"nama_terkini": null,
-"golongan": "BINTANG 3",
-"jenis": null,
-"wilayah": "JAKARTA UTARA",
-"alamat": "JL. GUNUNG SAHARI RAYA NO. 1 JAKARTA UTARA",
-"kamar_2020": null,
-"kamar_2023": 211,
-"kamar_terkini": 211,
 "tahun_kamar_terkini": 2023,
 "sumber_kamar_terkini": "rekap_2023",
 "status_operasi": "BEROPERASI",
@@ -9361,44 +9038,6 @@
 "catatan": null
 },
 {
-"id": "N063",
-"nama": "PERHOTELAN - AKOMODASI",
-"nama_terkini": null,
-"golongan": "BINTANG 5",
-"jenis": null,
-"wilayah": "JAKARTA PUSAT",
-"alamat": "JL PEGANGSAAN TIMUR NO 17, CIKINI - MENTENG, JAKARTA PUSAT",
-"kamar_2020": null,
-"kamar_2023": 250,
-"kamar_terkini": 250,
-"tahun_kamar_terkini": 2023,
-"sumber_kamar_terkini": "rekap_2023",
-"status_operasi": "BEROPERASI",
-"status_riset": "BELUM",
-"kamar_riset_ragu": null,
-"url_sumber": null,
-"catatan": null
-},
-{
-"id": "N064",
-"nama": "RED PLANET HOTEL JAKARTA",
-"nama_terkini": null,
-"golongan": "BINTANG 2",
-"jenis": null,
-"wilayah": "JAKARTA PUSAT",
-"alamat": "JL. KH. SAMANHUDI NO.25 PASAR BARU",
-"kamar_2020": null,
-"kamar_2023": 161,
-"kamar_terkini": 161,
-"tahun_kamar_terkini": 2023,
-"sumber_kamar_terkini": "rekap_2023",
-"status_operasi": "BEROPERASI",
-"status_riset": "BELUM",
-"kamar_riset_ragu": null,
-"url_sumber": null,
-"catatan": null
-},
-{
 "id": "N065",
 "nama": "ROYAL PALM HOTEL   CONFERENCE CENTER",
 "nama_terkini": null,
@@ -9409,25 +9048,6 @@
 "kamar_2020": null,
 "kamar_2023": 156,
 "kamar_terkini": 156,
-"tahun_kamar_terkini": 2023,
-"sumber_kamar_terkini": "rekap_2023",
-"status_operasi": "BEROPERASI",
-"status_riset": "BELUM",
-"kamar_riset_ragu": null,
-"url_sumber": null,
-"catatan": null
-},
-{
-"id": "N066",
-"nama": "SARI PACIFIC JAKARTA",
-"nama_terkini": null,
-"golongan": "BINTANG 4",
-"jenis": null,
-"wilayah": "JAKARTA PUSAT",
-"alamat": "JALAN MH. THAMRIN NO 6 JAKARTA 10340",
-"kamar_2020": null,
-"kamar_2023": 349,
-"kamar_terkini": 349,
 "tahun_kamar_terkini": 2023,
 "sumber_kamar_terkini": "rekap_2023",
 "status_operasi": "BEROPERASI",
@@ -9466,44 +9086,6 @@
 "kamar_2020": null,
 "kamar_2023": 121,
 "kamar_terkini": 121,
-"tahun_kamar_terkini": 2023,
-"sumber_kamar_terkini": "rekap_2023",
-"status_operasi": "BEROPERASI",
-"status_riset": "BELUM",
-"kamar_riset_ragu": null,
-"url_sumber": null,
-"catatan": null
-},
-{
-"id": "N069",
-"nama": "SOTIS HOTEL FALATEHAN JAKARTA",
-"nama_terkini": null,
-"golongan": "BINTANG 3",
-"jenis": null,
-"wilayah": "JAKARTA SELATAN",
-"alamat": "JL  FALATEHAN I NO  21 22 BLOK M JAKARTA SELATAN BLOK M",
-"kamar_2020": null,
-"kamar_2023": 70,
-"kamar_terkini": 70,
-"tahun_kamar_terkini": 2023,
-"sumber_kamar_terkini": "rekap_2023",
-"status_operasi": "BEROPERASI",
-"status_riset": "BELUM",
-"kamar_riset_ragu": null,
-"url_sumber": null,
-"catatan": null
-},
-{
-"id": "N070",
-"nama": "SPARKS LIFE JAKARTA",
-"nama_terkini": null,
-"golongan": "BINTANG 3",
-"jenis": null,
-"wilayah": "JAKARTA BARAT",
-"alamat": "JL. MANGGA BESAR RAYA NO. 44 RT 002 RW 002 TAMANSARI",
-"kamar_2020": null,
-"kamar_2023": 136,
-"kamar_terkini": 136,
 "tahun_kamar_terkini": 2023,
 "sumber_kamar_terkini": "rekap_2023",
 "status_operasi": "BEROPERASI",
@@ -9589,25 +9171,6 @@
 "catatan": null
 },
 {
-"id": "N075",
-"nama": "SWISS-BELRESIDENCES KALIBATA JAKARTA",
-"nama_terkini": null,
-"golongan": "BINTANG 4",
-"jenis": null,
-"wilayah": "JAKARTA SELATAN",
-"alamat": "JL. KALIBATA RAYA NO. 22 JAKARTA SELATAN",
-"kamar_2020": null,
-"kamar_2023": 212,
-"kamar_terkini": 212,
-"tahun_kamar_terkini": 2023,
-"sumber_kamar_terkini": "rekap_2023",
-"status_operasi": "BEROPERASI",
-"status_riset": "BELUM",
-"kamar_riset_ragu": null,
-"url_sumber": null,
-"catatan": null
-},
-{
 "id": "N076",
 "nama": "SWISSOTEL JAKARTA PIK AVENUE",
 "nama_terkini": null,
@@ -9646,25 +9209,6 @@
 "catatan": null
 },
 {
-"id": "N078",
-"nama": "THE JAYAKARTA SP JAKARTA HOTEL AND SPA",
-"nama_terkini": null,
-"golongan": "BINTANG 4",
-"jenis": null,
-"wilayah": "JAKARTA BARAT",
-"alamat": "JL  HAYAM WURUK NO  126",
-"kamar_2020": null,
-"kamar_2023": 333,
-"kamar_terkini": 333,
-"tahun_kamar_terkini": 2023,
-"sumber_kamar_terkini": "rekap_2023",
-"status_operasi": "BEROPERASI",
-"status_riset": "BELUM",
-"kamar_riset_ragu": null,
-"url_sumber": null,
-"catatan": null
-},
-{
 "id": "N079",
 "nama": "THE LANGHAM JAKARTA",
 "nama_terkini": null,
@@ -9694,25 +9238,6 @@
 "kamar_2020": null,
 "kamar_2023": 256,
 "kamar_terkini": 256,
-"tahun_kamar_terkini": 2023,
-"sumber_kamar_terkini": "rekap_2023",
-"status_operasi": "BEROPERASI",
-"status_riset": "BELUM",
-"kamar_riset_ragu": null,
-"url_sumber": null,
-"catatan": null
-},
-{
-"id": "N081",
-"nama": "VERANDA HOTEL PAKUBUWONO",
-"nama_terkini": null,
-"golongan": "BINTANG 4",
-"jenis": null,
-"wilayah": "JAKARTA SELATAN",
-"alamat": "JL KYAI MAJA NO. 63 KEBAYORAN BARU JAKARTA SELATAN 12130",
-"kamar_2020": null,
-"kamar_2023": 184,
-"kamar_terkini": 184,
 "tahun_kamar_terkini": 2023,
 "sumber_kamar_terkini": "rekap_2023",
 "status_operasi": "BEROPERASI",
@@ -9780,16 +9305,17 @@
 }
 ],
 "meta": {
-"jumlah_baris": 509,
+"jumlah_baris": 484,
 "matched_2023_ke_2020": 36,
 "matched_2023_total": 120,
 "baris_baru_N": 84,
-"total_kamar_aktif": 70328,
+"total_kamar_aktif": 65725,
 "sebaran_sumber_kamar_terkini": {
-"sdi_2020": 151,
+"sdi_2020": 147,
 "riset_web": 261,
 "(null)": 12,
-"rekap_2023": 85
-}
+"rekap_2023": 64
+},
+"duplikat_digabung": 25
 }
 }

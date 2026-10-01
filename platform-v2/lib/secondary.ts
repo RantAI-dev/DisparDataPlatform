@@ -302,9 +302,9 @@ export function secondaryDatasets(): SecondaryDataset[] {
       id: "sec-hotel-kamar",
       title: "Hotel & Jumlah Kamar DKI Jakarta (terkini)",
       description:
-        "Penggabungan tiga sumber — SDI hotel 2020 (diduplikasi & dibersihkan), rekap usaha-kamar hotel 2023, dan riset web per hotel (2026); tiap baris mencantumkan jumlah kamar terkini beserta sumber & tahun angkanya, dan hotel yang tutup tetap dicatat dengan status operasionalnya.",
+        "Penggabungan tiga sumber — SDI hotel 2020 (diduplikasi & dibersihkan), rekap usaha-kamar hotel 2023, dan riset web per hotel (2026); tiap baris mencantumkan jumlah kamar terkini beserta sumber & tahun angkanya, dan hotel yang tutup tetap dicatat dengan status operasionalnya. 25 hotel rekap 2023 yang sama dengan hotel baseline 2020 (beda penulisan nama) digabung ke satu baris.",
       tags: ["hotel", "kamar", "akomodasi", "gpci", "sekunder"],
-      rows: 509,
+      rows: 484,
       href: "/sdi/hotel-kamar-jakarta",
       external: false,
     },
