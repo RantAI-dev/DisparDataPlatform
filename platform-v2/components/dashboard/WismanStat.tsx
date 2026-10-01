@@ -28,6 +28,32 @@ function topN(map: Map<string, number>, n = 8): Point[] {
 const titlePintu = (s: string) =>
   s.toLowerCase().replace(/\b\w/g, (c) => c.toUpperCase()).replace("Soekarno Hatta", "Soekarno-Hatta");
 
+/**
+ * Warna konsisten per LABEL (bukan per posisi) supaya ganti tahun/bulan tidak menukar warna.
+ * Soekarno-Hatta = pintu utama → hijau; Halim = oranye; Tanjung Priok = biru (paling kecil, warna berbeda biar kontras).
+ */
+const PINTU_COLORS: Record<string, string> = {
+  "Soekarno-Hatta": "#0e7c42",
+  "Halim Perdana Kusuma": "#ed6b23",
+  "Tanjung Priok": "#2563eb",
+};
+
+/**
+ * Negara dengan kunjungan stabil lintas tahun di-anchor ke warna tetap.
+ * Posisi di top-8 berubah-ubah; tanpa kunci ini, negara yang sama bisa tampil beda warna antar tahun.
+ */
+const NEGARA_COLORS: Record<string, string> = {
+  "Tiongkok": "#0e7c42",
+  "Malaysia": "#ed6b23",
+  "Singapura": "#f0a13a",
+  "Jepang": "#2563eb",
+  "Korea Selatan": "#7c3aed",
+  "Amerika Serikat": "#0891b2",
+  "Australia": "#e11d48",
+  "India": "#65a30d",
+  "Arab Saudi": "#0d9488",
+};
+
 export function WismanStat({
   data,
   los,
@@ -145,13 +171,13 @@ export function WismanStat({
       </div>
       <ChartGrid cols={2}>
         <ChartCard title={`Persentase Wisman berdasarkan Kebangsaan · ${yLabel(year)}`} sub="8 negara terbesar + lainnya">
-          <Donut showPercent data={topN(negaraYear)} />
+          <Donut showPercent data={topN(negaraYear)} colorMap={NEGARA_COLORS} />
         </ChartCard>
         <ChartCard
           title={`Persentase Wisman berdasarkan Pintu Masuk · ${year}`}
           sub={`Soekarno-Hatta, Halim, Tanjung Priok · semester ${semYear.join(" & ") || "—"}`}
         >
-          <Donut showPercent data={[...pintuYear.entries()].map(([label, value]) => ({ label, value }))} />
+          <Donut showPercent data={[...pintuYear.entries()].map(([label, value]) => ({ label, value }))} colorMap={PINTU_COLORS} />
         </ChartCard>
       </ChartGrid>
 
@@ -194,11 +220,11 @@ export function WismanStat({
       <div className="mt-4">
         <ChartGrid cols={2}>
           <ChartCard title={`Persentase Wisman berdasarkan Kebangsaan · ${labelBulan(month)}`} sub="8 negara terbesar + lainnya">
-            <Donut showPercent data={topN(negaraMonth)} />
+            <Donut showPercent data={topN(negaraMonth)} colorMap={NEGARA_COLORS} />
           </ChartCard>
           {pintuBln.length ? (
             <ChartCard title={`Persentase Wisman berdasarkan Pintu Masuk · ${labelBulan(month)}`} sub="data bulanan BPS DKI Jakarta">
-              <Donut showPercent data={pintuBln} />
+              <Donut showPercent data={pintuBln} colorMap={PINTU_COLORS} />
             </ChartCard>
           ) : (
             <ChartCard
@@ -206,7 +232,7 @@ export function WismanStat({
               sub="data bulanan BPS belum tersedia untuk bulan ini — ditampilkan data semesteran SDI"
             >
               {pintuSem.size ? (
-                <Donut showPercent data={[...pintuSem.entries()].map(([label, value]) => ({ label, value }))} />
+                <Donut showPercent data={[...pintuSem.entries()].map(([label, value]) => ({ label, value }))} colorMap={PINTU_COLORS} />
               ) : (
                 <div className="py-10 text-center text-[13px] text-ink-muted-48">Semester ini belum dirilis.</div>
               )}

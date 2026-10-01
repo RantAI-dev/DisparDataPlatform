@@ -14,8 +14,17 @@ const idfmt = (v: number) => v.toLocaleString("id-ID");
 /**
  * Proporsi (donut ECharts) — legend scroll di bawah, pie di tengah.
  * `showPercent`: persentase tiap irisan tampil permanen (tanpa hover); irisan < ~2% disembunyikan agar tak tumpang tindih.
+ * `colorMap`: peta label→warna agar warna menempel pada NAMA (bukan posisi). Label yang tak ada di peta pakai PALETTE berurutan; "Lainnya" tetap MUTED.
  */
-export function Donut({ data, showPercent = false }: { data: Point[]; showPercent?: boolean }) {
+export function Donut({
+  data,
+  showPercent = false,
+  colorMap,
+}: {
+  data: Point[];
+  showPercent?: boolean;
+  colorMap?: Record<string, string>;
+}) {
   if (!data.length)
     return (
       <div className="text-[13px] text-slate-400 py-6 text-center">
@@ -62,11 +71,12 @@ export function Donut({ data, showPercent = false }: { data: Point[]; showPercen
           : { show: false },
         labelLine: { show: showPercent, length: 6, length2: 6 },
         minShowLabelAngle: 7,
-        data: data.map((d) => ({
-          name: d.label,
-          value: d.value,
-          ...(/^lainnya$/i.test(d.label) ? { itemStyle: { color: MUTED } } : {}),
-        })),
+        data: data.map((d) => {
+          const mapped = colorMap?.[d.label];
+          if (mapped) return { name: d.label, value: d.value, itemStyle: { color: mapped } };
+          if (/^lainnya$/i.test(d.label)) return { name: d.label, value: d.value, itemStyle: { color: MUTED } };
+          return { name: d.label, value: d.value };
+        }),
       },
     ],
   };
