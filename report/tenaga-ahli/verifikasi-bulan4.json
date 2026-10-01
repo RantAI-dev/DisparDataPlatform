@@ -1,0 +1,188 @@
+{
+  "verified_date": "2026-10-02",
+  "verified_time_wib": "06:07–06:12",
+  "endpoint": "ClickHouse host187 HTTP :18123",
+  "access": "dispar_app read-only; SHOW/SELECT; system.tables unavailable QUERY_CACHE_USED_WITH_SYSTEM_TABLE; no production mutation",
+  "report_period": "September 2026",
+  "period_bounds_utc": [
+    "2026-08-31 17:00:00",
+    "2026-09-30 17:00:00"
+  ],
+  "inventory": {
+    "snapshot": "2 Oktober 2026",
+    "lake_total_objects": 239,
+    "bronze_objects_including_metadata": 233,
+    "bronze_data_tables": 227,
+    "bronze_breakdown": {
+      "bronze_sdi": 181,
+      "bronze_file": 18,
+      "bronze_sec": 28,
+      "bronze_meta": 3,
+      "bronze_meta_sec": 3
+    },
+    "silver_objects": 236,
+    "silver_views": 232,
+    "silver_tables": 4,
+    "gold_operational_marts": 7,
+    "gold_staging_baru": 6,
+    "sql": [
+      "SHOW TABLES FROM lake FORMAT JSONEachRow",
+      "SHOW TABLES FROM silver FORMAT JSONEachRow",
+      "SHOW CREATE TABLE silver.<nama> FORMAT JSONEachRow",
+      "SHOW TABLES FROM serving FORMAT JSONEachRow"
+    ],
+    "method": "Count namespaces from SHOW TABLES. Bronze data = bronze_sdi + bronze_file + bronze_sec, exclude six metadata objects. Silver VIEW/TABLE determined by SHOW CREATE for each object. Operational serving exclude *_baru."
+  },
+  "marts": {
+    "sql": "SELECT 'mart_wisman' AS mart,count() AS n FROM serving.mart_wisman UNION ALL SELECT 'mart_kunjungan_dtw',count() FROM serving.mart_kunjungan_dtw UNION ALL SELECT 'mart_gci_readiness',count() FROM serving.mart_gci_readiness UNION ALL SELECT 'mart_event',count() FROM serving.mart_event UNION ALL SELECT 'mart_kuliner',count() FROM serving.mart_kuliner UNION ALL SELECT 'mart_atlas',count() FROM serving.mart_atlas UNION ALL SELECT 'mart_hotel_scraped_booking',count() FROM serving.mart_hotel_scraped_booking FORMAT JSONEachRow",
+    "results": {
+      "mart_wisman": 276,
+      "mart_kunjungan_dtw": 35,
+      "mart_gci_readiness": 28,
+      "mart_event": 9,
+      "mart_kuliner": 5,
+      "mart_atlas": 4,
+      "mart_hotel_scraped_booking": 72
+    }
+  },
+  "quality_september_last": {
+    "date_utc": "2026-09-30",
+    "pass": 234,
+    "warn": 43,
+    "fail": 88,
+    "sql": "SELECT verdict,count() AS n FROM _silver_meta.quality WHERE dibuat_pada >= toDateTime('2026-09-29 17:00:00','UTC') AND dibuat_pada < toDateTime('2026-09-30 17:00:00','UTC') GROUP BY verdict FORMAT JSONEachRow"
+  },
+  "quality_latest": {
+    "date_utc": "2026-10-01",
+    "pass": 235,
+    "warn": 44,
+    "fail": 90,
+    "sql": "SELECT toDate(dibuat_pada) AS tanggal,verdict,count() AS n FROM _silver_meta.quality WHERE dibuat_pada >= '2026-09-29' GROUP BY tanggal,verdict ORDER BY tanggal,verdict FORMAT JSONEachRow"
+  },
+  "quality_september_cumulative": {
+    "pass": 5635,
+    "warn": 1062,
+    "fail": 2115,
+    "sql": "SELECT verdict,count() AS n,min(dibuat_pada) AS awal,max(dibuat_pada) AS akhir FROM _silver_meta.quality WHERE dibuat_pada >= toDateTime('2026-08-31 17:00:00','UTC') AND dibuat_pada < toDateTime('2026-09-30 17:00:00','UTC') GROUP BY verdict FORMAT JSONEachRow"
+  },
+  "rowcount_history": {
+    "snapshot_total": 10148,
+    "september_records": 5662,
+    "september_distinct_tables": 235,
+    "last_september_run": "2026-09-30 02:30:49 UTC",
+    "last_september_run_records": 235,
+    "sql": "SELECT count() AS n,uniqExact(tabel) AS tabel,min(dibuat_pada) AS awal,max(dibuat_pada) AS akhir FROM _silver_meta.rowcount_history WHERE dibuat_pada >= toDateTime('2026-08-31 17:00:00','UTC') AND dibuat_pada < toDateTime('2026-09-30 17:00:00','UTC') FORMAT JSONEachRow"
+  },
+  "quarantine": {
+    "snapshot_groups": 133,
+    "date": "2026-10-01",
+    "september_snapshot_available": false,
+    "sql": "SELECT count() AS n,min(dibuat_pada) AS awal,max(dibuat_pada) AS akhir FROM _silver_meta.karantina FORMAT JSONEachRow",
+    "samples": [
+      {
+        "reason": "jumlah (angka) gagal konversi",
+        "tables": 9,
+        "failed_values": 52735
+      },
+      {
+        "reason": "lon (angka) gagal konversi",
+        "tables": 7,
+        "failed_values": 195
+      },
+      {
+        "reason": "lat (angka) gagal konversi",
+        "tables": 7,
+        "failed_values": 195
+      },
+      {
+        "reason": "jumlah_ulasan (angka) gagal konversi",
+        "tables": 4,
+        "failed_values": 86
+      },
+      {
+        "reason": "rating (angka) gagal konversi",
+        "tables": 3,
+        "failed_values": 81
+      }
+    ],
+    "sample_sql": "SELECT alasan,uniqExact(tabel) AS tabel,sum(jumlah) AS nilai_gagal FROM _silver_meta.karantina WHERE alasan IN ('jumlah (angka) gagal konversi','lon (angka) gagal konversi','lat (angka) gagal konversi','jumlah_ulasan (angka) gagal konversi','rating (angka) gagal konversi') GROUP BY alasan FORMAT JSONEachRow",
+    "warning": "Groups of conversion failures are not counts of unique people or unique source rows. Do not claim blanket exclusion from Gold: this table stores conversion findings."
+  },
+  "indicators": [
+    {
+      "label": "Wisman Jakarta 2025",
+      "value": 2754220,
+      "period": "Januari–Desember 2025",
+      "sql": "SELECT toYear(periode_data) AS tahun,count() AS baris,min(periode_data) AS awal,max(periode_data) AS akhir,sum(jumlah_kunjungan) AS jumlah FROM silver.wisman_jakarta_per_bulan GROUP BY tahun ORDER BY tahun FORMAT JSONEachRow",
+      "results": [
+        {
+          "tahun": 2024,
+          "baris": 12,
+          "awal": "2024-01-01",
+          "akhir": "2024-12-01",
+          "jumlah": 2526842
+        },
+        {
+          "tahun": 2025,
+          "baris": 12,
+          "awal": "2025-01-01",
+          "akhir": "2025-12-01",
+          "jumlah": 2754220
+        },
+        {
+          "tahun": 2026,
+          "baris": 4,
+          "awal": "2026-01-01",
+          "akhir": "2026-04-01",
+          "jumlah": 803500
+        }
+      ]
+    },
+    {
+      "label": "Perjalanan wisnus menurut kota tujuan DKI",
+      "values": {
+        "2025": 99396992,
+        "2026_Jan_Mei": 42690440
+      },
+      "sql": "SELECT tahun,min(bulan) AS bulan_awal,max(bulan) AS bulan_akhir,count() AS baris,uniqExact(kota_tujuan) AS kota,sum(jumlah_perjalanan) AS jumlah FROM silver.wisnus_perjalanan_per_kota_tujuan GROUP BY tahun ORDER BY tahun FORMAT JSONEachRow",
+      "results": [
+        {
+          "tahun": 2025,
+          "bulan_awal": 1,
+          "bulan_akhir": 12,
+          "baris": 72,
+          "kota": 6,
+          "jumlah": 99396992
+        },
+        {
+          "tahun": 2026,
+          "bulan_awal": 1,
+          "bulan_akhir": 5,
+          "baris": 30,
+          "kota": 6,
+          "jumlah": 42690440
+        }
+      ]
+    },
+    {
+      "label": "Tenaga kerja ekonomi kreatif DKI 2024",
+      "value": 1257285,
+      "sql": "SELECT tahun,provinsi,jenis_kelamin,jumlah_tenaga_kerja FROM silver.tenaga_kerja_ekraf_per_provinsi WHERE tahun=2024 AND kode_wilayah=31 AND jenis_kelamin='Total' FORMAT JSONEachRow",
+      "results": [
+        {
+          "tahun": 2024,
+          "provinsi": "DKI Jakarta",
+          "jenis_kelamin": "Total",
+          "jumlah_tenaga_kerja": 1257285
+        }
+      ]
+    }
+  ],
+  "boundaries": [
+    "Inventory and mart row counts are current snapshots, not reconstructed 30 September inventories.",
+    "Historical pipeline records prove observations in September; do not claim every calendar day succeeded (only 25 observed run dates).",
+    "September visitor indicators unavailable: wisdom latest Jan-Apr 2026, wisnus latest Jan-May 2026.",
+    "Legacy serving.mart_wisman entirely 2014: 276 rows, total 2223452; do not use as current visitor indicator.",
+    "DTW nonzero figures only Kota Tua 99663 for 27 Jun–5 Jul 2026 and Lapangan Banteng 14000 for 19 Juli2026; no September totals established."
+  ]
+}
