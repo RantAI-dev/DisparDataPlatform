@@ -296,11 +296,9 @@ export function GmtiView() {
             <span className="text-ink-muted-48">satu peta besar.</span>
           </h1>
           <p className="apple-lead mt-6 max-w-[820px] mx-auto">
-            <span className="text-ink">{idNum(GMTI_META.ibadahTotal)} masjid & mushalla</span>{" "}
-            terdaftar SIMAS Kemenag se-DKI, digabung dengan{" "}
-            <span className="text-ink">{idNum(GMTI_META.halalTotal)} tempat</span> dari
-            enam dataset halal Dispar — restoran bersertifikat, hotel, mall, RPH,
-            warisan Islam, sampai program ramah muslim.
+            Data Pariwisata Ramah Muslim di Provinsi DKI Jakarta : Masjid & Musala,
+            Kuliner Halal, Restoran Halal, Mall & Hotel dengan fasilitas ramah muslim,
+            Rumah Pemotongan Hewan bersertifikasi Halal, Destinasi Sejarah Islam.
           </p>
           {gmtiAward && (
             <p className="apple-caption text-ink-muted-80 mt-6 max-w-[720px] mx-auto">
