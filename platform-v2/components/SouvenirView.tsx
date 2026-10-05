@@ -364,7 +364,7 @@ export function SouvenirView() {
             <a href="#directory" className="press-scale pill-primary">
               Lihat daftar
             </a>
-            <a href="/atlas/souvenir/map" className="press-scale pill-secondary">
+            <a href="/spatial" className="press-scale pill-secondary">
               Buka peta
             </a>
           </div>

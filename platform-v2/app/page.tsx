@@ -11,7 +11,7 @@ const GOLD = "#f0a13a";
 
 /** Ikon garis inline (stroke = currentColor) per menu. */
 const ICONS: Record<string, React.ReactNode> = {
-  "/sdi": (
+  "/katalog": (
     <>
       <rect x="3" y="4" width="18" height="4" rx="1" />
       <rect x="3" y="10" width="18" height="4" rx="1" />
@@ -30,7 +30,7 @@ const ICONS: Record<string, React.ReactNode> = {
       <path d="M7 9v0M7 12v0M7 15v0M17 14v0M17 17v0" />
     </>
   ),
-  "/atlas": (
+  "/spatial": (
     <>
       <path d="M9 3 4 5v16l5-2 6 2 5-2V3l-5 2-6-2z" />
       <path d="M9 3v16M15 5v16" />
@@ -49,9 +49,9 @@ export default function HomePage() {
 
   const MENUS = [
     {
-      href: "/sdi",
+      href: "/katalog",
       no: "01",
-      title: "Katalog",
+      title: "Katalog Data",
       desc: `Data primer Satu Data Jakarta + dataset sekunder pendataan lapangan.`,
       stat: `${s.total} + ${secondary.length} dataset`,
     },
@@ -70,10 +70,10 @@ export default function HomePage() {
       stat: `${gpciCount} indikator`,
     },
     {
-      href: "/atlas",
+      href: "/spatial",
       no: "04",
-      title: "Atlas",
-      desc: "Pendataan lapangan GCI — restoran, pertunjukan, golf, direktori.",
+      title: "Spatial",
+      desc: "Peta pariwisata Jakarta — data GCI, GPCI, dan GMTI dengan filter kategori.",
       stat: `${secondaryTotalRows.toLocaleString("id-ID")} baris`,
     },
   ];

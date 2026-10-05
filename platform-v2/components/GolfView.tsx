@@ -282,7 +282,7 @@ export function GolfView() {
       </section>
 
       {/* FILTER STRIP */}
-      <section className="frosted border-b border-hairline">
+      <section className="relative z-10 frosted border-b border-hairline">
         <div className="mx-auto max-w-[1320px] px-6 py-3 flex flex-wrap items-center gap-3">
           <span className="atlas-mono text-ink-muted-48">FILTER ·</span>
           <select
@@ -325,7 +325,7 @@ export function GolfView() {
       </section>
 
       {/* SPLIT LAYOUT: map (60%) + list (40%) */}
-      <section className="flex-1 grid md:grid-cols-[1.5fr_1fr] min-h-0">
+      <section className="relative z-0 flex-1 grid md:grid-cols-[1.5fr_1fr] min-h-0">
         {/* Map */}
         <div className="relative border-b md:border-b-0 md:border-r border-hairline">
           <div ref={mapHostRef} className="absolute inset-0" style={{ minHeight: "60vh" }} />

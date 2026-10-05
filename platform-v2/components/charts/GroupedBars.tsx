@@ -13,12 +13,14 @@ export function GroupedBars({
   unit = "",
   colors,
   height = 300,
+  missingValue = 0,
 }: {
   series: { name: string; data: Point[] }[];
   categories: string[];
   unit?: string;
   colors?: string[];
   height?: number;
+  missingValue?: 0 | null;
 }) {
   if (!series.length)
     return <div className="text-[13px] text-slate-400 py-6 text-center">Tidak ada data.</div>;
@@ -26,7 +28,7 @@ export function GroupedBars({
   const option = {
     color: colors ?? PALETTE,
     grid: { left: 6, right: 16, top: 30, bottom: 6, containLabel: true },
-    tooltip: { trigger: "axis", axisPointer: { type: "shadow" }, valueFormatter: (v: number) => idfmt(v) + unit },
+    tooltip: { trigger: "axis", axisPointer: { type: "shadow" }, valueFormatter: (v: number | null | undefined) => v == null ? "—" : idfmt(v) + unit },
     legend: { top: 0, textStyle: { color: "#475569", fontSize: 11 }, icon: "circle" },
     xAxis: {
       type: "category",
@@ -45,7 +47,7 @@ export function GroupedBars({
       type: "bar",
       barMaxWidth: 22,
       itemStyle: { borderRadius: [3, 3, 0, 0] },
-      data: categories.map((c) => s.data.find((d) => d.label === c)?.value ?? 0),
+      data: categories.map((c) => s.data.find((d) => d.label === c)?.value ?? missingValue),
     })),
   };
 

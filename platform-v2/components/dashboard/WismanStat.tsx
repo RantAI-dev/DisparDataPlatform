@@ -7,7 +7,7 @@ import { Donut } from "@/components/charts/Donut";
 import { VerticalBars } from "@/components/charts/VerticalBars";
 import { GroupedBars } from "@/components/charts/GroupedBars";
 import { GroupedLines } from "@/components/charts/GroupedLines";
-import { BarBreakdown } from "@/components/charts/BarBreakdown";
+import { LosByClass } from "./LosByClass";
 import type { LosRow, PintuBulananRow, Point, WismanData } from "@/lib/dashboard/data";
 import { BULAN, ModeToggle, PendingData, SectionHead, idNum } from "./Kit";
 
@@ -129,12 +129,6 @@ export function WismanStat({
     for (const r of los) if (r.jenisTamu === tamu) m.set(r.periode, [...(m.get(r.periode) ?? []), r.rataRata]);
     return [...m.entries()].map(([label, v]) => ({ label, value: Math.round((v.reduce((a, b) => a + b, 0) / v.length) * 100) / 100 }));
   };
-  const losLast = los.length ? los[los.length - 1].periode : "";
-  const losKelas = (tamu: "Wisman" | "Wisnus") =>
-    los
-      .filter((r) => r.periode === losLast && r.jenisTamu === tamu)
-      .map((r) => ({ label: r.jenisHotel.replace("BINTANG", "Bintang"), value: r.rataRata }))
-      .sort((a, b) => a.label.localeCompare(b.label));
 
   return (
     <div>
@@ -251,9 +245,7 @@ export function WismanStat({
             ]}
           />
         </ChartCard>
-        <ChartCard title={`RTL Bintang per kelas · ${losLast ? labelBulan(losLast) : "—"}`} sub="wisman · hari">
-          <BarBreakdown data={losKelas("Wisman")} unit=" hari" />
-        </ChartCard>
+        <LosByClass los={los} guest="Wisman" />
       </ChartGrid>
       <div className="mt-4">
         <PendingData

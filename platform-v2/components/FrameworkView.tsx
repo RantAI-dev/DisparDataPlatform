@@ -12,6 +12,26 @@ const STATUS: Record<string, { label: string; bg: string; fg: string }> = {
   gap: { label: "Gap", bg: "#fdecec", fg: "#b3261e" },
 };
 
+/** Header yang sama untuk tampilan siap maupun saat data masih dimuat. */
+export function FrameworkHeader({ title, subtitle, children }: {
+  title: string;
+  subtitle: string;
+  children?: React.ReactNode;
+}) {
+  return (
+    <section style={{ background: HERO }} className="text-white">
+      <div className="mx-auto max-w-[1320px] px-6 pt-8 pb-10">
+        <div className="text-[12px] font-mono uppercase tracking-widest text-white/60">
+          <span style={{ color: GOLD }}>●</span> Dashboard Indikator Pariwisata
+        </div>
+        <h1 className="mt-3 text-[28px] md:text-[36px] font-bold tracking-tight">{title}</h1>
+        <p className="mt-2 text-white/70 max-w-[80ch] text-[14px]">{subtitle}</p>
+        {children}
+      </div>
+    </section>
+  );
+}
+
 /**
  * Kerangka dashboard framework (GCI / GPCI). SUDAH JALAN: cards + tabel readiness.
  * SLOT TODO (dikerjakan agent — lihat Plan 6): chart tren per indikator,
@@ -21,28 +41,19 @@ export function FrameworkView({
   title,
   subtitle,
   rows,
+  afterHeader,
 }: {
   title: string;
   subtitle: string;
   rows: IndicatorResult[];
+  afterHeader?: React.ReactNode;
 }) {
   const count = (s: string) => rows.filter((r) => r.status === s).length;
   const ada = rows.filter((r) => r.dataAvailable).length;
 
   return (
     <main className="min-h-screen bg-[#faf6f2]">
-      <section
-        style={{ background: HERO }}
-        className="text-white"
-      >
-        <div className="mx-auto max-w-[1320px] px-6 pt-8 pb-10">
-          <div className="text-[12px] font-mono uppercase tracking-widest text-white/60">
-            <span style={{ color: GOLD }}>●</span> Dashboard Indikator Pariwisata
-          </div>
-          <h1 className="mt-3 text-[28px] md:text-[36px] font-bold tracking-tight">
-            {title}
-          </h1>
-          <p className="mt-2 text-white/70 max-w-[80ch] text-[14px]">{subtitle}</p>
+      <FrameworkHeader title={title} subtitle={subtitle}>
           <div className="mt-6 grid grid-cols-2 sm:grid-cols-5 gap-3 max-w-[820px]">
             <Card label="TOTAL INDIKATOR" value={String(rows.length)} />
             <Card label="DATA ADA" value={String(ada)} dot={GOLD} />
@@ -50,8 +61,9 @@ export function FrameworkView({
             <Card label="PARTIAL" value={String(count("partial"))} dot="#fbbf24" />
             <Card label="GAP" value={String(count("gap"))} dot="#f87171" />
           </div>
-        </div>
-      </section>
+      </FrameworkHeader>
+
+      {afterHeader}
 
       <section className="mx-auto max-w-[1320px] px-6 py-8 pb-20 space-y-8">
         {/* ---- Matriks readiness (SUDAH JALAN) ---- */}

@@ -1,8 +1,12 @@
 /**
- * Data sekunder — dataset pendataan Jakarta Atlas (GCI) yang melengkapi data
- * primer SDI. Atlas adalah app terpisah (jakarta-restaurant-data); di sini
- * cukup tautan. `rows` snapshot; fase lanjut ambil via API Atlas.
+ * Data sekunder yang melengkapi data primer SDI. Daftar tematik mengikuti
+ * pemilik halaman GCI/GPCI; seluruh entri tetap tersedia di Katalog Data.
+ * `rows` adalah snapshot metadata, bukan hasil penghitungan per permintaan.
  */
+import { DATA_SECTIONS } from "@/lib/data-sections";
+import { SOUVENIR_SHOPS } from "@/lib/souvenir";
+import { HOTEL_META } from "@/lib/hotel";
+
 export type SecondaryDataset = {
   id: string;
   title: string;
@@ -10,7 +14,7 @@ export type SecondaryDataset = {
   tags: string[];
   rows: number;
   href: string;
-  /** true = tautan ke app Atlas eksternal; false = halaman detail internal /sdi. */
+  /** true = tautan eksternal; false = halaman dataset atau daftar tematik internal. */
   external?: boolean;
 };
 
@@ -315,7 +319,8 @@ export function secondaryDatasets(): SecondaryDataset[] {
         "Pendataan seluruh restoran & kafe se-Jakarta (termasuk restoran hotel bintang 3–4) untuk Global City Index.",
       tags: ["gci", "restoran", "kuliner", "sekunder"],
       rows: 2577,
-      href: `${ATLAS_BASE}/gci`,
+      href: DATA_SECTIONS.gci.href,
+      external: false,
     },
     {
       id: "sec-events",
@@ -324,7 +329,8 @@ export function secondaryDatasets(): SecondaryDataset[] {
         "Pertunjukan musik internasional/nasional & acara budaya besar di Jakarta 2025–2026 (konser, festival, tari, teater, seni rupa, film) untuk Global City Index.",
       tags: ["gci", "event", "pertunjukan", "budaya", "sekunder"],
       rows: 308,
-      href: `${ATLAS_BASE}/events`,
+      href: DATA_SECTIONS.pertunjukan.href,
+      external: false,
     },
     {
       id: "sec-resto-dir",
@@ -333,7 +339,8 @@ export function secondaryDatasets(): SecondaryDataset[] {
         "Direktori restoran & kafe pilihan Jakarta dengan sumber sitasi publik yang terverifikasi.",
       tags: ["restoran", "kuliner", "direktori", "sekunder"],
       rows: 604,
-      href: `${ATLAS_BASE}/restaurants`,
+      href: DATA_SECTIONS.restaurants.href,
+      external: false,
     },
     {
       id: "sec-golf",
@@ -342,7 +349,26 @@ export function secondaryDatasets(): SecondaryDataset[] {
         "Pendataan lapangan & driving range golf di Jakarta dan sekitarnya.",
       tags: ["golf", "olahraga", "wisata", "sekunder"],
       rows: 14,
-      href: `${ATLAS_BASE}/golf`,
+      href: DATA_SECTIONS.golf.href,
+      external: false,
+    },
+    {
+      id: "sec-souvenir-atlas",
+      title: "Toko Suvenir & Oleh-oleh Jakarta",
+      description: "Daftar suvenir, oleh-oleh, dan kerajinan Jakarta dengan relevansi, koordinat, dan sumber.",
+      tags: ["suvenir", "oleh-oleh", "gpci", "sekunder"],
+      rows: SOUVENIR_SHOPS.length,
+      href: DATA_SECTIONS.souvenir.href,
+      external: false,
+    },
+    {
+      id: "sec-hotel-statistik",
+      title: "Hotel & Akomodasi — Statistik Resmi",
+      description: "Pasokan kamar, tingkat penghunian, dan lama menginap dari data resmi Satu Data Jakarta / BPS.",
+      tags: ["hotel", "akomodasi", "bps", "sekunder"],
+      rows: HOTEL_META.totals.hotels,
+      href: DATA_SECTIONS.hotel.href,
+      external: false,
     },
   ];
 }

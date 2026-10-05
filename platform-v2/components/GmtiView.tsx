@@ -15,7 +15,6 @@
  */
 import { useCallback, useEffect, useMemo, useState } from "react";
 
-import { AtlasNav } from "@/components/atlas/AtlasNav";
 import { ExportButton } from "@/components/atlas/ExportButton";
 import {
   GMTI_AGG,
@@ -282,7 +281,6 @@ export function GmtiView() {
 
   return (
     <main className="min-h-screen bg-canvas">
-      <AtlasNav section="gmti" view="list" t={navLabel} />
 
       {/* ── HERO ── */}
       <section className="bg-canvas">
@@ -293,7 +291,7 @@ export function GmtiView() {
           <h1 className="apple-hero apple-title-tight mt-3 text-ink">
             Jakarta ramah muslim,
             <br />
-            <span className="text-ink-muted-48">satu peta besar.</span>
+            <span className="text-ink-muted-48">satu direktori terpadu.</span>
           </h1>
           <p className="apple-lead mt-6 max-w-[820px] mx-auto">
             Data Pariwisata Ramah Muslim di Provinsi DKI Jakarta : Masjid & Musala,
@@ -310,8 +308,8 @@ export function GmtiView() {
             <a href="#directory" className="press-scale pill-primary">
               Lihat daftar
             </a>
-            <a href="/gmti/map" className="press-scale pill-secondary">
-              Buka peta
+            <a href="/spatial" className="press-scale pill-secondary">
+              Buka Spatial
             </a>
           </div>
         </div>
@@ -355,8 +353,8 @@ export function GmtiView() {
                 </li>
               ))}
             </ul>
-            <a href="/gmti/map" className="press-scale link-blue apple-caption mt-4 inline-block">
-              Lihat sebaran seluruh {GMTI_META.kecamatan} kecamatan di peta ↗
+            <a href="/spatial" className="press-scale link-blue apple-caption mt-4 inline-block">
+              Lihat sebaran seluruh {GMTI_META.kecamatan} kecamatan di Spatial ↗
             </a>
           </div>
 
