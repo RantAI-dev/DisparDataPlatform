@@ -1,0 +1,600 @@
+{
+"water park jakarta": [
+{
+"place_id": 31245187,
+"licence": "Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+"osm_type": "way",
+"osm_id": 507135456,
+"lat": "-6.3192352",
+"lon": "106.8778451",
+"class": "leisure",
+"type": "water_park",
+"place_rank": 30,
+"importance": 8.313649195082044e-05,
+"addresstype": "leisure",
+"name": "CX Water Park",
+"display_name": "CX Water Park, Jalan Centex, RW 03, Ciracas, Jakarta Timur, Daerah Khusus Ibukota Jakarta, 13740, Indonesia",
+"boundingbox": [
+"-6.3194639",
+"-6.3190250",
+"106.8777249",
+"106.8779612"
+]
+}
+],
+"water park kepulauan seribu": [],
+"waterbom jakarta": [],
+"water adventure jakarta": [],
+"Atlantis Water Adventure": [],
+"Dunia Fantasi Splash": [],
+"marina jakarta": [
+{
+"place_id": 30925777,
+"licence": "Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+"osm_type": "way",
+"osm_id": 557844002,
+"lat": "-6.1238259",
+"lon": "106.8298980",
+"class": "highway",
+"type": "tertiary",
+"place_rank": 26,
+"importance": 0.05341646982528416,
+"addresstype": "road",
+"name": "Marina",
+"display_name": "Marina, Kawasan Wisata Ancol, Ancol, Pademangan, Jakarta Utara, Daerah Khusus Ibukota Jakarta, 14430, Indonesia",
+"boundingbox": [
+"-6.1253923",
+"-6.1222646",
+"106.8296896",
+"106.8301306"
+]
+},
+{
+"place_id": 420339621,
+"licence": "Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+"osm_type": "node",
+"osm_id": 11291575243,
+"lat": "-6.1269332",
+"lon": "106.8312065",
+"class": "railway",
+"type": "tram_stop",
+"place_rank": 30,
+"importance": 8.313649195082044e-05,
+"addresstype": "railway",
+"name": "Marina",
+"display_name": "Marina, Jalan Karang Bolong Hailai, RW 11, Ancol, Pademangan, Jakarta Utara, Daerah Khusus Ibukota Jakarta, 14430, Indonesia",
+"boundingbox": [
+"-6.1269832",
+"-6.1268832",
+"106.8311565",
+"106.8312565"
+]
+},
+{
+"place_id": 30978255,
+"licence": "Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+"osm_type": "node",
+"osm_id": 11305442021,
+"lat": "-6.1220269",
+"lon": "106.8306333",
+"class": "highway",
+"type": "bus_stop",
+"place_rank": 30,
+"importance": 8.313649195082044e-05,
+"addresstype": "highway",
+"name": "Marina",
+"display_name": "Marina, Pantai Indah, Kawasan Wisata Ancol, Ancol, Pademangan, Jakarta Utara, Daerah Khusus Ibukota Jakarta, 14430, Indonesia",
+"boundingbox": [
+"-6.1220769",
+"-6.1219769",
+"106.8305833",
+"106.8306833"
+]
+}
+],
+"marina ancol": [
+{
+"place_id": 31105113,
+"licence": "Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+"osm_type": "way",
+"osm_id": 211037464,
+"lat": "-6.1216401",
+"lon": "106.8292444",
+"class": "leisure",
+"type": "marina",
+"place_rank": 30,
+"importance": 8.313649195082044e-05,
+"addresstype": "leisure",
+"name": "Marina Ancol",
+"display_name": "Marina Ancol, Marina, Kawasan Wisata Ancol, Ancol, Pademangan, Jakarta Utara, Daerah Khusus Ibukota Jakarta, 14430, Indonesia",
+"boundingbox": [
+"-6.1254892",
+"-6.1175908",
+"106.8282665",
+"106.8300093"
+]
+}
+],
+"jetski jakarta": [
+{
+"place_id": 31128221,
+"licence": "Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+"osm_type": "way",
+"osm_id": 156270903,
+"lat": "-6.1037220",
+"lon": "106.7903517",
+"class": "amenity",
+"type": "cafe",
+"place_rank": 30,
+"importance": 8.313649195082044e-05,
+"addresstype": "amenity",
+"name": "Jetski Pantai Mutiara",
+"display_name": "Jetski Pantai Mutiara, Jalan Pantai Mutiara, RW 16, Pluit, Penjaringan, Jakarta Utara, Daerah Khusus Ibukota Jakarta, 14440, Indonesia",
+"boundingbox": [
+"-6.1041456",
+"-6.1031471",
+"106.7900278",
+"106.7904576"
+]
+}
+],
+"jetski pluit": [
+{
+"place_id": 30914685,
+"licence": "Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+"osm_type": "way",
+"osm_id": 156270903,
+"lat": "-6.1037220",
+"lon": "106.7903517",
+"class": "amenity",
+"type": "cafe",
+"place_rank": 30,
+"importance": 8.313649195082044e-05,
+"addresstype": "amenity",
+"name": "Jetski Pantai Mutiara",
+"display_name": "Jetski Pantai Mutiara, Jalan Pantai Mutiara, RW 16, Pluit, Penjaringan, Jakarta Utara, Daerah Khusus Ibukota Jakarta, 14440, Indonesia",
+"boundingbox": [
+"-6.1041456",
+"-6.1031471",
+"106.7900278",
+"106.7904576"
+]
+}
+],
+"wakeboard jakarta": [],
+"banana boat jakarta": [],
+"wake park jakarta": [],
+"water sport jakarta": [],
+"diving jakarta": [
+{
+"place_id": 33212605,
+"licence": "Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+"osm_type": "node",
+"osm_id": 2132034789,
+"lat": "-5.7457879",
+"lon": "106.5892053",
+"class": "tourism",
+"type": "attraction",
+"place_rank": 30,
+"importance": 8.313649195082044e-05,
+"addresstype": "tourism",
+"name": "Diving Spot",
+"display_name": "Diving Spot, Jalan Kyai Mursalin, RW 01, Pulau Panggang, Kepulauan Seribu Utara, Kepulauan Seribu, Daerah Khusus Ibukota Jakarta, Indonesia",
+"boundingbox": [
+"-5.7458379",
+"-5.7457379",
+"106.5891553",
+"106.5892553"
+]
+},
+{
+"place_id": 32967802,
+"licence": "Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+"osm_type": "node",
+"osm_id": 2132034788,
+"lat": "-5.7393262",
+"lon": "106.6197667",
+"class": "tourism",
+"type": "attraction",
+"place_rank": 30,
+"importance": 8.313649195082044e-05,
+"addresstype": "tourism",
+"name": "Diving Spot",
+"display_name": "Diving Spot, Jalan Ikan Biru Mas, RW 04, Pulau Panggang, Kepulauan Seribu Utara, Kepulauan Seribu, Daerah Khusus Ibukota Jakarta, Indonesia",
+"boundingbox": [
+"-5.7393762",
+"-5.7392762",
+"106.6197167",
+"106.6198167"
+]
+},
+{
+"place_id": 33184041,
+"licence": "Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+"osm_type": "node",
+"osm_id": 2132034791,
+"lat": "-5.7505602",
+"lon": "106.6094098",
+"class": "tourism",
+"type": "attraction",
+"place_rank": 30,
+"importance": 8.313649195082044e-05,
+"addresstype": "tourism",
+"name": "Diving Spot",
+"display_name": "Diving Spot, Jalan Plaza, RW 05, Pulau Panggang, Kepulauan Seribu Utara, Kepulauan Seribu, Daerah Khusus Ibukota Jakarta, Indonesia",
+"boundingbox": [
+"-5.7506102",
+"-5.7505102",
+"106.6093598",
+"106.6094598"
+]
+},
+{
+"place_id": 33153436,
+"licence": "Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+"osm_type": "node",
+"osm_id": 2132034790,
+"lat": "-5.7478151",
+"lon": "106.6018119",
+"class": "tourism",
+"type": "attraction",
+"place_rank": 30,
+"importance": 8.313649195082044e-05,
+"addresstype": "tourism",
+"name": "Diving Spot",
+"display_name": "Diving Spot, Jalan Habib Ali bin Ahmad, RW 03, Pulau Panggang, Kepulauan Seribu Utara, Kepulauan Seribu, Daerah Khusus Ibukota Jakarta, Indonesia",
+"boundingbox": [
+"-5.7478651",
+"-5.7477651",
+"106.6017619",
+"106.6018619"
+]
+}
+],
+"scuba diving jakarta": [],
+"snorkeling jakarta": [],
+"diving center jakarta": [],
+"boat rental jakarta": [],
+"pantai mutiara jakarta": [
+{
+"place_id": 30595533,
+"licence": "Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+"osm_type": "way",
+"osm_id": 156164692,
+"lat": "-6.1011661",
+"lon": "106.7952148",
+"class": "landuse",
+"type": "residential",
+"place_rank": 24,
+"importance": 0.08008313649195084,
+"addresstype": "residential",
+"name": "Pantai Mutiara",
+"display_name": "Pantai Mutiara, Pluit, Penjaringan, Jakarta Utara, Daerah Khusus Ibukota Jakarta, 14440, Indonesia",
+"boundingbox": [
+"-6.1051644",
+"-6.0971296",
+"106.7940379",
+"106.7966361"
+]
+}
+],
+"pantai ancol": [
+{
+"place_id": 30715357,
+"licence": "Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+"osm_type": "way",
+"osm_id": 203570718,
+"lat": "-6.1224326",
+"lon": "106.8414099",
+"class": "natural",
+"type": "beach",
+"place_rank": 22,
+"importance": 0.10674980315861751,
+"addresstype": "beach",
+"name": "Pantai Laguna",
+"display_name": "Pantai Laguna, Ancol, Pademangan, Jakarta Utara, Daerah Khusus Ibukota Jakarta, 14430, Indonesia",
+"boundingbox": [
+"-6.1227065",
+"-6.1221523",
+"106.8402661",
+"106.8420831"
+]
+},
+{
+"place_id": 30586303,
+"licence": "Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+"osm_type": "way",
+"osm_id": 28793369,
+"lat": "-6.1239241",
+"lon": "106.8417172",
+"class": "highway",
+"type": "tertiary",
+"place_rank": 26,
+"importance": 0.05341646982528416,
+"addresstype": "road",
+"name": "Pantai Indah",
+"display_name": "Pantai Indah, Kawasan Wisata Ancol, Ancol, Pademangan, Jakarta Utara, Daerah Khusus Ibukota Jakarta, 14430, Indonesia",
+"boundingbox": [
+"-6.1241796",
+"-6.1224550",
+"106.8390988",
+"106.8441893"
+]
+},
+{
+"place_id": 30719717,
+"licence": "Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+"osm_type": "way",
+"osm_id": 980876225,
+"lat": "-6.1208353",
+"lon": "106.8513218",
+"class": "highway",
+"type": "residential",
+"place_rank": 26,
+"importance": 0.05341646982528416,
+"addresstype": "road",
+"name": "Jalan Pantai Sanur VI",
+"display_name": "Jalan Pantai Sanur VI, RW 10, Ancol, Pademangan, Jakarta Utara, Daerah Khusus Ibukota Jakarta, 14430, Indonesia",
+"boundingbox": [
+"-6.1212400",
+"-6.1205061",
+"106.8497604",
+"106.8529586"
+]
+},
+{
+"place_id": 30697082,
+"licence": "Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+"osm_type": "way",
+"osm_id": 28743970,
+"lat": "-6.1211880",
+"lon": "106.8528948",
+"class": "highway",
+"type": "residential",
+"place_rank": 26,
+"importance": 0.05341646982528416,
+"addresstype": "road",
+"name": "Jalan Pantai Sanur V",
+"display_name": "Jalan Pantai Sanur V, RW 10, Ancol, Pademangan, Jakarta Utara, Daerah Khusus Ibukota Jakarta, 14430, Indonesia",
+"boundingbox": [
+"-6.1215146",
+"-6.1209031",
+"106.8513456",
+"106.8544522"
+]
+},
+{
+"place_id": 30678036,
+"licence": "Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+"osm_type": "way",
+"osm_id": 28743951,
+"lat": "-6.1244862",
+"lon": "106.8481559",
+"class": "highway",
+"type": "residential",
+"place_rank": 26,
+"importance": 0.05341646982528416,
+"addresstype": "road",
+"name": "Jalan Pantai Kuta I",
+"display_name": "Jalan Pantai Kuta I, RW 10, Ancol, Pademangan, Jakarta Utara, Daerah Khusus Ibukota Jakarta, 14430, Indonesia",
+"boundingbox": [
+"-6.1247776",
+"-6.1241846",
+"106.8468462",
+"106.8494633"
+]
+},
+{
+"place_id": 30703917,
+"licence": "Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+"osm_type": "way",
+"osm_id": 28743966,
+"lat": "-6.1222520",
+"lon": "106.8513716",
+"class": "highway",
+"type": "residential",
+"place_rank": 26,
+"importance": 0.05341646982528416,
+"addresstype": "road",
+"name": "Jalan Pantai Sanur IV",
+"display_name": "Jalan Pantai Sanur IV, RW 10, Ancol, Pademangan, Jakarta Utara, Daerah Khusus Ibukota Jakarta, 14430, Indonesia",
+"boundingbox": [
+"-6.1225161",
+"-6.1219848",
+"106.8500393",
+"106.8527037"
+]
+},
+{
+"place_id": 30685457,
+"licence": "Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+"osm_type": "way",
+"osm_id": 758372859,
+"lat": "-6.1231461",
+"lon": "106.8474792",
+"class": "highway",
+"type": "residential",
+"place_rank": 26,
+"importance": 0.05341646982528416,
+"addresstype": "road",
+"name": "Jalan Pantai Kuta IV",
+"display_name": "Jalan Pantai Kuta IV, RW 10, Ancol, Pademangan, Jakarta Utara, Daerah Khusus Ibukota Jakarta, 14430, Indonesia",
+"boundingbox": [
+"-6.1233655",
+"-6.1229268",
+"106.8465552",
+"106.8484032"
+]
+},
+{
+"place_id": 30685497,
+"licence": "Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+"osm_type": "way",
+"osm_id": 28743948,
+"lat": "-6.1233626",
+"lon": "106.8486207",
+"class": "highway",
+"type": "residential",
+"place_rank": 26,
+"importance": 0.05341646982528416,
+"addresstype": "road",
+"name": "Jalan Pantai Kuta VII",
+"display_name": "Jalan Pantai Kuta VII, RW 10, Ancol, Pademangan, Jakarta Utara, Daerah Khusus Ibukota Jakarta, 14430, Indonesia",
+"boundingbox": [
+"-6.1243402",
+"-6.1223907",
+"106.8484022",
+"106.8488122"
+]
+},
+{
+"place_id": 30594132,
+"licence": "Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+"osm_type": "way",
+"osm_id": 28743968,
+"lat": "-6.1234110",
+"lon": "106.8519817",
+"class": "highway",
+"type": "residential",
+"place_rank": 26,
+"importance": 0.05341646982528416,
+"addresstype": "road",
+"name": "Jalan Pantai Sanur II",
+"display_name": "Jalan Pantai Sanur II, RW 10, Ancol, Pademangan, Jakarta Utara, Daerah Khusus Ibukota Jakarta, 14430, Indonesia",
+"boundingbox": [
+"-6.1236041",
+"-6.1232180",
+"106.8510318",
+"106.8529316"
+]
+},
+{
+"place_id": 30708031,
+"licence": "Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+"osm_type": "way",
+"osm_id": 28743967,
+"lat": "-6.1227920",
+"lon": "106.8518665",
+"class": "highway",
+"type": "residential",
+"place_rank": 26,
+"importance": 0.05341646982528416,
+"addresstype": "road",
+"name": "Jalan Pantai Sanur III",
+"display_name": "Jalan Pantai Sanur III, RW 10, Ancol, Pademangan, Jakarta Utara, Daerah Khusus Ibukota Jakarta, 14430, Indonesia",
+"boundingbox": [
+"-6.1229855",
+"-6.1225985",
+"106.8509191",
+"106.8528138"
+]
+},
+{
+"place_id": 30713561,
+"licence": "Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+"osm_type": "way",
+"osm_id": 758374831,
+"lat": "-6.1235838",
+"lon": "106.8475558",
+"class": "highway",
+"type": "residential",
+"place_rank": 26,
+"importance": 0.05341646982528416,
+"addresstype": "road",
+"name": "Jalan Pantai Kuta III",
+"display_name": "Jalan Pantai Kuta III, RW 10, Ancol, Pademangan, Jakarta Utara, Daerah Khusus Ibukota Jakarta, 14430, Indonesia",
+"boundingbox": [
+"-6.1237816",
+"-6.1233861",
+"106.8466691",
+"106.8484425"
+]
+},
+{
+"place_id": 30681014,
+"licence": "Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+"osm_type": "way",
+"osm_id": 28743953,
+"lat": "-6.1220608",
+"lon": "106.8461977",
+"class": "highway",
+"type": "residential",
+"place_rank": 26,
+"importance": 0.05341646982528416,
+"addresstype": "road",
+"name": "Jalan Pantai Kuta VI",
+"display_name": "Jalan Pantai Kuta VI, RW 10, Ancol, Pademangan, Jakarta Utara, Daerah Khusus Ibukota Jakarta, 14430, Indonesia",
+"boundingbox": [
+"-6.1220895",
+"-6.1220486",
+"106.8461577",
+"106.8462457"
+]
+},
+{
+"place_id": 30650326,
+"licence": "Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+"osm_type": "way",
+"osm_id": 1043368205,
+"lat": "-6.1228262",
+"lon": "106.8463708",
+"class": "highway",
+"type": "residential",
+"place_rank": 26,
+"importance": 0.05341646982528416,
+"addresstype": "road",
+"name": "Jalan Pantai Kuta V",
+"display_name": "Jalan Pantai Kuta V, RW 10, Ancol, Pademangan, Jakarta Utara, Daerah Khusus Ibukota Jakarta, 14430, Indonesia",
+"boundingbox": [
+"-6.1228377",
+"-6.1228148",
+"106.8463205",
+"106.8464210"
+]
+},
+{
+"place_id": 30731083,
+"licence": "Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+"osm_type": "way",
+"osm_id": 28743952,
+"lat": "-6.1242679",
+"lon": "106.8466907",
+"class": "highway",
+"type": "residential",
+"place_rank": 26,
+"importance": 0.05341646982528416,
+"addresstype": "road",
+"name": "Jalan Pantai Kuta II",
+"display_name": "Jalan Pantai Kuta II, RW 10, Ancol, Pademangan, Jakarta Utara, Daerah Khusus Ibukota Jakarta, 14430, Indonesia",
+"boundingbox": [
+"-6.1242782",
+"-6.1242576",
+"106.8466412",
+"106.8467402"
+]
+}
+],
+"pantai indah kapuk": [
+{
+"place_id": 31105967,
+"licence": "Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+"osm_type": "relation",
+"osm_id": 19655269,
+"lat": "-6.1089154",
+"lon": "106.7392466",
+"class": "landuse",
+"type": "residential",
+"place_rank": 24,
+"importance": 0.308429648456196,
+"addresstype": "neighbourhood",
+"name": "Pantai Indah Kapuk",
+"display_name": "Pantai Indah Kapuk, Kamal Muara, Penjaringan, Jakarta Utara, Daerah Khusus Ibukota Jakarta, 14470, Indonesia",
+"boundingbox": [
+"-6.1306448",
+"-6.0740693",
+"106.7286251",
+"106.7741436"
+]
+}
+]
+}
