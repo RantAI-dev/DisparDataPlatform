@@ -14,11 +14,6 @@ const PAGE = 2000;
 export async function GET() {
   try {
     const datasets = await catalog();
-    const schemas = await q<{ database: string; table: string; columns: string[] }>(
-      `SELECT database, table, groupArray(name) AS columns FROM system.columns
-       WHERE database = 'silver' OR (database = 'serving' AND table = 'mart_hotel_scraped_booking')
-       GROUP BY database, table`,
-    );
     const sources = datasets.filter((d) => typeof d.table_name === "string" && identifier.test(d.table_name)).map((d) => ({
       database: "silver", table: d.table_name, slug: d.slug, title: d.title, href: `/sdi/${encodeURIComponent(d.slug)}`,
     }));
@@ -32,9 +27,16 @@ export async function GET() {
       const ref = `${source.database}.${source.table}`;
       if (seenTables.has(ref)) continue;
       seenTables.add(ref);
-      const schema = schemas.find((s) => s.database === source.database && s.table === source.table);
-      if (!schema) continue;
-      const pick = (names: string[]) => names.map((n) => schema.columns.find((c) => c.toLowerCase() === n && identifier.test(c))).find(Boolean);
+      let columns: string[];
+      try {
+        // DESCRIBE tidak terkena larangan query cache pada system.* di profil
+        // read-only. Tidak perlu mengubah setting atau privilege database.
+        columns = (await q<{ name: string }>(`DESCRIBE TABLE ${source.database}.\`${source.table}\``)).map((c) => c.name);
+      } catch (error) {
+        if (Number((error as { code?: string }).code) !== 60) failed.push(source.slug);
+        continue;
+      }
+      const pick = (names: string[]) => names.map((n) => columns.find((c) => c.toLowerCase() === n && identifier.test(c))).find(Boolean);
       const lat = pick(["lat", "latitude", "lintang"]);
       const lng = pick(["lon", "lng", "longitude", "bujur", "long"]);
       if (!lat || !lng) continue;
