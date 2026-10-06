@@ -78,7 +78,7 @@ export function WismanStat({
   if (!data.bulanan.length) {
     return (
       <div className="rounded-xl border border-red-200 bg-red-50 p-5 text-[13px] text-red-700">
-        Data wisman tidak dapat dibaca dari lakehouse (silver.wisman_jakarta_per_bulan). Coba muat ulang halaman.
+        Data wisman tidak dapat dibaca dari lakehouse (serving.mart_wisman). Coba muat ulang halaman.
       </div>
     );
   }

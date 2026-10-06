@@ -7,6 +7,7 @@ supaya bisa diuji tanpa memanggil SDI.
 
 from __future__ import annotations
 
+import json
 import time
 from dataclasses import dataclass, field
 from typing import Any, Iterator
@@ -195,7 +196,8 @@ class SdiClient:
                 if res.status_code >= 400:
                     raise SdiError(f"{endpoint} HTTP {res.status_code}")
                 try:
-                    return res.json()
+                    # Beberapa respons SDI berawalan BOM UTF-8.
+                    return json.loads(res.text.lstrip("\ufeff"))
                 except ValueError as e:
                     # SDI mengembalikan HTML saat maintenance.
                     raise SdiError(f"{endpoint} respons non-JSON (SDI maintenance?)") from e

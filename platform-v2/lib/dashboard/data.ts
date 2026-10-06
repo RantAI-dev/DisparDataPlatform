@@ -39,21 +39,21 @@ export async function getWisman(): Promise<WismanData> {
   const [bulanan, negara, pintu] = await Promise.all([
     safe(
       q<{ periode: string; tahun: string; bulan: string; jumlah: string }>(
-        `SELECT formatDateTime(periode_data, '%Y-%m') AS periode,
-                toString(toYear(periode_data)) AS tahun,
-                toString(toMonth(periode_data)) AS bulan,
-                toString(sum(jumlah_kunjungan)) AS jumlah
-         FROM silver.wisman_jakarta_per_bulan
-         WHERE periode_data IS NOT NULL AND toYear(periode_data) >= 2024
+        `SELECT concat(toString(w.tahun), '-', leftPad(toString(w.bulan_no), 2, '0')) AS periode,
+                toString(w.tahun) AS tahun,
+                toString(w.bulan_no) AS bulan,
+                toString(sum(w.jumlah)) AS jumlah
+         FROM serving.mart_wisman w
+         WHERE w.tahun >= 2024
          GROUP BY periode, tahun, bulan ORDER BY periode`,
       ),
     ),
     safe(
       q<{ periode: string; negara: string; jumlah: string }>(
-        `SELECT formatDateTime(periode_data, '%Y-%m') AS periode, negara,
-                toString(sum(jumlah_kunjungan)) AS jumlah
-         FROM silver.wisman_jakarta_per_negara
-         WHERE periode_data IS NOT NULL AND toYear(periode_data) >= 2024 AND negara IS NOT NULL
+        `SELECT concat(toString(w.tahun), '-', leftPad(toString(w.bulan_no), 2, '0')) AS periode, w.negara AS negara,
+                toString(sum(w.jumlah)) AS jumlah
+         FROM serving.mart_wisman w
+         WHERE w.tahun >= 2024
          GROUP BY periode, negara ORDER BY periode`,
       ),
     ),

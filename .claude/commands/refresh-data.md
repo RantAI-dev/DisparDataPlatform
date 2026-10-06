@@ -44,3 +44,28 @@ memang perlu manual**:
    ```
 
 6. **Lapor** angka sebelum → sesudah, dan anomali apa pun yang muncul.
+
+## Refresh terarah wisman
+
+Jika permintaan hanya menyentuh `silver.wisman` dan `serving.mart_wisman`,
+jangan jalankan `refresh.run_all()` atau materialisasi seluruh lakehouse.
+Pastikan tidak ada run refresh aktif di Dagster sebelum menjalankan perintah.
+
+1. Bandingkan periode terbaru SDI pada slug
+   `data-jumlah-wisatawan-mancanegara-berdasarkan-kebangsaan` dengan Silver primer.
+   Jika primer tertinggal, ingest **hanya slug tersebut** lewat
+   `python -m dispar_ingest.run_bronze sdi --only <slug>` di network lakehouse,
+   kemudian perbarui Silver primer terkait sebelum kurasi.
+2. Terapkan sumber kode/SQL terbaru pada runtime ingest, lalu jalankan
+   `python -m dispar_ingest.refresh wisman` dengan `CH_PASSWORD` dari Env stack
+   dan `SQL_DIR` menunjuk direktori SQL repo yang terbaru.
+3. Perintah memvalidasi konflik nilai, duplikasi riwayat, karantina negara,
+   periode terakhir, serta jumlah baris/kunjungan Silver dan Gold.
+   Data terbaru diberi pintu masuk **Tidak dirinci**; riwayat lama tetap
+   Soekarno-Hatta. Sumber baru menggantikan kunci negara/bulan yang tumpang tindih.
+4. Mart dibuat melalui bayangan khusus `serving.mart_wisman_refresh_baru` dan
+   EXCHANGE atomik. Mart sebelumnya dipertahankan pada bayangan itu untuk
+   rollback; jangan hapus atau truncate sesudah refresh tanpa pemeriksaan.
+
+Perintah ini tidak meregenerasi dimensi, membangun ulang database `lake`,
+menjalankan mart lain, atau memublikasikan seluruh Gold ke Iceberg.

@@ -13,6 +13,7 @@ from __future__ import annotations
 
 import glob
 import os
+import re
 import sys
 
 import clickhouse_connect
@@ -94,6 +95,92 @@ def apply_curated_gold(ch=None) -> str:
     return f"terapkan {len(files)} berkas kurasi+gold"
 
 
+def refresh_wisman(ch=None) -> dict:
+    """Segarkan hanya kurasi dan mart wisman; sumber Silver primer harus sudah ada."""
+    if ch is None and not os.environ.get("CH_PASSWORD"):
+        raise ValueError("CH_PASSWORD wajib diisi dari Env stack Portainer")
+    ch = ch or _ch()
+    source = "silver.data_jumlah_wisatawan_mancanegara_berdasarkan_kebangsaan"
+    source_count, latest = ch.query(
+        f"SELECT count(), max(tanggal_id(toString(periode_data))) FROM {source}"
+    ).result_rows[0]
+    if not source_count or latest is None:
+        raise ValueError("Sumber SDI terbaru belum tersedia; ingest Bronze/Silver primer dulu")
+    conflicts = ch.query(
+        f"SELECT count() FROM (SELECT n.kode_iso3, periode_data "
+        f"FROM {source} r INNER JOIN (SELECT * FROM silver.dim_negara FINAL) n "
+        "ON n.match_key = kunci_cocok(r.kebangsaan) "
+        "GROUP BY n.kode_iso3, periode_data HAVING uniqExact(jumlah_kunjungan) > 1)"
+    ).result_rows[0][0]
+    if conflicts:
+        raise ValueError(f"{conflicts} kelompok negara/periode memiliki nilai berbeda; tinjau dulu")
+    historical_duplicates = ch.query(
+        "SELECT count() FROM (SELECT n.kode_iso3, tahun_dari(r.periode_data), b.nomor "
+        "FROM silver.data_jumlah_kunjungan_dan_ranking_wisatawan_mancanegara_ke_provinsi_dki_jakarta_melalui_pintu_soekarno_hatta_berdasarkan_kebangsaan r "
+        "INNER JOIN (SELECT * FROM silver.dim_negara FINAL) n ON n.match_key = kunci_cocok(r.kebangsaan) "
+        "LEFT JOIN (SELECT match_key, nomor FROM silver.dim_bulan FINAL) b ON b.match_key = kunci_cocok(r.bulan) "
+        "WHERE r.wisman IS NOT NULL GROUP BY n.kode_iso3, tahun_dari(r.periode_data), b.nomor HAVING count() > 1)"
+    ).result_rows[0][0]
+    if historical_duplicates:
+        raise ValueError(f"{historical_duplicates} kunci historis wisman berulang; tinjau sebelum mengubah total")
+    before = ch.query("SELECT count(), sum(jumlah) FROM serving.mart_wisman").result_rows[0]
+    originals = [ch.query(f"SHOW CREATE TABLE {table}").result_rows[0][0]
+                 for table in ("silver.wisman", "silver.wisman_karantina")]
+    exchanged = False
+    try:
+        _run_sql_file(ch, os.path.join(SQL_DIR, "20-silver-wisman.sql"))
+        unmapped = ch.query("SELECT count() FROM silver.wisman_karantina").result_rows[0][0]
+        invalid = ch.query(
+            "SELECT countIf(tahun IS NULL OR bulan_no IS NULL OR bulan_no NOT BETWEEN 1 AND 12 "
+            "OR jumlah < 0 OR NOT isFinite(jumlah)) FROM silver.wisman"
+        ).result_rows[0][0]
+        expected = ch.query("SELECT count(), sum(jumlah), max(tahun * 100 + bulan_no) FROM silver.wisman").result_rows[0]
+        latest_key = int(str(latest)[:7].replace("-", ""))
+        if unmapped or invalid or not expected[0] or expected[0] < before[0] or expected[2] != latest_key:
+            raise ValueError(f"Validasi wisman gagal: negara karantina={unmapped}, baris invalid={invalid}, baris={expected[0]}")
+        with open(os.path.join(SQL_DIR, "30-gold.sql"), encoding="utf-8") as f:
+            statements = _split_statements(f.read())
+        if before[0] == expected[0] and abs(float(before[1]) - float(expected[1])) <= 0.001:
+            insert = next(stmt for stmt in statements if stmt.startswith("INSERT INTO serving.mart_wisman_baru"))
+            projection = "SELECT" + insert.split("\nSELECT", 1)[1]
+            differences = ch.query(
+                "SELECT count() FROM ((" + projection + " EXCEPT SELECT * FROM serving.mart_wisman) "
+                "UNION ALL (SELECT * FROM serving.mart_wisman EXCEPT " + projection + "))"
+            ).result_rows[0][0]
+            if not differences:
+                return {"source_rows": source_count, "latest_period": str(latest),
+                        "before_rows": before[0], "after_rows": before[0],
+                        "before_visits": before[1], "after_visits": before[1], "already_current": True}
+        # Bayangan terpisah agar tidak bertabrakan dengan mart_wisman_baru
+        # milik pipeline harian. Tetap jalankan saat tidak ada refresh aktif.
+        shadow = "serving.mart_wisman_refresh_baru"
+        # Batasi ke mart wisman meskipun kelak berkas Gold ini bertambah.
+        for stmt in statements:
+            if "mart_wisman" not in stmt:
+                continue
+            tables = set(re.findall(r"(?:serving|silver)\.[a-zA-Z0-9_]+", stmt))
+            if not tables <= {"serving.mart_wisman", "serving.mart_wisman_baru", "silver.wisman"}:
+                raise ValueError("SQL Gold wisman menyentuh tabel di luar cakupan")
+            if exchanged:
+                break  # Simpan mart lama di tabel bayangan untuk rollback.
+            ch.command(stmt.replace("serving.mart_wisman_baru", shadow))
+            if stmt.startswith("EXCHANGE TABLES"):
+                exchanged = True
+        if not exchanged:
+            raise ValueError("Pernyataan EXCHANGE mart wisman tidak ditemukan")
+        after = ch.query("SELECT count(), sum(jumlah) FROM serving.mart_wisman").result_rows[0]
+        if after[0] != expected[0] or abs(float(after[1]) - float(expected[1])) > 0.001:
+            raise ValueError("Jumlah baris/kunjungan Gold tidak sama dengan Silver")
+        return {"source_rows": source_count, "latest_period": str(latest),
+                "before_rows": before[0], "after_rows": after[0], "before_visits": before[1], "after_visits": after[1]}
+    except Exception:
+        if exchanged:
+            ch.command("EXCHANGE TABLES serving.mart_wisman AND serving.mart_wisman_refresh_baru")
+        for ddl in originals:
+            ch.command(ddl.replace("CREATE VIEW", "CREATE OR REPLACE VIEW", 1))
+        raise
+
+
 def run_all() -> None:
     from .run_bronze import ingest_files, ingest_sdi
 
@@ -120,6 +207,8 @@ if __name__ == "__main__":
     perintah = sys.argv[1] if len(sys.argv) > 1 else "all"
     if perintah == "all":
         run_all()
+    elif perintah == "wisman":
+        print(refresh_wisman(), flush=True)
     else:
         print(f"perintah tak dikenal: {perintah}")
         sys.exit(1)

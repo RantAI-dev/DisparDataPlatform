@@ -15,7 +15,7 @@ export default async function Page() {
       </div>
       <WismanStat data={data} los={los} target={TARGET_WISMAN} pintuBulanan={pintuBulanan} />
       <SourceNote>
-        Sumber: Satu Data Jakarta via lakehouse Disparekraf — silver.wisman_jakarta_per_bulan, wisman_jakarta_per_negara,
+        Sumber: Satu Data Jakarta via lakehouse Disparekraf — serving.mart_wisman (kunjungan bulanan dan kebangsaan, mulai 2024),
         jumlah_wisatawan (pintu masuk, semesteran), BPS pintu masuk per bulan (2024), rata-rata lama menginap hotel bintang (BPS). Diperbarui otomatis harian.
       </SourceNote>
     </>
