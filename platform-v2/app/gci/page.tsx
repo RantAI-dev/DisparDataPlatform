@@ -4,7 +4,8 @@ import { FrameworkView } from "@/components/FrameworkView";
 import { FrameworkDataLinks } from "@/components/FrameworkDataLinks";
 import { GciOfficial } from "@/components/GciOfficial";
 
-export const revalidate = 86400;
+// Koneksi lakehouse tersedia saat runtime; jangan cache hasil kosong saat build.
+export const dynamic = "force-dynamic";
 
 async function GciReadiness() {
   const all = await getReadiness();
