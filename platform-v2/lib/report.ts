@@ -1,3 +1,4 @@
+import { unstable_cache } from "next/cache";
 import { INDICATORS } from "@/lib/gci/indicators";
 import { computeReadiness, type IndicatorResult } from "@/lib/gci/readiness";
 import { datasetsFor, rowsForRaw } from "@/lib/indicator-data";
@@ -14,15 +15,20 @@ import { getReportRaw, putReport } from "@/lib/report-store";
 /** Dataset di atas ambang ini tidak di-snapshot (hindari blob raksasa). */
 const ROWS_CAP = 6000;
 
+// Cache bersama GCI/GPCI, diisi saat runtime dan diperbarui setiap 24 jam.
+const cachedReadiness = unstable_cache(computeReadiness, ["gci-gpci-readiness"], {
+  revalidate: 86400,
+});
+
 /**
- * Baca readiness dari report. Fallback ke compute langsung HANYA bila report
- * belum ada (cold start) — hasilnya tetap di-cache ISR oleh halaman.
+ * Baca snapshot bila tersedia, lalu cache hasil lakehouse yang berhasil.
+ * Kegagalan pembacaan ditangani di luar cache agar tidak disimpan 24 jam.
  */
 export async function getReadiness(): Promise<IndicatorResult[]> {
   const snap = await getReportRaw<IndicatorResult[]>("readiness");
   if (snap?.data?.length) return snap.data;
   try {
-    return await computeReadiness();
+    return await cachedReadiness();
   } catch {
     return [];
   }

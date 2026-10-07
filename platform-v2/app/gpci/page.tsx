@@ -1,15 +1,17 @@
 import { Suspense } from "react";
+import { connection } from "next/server";
 import { getReadiness } from "@/lib/report";
 import { FrameworkDataLinks } from "@/components/FrameworkDataLinks";
 import { FrameworkHeader, FrameworkView } from "@/components/FrameworkView";
 
-// Koneksi lakehouse tersedia saat runtime; jangan cache hasil kosong saat build.
-export const dynamic = "force-dynamic";
+export const revalidate = 86400;
 
 const TITLE = "Mori — Global Power City Index (GPCI)";
 const SUBTITLE = "Fungsi Cultural Interaction + konektivitas (Accessibility) pariwisata. Kesiapan data Dispar untuk mengisi indikator GPCI.";
 
 async function GpciReadiness() {
+  // Isi cache dari koneksi runtime, bukan dari build tanpa lakehouse.
+  await connection();
   const all = await getReadiness();
   return <FrameworkView
     title={TITLE}

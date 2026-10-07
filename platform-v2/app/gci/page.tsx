@@ -1,13 +1,15 @@
 import { Suspense } from "react";
+import { connection } from "next/server";
 import { getReadiness } from "@/lib/report";
 import { FrameworkView } from "@/components/FrameworkView";
 import { FrameworkDataLinks } from "@/components/FrameworkDataLinks";
 import { GciOfficial } from "@/components/GciOfficial";
 
-// Koneksi lakehouse tersedia saat runtime; jangan cache hasil kosong saat build.
-export const dynamic = "force-dynamic";
+export const revalidate = 86400;
 
 async function GciReadiness() {
+  // Isi cache dari koneksi runtime, bukan dari build tanpa lakehouse.
+  await connection();
   const all = await getReadiness();
   return <FrameworkView
     title="Kesiapan Data Indikator GCI"

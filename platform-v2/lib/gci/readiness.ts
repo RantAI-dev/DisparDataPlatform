@@ -26,14 +26,9 @@ const num = (v: unknown): number | null => {
  * ke ClickHouse (bronze_meta + bronze_sdi).
  */
 export async function computeReadiness(): Promise<IndicatorResult[]> {
-  let catalog: { slug: string; title: string }[] = [];
-  let syncTotal = new Map<string, number>();
-  try {
-    catalog = (await store.catalog()).map((d) => ({ slug: d.slug, title: d.title }));
-    syncTotal = await store.syncTotals();
-  } catch {
-    // lakehouse belum siap → semua gap
-  }
+  // Biarkan kegagalan metadata ditangani pemanggil, bukan menjadi cache semua Gap.
+  const catalog = (await store.catalog()).map((d) => ({ slug: d.slug, title: d.title }));
+  const syncTotal = await store.syncTotals();
 
   const results: IndicatorResult[] = [];
   for (const ind of INDICATORS) {
