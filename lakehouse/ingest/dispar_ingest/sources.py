@@ -73,6 +73,9 @@ class Registry:
     sumber: tuple[Sumber, ...]
     abaikan: tuple[Abaikan, ...]
 
+    def __len__(self) -> int:
+        return len(self.sumber)
+
 
 class RegistryError(ValueError):
     """Registri rusak. Pesan menyebut nomor entri dan field yang salah."""
