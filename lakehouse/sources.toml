@@ -1,0 +1,707 @@
+# Registri sumber data mentah lakehouse Dispar.
+#
+# Tujuan: satu-satunya tempat yang menjawab "raw apa saja yang kita punya dan
+# mana yang bisa di-refresh". Dibaca oleh dispar_ingest.sources dengan tomllib
+# (stdlib, tanpa dependensi tambahan).
+#
+# Dua bagian:
+#   [[sumber]]   entri yang dipakai sama detail: dapur ingest Bronze
+#   [[abaikan]]  entri yang sengaja TIDAK dipakai; alasan menjelaskan kenapa
+#
+# Aturan singkat (lihat tests/test_sources.py untuk versi lengkap):
+#   - id             kebab-case, unik di semua [[sumber]]
+#   - jenis          "sdi" | "berkas" | "sekunder"
+#   - kelas_refresh  "terjadwal" | "saat_berubah" | "snapshot"
+#   - namespace      "bronze_sdi" | "bronze_file" | "bronze_sec"
+#   - asal           frasa yang bisa ditelusuri, atau "belum diketahui"
+#   - path           relatif ke root repo; WAJIB untuk berkas & sekunder
+#   - tabel          identifier tabel Bronze; WAJIB untuk berkas & sekunder
+#   - tanggal_ambil  YYYY-MM-DD; WAJIB untuk snapshot; dihitung dari
+#                    `git log --diff-filter=A --format=%as -- <path> | tail -1`
+#   - pembangun      path skrip yang menghasilkan berkas; "" kalau tidak ada
+#   - tabel_lain     daftar "namespace.tabel" tambahan dari berkas yang sama
+#
+# Berkas yang dipakai oleh Bronze ikut [[sumber]]. Yang lain (termasuk yang
+# discover() lewat tapi belum punya tabel, dan yang difilter oleh POLA_ABAIKAN)
+# masuk [[abaikan]].
+
+[[sumber]]
+id = "sdi"
+jenis = "sdi"
+kelas_refresh = "terjadwal"
+namespace = "bronze_sdi"
+asal = "Satu Data Jakarta, unit Disparekraf"
+
+# ── bronze_file (berkas lokal hasil crawl/kurasi/lampiran) ────────────────
+
+[[sumber]]
+id = "atlas-nightlife"
+jenis = "berkas"
+path = "data/atlas/atlas-nightlife.tsv"
+namespace = "bronze_file"
+tabel = "atlas_nightlife"
+kelas_refresh = "snapshot"
+tanggal_ambil = "2026-08-13"
+asal = "TripAdvisor (kolom URL TripAdvisor di berkas)"
+pembangun = ""
+
+[[sumber]]
+id = "atlas-pertunjukan"
+jenis = "berkas"
+path = "data/atlas/atlas-pertunjukan.tsv"
+namespace = "bronze_file"
+tabel = "atlas_pertunjukan"
+kelas_refresh = "snapshot"
+tanggal_ambil = "2026-08-13"
+asal = "URL sumber per baris (kolom Sumber di berkas)"
+pembangun = ""
+
+[[sumber]]
+id = "atlas-restoran"
+jenis = "berkas"
+path = "data/atlas/atlas-restoran.tsv"
+namespace = "bronze_file"
+tabel = "atlas_restoran"
+kelas_refresh = "snapshot"
+tanggal_ambil = "2026-08-13"
+asal = "Rating dari Google (kolom Sumber Rating di berkas)"
+pembangun = ""
+
+[[sumber]]
+id = "atlas-souvenir"
+jenis = "berkas"
+path = "data/atlas/atlas-souvenir.tsv"
+namespace = "bronze_file"
+tabel = "atlas_souvenir"
+kelas_refresh = "snapshot"
+tanggal_ambil = "2026-08-13"
+asal = "TripAdvisor (kolom URL TripAdvisor di berkas)"
+pembangun = ""
+
+[[sumber]]
+id = "data-dinas-pariwisata"
+jenis = "berkas"
+path = "data/Data Dinas Pariwisata.xlsx"
+namespace = "bronze_file"
+tabel = "data_dinas_pariwisata"
+kelas_refresh = "snapshot"
+tanggal_ambil = "2026-08-19"
+asal = "belum diketahui"
+pembangun = ""
+
+[[sumber]]
+id = "gci-gpci-compliance-sheet"
+jenis = "berkas"
+path = "data/gci-gpci-compliance-sheet.tsv"
+namespace = "bronze_file"
+tabel = "gci_gpci_compliance_sheet"
+kelas_refresh = "snapshot"
+tanggal_ambil = "2026-08-19"
+asal = "belum diketahui"
+pembangun = ""
+
+[[sumber]]
+id = "gci-gpci-indicators"
+jenis = "berkas"
+path = "data/gci-gpci-indicators.json"
+namespace = "bronze_file"
+tabel = "gci_gpci_indicators"
+kelas_refresh = "snapshot"
+tanggal_ambil = "2026-08-13"
+asal = "belum diketahui"
+pembangun = ""
+
+[[sumber]]
+id = "gci-gpci-pariwisata-data-ada"
+jenis = "berkas"
+path = "data/gci-gpci-pariwisata-DATA-ADA.tsv"
+namespace = "bronze_file"
+tabel = "gci_gpci_pariwisata_data_ada"
+kelas_refresh = "snapshot"
+tanggal_ambil = "2026-08-19"
+asal = "belum diketahui"
+pembangun = ""
+
+[[sumber]]
+id = "gci-gpci-pariwisata-data-gaada"
+jenis = "berkas"
+path = "data/gci-gpci-pariwisata-DATA-GAADA.tsv"
+namespace = "bronze_file"
+tabel = "gci_gpci_pariwisata_data_gaada"
+kelas_refresh = "snapshot"
+tanggal_ambil = "2026-08-19"
+asal = "belum diketahui"
+pembangun = ""
+
+[[sumber]]
+id = "gci-gpci-pariwisata-sheet"
+jenis = "berkas"
+path = "data/gci-gpci-pariwisata-sheet.tsv"
+namespace = "bronze_file"
+tabel = "gci_gpci_pariwisata_sheet"
+kelas_refresh = "snapshot"
+tanggal_ambil = "2026-08-19"
+asal = "belum diketahui"
+pembangun = ""
+
+[[sumber]]
+id = "halal-crawl"
+jenis = "berkas"
+path = "data/halal-crawl.json"
+namespace = "bronze_file"
+tabel = "halal_crawl"
+kelas_refresh = "snapshot"
+tanggal_ambil = "2026-07-22"
+asal = "belum diketahui"
+pembangun = ""
+
+[[sumber]]
+id = "kontak-pengelola-31-dtw"
+jenis = "berkas"
+path = "data/kontak-pengelola-31-dtw.tsv"
+namespace = "bronze_file"
+tabel = "kontak_pengelola_31_dtw"
+kelas_refresh = "snapshot"
+tanggal_ambil = "2026-08-19"
+asal = "URL sumber per baris (kolom sumber_url di berkas)"
+pembangun = ""
+
+[[sumber]]
+id = "kunjungan-31-dtw-juli-2026-sumber-mentah"
+jenis = "berkas"
+path = "data/kunjungan-31-dtw-juli-2026-SUMBER-MENTAH.tsv"
+namespace = "bronze_file"
+tabel = "kunjungan_31_dtw_juli_2026_sumber_mentah"
+kelas_refresh = "snapshot"
+tanggal_ambil = "2026-08-19"
+asal = "belum diketahui"
+pembangun = ""
+
+[[sumber]]
+id = "mom-artis"
+jenis = "berkas"
+path = "data/mom-artis.json"
+namespace = "bronze_file"
+tabel = "mom_artis"
+kelas_refresh = "snapshot"
+tanggal_ambil = "2026-07-22"
+asal = "Billboard (kolom sumber per baris di berkas)"
+pembangun = ""
+
+[[sumber]]
+id = "mom-tripadvisor"
+jenis = "berkas"
+path = "data/mom-tripadvisor.json"
+namespace = "bronze_file"
+tabel = "mom_tripadvisor"
+kelas_refresh = "snapshot"
+tanggal_ambil = "2026-07-22"
+asal = "TripAdvisor (kolom url_tripadvisor di berkas)"
+pembangun = ""
+
+[[sumber]]
+id = "ragunan-harian-juli-2026"
+jenis = "berkas"
+path = "data/ragunan-harian-juli-2026.tsv"
+namespace = "bronze_file"
+tabel = "ragunan_harian_juli_2026"
+kelas_refresh = "snapshot"
+tanggal_ambil = "2026-08-19"
+asal = "belum diketahui"
+pembangun = ""
+
+# Catatan: files.read_json memilih list pertama — untuk {slug,title,description,
+# columns,rows} itu `columns`, bukan `rows`. Jadi bronze_file.wellness_jakarta
+# dan bronze_file.water_attractions_jakarta berisi definisi kolom, bukan data.
+# Silver.wellness_jakarta dan silver.water_attractions_jakarta membaca
+# bronze_sec.* (lihat tabel_lain di bawah). Tabel bronze_file ini tidak dipakai
+# niari aplikasi; dicatat supaya jejak hilang sumber info tak hilang.
+# Bentrokan basename: run_bronze.ingest_files menurunkan nama tabel dari basename
+# berkas saja, jadi `data/water-attractions-jakarta.json` dan
+# `data/sekunder/water-attractions-jakarta.json` keduanya menunjuk
+# `bronze_file.water_attractions_jakarta` — registri di sini hanya atribusikan ke
+# yang pertama. Plan 02 (ingest berbasis registri) JANGAN scanning folder; harus
+# mengikuti entri [[sumber]] satu per satu supaya tabel_lain tercatat benar.
+
+[[sumber]]
+id = "water-attractions-jakarta-berkas"
+jenis = "berkas"
+path = "data/water-attractions-jakarta.json"
+namespace = "bronze_file"
+tabel = "water_attractions_jakarta"
+kelas_refresh = "snapshot"
+tanggal_ambil = "2026-09-18"
+asal = "Silver.data_destinasi_pariwisata (SDI) + join silver.potensi_DTW, lihat scripts/build_water_attractions.py"
+pembangun = "scripts/build_water_attractions.py"
+
+[[sumber]]
+id = "wellness-jakarta"
+jenis = "sekunder"
+path = "data/sekunder/wellness-jakarta.json"
+namespace = "bronze_sec"
+tabel = "wellness_jakarta"
+kelas_refresh = "snapshot"
+tanggal_ambil = "2026-09-18"
+asal = "Nominatim/OSM (forward-search) + filter kategori"
+pembangun = ""
+# Berkas yang sama juga menulis bronze_file.wellness_jakarta (korup; lihat
+# catatan di water-attractions-jakarta-berkas). tabel_lain mengakui tabel
+# itu supaya inventaris Bronze lengkap dan test bisa mencek drift.
+tabel_lain = ["bronze_file.wellness_jakarta"]
+
+# ── bronze_sec (dataset sekunder; JSON {slug,title,description,columns,rows}) ──
+
+[[sumber]]
+id = "artis-top-global-chart"
+jenis = "sekunder"
+path = "data/sekunder/artis-top-global-chart.json"
+namespace = "bronze_sec"
+tabel = "artis_top_global_chart"
+kelas_refresh = "snapshot"
+tanggal_ambil = "2026-08-13"
+asal = "Billboard Year-End & Spotify Global Year-End 2021-2025"
+pembangun = ""
+
+[[sumber]]
+id = "asosiasi-organisasi-badan-eo-ekraf-jakarta"
+jenis = "sekunder"
+path = "data/sekunder/asosiasi-organisasi-badan-eo-ekraf-jakarta.json"
+namespace = "bronze_sec"
+tabel = "asosiasi_organisasi_badan_eo_ekraf_jakarta"
+kelas_refresh = "snapshot"
+tanggal_ambil = "2026-09-20"
+asal = "EKRAF Hub sebaran-pelaku-kreatif (filter DKI) + kurasi manual, lihat scripts/build_asosiasi_ekraf.py"
+pembangun = "scripts/build_asosiasi_ekraf.py"
+
+[[sumber]]
+id = "asosiasi-organisasi-badan-eo-pariwisata-jakarta"
+jenis = "sekunder"
+path = "data/sekunder/asosiasi-organisasi-badan-eo-pariwisata-jakarta.json"
+namespace = "bronze_sec"
+tabel = "asosiasi_organisasi_badan_eo_pariwisata_jakarta"
+kelas_refresh = "snapshot"
+tanggal_ambil = "2026-09-20"
+asal = "Kurasi manual direktori publik asosiasi wisata DKI, lihat scripts/build_asosiasi_pariwisata.py"
+pembangun = "scripts/build_asosiasi_pariwisata.py"
+
+[[sumber]]
+id = "bandara-ramah-muslim-jakarta"
+jenis = "sekunder"
+path = "data/sekunder/bandara-ramah-muslim-jakarta.json"
+namespace = "bronze_sec"
+tabel = "bandara_ramah_muslim_jakarta"
+kelas_refresh = "snapshot"
+tanggal_ambil = "2026-08-13"
+asal = "belum diketahui"
+pembangun = ""
+
+[[sumber]]
+id = "capaian-pariwisata-ramah-muslim"
+jenis = "sekunder"
+path = "data/sekunder/capaian-pariwisata-ramah-muslim.json"
+namespace = "bronze_sec"
+tabel = "capaian_pariwisata_ramah_muslim"
+kelas_refresh = "snapshot"
+tanggal_ambil = "2026-08-13"
+asal = "belum diketahui"
+pembangun = ""
+
+[[sumber]]
+id = "desa-wisata-jakarta"
+jenis = "sekunder"
+path = "data/sekunder/desa-wisata-jakarta.json"
+namespace = "bronze_sec"
+tabel = "desa_wisata_jakarta"
+kelas_refresh = "snapshot"
+tanggal_ambil = "2026-09-20"
+asal = "SDI dataset data-desa-wisata (id 9984), lihat scripts/build_desa_wisata.py"
+pembangun = "scripts/build_desa_wisata.py"
+
+[[sumber]]
+id = "event-visitors-2026"
+jenis = "sekunder"
+path = "data/sekunder/event-visitors-2026.json"
+namespace = "bronze_sec"
+tabel = "jumlah_pengunjung_event_2026"
+kelas_refresh = "snapshot"
+tanggal_ambil = "2026-08-13"
+asal = "belum diketahui"
+pembangun = ""
+
+[[sumber]]
+id = "halal-hotel-ramah-muslim"
+jenis = "sekunder"
+path = "data/sekunder/halal-hotel-ramah-muslim.json"
+namespace = "bronze_sec"
+tabel = "hotel_ramah_muslim_jakarta"
+kelas_refresh = "snapshot"
+tanggal_ambil = "2026-08-13"
+asal = "belum diketahui"
+pembangun = ""
+
+[[sumber]]
+id = "halal-inovasi-ramah-muslim"
+jenis = "sekunder"
+path = "data/sekunder/halal-inovasi-ramah-muslim.json"
+namespace = "bronze_sec"
+tabel = "inovasi_wisata_ramah_muslim_jakarta"
+kelas_refresh = "snapshot"
+tanggal_ambil = "2026-08-13"
+asal = "belum diketahui"
+pembangun = ""
+
+[[sumber]]
+id = "halal-mall-fasilitas-halal"
+jenis = "sekunder"
+path = "data/sekunder/halal-mall-fasilitas-halal.json"
+namespace = "bronze_sec"
+tabel = "mall_ramah_muslim_jakarta"
+kelas_refresh = "snapshot"
+tanggal_ambil = "2026-08-13"
+asal = "belum diketahui"
+pembangun = ""
+
+[[sumber]]
+id = "halal-produk-kreatif-halal"
+jenis = "sekunder"
+path = "data/sekunder/halal-produk-kreatif-halal.json"
+namespace = "bronze_sec"
+tabel = "produk_kreatif_makanan_halal_jakarta"
+kelas_refresh = "snapshot"
+tanggal_ambil = "2026-08-13"
+asal = "belum diketahui"
+pembangun = ""
+
+[[sumber]]
+id = "halal-restoran-halal"
+jenis = "sekunder"
+path = "data/sekunder/halal-restoran-halal.json"
+namespace = "bronze_sec"
+tabel = "restoran_halal_jakarta"
+kelas_refresh = "snapshot"
+tanggal_ambil = "2026-08-13"
+asal = "BPJPH/LPPOM MUI"
+pembangun = ""
+
+[[sumber]]
+id = "halal-rph-halal"
+jenis = "sekunder"
+path = "data/sekunder/halal-rph-halal.json"
+namespace = "bronze_sec"
+tabel = "rph_halal_jakarta"
+kelas_refresh = "snapshot"
+tanggal_ambil = "2026-08-13"
+asal = "belum diketahui"
+pembangun = ""
+
+[[sumber]]
+id = "hotel-kamar-jakarta"
+jenis = "sekunder"
+path = "data/sekunder/hotel-kamar-jakarta.json"
+namespace = "bronze_sec"
+tabel = "hotel_kamar_jakarta"
+kelas_refresh = "snapshot"
+tanggal_ambil = "2026-09-30"
+asal = "SDI 2020 + rekapitulasi usaha & kamar hotel 2023 + riset web per hotel"
+pembangun = "scripts/hotel_kamar/build.py"
+
+[[sumber]]
+id = "hotel-transit-jakarta"
+jenis = "sekunder"
+path = "data/sekunder/hotel-transit-jakarta.json"
+namespace = "bronze_sec"
+tabel = "hotel_transit_jakarta"
+kelas_refresh = "snapshot"
+tanggal_ambil = "2026-09-20"
+asal = "SDI registry hotel + filter 5 km simpul transport, lihat scripts/build_hotel_transit.py"
+pembangun = "scripts/build_hotel_transit.py"
+
+[[sumber]]
+id = "restoran-tripadvisor-jakarta"
+jenis = "sekunder"
+path = "data/sekunder/restoran-tripadvisor-jakarta.json"
+namespace = "bronze_sec"
+tabel = "restoran_tripadvisor_jakarta"
+kelas_refresh = "snapshot"
+tanggal_ambil = "2026-08-13"
+asal = "TripAdvisor restoran DKI untuk indikator GCI kuliner"
+pembangun = ""
+
+[[sumber]]
+id = "souvenir-tripadvisor-2026"
+jenis = "sekunder"
+path = "data/sekunder/souvenir-tripadvisor-2026.json"
+namespace = "bronze_sec"
+tabel = "toko_suvenir_tripadvisor_2026"
+kelas_refresh = "snapshot"
+tanggal_ambil = "2026-08-13"
+asal = "TripAdvisor (kolom url_tripadvisor di setiap baris, 67 dari 67)"
+pembangun = ""
+
+[[sumber]]
+id = "tenaga-kerja-ekraf-per-provinsi"
+jenis = "sekunder"
+path = "data/sekunder/tenaga-kerja-ekraf-per-provinsi.json"
+namespace = "bronze_sec"
+tabel = "tenaga_kerja_ekraf_per_provinsi"
+kelas_refresh = "saat_berubah"
+tanggal_ambil = "2026-09-28"
+asal = "Satu Data Ekraf (Kemenekraf, Sakernas BPS), lihat scripts/build_satudata_ekraf_tenaga_kerja.py"
+pembangun = "scripts/build_satudata_ekraf_tenaga_kerja.py"
+
+[[sumber]]
+id = "tenaga-kerja-ekraf-per-subsektor-nasional"
+jenis = "sekunder"
+path = "data/sekunder/tenaga-kerja-ekraf-per-subsektor-nasional.json"
+namespace = "bronze_sec"
+tabel = "tenaga_kerja_ekraf_per_subsektor_nasional"
+kelas_refresh = "saat_berubah"
+tanggal_ambil = "2026-09-28"
+asal = "Satu Data Ekraf (Kemenekraf, Sakernas BPS), lihat scripts/build_satudata_ekraf_tenaga_kerja.py"
+pembangun = "scripts/build_satudata_ekraf_tenaga_kerja.py"
+
+[[sumber]]
+id = "usaha-wellness-jakarta"
+jenis = "sekunder"
+path = "data/sekunder/usaha-wellness-jakarta.json"
+namespace = "bronze_sec"
+tabel = "usaha_wellness_jakarta"
+kelas_refresh = "snapshot"
+tanggal_ambil = "2026-09-20"
+asal = "Perluasan data/sekunder/wellness-jakarta.json dengan fokus usaha terdaftar"
+pembangun = "scripts/enrich_wellness_business.py"
+
+[[sumber]]
+id = "warisan-islam-wisata-budaya-muslim-jakarta"
+jenis = "sekunder"
+path = "data/sekunder/warisan-islam-wisata-budaya-muslim-jakarta.json"
+namespace = "bronze_sec"
+tabel = "warisan_islam_wisata_budaya_muslim_jakarta"
+kelas_refresh = "snapshot"
+tanggal_ambil = "2026-08-13"
+asal = "belum diketahui"
+pembangun = ""
+
+[[sumber]]
+id = "water-attractions-jakarta-sekunder"
+jenis = "sekunder"
+path = "data/sekunder/water-attractions-jakarta.json"
+namespace = "bronze_sec"
+tabel = "water_attractions_jakarta"
+kelas_refresh = "snapshot"
+tanggal_ambil = "2026-09-18"
+asal = "belum diketahui"
+pembangun = ""
+
+[[sumber]]
+id = "wisman-per-bulan"
+jenis = "sekunder"
+path = "data/sekunder/wisman-per-bulan.json"
+namespace = "bronze_sec"
+tabel = "wisman_jakarta_per_bulan"
+kelas_refresh = "snapshot"
+tanggal_ambil = "2026-08-13"
+asal = "belum diketahui"
+pembangun = ""
+
+[[sumber]]
+id = "wisman-per-negara"
+jenis = "sekunder"
+path = "data/sekunder/wisman-per-negara.json"
+namespace = "bronze_sec"
+tabel = "wisman_jakarta_per_negara"
+kelas_refresh = "snapshot"
+tanggal_ambil = "2026-08-13"
+asal = "belum diketahui"
+pembangun = ""
+
+[[sumber]]
+id = "wisman-per-pintu-masuk-bulanan-bps"
+jenis = "sekunder"
+path = "data/sekunder/wisman-per-pintu-masuk-bulanan-bps.json"
+namespace = "bronze_sec"
+tabel = "wisman_per_pintu_masuk_bulanan_bps"
+kelas_refresh = "saat_berubah"
+tanggal_ambil = "2026-09-28"
+asal = "Tabel statistik BPS Provinsi DKI Jakarta, lihat scripts/build_bps_wisnus_kota_tujuan.py"
+pembangun = "scripts/build_bps_wisnus_kota_tujuan.py"
+
+[[sumber]]
+id = "wisman-per-pintu-masuk"
+jenis = "sekunder"
+path = "data/sekunder/wisman-per-pintu-masuk.json"
+namespace = "bronze_sec"
+tabel = "wisman_jakarta_per_pintu_masuk"
+kelas_refresh = "snapshot"
+tanggal_ambil = "2026-08-13"
+asal = "Satu Data Jakarta (periode terbatas 2010 & 2014)"
+pembangun = ""
+
+[[sumber]]
+id = "wisnus-perjalanan-per-kota-tujuan"
+jenis = "sekunder"
+path = "data/sekunder/wisnus-perjalanan-per-kota-tujuan.json"
+namespace = "bronze_sec"
+tabel = "wisnus_perjalanan_per_kota_tujuan"
+kelas_refresh = "saat_berubah"
+tanggal_ambil = "2026-09-28"
+asal = "Tabel statistik BPS DKI var 1330 (mobile positioning), lihat scripts/build_bps_wisnus_kota_tujuan.py"
+pembangun = "scripts/build_bps_wisnus_kota_tujuan.py"
+
+# ── abaikan: berkas di data/ yang tidak dipakai Bronze (lihat plan 03/05) ──
+
+[[abaikan]]
+path = "data/202607 Event Geocode - PERLU REVIEW.csv"
+alasan = "berkas kerja; PERLU REVIEW, belum dinilai, lihat plan 03"
+
+[[abaikan]]
+path = "data/202607 Jumlah Pengunjung Event - GEOCODED.bak.xlsx"
+alasan = "cadangan .bak, bukan sumber otomatis"
+
+[[abaikan]]
+path = "data/202607 Jumlah Pengunjung Event - GEOCODED.xlsx"
+alasan = "belum dinilai, lihat plan 03"
+
+[[abaikan]]
+path = "data/202607 Jumlah Pengunjung Event.xlsx"
+alasan = "belum dinilai, lihat plan 03"
+
+[[abaikan]]
+path = "data/Data Dinas Pariwisata - Sheet1.pdf"
+alasan = "PDF lampiran, bukan data terstruktur"
+
+[[abaikan]]
+path = "data/atraksi-wisata-air-GCI-jakarta.tsv"
+alasan = "belum dinilai, lihat plan 03"
+
+[[abaikan]]
+path = "data/exports/asosiasi-organisasi-badan-eo-ekraf-jakarta.xlsx"
+alasan = "deliverable turunan scripts/export_excel.py, bukan sumber"
+
+[[abaikan]]
+path = "data/exports/asosiasi-organisasi-badan-eo-pariwisata-jakarta.xlsx"
+alasan = "deliverable turunan scripts/export_excel.py, bukan sumber"
+
+[[abaikan]]
+path = "data/exports/desa-wisata-jakarta.xlsx"
+alasan = "deliverable turunan scripts/export_excel.py, bukan sumber"
+
+[[abaikan]]
+path = "data/exports/hotel-transit-jakarta.xlsx"
+alasan = "deliverable turunan scripts/export_excel.py, bukan sumber"
+
+[[abaikan]]
+path = "data/exports/usaha-wellness-jakarta.xlsx"
+alasan = "deliverable turunan scripts/export_excel.py, bukan sumber"
+
+[[abaikan]]
+path = "data/exports/water-attractions-jakarta.xlsx"
+alasan = "deliverable turunan scripts/export_excel.py, bukan sumber"
+
+[[abaikan]]
+path = "data/exports/wellness-jakarta.xlsx"
+alasan = "deliverable turunan scripts/export_excel.py, bukan sumber"
+
+[[abaikan]]
+path = "data/kunjungan-31-dtw-juli-2026-KERJA.tsv"
+alasan = "berkas kerja (-KERJA); versi final = SUMBER-MENTAH"
+
+[[abaikan]]
+path = "data/kunjungan-31-dtw-juli-2026-SWEEP2.tsv"
+alasan = "berkas kerja (-SWEEP); versi final = SUMBER-MENTAH"
+
+[[abaikan]]
+path = "data/resto_verify_batches.json"
+alasan = "belum dinilai, lihat plan 03"
+
+[[abaikan]]
+path = "data/sumber/satudata-ekraf/dl_17o8miba9bfiyx1_tenaga_kerja_subsektor_tahun_2020_ihMOJ549ok.csv"
+alasan = "CSV mentah unduhan Satu Data Ekraf, lihat scripts/build_satudata_ekraf_tenaga_kerja.py"
+
+[[abaikan]]
+path = "data/sumber/satudata-ekraf/dl_17o8miba9bfiyx1_tenaga_kerja_subsektor_tahun_2021_DKKaT53njJ.csv"
+alasan = "CSV mentah unduhan Satu Data Ekraf, lihat scripts/build_satudata_ekraf_tenaga_kerja.py"
+
+[[abaikan]]
+path = "data/sumber/satudata-ekraf/dl_17o8miba9bfiyx1_tenaga_kerja_subsektor_tahun_2022_974dtWy8B6.csv"
+alasan = "CSV mentah unduhan Satu Data Ekraf, lihat scripts/build_satudata_ekraf_tenaga_kerja.py"
+
+[[abaikan]]
+path = "data/sumber/satudata-ekraf/dl_17o8miba9bfiyx1_tenaga_kerja_subsektor_tahun_2023_65WJLWL3Qu.csv"
+alasan = "CSV mentah unduhan Satu Data Ekraf, lihat scripts/build_satudata_ekraf_tenaga_kerja.py"
+
+[[abaikan]]
+path = "data/sumber/satudata-ekraf/dl_17o8miba9bfiyx1_tenaga_kerja_subsektor_tahun_2024_8Es0nPmIx4.csv"
+alasan = "CSV mentah unduhan Satu Data Ekraf, lihat scripts/build_satudata_ekraf_tenaga_kerja.py"
+
+[[abaikan]]
+path = "data/sumber/satudata-ekraf/dl_8w13umewjrtrk1q_Jumlah_Tenaga_Kerja_Ekonomi_Kreatif_Berdasarkan_Provinsi.csv"
+alasan = "CSV mentah unduhan Satu Data Ekraf, lihat scripts/build_satudata_ekraf_tenaga_kerja.py"
+
+[[abaikan]]
+path = "data/sumber/satudata-ekraf/dl_8w13umewjrtrk1q_Jumlah_Tenaga_Kerja_Ekonomi_Kreatif_Berdasarkan_Provinsi_2.csv"
+alasan = "CSV mentah unduhan Satu Data Ekraf, lihat scripts/build_satudata_ekraf_tenaga_kerja.py"
+
+[[abaikan]]
+path = "data/sumber/satudata-ekraf/dl_8w13umewjrtrk1q_Jumlah_Tenaga_Kerja_Ekonomi_Kreatif_Berdasarkan_Provinsi_3.csv"
+alasan = "CSV mentah unduhan Satu Data Ekraf, lihat scripts/build_satudata_ekraf_tenaga_kerja.py"
+
+[[abaikan]]
+path = "data/sumber/satudata-ekraf/dl_8w13umewjrtrk1q_Jumlah_Tenaga_Kerja_Ekonomi_Kreatif_Berdasarkan_Provinsi_4.csv"
+alasan = "CSV mentah unduhan Satu Data Ekraf, lihat scripts/build_satudata_ekraf_tenaga_kerja.py"
+
+[[abaikan]]
+path = "data/sumber/satudata-ekraf/dl_8w13umewjrtrk1q_Jumlah_Tenaga_Kerja_Ekonomi_Kreatif_Berdasarkan_Provinsi_5.csv"
+alasan = "CSV mentah unduhan Satu Data Ekraf, lihat scripts/build_satudata_ekraf_tenaga_kerja.py"
+
+[[abaikan]]
+path = "data/sumber/satudata-ekraf/dl_hxi9b9y1vq2rf2p_Jumlah_Tenaga_Kerja_Ekonomi_Kreatif_Berdasarkan_Provinsi_dan_Jenis_Kelamin.csv"
+alasan = "CSV mentah unduhan Satu Data Ekraf, lihat scripts/build_satudata_ekraf_tenaga_kerja.py"
+
+[[abaikan]]
+path = "data/sumber/satudata-ekraf/dl_hxi9b9y1vq2rf2p_Jumlah_Tenaga_Kerja_Ekonomi_Kreatif_Berdasarkan_Provinsi_dan_Jenis_Kelamin_2.csv"
+alasan = "CSV mentah unduhan Satu Data Ekraf, lihat scripts/build_satudata_ekraf_tenaga_kerja.py"
+
+[[abaikan]]
+path = "data/sumber/satudata-ekraf/dl_hxi9b9y1vq2rf2p_Jumlah_Tenaga_Kerja_Ekonomi_Kreatif_Berdasarkan_Provinsi_dan_Jenis_Kelamin_3.csv"
+alasan = "CSV mentah unduhan Satu Data Ekraf, lihat scripts/build_satudata_ekraf_tenaga_kerja.py"
+
+[[abaikan]]
+path = "data/sumber/satudata-ekraf/dl_hxi9b9y1vq2rf2p_Jumlah_Tenaga_Kerja_Ekonomi_Kreatif_Berdasarkan_Provinsi_dan_Jenis_Kelamin_4.csv"
+alasan = "CSV mentah unduhan Satu Data Ekraf, lihat scripts/build_satudata_ekraf_tenaga_kerja.py"
+
+[[abaikan]]
+path = "data/sumber/satudata-ekraf/dl_hxi9b9y1vq2rf2p_Jumlah_Tenaga_Kerja_Ekonomi_Kreatif_Berdasarkan_Provinsi_dan_Jenis_Kelamin_5.csv"
+alasan = "CSV mentah unduhan Satu Data Ekraf, lihat scripts/build_satudata_ekraf_tenaga_kerja.py"
+
+[[abaikan]]
+path = "data/sumber/satudata-ekraf/manifest.json"
+alasan = "manifest unduhan, bukan sumber"
+
+[[abaikan]]
+path = "data/water-attractions-jakarta.README.md"
+alasan = "README, bukan data terstruktur"
+
+[[abaikan]]
+path = "data/water-attractions-osm-additions.json"
+alasan = "belum dinilai, lihat plan 03"
+
+[[abaikan]]
+path = "data-katalog-disparekraf-untuk-tim.tsv"
+alasan = "belum dinilai, lihat plan 03"
+
+[[abaikan]]
+path = "data-nightlife-GPCI-jakarta.tsv"
+alasan = "belum dinilai, lihat plan 03"
+
+[[abaikan]]
+path = "data-pertunjukan-GCI-jakarta-2025.tsv"
+alasan = "belum dinilai, lihat plan 03"
+
+[[abaikan]]
+path = "data-restoran-GCI-jakarta.tsv"
+alasan = "belum dinilai, lihat plan 03"
+
+[[abaikan]]
+path = "data-souvenir-GCI-jakarta.tsv"
+alasan = "belum dinilai, lihat plan 03"
