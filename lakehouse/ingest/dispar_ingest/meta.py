@@ -27,6 +27,10 @@ import pyarrow as pa
 from .lake import get_catalog, safe_name
 from .sdi import SdiClient
 
+class MetadataShrinkageError(RuntimeError):
+    pass
+
+
 INGEST_LOG_SCHEMA = pa.schema([
     ("sumber_id", pa.string()),
     ("namespace", pa.string()),
@@ -115,15 +119,36 @@ def _replace_table(catalog, namespace: str, name: str, table: pa.Table) -> int:
     return table.num_rows
 
 
-def capture_metadata(limit: int | None = None, tenant: str = "dispar-dki") -> dict:
-    client = SdiClient()
-    catalog = get_catalog()
+def capture_metadata(
+    limit: int | None = None,
+    tenant: str = "dispar-dki",
+    client: SdiClient | None = None,
+    catalog: Any = None,
+) -> dict:
+    if client is None:
+        client = SdiClient()
+    if catalog is None:
+        catalog = get_catalog()
     now = datetime.now(timezone.utc)
 
     print("Mengambil katalog dataset SDI...", flush=True)
     datasets = client.list_datasets()
     if limit:
         datasets = datasets[:limit]
+
+    # Pengaman penyusutan: jika tabel dataset_catalog sudah ada dan baris baru < 90% dari yang ada,
+    # jangan ganti tabel mana pun; aset gagal dengan menyebut kedua angka.
+    ident_cat = ("bronze_meta", "dataset_catalog")
+    if catalog.table_exists(ident_cat):
+        existing_tbl = catalog.load_table(ident_cat)
+        existing_count = existing_tbl.scan().to_arrow().num_rows
+        if existing_count > 0:
+            new_count = len(datasets)
+            if new_count < 0.9 * existing_count:
+                raise MetadataShrinkageError(
+                    f"Penyusutan metadata terdeteksi: jumlah dataset baru ({new_count}) "
+                    f"< 90% dari jumlah yang ada ({existing_count}). Penggantian tabel dibatalkan."
+                )
 
     # ── dataset_catalog ──────────────────────────────────────────────────
     cat_rows = {
@@ -222,7 +247,7 @@ def capture_metadata(limit: int | None = None, tenant: str = "dispar-dki") -> di
     return laporan
 
 
-def fill_totals() -> int:
+def fill_totals(catalog: Any = None, ch_client: Any = None) -> int:
     """Isi kolom total di bronze_meta.dataset_sync dari count baris Bronze.
 
     Dijalankan SETELAH Bronze + lake_db siap. Membaca sync, menghitung tiap
@@ -231,29 +256,40 @@ def fill_totals() -> int:
     """
     import os
 
-    import clickhouse_connect
+    if catalog is None:
+        catalog = get_catalog()
+    if ch_client is None:
+        import clickhouse_connect
 
-    catalog = get_catalog()
-    ch = clickhouse_connect.get_client(
-        host=os.environ.get("CH_HOST", "lake-clickhouse"),
-        port=int(os.environ.get("CH_PORT", "8123")),
-        username=os.environ.get("CH_USER", "dispar"),
-        password=os.environ.get("CH_PASSWORD", "disparch"),
-    )
+        try:
+            ch_client = clickhouse_connect.get_client(
+                host=os.environ.get("CH_HOST", "lake-clickhouse"),
+                port=int(os.environ.get("CH_PORT", "8123")),
+                username=os.environ.get("CH_USER", "dispar"),
+                password=os.environ.get("CH_PASSWORD", "disparch"),
+            )
+        except Exception as e:
+            print(f"  Peringatan: koneksi ClickHouse gagal ({e}), total diisi 0")
+            ch_client = None
+
     tbl = catalog.load_table(("bronze_meta", "dataset_sync"))
     arrow = tbl.scan().to_arrow()
-    slugs = arrow.column("slug").to_pylist()
     tnames = arrow.column("table_name").to_pylist()
 
-    # Tabel yang benar-benar ada di katalog (sebagian dataset kosong/gagal).
-    ada = {n.split(".", 1)[1] for n in
-           (r[0] for r in ch.query("SHOW TABLES FROM lake").result_rows)
-           if n.startswith("bronze_sdi.")}
+    ada = set()
+    if ch_client is not None:
+        try:
+            ada = {n.split(".", 1)[1] for n in
+                   (r[0] for r in ch_client.query("SHOW TABLES FROM lake").result_rows)
+                   if n.startswith("bronze_sdi.")}
+        except Exception as e:
+            print(f"  Peringatan: tidak dapat membaca lake ClickHouse ({e}), total diisi 0")
+
     totals = []
     for tn in tnames:
-        if tn in ada:
+        if ch_client is not None and tn in ada:
             try:
-                totals.append(int(ch.query(f"SELECT count() FROM lake.`bronze_sdi.{tn}`").result_rows[0][0]))
+                totals.append(int(ch_client.query(f"SELECT count() FROM lake.`bronze_sdi.{tn}`").result_rows[0][0]))
             except Exception:  # noqa: BLE001
                 totals.append(0)
         else:

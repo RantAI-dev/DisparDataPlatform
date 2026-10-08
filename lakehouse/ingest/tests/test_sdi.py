@@ -94,3 +94,11 @@ def test_parse_table_page_data_kosong():
     rows, total = parse_table_page({"data": None})
     assert rows == []
     assert total == 0
+
+
+def test_parse_detail_data_bukan_dict():
+    """SDI kadang mengembalikan data berupa string seperti 'data tidak tersedia'."""
+    detail = parse_detail({"status": True, "data": "data tidak tersedia"}, "data_stakeholder_pariwisata_dki_jakarta")
+    assert detail.slug == "data_stakeholder_pariwisata_dki_jakarta"
+    assert detail.columns == []
+    assert detail.sumber_data == []

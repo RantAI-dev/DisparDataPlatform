@@ -101,7 +101,9 @@ def parse_search_page(payload: dict[str, Any]) -> tuple[list[Dataset], int, int]
 
 def parse_detail(payload: dict[str, Any], slug: str) -> DatasetDetail:
     """Urai respons /detail menjadi metadata + definisi kolom yang bermakna."""
-    meta = payload.get("data") or {}
+    meta = payload.get("data")
+    if not isinstance(meta, dict):
+        meta = {}
     komponen = meta.get("komponen_data_table")
     if not isinstance(komponen, list):
         komponen = []

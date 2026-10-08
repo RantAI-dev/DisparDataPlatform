@@ -8,6 +8,7 @@
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import os
 import sys
@@ -18,6 +19,7 @@ from pathlib import Path
 from typing import Any
 
 from .lake import build_table, get_catalog, safe_name, write_bronze
+from .meta import append_ingest_log
 from .sdi import SdiClient
 
 
@@ -29,11 +31,27 @@ def _tenant() -> str:
     return os.environ.get("TENANT", "dispar-dki")
 
 
-def ingest_sdi(limit: int | None = None, only: list[str] | None = None) -> dict:
+def _hash_sdi_rows(rows: list[dict[str, Any]]) -> str:
+    row_strings = sorted(json.dumps(r, sort_keys=True, ensure_ascii=False) for r in rows)
+    h = hashlib.sha256()
+    for rs in row_strings:
+        h.update(rs.encode("utf-8"))
+        h.update(b"\n")
+    return h.hexdigest()
+
+
+def ingest_sdi(
+    limit: int | None = None,
+    only: list[str] | None = None,
+    client: SdiClient | None = None,
+    catalog: Any = None,
+) -> dict:
     """Tarik dataset SDI ke bronze_sdi.*. Kegagalan satu dataset tidak
     menghentikan sisanya — laporan akhir mencatat mana yang gagal."""
-    client = SdiClient()
-    catalog = get_catalog()
+    if client is None:
+        client = SdiClient()
+    if catalog is None:
+        catalog = get_catalog()
     batch = _batch_id()
     tenant = _tenant()
 
@@ -60,16 +78,45 @@ def ingest_sdi(limit: int | None = None, only: list[str] | None = None) -> dict:
             if data is None:
                 print(f"{prefix} — KOSONG", flush=True)
                 kosong.append(ds.slug)
+                append_ingest_log(
+                    catalog,
+                    sumber_id="sdi",
+                    namespace="bronze_sdi",
+                    tabel=table_name,
+                    sha256="",
+                    baris=0,
+                    status="kosong",
+                )
                 continue
+            sha = _hash_sdi_rows(rows)
             n = write_bronze(catalog, "bronze_sdi", table_name, data)
             total_rows += n
             print(f"{prefix} — {n} baris", flush=True)
             ok.append(ds.slug)
+            append_ingest_log(
+                catalog,
+                sumber_id="sdi",
+                namespace="bronze_sdi",
+                tabel=table_name,
+                sha256=sha,
+                baris=n,
+                status="masuk",
+            )
         except Exception as e:  # noqa: BLE001 — satu dataset gagal tidak boleh
             # menjatuhkan seluruh batch; SDI sering 500 saat maintenance.
             print(f"{prefix} — GAGAL: {e}", flush=True)
             traceback.print_exc(limit=1)
             gagal.append({"slug": ds.slug, "error": str(e)})
+            append_ingest_log(
+                catalog,
+                sumber_id="sdi",
+                namespace="bronze_sdi",
+                tabel=table_name,
+                sha256="",
+                baris=0,
+                status="gagal",
+                pesan=str(e),
+            )
 
     laporan = {
         "batch_id": batch,
