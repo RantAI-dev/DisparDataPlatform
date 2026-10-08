@@ -10,6 +10,8 @@ ketergantungan antar-aset menghasilkan lineage otomatis di UI Dagster.
 
 from __future__ import annotations
 
+import os
+
 from dagster import (
     DagsterRunStatus,
     DefaultScheduleStatus,
@@ -75,7 +77,7 @@ def sdi_meta(context) -> None:
 @asset(group_name="silver", deps=[bronze_sdi, bronze_files, bronze_sekunder, sdi_meta],
        description="Sambungkan ClickHouse ke katalog Iceberg")
 def lake_db(context) -> None:
-    context.log.info(refresh.recreate_lake_db())
+    context.log.info(refresh.recreate_lake_db() or "")
 
 
 @asset(group_name="silver", deps=[lake_db],
@@ -121,12 +123,17 @@ def gold_iceberg(context) -> None:
 @asset(group_name="ops", description="Backup inkremental bucket Iceberg ke storage backup (S3→S3)")
 def backup_lake(context) -> None:
     from dispar_ingest.backup import run_backup
-    # partisi tanggal via env/run; Dagster tak izinkan Date.now() di aset murni,
-    # jadi pakai run_id sebagai penanda unik + tanggal dari partition kalau ada.
-    tanggal = context.run.tags.get("dagster/schedule_name", "adhoc")
-    stamp = context.run_id[:8]
-    r = run_backup(f"{tanggal}-{stamp}")
-    context.add_output_metadata({"objek_disalin": r["objek_disalin"], "offsite": r["offsite"]})
+    # Target backup stabil (default "latest", atau configurable via LAKE_BACKUP_TARGET).
+    # Dengan target stabil, find(prefix) mendeteksi objek yang sudah tersalin
+    # sehingga run harian bersifat benar-benar inkremental (hanya objek baru/berubah).
+    target = os.environ.get("LAKE_BACKUP_TARGET", "latest")
+    r = run_backup(target)
+    context.add_output_metadata({
+        "objek_disalin": r["objek_disalin"],
+        "objek_dilewati_sama": r["objek_dilewati_sama"],
+        "bytes_disalin": r["bytes_disalin"],
+        "offsite": r["offsite"],
+    })
     if not r["offsite"]:
         notify("Backup jalan tapi BELUM offsite (set BACKUP_S3_ENDPOINT untuk proteksi disk mati).", "warn")
 
@@ -159,7 +166,7 @@ ops_daily = ScheduleDefinition(
 )
 
 
-# ── Alerting: kirim webhook saat run gagal ───────────────────────────────────
+# ── Alerting: kirim webhook saat run gagal ──────────────────────────────────
 @run_status_sensor(
     run_status=DagsterRunStatus.FAILURE,
     default_status=DefaultSensorStatus.RUNNING,
