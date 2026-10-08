@@ -1,0 +1,727 @@
+[
+ {
+  "bintang": "BINTANG 5",
+  "nilai": 51.85,
+  "periode": "202402"
+ },
+ {
+  "bintang": "BINTANG 4",
+  "nilai": 48.48,
+  "periode": "202402"
+ },
+ {
+  "bintang": "BINTANG 3",
+  "nilai": 52.9,
+  "periode": "202402"
+ },
+ {
+  "bintang": "BINTANG 2",
+  "nilai": 54.86,
+  "periode": "202402"
+ },
+ {
+  "bintang": "BINTANG 1",
+  "nilai": 31.77,
+  "periode": "202402"
+ },
+ {
+  "bintang": "BINTANG 5",
+  "nilai": 44.05,
+  "periode": "202403"
+ },
+ {
+  "bintang": "BINTANG 4",
+  "nilai": 45.23,
+  "periode": "202403"
+ },
+ {
+  "bintang": "BINTANG 3",
+  "nilai": 44.28,
+  "periode": "202403"
+ },
+ {
+  "bintang": "BINTANG 2",
+  "nilai": 44.51,
+  "periode": "202403"
+ },
+ {
+  "bintang": "BINTANG 1",
+  "nilai": 32.17,
+  "periode": "202403"
+ },
+ {
+  "bintang": "BINTANG 5",
+  "nilai": 40.95,
+  "periode": "202405"
+ },
+ {
+  "bintang": "BINTANG 4",
+  "nilai": 58.07,
+  "periode": "202405"
+ },
+ {
+  "bintang": "BINTANG 3",
+  "nilai": 55.05,
+  "periode": "202405"
+ },
+ {
+  "bintang": "BINTANG 2",
+  "nilai": 56.5,
+  "periode": "202405"
+ },
+ {
+  "bintang": "BINTANG 1",
+  "nilai": 40.01,
+  "periode": "202405"
+ },
+ {
+  "bintang": "BINTANG 5",
+  "nilai": 45.91,
+  "periode": "202508"
+ },
+ {
+  "bintang": "BINTANG 4",
+  "nilai": 56.59,
+  "periode": "202508"
+ },
+ {
+  "bintang": "BINTANG 3",
+  "nilai": 55.97,
+  "periode": "202508"
+ },
+ {
+  "bintang": "BINTANG 2",
+  "nilai": 55.23,
+  "periode": "202508"
+ },
+ {
+  "bintang": "BINTANG 1",
+  "nilai": 47.25,
+  "periode": "202508"
+ },
+ {
+  "bintang": "BINTANG 5",
+  "nilai": 54.14,
+  "periode": "202410"
+ },
+ {
+  "bintang": "BINTANG 4",
+  "nilai": 59.38,
+  "periode": "202410"
+ },
+ {
+  "bintang": "BINTANG 3",
+  "nilai": 59.38,
+  "periode": "202410"
+ },
+ {
+  "bintang": "BINTANG 2",
+  "nilai": 59.92,
+  "periode": "202410"
+ },
+ {
+  "bintang": "BINTANG 1",
+  "nilai": 38.18,
+  "periode": "202410"
+ },
+ {
+  "bintang": "BINTANG 5",
+  "nilai": 43.39,
+  "periode": "202505"
+ },
+ {
+  "bintang": "BINTANG 4",
+  "nilai": 52.92,
+  "periode": "202505"
+ },
+ {
+  "bintang": "BINTANG 3",
+  "nilai": 54.15,
+  "periode": "202505"
+ },
+ {
+  "bintang": "BINTANG 2",
+  "nilai": 53.76,
+  "periode": "202505"
+ },
+ {
+  "bintang": "BINTANG 1",
+  "nilai": 45.45,
+  "periode": "202505"
+ },
+ {
+  "bintang": "BINTANG 5",
+  "nilai": 53.1,
+  "periode": "202512"
+ },
+ {
+  "bintang": "BINTANG 4",
+  "nilai": 62.52,
+  "periode": "202512"
+ },
+ {
+  "bintang": "BINTANG 3",
+  "nilai": 62.3,
+  "periode": "202512"
+ },
+ {
+  "bintang": "BINTANG 2",
+  "nilai": 61.35,
+  "periode": "202512"
+ },
+ {
+  "bintang": "BINTANG 1",
+  "nilai": 51.7,
+  "periode": "202512"
+ },
+ {
+  "bintang": "BINTANG 5",
+  "nilai": 50.11,
+  "periode": "202401"
+ },
+ {
+  "bintang": "BINTANG 4",
+  "nilai": 51.85,
+  "periode": "202401"
+ },
+ {
+  "bintang": "BINTANG 3",
+  "nilai": 51.95,
+  "periode": "202401"
+ },
+ {
+  "bintang": "BINTANG 2",
+  "nilai": 57.5,
+  "periode": "202401"
+ },
+ {
+  "bintang": "BINTANG 1",
+  "nilai": 34.33,
+  "periode": "202401"
+ },
+ {
+  "bintang": "BINTANG 5",
+  "nilai": 33.03,
+  "periode": "202404"
+ },
+ {
+  "bintang": "BINTANG 4",
+  "nilai": 47.05,
+  "periode": "202404"
+ },
+ {
+  "bintang": "BINTANG 3",
+  "nilai": 44.23,
+  "periode": "202404"
+ },
+ {
+  "bintang": "BINTANG 2",
+  "nilai": 50.7,
+  "periode": "202404"
+ },
+ {
+  "bintang": "BINTANG 1",
+  "nilai": 36.78,
+  "periode": "202404"
+ },
+ {
+  "bintang": "BINTANG 5",
+  "nilai": 39.17,
+  "periode": "202407"
+ },
+ {
+  "bintang": "BINTANG 4",
+  "nilai": 56.42,
+  "periode": "202407"
+ },
+ {
+  "bintang": "BINTANG 3",
+  "nilai": 60.16,
+  "periode": "202407"
+ },
+ {
+  "bintang": "BINTANG 2",
+  "nilai": 60.11,
+  "periode": "202407"
+ },
+ {
+  "bintang": "BINTANG 1",
+  "nilai": 40.26,
+  "periode": "202407"
+ },
+ {
+  "bintang": "BINTANG 5",
+  "nilai": 39.21,
+  "periode": "202408"
+ },
+ {
+  "bintang": "BINTANG 4",
+  "nilai": 60.44,
+  "periode": "202408"
+ },
+ {
+  "bintang": "BINTANG 3",
+  "nilai": 55.32,
+  "periode": "202408"
+ },
+ {
+  "bintang": "BINTANG 2",
+  "nilai": 58.03,
+  "periode": "202408"
+ },
+ {
+  "bintang": "BINTANG 1",
+  "nilai": 38.67,
+  "periode": "202408"
+ },
+ {
+  "bintang": "BINTANG 5",
+  "nilai": 53.69,
+  "periode": "202502"
+ },
+ {
+  "bintang": "BINTANG 4",
+  "nilai": 59.39,
+  "periode": "202502"
+ },
+ {
+  "bintang": "BINTANG 3",
+  "nilai": 61.43,
+  "periode": "202502"
+ },
+ {
+  "bintang": "BINTANG 2",
+  "nilai": 61.88,
+  "periode": "202502"
+ },
+ {
+  "bintang": "BINTANG 1",
+  "nilai": 52.83,
+  "periode": "202502"
+ },
+ {
+  "bintang": "BINTANG 5",
+  "nilai": 40.93,
+  "periode": "202504"
+ },
+ {
+  "bintang": "BINTANG 4",
+  "nilai": 46.06,
+  "periode": "202504"
+ },
+ {
+  "bintang": "BINTANG 3",
+  "nilai": 49.13,
+  "periode": "202504"
+ },
+ {
+  "bintang": "BINTANG 2",
+  "nilai": 51.11,
+  "periode": "202504"
+ },
+ {
+  "bintang": "BINTANG 1",
+  "nilai": 49.03,
+  "periode": "202504"
+ },
+ {
+  "bintang": "BINTANG 5",
+  "nilai": 45.93,
+  "periode": "202506"
+ },
+ {
+  "bintang": "BINTANG 4",
+  "nilai": 54.59,
+  "periode": "202506"
+ },
+ {
+  "bintang": "BINTANG 3",
+  "nilai": 54.55,
+  "periode": "202506"
+ },
+ {
+  "bintang": "BINTANG 2",
+  "nilai": 52.63,
+  "periode": "202506"
+ },
+ {
+  "bintang": "BINTANG 1",
+  "nilai": 48.57,
+  "periode": "202506"
+ },
+ {
+  "bintang": "BINTANG 5",
+  "nilai": 47.6,
+  "periode": "202507"
+ },
+ {
+  "bintang": "BINTANG 4",
+  "nilai": 59.17,
+  "periode": "202507"
+ },
+ {
+  "bintang": "BINTANG 3",
+  "nilai": 58.7,
+  "periode": "202507"
+ },
+ {
+  "bintang": "BINTANG 2",
+  "nilai": 55.81,
+  "periode": "202507"
+ },
+ {
+  "bintang": "BINTANG 1",
+  "nilai": 50.64,
+  "periode": "202507"
+ },
+ {
+  "bintang": "BINTANG 5",
+  "nilai": 38.83,
+  "periode": "202409"
+ },
+ {
+  "bintang": "BINTANG 4",
+  "nilai": 58.22,
+  "periode": "202409"
+ },
+ {
+  "bintang": "BINTANG 3",
+  "nilai": 58.6,
+  "periode": "202409"
+ },
+ {
+  "bintang": "BINTANG 2",
+  "nilai": 57.19,
+  "periode": "202409"
+ },
+ {
+  "bintang": "BINTANG 1",
+  "nilai": 33.65,
+  "periode": "202409"
+ },
+ {
+  "bintang": "BINTANG 5",
+  "nilai": 43.95,
+  "periode": "202509"
+ },
+ {
+  "bintang": "BINTANG 4",
+  "nilai": 56.22,
+  "periode": "202509"
+ },
+ {
+  "bintang": "BINTANG 3",
+  "nilai": 55.91,
+  "periode": "202509"
+ },
+ {
+  "bintang": "BINTANG 2",
+  "nilai": 54.63,
+  "periode": "202509"
+ },
+ {
+  "bintang": "BINTANG 1",
+  "nilai": 46.35,
+  "periode": "202509"
+ },
+ {
+  "bintang": "BINTANG 5",
+  "nilai": 41.37,
+  "periode": "202602"
+ },
+ {
+  "bintang": "BINTANG 4",
+  "nilai": 53.01,
+  "periode": "202602"
+ },
+ {
+  "bintang": "BINTANG 3",
+  "nilai": 55.08,
+  "periode": "202602"
+ },
+ {
+  "bintang": "BINTANG 2",
+  "nilai": 55.04,
+  "periode": "202602"
+ },
+ {
+  "bintang": "BINTANG 1",
+  "nilai": 56.48,
+  "periode": "202602"
+ },
+ {
+  "bintang": "BINTANG 5",
+  "nilai": 45.43,
+  "periode": "202604"
+ },
+ {
+  "bintang": "BINTANG 4",
+  "nilai": 56.63,
+  "periode": "202604"
+ },
+ {
+  "bintang": "BINTANG 3",
+  "nilai": 57.47,
+  "periode": "202604"
+ },
+ {
+  "bintang": "BINTANG 2",
+  "nilai": 57.93,
+  "periode": "202604"
+ },
+ {
+  "bintang": "BINTANG 1",
+  "nilai": 55.04,
+  "periode": "202604"
+ },
+ {
+  "bintang": "BINTANG 5",
+  "nilai": 39.19,
+  "periode": "202406"
+ },
+ {
+  "bintang": "BINTANG 4",
+  "nilai": 57.59,
+  "periode": "202406"
+ },
+ {
+  "bintang": "BINTANG 3",
+  "nilai": 54,
+  "periode": "202406"
+ },
+ {
+  "bintang": "BINTANG 2",
+  "nilai": 54.72,
+  "periode": "202406"
+ },
+ {
+  "bintang": "BINTANG 1",
+  "nilai": 37.31,
+  "periode": "202406"
+ },
+ {
+  "bintang": "BINTANG 5",
+  "nilai": 47.83,
+  "periode": "202501"
+ },
+ {
+  "bintang": "BINTANG 4",
+  "nilai": 54.7,
+  "periode": "202501"
+ },
+ {
+  "bintang": "BINTANG 3",
+  "nilai": 53.57,
+  "periode": "202501"
+ },
+ {
+  "bintang": "BINTANG 2",
+  "nilai": 59.63,
+  "periode": "202501"
+ },
+ {
+  "bintang": "BINTANG 1",
+  "nilai": 48.05,
+  "periode": "202501"
+ },
+ {
+  "bintang": "BINTANG 5",
+  "nilai": 49.88,
+  "periode": "202510"
+ },
+ {
+  "bintang": "BINTANG 4",
+  "nilai": 61.71,
+  "periode": "202510"
+ },
+ {
+  "bintang": "BINTANG 3",
+  "nilai": 59.59,
+  "periode": "202510"
+ },
+ {
+  "bintang": "BINTANG 2",
+  "nilai": 59.28,
+  "periode": "202510"
+ },
+ {
+  "bintang": "BINTANG 1",
+  "nilai": 46.98,
+  "periode": "202510"
+ },
+ {
+  "bintang": "BINTANG 5",
+  "nilai": 36.36,
+  "periode": "202603"
+ },
+ {
+  "bintang": "BINTANG 4",
+  "nilai": 43.73,
+  "periode": "202603"
+ },
+ {
+  "bintang": "BINTANG 3",
+  "nilai": 44.94,
+  "periode": "202603"
+ },
+ {
+  "bintang": "BINTANG 2",
+  "nilai": 50.54,
+  "periode": "202603"
+ },
+ {
+  "bintang": "BINTANG 1",
+  "nilai": 54.57,
+  "periode": "202603"
+ },
+ {
+  "bintang": "BINTANG 5",
+  "nilai": 56.85,
+  "periode": "202411"
+ },
+ {
+  "bintang": "BINTANG 4",
+  "nilai": 63.61,
+  "periode": "202411"
+ },
+ {
+  "bintang": "BINTANG 3",
+  "nilai": 62.26,
+  "periode": "202411"
+ },
+ {
+  "bintang": "BINTANG 2",
+  "nilai": 61.31,
+  "periode": "202411"
+ },
+ {
+  "bintang": "BINTANG 1",
+  "nilai": 39.38,
+  "periode": "202411"
+ },
+ {
+  "bintang": "BINTANG 5",
+  "nilai": 48.34,
+  "periode": "202412"
+ },
+ {
+  "bintang": "BINTANG 4",
+  "nilai": 67.63,
+  "periode": "202412"
+ },
+ {
+  "bintang": "BINTANG 3",
+  "nilai": 65.87,
+  "periode": "202412"
+ },
+ {
+  "bintang": "BINTANG 2",
+  "nilai": 65.71,
+  "periode": "202412"
+ },
+ {
+  "bintang": "BINTANG 1",
+  "nilai": 47.12,
+  "periode": "202412"
+ },
+ {
+  "bintang": "BINTANG 5",
+  "nilai": 28.54,
+  "periode": "202503"
+ },
+ {
+  "bintang": "BINTANG 4",
+  "nilai": 37.26,
+  "periode": "202503"
+ },
+ {
+  "bintang": "BINTANG 3",
+  "nilai": 40.94,
+  "periode": "202503"
+ },
+ {
+  "bintang": "BINTANG 2",
+  "nilai": 44.66,
+  "periode": "202503"
+ },
+ {
+  "bintang": "BINTANG 1",
+  "nilai": 46.53,
+  "periode": "202503"
+ },
+ {
+  "bintang": "BINTANG 5",
+  "nilai": 38.09,
+  "periode": "202601"
+ },
+ {
+  "bintang": "BINTANG 4",
+  "nilai": 54.47,
+  "periode": "202601"
+ },
+ {
+  "bintang": "BINTANG 3",
+  "nilai": 57.39,
+  "periode": "202601"
+ },
+ {
+  "bintang": "BINTANG 2",
+  "nilai": 56.61,
+  "periode": "202601"
+ },
+ {
+  "bintang": "BINTANG 1",
+  "nilai": 60.27,
+  "periode": "202601"
+ },
+ {
+  "bintang": "BINTANG 5",
+  "nilai": 53.02,
+  "periode": "202511"
+ },
+ {
+  "bintang": "BINTANG 4",
+  "nilai": 68.25,
+  "periode": "202511"
+ },
+ {
+  "bintang": "BINTANG 3",
+  "nilai": 64.43,
+  "periode": "202511"
+ },
+ {
+  "bintang": "BINTANG 2",
+  "nilai": 59.72,
+  "periode": "202511"
+ },
+ {
+  "bintang": "BINTANG 1",
+  "nilai": 50.49,
+  "periode": "202511"
+ },
+ {
+  "bintang": "BINTANG 5",
+  "nilai": 45.55,
+  "periode": "202605"
+ },
+ {
+  "bintang": "BINTANG 4",
+  "nilai": 55.44,
+  "periode": "202605"
+ },
+ {
+  "bintang": "BINTANG 3",
+  "nilai": 55.91,
+  "periode": "202605"
+ },
+ {
+  "bintang": "BINTANG 2",
+  "nilai": 55.87,
+  "periode": "202605"
+ },
+ {
+  "bintang": "BINTANG 1",
+  "nilai": 54.91,
+  "periode": "202605"
+ }
+]

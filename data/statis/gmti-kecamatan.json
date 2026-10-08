@@ -1,0 +1,354 @@
+[
+ {
+  "geoKey": "tanjungpriok",
+  "kecamatan": "Tanjung Priok",
+  "kota": "Kota Administrasi Jakarta Utara",
+  "masjid": 177,
+  "mushalla": 331,
+  "total": 508
+ },
+ {
+  "geoKey": "cakung",
+  "kecamatan": "Cakung",
+  "kota": "Kota Administrasi Jakarta Timur",
+  "masjid": 167,
+  "mushalla": 284,
+  "total": 451
+ },
+ {
+  "geoKey": "koja",
+  "kecamatan": "Koja",
+  "kota": "Kota Administrasi Jakarta Utara",
+  "masjid": 127,
+  "mushalla": 290,
+  "total": 417
+ },
+ {
+  "geoKey": "cengkareng",
+  "kecamatan": "Cengkareng",
+  "kota": "Kota Administrasi Jakarta Barat",
+  "masjid": 135,
+  "mushalla": 212,
+  "total": 347
+ },
+ {
+  "geoKey": "durensawit",
+  "kecamatan": "Duren Sawit",
+  "kota": "Kota Administrasi Jakarta Timur",
+  "masjid": 189,
+  "mushalla": 146,
+  "total": 335
+ },
+ {
+  "geoKey": "cilincing",
+  "kecamatan": "Cilincing",
+  "kota": "Kota Administrasi Jakarta Utara",
+  "masjid": 162,
+  "mushalla": 152,
+  "total": 314
+ },
+ {
+  "geoKey": "jagakarsa",
+  "kecamatan": "Jagakarsa",
+  "kota": "Kota Administrasi Jakarta Selatan",
+  "masjid": 101,
+  "mushalla": 212,
+  "total": 313
+ },
+ {
+  "geoKey": "jatinegara",
+  "kecamatan": "Jatinegara",
+  "kota": "Kota Administrasi Jakarta Timur",
+  "masjid": 104,
+  "mushalla": 170,
+  "total": 274
+ },
+ {
+  "geoKey": "kalideres",
+  "kecamatan": "Kalideres",
+  "kota": "Kota Administrasi Jakarta Barat",
+  "masjid": 106,
+  "mushalla": 150,
+  "total": 256
+ },
+ {
+  "geoKey": "ciracas",
+  "kecamatan": "Ciracas",
+  "kota": "Kota Administrasi Jakarta Timur",
+  "masjid": 131,
+  "mushalla": 114,
+  "total": 245
+ },
+ {
+  "geoKey": "makasar",
+  "kecamatan": "Makasar",
+  "kota": "Kota Administrasi Jakarta Timur",
+  "masjid": 93,
+  "mushalla": 149,
+  "total": 242
+ },
+ {
+  "geoKey": "pasarrebo",
+  "kecamatan": "Pasar Rebo",
+  "kota": "Kota Administrasi Jakarta Timur",
+  "masjid": 118,
+  "mushalla": 99,
+  "total": 217
+ },
+ {
+  "geoKey": "kebonjeruk",
+  "kecamatan": "Kebon Jeruk",
+  "kota": "Kota Administrasi Jakarta Barat",
+  "masjid": 72,
+  "mushalla": 138,
+  "total": 210
+ },
+ {
+  "geoKey": "kebayoranlama",
+  "kecamatan": "Kebayoran Lama",
+  "kota": "Kota Administrasi Jakarta Selatan",
+  "masjid": 103,
+  "mushalla": 106,
+  "total": 209
+ },
+ {
+  "geoKey": "cipayung",
+  "kecamatan": "Cipayung",
+  "kota": "Kota Administrasi Jakarta Timur",
+  "masjid": 123,
+  "mushalla": 85,
+  "total": 208
+ },
+ {
+  "geoKey": "kramatjati",
+  "kecamatan": "Kramatjati",
+  "kota": "Kota Administrasi Jakarta Timur",
+  "masjid": 75,
+  "mushalla": 131,
+  "total": 206
+ },
+ {
+  "geoKey": "tanahabang",
+  "kecamatan": "Tanah Abang",
+  "kota": "Kota Administrasi Jakarta Pusat",
+  "masjid": 120,
+  "mushalla": 75,
+  "total": 195
+ },
+ {
+  "geoKey": "matraman",
+  "kecamatan": "Matraman",
+  "kota": "Kota Administrasi Jakarta Timur",
+  "masjid": 92,
+  "mushalla": 99,
+  "total": 191
+ },
+ {
+  "geoKey": "penjaringan",
+  "kecamatan": "Penjaringan",
+  "kota": "Kota Administrasi Jakarta Utara",
+  "masjid": 76,
+  "mushalla": 111,
+  "total": 187
+ },
+ {
+  "geoKey": "kemayoran",
+  "kecamatan": "Kemayoran",
+  "kota": "Kota Administrasi Jakarta Pusat",
+  "masjid": 97,
+  "mushalla": 89,
+  "total": 186
+ },
+ {
+  "geoKey": "tebet",
+  "kecamatan": "Tebet",
+  "kota": "Kota Administrasi Jakarta Selatan",
+  "masjid": 84,
+  "mushalla": 100,
+  "total": 184
+ },
+ {
+  "geoKey": "pulogadung",
+  "kecamatan": "Pulogadung",
+  "kota": "Kota Administrasi Jakarta Timur",
+  "masjid": 112,
+  "mushalla": 72,
+  "total": 184
+ },
+ {
+  "geoKey": "pasarminggu",
+  "kecamatan": "Pasar Minggu",
+  "kota": "Kota Administrasi Jakarta Selatan",
+  "masjid": 130,
+  "mushalla": 37,
+  "total": 167
+ },
+ {
+  "geoKey": "pancoran",
+  "kecamatan": "Pancoran",
+  "kota": "Kota Administrasi Jakarta Selatan",
+  "masjid": 87,
+  "mushalla": 79,
+  "total": 166
+ },
+ {
+  "geoKey": "kembangan",
+  "kecamatan": "Kembangan",
+  "kota": "Kota Administrasi Jakarta Barat",
+  "masjid": 80,
+  "mushalla": 79,
+  "total": 159
+ },
+ {
+  "geoKey": "grogolpetamburan",
+  "kecamatan": "Grogol Petamburan",
+  "kota": "Kota Administrasi Jakarta Barat",
+  "masjid": 92,
+  "mushalla": 60,
+  "total": 152
+ },
+ {
+  "geoKey": "palmerah",
+  "kecamatan": "Pal Merah",
+  "kota": "Kota Administrasi Jakarta Barat",
+  "masjid": 98,
+  "mushalla": 54,
+  "total": 152
+ },
+ {
+  "geoKey": "mampangprapatan",
+  "kecamatan": "Mampang Prapatan",
+  "kota": "Kota Administrasi Jakarta Selatan",
+  "masjid": 75,
+  "mushalla": 73,
+  "total": 148
+ },
+ {
+  "geoKey": "tambora",
+  "kecamatan": "Tambora",
+  "kota": "Kota Administrasi Jakarta Barat",
+  "masjid": 81,
+  "mushalla": 66,
+  "total": 147
+ },
+ {
+  "geoKey": "kebayoranbaru",
+  "kecamatan": "Kebayoran Baru",
+  "kota": "Kota Administrasi Jakarta Selatan",
+  "masjid": 85,
+  "mushalla": 50,
+  "total": 135
+ },
+ {
+  "geoKey": "gambir",
+  "kecamatan": "Gambir",
+  "kota": "Kota Administrasi Jakarta Pusat",
+  "masjid": 80,
+  "mushalla": 55,
+  "total": 135
+ },
+ {
+  "geoKey": "sawahbesar",
+  "kecamatan": "Sawah Besar",
+  "kota": "Kota Administrasi Jakarta Pusat",
+  "masjid": 72,
+  "mushalla": 41,
+  "total": 113
+ },
+ {
+  "geoKey": "pesanggrahan",
+  "kecamatan": "Pesanggrahan",
+  "kota": "Kota Administrasi Jakarta Selatan",
+  "masjid": 82,
+  "mushalla": 26,
+  "total": 108
+ },
+ {
+  "geoKey": "pademangan",
+  "kecamatan": "Pademangan",
+  "kota": "Kota Administrasi Jakarta Utara",
+  "masjid": 52,
+  "mushalla": 55,
+  "total": 107
+ },
+ {
+  "geoKey": "joharbaru",
+  "kecamatan": "Johar Baru",
+  "kota": "Kota Administrasi Jakarta Pusat",
+  "masjid": 51,
+  "mushalla": 55,
+  "total": 106
+ },
+ {
+  "geoKey": "menteng",
+  "kecamatan": "Menteng",
+  "kota": "Kota Administrasi Jakarta Pusat",
+  "masjid": 51,
+  "mushalla": 53,
+  "total": 104
+ },
+ {
+  "geoKey": "cilandak",
+  "kecamatan": "Cilandak",
+  "kota": "Kota Administrasi Jakarta Selatan",
+  "masjid": 78,
+  "mushalla": 25,
+  "total": 103
+ },
+ {
+  "geoKey": "senen",
+  "kecamatan": "Senen",
+  "kota": "Kota Administrasi Jakarta Pusat",
+  "masjid": 52,
+  "mushalla": 50,
+  "total": 102
+ },
+ {
+  "geoKey": "setiabudi",
+  "kecamatan": "Setiabudi",
+  "kota": "Kota Administrasi Jakarta Selatan",
+  "masjid": 70,
+  "mushalla": 25,
+  "total": 95
+ },
+ {
+  "geoKey": "cempakaputih",
+  "kecamatan": "Cempaka Putih",
+  "kota": "Kota Administrasi Jakarta Pusat",
+  "masjid": 57,
+  "mushalla": 30,
+  "total": 87
+ },
+ {
+  "geoKey": "kelapagading",
+  "kecamatan": "Kelapa Gading",
+  "kota": "Kota Administrasi Jakarta Utara",
+  "masjid": 49,
+  "mushalla": 20,
+  "total": 69
+ },
+ {
+  "geoKey": "tamansari",
+  "kecamatan": "Taman Sari",
+  "kota": "Kota Administrasi Jakarta Barat",
+  "masjid": 44,
+  "mushalla": 1,
+  "total": 45
+ },
+ {
+  "geoKey": "kepulauanseribuselatan",
+  "kecamatan": "Kepulauan Seribu Selatan",
+  "kota": "Kabupaten Administrasi Kepulauan Seribu",
+  "masjid": 5,
+  "mushalla": 24,
+  "total": 29
+ },
+ {
+  "geoKey": "kepulauanseribuutara",
+  "kecamatan": "Kepulauan Seribu Utara",
+  "kota": "Kabupaten Administrasi Kepulauan Seribu",
+  "masjid": 6,
+  "mushalla": 17,
+  "total": 23
+ }
+]

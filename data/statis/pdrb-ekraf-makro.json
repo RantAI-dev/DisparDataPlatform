@@ -1,0 +1,92 @@
+[
+ {
+  "adhb_dki": 2365353.85,
+  "adhb_ekraf": 231873.77,
+  "adhk_ekraf": 181166.87,
+  "kontribusi": 9.8,
+  "periode": "2017",
+  "tumbuh_dki": 6.2,
+  "tumbuh_ekraf": 8.28,
+  "tumbuh_non_ekraf": 5.94
+ },
+ {
+  "adhb_dki": 2592606.57,
+  "adhb_ekraf": 255801.71,
+  "adhk_ekraf": 195589.2,
+  "kontribusi": 9.87,
+  "periode": "2018",
+  "tumbuh_dki": 6.11,
+  "tumbuh_ekraf": 7.96,
+  "tumbuh_non_ekraf": 5.87
+ },
+ {
+  "adhb_dki": 2815636.16,
+  "adhb_ekraf": 279203.54,
+  "adhk_ekraf": 208614.36,
+  "kontribusi": 9.92,
+  "periode": "2019",
+  "tumbuh_dki": 5.82,
+  "tumbuh_ekraf": 7.26,
+  "tumbuh_non_ekraf": 5.58
+ },
+ {
+  "adhb_dki": 2767273.49,
+  "adhb_ekraf": 264845.61,
+  "adhk_ekraf": 196370.11,
+  "kontribusi": 9.57,
+  "periode": "2020",
+  "tumbuh_dki": -2.39,
+  "tumbuh_ekraf": -5.87,
+  "tumbuh_non_ekraf": -1.95
+ },
+ {
+  "adhb_dki": 2912885.34,
+  "adhb_ekraf": 290009.75,
+  "adhk_ekraf": 211906.13,
+  "kontribusi": 9.96,
+  "periode": "2021",
+  "tumbuh_dki": 3.55,
+  "tumbuh_ekraf": 7.91,
+  "tumbuh_non_ekraf": 3.02
+ },
+ {
+  "adhb_dki": 3188539.02,
+  "adhb_ekraf": 329700.11,
+  "adhk_ekraf": 229212.51,
+  "kontribusi": 10.34,
+  "periode": "2022",
+  "tumbuh_dki": 5.25,
+  "tumbuh_ekraf": 8.17,
+  "tumbuh_non_ekraf": 4.88
+ },
+ {
+  "adhb_dki": 3442980.93,
+  "adhb_ekraf": 371075.15,
+  "adhk_ekraf": 251941.3,
+  "kontribusi": 10.78,
+  "periode": "2023",
+  "tumbuh_dki": 4.96,
+  "tumbuh_ekraf": 9.92,
+  "tumbuh_non_ekraf": 4.31
+ },
+ {
+  "adhb_dki": 3679358.6,
+  "adhb_ekraf": 410568.43,
+  "adhk_ekraf": 272419.52,
+  "kontribusi": 11.16,
+  "periode": "2024",
+  "tumbuh_dki": 4.91,
+  "tumbuh_ekraf": 8.13,
+  "tumbuh_non_ekraf": 4.45
+ },
+ {
+  "adhb_dki": 1934128.99,
+  "adhb_ekraf": 222969.2,
+  "adhk_ekraf": 144967.62,
+  "kontribusi": 11.53,
+  "periode": "S1 2025",
+  "tumbuh_dki": 5.07,
+  "tumbuh_ekraf": 9.42,
+  "tumbuh_non_ekraf": 4.45
+ }
+]

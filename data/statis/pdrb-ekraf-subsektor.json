@@ -1,0 +1,786 @@
+[
+ {
+  "adhb": 4399.03,
+  "adhk": 2733.98,
+  "periode": "2019",
+  "subsektor": "Arsitektur",
+  "tumbuh": 9.21
+ },
+ {
+  "adhb": 4380.91,
+  "adhk": 2705.9,
+  "periode": "2020",
+  "subsektor": "Arsitektur",
+  "tumbuh": -1.03
+ },
+ {
+  "adhb": 4807.51,
+  "adhk": 2924.64,
+  "periode": "2021",
+  "subsektor": "Arsitektur",
+  "tumbuh": 8.08
+ },
+ {
+  "adhb": 5755.69,
+  "adhk": 3165.87,
+  "periode": "2022",
+  "subsektor": "Arsitektur",
+  "tumbuh": 8.25
+ },
+ {
+  "adhb": 6500.71,
+  "adhk": 3506.49,
+  "periode": "2023",
+  "subsektor": "Arsitektur",
+  "tumbuh": 10.76
+ },
+ {
+  "adhb": 7245.73,
+  "adhk": 3782.89,
+  "periode": "2024",
+  "subsektor": "Arsitektur",
+  "tumbuh": 7.88
+ },
+ {
+  "adhb": 3968.21,
+  "adhk": 1999.83,
+  "periode": "S1 2025",
+  "subsektor": "Arsitektur",
+  "tumbuh": 8.29
+ },
+ {
+  "adhb": 340.02,
+  "adhk": 210.25,
+  "periode": "2019",
+  "subsektor": "Desain Interior",
+  "tumbuh": 7.87
+ },
+ {
+  "adhb": 340.25,
+  "adhk": 209.1,
+  "periode": "2020",
+  "subsektor": "Desain Interior",
+  "tumbuh": -0.55
+ },
+ {
+  "adhb": 364.38,
+  "adhk": 220.55,
+  "periode": "2021",
+  "subsektor": "Desain Interior",
+  "tumbuh": 5.48
+ },
+ {
+  "adhb": 421.57,
+  "adhk": 235.62,
+  "periode": "2022",
+  "subsektor": "Desain Interior",
+  "tumbuh": 6.83
+ },
+ {
+  "adhb": 468.42,
+  "adhk": 256.86,
+  "periode": "2023",
+  "subsektor": "Desain Interior",
+  "tumbuh": 9.01
+ },
+ {
+  "adhb": 515.28,
+  "adhk": 274.92,
+  "periode": "2024",
+  "subsektor": "Desain Interior",
+  "tumbuh": 7.03
+ },
+ {
+  "adhb": 278.39,
+  "adhk": 144.11,
+  "periode": "S1 2025",
+  "subsektor": "Desain Interior",
+  "tumbuh": 6.82
+ },
+ {
+  "adhb": 224.73,
+  "adhk": 139.3,
+  "periode": "2019",
+  "subsektor": "Desain Komunikasi Visual",
+  "tumbuh": 8.49
+ },
+ {
+  "adhb": 225.94,
+  "adhk": 139.18,
+  "periode": "2020",
+  "subsektor": "Desain Komunikasi Visual",
+  "tumbuh": -0.08
+ },
+ {
+  "adhb": 243.06,
+  "adhk": 147.47,
+  "periode": "2021",
+  "subsektor": "Desain Komunikasi Visual",
+  "tumbuh": 5.95
+ },
+ {
+  "adhb": 285.77,
+  "adhk": 158.73,
+  "periode": "2022",
+  "subsektor": "Desain Komunikasi Visual",
+  "tumbuh": 7.64
+ },
+ {
+  "adhb": 320.03,
+  "adhk": 174.28,
+  "periode": "2023",
+  "subsektor": "Desain Komunikasi Visual",
+  "tumbuh": 9.8
+ },
+ {
+  "adhb": 354.28,
+  "adhk": 187.34,
+  "periode": "2024",
+  "subsektor": "Desain Komunikasi Visual",
+  "tumbuh": 7.49
+ },
+ {
+  "adhb": 192.64,
+  "adhk": 98.62,
+  "periode": "S1 2025",
+  "subsektor": "Desain Komunikasi Visual",
+  "tumbuh": 7.45
+ },
+ {
+  "adhb": 574.56,
+  "adhk": 356.9,
+  "periode": "2019",
+  "subsektor": "Desain Produk",
+  "tumbuh": 9.07
+ },
+ {
+  "adhb": 576.68,
+  "adhk": 356.01,
+  "periode": "2020",
+  "subsektor": "Desain Produk",
+  "tumbuh": -0.25
+ },
+ {
+  "adhb": 626.67,
+  "adhk": 381.04,
+  "periode": "2021",
+  "subsektor": "Desain Produk",
+  "tumbuh": 7.03
+ },
+ {
+  "adhb": 747.72,
+  "adhk": 412.02,
+  "periode": "2022",
+  "subsektor": "Desain Produk",
+  "tumbuh": 8.13
+ },
+ {
+  "adhb": 843.17,
+  "adhk": 455.63,
+  "periode": "2023",
+  "subsektor": "Desain Produk",
+  "tumbuh": 10.58
+ },
+ {
+  "adhb": 938.62,
+  "adhk": 491.21,
+  "periode": "2024",
+  "subsektor": "Desain Produk",
+  "tumbuh": 7.81
+ },
+ {
+  "adhb": 513.39,
+  "adhk": 259.49,
+  "periode": "S1 2025",
+  "subsektor": "Desain Produk",
+  "tumbuh": 8.04
+ },
+ {
+  "adhb": 1024.26,
+  "adhk": 873.87,
+  "periode": "2019",
+  "subsektor": "Film, Animasi, dan Video",
+  "tumbuh": 8.75
+ },
+ {
+  "adhb": 1032.69,
+  "adhk": 873.61,
+  "periode": "2020",
+  "subsektor": "Film, Animasi, dan Video",
+  "tumbuh": -0.03
+ },
+ {
+  "adhb": 1117.89,
+  "adhk": 931.44,
+  "periode": "2021",
+  "subsektor": "Film, Animasi, dan Video",
+  "tumbuh": 6.62
+ },
+ {
+  "adhb": 1261.23,
+  "adhk": 1006.27,
+  "periode": "2022",
+  "subsektor": "Film, Animasi, dan Video",
+  "tumbuh": 8.03
+ },
+ {
+  "adhb": 1398.39,
+  "adhk": 1088.67,
+  "periode": "2023",
+  "subsektor": "Film, Animasi, dan Video",
+  "tumbuh": 8.19
+ },
+ {
+  "adhb": 1535.54,
+  "adhk": 1174.62,
+  "periode": "2024",
+  "subsektor": "Film, Animasi, dan Video",
+  "tumbuh": 7.89
+ },
+ {
+  "adhb": 828.07,
+  "adhk": 619.41,
+  "periode": "S1 2025",
+  "subsektor": "Film, Animasi, dan Video",
+  "tumbuh": 6.94
+ },
+ {
+  "adhb": 1057.77,
+  "adhk": 661.65,
+  "periode": "2019",
+  "subsektor": "Fotografi",
+  "tumbuh": 8.27
+ },
+ {
+  "adhb": 1061.86,
+  "adhk": 660.07,
+  "periode": "2020",
+  "subsektor": "Fotografi",
+  "tumbuh": -0.24
+ },
+ {
+  "adhb": 1140.59,
+  "adhk": 698.33,
+  "periode": "2021",
+  "subsektor": "Fotografi",
+  "tumbuh": 5.8
+ },
+ {
+  "adhb": 1316.07,
+  "adhk": 750.39,
+  "periode": "2022",
+  "subsektor": "Fotografi",
+  "tumbuh": 7.45
+ },
+ {
+  "adhb": 1463.95,
+  "adhk": 817.45,
+  "periode": "2023",
+  "subsektor": "Fotografi",
+  "tumbuh": 8.94
+ },
+ {
+  "adhb": 1611.84,
+  "adhk": 877.94,
+  "periode": "2024",
+  "subsektor": "Fotografi",
+  "tumbuh": 7.4
+ },
+ {
+  "adhb": 871.65,
+  "adhk": 461.46,
+  "periode": "S1 2025",
+  "subsektor": "Fotografi",
+  "tumbuh": 7.06
+ },
+ {
+  "adhb": 10129.41,
+  "adhk": 5804.81,
+  "periode": "2019",
+  "subsektor": "Kriya",
+  "tumbuh": 10.7
+ },
+ {
+  "adhb": 9850.25,
+  "adhk": 5612.67,
+  "periode": "2020",
+  "subsektor": "Kriya",
+  "tumbuh": -3.31
+ },
+ {
+  "adhb": 11076.09,
+  "adhk": 6216.05,
+  "periode": "2021",
+  "subsektor": "Kriya",
+  "tumbuh": 10.75
+ },
+ {
+  "adhb": 12458.94,
+  "adhk": 6733.14,
+  "periode": "2022",
+  "subsektor": "Kriya",
+  "tumbuh": 8.32
+ },
+ {
+  "adhb": 13808.89,
+  "adhk": 7291.26,
+  "periode": "2023",
+  "subsektor": "Kriya",
+  "tumbuh": 8.29
+ },
+ {
+  "adhb": 15158.83,
+  "adhk": 7882.16,
+  "periode": "2024",
+  "subsektor": "Kriya",
+  "tumbuh": 8.1
+ },
+ {
+  "adhb": 8172.19,
+  "adhk": 4164.17,
+  "periode": "S1 2025",
+  "subsektor": "Kriya",
+  "tumbuh": 7.7
+ },
+ {
+  "adhb": 115039.12,
+  "adhk": 79245.85,
+  "periode": "2019",
+  "subsektor": "Kuliner",
+  "tumbuh": 7.87
+ },
+ {
+  "adhb": 100788.73,
+  "adhk": 68033.61,
+  "periode": "2020",
+  "subsektor": "Kuliner",
+  "tumbuh": -14.15
+ },
+ {
+  "adhb": 112308.79,
+  "adhk": 74723.02,
+  "periode": "2021",
+  "subsektor": "Kuliner",
+  "tumbuh": 9.83
+ },
+ {
+  "adhb": 126089.99,
+  "adhk": 81177.08,
+  "periode": "2022",
+  "subsektor": "Kuliner",
+  "tumbuh": 8.64
+ },
+ {
+  "adhb": 142897.34,
+  "adhk": 89832.79,
+  "periode": "2023",
+  "subsektor": "Kuliner",
+  "tumbuh": 10.66
+ },
+ {
+  "adhb": 159870.42,
+  "adhk": 98139.04,
+  "periode": "2024",
+  "subsektor": "Kuliner",
+  "tumbuh": 9.25
+ },
+ {
+  "adhb": 86867.85,
+  "adhk": 52675.02,
+  "periode": "S1 2025",
+  "subsektor": "Kuliner",
+  "tumbuh": 10.52
+ },
+ {
+  "adhb": 3918.96,
+  "adhk": 2594.06,
+  "periode": "2019",
+  "subsektor": "Musik",
+  "tumbuh": 8.11
+ },
+ {
+  "adhb": 3931.77,
+  "adhk": 2585.43,
+  "periode": "2020",
+  "subsektor": "Musik",
+  "tumbuh": -0.33
+ },
+ {
+  "adhb": 4219.45,
+  "adhk": 2732.79,
+  "periode": "2021",
+  "subsektor": "Musik",
+  "tumbuh": 5.7
+ },
+ {
+  "adhb": 4851.32,
+  "adhk": 2933.47,
+  "periode": "2022",
+  "subsektor": "Musik",
+  "tumbuh": 7.34
+ },
+ {
+  "adhb": 5387.9,
+  "adhk": 3189.46,
+  "periode": "2023",
+  "subsektor": "Musik",
+  "tumbuh": 8.73
+ },
+ {
+  "adhb": 5924.48,
+  "adhk": 3423.08,
+  "periode": "2024",
+  "subsektor": "Musik",
+  "tumbuh": 7.32
+ },
+ {
+  "adhb": 3199.5,
+  "adhk": 1797.71,
+  "periode": "S1 2025",
+  "subsektor": "Musik",
+  "tumbuh": 6.94
+ },
+ {
+  "adhb": 21104.93,
+  "adhk": 13218.68,
+  "periode": "2019",
+  "subsektor": "Fashion",
+  "tumbuh": 7.71
+ },
+ {
+  "adhb": 20350.87,
+  "adhk": 12440.59,
+  "periode": "2020",
+  "subsektor": "Fashion",
+  "tumbuh": -0.46
+ },
+ {
+  "adhb": 20018.14,
+  "adhk": 12049.56,
+  "periode": "2021",
+  "subsektor": "Fashion",
+  "tumbuh": 5.57
+ },
+ {
+  "adhb": 20616.46,
+  "adhk": 12066.03,
+  "periode": "2022",
+  "subsektor": "Fashion",
+  "tumbuh": 7.2
+ },
+ {
+  "adhb": 22881.8,
+  "adhk": 13065.3,
+  "periode": "2023",
+  "subsektor": "Fashion",
+  "tumbuh": 7.1
+ },
+ {
+  "adhb": 23099.66,
+  "adhk": 12886.84,
+  "periode": "2024",
+  "subsektor": "Fashion",
+  "tumbuh": -1.37
+ },
+ {
+  "adhb": 12137.97,
+  "adhk": 6788.46,
+  "periode": "S1 2025",
+  "subsektor": "Fashion",
+  "tumbuh": 5.09
+ },
+ {
+  "adhb": 14761.15,
+  "adhk": 13008.87,
+  "periode": "2019",
+  "subsektor": "Aplikasi dan Pengembang Permainan",
+  "tumbuh": 9.5
+ },
+ {
+  "adhb": 15037.76,
+  "adhk": 13136.87,
+  "periode": "2020",
+  "subsektor": "Aplikasi dan Pengembang Permainan",
+  "tumbuh": 0.98
+ },
+ {
+  "adhb": 16340.01,
+  "adhk": 14059.4,
+  "periode": "2021",
+  "subsektor": "Aplikasi dan Pengembang Permainan",
+  "tumbuh": 7.02
+ },
+ {
+  "adhb": 18881.44,
+  "adhk": 15302.46,
+  "periode": "2022",
+  "subsektor": "Aplikasi dan Pengembang Permainan",
+  "tumbuh": 8.84
+ },
+ {
+  "adhb": 21182.54,
+  "adhk": 16761.66,
+  "periode": "2023",
+  "subsektor": "Aplikasi dan Pengembang Permainan",
+  "tumbuh": 9.54
+ },
+ {
+  "adhb": 23483.64,
+  "adhk": 18175.72,
+  "periode": "2024",
+  "subsektor": "Aplikasi dan Pengembang Permainan",
+  "tumbuh": 8.44
+ },
+ {
+  "adhb": 12790.53,
+  "adhk": 9640.41,
+  "periode": "S1 2025",
+  "subsektor": "Aplikasi dan Pengembang Permainan",
+  "tumbuh": 7.69
+ },
+ {
+  "adhb": 35634.49,
+  "adhk": 28728.59,
+  "periode": "2019",
+  "subsektor": "Penerbitan",
+  "tumbuh": 9.83
+ },
+ {
+  "adhb": 35282.37,
+  "adhk": 28217.22,
+  "periode": "2020",
+  "subsektor": "Penerbitan",
+  "tumbuh": -1.78
+ },
+ {
+  "adhb": 39594.56,
+  "adhk": 31188.73,
+  "periode": "2021",
+  "subsektor": "Penerbitan",
+  "tumbuh": 10.53
+ },
+ {
+  "adhb": 46541.04,
+  "adhk": 34027.57,
+  "periode": "2022",
+  "subsektor": "Penerbitan",
+  "tumbuh": 9.1
+ },
+ {
+  "adhb": 52537.85,
+  "adhk": 37542.48,
+  "periode": "2023",
+  "subsektor": "Penerbitan",
+  "tumbuh": 10.33
+ },
+ {
+  "adhb": 58534.65,
+  "adhk": 40758.81,
+  "periode": "2024",
+  "subsektor": "Penerbitan",
+  "tumbuh": 8.57
+ },
+ {
+  "adhb": 32043.63,
+  "adhk": 21655.97,
+  "periode": "S1 2025",
+  "subsektor": "Penerbitan",
+  "tumbuh": 8.61
+ },
+ {
+  "adhb": 7018.24,
+  "adhk": 4361.82,
+  "periode": "2019",
+  "subsektor": "Periklanan",
+  "tumbuh": 9.21
+ },
+ {
+  "adhb": 6999.23,
+  "adhk": 4323.14,
+  "periode": "2020",
+  "subsektor": "Periklanan",
+  "tumbuh": -0.89
+ },
+ {
+  "adhb": 7669.95,
+  "adhk": 4666.02,
+  "periode": "2021",
+  "subsektor": "Periklanan",
+  "tumbuh": 7.93
+ },
+ {
+  "adhb": 9182.64,
+  "adhk": 5050.88,
+  "periode": "2022",
+  "subsektor": "Periklanan",
+  "tumbuh": 8.25
+ },
+ {
+  "adhb": 10371.24,
+  "adhk": 5594.31,
+  "periode": "2023",
+  "subsektor": "Periklanan",
+  "tumbuh": 10.76
+ },
+ {
+  "adhb": 11559.84,
+  "adhk": 6035.28,
+  "periode": "2024",
+  "subsektor": "Periklanan",
+  "tumbuh": 7.88
+ },
+ {
+  "adhb": 6330.88,
+  "adhk": 3190.56,
+  "periode": "S1 2025",
+  "subsektor": "Periklanan",
+  "tumbuh": 8.27
+ },
+ {
+  "adhb": 61794.66,
+  "adhk": 55320.67,
+  "periode": "2019",
+  "subsektor": "Televisi dan Radio",
+  "tumbuh": 9.4
+ },
+ {
+  "adhb": 62820.81,
+  "adhk": 55740.31,
+  "periode": "2020",
+  "subsektor": "Televisi dan Radio",
+  "tumbuh": 0.76
+ },
+ {
+  "adhb": 68118.15,
+  "adhk": 59529.79,
+  "periode": "2021",
+  "subsektor": "Televisi dan Radio",
+  "tumbuh": 6.8
+ },
+ {
+  "adhb": 78504.55,
+  "adhk": 64644.33,
+  "periode": "2022",
+  "subsektor": "Televisi dan Radio",
+  "tumbuh": 8.59
+ },
+ {
+  "adhb": 87889.67,
+  "adhk": 70663.14,
+  "periode": "2023",
+  "subsektor": "Televisi dan Radio",
+  "tumbuh": 9.31
+ },
+ {
+  "adhb": 97274.79,
+  "adhk": 76499.66,
+  "periode": "2024",
+  "subsektor": "Televisi dan Radio",
+  "tumbuh": 8.26
+ },
+ {
+  "adhb": 52890.3,
+  "adhk": 40508.44,
+  "periode": "S1 2025",
+  "subsektor": "Televisi dan Radio",
+  "tumbuh": 7.53
+ },
+ {
+  "adhb": 1932.8,
+  "adhk": 1201.99,
+  "periode": "2019",
+  "subsektor": "Seni Pertunjukan",
+  "tumbuh": 9
+ },
+ {
+  "adhb": 1920.12,
+  "adhk": 1186.72,
+  "periode": "2020",
+  "subsektor": "Seni Pertunjukan",
+  "tumbuh": -1.27
+ },
+ {
+  "adhb": 2106.03,
+  "adhk": 1282.01,
+  "periode": "2021",
+  "subsektor": "Seni Pertunjukan",
+  "tumbuh": 8.03
+ },
+ {
+  "adhb": 2504.01,
+  "adhk": 1385.52,
+  "periode": "2022",
+  "subsektor": "Seni Pertunjukan",
+  "tumbuh": 8.07
+ },
+ {
+  "adhb": 2819.91,
+  "adhk": 1529.92,
+  "periode": "2023",
+  "subsektor": "Seni Pertunjukan",
+  "tumbuh": 10.42
+ },
+ {
+  "adhb": 3135.8,
+  "adhk": 1648.92,
+  "periode": "2024",
+  "subsektor": "Seni Pertunjukan",
+  "tumbuh": 7.78
+ },
+ {
+  "adhb": 1713.3,
+  "adhk": 870.71,
+  "periode": "S1 2025",
+  "subsektor": "Seni Pertunjukan",
+  "tumbuh": 8.12
+ },
+ {
+  "adhb": 249.42,
+  "adhk": 153.07,
+  "periode": "2019",
+  "subsektor": "Seni Rupa",
+  "tumbuh": 5.71
+ },
+ {
+  "adhb": 245.39,
+  "adhk": 149.68,
+  "periode": "2020",
+  "subsektor": "Seni Rupa",
+  "tumbuh": -2.22
+ },
+ {
+  "adhb": 258.48,
+  "adhk": 155.29,
+  "periode": "2021",
+  "subsektor": "Seni Rupa",
+  "tumbuh": 3.75
+ },
+ {
+  "adhb": 281.66,
+  "adhk": 163.14,
+  "periode": "2022",
+  "subsektor": "Seni Rupa",
+  "tumbuh": 5.06
+ },
+ {
+  "adhb": 303.34,
+  "adhk": 171.59,
+  "periode": "2023",
+  "subsektor": "Seni Rupa",
+  "tumbuh": 5.18
+ },
+ {
+  "adhb": 325.02,
+  "adhk": 181.1,
+  "periode": "2024",
+  "subsektor": "Seni Rupa",
+  "tumbuh": 5.54
+ },
+ {
+  "adhb": 170.7,
+  "adhk": 93.23,
+  "periode": "S1 2025",
+  "subsektor": "Seni Rupa",
+  "tumbuh": 4.68
+ }
+]

@@ -1,0 +1,82 @@
+[
+ {
+  "catatan": "",
+  "indikator": "Peringkat Keseluruhan (Overall)",
+  "kategori": "peringkat",
+  "nilai": 74,
+  "pj": "Pemerintah Provinsi DKI Jakarta",
+  "satuan": "peringkat",
+  "sumber": "jakarta.go.id/competitiveness (Kearney GCI)",
+  "tahun": 2024
+ },
+ {
+  "catatan": "",
+  "indikator": "Peringkat Keseluruhan (Overall)",
+  "kategori": "peringkat",
+  "nilai": 71,
+  "pj": "Pemerintah Provinsi DKI Jakarta",
+  "satuan": "peringkat",
+  "sumber": "jakarta.go.id/competitiveness (Kearney GCI)",
+  "tahun": 2025
+ },
+ {
+  "catatan": "Dimensi pariwisata & budaya",
+  "indikator": "Pengalaman Budaya (Cultural Experience)",
+  "kategori": "peringkat",
+  "nilai": 52,
+  "pj": "Pemerintah Provinsi DKI Jakarta",
+  "satuan": "peringkat",
+  "sumber": "jakarta.go.id/competitiveness (Kearney GCI)",
+  "tahun": 2024
+ },
+ {
+  "catatan": "Dimensi pariwisata & budaya",
+  "indikator": "Pengalaman Budaya (Cultural Experience)",
+  "kategori": "peringkat",
+  "nilai": 58,
+  "pj": "Pemerintah Provinsi DKI Jakarta",
+  "satuan": "peringkat",
+  "sumber": "jakarta.go.id/competitiveness (Kearney GCI)",
+  "tahun": 2025
+ },
+ {
+  "catatan": "",
+  "indikator": "Jumlah Museum",
+  "kategori": "indikator",
+  "nilai": 79,
+  "pj": "Dinas Kebudayaan",
+  "satuan": "Museum",
+  "sumber": "satudata.jakarta.go.id",
+  "tahun": 2025
+ },
+ {
+  "catatan": "Belum digabung dengan data Disbud.",
+  "indikator": "Seni Visual & Pertunjukan",
+  "kategori": "indikator",
+  "nilai": 156,
+  "pj": "Dinas Pariwisata & Ekraf",
+  "satuan": "Karya / kegiatan",
+  "sumber": "Dinas Pariwisata & Ekraf",
+  "tahun": 2024
+ },
+ {
+  "catatan": "",
+  "indikator": "Wisatawan Internasional",
+  "kategori": "indikator",
+  "nilai": 2767622,
+  "pj": "Dinas Pariwisata & Ekraf",
+  "satuan": "Wisatawan",
+  "sumber": "jakarta.bps.go.id",
+  "tahun": 2025
+ },
+ {
+  "catatan": "Belum ada Michelin Star di Jakarta.",
+  "indikator": "Penawaran Kuliner (Michelin)",
+  "kategori": "indikator",
+  "nilai": 0,
+  "pj": "Dinas Pariwisata & Ekraf",
+  "satuan": "Restoran Michelin",
+  "sumber": "Michelin",
+  "tahun": 2025
+ }
+]

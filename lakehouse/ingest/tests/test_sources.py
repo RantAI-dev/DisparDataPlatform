@@ -77,16 +77,16 @@ def _muat(tmp_path: Path, toml: str, berkas=("data/a.tsv",)) -> Registry:
 
 
 def test_registri_repo_termuat(registri: Registry):
-    # Plan 03: 1 SDI + 34 berkas + 28 sekunder = 63 entri. Tabel bronze_file ke-35
-    # (wellness_jakarta) datang dari tabel_lain, bukan entri sendiri.
-    assert len(registri.sumber) == 63
+    # Plan 04: 1 SDI + 62 berkas (34 lama + 28 statis/ref/crawl) + 28 sekunder = 91 entri.
+    # Tabel bronze_file ke-63 (wellness_jakarta) datang dari tabel_lain, bukan entri sendiri.
+    assert len(registri.sumber) == 91
 
 
 def test_jumlah_sesuai_bronze_hidup(registri: Registry):
-    """Kriteria Plan 03: 1 SDI + 35 bronze_file + 28 bronze_sec.
+    """Kriteria Plan 04: 1 SDI + 63 bronze_file + 28 bronze_sec.
     - bronze_sdi: 1 entri registri (181 tabel live)
-    - bronze_file: 34 entri registri berkas + 1 dari tabel_lain (wellness_jakarta) = 35
-      (18 tabel live dari Plan 01 + 17 berkas raw baru dari Plan 03)
+    - bronze_file: 62 entri registri berkas + 1 dari tabel_lain (wellness_jakarta) = 63
+      (18 tabel live Plan 01 + 17 berkas raw Plan 03 + 28 berkas Plan 04)
     - bronze_sec: 28 entri registri sekunder (28 tabel live)
     """
     by_ns: dict[str, int] = {}
@@ -95,8 +95,20 @@ def test_jumlah_sesuai_bronze_hidup(registri: Registry):
         for ns, _ in s.tabel_lain:
             by_ns[ns] = by_ns.get(ns, 0) + 1
     assert by_ns["bronze_sdi"] == 1, "bentuk registri (bukan lake): jumlah SDI"
-    assert by_ns["bronze_file"] == 35, "bentuk registri: jumlah bronze_file"
+    assert by_ns["bronze_file"] == 63, "bentuk registri: jumlah bronze_file"
     assert by_ns["bronze_sec"] == 28, "bentuk registri (bukan lake): jumlah bronze_sec"
+
+
+def test_sumber_data_statis(registri: Registry):
+    """Kriteria 2 Plan 04: semua 28 berkas data statis terdaftar dengan pembangun yang benar."""
+    statis = [s for s in registri.sumber if s.pembangun == "scripts/ekspor_data_statis.ts"]
+    assert len(statis) == 28, f"Harus ada 28 berkas statis/ref/crawl, ditemukan {len(statis)}"
+    for s in statis:
+        assert s.jenis == "berkas"
+        assert s.namespace == "bronze_file"
+        assert s.kelas_refresh == "snapshot"
+        assert s.tanggal_ambil is not None
+        assert (REPO / s.path).is_file(), f"Berkas tidak ada di disk: {s.path}"
 
 
 def test_tidak_ada_abaikan_belum_dinilai(registri: Registry):

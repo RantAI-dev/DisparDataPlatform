@@ -1,0 +1,1082 @@
+[
+ {
+  "alamat": "JL ASIA AFRIKA NO. 8, GELORA, SENAYAN, TANAH ABANG, JAKARTA PUSAT 10270",
+  "golongan": "BINTANG 5",
+  "jenis_usaha": "HOTEL",
+  "kamar": 488,
+  "nama": "ACCOR/ FAIRMONT JAKARTA",
+  "periode": "202311",
+  "wilayah": "JAKARTA PUSAT"
+ },
+ {
+  "alamat": "JL PLUIT SELATAN NO.1 , KECAMATAN PENJARINGAN DKI JAKARTA 14450.",
+  "golongan": "BINTANG 4",
+  "jenis_usaha": "HOTEL",
+  "kamar": 229,
+  "nama": "AKOMODASI HOTEL",
+  "periode": "202308",
+  "wilayah": "JAKARTA UTARA"
+ },
+ {
+  "alamat": "JL. PERINTIS KEMERDEKAAN NO.42, PEGANGSAAN DUA, KELAPA GADING",
+  "golongan": "NON BINTANG",
+  "jenis_usaha": "HOTEL",
+  "kamar": 207,
+  "nama": "AKOMODASI KAMAR",
+  "periode": "202308",
+  "wilayah": "JAKARTA UTARA"
+ },
+ {
+  "alamat": "JL. CIKINI RAYA NO.66 RT.14 RW.5 CIKINI KEC. MENTENG KOTA JAKARTA PUSAT",
+  "golongan": "BINTANG 4",
+  "jenis_usaha": "HOTEL",
+  "kamar": 197,
+  "nama": "AKOMODASI PERHOTELAN",
+  "periode": "202302",
+  "wilayah": "JAKARTA PUSAT"
+ },
+ {
+  "alamat": "JL. JENDERAL SUDIRMAN KAVLING 52-53 JAKARTA SELATAN 12190",
+  "golongan": "BINTANG 5",
+  "jenis_usaha": "HOTEL",
+  "kamar": 105,
+  "nama": "ALILA SCBD",
+  "periode": "202309",
+  "wilayah": "JAKARTA SELATAN"
+ },
+ {
+  "alamat": "JL. TALANG BETUTU NO.2, KB. MELATI, KECAMATAN TANAH ABANG, KOTA JAKARTA PUSAT, DAERAH KHUSUS IBUKOTA JAKARTA 10320",
+  "golongan": "BINTANG 3",
+  "jenis_usaha": "HOTEL",
+  "kamar": 166,
+  "nama": "ALL SEASONS JAKARTA THAMRIN",
+  "periode": "202305",
+  "wilayah": "JAKARTA PUSAT"
+ },
+ {
+  "alamat": "JL. PASAR BARU TIMUR NO. 20-21, JAKARTA PUSAT 10710",
+  "golongan": "BINTANG 2",
+  "jenis_usaha": "HOTEL",
+  "kamar": 102,
+  "nama": "AMARIS HOTEL PASAR BARU JAKARTA",
+  "periode": "202310",
+  "wilayah": "JAKARTA PUSAT"
+ },
+ {
+  "alamat": "JL.ISKANDARSYAH RAYA NO 1 KEL.MELAWAI KEC KEB BARU JAKARTA SELATAN",
+  "golongan": "BINTANG 4",
+  "jenis_usaha": "HOTEL",
+  "kamar": 223,
+  "nama": "AMBHARA HOTEL JAKARTA",
+  "periode": "202301",
+  "wilayah": "JAKARTA SELATAN"
+ },
+ {
+  "alamat": "JALAN SUNDA NO. 3 MENTENG - JAKARTA 10350",
+  "golongan": "BINTANG 3",
+  "jenis_usaha": "HOTEL",
+  "kamar": 107,
+  "nama": "ARTOTEL THAMRIN JAKARTA",
+  "periode": "202302",
+  "wilayah": "JAKARTA PUSAT"
+ },
+ {
+  "alamat": "JL. HAJI NAWI NO. 1  GANDARIA SELATAN.",
+  "golongan": "BINTANG 4",
+  "jenis_usaha": "HOTEL",
+  "kamar": 150,
+  "nama": "ASTON BELLEVUE RADIO DALAM",
+  "periode": "202303",
+  "wilayah": "JAKARTA SELATAN"
+ },
+ {
+  "alamat": "JL  KYAI TAPA 101  GROGOL JAKARTA BARAT",
+  "golongan": "BINTANG 4",
+  "jenis_usaha": "HOTEL",
+  "kamar": 187,
+  "nama": "ASTON KARTIKA GROGOL HOTEL AND CONFERENCE CENTER",
+  "periode": "202306",
+  "wilayah": "JAKARTA BARAT"
+ },
+ {
+  "alamat": "JL  HBR MOTIK BLOK B10 NO 4  KEMAYORAN  JAKARTA PUSAT",
+  "golongan": "BINTANG 3",
+  "jenis_usaha": "HOTEL",
+  "kamar": 140,
+  "nama": "ASTON KEMAYORAN CITY HOTEL",
+  "periode": "202306",
+  "wilayah": "JAKARTA PUSAT"
+ },
+ {
+  "alamat": "JLN TB SIMATUPANG KAV. 9 KEBAGUSAN PASAR MINGGU JAKARTA SELATAN",
+  "golongan": "BINTANG 4",
+  "jenis_usaha": "HOTEL",
+  "kamar": 277,
+  "nama": "ASTON PRIORITY SIMATUPANG",
+  "periode": "202304",
+  "wilayah": "JAKARTA SELATAN"
+ },
+ {
+  "alamat": "JL. JENDERAL SUDIRMAN KAV 10 - 11 JAKARTA 10220, INDONESIA",
+  "golongan": "BINTANG 5",
+  "jenis_usaha": "HOTEL",
+  "kamar": 366,
+  "nama": "AYANA MIDPLAZA, JAKARTA",
+  "periode": "202311",
+  "wilayah": "JAKARTA PUSAT"
+ },
+ {
+  "alamat": "JL. KOTA BAMBU SELATAN NO.9 SILIPI",
+  "golongan": "BINTANG 1",
+  "jenis_usaha": "HOTEL",
+  "kamar": 74,
+  "nama": "BAMBOO INN HOTEL   CAFE",
+  "periode": "202301",
+  "wilayah": "JAKARTA BARAT"
+ },
+ {
+  "alamat": "JL. RE MARTADINATA NO.2 PADEMANGAN, JAKARTA UTARA",
+  "golongan": "BINTANG 3",
+  "jenis_usaha": "HOTEL",
+  "kamar": 106,
+  "nama": "BI EXECUTIVE HOTEL",
+  "periode": "202310",
+  "wilayah": "JAKARTA UTARA"
+ },
+ {
+  "alamat": "JL. AIPDA KS TUBUN NO.19 PETAMBURAN JAKARTA PUSAT",
+  "golongan": "BINTANG 3",
+  "jenis_usaha": "HOTEL",
+  "kamar": 96,
+  "nama": "BLUE SKY HOTEL PETAMBURAN",
+  "periode": "202301",
+  "wilayah": "JAKARTA TIMUR"
+ },
+ {
+  "alamat": "JL. RAYA PASAR MINGGU KAV.19 A PANCORAN",
+  "golongan": "BINTANG 3",
+  "jenis_usaha": "HOTEL",
+  "kamar": 109,
+  "nama": "CIPTA HOTEL PANCORAN",
+  "periode": "202302",
+  "wilayah": "JAKARTA SELATAN"
+ },
+ {
+  "alamat": "MANGGA BESAR RAYA NO. 98",
+  "golongan": "NON BINTANG",
+  "jenis_usaha": "HOTEL",
+  "kamar": 56,
+  "nama": "CITY ICON RESIDENCE",
+  "periode": "202301",
+  "wilayah": "JAKARTA PUSAT"
+ },
+ {
+  "alamat": "JLN KH SAMANHUDI NO 43-45",
+  "golongan": "BINTANG 3",
+  "jenis_usaha": "HOTEL",
+  "kamar": 129,
+  "nama": "CLASSIC HOTEL",
+  "periode": "202311",
+  "wilayah": "JAKARTA PUSAT"
+ },
+ {
+  "alamat": "JLN JAKSA NO.27 KEBON SIRIH MENTENG JAKARTA 10340",
+  "golongan": "BINTANG 2",
+  "jenis_usaha": "HOTEL",
+  "kamar": 102,
+  "nama": "DAFAM EXPRESS JAKSA JAKARTA",
+  "periode": "202302",
+  "wilayah": "JAKARTA PUSAT"
+ },
+ {
+  "alamat": "JL GADING KIRANA",
+  "golongan": "BINTANG 4",
+  "jenis_usaha": "HOTEL",
+  "kamar": 303,
+  "nama": "EL HOTEL ROYALE JAKARTA",
+  "periode": "202308",
+  "wilayah": "JAKARTA UTARA"
+ },
+ {
+  "alamat": "JL  KARTIKA CANDRA NO KAV  A9  RT 5 RW 2  KARET SEMANGGI  KECAMATAN SETIABUDI  KOTA JAKARTA SELATAN  DAERAH KHUSUS IBUKOTA JAKARTA 12930",
+  "golongan": "BINTANG 2",
+  "jenis_usaha": "HOTEL",
+  "kamar": 150,
+  "nama": "FAVEHOTEL GATOT SUBROTO JAKARTA",
+  "periode": "202307",
+  "wilayah": "JAKARTA SELATAN"
+ },
+ {
+  "alamat": "JL. RAYA GADING INDAH NO.8 KLP. GADING TIM. KEC. KLP. GADING KOTA JKT UTARA DAERAH KHUSUS IBUKOTA JAKARTA 14240",
+  "golongan": "BINTANG 2",
+  "jenis_usaha": "HOTEL",
+  "kamar": 121,
+  "nama": "FAVEHOTEL KELAPA GADING - JAKARTA",
+  "periode": "202304",
+  "wilayah": "JAKARTA UTARA"
+ },
+ {
+  "alamat": "JL. HAYAM WURUK NO.127, JAKARTA 11180",
+  "golongan": "BINTANG 2",
+  "jenis_usaha": "HOTEL",
+  "kamar": 203,
+  "nama": "FAVEHOTEL LTC GLODOK",
+  "periode": "202310",
+  "wilayah": "JAKARTA BARAT"
+ },
+ {
+  "alamat": "JL. KH SAMANHUDI NO 26  SAWAH BESAR",
+  "golongan": "BINTANG 2",
+  "jenis_usaha": "HOTEL",
+  "kamar": 84,
+  "nama": "FAVEHOTEL PASAR BARU",
+  "periode": "202303",
+  "wilayah": "JAKARTA PUSAT"
+ },
+ {
+  "alamat": "JL. MAYJEN SUTOYO NO.76 2 13, RT.2/RW.13, CILILITAN, KEC. KRAMAT JATI, KOTA JAKARTA TIMUR, DAERAH KHUSUS IBUKOTA JAKARTA 13640",
+  "golongan": "BINTANG 2",
+  "jenis_usaha": "HOTEL",
+  "kamar": 194,
+  "nama": "FAVEHOTEL PGC CILILITAN",
+  "periode": "202310",
+  "wilayah": "JAKARTA TIMUR"
+ },
+ {
+  "alamat": "JALAN RAYA DAAN MOGOT NO 2 GROGOL PETAMBURAN",
+  "golongan": "BINTANG 3",
+  "jenis_usaha": "HOTEL",
+  "kamar": 60,
+  "nama": "FOX LITE HOTEL GROGOL JAKARTA",
+  "periode": "202302",
+  "wilayah": "JAKARTA BARAT"
+ },
+ {
+  "alamat": "JL  SETIABUDI RAYA NO 9 JAKARTA SELATAN",
+  "golongan": "BINTANG 5",
+  "jenis_usaha": "HOTEL",
+  "kamar": 107,
+  "nama": "FRASER RESIDENCE SUDIRMAN JAKARTA",
+  "periode": "202307",
+  "wilayah": "JAKARTA SELATAN"
+ },
+ {
+  "alamat": "JL  MELAWAI VIII NO  6 8 KEL  MELAWAI  KEC  KEBAYORAN BARU  JAKARTA SELATAN",
+  "golongan": "BINTANG 4",
+  "jenis_usaha": "HOTEL",
+  "kamar": 101,
+  "nama": "GOLDEN BOUTIQUE HOTEL MELAWAI",
+  "periode": "202306",
+  "wilayah": "JAKARTA SELATAN"
+ },
+ {
+  "alamat": "JALAN PANGERAN ANTASARI NO. 60  CIPETE UTARA  KEBAYORAN BARU",
+  "golongan": "BINTANG 5",
+  "jenis_usaha": "HOTEL",
+  "kamar": 76,
+  "nama": "GOODRICH SUITES ARTOTEL PORTFOLIO",
+  "periode": "202303",
+  "wilayah": "JAKARTA SELATAN"
+ },
+ {
+  "alamat": "JL HR RASUNA SAID KAV. X-0 KUNINGAN JAKARTA SELATAN",
+  "golongan": "BINTANG 5",
+  "jenis_usaha": "HOTEL",
+  "kamar": 346,
+  "nama": "GRAN MELIA HOTEL JAKARTA",
+  "periode": "202302",
+  "wilayah": "JAKARTA SELATAN"
+ },
+ {
+  "alamat": "JL. BANDENGAN SELATAN NO.88 JAKARTA UTARA",
+  "golongan": "BINTANG 3",
+  "jenis_usaha": "HOTEL",
+  "kamar": 102,
+  "nama": "GRAND ASIA HOTEL",
+  "periode": "202301",
+  "wilayah": "JAKARTA UTARA"
+ },
+ {
+  "alamat": "JL. LODAN RAYA NO.2A JAKARTA 14430",
+  "golongan": "BINTANG 4",
+  "jenis_usaha": "HOTEL",
+  "kamar": 225,
+  "nama": "GRAND DAFAM ANCOL JAKARTA",
+  "periode": "202301",
+  "wilayah": "JAKARTA UTARA"
+ },
+ {
+  "alamat": "JL. R A KARTINI NO.1 KEL. LEBAK BULUS KEC. CILANDAK - JAKARTA SELATAN",
+  "golongan": "BINTANG 4",
+  "jenis_usaha": "HOTEL",
+  "kamar": 159,
+  "nama": "GRAND WHIZ POINS SIMATUPANG JAKARTA",
+  "periode": "202301",
+  "wilayah": "JAKARTA SELATAN"
+ },
+ {
+  "alamat": "JL LINGKAR LUAR PURI MANSION ESTATE KEMBANGAN",
+  "golongan": "BINTANG 4",
+  "jenis_usaha": "HOTEL",
+  "kamar": 192,
+  "nama": "HARRIS SUITES PURI MANSION",
+  "periode": "202310",
+  "wilayah": "JAKARTA BARAT"
+ },
+ {
+  "alamat": "JL GAJAH MADA NO 211 JAKARTA 11120",
+  "golongan": "BINTANG 4",
+  "jenis_usaha": "HOTEL",
+  "kamar": 442,
+  "nama": "HOLIDAY INN   SUITES JAKARTA GAJAH MADA AN IHG HOTEL",
+  "periode": "202303",
+  "wilayah": "JAKARTA BARAT"
+ },
+ {
+  "alamat": "JL. GRIYA UTAMA BLOK B NO. 1 JAKARTA UTARA",
+  "golongan": "BINTANG 4",
+  "jenis_usaha": "HOTEL",
+  "kamar": 255,
+  "nama": "HOLIDAY INN JAKARTA KEMAYORAM",
+  "periode": "202301",
+  "wilayah": "JAKARTA UTARA"
+ },
+ {
+  "alamat": "KOMPLEK APARTEMEN TAMAN RASUNA  TOWER A JL. HR RASUNA SAID JAKARTA SELATAN 12960",
+  "golongan": "BINTANG 4",
+  "jenis_usaha": "HOTEL",
+  "kamar": 147,
+  "nama": "HORISON SUITES   RESIDENCES RASUNA JAKARTA",
+  "periode": "202301",
+  "wilayah": "JAKARTA SELATAN"
+ },
+ {
+  "alamat": "APARTEMEN TAMAN RASUNA, TOWER A,",
+  "golongan": "BINTANG 4",
+  "jenis_usaha": "HOTEL",
+  "kamar": 147,
+  "nama": "HORISON SUITES AND RESIDENCES RASUNA JAKARTA",
+  "periode": "202311",
+  "wilayah": "JAKARTA SELATAN"
+ },
+ {
+  "alamat": "PIK AVENUE, KAMAL MUARA, KEC. PENJARINGAN, KOTA JKT UTARA, DAERAH KHUSUS IBUKOTA JAKARTA 14470, INDONESIA",
+  "golongan": "BINTANG 4",
+  "jenis_usaha": "HOTEL",
+  "kamar": 240,
+  "nama": "HOTEL",
+  "periode": "202309",
+  "wilayah": "JAKARTA UTARA"
+ },
+ {
+  "alamat": "JL. MELAWAI V NO.20. RT 3   RW 1. MELAWAI. KEC. KEBAYORAN BARU. JAKARTA SELATAN. DKI JAKARTA. 12160",
+  "golongan": "BINTANG 2",
+  "jenis_usaha": "HOTEL",
+  "kamar": 74,
+  "nama": "HOTEL 88 BLOK M",
+  "periode": "202304",
+  "wilayah": "JAKARTA SELATAN"
+ },
+ {
+  "alamat": "JL  DR  SUSILO RAYA C1  GROGOL PETAMBURAN  GROGOL",
+  "golongan": "BINTANG 2",
+  "jenis_usaha": "HOTEL",
+  "kamar": 95,
+  "nama": "HOTEL 88 GROGOL",
+  "periode": "202307",
+  "wilayah": "JAKARTA BARAT"
+ },
+ {
+  "alamat": "JL. MANGGA BESAR RAYA NO.62",
+  "golongan": "BINTANG 2",
+  "jenis_usaha": "HOTEL",
+  "kamar": 161,
+  "nama": "HOTEL 88 MANGGA BESAR 62",
+  "periode": "202303",
+  "wilayah": "JAKARTA BARAT"
+ },
+ {
+  "alamat": "KS TUBUN 10 A",
+  "golongan": "BINTANG 1",
+  "jenis_usaha": "HOTEL",
+  "kamar": 102,
+  "nama": "HOTEL ALMA",
+  "periode": "202306",
+  "wilayah": "JAKARTA BARAT"
+ },
+ {
+  "alamat": "JL. KH WAHID HASYIM NO.92 KEB.SIRIH KEC. MENTENG",
+  "golongan": "BINTANG 4",
+  "jenis_usaha": "HOTEL",
+  "kamar": 180,
+  "nama": "HOTEL ALOFT WAHID HASYIM",
+  "periode": "202302",
+  "wilayah": "JAKARTA PUSAT"
+ },
+ {
+  "alamat": "JL. KAPTEN P. TENDEAN NO. 11 MAMPANG PRAPATAN JAKARTA SELATAN",
+  "golongan": "BINTANG 2",
+  "jenis_usaha": "HOTEL",
+  "kamar": 99,
+  "nama": "HOTEL AMARIS TENDEAN JAKARTA",
+  "periode": "202309",
+  "wilayah": "JAKARTA SELATAN"
+ },
+ {
+  "alamat": "JL. RC VETERAN NO. 3 ,KELURAHAN BINTARO, KECAMATAN PESANGGRAHAN, JAKARTA SELATAN",
+  "golongan": "BINTANG 3",
+  "jenis_usaha": "HOTEL",
+  "kamar": 159,
+  "nama": "HOTEL AROSA",
+  "periode": "202308",
+  "wilayah": "JAKARTA SELATAN"
+ },
+ {
+  "alamat": "JL  JEND  SUDIRMAN KAV 10 11  JAKARTA PUSAT",
+  "golongan": "BINTANG 5",
+  "jenis_usaha": "HOTEL",
+  "kamar": 366,
+  "nama": "HOTEL AYANA MIDPLAZA JAKARTA",
+  "periode": "202306",
+  "wilayah": "JAKARTA PUSAT"
+ },
+ {
+  "alamat": "JL. GATOT SUBROTO KAV.71-73  KEL.MENTENG DALAM KEC. TEBET",
+  "golongan": "BINTANG 4",
+  "jenis_usaha": "HOTEL",
+  "kamar": 174,
+  "nama": "HOTEL BIDAKARA JAKARTA",
+  "periode": "202303",
+  "wilayah": "JAKARTA SELATAN"
+ },
+ {
+  "alamat": "JL. BLORA NO. 20 MENTENG JAKARTA PUSAT",
+  "golongan": "BINTANG 2",
+  "jenis_usaha": "HOTEL",
+  "kamar": 81,
+  "nama": "HOTEL CLAY",
+  "periode": "202308",
+  "wilayah": "JAKARTA PUSAT"
+ },
+ {
+  "alamat": "JL. JEND AHMAD YANI KAV-67",
+  "golongan": "BINTANG 3",
+  "jenis_usaha": "HOTEL",
+  "kamar": 98,
+  "nama": "HOTEL DAILY INN JAKARTA",
+  "periode": "202302",
+  "wilayah": "JAKARTA PUSAT"
+ },
+ {
+  "alamat": "L. HOS. COKROAMINOTO NO.84 - 86, RT.3/RW.5, MENTENG, KEC. MENTENG, KOTA JAKARTA PUSAT, DAERAH KHUSUS IBUKOTA JAKARTA 10310",
+  "golongan": "BINTANG 3",
+  "jenis_usaha": "HOTEL",
+  "kamar": 74,
+  "nama": "HOTEL DES INDES MENTENG",
+  "periode": "202308",
+  "wilayah": "JAKARTA PUSAT"
+ },
+ {
+  "alamat": "JL. KAPTEN PIERE TENDEAN NO. 38 MAMPANG PRAPATAN JAKARTA SELATAN",
+  "golongan": "BINTANG 3",
+  "jenis_usaha": "HOTEL",
+  "kamar": 223,
+  "nama": "HOTEL DIRADJA",
+  "periode": "202304",
+  "wilayah": "JAKARTA SELATAN"
+ },
+ {
+  "alamat": "JALAN ANGKASA NO 1 RT RW 07 05 GUNUNG SAHARI UTARA SAWAH BESAR",
+  "golongan": "BINTANG 4",
+  "jenis_usaha": "HOTEL",
+  "kamar": 257,
+  "nama": "HOTEL GOLDEN BOUTIQUE",
+  "periode": "202307",
+  "wilayah": "JAKARTA PUSAT"
+ },
+ {
+  "alamat": "JALAN MAHAKAM I NO. 6  KRAMAT PELA  KEBAYORAN BARU",
+  "golongan": "BINTANG 5",
+  "jenis_usaha": "HOTEL",
+  "kamar": 158,
+  "nama": "HOTEL GRAN MAHAKAM",
+  "periode": "202303",
+  "wilayah": "JAKARTA SELATAN"
+ },
+ {
+  "alamat": "JL. H. BENYAMIN SUEB KAV B6 SUPERBLOK MEGA KEMAYORAN KOTA BARU BANDAR KEMAYORAN",
+  "golongan": "BINTANG 5",
+  "jenis_usaha": "HOTEL",
+  "kamar": 505,
+  "nama": "HOTEL GRAND MERCURE JAKARTA KEMAYORAN",
+  "periode": "202303",
+  "wilayah": "JAKARTA PUSAT"
+ },
+ {
+  "alamat": "JL. ISKANDARSYAH RAYA NO.65, MELAWAI, KEC. KBY. BARU, KOTA JAKARTA SELATAN, DAERAH KHUSUS IBUKOTA JAKARTA 12160",
+  "golongan": "BINTANG 4",
+  "jenis_usaha": "HOTEL",
+  "kamar": 235,
+  "nama": "HOTEL GRANDHIKA ISKANDARSYAH JAKARTA",
+  "periode": "202309",
+  "wilayah": "JAKARTA SELATAN"
+ },
+ {
+  "alamat": "JL  KH ZAINUL ARIFIN NO 5DAN 7 PETOJO UTARA JAKARTA PUSAT 10130",
+  "golongan": "BINTANG 4",
+  "jenis_usaha": "HOTEL",
+  "kamar": 150,
+  "nama": "HOTEL IBIS STYLES JAKARTA GAJAH MADA",
+  "periode": "202307",
+  "wilayah": "JAKARTA PUSAT"
+ },
+ {
+  "alamat": "JL. MH THAMRIN NO. 1",
+  "golongan": "BINTANG 5",
+  "jenis_usaha": "HOTEL",
+  "kamar": 289,
+  "nama": "HOTEL INDONESIA KEMPINSKI JAKARTA",
+  "periode": "202311",
+  "wilayah": "JAKARTA PUSAT"
+ },
+ {
+  "alamat": "JL.PLN NO.01 KEL.DUREN TIGA KEC PANCORAN JAKARTA SELATAN",
+  "golongan": "BINTANG 3",
+  "jenis_usaha": "HOTEL",
+  "kamar": 316,
+  "nama": "HOTEL KAISAR",
+  "periode": "202302",
+  "wilayah": "JAKARTA SELATAN"
+ },
+ {
+  "alamat": "JALAN BANGKA RAYA NO.7A, KEMANG, JAKARTA SELATAN",
+  "golongan": "BINTANG 3",
+  "jenis_usaha": "HOTEL",
+  "kamar": 108,
+  "nama": "HOTEL KURETAKESO KEMANG",
+  "periode": "202309",
+  "wilayah": "JAKARTA SELATAN"
+ },
+ {
+  "alamat": "JALAN PANTAI INDAH TAMAN IMPIAN JAYA ANCOL",
+  "golongan": "BINTANG 4",
+  "jenis_usaha": "HOTEL",
+  "kamar": 438,
+  "nama": "HOTEL MERCURE CONVENTION CENTER ANCOL JAKARTA",
+  "periode": "202302",
+  "wilayah": "JAKARTA UTARA"
+ },
+ {
+  "alamat": "JL. HAYAM WURUK NO. 123 TAMAN SARI - MANGGA BESAR JAKARTA BARAT 11160",
+  "golongan": "BINTANG 4",
+  "jenis_usaha": "HOTEL",
+  "kamar": 243,
+  "nama": "HOTEL MERCURE JAKARTA KOTA",
+  "periode": "202302",
+  "wilayah": "JAKARTA BARAT"
+ },
+ {
+  "alamat": "JL. CILEDUG RAYA NO. 35 CIPULIR KEBAYORAN LAMA",
+  "golongan": "BINTANG 3",
+  "jenis_usaha": "HOTEL",
+  "kamar": 102,
+  "nama": "HOTEL NEO  KEBAYORAN",
+  "periode": "202302",
+  "wilayah": "JAKARTA SELATAN"
+ },
+ {
+  "alamat": "JL K H WAHID HASYIM NO 29 MENTENG",
+  "golongan": "BINTANG 3",
+  "jenis_usaha": "HOTEL",
+  "kamar": 78,
+  "nama": "HOTEL PARAGON WAHID HASYIM",
+  "periode": "202306",
+  "wilayah": "JAKARTA PUSAT"
+ },
+ {
+  "alamat": "MAHAKA SQUARE  JL  KELAPA NIAS RAYA BLOK HF3  KELAPA GADING  JAKARTA UTARA 14240",
+  "golongan": "BINTANG 3",
+  "jenis_usaha": "HOTEL",
+  "kamar": 146,
+  "nama": "HOTEL SANTIKA KELAPA GADING JAKARTA",
+  "periode": "202306",
+  "wilayah": "JAKARTA UTARA"
+ },
+ {
+  "alamat": "JL. PINTU 1 TMII, CEGER, CIPAYUNG, JAKARTA TIMUR",
+  "golongan": "BINTANG 3",
+  "jenis_usaha": "HOTEL",
+  "kamar": 124,
+  "nama": "HOTEL SANTIKA TAMAN MINI INDONESIA INDAH",
+  "periode": "202305",
+  "wilayah": "JAKARTA TIMUR"
+ },
+ {
+  "alamat": "JL. DAAN MOGOT NO. 50 B JAKARTA BARAT",
+  "golongan": "BINTANG 2",
+  "jenis_usaha": "HOTEL",
+  "kamar": 195,
+  "nama": "IBIS BUDGET JAKARTA DAAN MOGOT",
+  "periode": "202302",
+  "wilayah": "JAKARTA BARAT"
+ },
+ {
+  "alamat": "JL. GUNUNG SAHARI RAYA NO. 1 JAKARTA UTARA",
+  "golongan": "BINTANG 3",
+  "jenis_usaha": "HOTEL",
+  "kamar": 211,
+  "nama": "IBIS STYLES JAKARTA MANGGA DUA SQUARE",
+  "periode": "202301",
+  "wilayah": "JAKARTA UTARA"
+ },
+ {
+  "alamat": "JL GAYA MOTOR I, SUNGAI BAMBU, SUNTER, TANJUNG PRIOK, JAKARTA UTARA",
+  "golongan": "BINTANG 3",
+  "jenis_usaha": "HOTEL",
+  "kamar": 145,
+  "nama": "IBIS STYLES JAKARTA SUNTER",
+  "periode": "202308",
+  "wilayah": "JAKARTA UTARA"
+ },
+ {
+  "alamat": "JL. FACHRUDDIN NO. 22  KAMPUNG BALI  TANAH ABANG",
+  "golongan": "BINTANG 4",
+  "jenis_usaha": "HOTEL",
+  "kamar": 201,
+  "nama": "IBIS STYLES JAKARTA TANAH ABANG",
+  "periode": "202303",
+  "wilayah": "JAKARTA PUSAT"
+ },
+ {
+  "alamat": "JL. METRO PONDOK INDAH KAV. IV TA, JAKARTA 12310",
+  "golongan": "BINTANG 5",
+  "jenis_usaha": "HOTEL",
+  "kamar": 311,
+  "nama": "INTERCONTINENTAL JAKARTA PONDOK INDAH",
+  "periode": "202311",
+  "wilayah": "JAKARTA SELATAN"
+ },
+ {
+  "alamat": "JL. METRO PONDOK INDAH KAV. IV TA, JAKARTA 12310",
+  "golongan": "BINTANG 5",
+  "jenis_usaha": "HOTEL",
+  "kamar": 193,
+  "nama": "INTERCONTINENTAL RESIDENCES JAKARTA PONDOK INDAH",
+  "periode": "202311",
+  "wilayah": "JAKARTA SELATAN"
+ },
+ {
+  "alamat": "JL. SENAYAN NO. 29 BLOK S KEBAYORAN BARU",
+  "golongan": "BINTANG 3",
+  "jenis_usaha": "HOTEL",
+  "kamar": 72,
+  "nama": "JUSENNY HOTEL BY SLEEPZZZ",
+  "periode": "202301",
+  "wilayah": "JAKARTA SELATAN"
+ },
+ {
+  "alamat": "JL. JENDERAL SUDIRMAN NO.KAV 18 - 20, KARET TENGSIN, TANAH ABANG, JAKARTA, 10220",
+  "golongan": "BINTANG 5",
+  "jenis_usaha": "HOTEL",
+  "kamar": 318,
+  "nama": "LE MERIDIEN HOTEL JAKARTA",
+  "periode": "202311",
+  "wilayah": "JAKARTA PUSAT"
+ },
+ {
+  "alamat": "JL SUNGAI GERONG NO 2 THAMRIN JAKARTA PUSAT",
+  "golongan": "BINTANG 3",
+  "jenis_usaha": "HOTEL",
+  "kamar": 60,
+  "nama": "LIBERTY HOTEL THAMRIN JAKARTA",
+  "periode": "202307",
+  "wilayah": "JAKARTA PUSAT"
+ },
+ {
+  "alamat": "JL MANGGA BESAR RAYA NO 73 TAMANSARI TANGKI. JAKARTA BARAT",
+  "golongan": "BINTANG 3",
+  "jenis_usaha": "HOTEL",
+  "kamar": 153,
+  "nama": "LUMINOR HOTEL KOTA",
+  "periode": "202304",
+  "wilayah": "JAKARTA BARAT"
+ },
+ {
+  "alamat": "JL. PECENONGAN NO.35  RT.2 RW.3  KB. KLP. KECAMATAN GAMBIR DAERAH KHUSUS IBUKOTA JAKARTA 10120",
+  "golongan": "BINTANG 3",
+  "jenis_usaha": "HOTEL",
+  "kamar": 199,
+  "nama": "LUMINOR HOTEL PECENONGAN",
+  "periode": "202303",
+  "wilayah": "JAKARTA PUSAT"
+ },
+ {
+  "alamat": "JL. SENEN RAYA 135",
+  "golongan": "BINTANG 4",
+  "jenis_usaha": "HOTEL",
+  "kamar": 343,
+  "nama": "LUMIRE HOTEL AND CONVENTION CENTER",
+  "periode": "202302",
+  "wilayah": "JAKARTA PUSAT"
+ },
+ {
+  "alamat": "JALAN MH THAMRIN 10310",
+  "golongan": "BINTANG 5",
+  "jenis_usaha": "HOTEL",
+  "kamar": 272,
+  "nama": "MANDARIN ORIENTAL JAKARTA HOTEL",
+  "periode": "202311",
+  "wilayah": "JAKARTA PUSAT"
+ },
+ {
+  "alamat": "JL KALI SEKRETARIS NO.55 TANJUNG DUREN UTARA GROGOL PETAMBURAN",
+  "golongan": "BINTANG 3",
+  "jenis_usaha": "HOTEL",
+  "kamar": 96,
+  "nama": "MAPLE HOTEL",
+  "periode": "202302",
+  "wilayah": "JAKARTA BARAT"
+ },
+ {
+  "alamat": "JL. LET JEND S. PARMAN KAV-78",
+  "golongan": "BINTANG 4",
+  "jenis_usaha": "HOTEL",
+  "kamar": 380,
+  "nama": "MENARA PENINSULA HOTEL",
+  "periode": "202301",
+  "wilayah": "JAKARTA BARAT"
+ },
+ {
+  "alamat": "JL. KALI BESAR BARAT NO. 44-46 ROA MALAKA TAMBORA",
+  "golongan": "BINTANG 4",
+  "jenis_usaha": "HOTEL",
+  "kamar": 376,
+  "nama": "MERCURE JAKARTA BATAVIA",
+  "periode": "202302",
+  "wilayah": "JAKARTA BARAT"
+ },
+ {
+  "alamat": "JALAN AGUS SALIM NO. 11-13",
+  "golongan": "BINTANG 4",
+  "jenis_usaha": "HOTEL",
+  "kamar": 163,
+  "nama": "MERCURE JAKARTA SABANG",
+  "periode": "202302",
+  "wilayah": "JAKARTA PUSAT"
+ },
+ {
+  "alamat": "JL. FACHRUDIN NO. 3",
+  "golongan": "BINTANG 4",
+  "jenis_usaha": "HOTEL",
+  "kamar": 401,
+  "nama": "MILLENNIUM HOTEL SIRIH JAKARTA",
+  "periode": "202310",
+  "wilayah": "JAKARTA PUSAT"
+ },
+ {
+  "alamat": "JL. CIKINI RAYA NO. 107 - 109 CIKINI MENTENG",
+  "golongan": "BINTANG 4",
+  "jenis_usaha": "HOTEL",
+  "kamar": 245,
+  "nama": "NOVOTEL JAKARTA CIKINI",
+  "periode": "202301",
+  "wilayah": "JAKARTA PUSAT"
+ },
+ {
+  "alamat": "JL. GAJAH MADA NO.188",
+  "golongan": "BINTANG 4",
+  "jenis_usaha": "HOTEL",
+  "kamar": 230,
+  "nama": "NOVOTEL JAKARTA GAJAH MADA",
+  "periode": "202303",
+  "wilayah": "JAKARTA BARAT"
+ },
+ {
+  "alamat": "JL. GUNUNG SAHARI RAYA NO. 1 JAKARTA UTARA",
+  "golongan": "BINTANG 4",
+  "jenis_usaha": "HOTEL",
+  "kamar": 362,
+  "nama": "NOVOTEL JAKARTA MANGGA DUA SQUARE",
+  "periode": "202301",
+  "wilayah": "JAKARTA UTARA"
+ },
+ {
+  "alamat": "JL.PRAMUKA RAYA NO.149 JAKARTA PUSAT",
+  "golongan": "BINTANG 2",
+  "jenis_usaha": "HOTEL",
+  "kamar": 361,
+  "nama": "P HOTEL",
+  "periode": "202302",
+  "wilayah": "JAKARTA PUSAT"
+ },
+ {
+  "alamat": "JL. HAYAM WURUK NO 35",
+  "golongan": "BINTANG 3",
+  "jenis_usaha": "HOTEL",
+  "kamar": 211,
+  "nama": "PERHOTELAN",
+  "periode": "202309",
+  "wilayah": "JAKARTA PUSAT"
+ },
+ {
+  "alamat": "JL PEGANGSAAN TIMUR NO 17, CIKINI - MENTENG, JAKARTA PUSAT",
+  "golongan": "BINTANG 5",
+  "jenis_usaha": "HOTEL",
+  "kamar": 250,
+  "nama": "PERHOTELAN - AKOMODASI",
+  "periode": "202305",
+  "wilayah": "JAKARTA PUSAT"
+ },
+ {
+  "alamat": "PODOMORO CITY JL  LET JEND S PARMAN KAV  28  JAKARTA  11470",
+  "golongan": "BINTANG 5",
+  "jenis_usaha": "HOTEL",
+  "kamar": 317,
+  "nama": "PULLMAN JAKARTA CENTRAL PARK",
+  "periode": "202307",
+  "wilayah": "JAKARTA BARAT"
+ },
+ {
+  "alamat": "CIPUTRA WORLD 1JL. PROF. DR. SATRIO KAV. 3-5JAKARTA SELATAN 12940",
+  "golongan": "BINTANG 5",
+  "jenis_usaha": "HOTEL",
+  "kamar": 173,
+  "nama": "RAFFLES JAKARTA",
+  "periode": "202301",
+  "wilayah": "JAKARTA SELATAN"
+ },
+ {
+  "alamat": "JL. KH. SAMANHUDI NO.25 PASAR BARU",
+  "golongan": "BINTANG 2",
+  "jenis_usaha": "HOTEL",
+  "kamar": 161,
+  "nama": "RED PLANET HOTEL JAKARTA",
+  "periode": "202304",
+  "wilayah": "JAKARTA PUSAT"
+ },
+ {
+  "alamat": "JL. OUTER RING ROAD MUTIARA TAMAN PALEM BLOK C1 CENGKARENG JAKARTA BARAT",
+  "golongan": "BINTANG 3",
+  "jenis_usaha": "HOTEL",
+  "kamar": 156,
+  "nama": "ROYAL PALM HOTEL   CONFERENCE CENTER",
+  "periode": "202301",
+  "wilayah": "JAKARTA BARAT"
+ },
+ {
+  "alamat": "JALAN MH. THAMRIN NO 6 JAKARTA 10340",
+  "golongan": "BINTANG 4",
+  "jenis_usaha": "HOTEL",
+  "kamar": 349,
+  "nama": "SARI PACIFIC JAKARTA",
+  "periode": "202311",
+  "wilayah": "JAKARTA PUSAT"
+ },
+ {
+  "alamat": "KOTA BNI, JL. JEND. SUDIRMAN KAV. 1, JAKARTA 10220, INDONESIA",
+  "golongan": "BINTANG 5",
+  "jenis_usaha": "HOTEL",
+  "kamar": 662,
+  "nama": "SHANGRI-LA JAKARTA",
+  "periode": "202311",
+  "wilayah": "JAKARTA PUSAT"
+ },
+ {
+  "alamat": "JL. SULTAN ISKANDAR MUDA 5 NO. 8, RT 010/RW 006, KEBAYORAN LAMA UTARA, KEBAYORAN LAMA",
+  "golongan": "BINTANG 5",
+  "jenis_usaha": "HOTEL",
+  "kamar": 293,
+  "nama": "SHERATON GRAND JAKARTA GANDARIA CITY HOTEL",
+  "periode": "202311",
+  "wilayah": "JAKARTA SELATAN"
+ },
+ {
+  "alamat": "JL PERMATA BERLIAN V PERMATA HIJAU",
+  "golongan": "NON BINTANG",
+  "jenis_usaha": "HOTEL",
+  "kamar": 121,
+  "nama": "SOMERSET BERLIAN JAKARTA",
+  "periode": "202302",
+  "wilayah": "JAKARTA SELATAN"
+ },
+ {
+  "alamat": "JL  FALATEHAN I NO  21 22 BLOK M JAKARTA SELATAN BLOK M",
+  "golongan": "BINTANG 3",
+  "jenis_usaha": "HOTEL",
+  "kamar": 70,
+  "nama": "SOTIS HOTEL FALATEHAN JAKARTA",
+  "periode": "202306",
+  "wilayah": "JAKARTA SELATAN"
+ },
+ {
+  "alamat": "JL. MANGGA BESAR RAYA NO. 44 RT 002 RW 002 TAMANSARI",
+  "golongan": "BINTANG 3",
+  "jenis_usaha": "HOTEL",
+  "kamar": 136,
+  "nama": "SPARKS LIFE JAKARTA",
+  "periode": "202301",
+  "wilayah": "JAKARTA BARAT"
+ },
+ {
+  "alamat": "JL. PANTAI INDAH KAPUK KEL. KAMAL MUARA  KEC. PENJARINGAN RT. 06 RW. 02",
+  "golongan": "BINTANG 5",
+  "jenis_usaha": "HOTEL",
+  "kamar": 412,
+  "nama": "SWISS HOTEL JAKARTA PIK AVENUE",
+  "periode": "202303",
+  "wilayah": "JAKARTA UTARA"
+ },
+ {
+  "alamat": "JL. METRO PONDOK INDAH SECTOR 2 BLOCK SA - PONDOK INDAH",
+  "golongan": "BINTANG 4",
+  "jenis_usaha": "HOTEL",
+  "kamar": 159,
+  "nama": "SWISS-BELHOTEL PONDOK INDAH",
+  "periode": "202303",
+  "wilayah": "JAKARTA SELATAN"
+ },
+ {
+  "alamat": "JL. KARTINI NO.32 LEBAK BULUSJAKARTA SELATAN",
+  "golongan": "BINTANG 3",
+  "jenis_usaha": "HOTEL",
+  "kamar": 159,
+  "nama": "SWISS-BELINN SIMATUPANG JAKARTA",
+  "periode": "202301",
+  "wilayah": "JAKARTA SELATAN"
+ },
+ {
+  "alamat": "JL. K.H. WAHID HASYIM NO.135 KEBON KACANGTANAH ABANG - JAKARTA PUSAT",
+  "golongan": "BINTANG 3",
+  "jenis_usaha": "HOTEL",
+  "kamar": 120,
+  "nama": "SWISS-BELINN WAHID HASYIM JAKARTA",
+  "periode": "202301",
+  "wilayah": "JAKARTA PUSAT"
+ },
+ {
+  "alamat": "JL. KALIBATA RAYA NO. 22 JAKARTA SELATAN",
+  "golongan": "BINTANG 4",
+  "jenis_usaha": "HOTEL",
+  "kamar": 212,
+  "nama": "SWISS-BELRESIDENCES KALIBATA JAKARTA",
+  "periode": "202302",
+  "wilayah": "JAKARTA SELATAN"
+ },
+ {
+  "alamat": "PANTAI INDAH KAPUK BOULEVARD PIK AVENUE 14470 JAKARTA",
+  "golongan": "BINTANG 5",
+  "jenis_usaha": "HOTEL",
+  "kamar": 412,
+  "nama": "SWISSOTEL JAKARTA PIK AVENUE",
+  "periode": "202302",
+  "wilayah": "JAKARTA UTARA"
+ },
+ {
+  "alamat": "JALAN DARMAWANGSA IX NO. 14 KEBAYORAN BARU 12160",
+  "golongan": "BINTANG 4",
+  "jenis_usaha": "HOTEL",
+  "kamar": 150,
+  "nama": "THE 1O1 HOTEL JAKARTA SEDAYU DARMAWANGSA",
+  "periode": "202303",
+  "wilayah": "JAKARTA SELATAN"
+ },
+ {
+  "alamat": "JL. ARTERI PERMATA HIJAU NO.N.34, RT.4/RW.2, GROGOL UTARA, KEC. KBY. LAMA, KOTA JAKARTA SELATAN, DAERAH KHUSUS IBUKOTA JAKARTA 12210",
+  "golongan": "BINTANG 3",
+  "jenis_usaha": "HOTEL",
+  "kamar": 70,
+  "nama": "THE BELLEZZA SUITES HOTEL",
+  "periode": "202305",
+  "wilayah": "JAKARTA SELATAN"
+ },
+ {
+  "alamat": "JL  HAYAM WURUK NO  126",
+  "golongan": "BINTANG 4",
+  "jenis_usaha": "HOTEL",
+  "kamar": 333,
+  "nama": "THE JAYAKARTA SP JAKARTA HOTEL AND SPA",
+  "periode": "202306",
+  "wilayah": "JAKARTA BARAT"
+ },
+ {
+  "alamat": "DISTRICT 8 SCBD LOT 28 JAKARTA 12190 INDONESIA",
+  "golongan": "BINTANG 5",
+  "jenis_usaha": "HOTEL",
+  "kamar": 224,
+  "nama": "THE LANGHAM JAKARTA",
+  "periode": "202304",
+  "wilayah": "JAKARTA SELATAN"
+ },
+ {
+  "alamat": "GLODOK PLAZA LT. 3 - JL. PINANGSIA RAYA NO.1 RT.1 RW.6 MANGGA BESAR KEC. TAMAN SARI",
+  "golongan": "BINTANG 2",
+  "jenis_usaha": "HOTEL",
+  "kamar": 91,
+  "nama": "THE PLAZA HOTEL GLODOK",
+  "periode": "202301",
+  "wilayah": "JAKARTA BARAT"
+ },
+ {
+  "alamat": "JL. JEND. SUDIRMAN KAWASAN SCBD KAV 52-53, JAKARTA SELATAN",
+  "golongan": "BINTANG 5",
+  "jenis_usaha": "HOTEL",
+  "kamar": 62,
+  "nama": "THE RITZ-CARLTON JAKARTA PACIFIC PLACE",
+  "periode": "202308",
+  "wilayah": "JAKARTA SELATAN"
+ },
+ {
+  "alamat": "JL. HR RASUNA SAID KAV C-22 JAKARTA 12940",
+  "golongan": "BINTANG 5",
+  "jenis_usaha": "HOTEL",
+  "kamar": 256,
+  "nama": "THE WESTIN JAKARTA",
+  "periode": "202304",
+  "wilayah": "JAKARTA SELATAN"
+ },
+ {
+  "alamat": "JL KYAI MAJA NO. 63 KEBAYORAN BARU JAKARTA SELATAN 12130",
+  "golongan": "BINTANG 4",
+  "jenis_usaha": "HOTEL",
+  "kamar": 184,
+  "nama": "VERANDA HOTEL PAKUBUWONO",
+  "periode": "202305",
+  "wilayah": "JAKARTA SELATAN"
+ },
+ {
+  "alamat": "RUKO INKOPAL BLOK B 18 JLN. BOULEVARD BARAT RAYA KELAPA GADING - JAKARTA UTARA",
+  "golongan": "BINTANG 3",
+  "jenis_usaha": "HOTEL",
+  "kamar": 160,
+  "nama": "WHIZ PRIME HOTEL KELAPA GADING",
+  "periode": "202301",
+  "wilayah": "JAKARTA UTARA"
+ },
+ {
+  "alamat": "JL. MINANGKABAU NO 9 KELURAHAN PASAR MANGGIS KECAMATAN SETIABUDI JAKARTA SELATAN",
+  "golongan": "BINTANG 3",
+  "jenis_usaha": "HOTEL",
+  "kamar": 102,
+  "nama": "YELLO HOTEL MANGGARAI",
+  "periode": "202301",
+  "wilayah": "JAKARTA SELATAN"
+ },
+ {
+  "alamat": "JL. PINTU AIR V NO . 53 PASAR BARU SAWAH BESAR JAKARTA 10710",
+  "golongan": "BINTANG 4",
+  "jenis_usaha": "HOTEL",
+  "kamar": 328,
+  "nama": "YUAN GARDEN PASAR BARU HOTEL",
+  "periode": "202301",
+  "wilayah": "JAKARTA PUSAT"
+ },
+ {
+  "alamat": "JL. MANGGA DUA DALAM NO. 55-56",
+  "golongan": "BINTANG 3",
+  "jenis_usaha": "HOTEL",
+  "kamar": 124,
+  "nama": "ZURI EXPRESS MANGGA DUA",
+  "periode": "202302",
+  "wilayah": "JAKARTA PUSAT"
+ }
+]
