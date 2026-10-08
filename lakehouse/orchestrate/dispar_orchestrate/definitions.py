@@ -3,9 +3,9 @@
 Graf aset inilah bukti visual arsitektur Bronze→Silver→Gold yang diminta MoM —
 ketergantungan antar-aset menghasilkan lineage otomatis di UI Dagster.
 
-    bronze_sdi ─┐
-                ├─► lake_db ─► functions_dim ─► silver_auto ─► curated_gold
-    bronze_files┘
+    bronze_sdi ──────┐
+    bronze_files ────┼──► lake_db ──► functions_dim ──► silver_auto ──► curated_gold
+    bronze_sekunder ─┘
 """
 
 from __future__ import annotations
@@ -23,9 +23,10 @@ from dagster import (
 )
 
 from dispar_ingest import refresh
-from dispar_ingest.run_bronze import ingest_files, ingest_sdi
-from dispar_ingest.silver import generate_silver
 from dispar_ingest.notify import notify
+from dispar_ingest.run_bronze import ingest_files, ingest_sdi
+from dispar_ingest.secondary_ingest import ingest_secondary
+from dispar_ingest.silver import generate_silver
 
 
 @asset(group_name="bronze", description="Tarik 183 dataset SDI ke Iceberg (all-string + audit)")
@@ -34,13 +35,23 @@ def bronze_sdi(context) -> None:
     context.add_output_metadata({"berhasil": laporan["berhasil"], "baris": laporan["baris_total"]})
 
 
-@asset(group_name="bronze", description="Tarik berkas lokal (TSV/CSV/XLSX/JSON) ke Iceberg")
+@asset(group_name="bronze", description="Tarik berkas lokal (TSV/CSV/XLSX/JSON) dari registri ke Iceberg")
 def bronze_files(context) -> None:
     laporan = ingest_files()
     context.add_output_metadata({"berhasil": laporan["berhasil"], "baris": laporan["baris_total"]})
 
 
-@asset(group_name="silver", deps=[bronze_sdi, bronze_files],
+@asset(group_name="bronze", description="Tarik dataset sekunder dari registri ke Iceberg (bronze_sec + meta)")
+def bronze_sekunder(context) -> None:
+    laporan = ingest_secondary()
+    context.add_output_metadata({
+        "dataset": laporan["dataset"],
+        "diperbarui": laporan["diperbarui"],
+        "dilewati": laporan["dilewati"],
+    })
+
+
+@asset(group_name="silver", deps=[bronze_sdi, bronze_files, bronze_sekunder],
        description="Sambungkan ClickHouse ke katalog Iceberg")
 def lake_db(context) -> None:
     context.log.info(refresh.recreate_lake_db())
@@ -108,7 +119,7 @@ def iceberg_maintenance(context) -> None:
 
 refresh_job = define_asset_job(
     "refresh_lakehouse",
-    selection=[bronze_sdi, bronze_files, lake_db, functions_dim, silver_auto, quality_gate, curated_gold, gold_iceberg],
+    selection=[bronze_sdi, bronze_files, bronze_sekunder, lake_db, functions_dim, silver_auto, quality_gate, curated_gold, gold_iceberg],
 )
 ops_job = define_asset_job("ops_backup_maintenance", selection=[backup_lake, iceberg_maintenance])
 
@@ -127,7 +138,7 @@ ops_daily = ScheduleDefinition(
 )
 
 
-# ── Alerting: kirim webhook saat run gagal ─────────────────────────────────
+# ── Alerting: kirim webhook saat run gagal ───────────────────────────────────
 @run_status_sensor(
     run_status=DagsterRunStatus.FAILURE,
     default_status=DefaultSensorStatus.RUNNING,
@@ -139,7 +150,7 @@ def alert_on_failure(context: RunStatusSensorContext) -> None:
 
 defs = Definitions(
     assets=[
-        bronze_sdi, bronze_files, lake_db, functions_dim, silver_auto,
+        bronze_sdi, bronze_files, bronze_sekunder, lake_db, functions_dim, silver_auto,
         quality_gate, curated_gold, gold_iceberg, backup_lake, iceberg_maintenance,
     ],
     jobs=[refresh_job, ops_job],

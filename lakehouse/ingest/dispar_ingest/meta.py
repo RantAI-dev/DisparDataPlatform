@@ -10,6 +10,7 @@ Tabel:
   bronze_meta.dataset_catalog  — dari /search (judul, tag, views, updated_at, tier)
   bronze_meta.dataset_sync     — dari /detail (frekuensi, satuan, sumber, total, table_name)
   bronze_meta.dataset_column   — dari /detail (key_asli, key_safe, tipe, deskripsi, ord)
+  bronze_meta.ingest_log       — riwayat append-only penarikan tiap sumber raw
 
 key_safe = safe_name(key_asli): menjodohkan definisi kolom ke nama kolom di
 tabel Bronze (yang di-snake_case). key_asli dipertahankan untuk header 1:1.
@@ -19,11 +20,89 @@ from __future__ import annotations
 
 import json
 from datetime import datetime, timezone
+from typing import Any
 
 import pyarrow as pa
 
 from .lake import get_catalog, safe_name
 from .sdi import SdiClient
+
+INGEST_LOG_SCHEMA = pa.schema([
+    ("sumber_id", pa.string()),
+    ("namespace", pa.string()),
+    ("tabel", pa.string()),
+    ("sha256", pa.string()),
+    ("baris", pa.int64()),
+    ("status", pa.string()),
+    ("pesan", pa.string()),
+    ("ingested_at", pa.timestamp("us", tz="UTC")),
+])
+
+
+def append_ingest_log(
+    catalog,
+    *,
+    sumber_id: str,
+    namespace: str,
+    tabel: str,
+    sha256: str,
+    baris: int,
+    status: str,
+    pesan: str = "",
+    ingested_at: datetime | None = None,
+) -> None:
+    """Catat satu entri penarikan ke bronze_meta.ingest_log (append-only)."""
+    if status not in {"masuk", "kosong", "gagal"}:
+        raise ValueError(f"status {status!r} tidak valid; harus masuk | kosong | gagal")
+    if ingested_at is None:
+        ingested_at = datetime.now(timezone.utc)
+
+    catalog.create_namespace_if_not_exists("bronze_meta")
+    ident = ("bronze_meta", "ingest_log")
+
+    tbl_data = pa.table({
+        "sumber_id": pa.array([sumber_id], pa.string()),
+        "namespace": pa.array([namespace], pa.string()),
+        "tabel": pa.array([tabel], pa.string()),
+        "sha256": pa.array([sha256], pa.string()),
+        "baris": pa.array([int(baris)], pa.int64()),
+        "status": pa.array([status], pa.string()),
+        "pesan": pa.array([pesan], pa.string()),
+        "ingested_at": pa.array([ingested_at], pa.timestamp("us", tz="UTC")),
+    }, schema=INGEST_LOG_SCHEMA)
+
+    if catalog.table_exists(ident):
+        tbl = catalog.load_table(ident)
+    else:
+        tbl = catalog.create_table(ident, schema=INGEST_LOG_SCHEMA)
+    tbl.append(tbl_data)
+
+
+def get_last_success_hashes(catalog) -> dict[str, str]:
+    """Ambil pemetaan {sumber_id: sha256} baris 'masuk' terakhir tiap sumber."""
+    ident = ("bronze_meta", "ingest_log")
+    if not catalog.table_exists(ident):
+        return {}
+    tbl = catalog.load_table(ident)
+    arrow = tbl.scan(selected_fields=("sumber_id", "status", "sha256", "ingested_at")).to_arrow()
+    if arrow.num_rows == 0:
+        return {}
+
+    s_ids = arrow.column("sumber_id").to_pylist()
+    stats = arrow.column("status").to_pylist()
+    shas = arrow.column("sha256").to_pylist()
+    tss = arrow.column("ingested_at").to_pylist()
+
+    latest_ts: dict[str, Any] = {}
+    latest_sha: dict[str, str] = {}
+
+    for s_id, st, sha, ts in zip(s_ids, stats, shas, tss):
+        if st == "masuk":
+            if s_id not in latest_ts or ts >= latest_ts[s_id]:
+                latest_ts[s_id] = ts
+                latest_sha[s_id] = sha
+
+    return latest_sha
 
 
 def _replace_table(catalog, namespace: str, name: str, table: pa.Table) -> int:
@@ -46,7 +125,7 @@ def capture_metadata(limit: int | None = None, tenant: str = "dispar-dki") -> di
     if limit:
         datasets = datasets[:limit]
 
-    # ── dataset_catalog ────────────────────────────────────────────────────
+    # ── dataset_catalog ──────────────────────────────────────────────────
     cat_rows = {
         "slug": [], "title": [], "description": [], "tags": [], "views": [],
         "updated_at": [], "tier": [], "table_name": [],

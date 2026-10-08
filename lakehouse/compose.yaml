@@ -1,183 +1,19 @@
-# Stack lakehouse Platform Data Dispar.
-# Terpisah dari stack `dispar-platform` yang melayani produksi — kerusakan di
-# sini tidak menjatuhkan dashboard yang live.
-#
-# Semua komponen Apache 2.0 (lihat docs/superpowers/specs/2026-08-12-lakehouse-design.md §2).
-# mem_limit WAJIB ada di setiap service: ClickHouse akan memakai sebanyak yang
-# diizinkan, dan itu penyebab paling umum server bersama tumbang.
-
-name: dispar-lakehouse
-
-services:
-  # ── Object storage (S3) ────────────────────────────────────────────────
-  # RustFS single-node. Mode terdistribusi masih "under testing" di 1.0.0-rc,
-  # jadi jangan dipakai. Ketahanan datang dari backup, bukan dari cluster.
-  lake-rustfs:
-    image: rustfs/rustfs:latest
-    container_name: lake-rustfs
-    environment:
-      RUSTFS_ACCESS_KEY: ${S3_ACCESS_KEY:-disparlake}
-      RUSTFS_SECRET_KEY: ${S3_SECRET_KEY:-disparlakesecret}
-      RUSTFS_VOLUMES: /data
-      RUSTFS_ADDRESS: ":9000"
-      RUSTFS_CONSOLE_ENABLE: "true"
-    volumes:
-      - lake_data:/data
-    ports:
-      - "19000:9000"   # S3 API
-      - "19001:9001"   # console
-    healthcheck:
-      test: ["CMD-SHELL", "curl -fsS http://localhost:9000/health || exit 1"]
-      interval: 10s
-      timeout: 5s
-      retries: 30
-      start_period: 20s
-    mem_limit: 1g
-    restart: unless-stopped
-    networks: [lakenet]
-
-  # ── Metadata operasional ───────────────────────────────────────────────
-  # Katalog Lakekeeper, state SQLMesh, dan (nanti) Dagster. BUKAN data analitik.
-  lake-meta:
-    image: postgres:16-alpine
-    container_name: lake-meta
-    environment:
-      POSTGRES_USER: lake
-      POSTGRES_PASSWORD: ${META_PASSWORD:-lakemeta}
-      POSTGRES_DB: lakekeeper
-    volumes:
-      - lake_meta:/var/lib/postgresql/data
-      # init-meta.sql (DB sqlmesh/dagster) sengaja tidak di-mount: DB lakekeeper
-      # dibuat otomatis oleh POSTGRES_DB, dan endpoint Docker remote tak bisa
-      # bind-mount file repo. SQLMesh/Dagster memakai store sendiri.
-    ports:
-      - "15433:5432"
-    healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U lake -d lakekeeper"]
-      interval: 5s
-      timeout: 3s
-      retries: 30
-    mem_limit: 512m
-    restart: unless-stopped
-    networks: [lakenet]
-
-  # ── Katalog Iceberg (REST) ─────────────────────────────────────────────
-  lake-catalog-migrate:
-    image: quay.io/lakekeeper/catalog:latest
-    container_name: lake-catalog-migrate
-    command: ["migrate"]
-    environment:
-      LAKEKEEPER__PG_DATABASE_URL_READ: postgresql://lake:${META_PASSWORD:-lakemeta}@lake-meta:5432/lakekeeper
-      LAKEKEEPER__PG_DATABASE_URL_WRITE: postgresql://lake:${META_PASSWORD:-lakemeta}@lake-meta:5432/lakekeeper
-      LAKEKEEPER__PG_ENCRYPTION_KEY: ${CATALOG_ENCRYPTION_KEY:-ganti-kunci-ini-di-produksi}
-      RUST_LOG: info
-    depends_on:
-      lake-meta:
-        condition: service_healthy
-    restart: "no"
-    networks: [lakenet]
-
-  lake-catalog:
-    image: quay.io/lakekeeper/catalog:latest
-    container_name: lake-catalog
-    command: ["serve"]
-    environment:
-      LAKEKEEPER__PG_DATABASE_URL_READ: postgresql://lake:${META_PASSWORD:-lakemeta}@lake-meta:5432/lakekeeper
-      LAKEKEEPER__PG_DATABASE_URL_WRITE: postgresql://lake:${META_PASSWORD:-lakemeta}@lake-meta:5432/lakekeeper
-      LAKEKEEPER__PG_ENCRYPTION_KEY: ${CATALOG_ENCRYPTION_KEY:-ganti-kunci-ini-di-produksi}
-      LAKEKEEPER__BASE_URI: http://lake-catalog:8181
-      RUST_LOG: info
-    depends_on:
-      lake-meta:
-        condition: service_healthy
-      lake-catalog-migrate:
-        condition: service_completed_successfully
-    ports:
-      - "18181:8181"
-    # Tanpa healthcheck: image Lakekeeper distroless (tidak ada shell/curl), jadi
-    # CMD-SHELL mustahil lulus. Kesiapannya ditunggu oleh scripts/bootstrap.sh.
-    mem_limit: 512m
-    restart: unless-stopped
-    networks: [lakenet]
-
-  # ── Query engine + serving layer ───────────────────────────────────────
-  lake-clickhouse:
-    build:
-      context: ./clickhouse
-    image: dispar-lake-clickhouse:latest
-    container_name: lake-clickhouse
-    environment:
-      # User didefinisikan di config.d/dispar.xml lewat from_env — bukan lewat
-      # CLICKHOUSE_USER, karena entrypoint-nya menulis ke users.d yang read-only.
-      CH_PASSWORD: ${CH_PASSWORD:-disparch}
-      CH_APP_PASSWORD: ${CH_APP_PASSWORD:-disparapp}
-      S3_ACCESS_KEY: ${S3_ACCESS_KEY:-disparlake}
-      S3_SECRET_KEY: ${S3_SECRET_KEY:-disparlakesecret}
-    volumes:
-      - lake_ch:/var/lib/clickhouse
-      # Config di-bake ke image (lihat clickhouse/Dockerfile) — tidak bind-mount,
-      # supaya jalan di endpoint Docker remote juga.
-    ports:
-      - "18123:8123"   # HTTP
-      - "19440:9000"   # native
-    depends_on:
-      lake-rustfs:
-        condition: service_healthy
-      lake-catalog:
-        condition: service_started
-    healthcheck:
-      test: ["CMD-SHELL", "clickhouse-client --user dispar --password ${CH_PASSWORD:-disparch} -q 'SELECT 1' || exit 1"]
-      interval: 10s
-      timeout: 5s
-      retries: 30
-      start_period: 20s
-    ulimits:
-      nofile: { soft: 262144, hard: 262144 }
-    mem_limit: 6g
-    restart: unless-stopped
-    networks: [lakenet]
-
-  # ── Ingestion (dijalankan on-demand, bukan daemon) ─────────────────────
-  # Harus berada di lakenet: Lakekeeper mengembalikan URL internal dalam
-  # respons katalognya, jadi klien dari host tidak bisa mengikutinya.
-  #   docker compose run --rm lake-ingest python -m dispar_ingest.run_bronze sdi
-  lake-ingest:
-    build:
-      context: ./ingest
-    image: dispar-lake-ingest:latest
-    profiles: ["tools"]
-    environment:
-      ICEBERG_CATALOG_URI: http://lake-catalog:8181/catalog
-      ICEBERG_WAREHOUSE: dispar
-      S3_ENDPOINT: http://lake-rustfs:9000
-      S3_ACCESS_KEY: ${S3_ACCESS_KEY:-disparlake}
-      S3_SECRET_KEY: ${S3_SECRET_KEY:-disparlakesecret}
-      S3_REGION: local-01
-      TENANT: ${TENANT:-dispar-dki}
-      CH_HOST: lake-clickhouse
-      CH_PASSWORD: ${CH_PASSWORD:-disparch}
-    volumes:
-      # Repo di-mount read-only sebagai sumber berkas sekunder.
-      - ../:/repo:ro
-    networks: [lakenet]
-
   # ── Dagster — orkestrasi + lineage (asset graph) ───────────────────────
-  # Bergantung pada image ingest; jalankan `docker compose --profile orchestrate build`
-  # setelah `--profile tools build lake-ingest`.
   lake-dagster:
     build:
-      context: .
-      dockerfile: orchestrate/Dockerfile
+      context: ..
+      dockerfile: lakehouse/orchestrate/Dockerfile
     image: dispar-lake-dagster:latest
     container_name: lake-dagster
     profiles: ["orchestrate"]
     environment:
+      DATA_ROOT: /app
       CH_HOST: lake-clickhouse
       CH_PORT: "8123"
       CH_PASSWORD: ${CH_PASSWORD:-disparch}
       S3_ACCESS_KEY: ${S3_ACCESS_KEY:-disparlake}
       S3_SECRET_KEY: ${S3_SECRET_KEY:-disparlakesecret}
-      SQL_DIR: /repo/lakehouse/clickhouse/sql
+      SQL_DIR: /app/lakehouse/clickhouse/sql
       TENANT: ${TENANT:-dispar-dki}
       # Iceberg catalog + S3 endpoint (untuk backup & maintenance dari aset ops).
       ICEBERG_CATALOG_URI: http://lake-catalog:8181/catalog
@@ -193,7 +29,6 @@ services:
       # Alerting: webhook Slack/Discord/generic (kosong = hanya log).
       ALERT_WEBHOOK_URL: ${ALERT_WEBHOOK_URL:-}
     volumes:
-      - ../:/repo:ro
       - lake_dagster:/opt/dagster
     ports:
       - "13030:3030"
@@ -203,42 +38,3 @@ services:
     mem_limit: 1500m
     restart: unless-stopped
     networks: [lakenet]
-
-  # ── App v2 — versi PUBLIK, baca lapisan Gold (ClickHouse) ──────────────
-  # Sejak 27 Agu 2026 v2 menggantikan app v1 (dispar-platform) sebagai yang
-  # dilayani tunnel Cloudflare. Profil "app" dilepas supaya service ini ikut
-  # dikelola setiap kali stack di-deploy (termasuk build ulang image).
-  dispar-v2:
-    build:
-      context: ../platform-v2
-    image: dispar-v2:latest
-    container_name: dispar-v2
-    environment:
-      CH_URL: http://lake-clickhouse:8123
-      CH_USER: dispar_app
-      CH_PASSWORD: ${CH_APP_PASSWORD:-disparapp}
-      # Image-nya (Next standalone) default PORT=3000; pemetaan port di bawah
-      # memakai 3032, jadi porta pendengarnya disamakan di sini.
-      PORT: 3032
-    ports:
-      - "13032:3032"
-      # 13031 = port yang ditunjuk tunnel Cloudflare (dispar.rantai.dev).
-      # PRASYARAT: app v1 (container dispar-app) harus dalam keadaan berhenti,
-      # kalau tidak port bentrok dan container ini gagal start.
-      - "13031:3032"
-    depends_on:
-      lake-clickhouse:
-        condition: service_healthy
-    mem_limit: 512m
-    restart: unless-stopped
-    networks: [lakenet]
-
-volumes:
-  lake_data:
-  lake_meta:
-  lake_ch:
-  lake_dagster:
-
-networks:
-  lakenet:
-    driver: bridge

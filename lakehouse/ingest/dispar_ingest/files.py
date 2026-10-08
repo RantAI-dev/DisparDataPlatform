@@ -7,13 +7,24 @@ manual, dan lampiran dari dinas (data GCI/GPCI, halal, event, kontak DTW).
 from __future__ import annotations
 
 import csv
+import hashlib
 import os
+from pathlib import Path
 from typing import Any, Iterator
 
 EKSTENSI = {".tsv", ".csv", ".xlsx", ".json"}
 
 # Berkas kerja/cadangan yang tidak boleh ikut masuk lake.
 POLA_ABAIKAN = ("~$", ".bak.", "-KERJA", "-SWEEP", "PERLU REVIEW")
+
+
+def compute_sha256(path: str | Path) -> str:
+    """Hitung SHA256 dari isi berkas mentah."""
+    h = hashlib.sha256()
+    with open(path, "rb") as f:
+        while chunk := f.read(65536):
+            h.update(chunk)
+    return h.hexdigest()
 
 
 def discover(root: str) -> list[str]:
