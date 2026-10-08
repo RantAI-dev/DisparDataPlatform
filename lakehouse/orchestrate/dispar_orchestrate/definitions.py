@@ -51,7 +51,28 @@ def bronze_sekunder(context) -> None:
     })
 
 
-@asset(group_name="silver", deps=[bronze_sdi, bronze_files, bronze_sekunder],
+@asset(
+    group_name="bronze",
+    deps=[bronze_sdi],
+    description="Tangkap metadata katalog & definisi kolom SDI ke bronze_meta, lalu isi total",
+)
+def sdi_meta(context) -> None:
+    from dispar_ingest.meta import capture_metadata, fill_totals
+    laporan = capture_metadata()
+    try:
+        terisi = fill_totals()
+    except Exception as e:
+        context.log.warning(f"fill_totals dilewati atau gagal: {e}")
+        terisi = 0
+    context.add_output_metadata({
+        "katalog": laporan["katalog"],
+        "sync": laporan["sync"],
+        "kolom": laporan["kolom"],
+        "total_terisi": terisi,
+    })
+
+
+@asset(group_name="silver", deps=[bronze_sdi, bronze_files, bronze_sekunder, sdi_meta],
        description="Sambungkan ClickHouse ke katalog Iceberg")
 def lake_db(context) -> None:
     context.log.info(refresh.recreate_lake_db())
@@ -119,7 +140,7 @@ def iceberg_maintenance(context) -> None:
 
 refresh_job = define_asset_job(
     "refresh_lakehouse",
-    selection=[bronze_sdi, bronze_files, bronze_sekunder, lake_db, functions_dim, silver_auto, quality_gate, curated_gold, gold_iceberg],
+    selection=[bronze_sdi, bronze_files, bronze_sekunder, sdi_meta, lake_db, functions_dim, silver_auto, quality_gate, curated_gold, gold_iceberg],
 )
 ops_job = define_asset_job("ops_backup_maintenance", selection=[backup_lake, iceberg_maintenance])
 
@@ -150,7 +171,7 @@ def alert_on_failure(context: RunStatusSensorContext) -> None:
 
 defs = Definitions(
     assets=[
-        bronze_sdi, bronze_files, bronze_sekunder, lake_db, functions_dim, silver_auto,
+        bronze_sdi, bronze_files, bronze_sekunder, sdi_meta, lake_db, functions_dim, silver_auto,
         quality_gate, curated_gold, gold_iceberg, backup_lake, iceberg_maintenance,
     ],
     jobs=[refresh_job, ops_job],
