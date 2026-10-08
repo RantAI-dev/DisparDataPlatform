@@ -235,6 +235,193 @@ asal = "Silver.data_destinasi_pariwisata (SDI) + join silver.potensi_DTW, lihat 
 pembangun = "scripts/build_water_attractions.py"
 
 [[sumber]]
+id = "jumlah-pengunjung-event-202607"
+jenis = "berkas"
+path = "data/202607 Jumlah Pengunjung Event.xlsx"
+namespace = "bronze_file"
+tabel = "jumlah_pengunjung_event_202607"
+kelas_refresh = "snapshot"
+tanggal_ambil = "2026-08-19"
+asal = "Disparekraf DKI Jakarta (data mentah event Juli 2026)"
+pembangun = ""
+
+[[sumber]]
+id = "jumlah-pengunjung-event-geocoded-202607"
+jenis = "berkas"
+path = "data/202607 Jumlah Pengunjung Event - GEOCODED.xlsx"
+namespace = "bronze_file"
+tabel = "jumlah_pengunjung_event_geocoded_202607"
+kelas_refresh = "saat_berubah"
+tanggal_ambil = "2026-08-19"
+asal = "Disparekraf DKI Jakarta, diperkaya geocoding (scripts/geocode_events.py)"
+pembangun = "scripts/merge_final.py"
+
+[[sumber]]
+id = "satudata-ekraf-tenaga-kerja-subsektor-2020"
+jenis = "berkas"
+path = "data/sumber/satudata-ekraf/dl_17o8miba9bfiyx1_tenaga_kerja_subsektor_tahun_2020_ihMOJ549ok.csv"
+namespace = "bronze_file"
+tabel = "satudata_ekraf_tenaga_kerja_subsektor_tahun_2020"
+kelas_refresh = "snapshot"
+tanggal_ambil = "2026-09-28"
+asal = "Satu Data Ekraf (Kemenekraf, Sakernas BPS), https://satudata.ekraf.go.id"
+pembangun = ""
+
+[[sumber]]
+id = "satudata-ekraf-tenaga-kerja-subsektor-2021"
+jenis = "berkas"
+path = "data/sumber/satudata-ekraf/dl_17o8miba9bfiyx1_tenaga_kerja_subsektor_tahun_2021_DKKaT53njJ.csv"
+namespace = "bronze_file"
+tabel = "satudata_ekraf_tenaga_kerja_subsektor_tahun_2021"
+kelas_refresh = "snapshot"
+tanggal_ambil = "2026-09-28"
+asal = "Satu Data Ekraf (Kemenekraf, Sakernas BPS), https://satudata.ekraf.go.id"
+pembangun = ""
+
+[[sumber]]
+id = "satudata-ekraf-tenaga-kerja-subsektor-2022"
+jenis = "berkas"
+path = "data/sumber/satudata-ekraf/dl_17o8miba9bfiyx1_tenaga_kerja_subsektor_tahun_2022_974dtWy8B6.csv"
+namespace = "bronze_file"
+tabel = "satudata_ekraf_tenaga_kerja_subsektor_tahun_2022"
+kelas_refresh = "snapshot"
+tanggal_ambil = "2026-09-28"
+asal = "Satu Data Ekraf (Kemenekraf, Sakernas BPS), https://satudata.ekraf.go.id"
+pembangun = ""
+
+[[sumber]]
+id = "satudata-ekraf-tenaga-kerja-subsektor-2023"
+jenis = "berkas"
+path = "data/sumber/satudata-ekraf/dl_17o8miba9bfiyx1_tenaga_kerja_subsektor_tahun_2023_65WJLWL3Qu.csv"
+namespace = "bronze_file"
+tabel = "satudata_ekraf_tenaga_kerja_subsektor_tahun_2023"
+kelas_refresh = "snapshot"
+tanggal_ambil = "2026-09-28"
+asal = "Satu Data Ekraf (Kemenekraf, Sakernas BPS), https://satudata.ekraf.go.id"
+pembangun = ""
+
+[[sumber]]
+id = "satudata-ekraf-tenaga-kerja-subsektor-2024"
+jenis = "berkas"
+path = "data/sumber/satudata-ekraf/dl_17o8miba9bfiyx1_tenaga_kerja_subsektor_tahun_2024_8Es0nPmIx4.csv"
+namespace = "bronze_file"
+tabel = "satudata_ekraf_tenaga_kerja_subsektor_tahun_2024"
+kelas_refresh = "snapshot"
+tanggal_ambil = "2026-09-28"
+asal = "Satu Data Ekraf (Kemenekraf, Sakernas BPS), https://satudata.ekraf.go.id"
+pembangun = ""
+
+[[sumber]]
+id = "satudata-ekraf-tenaga-kerja-provinsi-2020"
+jenis = "berkas"
+path = "data/sumber/satudata-ekraf/dl_8w13umewjrtrk1q_Jumlah_Tenaga_Kerja_Ekonomi_Kreatif_Berdasarkan_Provinsi.csv"
+namespace = "bronze_file"
+tabel = "satudata_ekraf_tenaga_kerja_provinsi_2020"
+kelas_refresh = "snapshot"
+tanggal_ambil = "2026-09-28"
+asal = "Satu Data Ekraf (Kemenekraf, Sakernas BPS), https://satudata.ekraf.go.id"
+pembangun = ""
+
+[[sumber]]
+id = "satudata-ekraf-tenaga-kerja-provinsi-2021"
+jenis = "berkas"
+path = "data/sumber/satudata-ekraf/dl_8w13umewjrtrk1q_Jumlah_Tenaga_Kerja_Ekonomi_Kreatif_Berdasarkan_Provinsi_2.csv"
+namespace = "bronze_file"
+tabel = "satudata_ekraf_tenaga_kerja_provinsi_2021"
+kelas_refresh = "snapshot"
+tanggal_ambil = "2026-09-28"
+asal = "Satu Data Ekraf (Kemenekraf, Sakernas BPS), https://satudata.ekraf.go.id"
+pembangun = ""
+
+[[sumber]]
+id = "satudata-ekraf-tenaga-kerja-provinsi-2022"
+jenis = "berkas"
+path = "data/sumber/satudata-ekraf/dl_8w13umewjrtrk1q_Jumlah_Tenaga_Kerja_Ekonomi_Kreatif_Berdasarkan_Provinsi_3.csv"
+namespace = "bronze_file"
+tabel = "satudata_ekraf_tenaga_kerja_provinsi_2022"
+kelas_refresh = "snapshot"
+tanggal_ambil = "2026-09-28"
+asal = "Satu Data Ekraf (Kemenekraf, Sakernas BPS), https://satudata.ekraf.go.id"
+pembangun = ""
+
+[[sumber]]
+id = "satudata-ekraf-tenaga-kerja-provinsi-2023"
+jenis = "berkas"
+path = "data/sumber/satudata-ekraf/dl_8w13umewjrtrk1q_Jumlah_Tenaga_Kerja_Ekonomi_Kreatif_Berdasarkan_Provinsi_4.csv"
+namespace = "bronze_file"
+tabel = "satudata_ekraf_tenaga_kerja_provinsi_2023"
+kelas_refresh = "snapshot"
+tanggal_ambil = "2026-09-28"
+asal = "Satu Data Ekraf (Kemenekraf, Sakernas BPS), https://satudata.ekraf.go.id"
+pembangun = ""
+
+[[sumber]]
+id = "satudata-ekraf-tenaga-kerja-provinsi-2024"
+jenis = "berkas"
+path = "data/sumber/satudata-ekraf/dl_8w13umewjrtrk1q_Jumlah_Tenaga_Kerja_Ekonomi_Kreatif_Berdasarkan_Provinsi_5.csv"
+namespace = "bronze_file"
+tabel = "satudata_ekraf_tenaga_kerja_provinsi_2024"
+kelas_refresh = "snapshot"
+tanggal_ambil = "2026-09-28"
+asal = "Satu Data Ekraf (Kemenekraf, Sakernas BPS), https://satudata.ekraf.go.id"
+pembangun = ""
+
+[[sumber]]
+id = "satudata-ekraf-tenaga-kerja-provinsi-jenis-kelamin-2020"
+jenis = "berkas"
+path = "data/sumber/satudata-ekraf/dl_hxi9b9y1vq2rf2p_Jumlah_Tenaga_Kerja_Ekonomi_Kreatif_Berdasarkan_Provinsi_dan_Jenis_Kelamin.csv"
+namespace = "bronze_file"
+tabel = "satudata_ekraf_tenaga_kerja_provinsi_jenis_kelamin_2020"
+kelas_refresh = "snapshot"
+tanggal_ambil = "2026-09-28"
+asal = "Satu Data Ekraf (Kemenekraf, Sakernas BPS), https://satudata.ekraf.go.id"
+pembangun = ""
+
+[[sumber]]
+id = "satudata-ekraf-tenaga-kerja-provinsi-jenis-kelamin-2021"
+jenis = "berkas"
+path = "data/sumber/satudata-ekraf/dl_hxi9b9y1vq2rf2p_Jumlah_Tenaga_Kerja_Ekonomi_Kreatif_Berdasarkan_Provinsi_dan_Jenis_Kelamin_2.csv"
+namespace = "bronze_file"
+tabel = "satudata_ekraf_tenaga_kerja_provinsi_jenis_kelamin_2021"
+kelas_refresh = "snapshot"
+tanggal_ambil = "2026-09-28"
+asal = "Satu Data Ekraf (Kemenekraf, Sakernas BPS), https://satudata.ekraf.go.id"
+pembangun = ""
+
+[[sumber]]
+id = "satudata-ekraf-tenaga-kerja-provinsi-jenis-kelamin-2022"
+jenis = "berkas"
+path = "data/sumber/satudata-ekraf/dl_hxi9b9y1vq2rf2p_Jumlah_Tenaga_Kerja_Ekonomi_Kreatif_Berdasarkan_Provinsi_dan_Jenis_Kelamin_3.csv"
+namespace = "bronze_file"
+tabel = "satudata_ekraf_tenaga_kerja_provinsi_jenis_kelamin_2022"
+kelas_refresh = "snapshot"
+tanggal_ambil = "2026-09-28"
+asal = "Satu Data Ekraf (Kemenekraf, Sakernas BPS), https://satudata.ekraf.go.id"
+pembangun = ""
+
+[[sumber]]
+id = "satudata-ekraf-tenaga-kerja-provinsi-jenis-kelamin-2023"
+jenis = "berkas"
+path = "data/sumber/satudata-ekraf/dl_hxi9b9y1vq2rf2p_Jumlah_Tenaga_Kerja_Ekonomi_Kreatif_Berdasarkan_Provinsi_dan_Jenis_Kelamin_4.csv"
+namespace = "bronze_file"
+tabel = "satudata_ekraf_tenaga_kerja_provinsi_jenis_kelamin_2023"
+kelas_refresh = "snapshot"
+tanggal_ambil = "2026-09-28"
+asal = "Satu Data Ekraf (Kemenekraf, Sakernas BPS), https://satudata.ekraf.go.id"
+pembangun = ""
+
+[[sumber]]
+id = "satudata-ekraf-tenaga-kerja-provinsi-jenis-kelamin-2024"
+jenis = "berkas"
+path = "data/sumber/satudata-ekraf/dl_hxi9b9y1vq2rf2p_Jumlah_Tenaga_Kerja_Ekonomi_Kreatif_Berdasarkan_Provinsi_dan_Jenis_Kelamin_5.csv"
+namespace = "bronze_file"
+tabel = "satudata_ekraf_tenaga_kerja_provinsi_jenis_kelamin_2024"
+kelas_refresh = "snapshot"
+tanggal_ambil = "2026-09-28"
+asal = "Satu Data Ekraf (Kemenekraf, Sakernas BPS), https://satudata.ekraf.go.id"
+pembangun = ""
+
+[[sumber]]
 id = "wellness-jakarta"
 jenis = "sekunder"
 path = "data/sekunder/wellness-jakarta.json"
@@ -548,23 +735,15 @@ tanggal_ambil = "2026-09-28"
 asal = "Tabel statistik BPS DKI var 1330 (mobile positioning), lihat scripts/build_bps_wisnus_kota_tujuan.py"
 pembangun = "scripts/build_bps_wisnus_kota_tujuan.py"
 
-# ── abaikan: berkas di data/ yang tidak dipakai Bronze (lihat plan 03/05) ──
+# ── abaikan: berkas di data/ yang tidak dipakai Bronze ────────────────────────
 
 [[abaikan]]
 path = "data/202607 Event Geocode - PERLU REVIEW.csv"
-alasan = "berkas kerja; PERLU REVIEW, belum dinilai, lihat plan 03"
+alasan = "berkas kerja geocoding (-PERLU REVIEW); versi final = data/202607 Jumlah Pengunjung Event - GEOCODED.xlsx"
 
 [[abaikan]]
 path = "data/202607 Jumlah Pengunjung Event - GEOCODED.bak.xlsx"
-alasan = "cadangan .bak, bukan sumber otomatis"
-
-[[abaikan]]
-path = "data/202607 Jumlah Pengunjung Event - GEOCODED.xlsx"
-alasan = "belum dinilai, lihat plan 03"
-
-[[abaikan]]
-path = "data/202607 Jumlah Pengunjung Event.xlsx"
-alasan = "belum dinilai, lihat plan 03"
+alasan = "cadangan .bak; versi final = data/202607 Jumlah Pengunjung Event - GEOCODED.xlsx"
 
 [[abaikan]]
 path = "data/Data Dinas Pariwisata - Sheet1.pdf"
@@ -572,7 +751,7 @@ alasan = "PDF lampiran, bukan data terstruktur"
 
 [[abaikan]]
 path = "data/atraksi-wisata-air-GCI-jakarta.tsv"
-alasan = "belum dinilai, lihat plan 03"
+alasan = "duplikat dari water-attractions-jakarta"
 
 [[abaikan]]
 path = "data/exports/asosiasi-organisasi-badan-eo-ekraf-jakarta.xlsx"
@@ -604,79 +783,19 @@ alasan = "deliverable turunan scripts/export_excel.py, bukan sumber"
 
 [[abaikan]]
 path = "data/kunjungan-31-dtw-juli-2026-KERJA.tsv"
-alasan = "berkas kerja (-KERJA); versi final = SUMBER-MENTAH"
+alasan = "berkas kerja (-KERJA); versi final = data/kunjungan-31-dtw-juli-2026-SUMBER-MENTAH.tsv"
 
 [[abaikan]]
 path = "data/kunjungan-31-dtw-juli-2026-SWEEP2.tsv"
-alasan = "berkas kerja (-SWEEP); versi final = SUMBER-MENTAH"
+alasan = "berkas kerja (-SWEEP); versi final = data/kunjungan-31-dtw-juli-2026-SUMBER-MENTAH.tsv"
 
 [[abaikan]]
 path = "data/resto_verify_batches.json"
-alasan = "belum dinilai, lihat plan 03"
-
-[[abaikan]]
-path = "data/sumber/satudata-ekraf/dl_17o8miba9bfiyx1_tenaga_kerja_subsektor_tahun_2020_ihMOJ549ok.csv"
-alasan = "CSV mentah unduhan Satu Data Ekraf, lihat scripts/build_satudata_ekraf_tenaga_kerja.py"
-
-[[abaikan]]
-path = "data/sumber/satudata-ekraf/dl_17o8miba9bfiyx1_tenaga_kerja_subsektor_tahun_2021_DKKaT53njJ.csv"
-alasan = "CSV mentah unduhan Satu Data Ekraf, lihat scripts/build_satudata_ekraf_tenaga_kerja.py"
-
-[[abaikan]]
-path = "data/sumber/satudata-ekraf/dl_17o8miba9bfiyx1_tenaga_kerja_subsektor_tahun_2022_974dtWy8B6.csv"
-alasan = "CSV mentah unduhan Satu Data Ekraf, lihat scripts/build_satudata_ekraf_tenaga_kerja.py"
-
-[[abaikan]]
-path = "data/sumber/satudata-ekraf/dl_17o8miba9bfiyx1_tenaga_kerja_subsektor_tahun_2023_65WJLWL3Qu.csv"
-alasan = "CSV mentah unduhan Satu Data Ekraf, lihat scripts/build_satudata_ekraf_tenaga_kerja.py"
-
-[[abaikan]]
-path = "data/sumber/satudata-ekraf/dl_17o8miba9bfiyx1_tenaga_kerja_subsektor_tahun_2024_8Es0nPmIx4.csv"
-alasan = "CSV mentah unduhan Satu Data Ekraf, lihat scripts/build_satudata_ekraf_tenaga_kerja.py"
-
-[[abaikan]]
-path = "data/sumber/satudata-ekraf/dl_8w13umewjrtrk1q_Jumlah_Tenaga_Kerja_Ekonomi_Kreatif_Berdasarkan_Provinsi.csv"
-alasan = "CSV mentah unduhan Satu Data Ekraf, lihat scripts/build_satudata_ekraf_tenaga_kerja.py"
-
-[[abaikan]]
-path = "data/sumber/satudata-ekraf/dl_8w13umewjrtrk1q_Jumlah_Tenaga_Kerja_Ekonomi_Kreatif_Berdasarkan_Provinsi_2.csv"
-alasan = "CSV mentah unduhan Satu Data Ekraf, lihat scripts/build_satudata_ekraf_tenaga_kerja.py"
-
-[[abaikan]]
-path = "data/sumber/satudata-ekraf/dl_8w13umewjrtrk1q_Jumlah_Tenaga_Kerja_Ekonomi_Kreatif_Berdasarkan_Provinsi_3.csv"
-alasan = "CSV mentah unduhan Satu Data Ekraf, lihat scripts/build_satudata_ekraf_tenaga_kerja.py"
-
-[[abaikan]]
-path = "data/sumber/satudata-ekraf/dl_8w13umewjrtrk1q_Jumlah_Tenaga_Kerja_Ekonomi_Kreatif_Berdasarkan_Provinsi_4.csv"
-alasan = "CSV mentah unduhan Satu Data Ekraf, lihat scripts/build_satudata_ekraf_tenaga_kerja.py"
-
-[[abaikan]]
-path = "data/sumber/satudata-ekraf/dl_8w13umewjrtrk1q_Jumlah_Tenaga_Kerja_Ekonomi_Kreatif_Berdasarkan_Provinsi_5.csv"
-alasan = "CSV mentah unduhan Satu Data Ekraf, lihat scripts/build_satudata_ekraf_tenaga_kerja.py"
-
-[[abaikan]]
-path = "data/sumber/satudata-ekraf/dl_hxi9b9y1vq2rf2p_Jumlah_Tenaga_Kerja_Ekonomi_Kreatif_Berdasarkan_Provinsi_dan_Jenis_Kelamin.csv"
-alasan = "CSV mentah unduhan Satu Data Ekraf, lihat scripts/build_satudata_ekraf_tenaga_kerja.py"
-
-[[abaikan]]
-path = "data/sumber/satudata-ekraf/dl_hxi9b9y1vq2rf2p_Jumlah_Tenaga_Kerja_Ekonomi_Kreatif_Berdasarkan_Provinsi_dan_Jenis_Kelamin_2.csv"
-alasan = "CSV mentah unduhan Satu Data Ekraf, lihat scripts/build_satudata_ekraf_tenaga_kerja.py"
-
-[[abaikan]]
-path = "data/sumber/satudata-ekraf/dl_hxi9b9y1vq2rf2p_Jumlah_Tenaga_Kerja_Ekonomi_Kreatif_Berdasarkan_Provinsi_dan_Jenis_Kelamin_3.csv"
-alasan = "CSV mentah unduhan Satu Data Ekraf, lihat scripts/build_satudata_ekraf_tenaga_kerja.py"
-
-[[abaikan]]
-path = "data/sumber/satudata-ekraf/dl_hxi9b9y1vq2rf2p_Jumlah_Tenaga_Kerja_Ekonomi_Kreatif_Berdasarkan_Provinsi_dan_Jenis_Kelamin_4.csv"
-alasan = "CSV mentah unduhan Satu Data Ekraf, lihat scripts/build_satudata_ekraf_tenaga_kerja.py"
-
-[[abaikan]]
-path = "data/sumber/satudata-ekraf/dl_hxi9b9y1vq2rf2p_Jumlah_Tenaga_Kerja_Ekonomi_Kreatif_Berdasarkan_Provinsi_dan_Jenis_Kelamin_5.csv"
-alasan = "CSV mentah unduhan Satu Data Ekraf, lihat scripts/build_satudata_ekraf_tenaga_kerja.py"
+alasan = "metadata proses"
 
 [[abaikan]]
 path = "data/sumber/satudata-ekraf/manifest.json"
-alasan = "manifest unduhan, bukan sumber"
+alasan = "metadata proses"
 
 [[abaikan]]
 path = "data/water-attractions-jakarta.README.md"
@@ -684,24 +803,24 @@ alasan = "README, bukan data terstruktur"
 
 [[abaikan]]
 path = "data/water-attractions-osm-additions.json"
-alasan = "belum dinilai, lihat plan 03"
+alasan = "metadata proses"
 
 [[abaikan]]
 path = "data-katalog-disparekraf-untuk-tim.tsv"
-alasan = "belum dinilai, lihat plan 03"
+alasan = "metadata proses"
 
 [[abaikan]]
 path = "data-nightlife-GPCI-jakarta.tsv"
-alasan = "belum dinilai, lihat plan 03"
+alasan = "duplikat dari atlas-nightlife"
 
 [[abaikan]]
 path = "data-pertunjukan-GCI-jakarta-2025.tsv"
-alasan = "belum dinilai, lihat plan 03"
+alasan = "duplikat dari atlas-pertunjukan"
 
 [[abaikan]]
 path = "data-restoran-GCI-jakarta.tsv"
-alasan = "belum dinilai, lihat plan 03"
+alasan = "duplikat dari atlas-restoran"
 
 [[abaikan]]
 path = "data-souvenir-GCI-jakarta.tsv"
-alasan = "belum dinilai, lihat plan 03"
+alasan = "duplikat dari atlas-souvenir"
