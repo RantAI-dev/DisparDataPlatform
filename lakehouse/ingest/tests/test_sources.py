@@ -77,22 +77,48 @@ def _muat(tmp_path: Path, toml: str, berkas=("data/a.tsv",)) -> Registry:
 
 
 def test_registri_repo_termuat(registri: Registry):
-    # 1 SDI + 17 berkas + 28 sekunder = 46 entri. Tabel bronze_file ke-18
+    # Plan 03: 1 SDI + 34 berkas + 28 sekunder = 63 entri. Tabel bronze_file ke-35
     # (wellness_jakarta) datang dari tabel_lain, bukan entri sendiri.
-    assert len(registri.sumber) == 46
+    assert len(registri.sumber) == 63
 
 
 def test_jumlah_sesuai_bronze_hidup(registri: Registry):
-    """Kriteria 3: 1 SDI + 18 bronze_file + 28 bronze_sec. Angka ini dari
-    ClickHouse (SHOW TABLES) per 2026-10-08. Beda angka = STOP, bukan ubah tes."""
+    """Kriteria Plan 03: 1 SDI + 35 bronze_file + 28 bronze_sec.
+    - bronze_sdi: 1 entri registri (181 tabel live)
+    - bronze_file: 34 entri registri berkas + 1 dari tabel_lain (wellness_jakarta) = 35
+      (18 tabel live dari Plan 01 + 17 berkas raw baru dari Plan 03)
+    - bronze_sec: 28 entri registri sekunder (28 tabel live)
+    """
     by_ns: dict[str, int] = {}
     for s in registri.sumber:
         by_ns[s.namespace] = by_ns.get(s.namespace, 0) + 1
         for ns, _ in s.tabel_lain:
             by_ns[ns] = by_ns.get(ns, 0) + 1
     assert by_ns["bronze_sdi"] == 1, "bentuk registri (bukan lake): jumlah SDI"
-    assert by_ns["bronze_file"] == 18, "bentuk registri (bukan lake): jumlah bronze_file"
+    assert by_ns["bronze_file"] == 35, "bentuk registri: jumlah bronze_file"
     assert by_ns["bronze_sec"] == 28, "bentuk registri (bukan lake): jumlah bronze_sec"
+
+
+def test_tidak_ada_abaikan_belum_dinilai(registri: Registry):
+    """Kriteria 1 Plan 03: tidak ada lagi entri [[abaikan]] beralasan 'belum dinilai, lihat plan 03'."""
+    belum = [a for a in registri.abaikan if "belum dinilai" in a.alasan.lower()]
+    assert belum == [], f"Masih ada {len(belum)} entri abaikan belum dinilai: {[a.path for a in belum]}"
+
+
+@pytest.mark.parametrize(
+    "sumber_id",
+    [s.id for s in load(REPO).sumber if s.jenis == "berkas"],
+)
+def test_sumber_berkas_terbaca_dan_tidak_kosong(sumber_id: str, registri: Registry):
+    """Kriteria 3 Plan 03: setiap sumber jenis berkas terbaca oleh files.read_file dan menghasilkan >= 1 baris."""
+    from dispar_ingest.files import read_file
+
+    by_id = {s.id: s for s in registri.sumber}
+    sumber = by_id[sumber_id]
+    path = REPO / sumber.path
+    assert path.is_file(), f"{sumber.id}: berkas tidak ada di {path}"
+    rows = list(read_file(str(path)))
+    assert len(rows) >= 1, f"{sumber.id}: berkas kosong (0 baris)"
 
 
 def test_tidak_ada_berkas_tak_bertuan(registri: Registry):
