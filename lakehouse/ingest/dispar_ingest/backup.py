@@ -19,7 +19,9 @@ from __future__ import annotations
 
 import json
 import os
+import random
 import sys
+import time
 
 import s3fs
 
@@ -41,7 +43,28 @@ def _ensure_bucket(fs: s3fs.S3FileSystem, bucket: str) -> None:
         pass
 
 
-def run_backup(tanggal: str) -> dict:
+def _retry_s3(fn, *args, max_attempts: int = 4, base_delay: float = 0.5, **kwargs):
+    """Jalankan operasi S3 dengan retry otomatis saat terjadi error transien (503, SlowDown, timeout)."""
+    for attempt in range(1, max_attempts + 1):
+        try:
+            return fn(*args, **kwargs)
+        except Exception as e:
+            err_msg = str(e).lower()
+            is_transient = (
+                isinstance(e, (OSError, TimeoutError, ConnectionError))
+                or "slowdown" in err_msg
+                or "unavailable" in err_msg
+                or "reduce your request rate" in err_msg
+                or "retry" in err_msg
+                or "timeout" in err_msg
+            )
+            if attempt == max_attempts or not is_transient:
+                raise
+            delay = base_delay * (2 ** (attempt - 1)) + random.uniform(0, 0.1)
+            time.sleep(delay)
+
+
+def run_backup(tanggal: str = "latest") -> dict:
     src_endpoint = os.environ.get("S3_ENDPOINT", "http://lake-rustfs:9000")
     src_key = os.environ.get("S3_ACCESS_KEY", "disparlake")
     src_secret = os.environ.get("S3_SECRET_KEY", "disparlakesecret")
@@ -75,8 +98,8 @@ def run_backup(tanggal: str) -> dict:
         if existing.get(dst_path) == size and size >= 0:
             dilewati += 1
             continue
-        data = src.cat_file(key)
-        dst.pipe_file(dst_path, data)
+        data = _retry_s3(src.cat_file, key)
+        _retry_s3(dst.pipe_file, dst_path, data)
         disalin += 1
         total_bytes += len(data)
 
@@ -88,7 +111,7 @@ def run_backup(tanggal: str) -> dict:
         "objek_dilewati_sama": dilewati,
         "bytes_disalin": total_bytes,
     }
-    dst.pipe_file(f"{prefix}/_manifest.json", json.dumps(laporan, ensure_ascii=False).encode())
+    _retry_s3(dst.pipe_file, f"{prefix}/_manifest.json", json.dumps(laporan, ensure_ascii=False).encode())
     print(json.dumps(laporan, indent=2, ensure_ascii=False), flush=True)
     if not offsite:
         print(
@@ -99,7 +122,7 @@ def run_backup(tanggal: str) -> dict:
     return laporan
 
 
-def run_restore(tanggal: str, target_bucket: str | None = None) -> dict:
+def run_restore(tanggal: str = "latest", target_bucket: str | None = None) -> dict:
     """Pulihkan objek dari backup <tanggal> ke bucket lake (atau target lain).
     Backup tak teruji restore = tak bisa diandalkan; jalankan ke bucket uji dulu.
     """
@@ -124,7 +147,8 @@ def run_restore(tanggal: str, target_bucket: str | None = None) -> dict:
         if key.endswith("_manifest.json"):
             continue
         rel = key[len(prefix) + 1:]
-        lake.pipe_file(f"{into}/{rel}", bk.cat_file(key))
+        data = _retry_s3(bk.cat_file, key)
+        _retry_s3(lake.pipe_file, f"{into}/{rel}", data)
         dipulihkan += 1
     laporan = {"tanggal": tanggal, "ke_bucket": into, "objek_dipulihkan": dipulihkan}
     print(json.dumps(laporan, indent=2, ensure_ascii=False), flush=True)
@@ -133,8 +157,8 @@ def run_restore(tanggal: str, target_bucket: str | None = None) -> dict:
 
 if __name__ == "__main__":
     if len(sys.argv) > 1 and sys.argv[1] == "restore":
-        run_restore(sys.argv[2] if len(sys.argv) > 2 else "manual",
+        run_restore(sys.argv[2] if len(sys.argv) > 2 else "latest",
                     sys.argv[3] if len(sys.argv) > 3 else None)
     else:
-        run_backup(sys.argv[1] if len(sys.argv) > 1 else "manual")
+        run_backup(sys.argv[1] if len(sys.argv) > 1 else "latest")
     sys.exit(0)
