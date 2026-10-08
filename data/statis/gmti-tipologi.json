@@ -1,0 +1,57 @@
+[
+ {
+  "count": 3712,
+  "jenis": "masjid",
+  "tipologi": "Masjid Jami"
+ },
+ {
+  "count": 3214,
+  "jenis": "mushalla",
+  "tipologi": "Mushalla Perumahan"
+ },
+ {
+  "count": 964,
+  "jenis": "mushalla",
+  "tipologi": "Mushalla di Tempat Publik"
+ },
+ {
+  "count": 282,
+  "jenis": "masjid",
+  "tipologi": "Masjid di Tempat Publik"
+ },
+ {
+  "count": 76,
+  "jenis": "mushalla",
+  "tipologi": "Mushalla Pendidikan"
+ },
+ {
+  "count": 36,
+  "jenis": "mushalla",
+  "tipologi": "Mushalla Perkantoran"
+ },
+ {
+  "count": 25,
+  "jenis": "masjid",
+  "tipologi": "Masjid Besar"
+ },
+ {
+  "count": 13,
+  "jenis": "masjid",
+  "tipologi": "Masjid Bersejarah"
+ },
+ {
+  "count": 6,
+  "jenis": "masjid",
+  "tipologi": "Masjid Agung"
+ },
+ {
+  "count": 2,
+  "jenis": "masjid",
+  "tipologi": "Masjid Raya"
+ },
+ {
+  "count": 1,
+  "jenis": "masjid",
+  "tipologi": "Masjid Negara"
+ }
+]
