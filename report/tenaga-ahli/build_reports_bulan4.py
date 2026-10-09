@@ -212,10 +212,24 @@ CAPTION_URLS = {
     "09-ai.jpg": "https://dispar.rantai.dev/ai",
     "10-api-docs.jpg": "https://dispar.rantai.dev/docs",
     "11-buku-home.jpg": "https://dispar-buku.vercel.app/",
+    "12-erd-venue-akomodasi.jpg": "DESCRIBE TABLE silver.* pada ClickHouse; diagram disusun 9 Oktober 2026.",
+    "13-erd-statistik-audit.jpg": "DESCRIBE TABLE silver.* pada ClickHouse; diagram disusun 9 Oktober 2026.",
+    "14-data-wisnus-kota.jpg": "https://dispar.rantai.dev/sdi/wisnus-perjalanan-per-kota-tujuan",
+    "15-data-tenaga-kerja.jpg": "https://dispar.rantai.dev/sdi/tenaga-kerja-ekraf-per-provinsi",
+    "16-data-hotel-kamar.jpg": "https://dispar.rantai.dev/sdi/hotel-kamar-jakarta",
+    "17-data-hotel-transit.jpg": "https://dispar.rantai.dev/sdi/hotel-transit-jakarta",
+    "18-data-desa-wisata.jpg": "https://dispar.rantai.dev/sdi/desa-wisata-jakarta",
+    "19-data-wellness.jpg": "https://dispar.rantai.dev/sdi/wellness-jakarta",
 }
 
+# Gambar tambahan revisi Data Engineer 2 ditangkap pada tanggal berbeda.
+CAPTION_DATES = {f: "9 Oktober 2026" for f in CAPTION_URLS if f[:2] in ("14", "15", "16", "17", "18", "19")}
+
 def caption(filename, text):
-    return text + " Sumber: " + CAPTION_URLS[filename] + "; tangkapan layar 2 Oktober 2026."
+    src = CAPTION_URLS[filename]
+    if not src.startswith("http"):
+        return text + " Sumber: " + src
+    return text + " Sumber: " + src + "; tangkapan layar " + CAPTION_DATES.get(filename, "2 Oktober 2026") + "."
 
 
 def prepare_layout(doc):
@@ -603,7 +617,7 @@ MEMBERS = [
             "Menggunakan jalur pembacaan untuk verifikasi laporan tanpa memicu pemuatan ulang atau perubahan server. Kebutuhan pemeriksaan mutu sumber baru dicatat sebagai tindak lanjut."
         ]
     ],
-    "bukti_intro": "Riwayat jumlah baris dan hasil gerbang mutu menyediakan bukti periode September. Tangkapan layar menunjukkan dataset sekunder yang dapat dibuka saat verifikasi.",
+    "bukti_intro": "Riwayat jumlah baris dan hasil gerbang mutu menyediakan bukti periode September. Diagram struktur data disusun dari definisi kolom tampilan data bersih pada gudang data, sedangkan tangkapan layar menunjukkan dataset hasil integrasi yang dapat dibuka di aplikasi saat pemeriksaan 9 Oktober 2026. Pada tangkapan layar, grafik bawaan halaman disembunyikan agar judul, keterangan sumber, lapisan pengolahan, dan tabel data terbaca utuh.",
     "bukti": [
         [
             "qual",
@@ -615,8 +629,43 @@ MEMBERS = [
         ],
         [
             "img",
-            "07-wellness.jpg",
-            "Gambar 1. Dataset venue wellness dengan keterangan asal dan metode pengumpulan."
+            "12-erd-venue-akomodasi.jpg",
+            "Gambar 1. Diagram relasi data venue dan akomodasi: lima tabel bersih (kamar hotel 484 baris, hotel transit 43, desa wisata 48, usaha wellness 84, asosiasi pariwisata 26) dicocokkan ke dimensi wilayah bersama."
+        ],
+        [
+            "img",
+            "13-erd-statistik-audit.jpg",
+            "Gambar 2. Diagram relasi data statistik resmi (perjalanan wisnus 534 baris, tenaga kerja ekonomi kreatif 522 baris) ke dimensi periode dan wilayah, beserta kolom audit yang diwarisi dari lapisan data mentah."
+        ],
+        [
+            "img",
+            "14-data-wisnus-kota.jpg",
+            "Gambar 3. Dataset perjalanan wisnus menurut kota tujuan (BPS) setelah melewati lapisan mentah ke tampilan data bersih."
+        ],
+        [
+            "img",
+            "15-data-tenaga-kerja.jpg",
+            "Gambar 4. Dataset tenaga kerja ekonomi kreatif per provinsi dan jenis kelamin dari Satu Data Ekraf, dengan tautan sumber resmi."
+        ],
+        [
+            "img",
+            "16-data-hotel-kamar.jpg",
+            "Gambar 5. Dataset hotel dan jumlah kamar hasil penggabungan tiga sumber, dengan kolom status riset dan catatan penggabungan."
+        ],
+        [
+            "img",
+            "17-data-hotel-transit.jpg",
+            "Gambar 6. Dataset hotel transit dalam radius 5 km dari simpul transportasi, dengan keterangan sumber koordinat."
+        ],
+        [
+            "img",
+            "18-data-desa-wisata.jpg",
+            "Gambar 7. Dataset desa wisata dengan status dan sumber koordinat per baris."
+        ],
+        [
+            "img",
+            "19-data-wellness.jpg",
+            "Gambar 8. Dataset venue wellness dengan keterangan asal dan metode pengumpulan."
         ]
     ],
     "rtl_peran": "Data Engineer perlu memeriksa pembaruan sumber baru secara terjadwal, melengkapi riwayat karantina, dan menguji pemuatan bertahap. Penambahan data kamar hotel diteruskan dengan pencatatan status sumber serta waktu pengambilan per hotel.",
