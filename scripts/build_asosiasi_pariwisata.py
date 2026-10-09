@@ -356,10 +356,8 @@ def build() -> dict:
         "title": "Asosiasi/Organisasi/Badan/EO Pariwisata DKI Jakarta",
         "description": (
             "Inventaris asosiasi, organisasi, badan, dan EO (event organizer) yang "
-            "berkaitan dengan PARIWISATA di DKI Jakarta. Sumber: kurasi manual "
-            "dari direktori Dispar DKI, situs resmi asosiasi, dan press release "
-            "publik. Berbeda dengan dataset ekraf, Dispar DKI tidak menyediakan "
-            "direktori publik terpusat untuk asosiasi wisata; baris yang "
+            "berkaitan dengan PARIWISATA di DKI Jakarta. Sumber: direktori Dispar "
+            "DKI, situs resmi asosiasi, dan press release publik. Baris yang "
             "kontaknya tidak tersedia publik ditandai '—'. Distribusi kategori: "
             f"{by_kategori}."
         ),

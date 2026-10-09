@@ -312,7 +312,7 @@ def build() -> dict:
         "description": (
             "Inventaris desa/kampung wisata di DKI Jakarta dari Satu Data Jakarta "
             "(dataset `data-desa-wisata`, id 9984). DKI Jakarta tidak memiliki banyak 'desa' "
-            "administratif — banyak条目 berupa kampung wisata atau kelurahan wisata "
+            "administratif — banyak entri berupa kampung wisata atau kelurahan wisata "
             "(mis. Kampung Bhinneka, Agro Edu Wisata Ragunan, Kampung Samtama). "
             f"Total baris DKI: {len(rows)}. Distribusi kota: {by_kota}. "
             f"Distribusi tipe: {by_tipe}. Distribusi jenis: {by_jenis}."

@@ -1,7 +1,7 @@
 {
   "slug": "water-attractions-jakarta",
   "title": "Atraksi Wisata Air DKI Jakarta (silver SDI + join potensi DTW)",
-  "description": "28 venue atraksi wisata air di DKI Jakarta: 23 venue silver SDI (fix bug lat/lon-tertukar otomatis) + 2 silver rusak diperbaiki Photon + 3 venue Nominatim/OSM (waterpark/marina/diving yang tak tercakup SDI). Kategori mengikuti standar resmi Kemenpar 'Aktivitas Wisata Air'.",
+  "description": "Inventaris 28 venue atraksi wisata air di DKI Jakarta (bersumber SDI, dilengkapi pemetaan koordinat dan OpenStreetMap). Kategori mengikuti standar Kemenpar 'Aktivitas Wisata Air'.",
   "columns": [
     {
       "type": "string",

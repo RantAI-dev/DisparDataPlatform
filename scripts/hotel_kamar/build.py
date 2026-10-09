@@ -43,11 +43,8 @@ MIRROR_JSON = REPO_ROOT / "platform-v2" / "data" / "hotel-kamar-jakarta.json"
 SLUG = "hotel-kamar-jakarta"
 TITLE = "Hotel & Jumlah Kamar DKI Jakarta (terkini)"
 DESCRIPTION = (
-    "Daftar hotel DKI Jakarta dengan jumlah kamar terkini, digabung dari tiga "
-    "sumber: (1) baseline SDI 2020 hasil dedup nama+alamat, (2) rekapitulasi "
-    "usaha & kamar hotel 2023, dan (3) riset web per hotel. Prioritas "
-    "`kamar_terkini`: riset DITEMUKAN > rekap 2023 > SDI 2020; riset TUTUP "
-    "membuat `kamar_terkini` null."
+    "Daftar hotel DKI Jakarta dengan jumlah kamar terkini, dari tiga sumber: "
+    "SDI 2020, rekapitulasi usaha & kamar hotel 2023, dan riset web per hotel."
 )
 
 COLUMNS = [

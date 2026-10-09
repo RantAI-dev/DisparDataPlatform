@@ -296,8 +296,8 @@ def build() -> dict:
         "description": (
             f"Inventaris hotel dalam buffer {BUFFER_KM} km dari {len(TRANSPORT_HUBS)} simpul "
             "transport utama DKI Jakarta (bandara, stasiun KAI, terminal bus, halte MRT/LRT). "
-            "Basis: registry 120 hotel resmi Satu Data Jakarta. Koordinat via Nominatim forward-search; "
-            "hotel yang tidak bisa di-geocode ditandai di cache (lihat scripts/hotel_transit_cache.json)."
+            "Basis: registry 120 hotel resmi Satu Data Jakarta. Koordinat diperoleh dari pencarian alamat; "
+            "hotel yang alamatnya tidak dapat dipetakan tidak ditampilkan."
         ),
         "columns": [
             {"key": "id", "label": "ID", "type": "string"},

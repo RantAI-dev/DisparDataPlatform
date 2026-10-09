@@ -56,7 +56,7 @@ export function secondaryDatasets(): SecondaryDataset[] {
       id: "sec-wisman-pintu-bulanan-bps",
       title: "Wisman per Pintu Masuk dan Bulan (BPS DKI Jakarta)",
       description:
-        "Kunjungan wisman bulanan menurut pintu masuk DKI Jakarta (Soekarno-Hatta, Halim Perdana Kusuma, Tanjung Priok). Sumber: tabel statistik BPS Provinsi DKI Jakarta, diunduh manual 28 Sep 2026. Saat ini tersedia 2024.",
+        "Kunjungan wisman bulanan menurut pintu masuk DKI Jakarta (Soekarno-Hatta, Halim Perdana Kusuma, Tanjung Priok). Sumber: tabel statistik BPS Provinsi DKI Jakarta. Periode tersedia: 2024.",
       tags: ["wisman", "pintu-masuk", "bulanan", "bps", "sekunder"],
       rows: 36,
       href: "/sdi/wisman-per-pintu-masuk-bulanan-bps",
@@ -66,7 +66,7 @@ export function secondaryDatasets(): SecondaryDataset[] {
       id: "sec-wisnus-kota-tujuan",
       title: "Perjalanan Wisatawan Nusantara Menurut Kabupaten/Kota Tujuan (BPS DKI Jakarta)",
       description:
-        "Jumlah perjalanan wisnus bulanan menurut kota/kabupaten TUJUAN di DKI Jakarta (mobile positioning data). Sumber: tabel statistik BPS Provinsi DKI Jakarta (var 1330), diunduh manual 28 Sep 2026. Cakupan 2019–2025 lengkap dan Jan–Mei 2026. Tervalidasi terhadap rilis BPS TW II & TW IV 2025.",
+        "Jumlah perjalanan wisnus bulanan menurut kota/kabupaten TUJUAN di DKI Jakarta (mobile positioning data). Sumber: BPS Provinsi DKI Jakarta. Cakupan 2019–2025 lengkap dan Jan–Mei 2026. Tervalidasi terhadap rilis BPS TW II & TW IV 2025.",
       tags: ["wisnus", "nusantara", "kota-tujuan", "bps", "sekunder"],
       rows: 534,
       href: "/sdi/wisnus-perjalanan-per-kota-tujuan",
@@ -216,17 +216,17 @@ export function secondaryDatasets(): SecondaryDataset[] {
       id: "sec-water-attractions",
       title: "Atraksi Wisata Air DKI Jakarta",
       description:
-        "Inventaris 25 venue atraksi wisata air di DKI Jakarta: 23 venue dari silver.data_destinasi_pariwisata (filter regex nama) + 2 hasil Photon geocode untuk koordinat silver rusak. Kategori mengikuti standar resmi Kemenpar 'Aktivitas Wisata Air' (14 sub). Silver view memiliki bug lat/lon-tertukar untuk 19 baris — telah diperbaiki otomatis dan ditandai di field koordinat_sumber_silver_di_swap. Enrichment Nominatim menambah beberapa waterpark/marina water tambahan di luar SDI.",
+        "Inventaris 28 venue atraksi wisata air di DKI Jakarta (bersumber SDI, dilengkapi pemetaan koordinat dan OpenStreetMap). Kategori mengikuti standar Kemenpar 'Aktivitas Wisata Air'.",
       tags: ["atraksi-air", "water-attractions", "kemenpar", "pantai", "marina", "waterpark", "jakarta", "silver-sdi", "photon-geocode", "nominatim-osm", "sekunder"],
-      rows: 25,
+      rows: 28,
       href: "/sdi/water-attractions-jakarta",
       external: false,
     },
     {
       id: "sec-wellness-jakarta",
-      title: "Venue Wellness DKI Jakarta (Nominatim + Google Places API New)",
+      title: "Venue Wellness DKI Jakarta",
       description:
-        "Inventaris 84 venue wellness DKI Jakarta dari dua sumber: (1) Nominatim forward-search + filter kategori OSM untuk venue independen (47 baris mentah, 35 ditambahkan setelah dedup), (2) Google Places API (New) Text Search untuk hotel-spa kelas atas yang tidak terdaftar di OSM (49 baris; Essentials tier, gratis 10k/bulan). Field mask Essentials saja (formattedAddress, displayName, location, types) — tidak menyentuh tier Pro/Enterprise/Atmosphere. Dedup by nama ternormalisasi + jarak <500 m antar sumber. Distribusi kategori: 34 Spa & Pijat, 20 Hotel Spa Premium, 16 Fitness & Gym, 12 Klinik Kecantikan & Estetika, 1 Pengobatan Tradisional & Alternatif, 1 Kesehatan Mental & Nutrisi. Distribusi kota adm: 40 JakSel, 38 JakPus, 4 JakBar, 2 JakTim. Termasuk venue branded: The Spa at Four Seasons, Spa Treatments Mandarin Oriental, The Ritz-Carlton Spa, The St. Regis Spa, Kempinski The Spa, SPA by JW, Inaria Spa at InterContinental, Mulia Spa, Fairmont Spa, Heavenly Spa by Westin, Park Hyatt Spa, Sheraton Grand Spa, plus jaringan independen (Gold's Gym, Celebrity Fitness, Fitness First Platinum, Anytime Fitness, KX Pilates, Colour Yoga, Delta Spa, Rasa Spa, dll).",
+        "Inventaris 84 venue wellness DKI Jakarta dari OpenStreetMap dan Google Places. Distribusi kategori: 34 Spa & Pijat, 20 Hotel Spa Premium, 16 Fitness & Gym, 12 Klinik Kecantikan & Estetika, 1 Pengobatan Tradisional & Alternatif, 1 Kesehatan Mental & Nutrisi. Distribusi kota adm: 40 JakSel, 38 JakPus, 4 JakBar, 2 JakTim.",
       tags: ["wellness", "wellness-tourism", "spa", "hotel-spa", "fitness", "kecantikan", "klinik", "jakarta", "nominatim-osm", "google-places", "sekunder"],
       rows: 84,
       href: "/sdi/wellness-jakarta",
@@ -236,7 +236,7 @@ export function secondaryDatasets(): SecondaryDataset[] {
       id: "sec-usaha-wellness",
       title: "Usaha Penyedia dan Tempat Layanan Wellness Tourism DKI Jakarta",
       description:
-        "Perluasan dataset wellness-jakarta (84 venue) dengan fokus 'usaha terdaftar': nama_dagang (brand), jenis_usaha (Rantai/Bermerek/Independen), asosiasi (inferensi berdasarkan kategori, bukan hasil lookup direktori resmi), dan status_usaha ('Perlu verifikasi NIB'). Distribusi jenis usaha: 6 Rantai/Franchise, 19 Hotel Spa Premium (bermerek), 59 Independen. Kolom asosiasi & status_usaha bersifat inferensi/placeholder — perlu verifikasi NIB manual sebelum dipakai sebagai data legalitas resmi.",
+        "Perluasan dataset wellness-jakarta (84 venue) dengan fokus 'usaha terdaftar': nama_dagang (brand), jenis_usaha (Rantai/Bermerek/Independen), asosiasi, dan status_usaha. Distribusi jenis usaha: 6 Rantai/Franchise, 19 Hotel Spa Premium (bermerek), 59 Independen. Catatan: kolom asosiasi dan status usaha bersifat indikatif dan belum diverifikasi dengan data perizinan resmi (NIB).",
       tags: ["wellness", "wellness-tourism", "usaha", "nib", "legalitas", "jakarta", "sekunder"],
       rows: 84,
       href: "/sdi/usaha-wellness-jakarta",
@@ -246,7 +246,7 @@ export function secondaryDatasets(): SecondaryDataset[] {
       id: "sec-asosiasi-ekraf",
       title: "Asosiasi/Organisasi/Badan/EO Ekonomi Kreatif DKI Jakarta",
       description:
-        "Inventaris asosiasi, organisasi, badan, dan EO (event organizer) yang berkaitan dengan ekonomi kreatif di DKI Jakarta. Sumber: (1) EKRAF Hub sebaran-pelaku-kreatif (filter province_id=31, work_status=Asosiasi) — otomatis, tanpa kontak; (2) kurasi manual dari situs resmi/Dispar DKI dengan verifikasi telepon/email publik. Distribusi kategori: 23 Asosiasi, 2 Badan, 6 EO, 3 Organisasi.",
+        "Inventaris asosiasi, organisasi, badan, dan EO (event organizer) yang berkaitan dengan ekonomi kreatif di DKI Jakarta. Sumber: EKRAF Hub dan situs resmi/Dispar DKI. Distribusi kategori: 23 Asosiasi, 2 Badan, 6 EO, 3 Organisasi.",
       tags: ["ekraf", "asosiasi", "organisasi", "event-organizer", "jakarta", "ekraf-hub", "sekunder"],
       rows: 34,
       href: "/sdi/asosiasi-organisasi-badan-eo-ekraf-jakarta",
@@ -256,7 +256,7 @@ export function secondaryDatasets(): SecondaryDataset[] {
       id: "sec-asosiasi-pariwisata",
       title: "Asosiasi/Organisasi/Badan/EO Pariwisata DKI Jakarta",
       description:
-        "Inventaris asosiasi, organisasi, badan, dan EO (event organizer) yang berkaitan dengan pariwisata di DKI Jakarta. Sumber: kurasi manual dari direktori Dispar DKI, situs resmi asosiasi, dan press release publik — Dispar DKI tidak menyediakan direktori publik terpusat untuk asosiasi wisata; baris yang kontaknya tidak tersedia publik ditandai '—'. Distribusi kategori: 11 Asosiasi, 4 Badan, 8 EO, 3 Organisasi.",
+        "Inventaris asosiasi, organisasi, badan, dan EO (event organizer) yang berkaitan dengan pariwisata di DKI Jakarta. Sumber: direktori Dispar DKI, situs resmi asosiasi, dan press release publik; baris yang kontaknya tidak tersedia publik ditandai '—'. Distribusi kategori: 11 Asosiasi, 4 Badan, 8 EO, 3 Organisasi.",
       tags: ["pariwisata", "asosiasi", "organisasi", "event-organizer", "jakarta", "sekunder"],
       rows: 26,
       href: "/sdi/asosiasi-organisasi-badan-eo-pariwisata-jakarta",
@@ -276,7 +276,7 @@ export function secondaryDatasets(): SecondaryDataset[] {
       id: "sec-hotel-transit",
       title: "Hotel Transit DKI Jakarta (≤5 km dari simpul transport)",
       description:
-        "Inventaris hotel dalam buffer 5 km dari 24 simpul transport utama DKI Jakarta (bandara, stasiun KAI, terminal bus, halte MRT/LRT). Basis: registry 120 hotel resmi Satu Data Jakarta. Koordinat via Nominatim forward-search; hotel yang tidak bisa di-geocode ditandai di cache.",
+        "Inventaris hotel dalam buffer 5 km dari 24 simpul transport utama DKI Jakarta (bandara, stasiun KAI, terminal bus, halte MRT/LRT). Basis: registry 120 hotel resmi Satu Data Jakarta. Koordinat diperoleh dari pencarian alamat; hotel yang alamatnya tidak dapat dipetakan tidak ditampilkan.",
       tags: ["hotel", "transit", "transportasi", "satu-data-jakarta", "jakarta", "nominatim-osm", "sekunder"],
       rows: 43,
       href: "/sdi/hotel-transit-jakarta",
@@ -306,7 +306,7 @@ export function secondaryDatasets(): SecondaryDataset[] {
       id: "sec-hotel-kamar",
       title: "Hotel & Jumlah Kamar DKI Jakarta (terkini)",
       description:
-        "Penggabungan tiga sumber — SDI hotel 2020 (diduplikasi & dibersihkan), rekap usaha-kamar hotel 2023, dan riset web per hotel (2026); tiap baris mencantumkan jumlah kamar terkini beserta sumber & tahun angkanya, dan hotel yang tutup tetap dicatat dengan status operasionalnya. 25 hotel rekap 2023 yang sama dengan hotel baseline 2020 (beda penulisan nama) digabung ke satu baris.",
+        "Data hotel DKI Jakarta dari tiga sumber — SDI hotel 2020, rekap usaha-kamar hotel 2023, dan riset web per hotel (2026); tiap baris mencantumkan jumlah kamar terkini beserta sumber & tahun angkanya, dan hotel yang tutup tetap dicatat dengan status operasionalnya.",
       tags: ["hotel", "kamar", "akomodasi", "gpci", "sekunder"],
       rows: 484,
       href: "/sdi/hotel-kamar-jakarta",

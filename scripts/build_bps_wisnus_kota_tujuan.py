@@ -117,7 +117,7 @@ def main(folders: list[str]) -> None:
             "wisnus-perjalanan-per-kota-tujuan",
             "Jumlah Perjalanan Wisatawan Nusantara Menurut Kabupaten/Kota Tujuan di DKI Jakarta",
             "Perjalanan wisnus bulanan menurut kota/kabupaten TUJUAN di DKI Jakarta (mobile positioning data). "
-            f"Sumber: tabel statistik BPS Provinsi DKI Jakarta (var 1330), diunduh manual. Tahun: {', '.join(tahun)}. "
+            f"Sumber: tabel statistik BPS Provinsi DKI Jakarta. Tahun: {', '.join(tahun)}. "
             "Baris agregat 'DKI Jakarta' tidak disimpan — dihitung dari kota.",
             [col("tahun", "Tahun", "string"), col("bulan", "Bulan", "string"),
              col("periode", "Periode", "string", "YYYY-MM"),
@@ -132,7 +132,7 @@ def main(folders: list[str]) -> None:
             "wisman-per-pintu-masuk-bulanan-bps",
             "Wisatawan Mancanegara yang Datang ke DKI Jakarta Menurut Pintu Masuk dan Bulan",
             "Kunjungan wisman bulanan per pintu masuk DKI Jakarta (Soekarno-Hatta, Halim Perdana Kusuma, "
-            f"Tanjung Priok). Sumber: tabel statistik BPS Provinsi DKI Jakarta, diunduh manual. Tahun: {', '.join(tahun)}.",
+            f"Tanjung Priok). Sumber: tabel statistik BPS Provinsi DKI Jakarta. Periode tersedia: {', '.join(tahun)}.",
             [col("tahun", "Tahun", "string"), col("bulan", "Bulan", "string"),
              col("periode", "Periode", "string", "YYYY-MM"),
              col("pintu_masuk", "Pintu Masuk", "string"),

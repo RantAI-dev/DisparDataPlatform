@@ -1,7 +1,7 @@
 {
 "slug": "hotel-transit-jakarta",
 "title": "Hotel Transit DKI Jakarta (≤5 km dari simpul transport)",
-"description": "Inventaris hotel dalam buffer 5.0 km dari 24 simpul transport utama DKI Jakarta (bandara, stasiun KAI, terminal bus, halte MRT/LRT). Basis: registry 120 hotel resmi Satu Data Jakarta. Koordinat via Nominatim forward-search; hotel yang tidak bisa di-geocode ditandai di cache (lihat scripts/hotel_transit_cache.json).",
+"description": "Inventaris hotel dalam buffer 5.0 km dari 24 simpul transport utama DKI Jakarta (bandara, stasiun KAI, terminal bus, halte MRT/LRT). Basis: registry 120 hotel resmi Satu Data Jakarta. Koordinat diperoleh dari pencarian alamat; hotel yang alamatnya tidak dapat dipetakan tidak ditampilkan.",
 "columns": [
 {
 "key": "id",

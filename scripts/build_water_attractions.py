@@ -272,13 +272,9 @@ def main():
         "slug": "water-attractions-jakarta",
         "title": "Atraksi Wisata Air DKI Jakarta (silver SDI + join potensi DTW)",
         "description": (
-            f"Inventaris venue atraksi wisata air di DKI Jakarta dari silver lakehouse: "
-            f"{len(rows_out)} venue, basis silver.data_destinasi_pariwisata (filter regex nama) "
-            f"di-join silver.potensi_daya_tarik_wisata_unggulan untuk klasifikasi resmi. "
-            f"Kategori mengikuti standar Kemenpar 'Aktivitas Wisata Air' (14 sub, lihat README). "
-            f"Silver view punya lat/lon tertukar di source — sudah di-fix, lihat "
-            f"`koordinat_sumber_silver_di_swap`. Venue dengan `koordinat_status=out-of-range` "
-            f"perlu Photon geocode (Phase 2)."
+            f"Inventaris {len(rows_out)} venue atraksi wisata air di DKI Jakarta "
+            "(bersumber SDI, dilengkapi pemetaan koordinat dan OpenStreetMap). "
+            "Kategori mengikuti standar Kemenpar 'Aktivitas Wisata Air'."
         ),
         "columns": [
             {"name": "id", "type": "string"},

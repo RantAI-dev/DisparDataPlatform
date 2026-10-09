@@ -1,7 +1,7 @@
 {
 "slug": "wellness-jakarta",
 "title": "Venue Wellness DKI Jakarta (Nominatim + Google Places API New)",
-"description": "Inventori venue wellness DKI Jakarta — spa & pijat, fitness & gym, klinik kecantikan & estetika, klinik gigi, akupuntur, kesehatan mental & nutrisi, dan hotel spa premium. Sumber: Nominatim forward-search + filter kategori OSM (amenity=spa, leisure=fitness_centre, healthcare=alternative, amenity=clinic, dll) + Google Places API (New) Text Search untuk venue hotel-spa kelas atas yang OSM tidak catat. Field mask Essentials tier saja (gratis 10k/bulan). Dedup by nama ternormalisasi + jarak <500 m antar sumber.",
+"description": "Inventori venue wellness DKI Jakarta — spa & pijat, fitness & gym, klinik kecantikan & estetika, klinik gigi, akupuntur, kesehatan mental & nutrisi, dan hotel spa premium. Sumber: OpenStreetMap dan Google Places.",
 "columns": [
 {
 "key": "id",

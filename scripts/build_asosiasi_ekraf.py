@@ -397,10 +397,8 @@ def build() -> dict:
         "title": "Asosiasi/Organisasi/Badan/EO Ekonomi Kreatif DKI Jakarta",
         "description": (
             "Inventaris asosiasi, organisasi, badan, dan EO (event organizer) yang "
-            "berkaitan dengan ekonomi kreatif di DKI Jakarta. Sumber: (1) EKRAF Hub "
-            "`sebaran-pelaku-kreatif` (filter province_id=31, work_status=Asosiasi) — "
-            "otomatis, tanpa kontak; (2) Kurasi manual dari situs resmi/dispar DKI "
-            "dengan verifikasi telepon/email publik. Distribusi kategori: "
+            "berkaitan dengan ekonomi kreatif di DKI Jakarta. Sumber: EKRAF Hub dan "
+            "situs resmi/Dispar DKI. Distribusi kategori: "
             f"{by_kategori}."
         ),
         "columns": [

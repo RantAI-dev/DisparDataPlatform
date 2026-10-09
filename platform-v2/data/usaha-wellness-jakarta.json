@@ -1,7 +1,7 @@
 {
 "slug": "usaha-wellness-jakarta",
 "title": "Usaha Penyedia dan Tempat Layanan Wellness Tourism DKI Jakarta",
-"description": "Perluasan dataset wellness-jakarta (84 venue) dengan fokus 'usaha terdaftar'. Menambahkan 4 kolom baru: nama_dagang (brand), jenis_usaha (Rantai/Bermerek/Independen), asosiasi (placeholder inferensi berdasarkan kategori), dan status_usaha ('Perlu verifikasi NIB'). Deteksi rantai via regex nama brand; asosiasi berupa inferensi berdasarkan kategori karena registrasi NIB publik tidak bisa diverifikasi via skrip otomatis. Distribusi jenis usaha: 6 Rantai/Franchise, 19 Hotel Spa Premium (bermerek), 59 Independen.",
+"description": "Perluasan dataset wellness-jakarta (84 venue) dengan fokus 'usaha terdaftar'. Menambahkan 4 kolom baru: nama_dagang (brand), jenis_usaha (Rantai/Bermerek/Independen), asosiasi, dan status_usaha. Catatan: kolom asosiasi dan status usaha bersifat indikatif dan belum diverifikasi dengan data perizinan resmi (NIB). Distribusi jenis usaha: 6 Rantai/Franchise, 19 Hotel Spa Premium (bermerek), 59 Independen.",
 "columns": [
 {
 "key": "id",
@@ -127,7 +127,7 @@
 "nama_dagang": "Puri Mansion Apartment Gym Center",
 "jenis_usaha": "Independen",
 "asosiasi": "AFPI (Asosiasi Fitness Profesional Indonesia)",
-"status_usaha": "Perlu verifikasi NIB",
+"status_usaha": "Belum terverifikasi",
 "sumber_basis": "wellness-jakarta.json (OSM Nominatim + Google Places API New)",
 "tanggal_enrich": "2026-09-19"
 },
@@ -148,7 +148,7 @@
 "nama_dagang": "Splash Swimming Pool & Gym",
 "jenis_usaha": "Independen",
 "asosiasi": "AFPI (Asosiasi Fitness Profesional Indonesia)",
-"status_usaha": "Perlu verifikasi NIB",
+"status_usaha": "Belum terverifikasi",
 "sumber_basis": "wellness-jakarta.json (OSM Nominatim + Google Places API New)",
 "tanggal_enrich": "2026-09-19"
 },
@@ -171,7 +171,7 @@
 "nama_dagang": "Aman SPA& Body Massage",
 "jenis_usaha": "Independen",
 "asosiasi": "ASPAQIN, ISWI",
-"status_usaha": "Perlu verifikasi NIB",
+"status_usaha": "Belum terverifikasi",
 "sumber_basis": "wellness-jakarta.json (OSM Nominatim + Google Places API New)",
 "tanggal_enrich": "2026-09-19"
 },
@@ -192,7 +192,7 @@
 "nama_dagang": "Unicare Aesthetic And Wellness Clinic",
 "jenis_usaha": "Independen",
 "asosiasi": "PERDOSKI (Perhimpunan Dokter Spesialis Kulit)",
-"status_usaha": "Perlu verifikasi NIB",
+"status_usaha": "Belum terverifikasi",
 "sumber_basis": "wellness-jakarta.json (OSM Nominatim + Google Places API New)",
 "tanggal_enrich": "2026-09-19"
 },
@@ -213,7 +213,7 @@
 "nama_dagang": "FTL Gym",
 "jenis_usaha": "Independen",
 "asosiasi": "AFPI (Asosiasi Fitness Profesional Indonesia)",
-"status_usaha": "Perlu verifikasi NIB",
+"status_usaha": "Belum terverifikasi",
 "sumber_basis": "wellness-jakarta.json (OSM Nominatim + Google Places API New)",
 "tanggal_enrich": "2026-09-19"
 },
@@ -234,7 +234,7 @@
 "nama_dagang": "Gold'S Gym",
 "jenis_usaha": "Rantai/Franchise",
 "asosiasi": "AFPI (Asosiasi Fitness Profesional Indonesia)",
-"status_usaha": "Perlu verifikasi NIB",
+"status_usaha": "Belum terverifikasi",
 "sumber_basis": "wellness-jakarta.json (OSM Nominatim + Google Places API New)",
 "tanggal_enrich": "2026-09-19"
 },
@@ -255,7 +255,7 @@
 "nama_dagang": "Grand Fitness Club",
 "jenis_usaha": "Independen",
 "asosiasi": "AFPI (Asosiasi Fitness Profesional Indonesia)",
-"status_usaha": "Perlu verifikasi NIB",
+"status_usaha": "Belum terverifikasi",
 "sumber_basis": "wellness-jakarta.json (OSM Nominatim + Google Places API New)",
 "tanggal_enrich": "2026-09-19"
 },
@@ -276,7 +276,7 @@
 "nama_dagang": "K Fitness",
 "jenis_usaha": "Independen",
 "asosiasi": "AFPI (Asosiasi Fitness Profesional Indonesia)",
-"status_usaha": "Perlu verifikasi NIB",
+"status_usaha": "Belum terverifikasi",
 "sumber_basis": "wellness-jakarta.json (OSM Nominatim + Google Places API New)",
 "tanggal_enrich": "2026-09-19"
 },
@@ -297,7 +297,7 @@
 "nama_dagang": "Medley Yoga & Pilates",
 "jenis_usaha": "Independen",
 "asosiasi": "AFPI (Asosiasi Fitness Profesional Indonesia)",
-"status_usaha": "Perlu verifikasi NIB",
+"status_usaha": "Belum terverifikasi",
 "sumber_basis": "wellness-jakarta.json (OSM Nominatim + Google Places API New)",
 "tanggal_enrich": "2026-09-19"
 },
@@ -318,7 +318,7 @@
 "nama_dagang": "Paradigm Fitness",
 "jenis_usaha": "Independen",
 "asosiasi": "AFPI (Asosiasi Fitness Profesional Indonesia)",
-"status_usaha": "Perlu verifikasi NIB",
+"status_usaha": "Belum terverifikasi",
 "sumber_basis": "wellness-jakarta.json (OSM Nominatim + Google Places API New)",
 "tanggal_enrich": "2026-09-19"
 },
@@ -339,7 +339,7 @@
 "nama_dagang": "Yakuza Gym",
 "jenis_usaha": "Independen",
 "asosiasi": "AFPI (Asosiasi Fitness Profesional Indonesia)",
-"status_usaha": "Perlu verifikasi NIB",
+"status_usaha": "Belum terverifikasi",
 "sumber_basis": "wellness-jakarta.json (OSM Nominatim + Google Places API New)",
 "tanggal_enrich": "2026-09-19"
 },
@@ -360,7 +360,7 @@
 "nama_dagang": "Yoona Pilates Studio",
 "jenis_usaha": "Independen",
 "asosiasi": "AFPI (Asosiasi Fitness Profesional Indonesia)",
-"status_usaha": "Perlu verifikasi NIB",
+"status_usaha": "Belum terverifikasi",
 "sumber_basis": "wellness-jakarta.json (OSM Nominatim + Google Places API New)",
 "tanggal_enrich": "2026-09-19"
 },
@@ -383,7 +383,7 @@
 "nama_dagang": "Comfort Spa & Lounge",
 "jenis_usaha": "Bermerek (Hotel)",
 "asosiasi": "ASPAQIN, ISWI",
-"status_usaha": "Perlu verifikasi NIB",
+"status_usaha": "Belum terverifikasi",
 "sumber_basis": "wellness-jakarta.json (OSM Nominatim + Google Places API New)",
 "tanggal_enrich": "2026-09-19"
 },
@@ -406,7 +406,7 @@
 "nama_dagang": "D'Heaven Hotel And Spa",
 "jenis_usaha": "Bermerek (Hotel)",
 "asosiasi": "ASPAQIN, ISWI",
-"status_usaha": "Perlu verifikasi NIB",
+"status_usaha": "Belum terverifikasi",
 "sumber_basis": "wellness-jakarta.json (OSM Nominatim + Google Places API New)",
 "tanggal_enrich": "2026-09-19"
 },
@@ -429,7 +429,7 @@
 "nama_dagang": "El Spa Gading",
 "jenis_usaha": "Bermerek (Hotel)",
 "asosiasi": "ASPAQIN, ISWI",
-"status_usaha": "Perlu verifikasi NIB",
+"status_usaha": "Belum terverifikasi",
 "sumber_basis": "wellness-jakarta.json (OSM Nominatim + Google Places API New)",
 "tanggal_enrich": "2026-09-19"
 },
@@ -452,7 +452,7 @@
 "nama_dagang": "Kempinski",
 "jenis_usaha": "Bermerek (Hotel)",
 "asosiasi": "ASPAQIN, ISWI",
-"status_usaha": "Perlu verifikasi NIB",
+"status_usaha": "Belum terverifikasi",
 "sumber_basis": "wellness-jakarta.json (OSM Nominatim + Google Places API New)",
 "tanggal_enrich": "2026-09-19"
 },
@@ -475,7 +475,7 @@
 "nama_dagang": "Pullman",
 "jenis_usaha": "Bermerek (Hotel)",
 "asosiasi": "ASPAQIN, ISWI",
-"status_usaha": "Perlu verifikasi NIB",
+"status_usaha": "Belum terverifikasi",
 "sumber_basis": "wellness-jakarta.json (OSM Nominatim + Google Places API New)",
 "tanggal_enrich": "2026-09-19"
 },
@@ -498,7 +498,7 @@
 "nama_dagang": "Mandarin Oriental",
 "jenis_usaha": "Bermerek (Hotel)",
 "asosiasi": "ASPAQIN, ISWI",
-"status_usaha": "Perlu verifikasi NIB",
+"status_usaha": "Belum terverifikasi",
 "sumber_basis": "wellness-jakarta.json (OSM Nominatim + Google Places API New)",
 "tanggal_enrich": "2026-09-19"
 },
@@ -521,7 +521,7 @@
 "nama_dagang": "The Jayakarta SP Jakarta Hotel & Spa",
 "jenis_usaha": "Bermerek (Hotel)",
 "asosiasi": "ASPAQIN, ISWI",
-"status_usaha": "Perlu verifikasi NIB",
+"status_usaha": "Belum terverifikasi",
 "sumber_basis": "wellness-jakarta.json (OSM Nominatim + Google Places API New)",
 "tanggal_enrich": "2026-09-19"
 },
@@ -544,7 +544,7 @@
 "nama_dagang": "Park Hyatt",
 "jenis_usaha": "Bermerek (Hotel)",
 "asosiasi": "ASPAQIN, ISWI",
-"status_usaha": "Perlu verifikasi NIB",
+"status_usaha": "Belum terverifikasi",
 "sumber_basis": "wellness-jakarta.json (OSM Nominatim + Google Places API New)",
 "tanggal_enrich": "2026-09-19"
 },
@@ -565,7 +565,7 @@
 "nama_dagang": "Amei Klinik Kecantikan",
 "jenis_usaha": "Independen",
 "asosiasi": "PERDOSKI (Perhimpunan Dokter Spesialis Kulit)",
-"status_usaha": "Perlu verifikasi NIB",
+"status_usaha": "Belum terverifikasi",
 "sumber_basis": "wellness-jakarta.json (OSM Nominatim + Google Places API New)",
 "tanggal_enrich": "2026-09-19"
 },
@@ -586,7 +586,7 @@
 "nama_dagang": "Dokter Randhika - Kecantikan dan Akupuntur",
 "jenis_usaha": "Independen",
 "asosiasi": "PERDOSKI (Perhimpunan Dokter Spesialis Kulit)",
-"status_usaha": "Perlu verifikasi NIB",
+"status_usaha": "Belum terverifikasi",
 "sumber_basis": "wellness-jakarta.json (OSM Nominatim + Google Places API New)",
 "tanggal_enrich": "2026-09-19"
 },
@@ -607,7 +607,7 @@
 "nama_dagang": "Dokter Umum Akupuntur Dr sriwidiani",
 "jenis_usaha": "Independen",
 "asosiasi": "PERDOSKI (Perhimpunan Dokter Spesialis Kulit)",
-"status_usaha": "Perlu verifikasi NIB",
+"status_usaha": "Belum terverifikasi",
 "sumber_basis": "wellness-jakarta.json (OSM Nominatim + Google Places API New)",
 "tanggal_enrich": "2026-09-19"
 },
@@ -628,7 +628,7 @@
 "nama_dagang": "dr Eddy Widodo SpA",
 "jenis_usaha": "Independen",
 "asosiasi": "PERDOSKI (Perhimpunan Dokter Spesialis Kulit)",
-"status_usaha": "Perlu verifikasi NIB",
+"status_usaha": "Belum terverifikasi",
 "sumber_basis": "wellness-jakarta.json (OSM Nominatim + Google Places API New)",
 "tanggal_enrich": "2026-09-19"
 },
@@ -649,7 +649,7 @@
 "nama_dagang": "Fmn Beauty Clinic",
 "jenis_usaha": "Independen",
 "asosiasi": "PERDOSKI (Perhimpunan Dokter Spesialis Kulit)",
-"status_usaha": "Perlu verifikasi NIB",
+"status_usaha": "Belum terverifikasi",
 "sumber_basis": "wellness-jakarta.json (OSM Nominatim + Google Places API New)",
 "tanggal_enrich": "2026-09-19"
 },
@@ -670,7 +670,7 @@
 "nama_dagang": "Skin Care",
 "jenis_usaha": "Rantai/Franchise",
 "asosiasi": "PERDOSKI (Perhimpunan Dokter Spesialis Kulit)",
-"status_usaha": "Perlu verifikasi NIB",
+"status_usaha": "Belum terverifikasi",
 "sumber_basis": "wellness-jakarta.json (OSM Nominatim + Google Places API New)",
 "tanggal_enrich": "2026-09-19"
 },
@@ -691,7 +691,7 @@
 "nama_dagang": "Zhong Yi Acupuncture Clinic",
 "jenis_usaha": "Independen",
 "asosiasi": "PDHMI (Perhimpunan Dokter Holistik Indonesia)",
-"status_usaha": "Perlu verifikasi NIB",
+"status_usaha": "Belum terverifikasi",
 "sumber_basis": "wellness-jakarta.json (OSM Nominatim + Google Places API New)",
 "tanggal_enrich": "2026-09-19"
 },
@@ -714,7 +714,7 @@
 "nama_dagang": "Aarti Wellness Club - Menteng",
 "jenis_usaha": "Independen",
 "asosiasi": "ASPAQIN, ISWI",
-"status_usaha": "Perlu verifikasi NIB",
+"status_usaha": "Belum terverifikasi",
 "sumber_basis": "wellness-jakarta.json (OSM Nominatim + Google Places API New)",
 "tanggal_enrich": "2026-09-19"
 },
@@ -737,7 +737,7 @@
 "nama_dagang": "Alaya Spa",
 "jenis_usaha": "Independen",
 "asosiasi": "ASPAQIN, ISWI",
-"status_usaha": "Perlu verifikasi NIB",
+"status_usaha": "Belum terverifikasi",
 "sumber_basis": "wellness-jakarta.json (OSM Nominatim + Google Places API New)",
 "tanggal_enrich": "2026-09-19"
 },
@@ -760,7 +760,7 @@
 "nama_dagang": "Ame Spa Menteng",
 "jenis_usaha": "Independen",
 "asosiasi": "ASPAQIN, ISWI",
-"status_usaha": "Perlu verifikasi NIB",
+"status_usaha": "Belum terverifikasi",
 "sumber_basis": "wellness-jakarta.json (OSM Nominatim + Google Places API New)",
 "tanggal_enrich": "2026-09-19"
 },
@@ -783,7 +783,7 @@
 "nama_dagang": "Ame Spa Thamrin",
 "jenis_usaha": "Independen",
 "asosiasi": "ASPAQIN, ISWI",
-"status_usaha": "Perlu verifikasi NIB",
+"status_usaha": "Belum terverifikasi",
 "sumber_basis": "wellness-jakarta.json (OSM Nominatim + Google Places API New)",
 "tanggal_enrich": "2026-09-19"
 },
@@ -806,7 +806,7 @@
 "nama_dagang": "Andria Spa",
 "jenis_usaha": "Independen",
 "asosiasi": "ASPAQIN, ISWI",
-"status_usaha": "Perlu verifikasi NIB",
+"status_usaha": "Belum terverifikasi",
 "sumber_basis": "wellness-jakarta.json (OSM Nominatim + Google Places API New)",
 "tanggal_enrich": "2026-09-19"
 },
@@ -829,7 +829,7 @@
 "nama_dagang": "Classic Spa & Sauna",
 "jenis_usaha": "Independen",
 "asosiasi": "ASPAQIN, ISWI",
-"status_usaha": "Perlu verifikasi NIB",
+"status_usaha": "Belum terverifikasi",
 "sumber_basis": "wellness-jakarta.json (OSM Nominatim + Google Places API New)",
 "tanggal_enrich": "2026-09-19"
 },
@@ -850,7 +850,7 @@
 "nama_dagang": "Delta Spa",
 "jenis_usaha": "Rantai/Franchise",
 "asosiasi": "ASPAQIN, ISWI",
-"status_usaha": "Perlu verifikasi NIB",
+"status_usaha": "Belum terverifikasi",
 "sumber_basis": "wellness-jakarta.json (OSM Nominatim + Google Places API New)",
 "tanggal_enrich": "2026-09-19"
 },
@@ -873,7 +873,7 @@
 "nama_dagang": "Fit and Spa",
 "jenis_usaha": "Independen",
 "asosiasi": "ASPAQIN, ISWI",
-"status_usaha": "Perlu verifikasi NIB",
+"status_usaha": "Belum terverifikasi",
 "sumber_basis": "wellness-jakarta.json (OSM Nominatim + Google Places API New)",
 "tanggal_enrich": "2026-09-19"
 },
@@ -894,7 +894,7 @@
 "nama_dagang": "Flow Reflexology & Massage",
 "jenis_usaha": "Independen",
 "asosiasi": "ASPAQIN, ISWI",
-"status_usaha": "Perlu verifikasi NIB",
+"status_usaha": "Belum terverifikasi",
 "sumber_basis": "wellness-jakarta.json (OSM Nominatim + Google Places API New)",
 "tanggal_enrich": "2026-09-19"
 },
@@ -917,7 +917,7 @@
 "nama_dagang": "Friend Massage Spa Jakarta",
 "jenis_usaha": "Independen",
 "asosiasi": "ASPAQIN, ISWI",
-"status_usaha": "Perlu verifikasi NIB",
+"status_usaha": "Belum terverifikasi",
 "sumber_basis": "wellness-jakarta.json (OSM Nominatim + Google Places API New)",
 "tanggal_enrich": "2026-09-19"
 },
@@ -938,7 +938,7 @@
 "nama_dagang": "Furano Family Reflexology",
 "jenis_usaha": "Independen",
 "asosiasi": "ASPAQIN, ISWI",
-"status_usaha": "Perlu verifikasi NIB",
+"status_usaha": "Belum terverifikasi",
 "sumber_basis": "wellness-jakarta.json (OSM Nominatim + Google Places API New)",
 "tanggal_enrich": "2026-09-19"
 },
@@ -961,7 +961,7 @@
 "nama_dagang": "Kraton Healthy Family Reflexology",
 "jenis_usaha": "Independen",
 "asosiasi": "ASPAQIN, ISWI",
-"status_usaha": "Perlu verifikasi NIB",
+"status_usaha": "Belum terverifikasi",
 "sumber_basis": "wellness-jakarta.json (OSM Nominatim + Google Places API New)",
 "tanggal_enrich": "2026-09-19"
 },
@@ -984,7 +984,7 @@
 "nama_dagang": "Le Jardin Wellness Jakarta",
 "jenis_usaha": "Independen",
 "asosiasi": "ASPAQIN, ISWI",
-"status_usaha": "Perlu verifikasi NIB",
+"status_usaha": "Belum terverifikasi",
 "sumber_basis": "wellness-jakarta.json (OSM Nominatim + Google Places API New)",
 "tanggal_enrich": "2026-09-19"
 },
@@ -1007,7 +1007,7 @@
 "nama_dagang": "Myplace Spa Golden",
 "jenis_usaha": "Independen",
 "asosiasi": "ASPAQIN, ISWI",
-"status_usaha": "Perlu verifikasi NIB",
+"status_usaha": "Belum terverifikasi",
 "sumber_basis": "wellness-jakarta.json (OSM Nominatim + Google Places API New)",
 "tanggal_enrich": "2026-09-19"
 },
@@ -1028,7 +1028,7 @@
 "nama_dagang": "VN spa",
 "jenis_usaha": "Independen",
 "asosiasi": "ASPAQIN, ISWI",
-"status_usaha": "Perlu verifikasi NIB",
+"status_usaha": "Belum terverifikasi",
 "sumber_basis": "wellness-jakarta.json (OSM Nominatim + Google Places API New)",
 "tanggal_enrich": "2026-09-19"
 },
@@ -1049,7 +1049,7 @@
 "nama_dagang": "Fitness First Platinum",
 "jenis_usaha": "Independen",
 "asosiasi": "AFPI (Asosiasi Fitness Profesional Indonesia)",
-"status_usaha": "Perlu verifikasi NIB",
+"status_usaha": "Belum terverifikasi",
 "sumber_basis": "wellness-jakarta.json (OSM Nominatim + Google Places API New)",
 "tanggal_enrich": "2026-09-19"
 },
@@ -1070,7 +1070,7 @@
 "nama_dagang": "FTL Gym",
 "jenis_usaha": "Independen",
 "asosiasi": "AFPI (Asosiasi Fitness Profesional Indonesia)",
-"status_usaha": "Perlu verifikasi NIB",
+"status_usaha": "Belum terverifikasi",
 "sumber_basis": "wellness-jakarta.json (OSM Nominatim + Google Places API New)",
 "tanggal_enrich": "2026-09-19"
 },
@@ -1091,7 +1091,7 @@
 "nama_dagang": "Gold'S Gym",
 "jenis_usaha": "Rantai/Franchise",
 "asosiasi": "AFPI (Asosiasi Fitness Profesional Indonesia)",
-"status_usaha": "Perlu verifikasi NIB",
+"status_usaha": "Belum terverifikasi",
 "sumber_basis": "wellness-jakarta.json (OSM Nominatim + Google Places API New)",
 "tanggal_enrich": "2026-09-19"
 },
@@ -1112,7 +1112,7 @@
 "nama_dagang": "Pilates Army",
 "jenis_usaha": "Independen",
 "asosiasi": "AFPI (Asosiasi Fitness Profesional Indonesia)",
-"status_usaha": "Perlu verifikasi NIB",
+"status_usaha": "Belum terverifikasi",
 "sumber_basis": "wellness-jakarta.json (OSM Nominatim + Google Places API New)",
 "tanggal_enrich": "2026-09-19"
 },
@@ -1133,7 +1133,7 @@
 "nama_dagang": "Precision Gym",
 "jenis_usaha": "Independen",
 "asosiasi": "AFPI (Asosiasi Fitness Profesional Indonesia)",
-"status_usaha": "Perlu verifikasi NIB",
+"status_usaha": "Belum terverifikasi",
 "sumber_basis": "wellness-jakarta.json (OSM Nominatim + Google Places API New)",
 "tanggal_enrich": "2026-09-19"
 },
@@ -1156,7 +1156,7 @@
 "nama_dagang": "AMAN Spa & Body Massage",
 "jenis_usaha": "Independen",
 "asosiasi": "ASPAQIN, ISWI",
-"status_usaha": "Perlu verifikasi NIB",
+"status_usaha": "Belum terverifikasi",
 "sumber_basis": "wellness-jakarta.json (OSM Nominatim + Google Places API New)",
 "tanggal_enrich": "2026-09-19"
 },
@@ -1179,7 +1179,7 @@
 "nama_dagang": "Fairmont",
 "jenis_usaha": "Bermerek (Hotel)",
 "asosiasi": "ASPAQIN, ISWI",
-"status_usaha": "Perlu verifikasi NIB",
+"status_usaha": "Belum terverifikasi",
 "sumber_basis": "wellness-jakarta.json (OSM Nominatim + Google Places API New)",
 "tanggal_enrich": "2026-09-19"
 },
@@ -1202,7 +1202,7 @@
 "nama_dagang": "Westin",
 "jenis_usaha": "Bermerek (Hotel)",
 "asosiasi": "ASPAQIN, ISWI",
-"status_usaha": "Perlu verifikasi NIB",
+"status_usaha": "Belum terverifikasi",
 "sumber_basis": "wellness-jakarta.json (OSM Nominatim + Google Places API New)",
 "tanggal_enrich": "2026-09-19"
 },
@@ -1225,7 +1225,7 @@
 "nama_dagang": "Intercontinental",
 "jenis_usaha": "Bermerek (Hotel)",
 "asosiasi": "ASPAQIN, ISWI",
-"status_usaha": "Perlu verifikasi NIB",
+"status_usaha": "Belum terverifikasi",
 "sumber_basis": "wellness-jakarta.json (OSM Nominatim + Google Places API New)",
 "tanggal_enrich": "2026-09-19"
 },
@@ -1248,7 +1248,7 @@
 "nama_dagang": "Mulia",
 "jenis_usaha": "Bermerek (Hotel)",
 "asosiasi": "ASPAQIN, ISWI",
-"status_usaha": "Perlu verifikasi NIB",
+"status_usaha": "Belum terverifikasi",
 "sumber_basis": "wellness-jakarta.json (OSM Nominatim + Google Places API New)",
 "tanggal_enrich": "2026-09-19"
 },
@@ -1271,7 +1271,7 @@
 "nama_dagang": "SAGITARIUS HOTEL & Spa",
 "jenis_usaha": "Bermerek (Hotel)",
 "asosiasi": "ASPAQIN, ISWI",
-"status_usaha": "Perlu verifikasi NIB",
+"status_usaha": "Belum terverifikasi",
 "sumber_basis": "wellness-jakarta.json (OSM Nominatim + Google Places API New)",
 "tanggal_enrich": "2026-09-19"
 },
@@ -1294,7 +1294,7 @@
 "nama_dagang": "Jw Marriott",
 "jenis_usaha": "Bermerek (Hotel)",
 "asosiasi": "ASPAQIN, ISWI",
-"status_usaha": "Perlu verifikasi NIB",
+"status_usaha": "Belum terverifikasi",
 "sumber_basis": "wellness-jakarta.json (OSM Nominatim + Google Places API New)",
 "tanggal_enrich": "2026-09-19"
 },
@@ -1317,7 +1317,7 @@
 "nama_dagang": "Ritz-Carlton",
 "jenis_usaha": "Bermerek (Hotel)",
 "asosiasi": "ASPAQIN, ISWI",
-"status_usaha": "Perlu verifikasi NIB",
+"status_usaha": "Belum terverifikasi",
 "sumber_basis": "wellness-jakarta.json (OSM Nominatim + Google Places API New)",
 "tanggal_enrich": "2026-09-19"
 },
@@ -1340,7 +1340,7 @@
 "nama_dagang": "Four Seasons",
 "jenis_usaha": "Bermerek (Hotel)",
 "asosiasi": "ASPAQIN, ISWI",
-"status_usaha": "Perlu verifikasi NIB",
+"status_usaha": "Belum terverifikasi",
 "sumber_basis": "wellness-jakarta.json (OSM Nominatim + Google Places API New)",
 "tanggal_enrich": "2026-09-19"
 },
@@ -1363,7 +1363,7 @@
 "nama_dagang": "Sheraton",
 "jenis_usaha": "Bermerek (Hotel)",
 "asosiasi": "ASPAQIN, ISWI",
-"status_usaha": "Perlu verifikasi NIB",
+"status_usaha": "Belum terverifikasi",
 "sumber_basis": "wellness-jakarta.json (OSM Nominatim + Google Places API New)",
 "tanggal_enrich": "2026-09-19"
 },
@@ -1386,7 +1386,7 @@
 "nama_dagang": "St. Regis",
 "jenis_usaha": "Bermerek (Hotel)",
 "asosiasi": "ASPAQIN, ISWI",
-"status_usaha": "Perlu verifikasi NIB",
+"status_usaha": "Belum terverifikasi",
 "sumber_basis": "wellness-jakarta.json (OSM Nominatim + Google Places API New)",
 "tanggal_enrich": "2026-09-19"
 },
@@ -1407,7 +1407,7 @@
 "nama_dagang": "Radani Emotional Wellness",
 "jenis_usaha": "Independen",
 "asosiasi": "Asosiasi Psikologi Klinis Indonesia",
-"status_usaha": "Perlu verifikasi NIB",
+"status_usaha": "Belum terverifikasi",
 "sumber_basis": "wellness-jakarta.json (OSM Nominatim + Google Places API New)",
 "tanggal_enrich": "2026-09-19"
 },
@@ -1428,7 +1428,7 @@
 "nama_dagang": "Dokter Gigi",
 "jenis_usaha": "Independen",
 "asosiasi": "PERDOSKI (Perhimpunan Dokter Spesialis Kulit)",
-"status_usaha": "Perlu verifikasi NIB",
+"status_usaha": "Belum terverifikasi",
 "sumber_basis": "wellness-jakarta.json (OSM Nominatim + Google Places API New)",
 "tanggal_enrich": "2026-09-19"
 },
@@ -1449,7 +1449,7 @@
 "nama_dagang": "Klinik Fisioterapi Sasana Husada",
 "jenis_usaha": "Independen",
 "asosiasi": "PERDOSKI (Perhimpunan Dokter Spesialis Kulit)",
-"status_usaha": "Perlu verifikasi NIB",
+"status_usaha": "Belum terverifikasi",
 "sumber_basis": "wellness-jakarta.json (OSM Nominatim + Google Places API New)",
 "tanggal_enrich": "2026-09-19"
 },
@@ -1470,7 +1470,7 @@
 "nama_dagang": "Klinik Gigi",
 "jenis_usaha": "Independen",
 "asosiasi": "PERDOSKI (Perhimpunan Dokter Spesialis Kulit)",
-"status_usaha": "Perlu verifikasi NIB",
+"status_usaha": "Belum terverifikasi",
 "sumber_basis": "wellness-jakarta.json (OSM Nominatim + Google Places API New)",
 "tanggal_enrich": "2026-09-19"
 },
@@ -1491,7 +1491,7 @@
 "nama_dagang": "My Dentist Dental Clinic",
 "jenis_usaha": "Independen",
 "asosiasi": "PERDOSKI (Perhimpunan Dokter Spesialis Kulit)",
-"status_usaha": "Perlu verifikasi NIB",
+"status_usaha": "Belum terverifikasi",
 "sumber_basis": "wellness-jakarta.json (OSM Nominatim + Google Places API New)",
 "tanggal_enrich": "2026-09-19"
 },
@@ -1512,7 +1512,7 @@
 "nama_dagang": "Wellness Clinic",
 "jenis_usaha": "Independen",
 "asosiasi": "PERDOSKI (Perhimpunan Dokter Spesialis Kulit)",
-"status_usaha": "Perlu verifikasi NIB",
+"status_usaha": "Belum terverifikasi",
 "sumber_basis": "wellness-jakarta.json (OSM Nominatim + Google Places API New)",
 "tanggal_enrich": "2026-09-19"
 },
@@ -1535,7 +1535,7 @@
 "nama_dagang": "Alaya Spa & Wellness",
 "jenis_usaha": "Independen",
 "asosiasi": "ASPAQIN, ISWI",
-"status_usaha": "Perlu verifikasi NIB",
+"status_usaha": "Belum terverifikasi",
 "sumber_basis": "wellness-jakarta.json (OSM Nominatim + Google Places API New)",
 "tanggal_enrich": "2026-09-19"
 },
@@ -1558,7 +1558,7 @@
 "nama_dagang": "Alaya Spa Grand Sahid",
 "jenis_usaha": "Independen",
 "asosiasi": "ASPAQIN, ISWI",
-"status_usaha": "Perlu verifikasi NIB",
+"status_usaha": "Belum terverifikasi",
 "sumber_basis": "wellness-jakarta.json (OSM Nominatim + Google Places API New)",
 "tanggal_enrich": "2026-09-19"
 },
@@ -1581,7 +1581,7 @@
 "nama_dagang": "Ame Spa Kuningan",
 "jenis_usaha": "Independen",
 "asosiasi": "ASPAQIN, ISWI",
-"status_usaha": "Perlu verifikasi NIB",
+"status_usaha": "Belum terverifikasi",
 "sumber_basis": "wellness-jakarta.json (OSM Nominatim + Google Places API New)",
 "tanggal_enrich": "2026-09-19"
 },
@@ -1604,7 +1604,7 @@
 "nama_dagang": "Annathaya Wellness",
 "jenis_usaha": "Independen",
 "asosiasi": "ASPAQIN, ISWI",
-"status_usaha": "Perlu verifikasi NIB",
+"status_usaha": "Belum terverifikasi",
 "sumber_basis": "wellness-jakarta.json (OSM Nominatim + Google Places API New)",
 "tanggal_enrich": "2026-09-19"
 },
@@ -1627,7 +1627,7 @@
 "nama_dagang": "AYANA Spa",
 "jenis_usaha": "Independen",
 "asosiasi": "ASPAQIN, ISWI",
-"status_usaha": "Perlu verifikasi NIB",
+"status_usaha": "Belum terverifikasi",
 "sumber_basis": "wellness-jakarta.json (OSM Nominatim + Google Places API New)",
 "tanggal_enrich": "2026-09-19"
 },
@@ -1650,7 +1650,7 @@
 "nama_dagang": "Chi, The Spa",
 "jenis_usaha": "Independen",
 "asosiasi": "ASPAQIN, ISWI",
-"status_usaha": "Perlu verifikasi NIB",
+"status_usaha": "Belum terverifikasi",
 "sumber_basis": "wellness-jakarta.json (OSM Nominatim + Google Places API New)",
 "tanggal_enrich": "2026-09-19"
 },
@@ -1673,7 +1673,7 @@
 "nama_dagang": "Chuan Spa at The Langham, Jakarta",
 "jenis_usaha": "Independen",
 "asosiasi": "ASPAQIN, ISWI",
-"status_usaha": "Perlu verifikasi NIB",
+"status_usaha": "Belum terverifikasi",
 "sumber_basis": "wellness-jakarta.json (OSM Nominatim + Google Places API New)",
 "tanggal_enrich": "2026-09-19"
 },
@@ -1696,7 +1696,7 @@
 "nama_dagang": "d'HEAVEN HOTEL & SPA",
 "jenis_usaha": "Bermerek (Hotel)",
 "asosiasi": "ASPAQIN, ISWI",
-"status_usaha": "Perlu verifikasi NIB",
+"status_usaha": "Belum terverifikasi",
 "sumber_basis": "wellness-jakarta.json (OSM Nominatim + Google Places API New)",
 "tanggal_enrich": "2026-09-19"
 },
@@ -1719,7 +1719,7 @@
 "nama_dagang": "FOLKS MASSAGE SPA",
 "jenis_usaha": "Independen",
 "asosiasi": "ASPAQIN, ISWI",
-"status_usaha": "Perlu verifikasi NIB",
+"status_usaha": "Belum terverifikasi",
 "sumber_basis": "wellness-jakarta.json (OSM Nominatim + Google Places API New)",
 "tanggal_enrich": "2026-09-19"
 },
@@ -1742,7 +1742,7 @@
 "nama_dagang": "Fortune Spa & Lounge Grand Wijaya",
 "jenis_usaha": "Independen",
 "asosiasi": "ASPAQIN, ISWI",
-"status_usaha": "Perlu verifikasi NIB",
+"status_usaha": "Belum terverifikasi",
 "sumber_basis": "wellness-jakarta.json (OSM Nominatim + Google Places API New)",
 "tanggal_enrich": "2026-09-19"
 },
@@ -1765,7 +1765,7 @@
 "nama_dagang": "Fortune Spa, Karoke & Lounge",
 "jenis_usaha": "Independen",
 "asosiasi": "ASPAQIN, ISWI",
-"status_usaha": "Perlu verifikasi NIB",
+"status_usaha": "Belum terverifikasi",
 "sumber_basis": "wellness-jakarta.json (OSM Nominatim + Google Places API New)",
 "tanggal_enrich": "2026-09-19"
 },
@@ -1788,7 +1788,7 @@
 "nama_dagang": "Gaya Spa Wellness Setiabudi",
 "jenis_usaha": "Independen",
 "asosiasi": "ASPAQIN, ISWI",
-"status_usaha": "Perlu verifikasi NIB",
+"status_usaha": "Belum terverifikasi",
 "sumber_basis": "wellness-jakarta.json (OSM Nominatim + Google Places API New)",
 "tanggal_enrich": "2026-09-19"
 },
@@ -1811,7 +1811,7 @@
 "nama_dagang": "JELITA MASSAGE SPA JAKARTA HOME SERVICE / HOTEL / APARTEMEN / RUMAH",
 "jenis_usaha": "Independen",
 "asosiasi": "ASPAQIN, ISWI",
-"status_usaha": "Perlu verifikasi NIB",
+"status_usaha": "Belum terverifikasi",
 "sumber_basis": "wellness-jakarta.json (OSM Nominatim + Google Places API New)",
 "tanggal_enrich": "2026-09-19"
 },
@@ -1834,7 +1834,7 @@
 "nama_dagang": "Le Spa",
 "jenis_usaha": "Independen",
 "asosiasi": "ASPAQIN, ISWI",
-"status_usaha": "Perlu verifikasi NIB",
+"status_usaha": "Belum terverifikasi",
 "sumber_basis": "wellness-jakarta.json (OSM Nominatim + Google Places API New)",
 "tanggal_enrich": "2026-09-19"
 },
@@ -1857,7 +1857,7 @@
 "nama_dagang": "Premium Spa Jakarta",
 "jenis_usaha": "Independen",
 "asosiasi": "ASPAQIN, ISWI",
-"status_usaha": "Perlu verifikasi NIB",
+"status_usaha": "Belum terverifikasi",
 "sumber_basis": "wellness-jakarta.json (OSM Nominatim + Google Places API New)",
 "tanggal_enrich": "2026-09-19"
 },
@@ -1878,7 +1878,7 @@
 "nama_dagang": "Rasa Spa",
 "jenis_usaha": "Rantai/Franchise",
 "asosiasi": "ASPAQIN, ISWI",
-"status_usaha": "Perlu verifikasi NIB",
+"status_usaha": "Belum terverifikasi",
 "sumber_basis": "wellness-jakarta.json (OSM Nominatim + Google Places API New)",
 "tanggal_enrich": "2026-09-19"
 },
@@ -1901,7 +1901,7 @@
 "nama_dagang": "Sanje Wellness Pondok Indah",
 "jenis_usaha": "Independen",
 "asosiasi": "ASPAQIN, ISWI",
-"status_usaha": "Perlu verifikasi NIB",
+"status_usaha": "Belum terverifikasi",
 "sumber_basis": "wellness-jakarta.json (OSM Nominatim + Google Places API New)",
 "tanggal_enrich": "2026-09-19"
 },
@@ -1924,7 +1924,7 @@
 "nama_dagang": "SPA",
 "jenis_usaha": "Independen",
 "asosiasi": "ASPAQIN, ISWI",
-"status_usaha": "Perlu verifikasi NIB",
+"status_usaha": "Belum terverifikasi",
 "sumber_basis": "wellness-jakarta.json (OSM Nominatim + Google Places API New)",
 "tanggal_enrich": "2026-09-19"
 },
@@ -1945,7 +1945,7 @@
 "nama_dagang": "Anytime Fitness",
 "jenis_usaha": "Rantai/Franchise",
 "asosiasi": "AFPI (Asosiasi Fitness Profesional Indonesia)",
-"status_usaha": "Perlu verifikasi NIB",
+"status_usaha": "Belum terverifikasi",
 "sumber_basis": "wellness-jakarta.json (OSM Nominatim + Google Places API New)",
 "tanggal_enrich": "2026-09-19"
 },
@@ -1968,7 +1968,7 @@
 "nama_dagang": "Tanea Spa",
 "jenis_usaha": "Independen",
 "asosiasi": "ASPAQIN, ISWI",
-"status_usaha": "Perlu verifikasi NIB",
+"status_usaha": "Belum terverifikasi",
 "sumber_basis": "wellness-jakarta.json (OSM Nominatim + Google Places API New)",
 "tanggal_enrich": "2026-09-19"
 }

@@ -53,7 +53,7 @@ const id: Dict = {
     "Setiap lapangan golf di DKI Jakarta — dari Jakarta Golf Club tahun 1872 hingga Topgolf modern — lengkap dengan lokasi, jumlah hole, desainer, dan tahun berdiri.",
   "home.vol2_cta": "Buka peta golf",
   "home.footer_about":
-    "Data dikumpulkan dari OpenStreetMap, Wanderlog, TripAdvisor, What's New Indonesia, dan situs resmi masing-masing tempat. Permintaan koreksi: lewat GitHub.",
+    "Data dikumpulkan dari OpenStreetMap, Wanderlog, TripAdvisor, What's New Indonesia, dan situs resmi masing-masing tempat. Permintaan koreksi: hubungi Dinas Pariwisata dan Ekonomi Kreatif DKI Jakarta.",
   "home.footer_inspect": "INSPECT",
   "home.footer_colophon": "TIPOGRAFI",
 
@@ -222,7 +222,7 @@ const en: Dict = {
     "Every golf course inside DKI Jakarta — from the 1872 Jakarta Golf Club to modern Topgolf — with location, hole count, designer, and year founded.",
   "home.vol2_cta": "Open the golf map",
   "home.footer_about":
-    "Data drawn from OpenStreetMap, Wanderlog, TripAdvisor, What's New Indonesia and each venue's official site. Correction requests via GitHub.",
+    "Data drawn from OpenStreetMap, Wanderlog, TripAdvisor, What's New Indonesia and each venue's official site. Correction requests: contact the Jakarta Tourism and Creative Economy Agency.",
   "home.footer_inspect": "INSPECT",
   "home.footer_colophon": "TYPOGRAPHY",
 

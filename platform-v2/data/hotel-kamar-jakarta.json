@@ -1,7 +1,7 @@
 {
 "slug": "hotel-kamar-jakarta",
 "title": "Hotel & Jumlah Kamar DKI Jakarta (terkini)",
-"description": "Daftar hotel DKI Jakarta dengan jumlah kamar terkini, digabung dari tiga sumber: (1) baseline SDI 2020 hasil dedup nama+alamat, (2) rekapitulasi usaha & kamar hotel 2023, dan (3) riset web per hotel. Prioritas `kamar_terkini`: riset DITEMUKAN > rekap 2023 > SDI 2020; riset TUTUP membuat `kamar_terkini` null.",
+"description": "Daftar hotel DKI Jakarta dengan jumlah kamar terkini, dari tiga sumber: SDI 2020, rekapitulasi usaha & kamar hotel 2023, dan riset web per hotel.",
 "columns": [
 {
 "key": "id",

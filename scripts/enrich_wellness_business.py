@@ -7,7 +7,7 @@ Merupakan perluasan dari `wellness-jakarta.json` (Item 2) dengan fokus
   - nama_dagang           : nama usaha/brand (bukan nama tempat generik OSM)
   - jenis_usaha           : "Rantai/Franchise" / "Independen" / "Bermerek" (hotel)
   -asosiasi               : asosiasi afiliasi (ASPAQIN, ISWI, AFPI, dll — placeholder)
-  - status_usaha          : "Perlu verifikasi NIB" (placeholder jujur, kita tidak bisa
+  - status_usaha          : "Belum terverifikasi" (placeholder jujur, kita tidak bisa
                              cek OSS publik dari skrip)
 
 Logika deteksi:
@@ -193,7 +193,7 @@ def build() -> dict:
         new_row["nama_dagang"] = brand if brand else nama
         new_row["jenis_usaha"] = jenis
         new_row["asosiasi"] = infer_asosiasi(kategori)
-        new_row["status_usaha"] = "Perlu verifikasi NIB"
+        new_row["status_usaha"] = "Belum terverifikasi"
         # Tambahkan referensi untuk audit
         new_row["sumber_basis"] = "wellness-jakarta.json (OSM Nominatim + Google Places API New)"
         new_row["tanggal_enrich"] = time.strftime("%Y-%m-%d", time.gmtime())
@@ -207,9 +207,8 @@ def build() -> dict:
         "description": (
             "Perluasan dataset wellness-jakarta (84 venue) dengan fokus 'usaha terdaftar'. "
             "Menambahkan 4 kolom baru: nama_dagang (brand), jenis_usaha (Rantai/Bermerek/Independen), "
-            "asosiasi (placeholder inferensi berdasarkan kategori), dan status_usaha ('Perlu verifikasi NIB'). "
-            "Deteksi rantai via regex nama brand; asosiasi berupa inferensi berdasarkan kategori karena "
-            "registrasi NIB publik tidak bisa diverifikasi via skrip otomatis. "
+            "asosiasi, dan status_usaha. Catatan: kolom asosiasi dan status usaha bersifat indikatif "
+            "dan belum diverifikasi dengan data perizinan resmi (NIB). "
             f"Distribusi jenis usaha: {counts['Rantai/Franchise']} Rantai/Franchise, "
             f"{counts['Bermerek (Hotel)']} Hotel Spa Premium (bermerek), "
             f"{counts['Independen']} Independen."

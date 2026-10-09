@@ -92,7 +92,7 @@
     },
     {
       "key": "catatan",
-      "label": "Catatan & Sumber",
+      "label": "Catatan",
       "type": "string",
       "description": null
     },
@@ -120,7 +120,7 @@
       "rating": 3.8,
       "jumlah_ulasan": 410,
       "status": "Aktif",
-      "catatan": "Pasar antik/suvenir legendaris sejak 1980 di Jl. Surabaya, Menteng; jual wayang, batik, perhiasan, barang antik. Sumber: Tripadvisor, forevervacation.com, ajourneybespoke.com",
+      "catatan": "Pasar antik dan suvenir sejak 1980 di Jl. Surabaya, Menteng; menjual wayang, batik, perhiasan, dan barang antik.",
       "url_tripadvisor": "https://www.tripadvisor.com/Attraction_Review-g294229-d2587868"
     },
     {
@@ -139,7 +139,7 @@
       "rating": 4.2,
       "jumlah_ulasan": 64,
       "status": "Aktif",
-      "catatan": "Alamat sebenarnya Plaza Indonesia Lt.3 No.116C, Jl MH Thamrin, Gondangdia, Menteng, Jakarta Pusat (dari teks ulasan TripAdvisor); koordinat input meleset ~15km ke arah Cengkareng/perbatasan Tangerang, dikoreksi ke Plaza Indonesia. Sumber: tripadvisor.com, batikkeris.co.id.",
+      "catatan": "Berlokasi di Plaza Indonesia Lt.3 No.116C, Jl. MH Thamrin, Gondangdia, Menteng, Jakarta Pusat. Koordinat telah dikoreksi.",
       "url_tripadvisor": "https://www.tripadvisor.com/Attraction_Review-g294229-d379331"
     },
     {
@@ -158,7 +158,7 @@
       "rating": 3.4,
       "jumlah_ulasan": 35,
       "status": "Aktif",
-      "catatan": "Pasar seni/kerajinan sejak 1977 di kompleks Ancol, ~240 lapak seniman; kecamatan Pademangan dari sumber flokq/ancol.com, koordinat sesuai area Ancol",
+      "catatan": "Pasar seni dan kerajinan sejak 1977 di kompleks Ancol, dengan sekitar 240 lapak seniman; berada di Kecamatan Pademangan.",
       "url_tripadvisor": "https://www.tripadvisor.com/Attraction_Review-g294229-d9563968"
     },
     {
@@ -177,7 +177,7 @@
       "rating": 3.6,
       "jumlah_ulasan": 11,
       "status": "Aktif",
-      "catatan": "Jakarta Gems Center, tepat di depan Stasiun Jatinegara, Kec. Jatinegara — populer di kalangan wisatawan asing utk batu akik/perhiasan sbg suvenir. Koordinat input meleset ~10km (mengarah ke area Kebayoran/Blok M), dikoreksi ke sekitar Stasiun Jatinegara. Sebagian toko tutup namun pasar tetap beroperasi. Sumber: beritajakarta.id, detik.com, traveloka.com.",
+      "catatan": "Jakarta Gems Center, tepat di depan Stasiun Jatinegara, Kec. Jatinegara; populer di kalangan wisatawan asing untuk batu akik dan perhiasan sebagai suvenir. Koordinat telah dikoreksi. Sebagian toko tutup, namun pasar tetap beroperasi.",
       "url_tripadvisor": "https://www.tripadvisor.com/Attraction_Review-g294229-d6598978"
     },
     {
@@ -196,7 +196,7 @@
       "rating": 4.8,
       "jumlah_ulasan": 5,
       "status": "Aktif",
-      "catatan": "Galeri peta & cetakan antik Asia sejak 2009, di Mandarin Oriental Hotel Jl MH Thamrin Menteng; sumber nowjakarta.co.id, bartelegallery.com. Ada info belum terverifikasi soal kemungkinan pindah ke Hotel Kempinski",
+      "catatan": "Galeri peta dan cetakan antik Asia sejak 2009, di Mandarin Oriental Hotel, Jl. MH Thamrin, Menteng. Terdapat informasi yang belum terverifikasi mengenai kemungkinan pindah ke Hotel Kempinski.",
       "url_tripadvisor": "https://www.tripadvisor.com/Attraction_Review-g294229-d12423972"
     },
     {
@@ -215,7 +215,7 @@
       "rating": 3.6,
       "jumlah_ulasan": 5,
       "status": "Aktif",
-      "catatan": "Pusat oleh-oleh resmi (dodol Betawi, batik, ondel-ondel dll) di Thamrin City lt.1; kecamatan dari GoFood/near-place (Kb. Melati, Tanah Abang, kodepos 10230 - beda dgn kodepos 11110 di data asal, kemungkinan salah input); koordinat sesuai lokasi Thamrin City",
+      "catatan": "Pusat oleh-oleh resmi (dodol Betawi, batik, ondel-ondel, dll.) di Thamrin City lt.1, Kb. Melati, Tanah Abang, kodepos 10230.",
       "url_tripadvisor": "https://www.tripadvisor.com/Attraction_Review-g294229-d7076588"
     },
     {
@@ -234,7 +234,7 @@
       "rating": 5,
       "jumlah_ulasan": 4,
       "status": "Aktif",
-      "catatan": "Vendor merchandise/suvenir custom (tumbler, flashdisk, gift set) area Ragunan/Jl. Hankam, Pasar Minggu (sumber: rajanyapromosi.com, facebook.com/RajanyaSouvenir). Koordinat cukup plausibel untuk area Ragunan meski tidak presisi ke titik jalan.",
+      "catatan": "Vendor merchandise dan suvenir custom (tumbler, flashdisk, gift set) di area Ragunan/Jl. Hankam, Pasar Minggu. Koordinat bersifat perkiraan area.",
       "url_tripadvisor": "https://www.tripadvisor.com/Attraction_Review-g294229-d28897061"
     },
     {
@@ -253,7 +253,7 @@
       "rating": 5,
       "jumlah_ulasan": 3,
       "status": "Aktif",
-      "catatan": "Toko batik (Yogya/Solo/Pekalongan) di Ruko Simprug Gallery; sumber Tripadvisor & near-place.com, tercatat aktif.",
+      "catatan": "Toko batik (Yogya/Solo/Pekalongan) di Ruko Simprug Gallery; tercatat aktif.",
       "url_tripadvisor": "https://www.tripadvisor.com/Attraction_Review-g294229-d12976615"
     },
     {
@@ -272,7 +272,7 @@
       "rating": 4.7,
       "jumlah_ulasan": 3,
       "status": "Aktif",
-      "catatan": "Butik batik & kerajinan Nusantara di Mitra Hadiprana Kemang; sumber lucysbatik.com & mitrahadiprana.com.",
+      "catatan": "Butik batik dan kerajinan Nusantara di Mitra Hadiprana Kemang.",
       "url_tripadvisor": "https://www.tripadvisor.com/Attraction_Review-g294229-d16162508"
     },
     {
@@ -291,7 +291,7 @@
       "rating": 4.3,
       "jumlah_ulasan": 3,
       "status": "Aktif",
-      "catatan": "Toko kerajinan artisan lokal yg mendukung Darius Tobing Foundation, est. 2011, alamat Jl. Bumi No.31A Kebayoran Baru (indonesiaexpat.id, ajourneybespoke.com); ada akun IG @paisleythingsjakarta aktif",
+      "catatan": "Toko kerajinan artisan lokal yang mendukung Darius Tobing Foundation, berdiri 2011, beralamat di Jl. Bumi No.31A, Kebayoran Baru; memiliki akun Instagram @paisleythingsjakarta yang aktif.",
       "url_tripadvisor": "https://www.tripadvisor.com/Attraction_Review-g294229-d10161748"
     },
     {
@@ -310,7 +310,7 @@
       "rating": 3,
       "jumlah_ulasan": 2,
       "status": "Tidak diketahui",
-      "catatan": "\"Beralamat \"\"di dalam Aksara Bookstore Kemang\"\", namun Aksara Bookstore Kemang dilaporkan tutup permanen Des 2020; kemungkinan alamat sudah tidak berlaku. Sumber Jakarta Post/Detik.\"",
+      "catatan": "Beralamat di dalam Aksara Bookstore Kemang yang dilaporkan tutup permanen pada Des 2020; alamat kemungkinan sudah tidak berlaku.",
       "url_tripadvisor": "https://www.tripadvisor.com/Attraction_Review-g294229-d18966670"
     },
     {
@@ -329,7 +329,7 @@
       "rating": 3,
       "jumlah_ulasan": 2,
       "status": "Tidak diketahui",
-      "catatan": "Terdaftar di Tripadvisor kategori Gift & Specialty Shops namun produk spesifik tidak ditemukan (ulasan sangat sedikit); tidak bisa diverifikasi lebih lanjut.",
+      "catatan": "Terdaftar pada kategori Gift & Specialty Shops; produk spesifik belum dapat dipastikan karena informasi sangat terbatas.",
       "url_tripadvisor": "https://www.tripadvisor.com/Attraction_Review-g294229-d15618584"
     },
     {
@@ -348,7 +348,7 @@
       "rating": 5,
       "jumlah_ulasan": 2,
       "status": "Aktif",
-      "catatan": "Produsen/toko suvenir tumbler custom murah, alamat Komplek MPR Jl. Flamboyan (Pondok Labu, Cilandak) sesuai postcode 12430 (sumber: souvenirtumblermurah.com). Koordinat plausibel untuk area Cilandak.",
+      "catatan": "Produsen/toko suvenir tumbler custom, beralamat di Komplek MPR Jl. Flamboyan, Pondok Labu, Cilandak (kodepos 12430).",
       "url_tripadvisor": "https://www.tripadvisor.com/Attraction_Review-g294229-d32684407"
     },
     {
@@ -367,7 +367,7 @@
       "rating": 5,
       "jumlah_ulasan": 1,
       "status": "Tidak diketahui",
-      "catatan": "Tenant kecil di M Bloc Market Melawai menjual aksesoris, kaos, dan poster bertema Jakarta versi kartun — disebut sebagai tempat suvenir otentik Jakarta (sumber: ulasan TripAdvisor Des 2024). Koordinat cocok dengan lokasi M Bloc Market. Status operasional tidak dapat dipastikan lebih lanjut.",
+      "catatan": "Tenant kecil di M Bloc Market Melawai yang menjual aksesoris, kaos, dan poster bertema Jakarta versi kartun; dikenal sebagai tempat suvenir otentik Jakarta. Status operasional belum dapat dipastikan.",
       "url_tripadvisor": "https://www.tripadvisor.com/Attraction_Review-g294229-d32709906"
     },
     {
@@ -386,7 +386,7 @@
       "rating": 5,
       "jumlah_ulasan": 1,
       "status": "Aktif",
-      "catatan": "\"Toko oleh-oleh UMKM binaan Dinas PPKUKM DKI, alamat asli Duren Sawit (bukan \"\"Duren Palm\"\" spt di data), sesuai artikel disppkukm.jakarta.go.id; koordinat sumber (-6.130224,106.706795) berada di wilayah Jakarta Barat, jauh dari Duren Sawit (~-6.23,106.91) — koreksi adalah titik kelurahan Duren Sawit (perkiraan, bukan alamat toko persis)\"",
+      "catatan": "Toko oleh-oleh UMKM binaan Dinas PPKUKM DKI, beralamat di Duren Sawit. Koordinat telah dikoreksi ke titik kelurahan Duren Sawit (perkiraan, bukan alamat toko persis).",
       "url_tripadvisor": "https://www.tripadvisor.com/Attraction_Review-g294229-d25159960"
     },
     {
@@ -405,7 +405,7 @@
       "rating": 5,
       "jumlah_ulasan": 1,
       "status": "Aktif",
-      "catatan": "Toko poster vintage/suvenir di Kemang Timur, kel. Bangka; terverifikasi via TripAdvisor & kodepos.id, koordinat sesuai area Bangka-Mampang Prapatan",
+      "catatan": "Toko poster vintage dan suvenir di Kemang Timur, Kel. Bangka; area Bangka-Mampang Prapatan.",
       "url_tripadvisor": "https://www.tripadvisor.com/Attraction_Review-g294229-d23027735"
     },
     {
@@ -424,7 +424,7 @@
       "rating": 5,
       "jumlah_ulasan": 1,
       "status": "Aktif",
-      "catatan": "Vendor suvenir custom (tumbler, mug, boneka) grosir min. 500pcs, alamat sesuai situs souvenirtumblermurah.com; kecamatan dari alamat/kodepos",
+      "catatan": "Vendor suvenir custom (tumbler, mug, boneka) secara grosir, minimal pemesanan 500 pcs.",
       "url_tripadvisor": "https://www.tripadvisor.com/Attraction_Review-g294229-d34036099"
     },
     {
@@ -443,7 +443,7 @@
       "rating": null,
       "jumlah_ulasan": null,
       "status": "Tidak diketahui",
-      "catatan": "Toko pakaian batik (kemeja/blus) di Jl. Cipete Raya No.8A; kecamatan Cilandak dari kodepos 12410/near-place.com; IG @batikkoenokoeni ada tapi aktivitas terbaru tidak terverifikasi",
+      "catatan": "Toko pakaian batik (kemeja/blus) di Jl. Cipete Raya No.8A, Kec. Cilandak (kodepos 12410); aktivitas terbaru belum terverifikasi.",
       "url_tripadvisor": "https://www.tripadvisor.com/Attraction_Review-g294229-d12778506"
     },
     {
@@ -462,7 +462,7 @@
       "rating": null,
       "jumlah_ulasan": null,
       "status": "Aktif",
-      "catatan": "Toko oleh-oleh (dodol Betawi, bir pletok, kaos, gantungan kunci, batik) di kawasan Taman Fatahillah; sumber Okezone & Tripadvisor.",
+      "catatan": "Toko oleh-oleh (dodol Betawi, bir pletok, kaos, gantungan kunci, batik) di kawasan Taman Fatahillah.",
       "url_tripadvisor": "https://www.tripadvisor.com/Attraction_Review-g294229-d17713976"
     },
     {
@@ -481,7 +481,7 @@
       "rating": null,
       "jumlah_ulasan": null,
       "status": "Aktif",
-      "catatan": "Studio parfum custom Korea (KPIA) di Mal Taman Anggrek — pengunjung meracik dan membawa pulang parfum sendiri sebagai suvenir/gift (sumber: maisonamare.com, corner.inc). Koordinat sangat cocok dengan lokasi Mal Taman Anggrek.",
+      "catatan": "Studio parfum custom Korea (KPIA) di Mal Taman Anggrek; pengunjung meracik dan membawa pulang parfum sendiri sebagai suvenir/gift.",
       "url_tripadvisor": "https://www.tripadvisor.com/Attraction_Review-g294229-d33053752"
     },
     {
@@ -500,7 +500,7 @@
       "rating": null,
       "jumlah_ulasan": null,
       "status": "Aktif",
-      "catatan": "\"Toko oleh-oleh Jakarta \"\"Neng Mae\"\" (IG @nengmae.id, PIRT & Halal MUI, toko offline di Rorotan); juga terdaftar di GoFood/GrabFood sbg Jajanan Betawi Neng Mae\"",
+      "catatan": "Toko oleh-oleh Jakarta Neng Mae (IG @nengmae.id, PIRT dan Halal MUI), toko offline di Rorotan; juga terdaftar di GoFood/GrabFood sebagai Jajanan Betawi Neng Mae.",
       "url_tripadvisor": "https://www.tripadvisor.com/Attraction_Review-g294229-d34469473"
     },
     {
@@ -519,7 +519,7 @@
       "rating": null,
       "jumlah_ulasan": null,
       "status": "Aktif",
-      "catatan": "Usaha bakpao gandum halal (aneka rasa) di Fresh Market PIK, Kamal Muara, Penjaringan (sumber: instagram.com/royalkueid, youtube Royal Kue ID). Koordinat cocok dengan lokasi Fresh Market PIK.",
+      "catatan": "Usaha bakpao gandum halal (aneka rasa) di Fresh Market PIK, Kamal Muara, Penjaringan.",
       "url_tripadvisor": "https://www.tripadvisor.com/Attraction_Review-g294229-d32867928"
     },
     {
@@ -538,7 +538,7 @@
       "rating": null,
       "jumlah_ulasan": null,
       "status": "Aktif",
-      "catatan": "Toko kopi grosir/eceran sejak 1984; alamat terverifikasi di Jelambar Baru (dekat Jl. Jelambar Utara) tapi koordinat yang diberikan (-6.1878,106.79098) meleset ~4km dari pusat Jelambar Baru (~-6.150,106.783); tidak ditemukan koordinat pengganti presisi dari sumber tepercaya. Sumber infokopi.com.",
+      "catatan": "Toko kopi grosir/eceran sejak 1984, beralamat di Jelambar Baru (dekat Jl. Jelambar Utara). Koordinat belum presisi.",
       "url_tripadvisor": "https://www.tripadvisor.com/Attraction_Review-g294229-d20110209"
     },
     {
@@ -557,7 +557,7 @@
       "rating": 4,
       "jumlah_ulasan": 322,
       "status": "Aktif",
-      "catatan": "Pusat pertokoan emas/perhiasan 7 lantai (60+ toko), bukan suvenir turis tapi jadi daya tarik belanja; alamat & kec. dari Waze/KF Map (Jl. Pegangsaan Timur No.9, Menteng), koordinat cocok area Menteng",
+      "catatan": "Pusat pertokoan emas dan perhiasan 7 lantai (60+ toko) di Jl. Pegangsaan Timur No.9, Menteng; bukan suvenir turis, tetapi menjadi daya tarik belanja.",
       "url_tripadvisor": "https://www.tripadvisor.com/Attraction_Review-g294229-d6725477"
     },
     {
@@ -576,7 +576,7 @@
       "rating": 3.8,
       "jumlah_ulasan": 307,
       "status": "Aktif",
-      "catatan": "Pasar grosir pakaian & batik terbesar Jakarta; suvenir bukan fokus utama, lebih ke tekstil/fashion grosir. Sumber: Tripadvisor, Waze (Pasar Tanah Abang Blok A, Jl. K.H. Fachrudin)",
+      "catatan": "Pasar grosir pakaian dan batik terbesar Jakarta di Pasar Tanah Abang Blok A, Jl. K.H. Fachrudin; suvenir bukan fokus utama, lebih ke tekstil/fashion grosir.",
       "url_tripadvisor": "https://www.tripadvisor.com/Attraction_Review-g294229-d3640861"
     },
     {
@@ -595,7 +595,7 @@
       "rating": 3.9,
       "jumlah_ulasan": 74,
       "status": "Aktif",
-      "catatan": "Department store lama (sejak 1958) di Jl Iskandarsyah II No.2, Kebayoran Baru; masih beroperasi (situs resmi pasaraya.id aktif) meski okupansi menurun. Sumber: pasaraya.id, kumparan.com.",
+      "catatan": "Department store lama (sejak 1958) di Jl Iskandarsyah II No.2, Kebayoran Baru; masih beroperasi meski okupansi menurun.",
       "url_tripadvisor": "https://www.tripadvisor.com/Attraction_Review-g294229-d3264840"
     },
     {
@@ -614,7 +614,7 @@
       "rating": 3.9,
       "jumlah_ulasan": 43,
       "status": "Aktif",
-      "catatan": "Pusat grosir aksesori & suvenir di Jl Asemka No.33, Pinangsia, Kec. Taman Sari; pengunjung menurun tapi masih beroperasi. Sumber: flokq.com, investortrust.id.",
+      "catatan": "Pusat grosir aksesori dan suvenir di Jl Asemka No.33, Pinangsia, Kec. Taman Sari; pengunjung menurun tetapi masih beroperasi.",
       "url_tripadvisor": "https://www.tripadvisor.com/Attraction_Review-g294229-d3845753"
     },
     {
@@ -633,7 +633,7 @@
       "rating": 3.8,
       "jumlah_ulasan": 33,
       "status": "Aktif",
-      "catatan": "Pasar grosir pakaian 5 lantai (Pasar Pagi Mangga Dua), kelurahan Ancol, kec. Pademangan, kodepos 14430; ada toko kerajinan manik-manik tapi mayoritas fashion grosir. Sumber: kumparan.com, idalamat.com",
+      "catatan": "Pasar grosir pakaian 5 lantai (Pasar Pagi Mangga Dua), Kel. Ancol, Kec. Pademangan, kodepos 14430; terdapat toko kerajinan manik-manik, namun mayoritas fashion grosir.",
       "url_tripadvisor": "https://www.tripadvisor.com/Attraction_Review-g294229-d8330603"
     },
     {
@@ -652,7 +652,7 @@
       "rating": 3.6,
       "jumlah_ulasan": 10,
       "status": "Aktif",
-      "catatan": "Pasar di Jl Plumpang Semper/Inspeksi Kali Sunter, Rawa Badak Selatan, Kec. Koja; makin sepi pembeli namun masih buka per 2024-2025. Sumber: kompas.com, detik.com, beritajakarta.id.",
+      "catatan": "Pasar di Jl Plumpang Semper/Inspeksi Kali Sunter, Rawa Badak Selatan, Kec. Koja; makin sepi pembeli namun masih buka pada 2024-2025.",
       "url_tripadvisor": "https://www.tripadvisor.com/Attraction_Review-g294229-d3844811"
     },
     {
@@ -671,7 +671,7 @@
       "rating": 4,
       "jumlah_ulasan": 3,
       "status": "Aktif",
-      "catatan": "\"Pasar tradisional harian; disebutkan ada \"\"souvenir vendors\"\" tapi mayoritas sembako/kuliner, bukan tujuan wisata suvenir. Alamat resmi: Jl. Tebet Barat Dalam Raya No.11, Kec. Tebet, Jakarta Selatan 12810 (pasarjaya.co.id). Sumber: flokq.com, saungmaman.com\"",
+      "catatan": "Pasar tradisional harian; terdapat sebagian pedagang suvenir, tetapi mayoritas menjual sembako dan kuliner, bukan tujuan wisata suvenir. Beralamat di Jl. Tebet Barat Dalam Raya No.11, Kec. Tebet, Jakarta Selatan 12810.",
       "url_tripadvisor": "https://www.tripadvisor.com/Attraction_Review-g294229-d12459860"
     },
     {
@@ -690,7 +690,7 @@
       "rating": 4.5,
       "jumlah_ulasan": 2,
       "status": "Aktif",
-      "catatan": "Kawasan belanja semi-outdoor di Golf Island/Pantai Maju, PIK2, kel. Kamal Muara; lat/lng tidak tersedia di data sumber sehingga tak bisa divalidasi; sumber: CNN Indonesia, Tempo, situs resmi Golf Island",
+      "catatan": "Kawasan belanja semi-outdoor di Golf Island/Pantai Maju, PIK2, Kel. Kamal Muara; koordinat belum tersedia.",
       "url_tripadvisor": "https://www.tripadvisor.com/Attraction_Review-g294229-d25090320"
     },
     {
@@ -709,7 +709,7 @@
       "rating": 4.5,
       "jumlah_ulasan": 2,
       "status": "Aktif",
-      "catatan": "Toko produk body care berbahan virgin coconut oil, juga ada cabang Bali; alamat Jl. RS Fatmawati No.39 Cilandak (littlestepsasia.com, facebook.com/CoconaCareID)",
+      "catatan": "Toko produk body care berbahan virgin coconut oil, juga memiliki cabang di Bali; beralamat di Jl. RS Fatmawati No.39, Cilandak.",
       "url_tripadvisor": "https://www.tripadvisor.com/Attraction_Review-g294229-d11864940"
     },
     {
@@ -728,7 +728,7 @@
       "rating": 2,
       "jumlah_ulasan": 1,
       "status": "Tidak diketahui",
-      "catatan": "Tenant di dalam Pasar Mayestik (pasar kain/tekstil), bukan toko suvenir spesifik; rating rendah (2.0, 1 ulasan) di TripAdvisor, tidak ditemukan situs/sosmed resmi untuk verifikasi lebih lanjut. Tidak ada lat/lng di data asal sehingga validitas koordinat tidak dapat dinilai.",
+      "catatan": "Tenant di dalam Pasar Mayestik (pasar kain/tekstil), bukan toko suvenir spesifik; rating rendah (2.0, 1 ulasan). Informasi usaha terbatas dan koordinat belum tersedia.",
       "url_tripadvisor": "https://www.tripadvisor.com/Attraction_Review-g294229-d28564979"
     },
     {
@@ -747,7 +747,7 @@
       "rating": 4,
       "jumlah_ulasan": 1,
       "status": "Aktif",
-      "catatan": "Mal di Tj. Duren Timur (Taman Anggrek Residences), kel. Tanjung Duren Selatan; lat/lng tidak tersedia di data sumber sehingga tak bisa divalidasi; sumber: hublife.co.id, TripAdvisor",
+      "catatan": "Mal di Tj. Duren Timur (Taman Anggrek Residences), Kel. Tanjung Duren Selatan; koordinat belum tersedia.",
       "url_tripadvisor": "https://www.tripadvisor.com/Attraction_Review-g294229-d25066794"
     },
     {
@@ -766,7 +766,7 @@
       "rating": null,
       "jumlah_ulasan": null,
       "status": "Aktif",
-      "catatan": "Merupakan bagian dari Alun Alun Indonesia, department store budaya Indonesia (fashion, perhiasan, kerajinan, kuliner) di lt.3 West Mall Grand Indonesia; sumber: grand-indonesia.com & tripadvisor",
+      "catatan": "Bagian dari Alun Alun Indonesia, department store budaya Indonesia (fashion, perhiasan, kerajinan, kuliner) di lt.3 West Mall Grand Indonesia.",
       "url_tripadvisor": "https://www.tripadvisor.com/Attraction_Review-g294229-d34473610"
     },
     {
@@ -785,7 +785,7 @@
       "rating": null,
       "jumlah_ulasan": null,
       "status": "Tidak diketahui",
-      "catatan": "\"Tidak ditemukan info spesifik ttg \"\"Cosma Studio.id\"\" di Mandala Utara IV Tomang; tidak bisa diverifikasi jenis usahanya. Kecamatan dari alamat (Tomang) & kodepos 11440\"",
+      "catatan": "Jenis usaha belum dapat dipastikan karena informasi belum tersedia. Beralamat di Mandala Utara IV, Tomang (kodepos 11440).",
       "url_tripadvisor": "https://www.tripadvisor.com/Attraction_Review-g294229-d34469706"
     },
     {
@@ -804,7 +804,7 @@
       "rating": null,
       "jumlah_ulasan": null,
       "status": "Tidak diketahui",
-      "catatan": "Tidak ditemukan info memadai selain listing TripAdvisor (dikategorikan sbg museum di TripAdvisor ID, No.58/73 museum Jakarta); kecamatan dari kodepos 11470 (Grogol Petamburan)",
+      "catatan": "Informasi usaha terbatas; terdaftar sebagai museum pada direktori wisata daring. Berlokasi di Kec. Grogol Petamburan (kodepos 11470).",
       "url_tripadvisor": "https://www.tripadvisor.com/Attraction_Review-g294229-d34311250"
     },
     {
@@ -823,7 +823,7 @@
       "rating": 5,
       "jumlah_ulasan": 18,
       "status": "Aktif",
-      "catatan": "Toko kamera & fotografi sejak 1991 di Metro Atom Plaza Pasar Baru, bukan toko suvenir (sumber: anekafoto.com, tripadvisor). Koordinat asli (-6.2838,106.7804) jauh dari Pasar Baru/Sawah Besar (sekitar 15km); koreksi ke titik Metro Atom Plaza Pasar Baru (perkiraan umum, belum diverifikasi presisi GPS).",
+      "catatan": "Toko kamera dan fotografi sejak 1991 di Metro Atom Plaza Pasar Baru, bukan toko suvenir. Koordinat telah dikoreksi ke perkiraan lokasi Metro Atom Plaza (belum presisi).",
       "url_tripadvisor": "https://www.tripadvisor.com/Attraction_Review-g294229-d28114445"
     },
     {
@@ -842,7 +842,7 @@
       "rating": 3.7,
       "jumlah_ulasan": 17,
       "status": "Aktif",
-      "catatan": "\"Nama jalan/kawasan historis \"\"Jalan Pasar Ikan\"\" dekat Museum Bahari & Pelabuhan Sunda Kelapa, Kota Tua; bukan toko suvenir. Kecamatan dari kodepos 14440 (Penjaringan)\"",
+      "catatan": "Nama jalan/kawasan historis Jalan Pasar Ikan dekat Museum Bahari dan Pelabuhan Sunda Kelapa, Kota Tua; bukan toko suvenir. Berada di Kec. Penjaringan (kodepos 14440).",
       "url_tripadvisor": "https://www.tripadvisor.com/Attraction_Review-g294229-d379326"
     },
     {
@@ -861,7 +861,7 @@
       "rating": 3.8,
       "jumlah_ulasan": 12,
       "status": "Aktif",
-      "catatan": "Pasar bunga terbesar se-Asia Tenggara di Jl Sulaiman No.50/56, Sukabumi Utara, Kec. Kebon Jeruk; bukan toko suvenir. Koordinat input cocok dengan titik Google Maps. Sumber: google maps, wanderlog.com.",
+      "catatan": "Pasar bunga terbesar se-Asia Tenggara di Jl Sulaiman No.50/56, Sukabumi Utara, Kec. Kebon Jeruk; bukan toko suvenir.",
       "url_tripadvisor": "https://www.tripadvisor.com/Attraction_Review-g294229-d6598992"
     },
     {
@@ -880,7 +880,7 @@
       "rating": 4.2,
       "jumlah_ulasan": 10,
       "status": "Aktif",
-      "catatan": "Department store fashion mewah di Pacific Place, SCBD, Kel. Senayan, Kec. Kebayoran Baru; bukan toko suvenir/oleh-oleh, masih terdaftar aktif di direktori pacificplace.co.id. Sumber: pacificplace.co.id, map.co.id.",
+      "catatan": "Department store fashion mewah di Pacific Place, SCBD, Kel. Senayan, Kec. Kebayoran Baru; bukan toko suvenir/oleh-oleh; masih terdaftar aktif.",
       "url_tripadvisor": "https://www.tripadvisor.com/Attraction_Review-g294229-d4424695"
     },
     {
@@ -899,7 +899,7 @@
       "rating": 3.1,
       "jumlah_ulasan": 8,
       "status": "Aktif",
-      "catatan": "Toko elektronik, bukan suvenir. Koordinat asal (-6.34,106.85) meleset jauh ke selatan (area Jagakarsa), lokasi asli SCBD Senayan/Kby Baru sekitar -6.226,106.811 (Google Maps via Wanderlog); reopening store dikonfirmasi Nov 2024",
+      "catatan": "Toko elektronik, bukan suvenir. Koordinat telah dikoreksi ke area SCBD Senayan/Kebayoran Baru. Pembukaan kembali toko dikonfirmasi pada Nov 2024.",
       "url_tripadvisor": "https://www.tripadvisor.com/Attraction_Review-g294229-d8403837"
     },
     {
@@ -918,7 +918,7 @@
       "rating": 3.3,
       "jumlah_ulasan": 6,
       "status": "Aktif",
-      "catatan": "Pasar mainan anak grosir/eceran di Jl Jend Basuki Rachmat, Prumpung/Cipinang Besar Utara, Kec. Jatinegara; bukan kategori suvenir wisata. Tidak ada koordinat pada data sumber sehingga tidak bisa divalidasi. Sumber: tribunjakarta.com, jejakpiknik.com.",
+      "catatan": "Pasar mainan anak grosir/eceran di Jl Jend Basuki Rachmat, Prumpung/Cipinang Besar Utara, Kec. Jatinegara; bukan kategori suvenir wisata. Koordinat belum tersedia.",
       "url_tripadvisor": "https://www.tripadvisor.com/Attraction_Review-g294229-d6536286"
     },
     {
@@ -937,7 +937,7 @@
       "rating": 3.8,
       "jumlah_ulasan": 5,
       "status": "Aktif",
-      "catatan": "Pasar ikan modern (PIM), diresmikan 2019, bukan toko suvenir. Sumber: setkab.go.id, galontrip.wordpress.com",
+      "catatan": "Pasar ikan modern (PIM), diresmikan 2019, bukan toko suvenir.",
       "url_tripadvisor": "https://www.tripadvisor.com/Attraction_Review-g294229-d17531744"
     },
     {
@@ -956,7 +956,7 @@
       "rating": 3.6,
       "jumlah_ulasan": 5,
       "status": "Aktif",
-      "catatan": "Sentra ikan hias di Jl Sumenep No.4, Kec. Menteng; bukan toko suvenir. Sumber: beritajakarta.id, tribunnews.com.",
+      "catatan": "Sentra ikan hias di Jl Sumenep No.4, Kec. Menteng; bukan toko suvenir.",
       "url_tripadvisor": "https://www.tripadvisor.com/Attraction_Review-g294229-d6579516"
     },
     {
@@ -975,7 +975,7 @@
       "rating": 4,
       "jumlah_ulasan": 4,
       "status": "Aktif",
-      "catatan": "Penukaran uang asing (money changer) di Gedung Afindo, Jl. K.H. Wahid Hasyim, kel. Kebon Kacang; punya situs resmi chandraprima.com dengan jam operasional; koordinat sesuai area Tanah Abang",
+      "catatan": "Penukaran uang asing (money changer) di Gedung Afindo, Jl. K.H. Wahid Hasyim, Kel. Kebon Kacang, Tanah Abang; memiliki jam operasional resmi.",
       "url_tripadvisor": "https://www.tripadvisor.com/Attraction_Review-g294229-d25408428"
     },
     {
@@ -994,7 +994,7 @@
       "rating": 5,
       "jumlah_ulasan": 4,
       "status": "Aktif",
-      "catatan": "Toko cerutu/tembakau premium est.1997 di Hotel GranDhika Iskandarsyah, Melawai; website dayanatobacco.com masih ada; kecamatan Kebayoran Baru dari kodepos 12160/lokasi hotel",
+      "catatan": "Toko cerutu/tembakau premium sejak 1997 di Hotel GranDhika Iskandarsyah, Melawai, Kec. Kebayoran Baru (kodepos 12160); situs web masih aktif.",
       "url_tripadvisor": "https://www.tripadvisor.com/Attraction_Review-g294229-d12017934"
     },
     {
@@ -1013,7 +1013,7 @@
       "rating": 3.8,
       "jumlah_ulasan": 4,
       "status": "Aktif",
-      "catatan": "Bazaar/pop-up market bulanan (weekend) di kawasan Pantai Indah Kapuk berisi F&B dan fashion, bukan toko suvenir/kerajinan tetap. Sumber: Tripadvisor, kompas.com",
+      "catatan": "Bazaar/pop-up market bulanan (akhir pekan) di kawasan Pantai Indah Kapuk berisi F&B dan fashion, bukan toko suvenir/kerajinan tetap.",
       "url_tripadvisor": "https://www.tripadvisor.com/Attraction_Review-g294229-d8728059"
     },
     {
@@ -1032,7 +1032,7 @@
       "rating": 4,
       "jumlah_ulasan": 1,
       "status": "Aktif",
-      "catatan": "Toko busana muslim (gamis/abaya/kaftan gaya Timur Tengah) di Thamrin City Blok C35, Waduk Melati, Kec. Tanah Abang — bukan toko suvenir. Koordinat input meleset jauh (area Kembangan/Jakarta Barat), dikoreksi ke perkiraan lokasi Thamrin City (perkiraan, belum diverifikasi presisi). Sumber: trip.com, thamrincity.co.id.",
+      "catatan": "Toko busana muslim (gamis/abaya/kaftan gaya Timur Tengah) di Thamrin City Blok C35, Waduk Melati, Kec. Tanah Abang — bukan toko suvenir. Koordinat telah dikoreksi ke perkiraan lokasi Thamrin City (belum presisi).",
       "url_tripadvisor": "https://www.tripadvisor.com/Attraction_Review-g294229-d5966692"
     },
     {
@@ -1051,7 +1051,7 @@
       "rating": 5,
       "jumlah_ulasan": 1,
       "status": "Aktif",
-      "catatan": "Butik fashion resort-wear asal Bali (bukan toko oleh-oleh/suvenir); sumber biasagroup.com.",
+      "catatan": "Butik fashion resort-wear asal Bali (bukan toko oleh-oleh/suvenir).",
       "url_tripadvisor": "https://www.tripadvisor.com/Attraction_Review-g294229-d19453565"
     },
     {
@@ -1070,7 +1070,7 @@
       "rating": 4,
       "jumlah_ulasan": 1,
       "status": "Tidak diketahui",
-      "catatan": "\"Toko sepeda di STC Senayan; berita 2025 menyebut mayoritas toko sepeda \"\"high-end\"\" di STC sudah tutup, status spesifik Bike Station tidak terkonfirmasi. Sumber Kompas/Detik Ags 2025.\"",
+      "catatan": "Toko sepeda di STC Senayan; mayoritas toko sepeda high-end di STC dilaporkan sudah tutup pada 2025, status Bike Station belum terkonfirmasi.",
       "url_tripadvisor": "https://www.tripadvisor.com/Attraction_Review-g294229-d18841189"
     },
     {
@@ -1089,7 +1089,7 @@
       "rating": 5,
       "jumlah_ulasan": 1,
       "status": "Aktif",
-      "catatan": "Penjual bunga sedap malam (florist), bukan suvenir; alamat & nama sesuai listing TripAdvisor & referensi toko bunga Kebon Jeruk",
+      "catatan": "Penjual bunga sedap malam (florist), bukan suvenir; berlokasi di area Kebon Jeruk.",
       "url_tripadvisor": "https://www.tripadvisor.com/Attraction_Review-g294229-d32814483"
     },
     {
@@ -1108,7 +1108,7 @@
       "rating": 5,
       "jumlah_ulasan": 1,
       "status": "Aktif",
-      "catatan": "Toko buku rohani Kristen, bukan suvenir wisata; sumber immanuelbookstore.co.id (masih beroperasi, cabang Proklamasi sejak 1992).",
+      "catatan": "Toko buku rohani Kristen, bukan suvenir wisata; masih beroperasi (cabang Proklamasi sejak 1992).",
       "url_tripadvisor": "https://www.tripadvisor.com/Attraction_Review-g294229-d13817991"
     },
     {
@@ -1127,7 +1127,7 @@
       "rating": 5,
       "jumlah_ulasan": 1,
       "status": "Tidak diketahui",
-      "catatan": "Toko kosmetik/aksesoris (Nonna Cosmetic, produk Taiwan), bukan suvenir khas; kecamatan Penjaringan dari lokasi PIK/kodepos 14470, koordinat sesuai area PIK; tidak ada info status terkini yang bisa diverifikasi",
+      "catatan": "Toko kosmetik/aksesoris (Nonna Cosmetic, produk Taiwan), bukan suvenir khas; berlokasi di area PIK, Kec. Penjaringan (kodepos 14470); status terkini belum terverifikasi.",
       "url_tripadvisor": "https://www.tripadvisor.com/Attraction_Review-g294229-d9727715"
     },
     {
@@ -1146,7 +1146,7 @@
       "rating": 5,
       "jumlah_ulasan": 1,
       "status": "Aktif",
-      "catatan": "Kawasan wisata kuliner malam (jajanan/makanan), bukan toko suvenir. Sumber: travel.detik.com, Tripadvisor",
+      "catatan": "Kawasan wisata kuliner malam (jajanan/makanan), bukan toko suvenir.",
       "url_tripadvisor": "https://www.tripadvisor.com/Attraction_Review-g294229-d19090223"
     },
     {
@@ -1165,7 +1165,7 @@
       "rating": 5,
       "jumlah_ulasan": 1,
       "status": "Aktif",
-      "catatan": "Jasa desain interior & custom furniture (bukan toko suvenir), workshop di Kebon Jeruk sesuai alamat (sumber: pojahome.co.id). Koordinat plausibel untuk area Kebon Jeruk/Sukabumi Selatan.",
+      "catatan": "Jasa desain interior dan custom furniture (bukan toko suvenir), workshop di Kebon Jeruk.",
       "url_tripadvisor": "https://www.tripadvisor.com/Attraction_Review-g294229-d32764882"
     },
     {
@@ -1184,7 +1184,7 @@
       "rating": null,
       "jumlah_ulasan": null,
       "status": "Aktif",
-      "catatan": "Merek/toko pakaian pria plus-size Indonesia (didirikan 2009), bukan toko suvenir; Jl. Prof. Dr. Satrio kel. Karet Kuningan masuk kec. Setiabudi; koordinat sesuai area Kuningan",
+      "catatan": "Merek/toko pakaian pria plus-size Indonesia (didirikan 2009), bukan toko suvenir; Jl. Prof. Dr. Satrio, Kel. Karet Kuningan, Kec. Setiabudi.",
       "url_tripadvisor": "https://www.tripadvisor.com/Attraction_Review-g294229-d26585518"
     },
     {
@@ -1203,7 +1203,7 @@
       "rating": null,
       "jumlah_ulasan": null,
       "status": "Aktif",
-      "catatan": "Toko interior/furnitur (gorden, sofa, wallpaper) sejak 1992, bukan suvenir; alamat & jam buka dikonfirmasi di homedecorindonesia.com dan mylifegb.com",
+      "catatan": "Toko interior/furnitur (gorden, sofa, wallpaper) sejak 1992, bukan suvenir.",
       "url_tripadvisor": "https://www.tripadvisor.com/Attraction_Review-g294229-d33404716"
     },
     {
@@ -1222,7 +1222,7 @@
       "rating": null,
       "jumlah_ulasan": null,
       "status": "Aktif",
-      "catatan": "Cabang toko elektronik/notebook (bukan suvenir), Bendungan Hilir masuk kec. Tanah Abang; buka sejak 2022, aktif di Instagram/TikTok; koordinat sesuai area Benhil",
+      "catatan": "Cabang toko elektronik/notebook (bukan suvenir) di Bendungan Hilir, Kec. Tanah Abang; buka sejak 2022.",
       "url_tripadvisor": "https://www.tripadvisor.com/Attraction_Review-g294229-d26270726"
     },
     {
@@ -1241,7 +1241,7 @@
       "rating": null,
       "jumlah_ulasan": null,
       "status": "Tidak diketahui",
-      "catatan": "\"Nama & kategori (Antique Stores) tidak konsisten dgn \"\"Kuponhosting\"\" yg berasosiasi dgn situs kupon hosting (kuponhosting.com, domain dijual di Flippa); diduga listing spam/tidak valid, tidak dapat diverifikasi sbg toko nyata. Kecamatan tidak dapat ditentukan (alamat hanya \"\"Jakarta Pusat\"\")\"",
+      "catatan": "Data usaha tidak konsisten dan belum dapat diverifikasi sebagai toko nyata. Kecamatan tidak dapat ditentukan (alamat hanya Jakarta Pusat).",
       "url_tripadvisor": "https://www.tripadvisor.com/Attraction_Review-g294229-d23760495"
     },
     {
@@ -1260,7 +1260,7 @@
       "rating": null,
       "jumlah_ulasan": null,
       "status": "Aktif",
-      "catatan": "Toko furnitur & dekorasi rumah custom (rustic), bukan toko suvenir untuk wisatawan, di Meruya Utara, Kembangan (sumber: nagarey.com, topgoogle.com). Koordinat plausibel untuk area Meruya Utara.",
+      "catatan": "Toko furnitur dan dekorasi rumah custom (rustic), bukan toko suvenir untuk wisatawan, di Meruya Utara, Kembangan.",
       "url_tripadvisor": "https://www.tripadvisor.com/Attraction_Review-g294229-d32986329"
     },
     {
@@ -1279,7 +1279,7 @@
       "rating": null,
       "jumlah_ulasan": null,
       "status": "Aktif",
-      "catatan": "Salon rambut Jepang (Number76), bukan suvenir; alamat Parc Place SCBD, Senayan masuk kec. Kebayoran Baru; grand reopening Okt 2025 jadi masih aktif. Koordinat sumber (-6.21462,106.84513) bergeser ~4km ke timur dari lokasi SCBD/Senayan sebenarnya (sekitar -6.225,106.809); koreksi adalah perkiraan area SCBD, bukan titik persis gedung",
+      "catatan": "Salon rambut Jepang (Number76), bukan suvenir; berlokasi di Parc Place SCBD, Senayan, Kec. Kebayoran Baru; grand reopening Okt 2025 sehingga masih aktif. Koordinat telah dikoreksi ke perkiraan area SCBD (bukan titik persis gedung).",
       "url_tripadvisor": "https://www.tripadvisor.com/Attraction_Review-g294229-d27720986"
     },
     {
@@ -1298,7 +1298,7 @@
       "rating": null,
       "jumlah_ulasan": null,
       "status": "Aktif",
-      "catatan": "Toko bunga (florist), bukan suvenir; sumber Facebook pelangibungaid.",
+      "catatan": "Toko bunga (florist), bukan suvenir.",
       "url_tripadvisor": "https://www.tripadvisor.com/Attraction_Review-g294229-d20254097"
     },
     {
@@ -1317,7 +1317,7 @@
       "rating": null,
       "jumlah_ulasan": null,
       "status": "Aktif",
-      "catatan": "Samsung Service Center (pusat servis HP/elektronik), bukan toko suvenir, di ITC Fatmawati Lt.1, Cipete Utara, Kebayoran Baru (sumber: servicesamsung.id, idalamat.com). Koordinat asli (lng 106.621) meleset jauh ke barat (~20km) dari ITC Fatmawati; koreksi ke perkiraan lokasi ITC Fatmawati (belum diverifikasi presisi GPS).",
+      "catatan": "Samsung Service Center (pusat servis HP/elektronik), bukan toko suvenir, di ITC Fatmawati Lt.1, Cipete Utara, Kebayoran Baru. Koordinat telah dikoreksi ke perkiraan lokasi ITC Fatmawati (belum presisi).",
       "url_tripadvisor": "https://www.tripadvisor.com/Attraction_Review-g294229-d33225533"
     },
     {
@@ -1336,7 +1336,7 @@
       "rating": null,
       "jumlah_ulasan": null,
       "status": "Tidak diketahui",
-      "catatan": "\"Lounge/toko shisha (bukan suvenir); alamat Jl. Raya Condet, kel. Cililitan masuk kec. Kramat Jati (kodepos 13640), koordinat sesuai area tsb; sebuah blog lain menyebut \"\"Shishaholic\"\" berlokasi di selatan kota — kemungkinan beda tempat/tidak konsisten, status operasional tidak bisa dipastikan dari sumber yang ada\"",
+      "catatan": "Lounge/toko shisha (bukan suvenir); beralamat di Jl. Raya Condet, Kel. Cililitan, Kec. Kramat Jati (kodepos 13640). Status operasional belum dapat dipastikan.",
       "url_tripadvisor": "https://www.tripadvisor.com/Attraction_Review-g294229-d27508964"
     },
     {
@@ -1355,7 +1355,7 @@
       "rating": null,
       "jumlah_ulasan": null,
       "status": "Aktif",
-      "catatan": "Toko board game (TBG), bukan suvenir; alamat Jl. Kerajinan I No.35 Keagungan, Kec. Tamansari (bkppkutim.com); masih berjualan aktif di Tokopedia (tokopedia.com/tokoboardgame)",
+      "catatan": "Toko board game (TBG), bukan suvenir; beralamat di Jl. Kerajinan I No.35, Keagungan, Kec. Tamansari; masih berjualan aktif secara daring.",
       "url_tripadvisor": "https://www.tripadvisor.com/Attraction_Review-g294229-d12918278"
     },
     {
@@ -1374,7 +1374,7 @@
       "rating": null,
       "jumlah_ulasan": null,
       "status": "Tidak diketahui",
-      "catatan": "Toko buku (bukan suvenir); alamat Jl. Kramat Raya No.2 masuk kel. Kwitang, kec. Senen (dari kodepos 10420); tidak ditemukan hasil pencarian spesifik untuk memverifikasi keberadaan usaha ini. Koordinat sumber (-6.2959,106.81137) meleset ~13km dari lokasi Kramat Raya yang sebenarnya (sekitar -6.182,106.843); koreksi persis tidak dapat dipastikan sehingga dikosongkan",
+      "catatan": "Toko buku (bukan suvenir); beralamat di Jl. Kramat Raya No.2, Kel. Kwitang, Kec. Senen (kodepos 10420). Keberadaan usaha belum terverifikasi dan koordinat belum tersedia.",
       "url_tripadvisor": "https://www.tripadvisor.com/Attraction_Review-g294229-d26806658"
     }
   ]
