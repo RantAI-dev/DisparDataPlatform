@@ -220,10 +220,15 @@ CAPTION_URLS = {
     "17-data-hotel-transit.jpg": "https://dispar.rantai.dev/sdi/hotel-transit-jakarta",
     "18-data-desa-wisata.jpg": "https://dispar.rantai.dev/sdi/desa-wisata-jakarta",
     "19-data-wellness.jpg": "https://dispar.rantai.dev/sdi/wellness-jakarta",
+    "20-dba-model-fisik.jpg": "SHOW CREATE DATABASE/TABLE dan SHOW GRANTS pada ClickHouse; diagram disusun 9 Oktober 2026.",
+    "21-dba-erd-mart.jpg": "DESCRIBE dan SHOW CREATE TABLE serving.mart_* serta silver.dim_*; diagram disusun 9 Oktober 2026.",
+    "22-dba-kamus-audit.jpg": "SHOW CREATE TABLE _silver_meta.*; diagram disusun 9 Oktober 2026.",
+    "23-dba-runbook.jpg": "https://github.com/RantAI-dev/DisparDataPlatform/blob/1f8c8ca/docs/DEPLOY-RUNBOOK.md (commit 17 September 2026)",
+    "24-dba-handover.jpg": "https://github.com/RantAI-dev/DisparDataPlatform/blob/71fa514/docs/HANDOVER.md (commit 17 September 2026)",
 }
 
 # Gambar tambahan revisi Data Engineer 2 ditangkap pada tanggal berbeda.
-CAPTION_DATES = {f: "9 Oktober 2026" for f in CAPTION_URLS if f[:2] in ("14", "15", "16", "17", "18", "19")}
+CAPTION_DATES = {f: "9 Oktober 2026" for f in CAPTION_URLS if f[:2] in ("14", "15", "16", "17", "18", "19", "23", "24")}
 
 def caption(filename, text):
     src = CAPTION_URLS[filename]
@@ -435,7 +440,7 @@ MEMBERS = [
             "Menyajikan inventaris lapisan dan daftar mart disertai sumber kueri; mart historis wisatawan mancanegara diberi keterangan tahun 2014 agar tidak disalahgunakan sebagai data terbaru."
         ]
     ],
-    "bukti_intro": "Tabel berikut berasal dari pembacaan inventaris dan isi mart pada 2 Oktober 2026. Jumlah objek saat pemeriksaan tidak diperlakukan sebagai inventaris per 30 September.",
+    "bukti_intro": "Tabel berikut berasal dari pembacaan inventaris dan isi mart pada 2 Oktober 2026. Jumlah objek saat pemeriksaan tidak diperlakukan sebagai inventaris per 30 September. Diagram model fisik, relasi mart, dan kamus tabel audit disusun dari definisi tabel pada gudang data saat pemeriksaan 9 Oktober 2026 dan hanya memuat struktur, bukan jumlah baris. Dokumentasi operasi ditampilkan pada versi yang tercatat 17 September 2026.",
     "bukti": [
         [
             "lake",
@@ -447,8 +452,33 @@ MEMBERS = [
         ],
         [
             "img",
+            "20-dba-model-fisik.jpg",
+            "Gambar 1. Model fisik tiga lapis: mesin penyimpanan tiap lapis, tabel persiapan mart yang ditukar secara atomik, serta pemisahan akun aplikasi hanya-baca dari akun operator."
+        ],
+        [
+            "img",
+            "21-dba-erd-mart.jpg",
+            "Gambar 2. Diagram relasi mart penyaji dan dimensi bersama, lengkap dengan tipe kolom dan kunci urut MergeTree yang berfungsi sebagai indeks utama."
+        ],
+        [
+            "img",
+            "22-dba-kamus-audit.jpg",
+            "Gambar 3. Kamus tabel catatan mutu dan jejak audit: keputusan tipe kolom, hasil gerbang mutu, karantina, dan riwayat jumlah baris per tabel data bersih."
+        ],
+        [
+            "img",
+            "23-dba-runbook.jpg",
+            "Gambar 4. Runbook deploy aplikasi ke produksi, termasuk pengaturan akses dan rujukan sandi yang disimpan di luar repositori."
+        ],
+        [
+            "img",
+            "24-dba-handover.jpg",
+            "Gambar 5. Panduan serah terima platform data yang menjelaskan alur lapisan penyimpanan untuk engineer baru."
+        ],
+        [
+            "img",
             "10-api-docs.jpg",
-            "Gambar 1. Dokumentasi antarmuka data publik sebagai rujukan akses dataset."
+            "Gambar 6. Dokumentasi antarmuka data publik sebagai rujukan akses dataset."
         ]
     ],
     "rtl_peran": "DBA perlu memeriksa konsistensi mart historis dengan sumber dashboard terbaru, menyiapkan uji pemulihan yang terdokumentasi, dan menyelaraskan inventaris operasional dengan tabel persiapan sebelum perubahan berikutnya diterapkan.",
