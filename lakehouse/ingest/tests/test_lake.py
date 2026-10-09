@@ -67,3 +67,45 @@ def test_build_table_kolom_audit_tidak_ditimpa_sumber():
     tbl = build_table(rows, source_url="u", batch_id="b", tenant="asli")
     assert tbl is not None
     assert tbl.column("_tenant").to_pylist() == ["asli"]
+
+
+def test_properti_io_statis_membuang_remote_signing():
+    """Lakekeeper menyisipkan remote signing per tabel; IO harus tetap statis."""
+    from dispar_ingest.lake import properti_io_statis
+
+    statis = {
+        "s3.endpoint": "http://lake-rustfs:9000",
+        "s3.access-key-id": "kunci",
+        "s3.secret-access-key": "rahasia",
+    }
+    dari_katalog = {
+        "s3.signer": "S3V4RestSigner",
+        "s3.signer.uri": "http://lake-catalog:8181/catalog/",
+        "s3.signer.endpoint": "v1/signer/x/tabular-id/y/v1/aws/s3/sign",
+        "s3.remote-signing-enabled": "true",
+        "signer.uri": "http://lake-catalog:8181/catalog/",
+        "signer.endpoint": "v1/signer/x/tabular-id/y/v1/aws/s3/sign",
+        "s3.access-key-id": "kunci-titipan",
+        "write.parquet.compression-codec": "zstd",
+    }
+
+    hasil = properti_io_statis(dari_katalog, statis)
+
+    assert not [k for k in hasil if "sign" in k]
+    assert hasil["s3.access-key-id"] == "kunci"
+    assert hasil["s3.secret-access-key"] == "rahasia"
+    assert hasil["write.parquet.compression-codec"] == "zstd"
+
+
+def test_katalog_memuat_io_tanpa_signer():
+    """_load_file_io dipakai load_table/create_table/commit: semuanya harus statis."""
+    from dispar_ingest.lake import KatalogStatis
+
+    katalog = KatalogStatis.__new__(KatalogStatis)  # tanpa menghubungi server
+    katalog.properties = {"s3.signer": "S3V4RestSigner", "uri": "http://x"}
+    katalog._s3_statis = {"s3.endpoint": "http://lake-rustfs:9000", "s3.access-key-id": "kunci"}
+
+    io = katalog._load_file_io({"s3.signer.uri": "http://x", "s3.remote-signing-enabled": "true"})
+
+    assert not [k for k in io.properties if "sign" in k]
+    assert io.properties["s3.access-key-id"] == "kunci"
