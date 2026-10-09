@@ -31,9 +31,9 @@ from dispar_ingest.secondary_ingest import ingest_secondary
 from dispar_ingest.silver import generate_silver
 
 
-# Bronze ditulis berurutan (sdi -> files -> sekunder): ketiganya menulis ke
-# katalog Iceberg yang sama, dan penulisan paralel membuat commit bertabrakan
-# lalu memicu 403 dari RustFS (lihat plans/2026-10-08-b1-raw-00-handoff.md).
+# Bronze ditulis berurutan (sdi -> files -> sekunder): ketiganya meng-append ke
+# tabel yang sama, bronze_meta.ingest_log, dan commit Iceberg paralel ke satu
+# tabel saling menggagalkan.
 @asset(group_name="bronze", description="Tarik 183 dataset SDI ke Iceberg (all-string + audit)")
 def bronze_sdi(context) -> None:
     laporan = ingest_sdi()

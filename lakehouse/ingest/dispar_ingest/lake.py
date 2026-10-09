@@ -18,6 +18,7 @@ from typing import Any, Iterable
 
 import pyarrow as pa
 from pyiceberg.catalog.rest import RestCatalog
+from pyiceberg.io import load_file_io
 
 AUDIT_COLUMNS = ("_ingested_at", "_source_url", "_batch_id", "_row_hash", "_tenant")
 
@@ -53,20 +54,48 @@ def to_text(v: Any) -> str | None:
     return str(v)
 
 
+def properti_io_statis(properties: dict[str, str], statis: dict[str, str]) -> dict[str, str]:
+    """Properti FileIO tanpa remote signing, dengan kredensial S3 statis.
+
+    Lakekeeper menyisipkan `s3.signer*` di konfigurasi tiap tabel, sehingga
+    pyiceberg menandatangani setiap request S3 lewat katalog, per tabel. Begitu
+    satu proses menulis ke lebih dari satu tabel berselang-seling (dataset lalu
+    `ingest_log`), sebagian request ditolak 403 secara acak. Terukur di
+    produksi 9 Okt 2026: 10 dari 50 penulisan gagal lewat signer, 0 dari 120
+    dengan kredensial statis. Pipeline ini berjalan in-network dan sudah
+    memegang kunci RustFS, jadi signer tidak dibutuhkan.
+    """
+    bersih = {k: v for k, v in properties.items() if "sign" not in k}
+    return {**bersih, **statis}
+
+
+class KatalogStatis(RestCatalog):
+    """RestCatalog yang selalu membuat FileIO berkredensial statis."""
+
+    _s3_statis: dict[str, str] = {}
+
+    def _load_file_io(self, properties=None, location=None):  # type: ignore[override]
+        gabung = properti_io_statis({**self.properties, **(properties or {})}, self._s3_statis)
+        return load_file_io(gabung, location)
+
+
 def get_catalog() -> RestCatalog:
     """Katalog Iceberg REST. Konfigurasi dari environment."""
-    return RestCatalog(
+    s3_statis = {
+        "s3.endpoint": os.environ.get("S3_ENDPOINT", "http://lake-rustfs:9000"),
+        "s3.access-key-id": os.environ.get("S3_ACCESS_KEY", "disparlake"),
+        "s3.secret-access-key": os.environ.get("S3_SECRET_KEY", "disparlakesecret"),
+        "s3.path-style-access": "true",
+        "s3.region": os.environ.get("S3_REGION", "local-01"),
+    }
+    catalog = KatalogStatis(
         os.environ.get("ICEBERG_CATALOG_NAME", "dispar"),
         uri=os.environ.get("ICEBERG_CATALOG_URI", "http://lake-catalog:8181/catalog"),
         warehouse=os.environ.get("ICEBERG_WAREHOUSE", "dispar"),
-        **{
-            "s3.endpoint": os.environ.get("S3_ENDPOINT", "http://lake-rustfs:9000"),
-            "s3.access-key-id": os.environ.get("S3_ACCESS_KEY", "disparlake"),
-            "s3.secret-access-key": os.environ.get("S3_SECRET_KEY", "disparlakesecret"),
-            "s3.path-style-access": "true",
-            "s3.region": os.environ.get("S3_REGION", "local-01"),
-        },
+        **s3_statis,
     )
+    catalog._s3_statis = s3_statis
+    return catalog
 
 
 def build_table(
