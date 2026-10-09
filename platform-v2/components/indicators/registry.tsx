@@ -99,7 +99,7 @@ export function IndicatorFallback({ code }: { code: string }) {
               </dd>
             </div>
             <div className="sm:col-span-2">
-              <dt className="font-mono text-[11px] uppercase tracking-wider text-slate-400">Aksi yang dibutuhkan</dt>
+              <dt className="font-mono text-[11px] uppercase tracking-wider text-slate-400">Keterangan</dt>
               <dd className="text-slate-700 mt-0.5">{ind.note}</dd>
             </div>
           </dl>
@@ -112,13 +112,10 @@ export function IndicatorFallback({ code }: { code: string }) {
     <IndicatorShell code={code}>
       <div className="rounded-xl border-2 border-dashed border-slate-300 bg-white/50 p-8 text-center">
         <div className="text-[15px] font-semibold text-slate-600">
-          Dashboard indikator sedang dibangun
+          Visualisasi indikator ini belum tersedia
         </div>
         <div className="text-[13px] text-slate-500 mt-1 max-w-[60ch] mx-auto">
-          {ind.code} · {ind.name} — bespoke view belum dibuat untuk archetype {ind.group}.
-        </div>
-        <div className="mt-2 text-[11px] font-mono uppercase tracking-wider text-slate-400">
-          TODO · Plan 7
+          {ind.code} · {ind.name}
         </div>
       </div>
     </IndicatorShell>

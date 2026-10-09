@@ -17,11 +17,11 @@ export const TARGET_WISMAN: Record<string, number> = {
   "2030": 2332494,
 };
 
-const safe = async <T>(p: Promise<T[]>): Promise<T[]> => {
+const safe = async <T>(p: Promise<T[]>, label: string): Promise<T[]> => {
   try {
     return await p;
   } catch (e) {
-    console.error("[dashboard]", e);
+    console.error(`[dashboard] ${label}`, e);
     return [];
   }
 };
@@ -47,6 +47,7 @@ export async function getWisman(): Promise<WismanData> {
          WHERE w.tahun >= 2024
          GROUP BY periode, tahun, bulan ORDER BY periode`,
       ),
+      "serving.mart_wisman bulanan",
     ),
     safe(
       q<{ periode: string; negara: string; jumlah: string }>(
@@ -56,6 +57,7 @@ export async function getWisman(): Promise<WismanData> {
          WHERE w.tahun >= 2024
          GROUP BY periode, negara ORDER BY periode`,
       ),
+      "serving.mart_wisman negara",
     ),
     safe(
       q<{ tahun: string; semester: string; pintu: string; jumlah: string }>(
@@ -65,6 +67,7 @@ export async function getWisman(): Promise<WismanData> {
          WHERE periode_data IS NOT NULL AND toYear(periode_data) >= 2024
          GROUP BY tahun, semester, pintu ORDER BY tahun, semester`,
       ),
+      "silver.jumlah_wisatawan",
     ),
   ]);
   return {
@@ -89,6 +92,7 @@ export async function getLamaMenginap(): Promise<LosRow[]> {
        WHERE periode_data IS NOT NULL AND rata_rata IS NOT NULL
        GROUP BY periode, jenis_hotel, jenis_tamu ORDER BY periode`,
     ),
+    "silver.lama_menginap_hotel_berbintang",
   );
   return rows.map((r) => ({
     periode: r.periode,
@@ -115,6 +119,7 @@ export async function getSertifikasi(): Promise<SertifikasiRow[]> {
        WHERE bidang IS NOT NULL
        GROUP BY tahun, bidang ORDER BY tahun`,
     ),
+    "silver.tenaga_kerja_tersertifikasi",
   );
   return rows.map((r) => ({ tahun: r.tahun, bidang: r.bidang, jumlah: Number(r.jumlah) }));
 }
@@ -130,6 +135,7 @@ export async function getWisnusKotaTujuan(): Promise<WisnusRow[]> {
        WHERE periode IS NOT NULL AND kota_tujuan IS NOT NULL
        GROUP BY periode, kota ORDER BY periode, kota`,
     ),
+    "silver.wisnus_perjalanan_per_kota_tujuan",
   );
   return rows.map((r) => ({
     periode: r.periode,
@@ -151,6 +157,7 @@ export async function getPintuBulanan(): Promise<PintuBulananRow[]> {
        WHERE periode IS NOT NULL
        GROUP BY periode, pintu ORDER BY periode`,
     ),
+    "silver.wisman_per_pintu_masuk_bulanan_bps",
   );
   return rows.map((r) => ({ periode: r.periode, pintu: r.pintu, jumlah: Number(r.jumlah) }));
 }
@@ -176,6 +183,7 @@ export async function getTenagaKerjaEkraf(): Promise<TkEkraf> {
          WHERE tahun IS NOT NULL
          GROUP BY tahun ORDER BY tahun`,
       ),
+      "silver.tenaga_kerja_ekraf_per_provinsi",
     ),
     safe(
       q<{ tahun: string; subsektor: string; jumlah: string }>(
@@ -184,6 +192,7 @@ export async function getTenagaKerjaEkraf(): Promise<TkEkraf> {
          WHERE tahun IS NOT NULL AND subsektor IS NOT NULL
          GROUP BY tahun, subsektor ORDER BY tahun`,
       ),
+      "silver.tenaga_kerja_ekraf_per_subsektor_nasional",
     ),
   ]);
   return {

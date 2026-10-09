@@ -22,8 +22,6 @@ export default async function Ce3View() {
       <MomNote>
         Kearney hanya mengakui event seni/pertunjukan yang menghadirkan artis{" "}
         <b>Top 10 Global Chart</b> (Billboard/Spotify) selama <b>5 tahun berturut-turut</b>.
-        Perlu tabel terpisah daftar artis global sebagai acuan/rekomendasi
-        penyelenggaraan event musik di Jakarta.
       </MomNote>
       <div className="grid sm:grid-cols-3 gap-4">
         <KpiStat label="Total event" value={rows.length} />

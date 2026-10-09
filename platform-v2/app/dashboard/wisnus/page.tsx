@@ -23,8 +23,8 @@ export default async function Page() {
       <WisnusLos los={los} />
 
       <SourceNote>
-        Sumber: BPS Provinsi DKI Jakarta — Jumlah Perjalanan Wisatawan Nusantara Menurut Kabupaten/Kota Tujuan (dataset sekunder
-        wisnus-perjalanan-per-kota-tujuan di lakehouse); rata-rata lama menginap tamu hotel bintang (BPS) via Satu Data Jakarta.
+        Sumber: BPS Provinsi DKI Jakarta (Jumlah Perjalanan Wisatawan Nusantara Menurut Kabupaten/Kota Tujuan; rata-rata lama
+        menginap tamu hotel bintang via Satu Data Jakarta).
       </SourceNote>
     </>
   );

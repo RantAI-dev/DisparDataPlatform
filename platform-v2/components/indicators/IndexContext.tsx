@@ -38,7 +38,7 @@ export function IndexContext({ code }: { code: string }) {
         </div>
         <div className="mt-2 text-[13px] space-y-1">
           <div className="flex justify-between gap-3">
-            <span className="text-slate-500">Jakarta (proksi kita)</span>
+            <span className="text-slate-500">Jakarta (data proksi)</span>
             <span className="font-semibold text-slate-800 text-right">
               {b.jakarta.value ?? "—"}
             </span>
@@ -64,7 +64,7 @@ export function IndexContext({ code }: { code: string }) {
       {/* 3. Data yang perlu dikumpulkan */}
       <div className="bg-white rounded-xl border border-slate-200 shadow-sm p-5">
         <div className="text-[11px] font-mono uppercase tracking-wider text-slate-400">
-          Data yang perlu dikumpulkan
+          Data pendukung yang dibutuhkan
         </div>
         <ul className="mt-2 space-y-2">
           {b.dataNeeded.map((d, i) => {

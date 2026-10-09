@@ -66,8 +66,7 @@ export default async function KulinerMichelinPage() {
       nilai="0"
       satuan="Restoran Michelin"
       tahun="2025"
-      pj="Dinas Pariwisata & Ekraf"
-      catatan="Belum ada Michelin Star di Jakarta (2025); Panduan Michelin belum masuk Indonesia. Data pendukung menggambarkan basis kuliner Jakarta (sebaran restoran per kelurahan)."
+      catatan="Belum ada Michelin Star di Jakarta (2025); Panduan Michelin belum masuk Indonesia. Data pendukung menunjukkan sebaran restoran per kelurahan."
       sumber="Michelin Guide"
       sumberHref="https://guide.michelin.com"
     >

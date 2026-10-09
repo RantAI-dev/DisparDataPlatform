@@ -2,6 +2,7 @@
 
 import ReactECharts from "echarts-for-react";
 import type { Point } from "@/lib/agg";
+import { EXPANDED_HEIGHT, useChartExpanded } from "./ChartExpand";
 
 // Palet lebih banyak & distinct agar slice tidak berulang warna.
 const PALETTE = [
@@ -25,6 +26,7 @@ export function Donut({
   showPercent?: boolean;
   colorMap?: Record<string, string>;
 }) {
+  const expanded = useChartExpanded();
   if (!data.length)
     return (
       <div className="text-[13px] text-slate-400 py-6 text-center">
@@ -59,7 +61,20 @@ export function Donut({
         center: ["50%", "44%"],
         avoidLabelOverlap: true,
         itemStyle: { borderColor: "#fff", borderWidth: 2 },
-        label: showPercent
+        label: expanded
+          ? {
+              show: true,
+              position: "outside",
+              // showPercent: nilai sudah berupa persentase, jangan ditampilkan dua kali.
+              formatter: (p: { name: string; value: number; percent: number }) => {
+                const pct = p.percent.toLocaleString("id-ID", { maximumFractionDigits: 1 });
+                return showPercent ? `${p.name}\n${pct}%` : `${p.name}\n${idfmt(p.value)} (${pct}%)`;
+              },
+              color: "#33302b",
+              fontSize: 12,
+              fontWeight: 600,
+            }
+          : showPercent
           ? {
               show: true,
               position: "outside",
@@ -69,8 +84,8 @@ export function Donut({
               fontWeight: 600,
             }
           : { show: false },
-        labelLine: { show: showPercent, length: 6, length2: 6 },
-        minShowLabelAngle: 7,
+        labelLine: { show: expanded || showPercent, length: 6, length2: 6 },
+        minShowLabelAngle: expanded ? 0 : 7,
         data: data.map((d) => {
           const mapped = colorMap?.[d.label];
           if (mapped) return { name: d.label, value: d.value, itemStyle: { color: mapped } };
@@ -81,5 +96,5 @@ export function Donut({
     ],
   };
 
-  return <ReactECharts option={option} style={{ height: 288 }} notMerge lazyUpdate />;
+  return <ReactECharts option={option} style={{ height: expanded ? EXPANDED_HEIGHT : 288 }} notMerge lazyUpdate />;
 }

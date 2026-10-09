@@ -9,7 +9,7 @@ import type { LosRow } from "@/lib/dashboard/data";
 export function WisnusLos({ los }: { los: LosRow[] }) {
   const w = los.filter((r) => r.jenisTamu === "Wisnus");
   if (!w.length)
-    return <div className="rounded-xl border border-red-200 bg-red-50 p-5 text-[13px] text-red-700">Data lama menginap tidak dapat dibaca dari lakehouse.</div>;
+    return <div className="rounded-xl border border-red-200 bg-red-50 p-5 text-[13px] text-red-700">Data lama menginap belum dapat ditampilkan.</div>;
   const kelas = [...new Set(w.map((r) => r.jenisHotel))].sort();
   const series = kelas.map((k) => ({
     name: k.replace("BINTANG", "Bintang"),

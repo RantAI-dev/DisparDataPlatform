@@ -2,6 +2,7 @@
 
 import ReactECharts from "echarts-for-react";
 import type { Point } from "@/lib/agg";
+import { categoryZoom, EXPANDED_HEIGHT, useChartExpanded, ZOOM_PAD } from "./ChartExpand";
 
 const NAVY = "#ed6b23";
 const idfmt = (v: number) => v.toLocaleString("id-ID");
@@ -20,11 +21,13 @@ export function VerticalBars({
   labelFmt?: (s: string) => string;
   height?: number;
 }) {
+  const expanded = useChartExpanded();
   if (!data.length)
     return <div className="text-[13px] text-slate-400 py-6 text-center">Tidak ada data.</div>;
 
   const option = {
-    grid: { left: 6, right: 16, top: 16, bottom: 24, containLabel: true },
+    grid: { left: 6, right: 16, top: expanded ? 28 : 16, bottom: 24 + (expanded ? ZOOM_PAD : 0), containLabel: true },
+    ...(expanded ? { dataZoom: categoryZoom(data.length) } : {}),
     tooltip: {
       trigger: "axis",
       axisPointer: { type: "shadow" },
@@ -47,12 +50,15 @@ export function VerticalBars({
         type: "bar",
         data: data.map((d) => d.value),
         barMaxWidth: 34,
+        ...(expanded
+          ? { label: { show: true, position: "top", color: "#334155", fontSize: 11, formatter: (p: { value: number }) => idfmt(p.value) + unit } }
+          : {}),
         itemStyle: { color, borderRadius: [4, 4, 0, 0] },
       },
     ],
   };
 
   return (
-    <ReactECharts option={option} style={{ height, width: "100%" }} notMerge lazyUpdate opts={{ renderer: "canvas" }} />
+    <ReactECharts option={option} style={{ height: expanded ? EXPANDED_HEIGHT : height, width: "100%" }} notMerge lazyUpdate opts={{ renderer: "canvas" }} />
   );
 }

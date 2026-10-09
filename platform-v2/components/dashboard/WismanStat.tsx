@@ -9,7 +9,7 @@ import { GroupedBars } from "@/components/charts/GroupedBars";
 import { GroupedLines } from "@/components/charts/GroupedLines";
 import { LosByClass } from "./LosByClass";
 import type { LosRow, PintuBulananRow, Point, WismanData } from "@/lib/dashboard/data";
-import { BULAN, ModeToggle, PendingData, SectionHead, idNum } from "./Kit";
+import { BULAN, ModeToggle, SectionHead, idNum } from "./Kit";
 
 const labelBulan = (periode: string) => {
   const [y, m] = periode.split("-");
@@ -78,7 +78,7 @@ export function WismanStat({
   if (!data.bulanan.length) {
     return (
       <div className="rounded-xl border border-red-200 bg-red-50 p-5 text-[13px] text-red-700">
-        Data wisman tidak dapat dibaca dari lakehouse (serving.mart_wisman). Coba muat ulang halaman.
+        Data wisatawan mancanegara belum dapat ditampilkan. Coba muat ulang halaman.
       </div>
     );
   }
@@ -153,14 +153,14 @@ export function WismanStat({
             dualAxis={false}
           />
           <p className="mt-2 apple-fine text-ink-muted-48">
-            Target: RPJMD 2025–2029 Tabel III.2 indikator 2.1.c. Tahun 2024 belum punya target (sebelum periode RPJMD).
+            RPJMD 2025–2029 mencantumkan target dimulai dari tahun 2025 (Tabel III.2 indikator 2.1.c).
             {last && partial(last) ? ` ${last} masih berjalan — capaian parsial s/d ${BULAN[nMonths(last) - 1]}.` : ""}
           </p>
         </ChartCard>
       </div>
 
       <div className="mt-6 mb-3 flex flex-wrap items-center gap-2">
-        <span className="apple-fine uppercase tracking-wider text-ink-muted-48">Komposisi tahun</span>
+        <span className="apple-fine uppercase tracking-wider text-ink-muted-48">Filter berdasarkan Tahun</span>
         <ModeToggle value={year} onChange={setYear} options={years.map((y) => ({ value: y, label: y }))} />
       </div>
       <ChartGrid cols={2}>
@@ -175,7 +175,7 @@ export function WismanStat({
         </ChartCard>
       </ChartGrid>
 
-      <SectionHead title="2 · Bulanan" desc="Tren bulanan, perbandingan year-on-year, komposisi per bulan, dan lama menginap." />
+      <SectionHead title="2 · Tren Bulanan" desc="Tren bulanan, perbandingan year-on-year, komposisi per bulan, dan lama menginap." />
       <ChartCard title="Grafik Wisman per bulan" sub="kunjungan wisman per bulan, seluruh periode">
         <VerticalBars data={data.bulanan.map((r) => ({ label: r.periode, value: r.jumlah }))} unit=" kunjungan" labelFmt={labelBulan} />
       </ChartCard>
@@ -247,13 +247,7 @@ export function WismanStat({
         </ChartCard>
         <LosByClass los={los} guest="Wisman" />
       </ChartGrid>
-      <div className="mt-4">
-        <PendingData
-          title="RTL Non Bintang"
-          need="Lama menginap di hotel non-bintang tidak tersedia di portal publik. Sesuai MoM, dipakai data rekapitulasi internal (Alifia / Via)."
-          source="rekap internal Disparekraf"
-        />
-      </div>
+      {/* RTL Non Bintang belum ditampilkan — menunggu data Berita Resmi Statistik BPS. */}
     </div>
   );
 }

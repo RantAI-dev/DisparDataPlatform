@@ -14,6 +14,8 @@ export type Indicator = {
   dimension: string;
   group: string;
   code: string;
+  /** Nomor indikator di dokumen rujukan resmi (GPCI 2025, tabel Methodology). */
+  officialNo?: number;
   name: string;
   definition: string;
   /** OPD pemilik data (bisa DISPAREKRAF atau lintas-OPD). */

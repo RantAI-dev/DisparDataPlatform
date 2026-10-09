@@ -20,10 +20,9 @@ export default async function Ce2View() {
   return (
     <IndicatorShell code="CE2" sources={d ? [{ slug: d.slug, title: d.title }] : []}>
       <MomNote>
-        Kearney sementara hanya mengakui data restoran <b>Michelin Star</b> &amp;{" "}
-        <b>TripAdvisor</b>; data Google belum diakui. Karena belum ada Michelin Star di
-        Jakarta, tim memakai &amp; <b>memisahkan data TripAdvisor</b> agar sewaktu-waktu
-        siap diekspor Bappeda.
+        Kearney saat ini hanya mengakui data restoran <b>Michelin Star</b> dan{" "}
+        <b>TripAdvisor</b>; data Google belum diakui. Karena belum ada restoran Michelin
+        Star di Jakarta, indikator ini dihitung dari data <b>TripAdvisor</b>.
       </MomNote>
       <div className="grid sm:grid-cols-3 gap-4">
         <KpiStat label="Total restoran" value={grand} />

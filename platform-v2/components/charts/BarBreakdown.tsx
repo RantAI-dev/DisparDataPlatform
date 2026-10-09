@@ -2,6 +2,7 @@
 
 import ReactECharts from "echarts-for-react";
 import type { Point } from "@/lib/agg";
+import { categoryZoom, EXPANDED_HEIGHT, useChartExpanded, ZOOM_PAD } from "./ChartExpand";
 
 const NAVY = "#ed6b23";
 const idfmt = (v: number) => v.toLocaleString("id-ID");
@@ -11,11 +12,15 @@ export function BarBreakdown({
   data,
   unit = "",
   color = NAVY,
+  colors,
 }: {
   data: Point[];
   unit?: string;
   color?: string;
+  /** Warna per batang (sejajar urutan `data`); bila ada, menggantikan `color`. */
+  colors?: string[];
 }) {
+  const expanded = useChartExpanded();
   if (!data.length)
     return (
       <div className="text-[13px] text-slate-400 py-6 text-center">
@@ -25,10 +30,12 @@ export function BarBreakdown({
 
   const cats = data.map((d) => d.label);
   const vals = data.map((d) => d.value);
-  const height = Math.max(160, data.length * 34 + 20);
+  const manyRows = data.length > 14;
+  const height = expanded && manyRows ? EXPANDED_HEIGHT : Math.max(160, data.length * 34 + 20);
 
   const option = {
-    grid: { left: 6, right: 56, top: 6, bottom: 6, containLabel: true },
+    grid: { left: 6, right: 56 + (expanded && manyRows ? ZOOM_PAD : 0), top: 6, bottom: 6, containLabel: true },
+    ...(expanded && manyRows ? { dataZoom: categoryZoom(data.length, true) } : {}),
     tooltip: {
       trigger: "axis",
       axisPointer: { type: "shadow" },
@@ -52,7 +59,7 @@ export function BarBreakdown({
     series: [
       {
         type: "bar",
-        data: vals,
+        data: colors ? vals.map((v, i) => ({ value: v, itemStyle: { color: colors[i] ?? color } })) : vals,
         barMaxWidth: 22,
         itemStyle: { color, borderRadius: [0, 4, 4, 0] },
         label: {

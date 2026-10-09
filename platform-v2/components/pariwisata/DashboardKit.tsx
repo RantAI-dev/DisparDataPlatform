@@ -1,3 +1,4 @@
+import { ExpandableChartCard } from "@/components/charts/ChartExpand";
 import { KpiStat } from "@/components/charts/KpiStat";
 import { SdiTable } from "@/components/SdiTable";
 
@@ -43,13 +44,9 @@ export function ChartCard({
   className?: string;
 }) {
   return (
-    <div className={`utility-card p-5 transition-shadow hover:shadow-md ${className}`}>
-      <div className="mb-3 border-l-2 pl-2.5" style={{ borderColor: "#ed6b23" }}>
-        <div className="text-[14px] font-semibold text-ink">{title}</div>
-        {sub && <div className="apple-fine text-ink-muted-48">{sub}</div>}
-      </div>
+    <ExpandableChartCard title={title} sub={sub} className={className}>
       {children}
-    </div>
+    </ExpandableChartCard>
   );
 }
 
@@ -78,17 +75,19 @@ export function RawDataDisclosure({
   title,
   count,
   columns,
+  label = "Lihat data mentah",
 }: {
   slug: string;
   title: string;
   count: number;
   columns?: string[];
+  label?: string;
 }) {
   return (
     <details className="group rounded-xl border border-hairline bg-white/60">
       <summary className="cursor-pointer list-none px-5 py-3.5 text-[13px] font-semibold text-ink-muted-48 hover:text-ink">
         <span className="mr-1 inline-block transition-transform group-open:rotate-90">▸</span>
-        Lihat data mentah · {title} ({count.toLocaleString("id-ID")} baris)
+        {label} · {title} ({count.toLocaleString("id-ID")} baris)
       </summary>
       <div className="border-t border-hairline p-5">
         <SdiTable slug={slug} columns={columns} />

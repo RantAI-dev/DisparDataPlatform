@@ -15,6 +15,7 @@ import {
 import { BarBreakdown } from "@/components/charts/BarBreakdown";
 import { Donut } from "@/components/charts/Donut";
 import { LineTrend } from "@/components/charts/LineTrend";
+import { TahunFilter } from "@/components/pariwisata/TahunFilter";
 import { VenueMapClient } from "@/components/pariwisata/VenueMapClient";
 import type { Venue } from "@/components/pariwisata/VenueMap";
 import seniVenues from "@/lib/pariwisata/seni-venues.json";
@@ -45,7 +46,12 @@ const CHARTS = [
   { key: "Spotify Global Year-End", label: "Spotify Global Year-End" },
 ];
 
-export default async function SeniPertunjukanPage() {
+export default async function SeniPertunjukanPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ tahun?: string }>;
+}) {
+  const { tahun: tahunParam } = await searchParams;
   const safe = async (s: string) => {
     try {
       return (await rowsFor(s)) as Record<string, unknown>[];
@@ -54,7 +60,7 @@ export default async function SeniPertunjukanPage() {
     }
   };
 
-  const [artisRaw, seni, pen, ev1119, rekom, penyel] = await Promise.all([
+  const [artisRaw, seniAll, pen, ev1119, rekom, penyelAll] = await Promise.all([
     safe("artis-top-global-chart"),
     safe("data-seni-pertunjukan-dan-visual"),
     safe(PENDUKUNG[0].slug),
@@ -63,6 +69,19 @@ export default async function SeniPertunjukanPage() {
     safe("jumlah-penyelenggaraan-event"),
   ]);
   const artis = artisRaw as ArtisRow[];
+
+  // ── Filter tahun (opsi diturunkan dari tahun pada data event) ──
+  const tahunOpsi = Array.from(
+    new Set(
+      [...seniAll.map((r) => r.periode_data), ...penyelAll.map((r) => r.periode_data)]
+        .map((x) => String(x ?? "").trim())
+        .filter(Boolean)
+    )
+  ).sort();
+  const tahun = tahunParam && tahunOpsi.includes(tahunParam) ? tahunParam : "";
+  const inTahun = (v: unknown) => !tahun || String(v ?? "").trim() === tahun;
+  const seni = seniAll.filter((r) => inTahun(r.periode_data));
+  const penyel = penyelAll.filter((r) => inTahun(r.periode_data));
 
   // ── Agregasi visual ──
   // Tren penyelenggaraan event (semua) per bulan, 2024–2025 (seri hitung bersih).
@@ -77,16 +96,24 @@ export default async function SeniPertunjukanPage() {
   const eventPerTahun = groupSum(penyel, "periode_data", "jumlah_event").sort((a, b) =>
     a.label.localeCompare(b.label)
   );
+  // Periode kartu tren: tahun terpilih, atau rentang min–maks tahun pada data yang tampil.
+  const tahunData = eventPerTahun.map((r) => r.label).filter(Boolean);
+  const periodeEvent = tahun
+    ? tahun
+    : tahunData.length > 1
+      ? `${tahunData[0]}–${tahunData[tahunData.length - 1]}`
+      : tahunData[0] ?? "semua tahun";
   const topVenue = topN(groupCount(seni, "nama_venue"), 10);
   const perWilayah = groupCount(
     seni.map((r) => ({ wil: wilayahFromAddress(r.lokasi_venue) })),
     "wil"
   ).sort((a, b) => b.value - a.value);
+  const eventTotal = penyel.reduce((a, r) => a + (Number(r.jumlah_event) || 0), 0);
   const venueUnik = new Set(seni.map((r) => r.nama_venue).filter(Boolean)).size;
 
   // ── Korpus nama-event Jakarta (2010–2025) untuk cek kehadiran artis ──
   const corpus: string[] = [
-    ...seni.map((r) => r.nama_event),
+    ...seniAll.map((r) => r.nama_event),
     ...ev1119.map((r) => r.nama_event),
     ...pen.map((r) => r.kegiatan),
     ...rekom.map((r) => r.nama_kegiatan),
@@ -102,10 +129,15 @@ export default async function SeniPertunjukanPage() {
   }
   const distinct = [...artistMeta.keys()].sort();
   // "Pernah tampil" = terverifikasi sumber publik ATAU muncul di korpus event SDI.
+  // Korpus lengkap (semua tahun) — kehadiran artis tidak ikut filter tahun.
   const sdiSet = playedArtists(corpus, distinct);
   const played = (a: string) => appearanceFor(a) != null || sdiSet.has(a);
-  const playedCount = distinct.filter(played).length;
-  const sdiCount = distinct.filter((a) => sdiSet.has(a)).length;
+
+  // Pertunjukan yang memenuhi kriteria top global = nama event memuat artis dari daftar referensi.
+  const topGlobalCount = seni.filter(
+    (r) => playedArtists([String(r.nama_event ?? "")], distinct).size > 0
+  ).length;
+  const persenTopGlobal = seni.length > 0 ? (topGlobalCount / seni.length) * 100 : null;
   const artisSorted = [...distinct].sort((a, b) => {
     return (played(a) ? 0 : 1) - (played(b) ? 0 : 1) || a.localeCompare(b);
   });
@@ -132,35 +164,54 @@ export default async function SeniPertunjukanPage() {
       eyebrow="Cultural Experience · Seni Visual & Pertunjukan"
       title="Seni Visual & Pertunjukan"
       nilai={seni.length.toLocaleString("id-ID")}
-      satuan="Event internasional"
-      tahun="2025"
-      pj="Dinas Pariwisata & Ekraf"
-      catatan={`Berdasarkan data Dispar (SDI) 2025: ${seni.length} event seni & pertunjukan internasional di Jakarta. Skor indikator resmi Kearney 2024 = 156 (lihat KPI). Belum digabung dengan data Dinas Kebudayaan (Disbud).`}
-      sumber="satudata.jakarta.go.id"
+      satuan="Pertunjukan"
+      catatan="Berdasarkan data Dinas Pariwisata DKI Jakarta"
+      sumber="Satu Data Jakarta, Calendar of Event"
       sumberHref="https://satudata.jakarta.go.id/open-data/data-seni-pertunjukan-dan-visual"
     >
       {/* ── DASHBOARD RINGKAS ── */}
       <section>
+        <div className="mb-4 flex justify-end">
+          <TahunFilter years={tahunOpsi} value={tahun} />
+        </div>
         <KpiRow>
-          <Kpi label="Event internasional 2025" value={seni.length} sub="data Dispar · SDI" />
-          <Kpi label="Skor Kearney (resmi)" value="156" sub="2024 · competitiveness" />
+          <Kpi label="Jumlah pertunjukan" value={seni.length} sub={tahun || "semua tahun"} />
+          <Kpi
+            label="Memenuhi kriteria top global"
+            value={topGlobalCount}
+            sub="menampilkan artis Top 10 Global Chart"
+          />
+          <Kpi
+            label="Persentase top global"
+            value={
+              persenTopGlobal == null
+                ? "NA"
+                : `${persenTopGlobal.toLocaleString("id-ID", { maximumFractionDigits: 1 })}%`
+            }
+            sub="top global / total pertunjukan"
+          />
+          <Kpi
+            label="Skor Kearney (resmi)"
+            value={!tahun || tahun === "2024" ? "156" : "NA"}
+            sub="angka resmi Kearney 2024, bukan hitungan data SDI"
+          />
           <Kpi label="Venue unik" value={venueUnik} />
           <Kpi
-            label="Penyelenggaraan event 2024"
-            value={eventPerTahun.find((e) => e.label === "2024")?.value ?? 0}
-            sub={`2025: ${(eventPerTahun.find((e) => e.label === "2025")?.value ?? 0).toLocaleString("id-ID")}`}
+            label="Penyelenggaraan event"
+            value={penyel.length ? eventTotal : "NA"}
+            sub={tahun || "semua tahun"}
           />
         </KpiRow>
         <div className="mt-4">
           <ChartGrid>
-            <ChartCard title="Penyelenggaraan event / bulan" sub="semua event pariwisata & budaya · 2024–2025">
+            <ChartCard title="Penyelenggaraan event / bulan" sub={`semua event pariwisata & budaya · ${periodeEvent}`}>
               <LineTrend data={eventBulanan} unit="event" yName="Event" />
             </ChartCard>
             <ChartCard title="Top 10 venue tersibuk">
               <BarBreakdown data={topVenue} color={PALETTE[1]} />
             </ChartCard>
             <ChartCard title="Event per wilayah Jakarta" sub="klasifikasi alamat → wilayah (lengkap)">
-              <Donut data={perWilayah} />
+              <Donut data={perWilayah} showPercent />
             </ChartCard>
           </ChartGrid>
         </div>
@@ -168,123 +219,28 @@ export default async function SeniPertunjukanPage() {
 
       {/* ── PETA VENUE ── */}
       {(() => {
-        const venues = seniVenues as Venue[];
-        const goldCount = venues.filter((v) => v.gold).length;
+        // Filter tahun: sisakan event pada tahun terpilih, hitung ulang jumlah event per venue.
+        const venues = (seniVenues as Venue[])
+          .map((v) => {
+            const events = v.events.filter((e) => inTahun(e.periode));
+            return { ...v, events, eventCount: events.length };
+          })
+          .filter((v) => v.eventCount > 0);
         return (
-          <Section
-            title="Peta venue seni & pertunjukan"
-            desc={
-              <>
-                {venues.length} venue tergeokode dari data event 2025 (radius ∝ jumlah event).
-                Titik <b style={{ color: "#b8860b" }}>emas</b> = {goldCount} venue yang pernah
-                menghadirkan artis <b>Top-10 Global Chart</b> terverifikasi (JIS, GBK). Klik titik
-                untuk info venue + daftar event.
-              </>
-            }
-          >
+          <Section title="Peta venue seni & pertunjukan">
             <VenueMapClient venues={venues} />
           </Section>
         );
       })()}
 
       {/* ── ARTIS TOP-10 GLOBAL + KEHADIRAN DI JAKARTA ── */}
-      <Section
-        title="Artis Top 10 Global Chart — apakah Jakarta sudah menghadirkannya?"
-        desc={
-          <>
-            <b>Catatan metodologi:</b> metrik resmi Kearney untuk faktor ini adalah{" "}
-            <b>jumlah venue seni pertunjukan</b> (snapshot tahunan; dimensi Cultural Experience
-            berbobot 15%) — <b>bukan</b> jendela "N tahun terakhir". Kriteria{" "}
-            <b>artis Top-10 Global Chart 5 tahun terakhir (2021–2025)</b> di bawah adalah{" "}
-            <b>operasionalisasi internal Jakarta</b> (MoM 13 Juli) sebagai proxy kualitas
-            "world-class", bukan aturan Kearney. Referensi:{" "}
-            <a href="https://www.kearney.com/service/national-transformations-institute/gcr" target="_blank" rel="noreferrer" className="hover:underline" style={{ color: "#2563eb" }}>
-              Kearney GCR ↗
-            </a>{" "}
-            ·{" "}
-            <Link href="/sdi/artis-top-global-chart" className="hover:underline" style={{ color: "#2563eb" }}>
-              artis-top-global-chart ↗
-            </Link>
-            .
-          </>
-        }
-      >
+      <Section title="Referensi Artis Top 10 Global Chart">
         {artis.length === 0 ? (
           <div className="rounded-xl border border-slate-200 bg-white p-8 text-center text-slate-400">
             Data artis chart belum tersedia.
           </div>
         ) : (
           <div className="space-y-6">
-            {/* Banner gap kriteria Kearney */}
-            <div className="utility-card border-l-4 p-5" style={{ borderLeftColor: ACCENT }}>
-              <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
-                <span className="text-[40px] font-bold leading-none tabular text-ink">
-                  {playedCount}
-                  <span className="text-ink-muted-48">/{distinct.length}</span>
-                </span>
-                <span className="apple-lead text-ink">
-                  artis Top-10 global (2021–2025) tercatat pernah tampil di Jakarta
-                </span>
-              </div>
-              <p className="mt-2 apple-caption text-ink-muted-48 max-w-[92ch]">
-                Status = terverifikasi sumber publik <b>atau</b> muncul di korpus{" "}
-                {corpus.length.toLocaleString("id-ID")} nama event Dispar (SDI, 2010–2025). Catatan
-                penting: <b>{sdiCount} dari {distinct.length}</b> artis muncul di data SDI Dispar —
-                konser besar (mis. Ed Sheeran, Bruno Mars) yang <i>benar-benar</i> digelar di
-                Jakarta <b>tidak tercatat</b> di dataset Dispar. Itulah gap pencatatan yang menekan
-                skor Kearney. "Belum terdata" = belum ada bukti di kedua sumber.
-              </p>
-            </div>
-
-            {/* Status kehadiran tiap artis */}
-            <div>
-              <div className="mb-2 flex items-center gap-2">
-                <span
-                  className="inline-flex items-center rounded-full px-2.5 py-1 text-[11px] font-bold uppercase tracking-wider text-white"
-                  style={{ background: ACCENT }}
-                >
-                  Status kehadiran di Jakarta
-                </span>
-                <span className="apple-fine text-ink-muted-48">{distinct.length} artis unik</span>
-              </div>
-              <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
-                {artisSorted.map((a) => {
-                  const ap = appearanceFor(a);
-                  const isPlayed = played(a);
-                  const lastYear = ap ? Math.max(...ap.years) : null;
-                  return (
-                    <div
-                      key={a}
-                      className={`flex items-center justify-between rounded-lg border px-3 py-2 text-[13px] ${
-                        isPlayed ? "border-green-200 bg-green-50" : "border-hairline bg-white"
-                      }`}
-                    >
-                      <span className="truncate text-ink" title={ap ? `${a} — ${ap.venue ?? ""} (${ap.years.join(", ")})` : a}>
-                        {ap ? (
-                          <a href={ap.source} target="_blank" rel="noreferrer" className="hover:underline">
-                            {a}
-                          </a>
-                        ) : (
-                          a
-                        )}
-                        {artistMeta.get(a) && (
-                          <span className="ml-1 text-[11px] text-ink-muted-48">· {artistMeta.get(a)}</span>
-                        )}
-                      </span>
-                      <span
-                        className={`ml-2 shrink-0 rounded-full px-2 py-0.5 text-[10px] font-semibold uppercase ${
-                          isPlayed ? "bg-green-600 text-white" : "bg-slate-100 text-slate-400"
-                        }`}
-                        title={ap ? `Terverifikasi: ${ap.years.join(", ")}` : undefined}
-                      >
-                        {isPlayed ? (lastYear ? `✓ ${lastYear}` : "✓ Terdata") : "Belum terdata"}
-                      </span>
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-
             {/* Tabel artis yang SUDAH pernah tampil di Jakarta (versi tabel dari
                 status kehadiran) — hanya yang terbukti tampil, terurut tahun terakhir. */}
             {(() => {
@@ -308,7 +264,7 @@ export default async function SeniPertunjukanPage() {
                       Artis yang sudah tampil di Jakarta
                     </span>
                     <span className="apple-fine text-ink-muted-48">
-                      {playedList.length} artis · sumber: verifikasi publik / korpus event Dispar
+                      {playedList.length} artis · sumber: verifikasi publik dan data event Dispar
                     </span>
                   </div>
                   <div className="overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm">
@@ -351,9 +307,9 @@ export default async function SeniPertunjukanPage() {
                                 ) : (
                                   <span
                                     className="text-slate-400"
-                                    title="Muncul di korpus nama event Dispar (SDI), belum diverifikasi sumber publik terpisah"
+                                    title="Tercatat pada data event Dispar; belum diverifikasi dengan sumber publik lain"
                                   >
-                                    Korpus event Dispar
+                                    Data event Dispar
                                   </span>
                                 )}
                               </td>
@@ -446,13 +402,14 @@ export default async function SeniPertunjukanPage() {
 
       {/* ── DATA MENTAH & SUMBER (paling bawah) ── */}
       <Section
-        title="Data mentah & sumber"
+        title="Sumber"
         desc="Data pendukung Dinas Pariwisata & Ekraf — event pertunjukan & seni visual di Jakarta."
       >
         <RawDataDisclosure
           slug="data-seni-pertunjukan-dan-visual"
           title="Seni Visual & Pertunjukan"
-          count={seni.length}
+          count={seniAll.length}
+          label="Lihat data SDI"
           columns={["nama_event", "nama_venue", "lokasi_venue", "periode_data"]}
         />
         <div className="mt-5 rounded-xl border border-hairline bg-white/60 p-4">

@@ -86,7 +86,6 @@ export default async function WisatawanInternasionalPage() {
       nilai="2.767.622"
       satuan="Wisatawan"
       tahun="2025"
-      pj="Dinas Pariwisata & Ekraf"
       catatan="Angka resmi 2.767.622 (BPS 2025). Data bulanan Dispar mencatat 2.754.220 untuk 2025 — selaras. Pilih tahun untuk melihat detail; tren lintas-tahun ada di bawah."
       sumber="jakarta.bps.go.id"
       sumberHref="https://jakarta.bps.go.id"

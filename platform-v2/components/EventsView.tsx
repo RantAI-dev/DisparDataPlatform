@@ -113,8 +113,6 @@ export function EventsView() {
   return (
     <main data-section="gci" className="min-h-screen flex flex-col bg-paper">
       <AtlasNav
-        section="events"
-        t={t}
         langToggle={<LangToggle lang={lang} onToggle={onToggleLang} t={t} />}
       />
 
@@ -267,7 +265,7 @@ export function EventsView() {
                           {e.visitors}
                           {eventNeedsVerify(e) && (
                             <span
-                              title="Perlu verifikasi angka"
+                              title="Angka belum diverifikasi"
                               className="text-[color:var(--accent)]"
                             >
                               {" "}*
@@ -311,8 +309,7 @@ export function EventsView() {
           <p className="apple-caption text-ink-muted-48 mt-3 text-center">
             Menampilkan {paged.length} dari {filtered.length} entri terfilter.
             Angka bertanda <span className="text-[color:var(--accent)]">*</span>{" "}
-            (kapasitas/perkiraan/target) masih perlu verifikasi. Daftar dasar —
-            tambah/koreksi sesuai temuan tim.
+            adalah kapasitas, perkiraan, atau target dan belum diverifikasi.
           </p>
         </div>
       </section>

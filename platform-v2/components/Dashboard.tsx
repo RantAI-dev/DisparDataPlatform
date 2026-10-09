@@ -259,9 +259,7 @@ export function Dashboard({ restaurants }: Props) {
   return (
     <main className="min-h-screen bg-canvas">
       <AtlasNav
-        section="restaurants"
         view="list"
-        t={t}
         langToggle={<AtlasLangToggle lang={lang} onToggle={onToggleLang} t={t} />}
         rightSlot={
           <VerifyControl

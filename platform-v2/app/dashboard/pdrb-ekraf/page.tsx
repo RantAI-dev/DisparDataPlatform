@@ -11,7 +11,7 @@ export default function Page() {
       </div>
       <PdrbEkrafStat />
       <SourceNote>
-        Sumber: {PDRB_SUMBER}. 2017–2018 dari hasil updating; 2019–Semester I 2025 dari penyusunan terbaru. Target
+        Sumber: {PDRB_SUMBER}. Angka 2017–2018 berasal dari pemutakhiran (updating) PDRB; 2019–Semester I 2025 dari penyusunan terbaru. Target
         kontribusi: RPJMD 2025–2029.
       </SourceNote>
     </>

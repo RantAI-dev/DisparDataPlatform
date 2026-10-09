@@ -15,6 +15,7 @@ async function GciReadiness() {
     title="Kesiapan Data Indikator GCI"
     subtitle="Status kesiapan data Dispar untuk mengisi tiap indikator GCI (Kearney) — sumber dataset, tren, dan gap."
     rows={all.filter((r) => r.framework === "GCI")}
+    showTrend={false}
   />;
 }
 

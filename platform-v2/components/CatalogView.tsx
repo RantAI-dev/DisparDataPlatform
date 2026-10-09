@@ -391,8 +391,7 @@ export function CatalogView({ primaryOnly = false }: { primaryOnly?: boolean }) 
           <p className="text-[12.5px] text-slate-500 mt-1 max-w-[95ch]">
             Setiap dataset melewati tiga lapisan di lakehouse Dinas. Label pada
             kolom <em>Lapisan</em> menunjukkan lapisan tertinggi yang sudah
-            dicapai dataset tersebut — dihitung langsung dari keadaan lakehouse,
-            bukan ditulis manual.
+            dicapai dataset tersebut.
           </p>
           <div className="mt-4 grid gap-3 sm:grid-cols-3">
             {(["bronze", "silver", "gold"] as const).map((lvl) => (

@@ -8,7 +8,8 @@ import { GroupedLines } from "@/components/charts/GroupedLines";
 import { BarBreakdown } from "@/components/charts/BarBreakdown";
 import { Donut } from "@/components/charts/Donut";
 import { PDRB_MAKRO as M, PDRB_SUBSEKTOR, PDRB_SUB_PERIODE, TARGET_KONTRIBUSI_RPJMD as T } from "@/lib/dashboard/pdrb-ekraf";
-import { ModeToggle, PendingData, SectionHead, idNum } from "./Kit";
+import { warnaSubsektor } from "@/lib/dashboard/subsektor-colors";
+import { ModeToggle, SectionHead, idNum } from "./Kit";
 
 const label = (p: string) => (p === "S1 2025" ? "2025 (Sem I)" : p);
 
@@ -26,6 +27,8 @@ export function PdrbEkrafStat() {
   const iFull = periode.indexOf("2024");
   const [sub, setSub] = useState<string>("2024");
   const iSub = PDRB_SUB_PERIODE.indexOf(sub as (typeof PDRB_SUB_PERIODE)[number]);
+  const [subTumbuh, setSubTumbuh] = useState<string>("2024");
+  const iTumbuh = PDRB_SUB_PERIODE.indexOf(subTumbuh as (typeof PDRB_SUB_PERIODE)[number]);
 
   // Kontribusi: capaian 2017–2025 S1 (batang) + target RPJMD 2025–2029 (garis).
   const cats = [...periode, "2026", "2027", "2028", "2029"];
@@ -41,8 +44,10 @@ export function PdrbEkrafStat() {
   // Donut: 5 terbesar + "Lainnya" (total tetap 100%) — 16 irisan tak terbaca & legenda terpotong.
   const sisa = urut.slice(5).reduce((a, s) => a + s.value, 0);
   const sebaran = [...urut.slice(0, 5).map((s) => ({ label: PENDEK[s.label] ?? s.label, value: pct(s.value) })), { label: "Lainnya", value: pct(sisa) }];
+  // Warna per nama subsektor (satu peta untuk donut, nilai, dan pertumbuhan). Donut memakai nama pendek sebagai label.
+  const warnaDonut = Object.fromEntries(urut.map((s) => [PENDEK[s.label] ?? s.label, warnaSubsektor(s.label)]));
   const nilaiSub = urut.slice(0, 10);
-  const tumbuhSub = PDRB_SUBSEKTOR.map((s) => ({ label: s.nama, value: s.tumbuh[iSub] })).sort((a, b) => b.value - a.value);
+  const tumbuhSub = PDRB_SUBSEKTOR.map((s) => ({ label: s.nama, value: s.tumbuh[iTumbuh] })).sort((a, b) => b.value - a.value);
 
   return (
     <div>
@@ -62,7 +67,7 @@ export function PdrbEkrafStat() {
           dualAxis={false}
         />
         <p className="mt-2 apple-fine text-ink-muted-48">
-          2025 baru Semester I — belum sebanding penuh dengan target tahunan. Target RPJMD: {Object.entries(T).map(([y, v]) => `${y} ${idNum(v, 2)}%`).join(" · ")}.
+          Data 2025 baru mencakup Semester I sehingga belum dapat dibandingkan langsung dengan target setahun penuh. Target RPJMD: {Object.entries(T).map(([y, v]) => `${y} ${idNum(v, 2)}%`).join(" · ")}.
         </p>
       </ChartCard>
 
@@ -82,20 +87,18 @@ export function PdrbEkrafStat() {
       </div>
       <ChartGrid cols={2}>
         <ChartCard title={`Distribusi per subsektor · ${label(sub)}`} sub="% terhadap total PDRB Ekraf (ADHB) · 5 terbesar + lainnya">
-          <Donut showPercent data={sebaran} />
+          <Donut showPercent data={sebaran} colorMap={warnaDonut} />
         </ChartCard>
         <ChartCard title={`10 subsektor dengan nilai terbesar · ${label(sub)}`} sub="Rp miliar (ADHB)">
-          <BarBreakdown data={nilaiSub} unit=" miliar" />
+          <BarBreakdown data={nilaiSub} unit=" miliar" colors={nilaiSub.map((d) => warnaSubsektor(d.label))} />
         </ChartCard>
       </ChartGrid>
-      <div className="mt-4">
-        <PendingData
-          title="Sebaran per wilayah (kota/kabupaten administrasi)"
-          need="Berkas PDRB Ekraf yang diterima hanya memuat rincian per subsektor. Rincian per wilayah menunggu data dari Pak Budi (tindak lanjut MoM 21 Sep)."
-        />
-      </div>
+      {/* Sebaran per wilayah (kota/kabupaten administrasi) disembunyikan sementara — menunggu data per kota. */}
 
       <SectionHead title="Pertumbuhan" desc="Laju pertumbuhan PDRB atas dasar harga konstan (%, yoy)." />
+      <div className="mb-3">
+        <ModeToggle value={subTumbuh} onChange={setSubTumbuh} options={PDRB_SUB_PERIODE.map((p) => ({ value: p as string, label: label(p) }))} />
+      </div>
       <ChartGrid cols={2}>
         <ChartCard title="Pertumbuhan Ekraf vs Non-Ekraf vs DKI" sub="% yoy (ADHK)">
           <GroupedLines
@@ -106,8 +109,8 @@ export function PdrbEkrafStat() {
             ]}
           />
         </ChartCard>
-        <ChartCard title={`Pertumbuhan per subsektor · ${label(sub)}`} sub="% yoy (ADHK)">
-          <BarBreakdown data={tumbuhSub} unit="%" color="#0e7c42" />
+        <ChartCard title={`Pertumbuhan per subsektor · ${label(subTumbuh)}`} sub="% yoy (ADHK)">
+          <BarBreakdown data={tumbuhSub} unit="%" colors={tumbuhSub.map((d) => warnaSubsektor(d.label))} />
         </ChartCard>
       </ChartGrid>
     </div>

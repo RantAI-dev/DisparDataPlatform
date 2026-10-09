@@ -201,9 +201,7 @@ export function MapView() {
   return (
     <main className="min-h-screen flex flex-col bg-paper">
       <AtlasNav
-        section="restaurants"
         view="map"
-        t={t}
         langToggle={<LangToggle lang={lang} onToggle={onToggleLang} t={t} />}
       />
 

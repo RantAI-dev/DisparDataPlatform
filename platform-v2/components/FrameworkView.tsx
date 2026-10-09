@@ -1,8 +1,11 @@
 import Link from "next/link";
 import { BarChart } from "./BarChart";
 import type { IndicatorResult } from "@/lib/gci/readiness";
+import { INDICATORS } from "@/lib/gci/indicators";
 
 const LINK = "#2563eb";
+/** Nomor resmi per kode — dibaca dari katalog, bukan snapshot readiness (snapshot bisa lebih lama). */
+const OFFICIAL_NO = new Map(INDICATORS.filter((i) => i.officialNo != null).map((i) => [i.code, i.officialNo as number]));
 const HERO =
   "radial-gradient(900px 320px at 88% -25%, rgba(237,107,35,0.28), transparent 62%), linear-gradient(160deg, #2a2521 0%, #16130f 100%)";
 const GOLD = "#f0a13a";
@@ -42,14 +45,22 @@ export function FrameworkView({
   subtitle,
   rows,
   afterHeader,
+  showTrend = true,
 }: {
   title: string;
   subtitle: string;
   rows: IndicatorResult[];
   afterHeader?: React.ReactNode;
+  /** Tampilkan chart tren per indikator (GPCI menyembunyikannya sementara). */
+  showTrend?: boolean;
 }) {
   const count = (s: string) => rows.filter((r) => r.status === s).length;
   const ada = rows.filter((r) => r.dataAvailable).length;
+  // Bila indikator punya nomor resmi, tampilkan kolom No. dan urutkan sesuai dokumen rujukan.
+  const hasNo = rows.some((r) => OFFICIAL_NO.has(r.code));
+  const tableRows = hasNo
+    ? [...rows].sort((a, b) => (OFFICIAL_NO.get(a.code) ?? 999) - (OFFICIAL_NO.get(b.code) ?? 999))
+    : rows;
 
   return (
     <main className="min-h-screen bg-[#faf6f2]">
@@ -76,6 +87,7 @@ export function FrameworkView({
               <table className="w-full text-[14px]">
                 <thead>
                   <tr style={{ background: "#2a2521" }} className="text-white text-left text-[12px] uppercase tracking-wider">
+                    {hasNo && <th className="px-4 py-3 font-semibold w-14">No.</th>}
                     <th className="px-4 py-3 font-semibold w-16">Kode</th>
                     <th className="px-4 py-3 font-semibold">Indikator</th>
                     <th className="px-4 py-3 font-semibold w-24">Status</th>
@@ -84,10 +96,11 @@ export function FrameworkView({
                   </tr>
                 </thead>
                 <tbody>
-                  {rows.map((x) => {
+                  {tableRows.map((x) => {
                     const st = STATUS[x.status];
                     return (
                       <tr key={x.code} className="border-t border-slate-100 align-top">
+                        {hasNo && <td className="px-4 py-3 font-semibold text-slate-700 tabular-nums">{OFFICIAL_NO.get(x.code) ?? "—"}</td>}
                         <td className="px-4 py-3 text-slate-400 tabular-nums">{x.code}</td>
                         <td className="px-4 py-3">
                           <Link
@@ -137,7 +150,7 @@ export function FrameworkView({
         </div>
 
         {/* ---- Chart tren per indikator (Plan 6 Task 3) ---- */}
-        {rows.filter((x) => x.trend && x.trend.length > 1).length > 0 && (
+        {showTrend && rows.filter((x) => x.trend && x.trend.length > 1).length > 0 && (
           <div>
             <h2 className="text-[16px] font-bold text-slate-800 mb-3">
               Tren indikator
@@ -164,7 +177,7 @@ export function FrameworkView({
         {rows.filter((x) => x.status !== "ready").length > 0 && (
           <div>
             <h2 className="text-[16px] font-bold text-slate-800 mb-3">
-              Aksi menutup gap (
+              Kelengkapan data (
               {rows.filter((x) => x.status !== "ready").length})
             </h2>
             <div className="bg-white rounded-xl border border-slate-200 shadow-sm divide-y divide-slate-100">

@@ -2,6 +2,7 @@
 
 import ReactECharts from "echarts-for-react";
 import type { Point } from "@/lib/agg";
+import { categoryZoom, EXPANDED_HEIGHT, useChartExpanded, ZOOM_PAD } from "./ChartExpand";
 
 const PALETTE = ["#ed6b23", "#f0a13a", "#c2410c", "#9a3412", "#fb923c", "#7c2d12"];
 const idfmt = (v: number) => v.toLocaleString("id-ID");
@@ -22,12 +23,14 @@ export function GroupedBars({
   height?: number;
   missingValue?: 0 | null;
 }) {
+  const expanded = useChartExpanded();
   if (!series.length)
     return <div className="text-[13px] text-slate-400 py-6 text-center">Tidak ada data.</div>;
 
   const option = {
     color: colors ?? PALETTE,
-    grid: { left: 6, right: 16, top: 30, bottom: 6, containLabel: true },
+    grid: { left: 6, right: 16, top: 30, bottom: 6 + (expanded ? ZOOM_PAD : 0), containLabel: true },
+    ...(expanded ? { dataZoom: categoryZoom(categories.length, false, 10) } : {}),
     tooltip: { trigger: "axis", axisPointer: { type: "shadow" }, valueFormatter: (v: number | null | undefined) => v == null ? "—" : idfmt(v) + unit },
     legend: { top: 0, textStyle: { color: "#475569", fontSize: 11 }, icon: "circle" },
     xAxis: {
@@ -47,11 +50,14 @@ export function GroupedBars({
       type: "bar",
       barMaxWidth: 22,
       itemStyle: { borderRadius: [3, 3, 0, 0] },
+      ...(expanded
+        ? { labelLayout: { hideOverlap: true }, label: { show: true, position: "top", fontSize: 10, color: "#334155", formatter: (p: { value: number | null }) => (p.value == null ? "" : idfmt(p.value) + unit) } }
+        : {}),
       data: categories.map((c) => s.data.find((d) => d.label === c)?.value ?? missingValue),
     })),
   };
 
   return (
-    <ReactECharts option={option} style={{ height, width: "100%" }} notMerge lazyUpdate opts={{ renderer: "canvas" }} />
+    <ReactECharts option={option} style={{ height: expanded ? EXPANDED_HEIGHT : height, width: "100%" }} notMerge lazyUpdate opts={{ renderer: "canvas" }} />
   );
 }

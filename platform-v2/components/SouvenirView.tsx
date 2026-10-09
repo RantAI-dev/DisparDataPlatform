@@ -34,10 +34,6 @@ import {
 const RELEVANCE = ["Toko suvenir", "Suvenir murni", "Sebagian", "Semua"] as const;
 type Relevance = (typeof RELEVANCE)[number];
 
-/** AtlasNav memakai key i18n; section ini berbahasa Indonesia tanpa dictionary. */
-export const navLabel = (k: string): string =>
-  k === "nav.view_list" ? "Daftar" : k === "nav.view_map" ? "Peta" : k;
-
 const SORTS = [
   { id: "reviews", label: "Ulasan terbanyak" },
   { id: "rating", label: "Rating tertinggi" },
@@ -146,9 +142,9 @@ function RelevanceBadge({ s }: { s: SouvenirShop }) {
     },
   };
   const v = map[s.relevance] ?? {
-    text: "BELUM PASTI",
+    text: "BELUM TERVERIFIKASI",
     cls: "bg-ink-muted-80/10 text-ink-muted-80",
-    title: "Relevansi belum bisa diverifikasi",
+    title: "Relevansi belum terverifikasi",
   };
   return (
     <span
@@ -223,7 +219,7 @@ function Card({ s }: { s: SouvenirShop }) {
 
         {s.coordSource === "Koreksi riset" && (
           <p className="apple-fine text-ink-muted-48 mt-2 italic">
-            Koordinat TripAdvisor keliru — sudah dikoreksi lewat penelusuran.
+            Koordinat telah dikoreksi.
           </p>
         )}
 
@@ -341,7 +337,7 @@ export function SouvenirView() {
 
   return (
     <main className="min-h-screen bg-canvas">
-      <AtlasNav section="souvenir" view="list" t={navLabel} />
+      <AtlasNav view="list" />
 
       {/* ── HERO TILE ── */}
       <section className="bg-canvas">
@@ -363,9 +359,6 @@ export function SouvenirView() {
           <div className="mt-9 flex items-center justify-center gap-4">
             <a href="#directory" className="press-scale pill-primary">
               Lihat daftar
-            </a>
-            <a href="/spatial" className="press-scale pill-secondary">
-              Buka peta
             </a>
           </div>
         </div>
@@ -547,13 +540,8 @@ export function SouvenirView() {
           <div>
             <h2 className="apple-tagline text-ink">Cara data ini dikumpulkan</h2>
             <p className="apple-caption text-ink-muted-80 mt-3 max-w-[60ch]">
-              Crawl TripAdvisor geo <code>g294229</code> (Jakarta), kategori
-              Shopping <code>c26</code> — subkategori Gift &amp; Specialty Shops,
-              Antique Stores, dan Flea &amp; Street Markets. Alamat, koordinat,
-              telepon, rating, dan jumlah ulasan diambil dari JSON-LD halaman
-              detail. Relevansi suvenir, produk, kota/kecamatan, status
-              operasional, dan validasi koordinat diverifikasi lewat penelusuran
-              sumber terbuka.
+              Data berasal dari TripAdvisor (kategori Shopping, Jakarta) dan
+              diverifikasi dengan sumber terbuka.
             </p>
           </div>
           <div>
@@ -564,12 +552,8 @@ export function SouvenirView() {
                 {stats.sebagian} pasar/mal yang hanya sebagian menjual suvenir,{" "}
                 {stats.tidak} bukan toko suvenir sama sekali
                 {stats.belumPasti > 0 &&
-                  `, dan ${stats.belumPasti} belum bisa diverifikasi`}
+                  `, dan ${stats.belumPasti} belum terverifikasi`}
                 .
-              </li>
-              <li>
-                · 10 koordinat TripAdvisor terbukti salah; 8 sudah dikoreksi, 2
-                dikosongkan karena tidak ada sumber yang bisa dipercaya.
               </li>
               <li>
                 · Rating dan ulasan adalah angka TripAdvisor, bukan Google —
@@ -582,7 +566,7 @@ export function SouvenirView() {
 
       <footer className="border-t border-hairline px-6 py-6">
         <p className="atlas-mono text-ink-muted-48 mx-auto max-w-[1280px]">
-          SUMBER · TRIPADVISOR + VERIFIKASI PENELUSURAN TERBUKA · DIPERBARUI 29
+          SUMBER · TRIPADVISOR + VERIFIKASI SUMBER TERBUKA · DIPERBARUI 29
           JULI 2026
         </p>
       </footer>

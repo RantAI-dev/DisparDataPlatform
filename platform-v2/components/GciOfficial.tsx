@@ -18,12 +18,12 @@ const CULTURAL = { y2024: 52, y2025: 58 }; // dimensi Pengalaman Budaya (pariwis
 
 // 4 sub-indikator PARIWISATA (Cultural Experience) — jakarta.go.id/competitiveness.
 const INDIKATOR: {
-  label: string; nilai: string; satuan: string; tahun: string; sumber: string; pj: string; catatan?: string; href?: string;
+  label: string; nilai: string; satuan: string; tahun: string; sumber: string; catatan?: string; href?: string;
 }[] = [
-  { label: "Jumlah Museum", nilai: "79", satuan: "Museum", tahun: "2025", sumber: "satudata.jakarta.go.id", pj: "Dinas Kebudayaan" },
-  { label: "Seni Visual & Pertunjukan", nilai: "156", satuan: "Karya / kegiatan", tahun: "2024", sumber: "Dinas Pariwisata & Ekraf", pj: "Dinas Pariwisata & Ekraf", catatan: "Belum digabung dengan data Disbud.", href: "/gci/pariwisata/seni-pertunjukan" },
-  { label: "Wisatawan Internasional", nilai: "2.767.622", satuan: "Wisatawan", tahun: "2025", sumber: "jakarta.bps.go.id", pj: "Dinas Pariwisata & Ekraf", href: "/gci/pariwisata/wisatawan-internasional" },
-  { label: "Penawaran Kuliner (Michelin)", nilai: "0", satuan: "Restoran Michelin", tahun: "2025", sumber: "Michelin", pj: "Dinas Pariwisata & Ekraf", catatan: "Belum ada Michelin Star di Jakarta.", href: "/gci/pariwisata/kuliner-michelin" },
+  { label: "Jumlah Museum", nilai: "79", satuan: "Museum", tahun: "2025", sumber: "satudata.jakarta.go.id" },
+  { label: "Seni Visual & Pertunjukan", nilai: "156", satuan: "Karya / kegiatan", tahun: "2024", sumber: "Dinas Pariwisata & Ekraf", catatan: "Belum mencakup data Dinas Kebudayaan.", href: "/gci/pariwisata/seni-pertunjukan" },
+  { label: "Wisatawan Internasional", nilai: "2.767.622", satuan: "Wisatawan", tahun: "2025", sumber: "jakarta.bps.go.id", href: "/gci/pariwisata/wisatawan-internasional" },
+  { label: "Penawaran Kuliner (Michelin)", nilai: "0", satuan: "Restoran Michelin", tahun: "2025", sumber: "Michelin", catatan: "Belum ada Michelin Star di Jakarta.", href: "/gci/pariwisata/kuliner-michelin" },
 ];
 
 function trend(y2024: number, y2025: number) {
@@ -108,10 +108,6 @@ export function GciOfficial() {
                 <div className="flex items-center justify-between apple-fine">
                   <span className="text-ink-muted-48">Sumber</span>
                   <span className="text-ink font-medium text-right truncate ml-2" title={it.sumber}>{it.sumber}</span>
-                </div>
-                <div className="flex items-center justify-between apple-fine">
-                  <span className="text-ink-muted-48">Penanggung jawab</span>
-                  <span className="text-ink font-medium text-right truncate ml-2" title={it.pj}>{it.pj}</span>
                 </div>
               </div>
               {it.href && (

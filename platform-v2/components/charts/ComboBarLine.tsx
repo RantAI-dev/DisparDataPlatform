@@ -1,6 +1,7 @@
 "use client";
 
 import ReactECharts from "echarts-for-react";
+import { categoryZoom, EXPANDED_HEIGHT, useChartExpanded, ZOOM_PAD } from "./ChartExpand";
 
 const BAR = "#ed6b23";
 const LINE = "#0e7c42";
@@ -21,6 +22,7 @@ export function ComboBarLine({
   dualAxis?: boolean;
   height?: number;
 }) {
+  const expanded = useChartExpanded();
   const yAxis = dualAxis
     ? [
         {
@@ -43,7 +45,8 @@ export function ComboBarLine({
       ];
 
   const option = {
-    grid: { left: 6, right: dualAxis ? 12 : 16, top: 36, bottom: 6, containLabel: true },
+    grid: { left: 6, right: dualAxis ? 12 : 16, top: 36, bottom: 6 + (expanded ? ZOOM_PAD : 0), containLabel: true },
+    ...(expanded ? { dataZoom: categoryZoom(categories.length, false, 12) } : {}),
     tooltip: { trigger: "axis", axisPointer: { type: "cross" }, valueFormatter: (v: number | null) => (v == null ? "—" : idfmt(v)) },
     legend: { top: 0, textStyle: { color: "#475569", fontSize: 11 }, icon: "circle" },
     xAxis: {
@@ -61,6 +64,9 @@ export function ComboBarLine({
         data: bar.values,
         barMaxWidth: 40,
         itemStyle: { color: BAR, borderRadius: [4, 4, 0, 0] },
+        ...(expanded
+          ? { labelLayout: { hideOverlap: true }, label: { show: true, position: dualAxis ? "top" : "insideTop", fontSize: 10, color: dualAxis ? "#334155" : "#ffffff", formatter: (p: { value: number | null }) => (p.value == null ? "" : idfmt(p.value) + (bar.unit ?? "")) } }
+          : {}),
       },
       {
         name: line.name,
@@ -72,11 +78,14 @@ export function ComboBarLine({
         lineStyle: { width: 2.5, color: LINE, type: "dashed" as const },
         itemStyle: { color: LINE },
         data: line.values,
+        ...(expanded
+          ? { labelLayout: { hideOverlap: true }, label: { show: true, position: "top", fontSize: 10, color: LINE, formatter: (p: { value: number | null }) => (p.value == null ? "" : idfmt(p.value) + (line.unit ?? "")) } }
+          : {}),
       },
     ],
   };
 
   return (
-    <ReactECharts option={option} style={{ height, width: "100%" }} notMerge lazyUpdate opts={{ renderer: "canvas" }} />
+    <ReactECharts option={option} style={{ height: expanded ? EXPANDED_HEIGHT : height, width: "100%" }} notMerge lazyUpdate opts={{ renderer: "canvas" }} />
   );
 }

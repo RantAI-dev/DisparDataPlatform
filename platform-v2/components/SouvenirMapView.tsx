@@ -16,7 +16,6 @@ import "leaflet.markercluster/dist/MarkerCluster.css";
 import "leaflet.markercluster/dist/MarkerCluster.Default.css";
 
 import { AtlasNav } from "@/components/atlas/AtlasNav";
-import { navLabel } from "@/components/SouvenirView";
 import { addBasemap } from "@/lib/basemap";
 import {
   SOUVENIR_SHOPS,
@@ -227,7 +226,7 @@ export function SouvenirMapView() {
 
   return (
     <main className="min-h-screen flex flex-col bg-paper">
-      <AtlasNav section="souvenir" view="map" t={navLabel} />
+      <AtlasNav view="map" />
 
       {/* FILTER STRIP */}
       <div className="frosted border-b border-hairline z-10">

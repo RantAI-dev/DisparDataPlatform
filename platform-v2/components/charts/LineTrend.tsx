@@ -3,6 +3,7 @@
 import ReactECharts from "echarts-for-react";
 import * as echarts from "echarts";
 import { fmtPeriode, type Point } from "@/lib/agg";
+import { categoryZoom, EXPANDED_HEIGHT, useChartExpanded, ZOOM_PAD } from "./ChartExpand";
 
 const NAVY = "#ed6b23";
 const idfmt = (v: number) => v.toLocaleString("id-ID");
@@ -17,6 +18,7 @@ export function LineTrend({
   unit?: string;
   yName?: string;
 }) {
+  const expanded = useChartExpanded();
   if (data.length < 2)
     return (
       <div className="text-[13px] text-slate-400 py-6 text-center">
@@ -25,7 +27,8 @@ export function LineTrend({
     );
 
   const option = {
-    grid: { left: 6, right: 30, top: 16, bottom: 24, containLabel: true },
+    grid: { left: 6, right: 30, top: expanded ? 28 : 16, bottom: 24 + (expanded ? ZOOM_PAD : 0), containLabel: true },
+    ...(expanded ? { dataZoom: categoryZoom(data.length, false, 18) } : {}),
     tooltip: {
       trigger: "axis",
       valueFormatter: (v: number) => idfmt(v) + " " + unit,
@@ -62,6 +65,9 @@ export function LineTrend({
         smooth: true,
         symbol: "circle",
         symbolSize: 6,
+        ...(expanded
+          ? { label: { show: true, position: "top", color: "#334155", fontSize: 11, formatter: (p: { value: number }) => idfmt(p.value) } }
+          : {}),
         lineStyle: { color: NAVY, width: 2.5 },
         itemStyle: { color: NAVY },
         areaStyle: {
@@ -74,5 +80,5 @@ export function LineTrend({
     ],
   };
 
-  return <ReactECharts option={option} style={{ height: 260 }} notMerge lazyUpdate />;
+  return <ReactECharts option={option} style={{ height: expanded ? EXPANDED_HEIGHT : 260 }} notMerge lazyUpdate />;
 }

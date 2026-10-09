@@ -4,8 +4,10 @@
  * Spatial memakai peta GMTI yang sudah ada, dengan tambahan dataset GCI/GPCI.
  *
  * Dua lapis:
- *  1. Choropleth kepadatan fasilitas ibadah per kecamatan. Ini lapis utamanya
- *     — fasilitas tanpa koordinat tetap dihitung berdasarkan kecamatan.
+ *  1. Choropleth kepadatan data per kecamatan: jumlah seluruh titik dari
+ *     kategori yang sedang aktif (mengikuti filter kategori). Titik berkoordinat
+ *     dipetakan ke kecamatan lewat point-in-polygon terhadap GeoJSON; fasilitas
+ *     ibadah tanpa koordinat tetap dihitung lewat field kecamatan SIMAS.
  *  2. Pin tempat berkoordinat dari GCI/GPCI dan kategori GMTI, dengan ikon
  *     kategori. Sumber mengikuti daftar tematik; tidak membuat titik pengganti.
  *
@@ -20,7 +22,7 @@ import "leaflet.markercluster/dist/MarkerCluster.css";
 import "leaflet.markercluster/dist/MarkerCluster.Default.css";
 
 import { addBasemap } from "@/lib/basemap";
-import { GMTI_AGG, GMTI_META } from "@/lib/gmti-data";
+import { GMTI_META } from "@/lib/gmti-data";
 import { idNum } from "@/lib/gmti";
 import { hasSpatialCoordinates, MUSLIM_CATEGORIES, SPATIAL_CATEGORIES, SPATIAL_POINTS, spatialCity, type SpatialCategory, type SpatialPoint } from "@/lib/spatial";
 
@@ -35,7 +37,7 @@ L.Icon.Default.mergeOptions({
   shadowUrl: "https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png",
 });
 
-/** Skala choropleth hijau — gelap = makin padat. */
+/** Skala choropleth hijau — gelap = makin padat. Sama untuk semua kategori. */
 const RAMP = ["#e8f2f0", "#c3ded9", "#93c5bc", "#5aa79b", "#2d8b7c", "#0f7b6c"];
 
 const geoKey = (s: string) => s.toLowerCase().replace(/[^a-z]/g, "");
@@ -46,6 +48,41 @@ type GeoFeature = {
   geometry: { type: string; coordinates: unknown };
 };
 type GeoJson = { type: "FeatureCollection"; features: GeoFeature[] };
+
+type Ring = number[][];
+type Poly = { bbox: [number, number, number, number]; rings: Ring[] };
+
+/** Ray casting: apakah titik (x=lng, y=lat) ada di dalam ring. */
+function inRing(x: number, y: number, ring: Ring): boolean {
+  let inside = false;
+  for (let i = 0, j = ring.length - 1; i < ring.length; j = i++) {
+    const [xi, yi] = ring[i];
+    const [xj, yj] = ring[j];
+    if (yi > y !== yj > y && x < ((xj - xi) * (y - yi)) / (yj - yi) + xi) inside = !inside;
+  }
+  return inside;
+}
+
+/** Ubah geometri Polygon/MultiPolygon jadi daftar poligon dengan bbox untuk uji cepat. */
+function toPolys(g: GeoFeature["geometry"]): Poly[] {
+  const polys = g.type === "Polygon" ? [g.coordinates as Ring[]] : g.type === "MultiPolygon" ? (g.coordinates as Ring[][]) : [];
+  return polys.map((rings) => {
+    let a = Infinity, b = Infinity, c = -Infinity, d = -Infinity;
+    for (const [x, y] of rings[0] ?? []) { a = Math.min(a, x); b = Math.min(b, y); c = Math.max(c, x); d = Math.max(d, y); }
+    return { bbox: [a, b, c, d], rings };
+  });
+}
+
+/** Lubang (ring ke-2 dst) dikecualikan. */
+function inPoly(x: number, y: number, p: Poly): boolean {
+  const [a, b, c, d] = p.bbox;
+  if (x < a || x > c || y < b || y > d) return false;
+  if (!inRing(x, y, p.rings[0])) return false;
+  for (let i = 1; i < p.rings.length; i++) if (inRing(x, y, p.rings[i])) return false;
+  return true;
+}
+
+type KecCount = { total: number; byCat: Partial<Record<SpatialCategory, number>> };
 
 function esc(v: string): string {
   return v.replace(/[&<>"]/g, (c) =>
@@ -98,6 +135,8 @@ export function GmtiMapView() {
   const [retry, setRetry] = useState(0);
   const [geo, setGeo] = useState<GeoJson | null>(null);
   const [geoError, setGeoError] = useState(false);
+  /** Fasilitas ibadah SIMAS tanpa koordinat: geoKey kecamatan → jumlah. */
+  const [ibadahNoCoord, setIbadahNoCoord] = useState<Map<string, number>>(new Map());
 
   const points = useMemo(() => {
     const seen = new Set(POINTS.map((p) => `${p.category}|${p.name.toLowerCase().trim()}|${p.lat}|${p.lng}`));
@@ -131,7 +170,14 @@ export function GmtiMapView() {
         }).catch(() => { errors.push("Titik lakehouse belum dapat dimuat."); }),
         fetch("/gmti-ibadah.json", { signal: controller.signal }).then(async (r) => {
           if (!r.ok) throw new Error("ibadah");
-          const json = await r.json() as { rows: { id: string; name: string; kota: string; address: string; lat?: number; lon?: number }[] };
+          const json = await r.json() as { rows: { id: string; name: string; kota: string; kecamatan?: string; address: string; lat?: number; lon?: number }[] };
+          const noCoord = new Map<string, number>();
+          for (const row of json.rows) {
+            if ((typeof row.lat === "number" && typeof row.lon === "number") || !row.kecamatan) continue;
+            const k = geoKey(row.kecamatan);
+            noCoord.set(k, (noCoord.get(k) ?? 0) + 1);
+          }
+          setIbadahNoCoord(noCoord);
           collected.push(...json.rows.map((r): SpatialPoint => ({ id: `simas-${r.id}`, name: r.name, category: "ibadah", city: spatialCity(r.kota || ""), address: r.address || "", lat: r.lat, lng: r.lon, href: "/gmti" })));
         }).catch(() => { errors.push("Daftar fasilitas ibadah belum dapat dimuat."); }),
       ]);
@@ -168,21 +214,45 @@ export function GmtiMapView() {
 
   useEffect(() => { markerCache.current.clear(); }, [points]);
 
-  /** kecamatan (tanpa spasi, huruf kecil) → agregat. */
-  const byKec = useMemo(() => {
-    const m = new Map<string, (typeof GMTI_AGG)[number]>();
-    for (const a of GMTI_AGG) m.set(a.geoKey, a);
-    return m;
-  }, []);
+  /** Poligon per kecamatan (geoKey), dihitung sekali per GeoJSON. */
+  const polys = useMemo(() => {
+    if (!geo) return [];
+    return geo.features.map((f) => ({ key: geoKey(f.properties.kecamatan), polys: toPolys(f.geometry) }));
+  }, [geo]);
 
-  /** Ambang skala: kuantil sederhana dari total per kecamatan. */
+  /**
+   * Kepadatan per kecamatan: seluruh titik dari kategori aktif. Titik
+   * berkoordinat → point-in-polygon; ibadah SIMAS tanpa koordinat → field
+   * kecamatan. Tidak ikut filter wilayah/pencarian agar skala tetap stabil.
+   */
+  const density = useMemo(() => {
+    const m = new Map<string, KecCount>();
+    const add = (key: string, cat: SpatialCategory, n = 1) => {
+      const c = m.get(key) ?? { total: 0, byCat: {} };
+      c.total += n;
+      c.byCat[cat] = (c.byCat[cat] ?? 0) + n;
+      m.set(key, c);
+    };
+    if (!polys.length) return m;
+    for (const p of points) {
+      if (!active.has(p.category)) continue;
+      if (!Number.isFinite(p.lat) || !Number.isFinite(p.lng)) continue;
+      const hit = polys.find((f) => f.polys.some((pl) => inPoly(p.lng, p.lat, pl)));
+      if (hit) add(hit.key, p.category);
+    }
+    if (active.has("ibadah")) for (const [k, n] of ibadahNoCoord) add(k, "ibadah", n);
+    return m;
+  }, [polys, points, active, ibadahNoCoord]);
+
+  /** Ambang skala: kuantil sederhana dari total per kecamatan yang punya data. */
   const breaks = useMemo(() => {
-    const vals = GMTI_AGG.map((a) => a.total).sort((x, y) => x - y);
+    const vals = [...density.values()].map((c) => c.total).sort((x, y) => x - y);
     if (!vals.length) return [];
     return RAMP.slice(1).map(
       (_, i) => vals[Math.floor(((i + 1) / RAMP.length) * (vals.length - 1))]
     );
-  }, []);
+  }, [density]);
+  const maxDensity = useMemo(() => Math.max(0, ...[...density.values()].map((c) => c.total)), [density]);
 
   const colorFor = useMemo(
     () => (total: number) => {
@@ -247,16 +317,13 @@ export function GmtiMapView() {
     }
     if (!geo || !showChoro) return;
 
-    const collection = { ...geo, features: geo.features.filter((f) => {
-      const agg = byKec.get(geoKey(f.properties.kecamatan));
-      return !city || (agg && spatialCity(agg.kota) === city);
-    }) };
+    const collection = { ...geo, features: geo.features.filter((f) => !city || spatialCity(f.properties.name) === city) };
     const layer = L.geoJSON(collection as unknown as GeoJSON.GeoJsonObject, {
       style: (f) => {
         const kec = (f?.properties as { kecamatan?: string })?.kecamatan ?? "";
-        const agg = byKec.get(geoKey(kec));
+        const c = density.get(geoKey(kec));
         return {
-          fillColor: agg ? colorFor(agg.total) : "#f1f3f5",
+          fillColor: c ? colorFor(c.total) : "#f1f3f5",
           fillOpacity: 0.72,
           color: "#ffffff",
           weight: 1.2,
@@ -265,7 +332,10 @@ export function GmtiMapView() {
       onEachFeature: (f, lyr) => {
         const props = f.properties as { kecamatan?: string; name?: string };
         const kec = props.kecamatan ?? "";
-        const agg = byKec.get(geoKey(kec));
+        const c = density.get(geoKey(kec));
+        const rows = c
+          ? CATEGORIES.filter((k) => c.byCat[k]).map((k) => `${esc(SPATIAL_CATEGORIES[k].label)}: ${idNum(c.byCat[k] ?? 0)}`).join("<br/>")
+          : "";
         lyr.bindPopup(
           `<div style="font-family:-apple-system,system-ui,sans-serif;min-width:180px">
             <div style="font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:#0f7b6c">${esc(
@@ -275,12 +345,11 @@ export function GmtiMapView() {
               kec
             )}</div>
             ${
-              agg
+              c
                 ? `<div style="font-size:12px;color:#5b6470;margin-top:6px">
-                     ${idNum(agg.total)} fasilitas ibadah<br/>
-                     ${idNum(agg.masjid)} masjid · ${idNum(agg.mushalla)} mushalla
+                     <strong>${idNum(c.total)} data</strong><br/>${rows}
                    </div>`
-                : `<div style="font-size:12px;color:#8b939d;margin-top:6px">Tidak ada data SIMAS untuk kecamatan ini</div>`
+                : `<div style="font-size:12px;color:#8b939d;margin-top:6px">Tidak ada data untuk kecamatan ini</div>`
             }
           </div>`,
           { maxWidth: 280 }
@@ -290,7 +359,7 @@ export function GmtiMapView() {
     layer.addTo(map);
     layer.bringToBack();
     choroRef.current = layer;
-  }, [geo, showChoro, byKec, colorFor, city]);
+  }, [geo, showChoro, density, colorFor, city]);
 
   // Lapis pin.
   useEffect(() => {
@@ -421,7 +490,7 @@ export function GmtiMapView() {
         <details className="absolute bottom-4 left-4 z-[400] bg-canvas/95 backdrop-blur border border-hairline rounded-apple_lg p-3 max-w-[280px] max-h-[70%] overflow-y-auto shadow-[0_4px_16px_rgba(0,0,0,0.08)]">
           <summary className="apple-fine cursor-pointer">Legenda & sumber</summary>
           <p className="apple-fine text-ink-muted-80 uppercase tracking-wider">
-            Fasilitas ibadah per kecamatan
+            Kepadatan data per kecamatan
           </p>
           <div className="mt-2 flex items-center gap-1">
             {RAMP.map((c) => (
@@ -434,7 +503,7 @@ export function GmtiMapView() {
           </div>
           <div className="mt-1 flex justify-between apple-fine text-ink-muted-48 tabular">
             <span>sedikit</span>
-            <span>{idNum(GMTI_AGG[0]?.total ?? 0)}</span>
+            <span>{idNum(maxDensity)}</span>
           </div>
 
           <div className="mt-3 pt-3 border-t border-hairline space-y-1.5">
@@ -450,7 +519,7 @@ export function GmtiMapView() {
           </div>
 
           <p className="apple-fine text-ink-muted-48 mt-3 pt-3 border-t border-hairline leading-relaxed">
-            Hanya koordinat valid yang dipetakan. Fasilitas tanpa koordinat tetap dihitung di kepadatan kecamatan.
+            Kepadatan = jumlah titik kategori aktif per kecamatan. Hanya koordinat valid yang dipetakan; fasilitas ibadah tanpa koordinat tetap dihitung lewat kecamatannya.
             {GMTI_META.kecamatanTanpaPoligon.length > 0 && (
               <>
                 {" "}

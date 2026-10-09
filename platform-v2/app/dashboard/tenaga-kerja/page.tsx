@@ -1,6 +1,7 @@
 import { getSertifikasi, getTenagaKerjaEkraf } from "@/lib/dashboard/data";
 import { ChartCard, ChartGrid, Kpi, KpiRow } from "@/components/pariwisata/DashboardKit";
 import { BarBreakdown } from "@/components/charts/BarBreakdown";
+import { TkSubsektor } from "@/components/dashboard/TkSubsektor";
 import { ComboBarLine } from "@/components/charts/ComboBarLine";
 import { GroupedBars } from "@/components/charts/GroupedBars";
 import { SectionHead, SourceNote, idNum } from "@/components/dashboard/Kit";
@@ -17,12 +18,6 @@ export default async function Page() {
   const prev = dki[dki.length - 2];
   const growth = last && prev ? ((last.total - prev.total) / prev.total) * 100 : null;
   const share = (r: (typeof dki)[number]) => Math.round((r.total / r.nasional) * 10000) / 100;
-  const subYear = tk.subsektorNasional.length ? tk.subsektorNasional[tk.subsektorNasional.length - 1].tahun : "";
-  const subNas = tk.subsektorNasional
-    .filter((r) => r.tahun === subYear)
-    .map((r) => ({ label: r.subsektor, value: r.jumlah }))
-    .sort((a, b) => b.value - a.value);
-
   const years = [...new Set(sert.map((r) => r.tahun))].sort();
   const bidang = [...new Set(sert.map((r) => r.bidang))];
   const sertPerTahun = years.map((y) => ({ label: y, value: sert.filter((r) => r.tahun === y).reduce((a, r) => a + r.jumlah, 0) }));
@@ -40,7 +35,7 @@ export default async function Page() {
 
       <SectionHead
         title="1 · Jumlah tenaga kerja ekonomi kreatif"
-        desc="Statistik resmi Kemenekraf (olahan Sakernas BPS Agustus). Angka 2025 per provinsi belum dipublikasikan — ditampilkan tahun terakhir yang tersedia."
+        desc="Statistik resmi Kemenekraf (olahan Sakernas BPS dengan Kemenekraf)"
       />
       {last ? (
         <KpiRow>
@@ -51,16 +46,14 @@ export default async function Page() {
         </KpiRow>
       ) : (
         <div className="rounded-xl border border-red-200 bg-red-50 p-5 text-[13px] text-red-700">
-          Data tenaga kerja ekraf tidak dapat dibaca dari lakehouse (silver.tenaga_kerja_ekraf_per_provinsi).
+          Data tenaga kerja ekonomi kreatif belum dapat ditampilkan. Coba muat ulang halaman.
         </div>
       )}
 
       <SectionHead title="2 · Rincian berdasarkan subsektor ekonomi kreatif" />
-      <ChartCard title={`Tenaga kerja ekraf per subsektor · Nasional ${subYear}`} sub="orang · rincian subsektor per provinsi belum dipublikasikan Kemenekraf">
-          <BarBreakdown data={subNas} unit=" orang" />
-        </ChartCard>
+      <TkSubsektor rows={tk.subsektorNasional} />
 
-      <SectionHead title="3 · Tren tenaga kerja ekraf DKI Jakarta" desc="5 tahun terakhir yang tersedia." />
+      <SectionHead title="3 · Tren Tenaga Kerja Sektor Ekonomi Kreatif Provinsi DKI Jakarta" desc="5 tahun terakhir" />
       <ChartGrid cols={2}>
         <ChartCard title="Tenaga kerja ekraf DKI & porsi nasional" sub="batang = orang · garis = % terhadap nasional">
           <ComboBarLine
@@ -84,10 +77,10 @@ export default async function Page() {
 
       <SectionHead
         title="Tenaga kerja tersertifikasi / pendampingan Dinas"
-        desc="Dipisah dari tenaga kerja umum untuk mengukur dampak program pengembangan SDM (MoM §3)."
+        desc="Peserta pelatihan dan sertifikasi tenaga kerja pariwisata dan ekonomi kreatif yang didampingi Dinas, dipisahkan dari data tenaga kerja umum."
       />
       <ChartGrid cols={2}>
-        <ChartCard title="Peserta sertifikasi per tahun" sub="tenaga kerja pariwisata & ekraf tersertifikasi (orang)">
+        <ChartCard title="Peserta sertifikasi per tahun" sub="Pelatihan dan sertifikasi tenaga kerja sektor pariwisata dan ekonomi kreatif">
           <BarBreakdown data={sertPerTahun} unit=" orang" color="#0e7c42" />
         </ChartCard>
         <ChartCard title="Per bidang sertifikasi" sub="orang · per tahun">
@@ -96,7 +89,7 @@ export default async function Page() {
       </ChartGrid>
 
       <SourceNote>
-        Sumber: Satu Data Ekraf (Kemenekraf, olahan Sakernas BPS Agustus) — satudata.ekraf.go.id; Satu Data Jakarta — tenaga
+        Sumber: Satu Data Ekraf (Kemenekraf, olahan Sakernas BPS dan Kemenekraf) — satudata.ekraf.go.id; Satu Data Jakarta — tenaga
         kerja pariwisata &amp; ekraf tersertifikasi (2023–2025).
       </SourceNote>
     </>

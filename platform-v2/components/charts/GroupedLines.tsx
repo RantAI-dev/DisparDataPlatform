@@ -2,6 +2,7 @@
 
 import ReactECharts from "echarts-for-react";
 import type { Point } from "@/lib/agg";
+import { categoryZoom, EXPANDED_HEIGHT, useChartExpanded, ZOOM_PAD } from "./ChartExpand";
 
 const PALETTE = ["#ed6b23", "#f0a13a", "#0e7c42", "#b3261e", "#7c3aed", "#0891b2"];
 const idfmt = (v: number) => v.toLocaleString("id-ID");
@@ -12,6 +13,7 @@ export function GroupedLines({
 }: {
   series: { name: string; data: Point[] }[];
 }) {
+  const expanded = useChartExpanded();
   if (!series.length)
     return (
       <div className="text-[13px] text-slate-400 py-6 text-center">
@@ -26,7 +28,8 @@ export function GroupedLines({
 
   const option = {
     color: PALETTE,
-    grid: { left: 6, right: 16, top: 30, bottom: 6, containLabel: true },
+    grid: { left: 6, right: 16, top: 30, bottom: 6 + (expanded ? ZOOM_PAD : 0), containLabel: true },
+    ...(expanded ? { dataZoom: categoryZoom(labels.length, false, 18) } : {}),
     tooltip: { trigger: "axis", valueFormatter: (v: number) => idfmt(v) },
     legend: { top: 0, textStyle: { color: "#475569", fontSize: 12 } },
     xAxis: {
@@ -49,11 +52,14 @@ export function GroupedLines({
         smooth: true,
         symbol: "circle",
         symbolSize: 5,
+        ...(expanded
+          ? { labelLayout: { hideOverlap: true }, label: { show: true, position: "top", fontSize: 10, color: "#334155", formatter: (p: { value: number | null }) => (p.value == null ? "" : idfmt(p.value)) } }
+          : {}),
         connectNulls: true,
         data: labels.map((l) => m.get(l) ?? null),
       };
     }),
   };
 
-  return <ReactECharts option={option} style={{ height: 300 }} notMerge lazyUpdate />;
+  return <ReactECharts option={option} style={{ height: expanded ? EXPANDED_HEIGHT : 300 }} notMerge lazyUpdate />;
 }

@@ -249,8 +249,6 @@ export function GolfView() {
   return (
     <main data-section="golf" className="min-h-screen flex flex-col bg-paper">
       <AtlasNav
-        section="golf"
-        t={t}
         langToggle={<LangToggle lang={lang} onToggle={onToggleLang} t={t} />}
       />
 

@@ -22,9 +22,8 @@ export default async function CiFvView() {
       sources={[d, nd].filter(Boolean).map((x) => ({ slug: x!.slug, title: x!.title }))}
     >
       <MomNote>
-        Fokus visualisasi: total wisatawan <b>per bulan</b> dan <b>per pintu masuk</b>,
-        tidak hanya per kebangsaan. Data BPS perlu pembersihan karena klasifikasi negara
-        sering tidak konsisten.
+        Menampilkan total wisatawan <b>per bulan</b> dan <b>per pintu masuk</b>, selain
+        per kebangsaan. Klasifikasi negara pada data BPS telah distandarkan.
       </MomNote>
       <div className="grid sm:grid-cols-3 gap-4">
         <KpiStat label="Total kunjungan" value={total(trend)} />

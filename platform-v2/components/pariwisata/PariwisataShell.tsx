@@ -15,7 +15,6 @@ export function PariwisataShell({
   nilai,
   satuan,
   tahun,
-  pj,
   catatan,
   sumber,
   sumberHref,
@@ -25,8 +24,8 @@ export function PariwisataShell({
   title: string;
   nilai: string;
   satuan: string;
-  tahun: string;
-  pj: string;
+  /** Opsional: bila kosong, meta "Tahun" dan tahun di label angka indikator disembunyikan. */
+  tahun?: string;
   catatan?: string;
   sumber: string;
   sumberHref?: string;
@@ -52,8 +51,7 @@ export function PariwisataShell({
               )}
               <h1 className="atlas-display text-white">{title}</h1>
               <div className="mt-4 flex flex-wrap items-center gap-x-6 gap-y-2 text-[13px] text-white/80">
-                <Meta label="Penanggung jawab" value={pj} />
-                <Meta label="Tahun" value={tahun} />
+                {tahun && <Meta label="Tahun" value={tahun} />}
                 <Meta
                   label="Sumber"
                   value={sumber}
@@ -70,7 +68,7 @@ export function PariwisataShell({
             {/* Angka indikator resmi — headline besar */}
             <div className="rounded-2xl border border-white/12 bg-white/[0.05] px-6 py-5">
               <div className="apple-fine uppercase tracking-wider text-white/50">
-                Angka indikator {tahun}
+                Angka indikator{tahun ? ` ${tahun}` : ""}
               </div>
               <div className="mt-1 flex items-baseline gap-2">
                 <span className="text-[46px] font-bold leading-none tabular text-white">

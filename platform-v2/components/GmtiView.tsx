@@ -44,10 +44,6 @@ import {
   downloadSpreadsheet,
 } from "@/lib/export";
 
-/** AtlasNav memakai key i18n; section ini berbahasa Indonesia tanpa dictionary. */
-export const navLabel = (k: string): string =>
-  k === "nav.view_list" ? "Daftar" : k === "nav.view_map" ? "Peta" : k;
-
 const PAGE = 200;
 
 type TabId = Pillar | "semua";
@@ -574,13 +570,13 @@ export function GmtiView() {
               </li>
               <li>
                 SIMAS tidak menyediakan koordinat. {idNum(GMTI_META.ibadahBerkoordinat)}{" "}
-                titik dicarikan lewat penelusuran; {idNum(GMTI_META.ibadahNonSignature)}{" "}
+                titik diperoleh melalui pencarian alamat; {idNum(GMTI_META.ibadahNonSignature)}{" "}
                 fasilitas lingkungan ({["Masjid Jami", "Mushalla Perumahan"].join(" & ")})
-                sengaja tidak dipetakan karena alamatnya rawan meleset.
+                tidak dipetakan karena alamatnya kurang spesifik.
               </li>
               <li>
-                Pengelompokan pilar di halaman ini kerangka kerja kami untuk menyusun
-                data — GMTI resmi menilai di tingkat negara/destinasi, bukan per
+                Pengelompokan pilar di halaman ini merupakan penataan data Dispar —
+                GMTI resmi menilai di tingkat negara/destinasi, bukan per
                 fasilitas.
               </li>
             </ul>

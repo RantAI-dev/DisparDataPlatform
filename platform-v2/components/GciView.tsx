@@ -120,7 +120,7 @@ export function GciView() {
       { header: "Tingkat Harga", value: (r) => (r.priceLevel ? (r.priceSource === "editorial" ? `${r.priceLevel} (perkiraan)` : r.priceLevel) : "") },
       { header: "Tier", value: (r) => r.tier },
       { header: "Hotel", value: (r) => r.hotel ?? "" },
-      { header: "Catatan", value: (r) => (r.needsVerify ? "Perlu verifikasi angka" : "") },
+      { header: "Catatan", value: (r) => (r.needsVerify ? "Angka belum diverifikasi" : "") },
       { header: "Google Maps", value: (r) => gciMapsUrl(r) },
     ];
     await downloadSpreadsheet(
@@ -135,8 +135,6 @@ export function GciView() {
   return (
     <main data-section="gci" className="min-h-screen flex flex-col bg-paper">
       <AtlasNav
-        section="gci"
-        t={t}
         langToggle={<LangToggle lang={lang} onToggle={onToggleLang} t={t} />}
       />
 
@@ -315,7 +313,7 @@ export function GciView() {
                       {fmtRating(r.rating)}
                       {r.needsVerify && (
                         <span
-                          title="Perlu verifikasi angka"
+                          title="Angka belum diverifikasi"
                           className="text-[color:var(--accent)]"
                         >
                           {" "}*

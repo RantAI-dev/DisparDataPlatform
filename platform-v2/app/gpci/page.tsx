@@ -18,6 +18,7 @@ async function GpciReadiness() {
     subtitle={SUBTITLE}
     rows={all.filter((r) => r.framework === "GPCI")}
     afterHeader={<FrameworkDataLinks framework="GPCI" />}
+    showTrend={false}
   />;
 }
 

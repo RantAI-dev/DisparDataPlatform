@@ -27,7 +27,7 @@ export type YearData = {
 
 /**
  * Target RPJMD 2025–2029 (Tabel III.2), indikator 2.1.c "Jumlah Tamu
- * Mancanegara" (orang) — kondisi awal + target per tahun 2025–2030. Dipakai
+ * Mancanegara" (orang) — kondisi awal + target per tahun 2025–2029. Dipakai
  * sebagai garis TARGET yang dibandingkan dengan realisasi wisman datamart.
  */
 const TARGET_WISMAN: Record<string, number> = {
@@ -75,7 +75,7 @@ export function WismanDashboard({
     quarterSeries.some((s) => s.data.some((p) => p.label === q)),
   );
 
-  // Target (RPJMD 2025–2030) vs Realisasi (datamart). Satuan sama = orang.
+  // Target (RPJMD 2025–2029) vs Realisasi (datamart). Satuan sama = orang.
   const cmpYears = Array.from(new Set([...years, ...Object.keys(TARGET_WISMAN)])).sort();
   const realisasiData = cmpYears
     .map((y) => ({ label: y, value: byYear[y]?.total ?? null }))
@@ -179,7 +179,7 @@ export function WismanDashboard({
       {/* Target RPJMD vs Realisasi wisman (indikator 2.1.c, Tabel III.2) */}
       <div className="mt-4">
         <ChartCard
-          title="Target vs Realisasi Wisman (RPJMD 2025–2030)"
+          title="Target vs Realisasi Wisman (RPJMD 2025–2029)"
           sub="Batang berdampingan: realisasi (asli) vs target Jumlah Tamu Mancanegara"
         >
           <GroupedBars
