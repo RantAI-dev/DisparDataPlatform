@@ -113,6 +113,16 @@ export function secondaryDatasets(): SecondaryDataset[] {
       external: false,
     },
     {
+      id: "sec-michelin-keys",
+      title: "Hotel MICHELIN Key Indonesia (2026)",
+      description:
+        "47 hotel dan resor di Indonesia peraih MICHELIN Key edisi 2026: 3 hotel 3 Keys, 11 hotel 2 Keys, 33 hotel 1 Key (7 di DKI Jakarta). Sumber: MICHELIN Guide, diverifikasi dengan sumber publik (siaran Kemenpar).",
+      tags: ["hotel", "akomodasi", "michelin", "gci", "sekunder"],
+      rows: 47,
+      href: "/sdi/michelin-keys-indonesia",
+      external: false,
+    },
+    {
       id: "sec-halal-restoran",
       title: "Restoran & Zona KHAS Tersertifikasi Halal Jakarta",
       description:

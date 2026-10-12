@@ -913,6 +913,17 @@ asal = "SDI registry hotel + filter 5 km simpul transport, lihat scripts/build_h
 pembangun = "scripts/build_hotel_transit.py"
 
 [[sumber]]
+id = "michelin-keys-indonesia"
+jenis = "sekunder"
+path = "data/sekunder/michelin-keys-indonesia.json"
+namespace = "bronze_sec"
+tabel = "michelin_keys_indonesia"
+kelas_refresh = "snapshot"
+tanggal_ambil = "2026-10-12"
+asal = "MICHELIN Guide, daftar MICHELIN Keys 2026 Indonesia (transkripsi), diverifikasi dengan siaran Kemenpar"
+pembangun = "scripts/build_michelin_keys.py"
+
+[[sumber]]
 id = "restoran-tripadvisor-jakarta"
 jenis = "sekunder"
 path = "data/sekunder/restoran-tripadvisor-jakarta.json"

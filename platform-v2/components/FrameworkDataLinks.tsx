@@ -18,6 +18,11 @@ const CARD_DETAILS: Record<DataSection, { description: string; unit: string; ico
     unit: "entri",
     icon: <><path d="M9 18V5l11-2v13" /><circle cx="6" cy="18" r="3" /><circle cx="17" cy="16" r="3" /></>,
   },
+  michelin: {
+    description: "Hotel & resor peraih MICHELIN Key 2026 se-Indonesia (1–3 Key), lengkap dengan lokasi dan sumber verifikasi.",
+    unit: "hotel",
+    icon: <><circle cx="8" cy="15" r="4" /><path d="m10.8 12.2 9.2-9.2M17 6l3 3M14 9l2 2" /></>,
+  },
   golf: {
     description: "Lapangan & driving range golf di Jakarta dan sekitarnya.",
     unit: "entri",
