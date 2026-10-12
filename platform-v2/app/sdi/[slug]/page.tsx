@@ -220,7 +220,7 @@ export default function DatasetDetailPage({
         )}
 
         {meta && !loading && rows.length > 0 && (
-          <DatasetCharts columns={columns} rows={rows} />
+          <DatasetCharts columns={columns} rows={rows} storageKey={slug} />
         )}
 
         {meta && !loading && (

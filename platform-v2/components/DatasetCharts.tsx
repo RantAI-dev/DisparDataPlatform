@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import ReactECharts from "echarts-for-react";
 import type { EChartsOption } from "echarts";
 
@@ -210,12 +210,27 @@ function buildOption(cfg: ChartCfg, rows: Row[]): { option: EChartsOption; empty
 let seq = 0;
 const nid = () => `c${++seq}`;
 
+/** Grafik yang dibuat pengguna disimpan per dataset di localStorage browser ini. */
+const STORE_PREFIX = "dispar:dataset-charts:";
+
+function loadCharts(key: string, valid: Set<string>): ChartCfg[] {
+  try {
+    const raw = window.localStorage.getItem(STORE_PREFIX + key);
+    const list = raw ? (JSON.parse(raw) as Omit<ChartCfg, "id">[]) : [];
+    return list
+      .filter((c) => KINDS.some((k) => k.v === c.kind) && AGGS.some((a) => a.v === c.agg) && valid.has(c.x) && (c.agg === "count" || valid.has(c.y)))
+      .map((c) => ({ id: nid(), kind: c.kind, x: c.x, y: c.y, agg: c.agg }));
+  } catch {
+    return [];
+  }
+}
+
 /**
  * Pembuat grafik dari data dataset (sisi-klien). User memilih tipe + kolom X/Y +
  * agregasi; data diringkas di browser dari baris yang termuat. Bisa menambah
  * beberapa grafik (sementara, tak disimpan). Menggantikan "Visualisasi cepat".
  */
-export function DatasetCharts({ columns, rows }: { columns: Column[]; rows: Row[] }) {
+export function DatasetCharts({ columns, rows, storageKey }: { columns: Column[]; rows: Row[]; storageKey: string }) {
   const cols = useMemo(
     () => (columns.length ? columns : Object.keys(rows[0] ?? {}).map((k) => ({ key: k, desc: null, type: null })))
       .filter((c) => !HIDDEN.has(c.key)),
@@ -233,8 +248,17 @@ export function DatasetCharts({ columns, rows }: { columns: Column[]; rows: Row[
   const [x, setX] = useState(defX);
   const [y, setY] = useState(defY);
   const [agg, setAgg] = useState<Agg>(defY ? "sum" : "count");
-  // Tidak ada grafik bawaan; pengguna menambah sendiri lewat "Tambah grafik".
-  const [charts, setCharts] = useState<ChartCfg[]>([]);
+  // Tidak ada grafik bawaan; yang ditambahkan pengguna dipulihkan dari localStorage.
+  const [charts, setCharts] = useState<ChartCfg[]>(() => loadCharts(storageKey, new Set(cols.map((c) => c.key))));
+  useEffect(() => {
+    try {
+      const data = charts.map(({ kind, x, y, agg }) => ({ kind, x, y, agg }));
+      if (data.length) window.localStorage.setItem(STORE_PREFIX + storageKey, JSON.stringify(data));
+      else window.localStorage.removeItem(STORE_PREFIX + storageKey);
+    } catch {
+      // localStorage tidak tersedia (mode privat/diblokir): grafik tetap jalan tanpa disimpan.
+    }
+  }, [charts, storageKey]);
 
   if (!rows.length || !cols.length) return null;
 
@@ -250,7 +274,7 @@ export function DatasetCharts({ columns, rows }: { columns: Column[]; rows: Row[
     <div className="mb-6">
       <div className="flex items-center justify-between gap-3 mb-4">
         <h2 className="text-[16px] font-bold tracking-tight text-slate-800">Visualisasi Data</h2>
-        <span className="text-[12px] text-slate-400">Grafik dari {rows.length.toLocaleString("id-ID")} baris termuat · sementara (tak tersimpan)</span>
+        <span className="text-[12px] text-slate-400">Grafik dari {rows.length.toLocaleString("id-ID")} baris termuat · tersimpan di browser ini</span>
       </div>
 
       <div className="bg-white rounded-xl border border-slate-200 shadow-sm p-4 mb-5">
