@@ -123,6 +123,26 @@ export function secondaryDatasets(): SecondaryDataset[] {
       external: false,
     },
     {
+      id: "sec-venue-mice",
+      title: "Venue MICE Jakarta (2026)",
+      description:
+        "Inventori 116 venue MICE: 36 venue khusus (convention/exhibition center, gedung serbaguna, arena indoor) dan 80 hotel bintang 4–5 berfasilitas ballroom/ruang pertemuan; 113 di DKI Jakarta, sisanya venue berlabel 'Jakarta' di luar DKI. Kapasitas & luas dari situs resmi venue/hotel; tiap baris punya sumber dan status verifikasi.",
+      tags: ["mice", "venue", "ballroom", "hotel", "konvensi", "pameran", "sekunder"],
+      rows: 116,
+      href: "/sdi/venue-mice-jakarta",
+      external: false,
+    },
+    {
+      id: "sec-kegiatan-mice-2026",
+      title: "Kegiatan di Venue MICE Jakarta 2026",
+      description:
+        "382 acara (pameran, konferensi, konser, festival, olahraga, dll.) yang berlangsung di venue MICE sepanjang 2026; 264 di DKI Jakarta. Sumber: kalender resmi JIExpo, ICE BSD, NICE PIK2 dan Balai Kartini, kalender penyelenggara, berita, serta data izin event Disparekraf DKI. Cakupan venue tanpa kalender resmi masih parsial.",
+      tags: ["mice", "event", "pameran", "konferensi", "konser", "2026", "sekunder"],
+      rows: 382,
+      href: "/sdi/kegiatan-mice-jakarta-2026",
+      external: false,
+    },
+    {
       id: "sec-halal-restoran",
       title: "Restoran & Zona KHAS Tersertifikasi Halal Jakarta",
       description:

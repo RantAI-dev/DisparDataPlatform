@@ -913,6 +913,17 @@ asal = "SDI registry hotel + filter 5 km simpul transport, lihat scripts/build_h
 pembangun = "scripts/build_hotel_transit.py"
 
 [[sumber]]
+id = "kegiatan-mice-jakarta-2026"
+jenis = "sekunder"
+path = "data/sekunder/kegiatan-mice-jakarta-2026.json"
+namespace = "bronze_sec"
+tabel = "kegiatan_mice_jakarta_2026"
+kelas_refresh = "snapshot"
+tanggal_ambil = "2026-10-12"
+asal = "Kalender resmi JIExpo (scripts/crawl_jiexpo_events.py), ICE BSD, NICE PIK2, Balai Kartini + riset penyelenggara/berita + data izin event Disparekraf 2026"
+pembangun = "scripts/mice/build.py"
+
+[[sumber]]
 id = "michelin-keys-indonesia"
 jenis = "sekunder"
 path = "data/sekunder/michelin-keys-indonesia.json"
@@ -977,6 +988,17 @@ kelas_refresh = "snapshot"
 tanggal_ambil = "2026-09-20"
 asal = "Perluasan data/sekunder/wellness-jakarta.json dengan fokus usaha terdaftar"
 pembangun = "scripts/enrich_wellness_business.py"
+
+[[sumber]]
+id = "venue-mice-jakarta"
+jenis = "sekunder"
+path = "data/sekunder/venue-mice-jakarta.json"
+namespace = "bronze_sec"
+tabel = "venue_mice_jakarta"
+kelas_refresh = "snapshot"
+tanggal_ambil = "2026-10-12"
+asal = "Riset situs resmi venue MICE + fasilitas pertemuan hotel bintang 4-5 dari hotel-kamar-jakarta"
+pembangun = "scripts/mice/build.py"
 
 [[sumber]]
 id = "warisan-islam-wisata-budaya-muslim-jakarta"
