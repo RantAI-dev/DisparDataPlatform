@@ -228,7 +228,8 @@ function loadCharts(key: string, valid: Set<string>): ChartCfg[] {
 /**
  * Pembuat grafik dari data dataset (sisi-klien). User memilih tipe + kolom X/Y +
  * agregasi; data diringkas di browser dari baris yang termuat. Bisa menambah
- * beberapa grafik (sementara, tak disimpan). Menggantikan "Visualisasi cepat".
+ * beberapa grafik; konfigurasinya disimpan per dataset di localStorage browser.
+ * Menggantikan "Visualisasi cepat".
  */
 export function DatasetCharts({ columns, rows, storageKey }: { columns: Column[]; rows: Row[]; storageKey: string }) {
   const cols = useMemo(

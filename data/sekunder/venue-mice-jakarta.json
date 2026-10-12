@@ -1,7 +1,7 @@
 {
   "slug": "venue-mice-jakarta",
   "title": "Venue MICE Jakarta (2026)",
-  "description": "Inventori 116 venue MICE: 36 venue khusus (convention/exhibition center, gedung serbaguna, arena indoor) dan 80 hotel bintang 4–5 berfasilitas ballroom/ruang pertemuan; 113 di DKI Jakarta, sisanya venue berlabel 'Jakarta' di luar DKI. Kapasitas & luas dari situs resmi venue/hotel; tiap baris punya sumber dan status verifikasi.",
+  "description": "Inventori 114 venue MICE: 35 venue khusus (convention/exhibition center, gedung serbaguna, arena indoor) dan 79 hotel bintang 4–5 berfasilitas ballroom/ruang pertemuan; 111 di DKI Jakarta, sisanya venue berlabel 'Jakarta' di luar DKI. Kapasitas & luas dari situs resmi venue/hotel; tiap baris punya sumber dan status verifikasi.",
   "columns": [
     {
       "key": "id",
@@ -202,27 +202,6 @@
       "url_verifikasi": "https://en.wikipedia.org/wiki/Jakarta_International_Convention_Center",
       "status_verifikasi": "terkonfirmasi",
       "catatan": "Sejak 24 Jan 2025 dikelola PPKGBK & berganti nama JICC. Plenary Hall 5.000 kursi; Exhibition Hall A 3.060 m2 + B 6.075 m2 (gabungan 9.585 m2); Assembly Hall 3.920 m2 (2.500 sit-down / 3.500 resepsi); Cendrawasih Room; 10 ruang meeting. Dulu bernama Jakarta Hilton Convention Center (JHCC, 1992)."
-    },
-    {
-      "id": "V005",
-      "nama_venue": "The Sultan Hotel & Residence (eks Hilton) - Golden Ballroom/Conference Centre",
-      "kategori": "Venue khusus",
-      "jenis": "Lainnya",
-      "golongan_hotel": "",
-      "alamat": "Jl. Gatot Subroto, Blok 14/15 Kawasan GBK, Senayan",
-      "kab_kota": "Jakarta Pusat",
-      "provinsi": "DKI Jakarta",
-      "di_dki": "ya",
-      "status_operasi": "belum diketahui",
-      "punya_ballroom": "",
-      "ruang_terbesar": "",
-      "kapasitas_maks_orang": 2000,
-      "luas_m2": 1600,
-      "jumlah_ruang": 8,
-      "url_sumber": "https://gbk.id/DiscoverGBK/detail/19-hotel-sultan",
-      "url_verifikasi": "https://www.cnbcindonesia.com/news/20251203123122-4-690661/kronologi-sengketa-hotel-sultan-pengadilan-perintahkan-kosongkan-total",
-      "status_verifikasi": "perlu review",
-      "catatan": "HOTEL — ditandai, bukan venue MICE khusus. 'Jakarta Hilton Convention Center' sebenarnya nama lama JICC. Golden Ballroom 1.600 m2 (2.000 tamu) + 7 ruang conference. Sengketa lahan: PN Jakpus memerintahkan pengosongan (2025); status operasi kini tidak pasti."
     },
     {
       "id": "V006",
@@ -915,7 +894,7 @@
       "url_sumber": "https://meetings.accor.com/hotel/A610/index.en.shtml",
       "url_verifikasi": "",
       "status_verifikasi": "terkonfirmasi",
-      "catatan": "Accor Meetings: Ballroom 800 m2, kapasitas 1-500. Total 14 ruang (Travel Weekly). Juga tercatat sebagai N059 di hotel-kamar-jakarta."
+      "catatan": "Accor Meetings: Ballroom 800 m2, kapasitas 1-500. Total 14 ruang (Travel Weekly). N059 di hotel-kamar-jakarta (Mercure Jakarta Batavia) digabung ke sini: hotel yang sama."
     },
     {
       "id": "H029",
@@ -1209,7 +1188,7 @@
       "url_sumber": "https://assets.hyatt.com/content/dam/hyatt/hyattdam/documents/2022/07/22/1513/Grand-Hyatt-Jakarta-Fact-Sheet-English.pdf",
       "url_verifikasi": "",
       "status_verifikasi": "terkonfirmasi",
-      "catatan": "Fact sheet Hyatt: Grand Ballroom 702 m2, 7 function rooms (+ Residence ONFIVE 4 ruang). Kapasitas 800 (cocktail) dari Cvent. Juga tercatat sebagai H156 di hotel-kamar-jakarta."
+      "catatan": "Fact sheet Hyatt: Grand Ballroom 702 m2, 7 function rooms (+ Residence ONFIVE 4 ruang). Kapasitas 800 (cocktail) dari Cvent. H156 di hotel-kamar-jakarta (Grand Hyatt Jakarta) digabung ke sini: hotel yang sama."
     },
     {
       "id": "H141",
@@ -1377,7 +1356,7 @@
       "url_sumber": "https://www.lumirehotel.com/meetings/",
       "url_verifikasi": "",
       "status_verifikasi": "terkonfirmasi",
-      "catatan": "Situs resmi: 11 venue, Grand Ballroom 18,8x21,8 m (luas dihitung ~410 m2), s.d. 1.000 tamu. Juga tercatat sebagai N057 di hotel-kamar-jakarta."
+      "catatan": "Situs resmi: 11 venue, Grand Ballroom 18,8x21,8 m (luas dihitung ~410 m2), s.d. 1.000 tamu. N057 di hotel-kamar-jakarta (Lumire Hotel and Convention Center Jakarta) digabung ke sini: hotel yang sama."
     },
     {
       "id": "H190",
@@ -1566,7 +1545,7 @@
       "url_sumber": "https://sultanjakarta.com/category/meetings-events/",
       "url_verifikasi": "",
       "status_verifikasi": "terkonfirmasi",
-      "catatan": "Situs resmi: Golden Ballroom 725 m2, s.d. 2.000 tamu cocktail; 15 function rooms (50-1.392 m2)."
+      "catatan": "Situs resmi: Golden Ballroom 725 m2, s.d. 2.000 tamu cocktail; 15 function rooms (50-1.392 m2). Juga diinventarisasi sebagai venue khusus V005; dihitung sekali di sini."
     },
     {
       "id": "H246",
@@ -1629,7 +1608,7 @@
       "url_sumber": "https://www.bidakarahotel.com/weddings/",
       "url_verifikasi": "",
       "status_verifikasi": "terkonfirmasi",
-      "catatan": "Situs resmi: Birawa Assembly Hall 2.025 m2 s.d. 3.000 orang; Auditorium Binakarna 774 m2; 18 ruang pertemuan (bidakarahospitality.com). Juga tercatat sebagai N039 di hotel-kamar-jakarta."
+      "catatan": "Situs resmi: Birawa Assembly Hall 2.025 m2 s.d. 3.000 orang; Auditorium Binakarna 774 m2; 18 ruang pertemuan (bidakarahospitality.com). N039 di hotel-kamar-jakarta (Hotel Bidakara Jakarta) digabung ke sini: hotel yang sama."
     },
     {
       "id": "H276",
@@ -1986,7 +1965,7 @@
       "url_sumber": "https://jakarta.el-hotels.com/",
       "url_verifikasi": "",
       "status_verifikasi": "terkonfirmasi",
-      "catatan": "Situs resmi: 11 meeting room + 1 function hall + Grand Ballroom, kapasitas 20-1.200 orang. Cvent (nama lama eL Royale): ballroom s.d. 1.500. Juga tercatat sebagai N014 di hotel-kamar-jakarta."
+      "catatan": "Situs resmi: 11 meeting room + 1 function hall + Grand Ballroom, kapasitas 20-1.200 orang. Cvent (nama lama eL Royale): ballroom s.d. 1.500. N014 di hotel-kamar-jakarta (éL Hotel Jakarta) digabung ke sini: hotel yang sama."
     },
     {
       "id": "H404",
@@ -2133,7 +2112,7 @@
       "url_sumber": "https://www.ayana.com/jakarta/ayana-midplaza-jakarta/meetings/",
       "url_verifikasi": "",
       "status_verifikasi": "terkonfirmasi",
-      "catatan": "Situs resmi: Grand Ballroom s.d. 1.500 tamu (termasuk area garden/pre-function). Luas 839 m2 & 11 ruang dari Travel Weekly. Juga tercatat sebagai N038 di hotel-kamar-jakarta."
+      "catatan": "Situs resmi: Grand Ballroom s.d. 1.500 tamu (termasuk area garden/pre-function). Luas 839 m2 & 11 ruang dari Travel Weekly. N038 di hotel-kamar-jakarta (AYANA Midplaza, JAKARTA) digabung ke sini: hotel yang sama."
     },
     {
       "id": "N021",
@@ -2364,28 +2343,7 @@
       "url_sumber": "https://www.ihg.com/intercontinental/hotels/us/en/jakarta/jktpi/hoteldetail/meetings-events",
       "url_verifikasi": "",
       "status_verifikasi": "terkonfirmasi",
-      "catatan": "IHG: 17 meeting rooms, ballroom 1.716 m2, s.d. 3.500 tamu."
-    },
-    {
-      "id": "N052",
-      "nama_venue": "InterContinental Residences Jakarta Pondok Indah",
-      "kategori": "Hotel bintang 4–5",
-      "jenis": "Hotel (ballroom)",
-      "golongan_hotel": "Bintang 5",
-      "alamat": "JL. METRO PONDOK INDAH KAV. IV TA, JAKARTA 12310",
-      "kab_kota": "Jakarta Selatan",
-      "provinsi": "DKI Jakarta",
-      "di_dki": "ya",
-      "status_operasi": "beroperasi",
-      "punya_ballroom": "ya",
-      "ruang_terbesar": "Grand Ballroom",
-      "kapasitas_maks_orang": 3500,
-      "luas_m2": 1716,
-      "jumlah_ruang": 17,
-      "url_sumber": "https://www.ihg.com/intercontinental/hotels/us/en/jakarta/jktpi/hoteldetail/meetings-events",
-      "url_verifikasi": "",
-      "status_verifikasi": "perlu review",
-      "catatan": "Menara residensi InterContinental Pondok Indah; data MICE diambil dari hotel induk (N051: Grand Ballroom 1.716 m2, 3.500 tamu, 17 ruang). Perlu dipastikan apakah residensi dihitung terpisah agar tidak ganda."
+      "catatan": "IHG: 17 meeting rooms, ballroom 1.716 m2, s.d. 3.500 tamu. N052 di hotel-kamar-jakarta (InterContinental Residences Jakarta Pondok Indah) digabung ke sini: bagian dari hotel ini."
     },
     {
       "id": "N060",
@@ -2448,7 +2406,7 @@
       "url_sumber": "https://www.swissotel.com/hotels/jakarta/",
       "url_verifikasi": "",
       "status_verifikasi": "terkonfirmasi",
-      "catatan": "Situs resmi: Grand Ballroom terbesar di Jakarta Utara s.d. 3.000 tamu; Conference Centre 9 ruang meeting + 2 lounge + amfiteater. Accor ALL: ruang terbesar 2.432 m2. Juga tercatat sebagai N076 di hotel-kamar-jakarta."
+      "catatan": "Situs resmi: Grand Ballroom terbesar di Jakarta Utara s.d. 3.000 tamu; Conference Centre 9 ruang meeting + 2 lounge + amfiteater. Accor ALL: ruang terbesar 2.432 m2. N076 di hotel-kamar-jakarta (Swissôtel Jakarta PIK Avenue) digabung ke sini: hotel yang sama."
     },
     {
       "id": "N072",

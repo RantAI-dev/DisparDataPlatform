@@ -1,7 +1,7 @@
 {
   "slug": "kegiatan-mice-jakarta-2026",
   "title": "Kegiatan di Venue MICE Jakarta 2026",
-  "description": "382 acara (pameran, konferensi, konser, festival, olahraga, dll.) yang berlangsung di venue MICE sepanjang 2026; 264 di DKI Jakarta. Sumber: kalender resmi JIExpo, ICE BSD, NICE PIK2 dan Balai Kartini, kalender penyelenggara, berita, serta data izin event Disparekraf DKI. Cakupan venue tanpa kalender resmi masih parsial.",
+  "description": "374 acara (pameran, konferensi, konser, festival, olahraga, dll.) yang berlangsung di venue MICE sepanjang 2026; 256 di DKI Jakarta. Sumber: kalender resmi JIExpo, ICE BSD, NICE PIK2 dan Balai Kartini, kalender penyelenggara, berita, serta data izin event Disparekraf DKI. Cakupan venue tanpa kalender resmi masih parsial.",
   "columns": [
     {
       "key": "id",
@@ -267,23 +267,6 @@
     },
     {
       "id": "E0011",
-      "nama_acara": "M7 WORLD CHAMPIONSHIP CITY TOUR",
-      "tanggal_mulai": "2026-01-20",
-      "tanggal_selesai": "2026-01-20",
-      "bulan_mulai": 1,
-      "venue": "Pos Bloc Jakarta",
-      "lokasi_detail": "JAKARTA (POS BLOC, MONAS, BLOK M)",
-      "kab_kota": "Jakarta Pusat",
-      "di_dki": "ya",
-      "jenis_acara": "Olahraga",
-      "penyelenggara": "M7",
-      "sumber_data": "Data izin event Disparekraf DKI 2026",
-      "url_sumber": "",
-      "status_verifikasi": "terkonfirmasi",
-      "catatan": "Jenis di sumber: WORLD CHAMPIONSHIP."
-    },
-    {
-      "id": "E0012",
       "nama_acara": "FIFA WORLD CUP TROPHY TOUR 2026",
       "tanggal_mulai": "2026-01-22",
       "tanggal_selesai": "2026-01-22",
@@ -300,7 +283,7 @@
       "catatan": "Jenis di sumber: SHOWCASE TROPHY FIFA WORLD CUP 2026."
     },
     {
-      "id": "E0013",
+      "id": "E0012",
       "nama_acara": "MUSIK RESONAN",
       "tanggal_mulai": "2026-01-22",
       "tanggal_selesai": "2026-01-22",
@@ -317,7 +300,7 @@
       "catatan": "Jenis di sumber: PENGANUGERAHAN (AWARDING)."
     },
     {
-      "id": "E0014",
+      "id": "E0013",
       "nama_acara": "CONNECT 2026",
       "tanggal_mulai": "2026-01-23",
       "tanggal_selesai": "2026-01-25",
@@ -334,7 +317,7 @@
       "catatan": "Kategori ICE: Trade Shows; ICE BSD di luar DKI (Banten)"
     },
     {
-      "id": "E0015",
+      "id": "E0014",
       "nama_acara": "THE 13TH UI MUSIC FAIR",
       "tanggal_mulai": "2026-01-24",
       "tanggal_selesai": "2026-01-24",
@@ -351,7 +334,7 @@
       "catatan": "Jenis di sumber: MENYELENGGARAKAN FINAL ROUND KOMPETISI BAND, DISERTAI DENGAN PENUTUPAN ACARA KONSER.."
     },
     {
-      "id": "E0016",
+      "id": "E0015",
       "nama_acara": "ZAPHRODITE (FRIENDS & FAMILY GATHERING JAKARTA 2026)",
       "tanggal_mulai": "2026-01-24",
       "tanggal_selesai": "2026-01-25",
@@ -368,24 +351,7 @@
       "catatan": "Jenis di sumber: -."
     },
     {
-      "id": "E0017",
-      "nama_acara": "BERLIN SENATE CITY TOUR",
-      "tanggal_mulai": "2026-01-28",
-      "tanggal_selesai": "2026-01-28",
-      "bulan_mulai": 1,
-      "venue": "Pos Bloc Jakarta",
-      "lokasi_detail": "JAKARTA (POS BLOC, CHANDRA NAYA, HOUSE OF TUGU)",
-      "kab_kota": "Jakarta Pusat",
-      "di_dki": "ya",
-      "jenis_acara": "Lainnya",
-      "penyelenggara": "BJ HABIBIE FOUNDATION",
-      "sumber_data": "Data izin event Disparekraf DKI 2026",
-      "url_sumber": "",
-      "status_verifikasi": "terkonfirmasi",
-      "catatan": "Jenis di sumber: CITY TOUR."
-    },
-    {
-      "id": "E0018",
+      "id": "E0016",
       "nama_acara": "BTN HOUSINGPRENEUR DAN AWARDING",
       "tanggal_mulai": "2026-01-28",
       "tanggal_selesai": "2026-01-31",
@@ -402,7 +368,7 @@
       "catatan": "Jenis di sumber: KEGIATAN EDUKASI, KOMPETISI KEWIRAUSAHAAN, DAN."
     },
     {
-      "id": "E0019",
+      "id": "E0017",
       "nama_acara": "ARCADIA CHAN CONCERT TOUR IN JAKARTA",
       "tanggal_mulai": "2026-01-31",
       "tanggal_selesai": "2026-01-31",
@@ -419,7 +385,7 @@
       "catatan": "Jenis di sumber: PERTUNJUKAN MUSIK."
     },
     {
-      "id": "E0020",
+      "id": "E0018",
       "nama_acara": "ATEEZ 2026 WORLD TOUR [IN YOUR FANTASY] IN JAKARTA",
       "tanggal_mulai": "2026-01-31",
       "tanggal_selesai": "2026-01-31",
@@ -436,7 +402,7 @@
       "catatan": "Kategori ICE: Special Events; ICE BSD di luar DKI (Banten)"
     },
     {
-      "id": "E0021",
+      "id": "E0019",
       "nama_acara": "HARRY POTTER AND THE PHILOSOPHER'S STONE IN CONCERT",
       "tanggal_mulai": "2026-01-31",
       "tanggal_selesai": "2026-01-31",
@@ -453,7 +419,7 @@
       "catatan": "Jenis di sumber: PERTUNJUKAN MUSIK."
     },
     {
-      "id": "E0022",
+      "id": "E0020",
       "nama_acara": "Jakarta Toys & Comic Fair 2026 x Clash of Collectibles",
       "tanggal_mulai": "2026-01-31",
       "tanggal_selesai": "2026-02-01",
@@ -470,7 +436,7 @@
       "catatan": "Kalender resmi Balai Kartini (balaikartini.co.id/event)"
     },
     {
-      "id": "E0023",
+      "id": "E0021",
       "nama_acara": "KONSER DUA DELAPAN PADI REBORN",
       "tanggal_mulai": "2026-01-31",
       "tanggal_selesai": "2026-01-31",
@@ -487,24 +453,7 @@
       "catatan": "Jenis di sumber: KONSER MUSIK."
     },
     {
-      "id": "E0024",
-      "nama_acara": "BRYAN ADAMS \"ROLL WITH THE PUNCHES\"",
-      "tanggal_mulai": "2026-02-03",
-      "tanggal_selesai": "2026-02-03",
-      "bulan_mulai": 2,
-      "venue": "Beach City International Stadium Ancol",
-      "lokasi_detail": "BEACH CITY INTERNATIONAL STADIUM, JAKARTA",
-      "kab_kota": "Jakarta Utara",
-      "di_dki": "ya",
-      "jenis_acara": "Konser",
-      "penyelenggara": "PT RAJAWALI INDONESIA",
-      "sumber_data": "Data izin event Disparekraf DKI 2026",
-      "url_sumber": "",
-      "status_verifikasi": "terkonfirmasi",
-      "catatan": "Jenis di sumber: PERTUNJUKAN MUSIK."
-    },
-    {
-      "id": "E0025",
+      "id": "E0022",
       "nama_acara": "Bryan Adams - Roll with the Punches (special guest Ari Lasso)",
       "tanggal_mulai": "2026-02-03",
       "tanggal_selesai": "2026-02-03",
@@ -518,10 +467,10 @@
       "sumber_data": "Riset kalender venue/penyelenggara/berita",
       "url_sumber": "https://www.medcom.id/hiburan/indis/4baO6MvK-bryan-adams-kembali-konser-di-jakarta-ari-lasso-jadi-tamu-spesial",
       "status_verifikasi": "terkonfirmasi",
-      "catatan": "Sumber berita"
+      "catatan": "Sumber berita Juga tercatat di Data izin event Disparekraf DKI 2026."
     },
     {
-      "id": "E0026",
+      "id": "E0023",
       "nama_acara": "Carabao International Open 2026",
       "tanggal_mulai": "2026-02-04",
       "tanggal_selesai": "2026-02-08",
@@ -538,7 +487,7 @@
       "catatan": "Kalender resmi NICE (filter tahun 2026); NICE PIK2 di Kab. Tangerang, Banten — di luar DKI"
     },
     {
-      "id": "E0027",
+      "id": "E0024",
       "nama_acara": "INACRAFT 2026",
       "tanggal_mulai": "2026-02-04",
       "tanggal_selesai": "2026-02-08",
@@ -555,7 +504,7 @@
       "catatan": "Pembukaan 4 Feb dilaporkan media; tanggal 4-8 Feb dari katalogpromosi & MK Exhibition. indonesia.travel menyebut 22-26 Apr (tidak konsisten, diabaikan)"
     },
     {
-      "id": "E0028",
+      "id": "E0025",
       "nama_acara": "Pekan Pendidikan Tinggi Jakarta 2026",
       "tanggal_mulai": "2026-02-04",
       "tanggal_selesai": "2026-02-06",
@@ -572,7 +521,7 @@
       "catatan": "Kalender resmi Balai Kartini (balaikartini.co.id/event)"
     },
     {
-      "id": "E0029",
+      "id": "E0026",
       "nama_acara": "ASTINDO FAIR 2026",
       "tanggal_mulai": "2026-02-05",
       "tanggal_selesai": "2026-02-08",
@@ -589,7 +538,7 @@
       "catatan": "Hanya di kalender MK Exhibition (kontraktor stand), tidak tercantum di kalender resmi venue; ICE BSD di luar DKI"
     },
     {
-      "id": "E0030",
+      "id": "E0027",
       "nama_acara": "BCA EXPOVERSARY 2026",
       "tanggal_mulai": "2026-02-05",
       "tanggal_selesai": "2026-02-08",
@@ -606,7 +555,7 @@
       "catatan": "Kategori ICE: Trade Shows; ICE BSD di luar DKI (Banten)"
     },
     {
-      "id": "E0031",
+      "id": "E0028",
       "nama_acara": "Indonesia International Motor Show 2026",
       "tanggal_mulai": "2026-02-05",
       "tanggal_selesai": "2026-02-15",
@@ -620,10 +569,10 @@
       "sumber_data": "Kalender resmi JIExpo",
       "url_sumber": "https://exhibition.jiexpo.com/events/indonesia-international-motor-show-2026/",
       "status_verifikasi": "terkonfirmasi",
-      "catatan": ""
+      "catatan": "Juga tercatat di Data izin event Disparekraf DKI 2026 (2026-02-14)."
     },
     {
-      "id": "E0032",
+      "id": "E0029",
       "nama_acara": "2026 TAEYONG CONCERT <TY TRACK - REMASTERED> IN JAKARTA",
       "tanggal_mulai": "2026-02-07",
       "tanggal_selesai": "2026-02-07",
@@ -640,24 +589,7 @@
       "catatan": "Jenis di sumber: PERTUNJUKAN MUSIK."
     },
     {
-      "id": "E0033",
-      "nama_acara": "90’S INTIMATE 2ND EDITION",
-      "tanggal_mulai": "2026-02-07",
-      "tanggal_selesai": "2026-02-07",
-      "bulan_mulai": 2,
-      "venue": "Istora Senayan",
-      "lokasi_detail": "ISTORA SENAYAN – JAKARTA",
-      "kab_kota": "Jakarta Pusat",
-      "di_dki": "ya",
-      "jenis_acara": "Konser",
-      "penyelenggara": "PT AKSELERASI KREASIKA GRUP",
-      "sumber_data": "Data izin event Disparekraf DKI 2026",
-      "url_sumber": "",
-      "status_verifikasi": "terkonfirmasi",
-      "catatan": "Jenis di sumber: PERTUNJUKAN MUSIK."
-    },
-    {
-      "id": "E0034",
+      "id": "E0030",
       "nama_acara": "AFC FUTSAL ASIAN CUP",
       "tanggal_mulai": "2026-02-07",
       "tanggal_selesai": "2026-02-07",
@@ -674,7 +606,7 @@
       "catatan": "Jenis di sumber: WORLD CHAMPIONSHIP."
     },
     {
-      "id": "E0035",
+      "id": "E0031",
       "nama_acara": "An Evening with Dream Theater - 40th Anniversary Tour",
       "tanggal_mulai": "2026-02-07",
       "tanggal_selesai": "2026-02-07",
@@ -688,27 +620,10 @@
       "sumber_data": "Riset kalender venue/penyelenggara/berita",
       "url_sumber": "https://www.erakini.id/hiburan/era-deMvX/potret-konser-dream-theater-di-beach-city-international-stadium--thank-you-jakarta-",
       "status_verifikasi": "terkonfirmasi",
-      "catatan": "Dipindah dari Stadion Madya GBK ke BCIS; sumber berita pasca-acara"
+      "catatan": "Dipindah dari Stadion Madya GBK ke BCIS; sumber berita pasca-acara Juga tercatat di Data izin event Disparekraf DKI 2026."
     },
     {
-      "id": "E0036",
-      "nama_acara": "DREAM THEATER \"40TH ANNIVERSARY TOUR\"",
-      "tanggal_mulai": "2026-02-07",
-      "tanggal_selesai": "2026-02-07",
-      "bulan_mulai": 2,
-      "venue": "Beach City International Stadium Ancol",
-      "lokasi_detail": "BEACH CITY INTERNATIONAL STADIUM, JAKARTA",
-      "kab_kota": "Jakarta Utara",
-      "di_dki": "ya",
-      "jenis_acara": "Konser",
-      "penyelenggara": "PT RAJAWALI INDONESIA",
-      "sumber_data": "Data izin event Disparekraf DKI 2026",
-      "url_sumber": "",
-      "status_verifikasi": "terkonfirmasi",
-      "catatan": "Jenis di sumber: PERTUNJUKAN MUSIK."
-    },
-    {
-      "id": "E0037",
+      "id": "E0032",
       "nama_acara": "LUX NOVA KONSER KLA 37 TAHUN",
       "tanggal_mulai": "2026-02-07",
       "tanggal_selesai": "2026-02-07",
@@ -725,7 +640,7 @@
       "catatan": "Jenis di sumber: -."
     },
     {
-      "id": "E0038",
+      "id": "E0033",
       "nama_acara": "Taeyong (NCT) - TY TRACK REMASTERED in Jakarta",
       "tanggal_mulai": "2026-02-07",
       "tanggal_selesai": "2026-02-07",
@@ -742,7 +657,7 @@
       "catatan": "Sumber berita daftar jadwal"
     },
     {
-      "id": "E0039",
+      "id": "E0034",
       "nama_acara": "The 90's Intimate 2nd Edition",
       "tanggal_mulai": "2026-02-07",
       "tanggal_selesai": "2026-02-07",
@@ -756,10 +671,10 @@
       "sumber_data": "Riset kalender venue/penyelenggara/berita",
       "url_sumber": "https://www.medcom.id/hiburan/indis/yKXez10N-jadwal-konser-2026-di-indonesia-padi-reborn-aespa-hingga-westlife",
       "status_verifikasi": "perlu review",
-      "catatan": "Sumber berita daftar jadwal"
+      "catatan": "Sumber berita daftar jadwal Juga tercatat di Data izin event Disparekraf DKI 2026."
     },
     {
-      "id": "E0040",
+      "id": "E0035",
       "nama_acara": "WESTLIFE A Gala Evening",
       "tanggal_mulai": "2026-02-10",
       "tanggal_selesai": "2026-02-10",
@@ -776,7 +691,7 @@
       "catatan": "Kalender resmi NICE (filter tahun 2026); NICE PIK2 di Kab. Tangerang, Banten — di luar DKI"
     },
     {
-      "id": "E0041",
+      "id": "E0036",
       "nama_acara": "Bridestory Market",
       "tanggal_mulai": "2026-02-12",
       "tanggal_selesai": "2026-02-15",
@@ -793,7 +708,7 @@
       "catatan": "Kategori ICE: Trade Shows; ICE BSD di luar DKI (Banten)"
     },
     {
-      "id": "E0042",
+      "id": "E0037",
       "nama_acara": "IIETE 2026 (Indonesia International Education & Training Expo)",
       "tanggal_mulai": "2026-02-12",
       "tanggal_selesai": "2026-02-15",
@@ -810,7 +725,7 @@
       "catatan": "Juga di kalender MK Exhibition; penyelenggara dari edisi 2025 di jcc.co.id"
     },
     {
-      "id": "E0043",
+      "id": "E0038",
       "nama_acara": "IFBC EXPO 2026",
       "tanggal_mulai": "2026-02-13",
       "tanggal_selesai": "2026-02-15",
@@ -827,7 +742,7 @@
       "catatan": "Kategori ICE: Trade Shows; ICE BSD di luar DKI (Banten)"
     },
     {
-      "id": "E0044",
+      "id": "E0039",
       "nama_acara": "Halal Fair Jakarta 2026",
       "tanggal_mulai": "2026-02-14",
       "tanggal_selesai": "2026-02-15",
@@ -844,24 +759,7 @@
       "catatan": "Sumber exhibitor & blog agregator"
     },
     {
-      "id": "E0045",
-      "nama_acara": "INDONESIA INTERNATIONAL MOTOR SHOW (IIMS)",
-      "tanggal_mulai": "2026-02-14",
-      "tanggal_selesai": "2026-02-14",
-      "bulan_mulai": 2,
-      "venue": "JIExpo Kemayoran",
-      "lokasi_detail": "JIEXPO KEMAYORAN",
-      "kab_kota": "Jakarta Pusat",
-      "di_dki": "ya",
-      "jenis_acara": "Pameran",
-      "penyelenggara": "JIEXPO",
-      "sumber_data": "Data izin event Disparekraf DKI 2026",
-      "url_sumber": "",
-      "status_verifikasi": "terkonfirmasi",
-      "catatan": "Jenis di sumber: EXHIBITION."
-    },
-    {
-      "id": "E0046",
+      "id": "E0040",
       "nama_acara": "International Diecast Show",
       "tanggal_mulai": "2026-02-14",
       "tanggal_selesai": "2026-02-15",
@@ -878,7 +776,7 @@
       "catatan": "Kalender resmi Balai Kartini (balaikartini.co.id/event)"
     },
     {
-      "id": "E0047",
+      "id": "E0041",
       "nama_acara": "KOMA LIVE IN CONCERT - MAHALINI",
       "tanggal_mulai": "2026-02-14",
       "tanggal_selesai": "2026-02-14",
@@ -895,7 +793,7 @@
       "catatan": "Jenis di sumber: PERTUNJUKAN MUSIK."
     },
     {
-      "id": "E0048",
+      "id": "E0042",
       "nama_acara": "PAMERAN DIECAST",
       "tanggal_mulai": "2026-02-14",
       "tanggal_selesai": "2026-02-15",
@@ -912,7 +810,7 @@
       "catatan": "Jenis di sumber: PAMERAN."
     },
     {
-      "id": "E0049",
+      "id": "E0043",
       "nama_acara": "SOUL 6.0 INTIMATE CONCERT EXTRA SHOW",
       "tanggal_mulai": "2026-02-14",
       "tanggal_selesai": "2026-02-14",
@@ -929,7 +827,7 @@
       "catatan": "Jenis di sumber: ACARA PERTUNJUKAN MUSIK."
     },
     {
-      "id": "E0050",
+      "id": "E0044",
       "nama_acara": "VINTAGE SOUND VARIETY SHOW",
       "tanggal_mulai": "2026-02-17",
       "tanggal_selesai": "2026-02-17",
@@ -946,7 +844,7 @@
       "catatan": "Jenis di sumber: DRAMA MUSICAL."
     },
     {
-      "id": "E0051",
+      "id": "E0045",
       "nama_acara": "ASIAN CADET DAN JUNIOR FENCING CHAMPIONSHIPS 2026",
       "tanggal_mulai": "2026-02-20",
       "tanggal_selesai": "2026-02-27",
@@ -963,7 +861,7 @@
       "catatan": "Jenis di sumber: WORLD CHAMPIONSHIP."
     },
     {
-      "id": "E0052",
+      "id": "E0046",
       "nama_acara": "Modinity Raya Festival 2026",
       "tanggal_mulai": "2026-02-20",
       "tanggal_selesai": "2026-02-22",
@@ -980,7 +878,7 @@
       "catatan": "Kategori ICE: Trade Shows; ICE BSD di luar DKI (Banten)"
     },
     {
-      "id": "E0053",
+      "id": "E0047",
       "nama_acara": "JAKARTA MEGA WEDDING FESTIVAL dan Whosale International Kids Baby Expo (Wikibex)",
       "tanggal_mulai": "2026-02-27",
       "tanggal_selesai": "2026-03-01",
@@ -997,7 +895,7 @@
       "catatan": ""
     },
     {
-      "id": "E0054",
+      "id": "E0048",
       "nama_acara": "Hijrah Fest",
       "tanggal_mulai": "2026-02-28",
       "tanggal_selesai": "2026-03-01",
@@ -1014,7 +912,7 @@
       "catatan": "Kalender resmi Balai Kartini (balaikartini.co.id/event)"
     },
     {
-      "id": "E0055",
+      "id": "E0049",
       "nama_acara": "Jakarta Eucharistic Revival (JER) 2026",
       "tanggal_mulai": "2026-02-28",
       "tanggal_selesai": "2026-02-28",
@@ -1031,7 +929,7 @@
       "catatan": "Acara keagamaan (kongres ekaristi); sumber berita"
     },
     {
-      "id": "E0056",
+      "id": "E0050",
       "nama_acara": "Indonesia Ramadhan Expo (INRA EXPO) 2026",
       "tanggal_mulai": "2026-03-04",
       "tanggal_selesai": "2026-03-08",
@@ -1048,7 +946,7 @@
       "catatan": "Agregator/blog"
     },
     {
-      "id": "E0057",
+      "id": "E0051",
       "nama_acara": "Indonesia International Furniture Expo (IFEX) 2026",
       "tanggal_mulai": "2026-03-05",
       "tanggal_selesai": "2026-03-08",
@@ -1065,7 +963,7 @@
       "catatan": "Kategori ICE: Trade Shows; ICE BSD di luar DKI (Banten)"
     },
     {
-      "id": "E0058",
+      "id": "E0052",
       "nama_acara": "BMC JAKARTA RAMADHAN -SAFORIGINAL",
       "tanggal_mulai": "2026-03-07",
       "tanggal_selesai": "2026-03-08",
@@ -1082,7 +980,7 @@
       "catatan": "Kalender resmi Balai Kartini (balaikartini.co.id/event)"
     },
     {
-      "id": "E0059",
+      "id": "E0053",
       "nama_acara": "ALL DAY PROJECT",
       "tanggal_mulai": "2026-03-17",
       "tanggal_selesai": "2026-03-17",
@@ -1099,7 +997,7 @@
       "catatan": "Jenis di sumber: FANSIGN."
     },
     {
-      "id": "E0060",
+      "id": "E0054",
       "nama_acara": "2026 HEARTS2HEARTS FANMEETING “HEARTS 2 HOUSE IN JAKARTA”",
       "tanggal_mulai": "2026-03-28",
       "tanggal_selesai": "2026-03-28",
@@ -1116,7 +1014,7 @@
       "catatan": "Jenis di sumber: PERTUNJUKAN MUSIK."
     },
     {
-      "id": "E0061",
+      "id": "E0055",
       "nama_acara": "BTN Run (Festival Raya Kemenangan Ancol)",
       "tanggal_mulai": "2026-03-29",
       "tanggal_selesai": "2026-03-29",
@@ -1133,7 +1031,7 @@
       "catatan": "Sumber berita daerah"
     },
     {
-      "id": "E0062",
+      "id": "E0056",
       "nama_acara": "2025-2026 aespa LIVE TOUR - SYNK: aeXIS LINE - in JAKARTA",
       "tanggal_mulai": "2026-04-04",
       "tanggal_selesai": "2026-04-04",
@@ -1150,7 +1048,7 @@
       "catatan": "Kategori ICE: Special Events; ICE BSD di luar DKI (Banten)"
     },
     {
-      "id": "E0063",
+      "id": "E0057",
       "nama_acara": "JAKARTA JAZZ GOES TO CAMPUS: THE CITY SERIES",
       "tanggal_mulai": "2026-04-04",
       "tanggal_selesai": "2026-04-04",
@@ -1164,10 +1062,10 @@
       "sumber_data": "Data izin event Disparekraf DKI 2026",
       "url_sumber": "",
       "status_verifikasi": "terkonfirmasi",
-      "catatan": "Jenis di sumber: MUSIK."
+      "catatan": "Jenis di sumber: MUSIK. Juga tercatat di Data izin event Disparekraf DKI 2026. Juga tercatat di Data izin event Disparekraf DKI 2026."
     },
     {
-      "id": "E0064",
+      "id": "E0058",
       "nama_acara": "GAIKINDO Indonesia International Commercial Vehicle Expo (GIICOMVEC) 2026",
       "tanggal_mulai": "2026-04-08",
       "tanggal_selesai": "2026-04-11",
@@ -1184,24 +1082,7 @@
       "catatan": ""
     },
     {
-      "id": "E0065",
-      "nama_acara": "PEMENTASAN “CHICAGO THE MUSICAL”",
-      "tanggal_mulai": "2026-04-08",
-      "tanggal_selesai": "2026-04-12",
-      "bulan_mulai": 4,
-      "venue": "Taman Ismail Marzuki - Graha Bhakti Budaya",
-      "lokasi_detail": "GRAHA BHAKTI BUDAYA, TAMAN ISMAIL MARZUKI JAKARTA",
-      "kab_kota": "Jakarta Pusat",
-      "di_dki": "ya",
-      "jenis_acara": "Pertunjukan",
-      "penyelenggara": "ADNAN PRODUCTIONS",
-      "sumber_data": "Data izin event Disparekraf DKI 2026",
-      "url_sumber": "",
-      "status_verifikasi": "terkonfirmasi",
-      "catatan": "Jenis di sumber: TEATER MUSIKAL."
-    },
-    {
-      "id": "E0066",
+      "id": "E0059",
       "nama_acara": "“CHICAGO THE MUSICAL”",
       "tanggal_mulai": "2026-04-08",
       "tanggal_selesai": "2026-04-12",
@@ -1215,10 +1096,10 @@
       "sumber_data": "Data izin event Disparekraf DKI 2026",
       "url_sumber": "",
       "status_verifikasi": "terkonfirmasi",
-      "catatan": "Jenis di sumber: PERTUNJUKAN."
+      "catatan": "Jenis di sumber: PERTUNJUKAN. Juga tercatat di Data izin event Disparekraf DKI 2026."
     },
     {
-      "id": "E0067",
+      "id": "E0060",
       "nama_acara": "Pet Adventure Wonderland Expo 2026",
       "tanggal_mulai": "2026-04-09",
       "tanggal_selesai": "2026-04-12",
@@ -1235,7 +1116,7 @@
       "catatan": "Kalender resmi NICE (filter tahun 2026); NICE PIK2 di Kab. Tangerang, Banten — di luar DKI"
     },
     {
-      "id": "E0068",
+      "id": "E0061",
       "nama_acara": "10 TAHUN KONSER BANDA NEIRA",
       "tanggal_mulai": "2026-04-10",
       "tanggal_selesai": "2026-04-10",
@@ -1252,7 +1133,24 @@
       "catatan": "Jenis di sumber: PERTUNJUKAN MUSIK."
     },
     {
-      "id": "E0069",
+      "id": "E0062",
+      "nama_acara": "BIG BANG STAGE TIMUR ALL STARS",
+      "tanggal_mulai": "2026-04-10",
+      "tanggal_selesai": "2026-04-11",
+      "bulan_mulai": 4,
+      "venue": "Gambir Expo",
+      "lokasi_detail": "GAMBIR EXPO",
+      "kab_kota": "Jakarta Utara",
+      "di_dki": "ya",
+      "jenis_acara": "Konser",
+      "penyelenggara": "PT. EXPO INDONESIA JAYA",
+      "sumber_data": "Data izin event Disparekraf DKI 2026",
+      "url_sumber": "",
+      "status_verifikasi": "terkonfirmasi",
+      "catatan": "Jenis di sumber: PERTUNJUKAN MUSIK."
+    },
+    {
+      "id": "E0063",
       "nama_acara": "Big Bang Stage (Timur All Stars)",
       "tanggal_mulai": "2026-04-10",
       "tanggal_selesai": "2026-04-11",
@@ -1269,7 +1167,7 @@
       "catatan": ""
     },
     {
-      "id": "E0070",
+      "id": "E0064",
       "nama_acara": "NCT WISH 1st CONCERT TOUR ‘INTO THE WISH : Our WISH’ IN JAKARTA",
       "tanggal_mulai": "2026-04-11",
       "tanggal_selesai": "2026-04-11",
@@ -1286,7 +1184,7 @@
       "catatan": "Kategori ICE: Special Events; ICE BSD di luar DKI (Banten)"
     },
     {
-      "id": "E0071",
+      "id": "E0065",
       "nama_acara": "Halal Expo Indonesia (HEI) 2026",
       "tanggal_mulai": "2026-04-14",
       "tanggal_selesai": "2026-04-18",
@@ -1303,7 +1201,7 @@
       "catatan": "Agregator/blog; Tennis Indoor Senayan (kompleks GBK)"
     },
     {
-      "id": "E0072",
+      "id": "E0066",
       "nama_acara": "ALLFOOD Indonesia 2026 x FEX Indonesia",
       "tanggal_mulai": "2026-04-15",
       "tanggal_selesai": "2026-04-18",
@@ -1320,7 +1218,7 @@
       "catatan": "Kategori ICE: Trade Shows; ICE BSD di luar DKI (Banten)"
     },
     {
-      "id": "E0073",
+      "id": "E0067",
       "nama_acara": "INDO INTERTEX 2026",
       "tanggal_mulai": "2026-04-15",
       "tanggal_selesai": "2026-04-18",
@@ -1337,7 +1235,7 @@
       "catatan": ""
     },
     {
-      "id": "E0074",
+      "id": "E0068",
       "nama_acara": "Lab Indonesia 2026",
       "tanggal_mulai": "2026-04-15",
       "tanggal_selesai": "2026-04-17",
@@ -1354,7 +1252,7 @@
       "catatan": "Kategori ICE: Trade Shows; ICE BSD di luar DKI (Banten)"
     },
     {
-      "id": "E0075",
+      "id": "E0069",
       "nama_acara": "Diving Resort Travel Expo 2026",
       "tanggal_mulai": "2026-04-17",
       "tanggal_selesai": "2026-04-19",
@@ -1371,7 +1269,7 @@
       "catatan": "Kategori ICE: Trade Shows; ICE BSD di luar DKI (Banten)"
     },
     {
-      "id": "E0076",
+      "id": "E0070",
       "nama_acara": "Festival Of Joy",
       "tanggal_mulai": "2026-04-17",
       "tanggal_selesai": "2026-04-17",
@@ -1388,7 +1286,7 @@
       "catatan": ""
     },
     {
-      "id": "E0077",
+      "id": "E0071",
       "nama_acara": "Mega Career Expo 2026",
       "tanggal_mulai": "2026-04-17",
       "tanggal_selesai": "2026-04-18",
@@ -1405,7 +1303,7 @@
       "catatan": "Sumber berita Kompas"
     },
     {
-      "id": "E0078",
+      "id": "E0072",
       "nama_acara": "Wedding Market Fair",
       "tanggal_mulai": "2026-04-17",
       "tanggal_selesai": "2026-04-19",
@@ -1422,7 +1320,7 @@
       "catatan": "Kalender resmi Balai Kartini (balaikartini.co.id/event)"
     },
     {
-      "id": "E0079",
+      "id": "E0073",
       "nama_acara": "2026 CNBLUE LIVE WORLD TOUR '3LOGY' IN JAKARTA",
       "tanggal_mulai": "2026-04-18",
       "tanggal_selesai": "2026-04-18",
@@ -1439,7 +1337,7 @@
       "catatan": "Kategori ICE: Trade Shows; ICE BSD di luar DKI (Banten)"
     },
     {
-      "id": "E0080",
+      "id": "E0074",
       "nama_acara": "2026 MONSTA X World Tour [THE X : NEXUS] in Jakarta",
       "tanggal_mulai": "2026-04-18",
       "tanggal_selesai": "2026-04-18",
@@ -1453,10 +1351,10 @@
       "sumber_data": "Riset kalender venue/penyelenggara/berita",
       "url_sumber": "https://tirto.id/rundown-konser-monsta-x-jakarta-2026-dan-info-penukaran-tiket-hufP",
       "status_verifikasi": "terkonfirmasi",
-      "catatan": "Sumber berita"
+      "catatan": "Sumber berita Juga tercatat di Data izin event Disparekraf DKI 2026."
     },
     {
-      "id": "E0081",
+      "id": "E0075",
       "nama_acara": "ASIAN KUNG-FU GENERATION 30TH ANNIVERSARY SPECIAL CONCERT \"LIVE IN JAKARTA\"",
       "tanggal_mulai": "2026-04-18",
       "tanggal_selesai": "2026-04-18",
@@ -1473,7 +1371,7 @@
       "catatan": "Jenis di sumber: PERTUNJUKAN MUSIK / DJ."
     },
     {
-      "id": "E0082",
+      "id": "E0076",
       "nama_acara": "Deep Purple & Slank - All Greatest Hits Live in Jakarta",
       "tanggal_mulai": "2026-04-18",
       "tanggal_selesai": "2026-04-18",
@@ -1490,7 +1388,7 @@
       "catatan": "Beberapa media/blog konsisten"
     },
     {
-      "id": "E0083",
+      "id": "E0077",
       "nama_acara": "RAN X JAKARTA MOVIN X SERAYA LIVE",
       "tanggal_mulai": "2026-04-18",
       "tanggal_selesai": "2026-04-18",
@@ -1507,24 +1405,7 @@
       "catatan": "Jenis di sumber: PERTUNJUKAN MUSIK."
     },
     {
-      "id": "E0084",
-      "nama_acara": "THE MONSTA X WORLD TOUR",
-      "tanggal_mulai": "2026-04-18",
-      "tanggal_selesai": "2026-04-18",
-      "bulan_mulai": 4,
-      "venue": "The Kasablanka Hall",
-      "lokasi_detail": "THE KASABLANKA HALL, MALL KOTA KASABLANKA LANTAI 3",
-      "kab_kota": "Jakarta Selatan",
-      "di_dki": "ya",
-      "jenis_acara": "Lainnya",
-      "penyelenggara": "PT. LANTUNAN INSPIRASI TERINDAH",
-      "sumber_data": "Data izin event Disparekraf DKI 2026",
-      "url_sumber": "",
-      "status_verifikasi": "terkonfirmasi",
-      "catatan": "Jenis di sumber: FAMILY SHOW."
-    },
-    {
-      "id": "E0085",
+      "id": "E0078",
       "nama_acara": "ARSENAL WORLDWIDE JAKARTA",
       "tanggal_mulai": "2026-04-19",
       "tanggal_selesai": "2026-04-19",
@@ -1541,7 +1422,7 @@
       "catatan": "Jenis di sumber: NONTON BARENG."
     },
     {
-      "id": "E0086",
+      "id": "E0079",
       "nama_acara": "SYMPHONESIA VIII - KARYA EMAS: MUSIK 90",
       "tanggal_mulai": "2026-04-21",
       "tanggal_selesai": "2026-04-21",
@@ -1558,7 +1439,7 @@
       "catatan": "Jenis di sumber: PERTUNJUKAN MUSIK."
     },
     {
-      "id": "E0087",
+      "id": "E0080",
       "nama_acara": "TransTech ASEAN 2026",
       "tanggal_mulai": "2026-04-21",
       "tanggal_selesai": "2026-04-23",
@@ -1575,7 +1456,7 @@
       "catatan": "Kategori ICE: Trade Shows; ICE BSD di luar DKI (Banten)"
     },
     {
-      "id": "E0088",
+      "id": "E0081",
       "nama_acara": "Inalight 2026",
       "tanggal_mulai": "2026-04-22",
       "tanggal_selesai": "2026-04-24",
@@ -1592,7 +1473,7 @@
       "catatan": ""
     },
     {
-      "id": "E0089",
+      "id": "E0082",
       "nama_acara": "Smart Energy Indonesia, Battery & Energy Storage Indonesia, Cable & Wire Indonesia, INATRONICS 2026",
       "tanggal_mulai": "2026-04-22",
       "tanggal_selesai": "2026-04-24",
@@ -1609,7 +1490,7 @@
       "catatan": ""
     },
     {
-      "id": "E0090",
+      "id": "E0083",
       "nama_acara": "Solartech Indonesia, Battery & Energy Storage Indonesia 2026",
       "tanggal_mulai": "2026-04-22",
       "tanggal_selesai": "2026-04-24",
@@ -1626,7 +1507,7 @@
       "catatan": ""
     },
     {
-      "id": "E0091",
+      "id": "E0084",
       "nama_acara": "ARCH: ID (Indonesia Architecture Exhibition & Conference) 2026",
       "tanggal_mulai": "2026-04-23",
       "tanggal_selesai": "2026-04-26",
@@ -1643,7 +1524,7 @@
       "catatan": "Kategori ICE: Trade Shows; ICE BSD di luar DKI (Banten)"
     },
     {
-      "id": "E0092",
+      "id": "E0085",
       "nama_acara": "Deep and Extreme Indonesia (DXI) 2026",
       "tanggal_mulai": "2026-04-23",
       "tanggal_selesai": "2026-04-26",
@@ -1660,24 +1541,7 @@
       "catatan": "Sumber berita pembukaan"
     },
     {
-      "id": "E0093",
-      "nama_acara": "GRAND FINAL PEMILIHAN PUTERI INDONESIA KE 29 TH 2026",
-      "tanggal_mulai": "2026-04-24",
-      "tanggal_selesai": "2026-04-24",
-      "bulan_mulai": 4,
-      "venue": "JICC Senayan",
-      "lokasi_detail": "JAKARTA INTERNATIONAL CONVENTION CENTER",
-      "kab_kota": "Jakarta Pusat",
-      "di_dki": "ya",
-      "jenis_acara": "Lainnya",
-      "penyelenggara": "YAYASAN PUTERI INDONESIA",
-      "sumber_data": "Data izin event Disparekraf DKI 2026",
-      "url_sumber": "",
-      "status_verifikasi": "terkonfirmasi",
-      "catatan": "Jenis di sumber: GRAND FINAL PEMILIHAN PUTERI INDONESIA."
-    },
-    {
-      "id": "E0094",
+      "id": "E0086",
       "nama_acara": "Grand Final Puteri Indonesia 2026",
       "tanggal_mulai": "2026-04-24",
       "tanggal_selesai": "2026-04-24",
@@ -1691,10 +1555,10 @@
       "sumber_data": "Riset kalender venue/penyelenggara/berita",
       "url_sumber": "https://nagantour.com/event-jakarta-april-2026/",
       "status_verifikasi": "perlu review",
-      "catatan": "Hanya dari blog agregator"
+      "catatan": "Hanya dari blog agregator Juga tercatat di Data izin event Disparekraf DKI 2026."
     },
     {
-      "id": "E0095",
+      "id": "E0087",
       "nama_acara": "Marine Action Expo",
       "tanggal_mulai": "2026-04-24",
       "tanggal_selesai": "2026-04-26",
@@ -1711,7 +1575,7 @@
       "catatan": "Kalender resmi Balai Kartini (balaikartini.co.id/event)"
     },
     {
-      "id": "E0096",
+      "id": "E0088",
       "nama_acara": "2026 KIM SEONHO FANMEETING",
       "tanggal_mulai": "2026-04-25",
       "tanggal_selesai": "2026-04-25",
@@ -1728,7 +1592,7 @@
       "catatan": "Kategori ICE: Special Events; ICE BSD di luar DKI (Banten)"
     },
     {
-      "id": "E0097",
+      "id": "E0089",
       "nama_acara": "52 TAHUN ERROS DJAROT BERKARYA BADAI PASTI BERLALU LIVE IN CONCERT",
       "tanggal_mulai": "2026-04-25",
       "tanggal_selesai": "2026-04-25",
@@ -1745,7 +1609,7 @@
       "catatan": "Jenis di sumber: PERTUNJUKAN MUSIK."
     },
     {
-      "id": "E0098",
+      "id": "E0090",
       "nama_acara": "JAZZ GOES TO CAMPUS (THE CITY SERIES)",
       "tanggal_mulai": "2026-04-25",
       "tanggal_selesai": "2026-04-25",
@@ -1762,7 +1626,7 @@
       "catatan": "Jenis di sumber: PERTUNJUKAN MUSIK."
     },
     {
-      "id": "E0099",
+      "id": "E0091",
       "nama_acara": "SKYSPIRIT VOL. 4",
       "tanggal_mulai": "2026-04-25",
       "tanggal_selesai": "2026-04-25",
@@ -1779,7 +1643,7 @@
       "catatan": "Jenis di sumber: PERTUNJUKAN MUSIK."
     },
     {
-      "id": "E0100",
+      "id": "E0092",
       "nama_acara": "THE LEGENDS 11: RENAISSANCE – REPLAY",
       "tanggal_mulai": "2026-04-25",
       "tanggal_selesai": "2026-04-26",
@@ -1796,7 +1660,7 @@
       "catatan": "Jenis di sumber: PERTUNJUKAN MUSIK."
     },
     {
-      "id": "E0101",
+      "id": "E0093",
       "nama_acara": "TREASURE - 2025-26 TREASURE TOUR: PULSE ON",
       "tanggal_mulai": "2026-04-25",
       "tanggal_selesai": "2026-04-26",
@@ -1813,7 +1677,7 @@
       "catatan": "Sumber berita Medcom"
     },
     {
-      "id": "E0102",
+      "id": "E0094",
       "nama_acara": "TREASURE TOUR (PULSE ON) IN JAKARTA 2025 - 2026",
       "tanggal_mulai": "2026-04-25",
       "tanggal_selesai": "2026-04-26",
@@ -1830,7 +1694,7 @@
       "catatan": "Jenis di sumber: PERTUNJUKAN MUSIK."
     },
     {
-      "id": "E0103",
+      "id": "E0095",
       "nama_acara": "XLSmart Day - 1st Anniversary",
       "tanggal_mulai": "2026-04-25",
       "tanggal_selesai": "2026-04-25",
@@ -1847,7 +1711,7 @@
       "catatan": "Kategori ICE: Trade Shows; ICE BSD di luar DKI (Banten)"
     },
     {
-      "id": "E0104",
+      "id": "E0096",
       "nama_acara": "DISNEY ON ICE 2026",
       "tanggal_mulai": "2026-04-26",
       "tanggal_selesai": "2026-05-03",
@@ -1864,7 +1728,7 @@
       "catatan": "Jenis di sumber: PERTUNJUKAN MUSIK / DJ."
     },
     {
-      "id": "E0105",
+      "id": "E0097",
       "nama_acara": "VELO SPORT DAY",
       "tanggal_mulai": "2026-04-26",
       "tanggal_selesai": "2026-04-26",
@@ -1878,10 +1742,10 @@
       "sumber_data": "Data izin event Disparekraf DKI 2026",
       "url_sumber": "",
       "status_verifikasi": "terkonfirmasi",
-      "catatan": "Jenis di sumber: PERTUNJUKAN MUSIK, BAZAR."
+      "catatan": "Jenis di sumber: PERTUNJUKAN MUSIK, BAZAR. Juga tercatat di Data izin event Disparekraf DKI 2026."
     },
     {
-      "id": "E0106",
+      "id": "E0098",
       "nama_acara": "Big Bad Wolf 2026",
       "tanggal_mulai": "2026-04-29",
       "tanggal_selesai": "2026-05-03",
@@ -1898,7 +1762,7 @@
       "catatan": "Kategori ICE: Trade Shows; ICE BSD di luar DKI (Banten)"
     },
     {
-      "id": "E0107",
+      "id": "E0099",
       "nama_acara": "Future Essentials",
       "tanggal_mulai": "2026-04-29",
       "tanggal_selesai": "2026-05-03",
@@ -1915,7 +1779,7 @@
       "catatan": "Kategori ICE: Trade Shows; ICE BSD di luar DKI (Banten)"
     },
     {
-      "id": "E0108",
+      "id": "E0100",
       "nama_acara": "HARLIONO GEORGE WITH JAKARTA METROPOLITAN ORCHESTRA",
       "tanggal_mulai": "2026-04-29",
       "tanggal_selesai": "2026-04-29",
@@ -1932,7 +1796,7 @@
       "catatan": "Jenis di sumber: FANS EVENT DAN RED CARPET PREMIER FILM."
     },
     {
-      "id": "E0109",
+      "id": "E0101",
       "nama_acara": "IMOBY",
       "tanggal_mulai": "2026-05-01",
       "tanggal_selesai": "2026-05-03",
@@ -1949,7 +1813,7 @@
       "catatan": "Kalender resmi Balai Kartini (balaikartini.co.id/event)"
     },
     {
-      "id": "E0110",
+      "id": "E0102",
       "nama_acara": "JAKARTA MEGA WEDDING FESTIVAL dan Whosale International Kids Baby Expo (Wikibex)",
       "tanggal_mulai": "2026-05-01",
       "tanggal_selesai": "2026-05-03",
@@ -1966,7 +1830,7 @@
       "catatan": ""
     },
     {
-      "id": "E0111",
+      "id": "E0103",
       "nama_acara": "PETFEST 2026: PETROPOLIS",
       "tanggal_mulai": "2026-05-01",
       "tanggal_selesai": "2026-05-03",
@@ -1983,7 +1847,7 @@
       "catatan": "Kategori ICE: Trade Shows; ICE BSD di luar DKI (Banten)"
     },
     {
-      "id": "E0112",
+      "id": "E0104",
       "nama_acara": "Hammersonic Festival",
       "tanggal_mulai": "2026-05-02",
       "tanggal_selesai": "2026-05-03",
@@ -2000,7 +1864,7 @@
       "catatan": "Kalender resmi NICE (filter tahun 2026); NICE PIK2 di Kab. Tangerang, Banten — di luar DKI"
     },
     {
-      "id": "E0113",
+      "id": "E0105",
       "nama_acara": "Remember November Vol. 4 - Remember Me 2026",
       "tanggal_mulai": "2026-05-02",
       "tanggal_selesai": "2026-05-03",
@@ -2014,10 +1878,10 @@
       "sumber_data": "Riset kalender venue/penyelenggara/berita",
       "url_sumber": "https://www.detik.com/pop/music/d-8453517/siapin-waktu-kamu-buat-sing-along-di-remember-november",
       "status_verifikasi": "terkonfirmasi",
-      "catatan": "Sumber berita"
+      "catatan": "Sumber berita Juga tercatat di Data izin event Disparekraf DKI 2026."
     },
     {
-      "id": "E0114",
+      "id": "E0106",
       "nama_acara": "Remember November Vol.4",
       "tanggal_mulai": "2026-05-02",
       "tanggal_selesai": "2026-05-03",
@@ -2034,7 +1898,7 @@
       "catatan": ""
     },
     {
-      "id": "E0115",
+      "id": "E0107",
       "nama_acara": "Inabuyer B2B2G Expo 2026",
       "tanggal_mulai": "2026-05-05",
       "tanggal_selesai": "2026-05-07",
@@ -2051,7 +1915,7 @@
       "catatan": "Situs resmi penyelenggara"
     },
     {
-      "id": "E0116",
+      "id": "E0108",
       "nama_acara": "Global Printing and Packaging Expo 2026",
       "tanggal_mulai": "2026-05-06",
       "tanggal_selesai": "2026-05-09",
@@ -2068,7 +1932,7 @@
       "catatan": "Hanya di kalender MK Exhibition (kontraktor stand), tidak tercantum di kalender resmi venue; NICE PIK2 di luar DKI"
     },
     {
-      "id": "E0117",
+      "id": "E0109",
       "nama_acara": "Indonesian Cosmetic Ingredients",
       "tanggal_mulai": "2026-05-06",
       "tanggal_selesai": "2026-05-08",
@@ -2085,7 +1949,7 @@
       "catatan": ""
     },
     {
-      "id": "E0118",
+      "id": "E0110",
       "nama_acara": "Palmex Indonesia 2026",
       "tanggal_mulai": "2026-05-06",
       "tanggal_selesai": "2026-05-07",
@@ -2102,7 +1966,7 @@
       "catatan": ""
     },
     {
-      "id": "E0119",
+      "id": "E0111",
       "nama_acara": "More Food Expo, Café & Brasseries Expo, Franchise & License Expo Indonesia",
       "tanggal_mulai": "2026-05-07",
       "tanggal_selesai": "2026-05-10",
@@ -2119,7 +1983,7 @@
       "catatan": ""
     },
     {
-      "id": "E0120",
+      "id": "E0112",
       "nama_acara": "2026 WOODZ WORLD TOUR \"ARCHIVE.1\" IN JAKARTA",
       "tanggal_mulai": "2026-05-09",
       "tanggal_selesai": "2026-05-09",
@@ -2136,7 +2000,7 @@
       "catatan": "Jenis di sumber: PERTUNJUKAN MUSIK / DJ."
     },
     {
-      "id": "E0121",
+      "id": "E0113",
       "nama_acara": "Eric Chou - Odyssey Stars",
       "tanggal_mulai": "2026-05-09",
       "tanggal_selesai": "2026-05-09",
@@ -2153,7 +2017,7 @@
       "catatan": "Agregator"
     },
     {
-      "id": "E0122",
+      "id": "E0114",
       "nama_acara": "The Elite Showcase",
       "tanggal_mulai": "2026-05-09",
       "tanggal_selesai": "2026-05-10",
@@ -2170,7 +2034,7 @@
       "catatan": "Kategori ICE: Trade Shows; ICE BSD di luar DKI (Banten)"
     },
     {
-      "id": "E0123",
+      "id": "E0115",
       "nama_acara": "PERSEMBAHAN 17 TAHUN TEATER ABNON",
       "tanggal_mulai": "2026-05-10",
       "tanggal_selesai": "2026-05-10",
@@ -2187,7 +2051,7 @@
       "catatan": "Jenis di sumber: LIVE MUSIC AND THEATRIKAL."
     },
     {
-      "id": "E0124",
+      "id": "E0116",
       "nama_acara": "Indonesia Coal and Energy Expo (ICEE) 2026",
       "tanggal_mulai": "2026-05-11",
       "tanggal_selesai": "2026-05-13",
@@ -2204,7 +2068,7 @@
       "catatan": ""
     },
     {
-      "id": "E0125",
+      "id": "E0117",
       "nama_acara": "Yiwu Fair (Indonesia) 2026",
       "tanggal_mulai": "2026-05-12",
       "tanggal_selesai": "2026-05-14",
@@ -2221,7 +2085,7 @@
       "catatan": ""
     },
     {
-      "id": "E0126",
+      "id": "E0118",
       "nama_acara": "20 TAHUN SUARA SAMMY SIMORANGKIR (20SSS)",
       "tanggal_mulai": "2026-05-13",
       "tanggal_selesai": "2026-05-13",
@@ -2238,7 +2102,7 @@
       "catatan": "Jenis di sumber: PERTUNJUKAN MUSIK."
     },
     {
-      "id": "E0127",
+      "id": "E0119",
       "nama_acara": "Comic Frontier 22",
       "tanggal_mulai": "2026-05-16",
       "tanggal_selesai": "2026-05-17",
@@ -2255,7 +2119,7 @@
       "catatan": "Kategori ICE: Trade Shows; ICE BSD di luar DKI (Banten)"
     },
     {
-      "id": "E0128",
+      "id": "E0120",
       "nama_acara": "ONE OK ROCK - DETOX Asia Tour 2026",
       "tanggal_mulai": "2026-05-16",
       "tanggal_selesai": "2026-05-16",
@@ -2272,7 +2136,7 @@
       "catatan": "Venue tidak konsisten antar sumber (BCIS vs Indonesia Arena) - perlu dicek"
     },
     {
-      "id": "E0129",
+      "id": "E0121",
       "nama_acara": "ONE OK ROCK JAKARTA",
       "tanggal_mulai": "2026-05-16",
       "tanggal_selesai": "2026-05-16",
@@ -2289,7 +2153,7 @@
       "catatan": "Jenis di sumber: PERTUNJUKAN MUSIK."
     },
     {
-      "id": "E0130",
+      "id": "E0122",
       "nama_acara": "YOGYAKARTA ROYAL ORCHESTRA GREGAH NUSA 2026",
       "tanggal_mulai": "2026-05-16",
       "tanggal_selesai": "2026-05-16",
@@ -2306,7 +2170,7 @@
       "catatan": "Jenis di sumber: PERTUNJUKAN MUSIK ORCHESTRA."
     },
     {
-      "id": "E0131",
+      "id": "E0123",
       "nama_acara": "50th IPA Convex 2026",
       "tanggal_mulai": "2026-05-20",
       "tanggal_selesai": "2026-05-22",
@@ -2323,7 +2187,7 @@
       "catatan": "Kategori ICE: Trade Shows; ICE BSD di luar DKI (Banten)"
     },
     {
-      "id": "E0132",
+      "id": "E0124",
       "nama_acara": "BYD TECH CULTURE FEST",
       "tanggal_mulai": "2026-05-20",
       "tanggal_selesai": "2026-05-24",
@@ -2340,7 +2204,7 @@
       "catatan": "Jenis di sumber: PAMERAN, TALKSHOW, DAN PERTUNJUKAN MUSIK."
     },
     {
-      "id": "E0133",
+      "id": "E0125",
       "nama_acara": "Busworld Southeast Asia 2026",
       "tanggal_mulai": "2026-05-20",
       "tanggal_selesai": "2026-05-22",
@@ -2357,7 +2221,7 @@
       "catatan": ""
     },
     {
-      "id": "E0134",
+      "id": "E0126",
       "nama_acara": "EV & Charging Indonesia 2026, INABIKE 2026",
       "tanggal_mulai": "2026-05-20",
       "tanggal_selesai": "2026-05-22",
@@ -2374,7 +2238,7 @@
       "catatan": ""
     },
     {
-      "id": "E0135",
+      "id": "E0127",
       "nama_acara": "FESTIVAAAL MARAPTHON THE LAST TALE",
       "tanggal_mulai": "2026-05-20",
       "tanggal_selesai": "2026-05-20",
@@ -2391,7 +2255,7 @@
       "catatan": "Jenis di sumber: LIVE STREAMING."
     },
     {
-      "id": "E0136",
+      "id": "E0128",
       "nama_acara": "INAPA 2026",
       "tanggal_mulai": "2026-05-20",
       "tanggal_selesai": "2026-05-22",
@@ -2408,7 +2272,7 @@
       "catatan": ""
     },
     {
-      "id": "E0137",
+      "id": "E0129",
       "nama_acara": "INAPA 2026  , Fastener & Hardware Indonesia 2026",
       "tanggal_mulai": "2026-05-20",
       "tanggal_selesai": "2026-05-22",
@@ -2425,7 +2289,7 @@
       "catatan": ""
     },
     {
-      "id": "E0138",
+      "id": "E0130",
       "nama_acara": "Transport & Logistics Indonesia 2026, Forklift Indonesia 2026, Tyre & Rubber Indonesia 2026, Lube Indonesia 2026, Truck & Trailer Indonesia 2026, CONMINE 2026",
       "tanggal_mulai": "2026-05-20",
       "tanggal_selesai": "2026-05-22",
@@ -2442,7 +2306,7 @@
       "catatan": ""
     },
     {
-      "id": "E0139",
+      "id": "E0131",
       "nama_acara": "JKT48 Personal Meet and Greet Festival",
       "tanggal_mulai": "2026-05-23",
       "tanggal_selesai": "2026-05-23",
@@ -2459,7 +2323,7 @@
       "catatan": "Kategori ICE: Special Events; ICE BSD di luar DKI (Banten)"
     },
     {
-      "id": "E0140",
+      "id": "E0132",
       "nama_acara": "Laufey A Matter of Time Tour",
       "tanggal_mulai": "2026-05-23",
       "tanggal_selesai": "2026-05-23",
@@ -2476,7 +2340,7 @@
       "catatan": "Kalender resmi NICE (filter tahun 2026); NICE PIK2 di Kab. Tangerang, Banten — di luar DKI"
     },
     {
-      "id": "E0141",
+      "id": "E0133",
       "nama_acara": "21st Indonesia Travel Fair (ITF) 2026 & 7th IWHTE",
       "tanggal_mulai": "2026-05-28",
       "tanggal_selesai": "2026-05-31",
@@ -2493,7 +2357,7 @@
       "catatan": "Situs resmi menyebut 28-31 Mei dan juga 29-31 Mei di teks lain; dipakai 28-31"
     },
     {
-      "id": "E0142",
+      "id": "E0134",
       "nama_acara": "FFOREVER 1ST WORLD TOUR 2026",
       "tanggal_mulai": "2026-05-28",
       "tanggal_selesai": "2026-05-30",
@@ -2510,7 +2374,7 @@
       "catatan": "Jenis di sumber: PERTUNJUKAN MUSIK."
     },
     {
-      "id": "E0143",
+      "id": "E0135",
       "nama_acara": "Indonesia Women Fest 2026",
       "tanggal_mulai": "2026-05-29",
       "tanggal_selesai": "2026-05-31",
@@ -2527,7 +2391,7 @@
       "catatan": "Kategori ICE: Trade Shows; ICE BSD di luar DKI (Banten)"
     },
     {
-      "id": "E0144",
+      "id": "E0136",
       "nama_acara": "Java Jazz Festival 2026",
       "tanggal_mulai": "2026-05-29",
       "tanggal_selesai": "2026-05-31",
@@ -2544,7 +2408,7 @@
       "catatan": "Kalender resmi NICE (filter tahun 2026); NICE PIK2 di Kab. Tangerang, Banten — di luar DKI"
     },
     {
-      "id": "E0145",
+      "id": "E0137",
       "nama_acara": "INDONESIA WORLD DANCE FESTIVAL 2026",
       "tanggal_mulai": "2026-05-30",
       "tanggal_selesai": "2026-05-30",
@@ -2561,7 +2425,7 @@
       "catatan": "Jenis di sumber: FESTIVAL."
     },
     {
-      "id": "E0146",
+      "id": "E0138",
       "nama_acara": "Polytron Indonesia Open 2026 (BWF Super 1000)",
       "tanggal_mulai": "2026-06-02",
       "tanggal_selesai": "2026-06-07",
@@ -2578,7 +2442,7 @@
       "catatan": "Sumber sponsor utama"
     },
     {
-      "id": "E0147",
+      "id": "E0139",
       "nama_acara": "INTERNATIONAL INDUSTRIAL WEEK INDONESIA 2026",
       "tanggal_mulai": "2026-06-03",
       "tanggal_selesai": "2026-06-06",
@@ -2595,7 +2459,7 @@
       "catatan": ""
     },
     {
-      "id": "E0148",
+      "id": "E0140",
       "nama_acara": "PINDEX 2026",
       "tanggal_mulai": "2026-06-03",
       "tanggal_selesai": "2026-06-05",
@@ -2612,7 +2476,7 @@
       "catatan": "Kategori ICE: Trade Shows; ICE BSD di luar DKI (Banten)"
     },
     {
-      "id": "E0149",
+      "id": "E0141",
       "nama_acara": "POWER & NEW ENERGY EXPO 2026",
       "tanggal_mulai": "2026-06-03",
       "tanggal_selesai": "2026-06-06",
@@ -2629,7 +2493,7 @@
       "catatan": ""
     },
     {
-      "id": "E0150",
+      "id": "E0142",
       "nama_acara": "IDMC 2026",
       "tanggal_mulai": "2026-06-04",
       "tanggal_selesai": "2026-06-05",
@@ -2646,7 +2510,7 @@
       "catatan": "Kategori ICE: Trade Shows; ICE BSD di luar DKI (Banten)"
     },
     {
-      "id": "E0151",
+      "id": "E0143",
       "nama_acara": "IndoFest 2026 (Indonesia Outdoor Festival)",
       "tanggal_mulai": "2026-06-04",
       "tanggal_selesai": "2026-06-07",
@@ -2663,7 +2527,7 @@
       "catatan": "Sumber berita"
     },
     {
-      "id": "E0152",
+      "id": "E0144",
       "nama_acara": "KERAMIKA 2026",
       "tanggal_mulai": "2026-06-04",
       "tanggal_selesai": "2026-06-07",
@@ -2680,7 +2544,7 @@
       "catatan": "Hanya di kalender MK Exhibition (kontraktor stand), tidak tercantum di kalender resmi venue; NICE PIK2 di luar DKI"
     },
     {
-      "id": "E0153",
+      "id": "E0145",
       "nama_acara": "MEGABUILD Indonesia",
       "tanggal_mulai": "2026-06-04",
       "tanggal_selesai": "2026-06-07",
@@ -2697,7 +2561,7 @@
       "catatan": "Kalender resmi NICE (filter tahun 2026); NICE PIK2 di Kab. Tangerang, Banten — di luar DKI"
     },
     {
-      "id": "E0154",
+      "id": "E0146",
       "nama_acara": "Munas Iespa",
       "tanggal_mulai": "2026-06-05",
       "tanggal_selesai": "2026-06-06",
@@ -2714,7 +2578,7 @@
       "catatan": "Kalender resmi Balai Kartini (balaikartini.co.id/event)"
     },
     {
-      "id": "E0155",
+      "id": "E0147",
       "nama_acara": "1DK - 10 Tahun Reality Club",
       "tanggal_mulai": "2026-06-06",
       "tanggal_selesai": "2026-06-06",
@@ -2731,7 +2595,7 @@
       "catatan": "Sumber berita"
     },
     {
-      "id": "E0156",
+      "id": "E0148",
       "nama_acara": "EXO Planet #6 EXHORIZON in Jakarta",
       "tanggal_mulai": "2026-06-06",
       "tanggal_selesai": "2026-06-07",
@@ -2745,10 +2609,10 @@
       "sumber_data": "Riset kalender venue/penyelenggara/berita",
       "url_sumber": "https://www.jadwal.events/artikel/jadwal-event-jakarta-2026-konser-pameran-agenda-seru",
       "status_verifikasi": "perlu review",
-      "catatan": "Agregator"
+      "catatan": "Agregator Juga tercatat di Data izin event Disparekraf DKI 2026."
     },
     {
-      "id": "E0157",
+      "id": "E0149",
       "nama_acara": "Konser Raisa - Love & Let Go",
       "tanggal_mulai": "2026-06-06",
       "tanggal_selesai": "2026-06-07",
@@ -2765,7 +2629,7 @@
       "catatan": "Sumber berita CNN Indonesia"
     },
     {
-      "id": "E0158",
+      "id": "E0150",
       "nama_acara": "PUBG Mobile Global Grand Finals",
       "tanggal_mulai": "2026-06-06",
       "tanggal_selesai": "2026-06-07",
@@ -2782,7 +2646,7 @@
       "catatan": "Berita hanya menyebut berlangsung 6-7 Jun; rentang penuh belum diverifikasi"
     },
     {
-      "id": "E0159",
+      "id": "E0151",
       "nama_acara": "RAISA LIVE IN CONCERT “LOVE & LET GO”",
       "tanggal_mulai": "2026-06-07",
       "tanggal_selesai": "2026-06-07",
@@ -2799,7 +2663,7 @@
       "catatan": "Jenis di sumber: PERTUNJUKAN MUSIK."
     },
     {
-      "id": "E0160",
+      "id": "E0152",
       "nama_acara": "BTN Jakarta International Marathon",
       "tanggal_mulai": "2026-06-10",
       "tanggal_selesai": "2026-06-13",
@@ -2816,7 +2680,7 @@
       "catatan": "Kalender resmi Balai Kartini (balaikartini.co.id/event); di Balai Kartini kemungkinan race expo/pengambilan race pack"
     },
     {
-      "id": "E0161",
+      "id": "E0153",
       "nama_acara": "Jakarta Fair Kemayoran 2026",
       "tanggal_mulai": "2026-06-11",
       "tanggal_selesai": "2026-07-12",
@@ -2830,10 +2694,10 @@
       "sumber_data": "Kalender resmi JIExpo",
       "url_sumber": "https://exhibition.jiexpo.com/events/jakarta-fair-kemayoran-2026/",
       "status_verifikasi": "terkonfirmasi",
-      "catatan": ""
+      "catatan": "Juga tercatat di Data izin event Disparekraf DKI 2026."
     },
     {
-      "id": "E0162",
+      "id": "E0154",
       "nama_acara": "AMUSE 2026",
       "tanggal_mulai": "2026-06-12",
       "tanggal_selesai": "2026-06-14",
@@ -2850,7 +2714,7 @@
       "catatan": "Kategori ICE: Trade Shows; ICE BSD di luar DKI (Banten)"
     },
     {
-      "id": "E0163",
+      "id": "E0155",
       "nama_acara": "BCA presents Bridestory Fair Juni 2026",
       "tanggal_mulai": "2026-06-12",
       "tanggal_selesai": "2026-06-14",
@@ -2867,7 +2731,7 @@
       "catatan": "Sumber berita Kompas"
     },
     {
-      "id": "E0164",
+      "id": "E0156",
       "nama_acara": "Hundred Hoo Haa Cup 2026",
       "tanggal_mulai": "2026-06-12",
       "tanggal_selesai": "2026-06-14",
@@ -2884,7 +2748,7 @@
       "catatan": "Kategori ICE: Special Events; ICE BSD di luar DKI (Banten)"
     },
     {
-      "id": "E0165",
+      "id": "E0157",
       "nama_acara": "Nusatic Nusapet 2026",
       "tanggal_mulai": "2026-06-12",
       "tanggal_selesai": "2026-06-14",
@@ -2901,7 +2765,7 @@
       "catatan": "Kategori ICE: Trade Shows; ICE BSD di luar DKI (Banten)"
     },
     {
-      "id": "E0166",
+      "id": "E0158",
       "nama_acara": "DISNEY'S THE LION KING",
       "tanggal_mulai": "2026-06-13",
       "tanggal_selesai": "2026-06-14",
@@ -2918,7 +2782,7 @@
       "catatan": "Jenis di sumber: PERTUNJUKAN MUSIK."
     },
     {
-      "id": "E0167",
+      "id": "E0159",
       "nama_acara": "Konser Yovie & Nuno",
       "tanggal_mulai": "2026-06-13",
       "tanggal_selesai": "2026-06-13",
@@ -2935,7 +2799,7 @@
       "catatan": "Agregator"
     },
     {
-      "id": "E0168",
+      "id": "E0160",
       "nama_acara": "PERSES FANCON : THE NEXT PIECE IN JAKARTA",
       "tanggal_mulai": "2026-06-13",
       "tanggal_selesai": "2026-06-13",
@@ -2952,7 +2816,7 @@
       "catatan": "Jenis di sumber: JUMPA FANS DAN PHOTO EVENT."
     },
     {
-      "id": "E0169",
+      "id": "E0161",
       "nama_acara": "WEEK ME UP! Fest Vol.2",
       "tanggal_mulai": "2026-06-13",
       "tanggal_selesai": "2026-06-13",
@@ -2969,7 +2833,7 @@
       "catatan": "Kategori ICE: Special Events; ICE BSD di luar DKI (Banten)"
     },
     {
-      "id": "E0170",
+      "id": "E0162",
       "nama_acara": "INDOLIVESTOCK 2026",
       "tanggal_mulai": "2026-06-16",
       "tanggal_selesai": "2026-06-18",
@@ -2986,7 +2850,7 @@
       "catatan": "Kalender resmi NICE (filter tahun 2026); NICE PIK2 di Kab. Tangerang, Banten — di luar DKI"
     },
     {
-      "id": "E0171",
+      "id": "E0163",
       "nama_acara": "GMS Super Conference",
       "tanggal_mulai": "2026-06-17",
       "tanggal_selesai": "2026-06-18",
@@ -3003,7 +2867,7 @@
       "catatan": "Kalender resmi NICE (filter tahun 2026); NICE PIK2 di Kab. Tangerang, Banten — di luar DKI"
     },
     {
-      "id": "E0172",
+      "id": "E0164",
       "nama_acara": "IIES 2026",
       "tanggal_mulai": "2026-06-18",
       "tanggal_selesai": "2026-06-20",
@@ -3020,7 +2884,7 @@
       "catatan": "Kategori ICE: Trade Shows; ICE BSD di luar DKI (Banten)"
     },
     {
-      "id": "E0173",
+      "id": "E0165",
       "nama_acara": "ALLOBANK FESTIVAL 2026",
       "tanggal_mulai": "2026-06-20",
       "tanggal_selesai": "2026-06-20",
@@ -3037,7 +2901,7 @@
       "catatan": "Jenis di sumber: PERTUNJUKAN MUSIK."
     },
     {
-      "id": "E0174",
+      "id": "E0166",
       "nama_acara": "Allo Bank Festival 2026",
       "tanggal_mulai": "2026-06-20",
       "tanggal_selesai": "2026-06-20",
@@ -3054,7 +2918,7 @@
       "catatan": "Agregator"
     },
     {
-      "id": "E0175",
+      "id": "E0167",
       "nama_acara": "ESQ 2026",
       "tanggal_mulai": "2026-06-20",
       "tanggal_selesai": "2026-06-20",
@@ -3071,7 +2935,7 @@
       "catatan": "Kategori ICE: Special Events; ICE BSD di luar DKI (Banten)"
     },
     {
-      "id": "E0176",
+      "id": "E0168",
       "nama_acara": "JAEHYUN FAN-CON TOUR <MONO> IN JAKARTA",
       "tanggal_mulai": "2026-06-20",
       "tanggal_selesai": "2026-06-20",
@@ -3088,7 +2952,7 @@
       "catatan": "Jenis di sumber: PERTUNJUKAN MUSIK."
     },
     {
-      "id": "E0177",
+      "id": "E0169",
       "nama_acara": "KONSER PERAYAAN 30 TAHUN INTERNASIONALISASI UEM",
       "tanggal_mulai": "2026-06-20",
       "tanggal_selesai": "2026-06-20",
@@ -3105,7 +2969,7 @@
       "catatan": "Jenis di sumber: PERTUNJUKAN MUSIK DAN IBADAH."
     },
     {
-      "id": "E0178",
+      "id": "E0170",
       "nama_acara": "Asia-Pacific Sustainable Business Summit 2026 – part of GSDC",
       "tanggal_mulai": "2026-06-22",
       "tanggal_selesai": "2026-06-25",
@@ -3122,7 +2986,7 @@
       "catatan": "Kategori ICE: Meetings & Conventions; ICE BSD di luar DKI (Banten)"
     },
     {
-      "id": "E0179",
+      "id": "E0171",
       "nama_acara": "Global Sustainable Development Congress",
       "tanggal_mulai": "2026-06-22",
       "tanggal_selesai": "2026-06-25",
@@ -3139,7 +3003,7 @@
       "catatan": "Kategori ICE: Meetings & Conventions; ICE BSD di luar DKI (Banten)"
     },
     {
-      "id": "E0180",
+      "id": "E0172",
       "nama_acara": "16th International Islamic Expo (IIE) 2026",
       "tanggal_mulai": "2026-06-26",
       "tanggal_selesai": "2026-06-28",
@@ -3156,7 +3020,7 @@
       "catatan": "Situs resmi penyelenggara; termasuk 16th Islamic Tourism Exchange"
     },
     {
-      "id": "E0181",
+      "id": "E0173",
       "nama_acara": "IMBEX - Mommy N' Me 2026",
       "tanggal_mulai": "2026-06-26",
       "tanggal_selesai": "2026-06-28",
@@ -3173,7 +3037,7 @@
       "catatan": "Agregator (eventfest) + MK Exhibition"
     },
     {
-      "id": "E0182",
+      "id": "E0174",
       "nama_acara": "INDONESIA INTERNASIONAL ISLAMIC EXPO 2026",
       "tanggal_mulai": "2026-06-26",
       "tanggal_selesai": "2026-06-26",
@@ -3190,7 +3054,7 @@
       "catatan": "Jenis di sumber: EXHIBITION."
     },
     {
-      "id": "E0183",
+      "id": "E0175",
       "nama_acara": "JKT JPOP Idol & Cosplay Festival",
       "tanggal_mulai": "2026-06-26",
       "tanggal_selesai": "2026-06-28",
@@ -3207,7 +3071,7 @@
       "catatan": "Agregator; kemungkinan bagian dari IMBEX/Mommy N Me, venue perlu dicek"
     },
     {
-      "id": "E0184",
+      "id": "E0176",
       "nama_acara": "Jehovah's Witnesses Regional Convention (June)",
       "tanggal_mulai": "2026-06-26",
       "tanggal_selesai": "2026-06-28",
@@ -3224,7 +3088,7 @@
       "catatan": "Kategori ICE: Trade Shows; ICE BSD di luar DKI (Banten)"
     },
     {
-      "id": "E0185",
+      "id": "E0177",
       "nama_acara": "HYROX JAKARTA 2026",
       "tanggal_mulai": "2026-06-27",
       "tanggal_selesai": "2026-06-28",
@@ -3241,7 +3105,7 @@
       "catatan": "Kalender resmi NICE (filter tahun 2026); NICE PIK2 di Kab. Tangerang, Banten — di luar DKI"
     },
     {
-      "id": "E0186",
+      "id": "E0178",
       "nama_acara": "KARD 2026 World Tour DRIFT in Jakarta",
       "tanggal_mulai": "2026-06-27",
       "tanggal_selesai": "2026-06-27",
@@ -3258,7 +3122,7 @@
       "catatan": "Agregator"
     },
     {
-      "id": "E0187",
+      "id": "E0179",
       "nama_acara": "PEMENTASAN TEATER MUSIKAL “JERSEY BOYS THE MUSICAL”",
       "tanggal_mulai": "2026-06-27",
       "tanggal_selesai": "2026-06-28",
@@ -3275,7 +3139,7 @@
       "catatan": "Jenis di sumber: TEATER MUSIKAL."
     },
     {
-      "id": "E0188",
+      "id": "E0180",
       "nama_acara": "Pokemon Masterball League 2026",
       "tanggal_mulai": "2026-06-27",
       "tanggal_selesai": "2026-06-29",
@@ -3292,7 +3156,7 @@
       "catatan": "Kalender resmi NICE (filter tahun 2026); NICE PIK2 di Kab. Tangerang, Banten — di luar DKI"
     },
     {
-      "id": "E0189",
+      "id": "E0181",
       "nama_acara": "SOMPO FESTIVAL 2026",
       "tanggal_mulai": "2026-06-27",
       "tanggal_selesai": "2026-06-27",
@@ -3309,7 +3173,7 @@
       "catatan": "Jenis di sumber: FESTIVAL DAN PERTUNJUKAN MUSIK."
     },
     {
-      "id": "E0190",
+      "id": "E0182",
       "nama_acara": "Jakarta X Beauty (JXB) 2026",
       "tanggal_mulai": "2026-07-02",
       "tanggal_selesai": "2026-07-05",
@@ -3326,7 +3190,7 @@
       "catatan": "Sumber berita pembukaan"
     },
     {
-      "id": "E0191",
+      "id": "E0183",
       "nama_acara": "Grand Wedding Expo 2026",
       "tanggal_mulai": "2026-07-03",
       "tanggal_selesai": "2026-07-05",
@@ -3343,7 +3207,7 @@
       "catatan": "Sumber berita foto Media Indonesia"
     },
     {
-      "id": "E0192",
+      "id": "E0184",
       "nama_acara": "Jakarta International Pet Show 2026",
       "tanggal_mulai": "2026-07-03",
       "tanggal_selesai": "2026-07-05",
@@ -3360,7 +3224,7 @@
       "catatan": "Kalender resmi NICE (filter tahun 2026); NICE PIK2 di Kab. Tangerang, Banten — di luar DKI"
     },
     {
-      "id": "E0193",
+      "id": "E0185",
       "nama_acara": "Jehovah's Witnesses Regional Convention (July)",
       "tanggal_mulai": "2026-07-03",
       "tanggal_selesai": "2026-07-05",
@@ -3377,7 +3241,7 @@
       "catatan": "Kategori ICE: Trade Shows; ICE BSD di luar DKI (Banten)"
     },
     {
-      "id": "E0194",
+      "id": "E0186",
       "nama_acara": "Lala Market",
       "tanggal_mulai": "2026-07-03",
       "tanggal_selesai": "2026-07-05",
@@ -3394,7 +3258,7 @@
       "catatan": "Kalender resmi Balai Kartini (balaikartini.co.id/event)"
     },
     {
-      "id": "E0195",
+      "id": "E0187",
       "nama_acara": "MALAM KEAKRABAN FINALIS ABANG NONE KEPULAUAN SERIBU TAHUN 2026",
       "tanggal_mulai": "2026-07-03",
       "tanggal_selesai": "2026-07-03",
@@ -3408,10 +3272,10 @@
       "sumber_data": "Data izin event Disparekraf DKI 2026",
       "url_sumber": "",
       "status_verifikasi": "terkonfirmasi",
-      "catatan": "Jenis di sumber: PEMILIHAN ABANG NONE WILAYAH."
+      "catatan": "Jenis di sumber: PEMILIHAN ABANG NONE WILAYAH. Juga tercatat di Data izin event Disparekraf DKI 2026."
     },
     {
-      "id": "E0196",
+      "id": "E0188",
       "nama_acara": "MUSIKAL SENJA TEDUH PELITA",
       "tanggal_mulai": "2026-07-03",
       "tanggal_selesai": "2026-07-12",
@@ -3428,7 +3292,7 @@
       "catatan": "Jenis di sumber: PERTUNJUKAN SENI TEATER."
     },
     {
-      "id": "E0197",
+      "id": "E0189",
       "nama_acara": "2026 JNJM FANMEETING TOUR [DUALITY] JAKARTA",
       "tanggal_mulai": "2026-07-04",
       "tanggal_selesai": "2026-07-05",
@@ -3445,7 +3309,7 @@
       "catatan": "Jenis di sumber: PERTUNJUKAN MUSIK."
     },
     {
-      "id": "E0198",
+      "id": "E0190",
       "nama_acara": "Bigu Fest 2026",
       "tanggal_mulai": "2026-07-04",
       "tanggal_selesai": "2026-07-05",
@@ -3462,7 +3326,7 @@
       "catatan": "Agregator"
     },
     {
-      "id": "E0199",
+      "id": "E0191",
       "nama_acara": "Flesh and Blood National Championship",
       "tanggal_mulai": "2026-07-04",
       "tanggal_selesai": "2026-07-05",
@@ -3479,7 +3343,7 @@
       "catatan": "Kategori ICE: Special Events; ICE BSD di luar DKI (Banten)"
     },
     {
-      "id": "E0200",
+      "id": "E0192",
       "nama_acara": "NCT JNJM Fanmeeting Tour DUALITY",
       "tanggal_mulai": "2026-07-04",
       "tanggal_selesai": "2026-07-04",
@@ -3496,7 +3360,7 @@
       "catatan": "Agregator"
     },
     {
-      "id": "E0201",
+      "id": "E0193",
       "nama_acara": "SUMMER X FESTIVAL",
       "tanggal_mulai": "2026-07-04",
       "tanggal_selesai": "2026-07-04",
@@ -3513,7 +3377,7 @@
       "catatan": "Jenis di sumber: PERTUNJUKAN MUSIK."
     },
     {
-      "id": "E0202",
+      "id": "E0194",
       "nama_acara": "SummerX Fest 2026",
       "tanggal_mulai": "2026-07-04",
       "tanggal_selesai": "2026-07-04",
@@ -3530,7 +3394,7 @@
       "catatan": "Sumber berita pasca-acara"
     },
     {
-      "id": "E0203",
+      "id": "E0195",
       "nama_acara": "UNCHANGED IN JAKARTA",
       "tanggal_mulai": "2026-07-04",
       "tanggal_selesai": "2026-07-04",
@@ -3547,7 +3411,7 @@
       "catatan": "Jenis di sumber: PERTUNJUKAN MUSIK DAN JUMPA FANS."
     },
     {
-      "id": "E0204",
+      "id": "E0196",
       "nama_acara": "HEI Cultural Festival 2026",
       "tanggal_mulai": "2026-07-08",
       "tanggal_selesai": "2026-07-12",
@@ -3564,7 +3428,7 @@
       "catatan": "haijakarta.id (Disparekraf DKI) - \"tanggal yang sama\" dgn Puspa Nuswantara 8-12 Jul"
     },
     {
-      "id": "E0205",
+      "id": "E0197",
       "nama_acara": "INDOBUILDTECH PART 1 2026",
       "tanggal_mulai": "2026-07-08",
       "tanggal_selesai": "2026-07-12",
@@ -3581,7 +3445,7 @@
       "catatan": "Kategori ICE: Trade Shows; ICE BSD di luar DKI (Banten)"
     },
     {
-      "id": "E0206",
+      "id": "E0198",
       "nama_acara": "Puspa Nuswantara 2026",
       "tanggal_mulai": "2026-07-08",
       "tanggal_selesai": "2026-07-12",
@@ -3598,7 +3462,7 @@
       "catatan": "Sumber berita"
     },
     {
-      "id": "E0207",
+      "id": "E0199",
       "nama_acara": "FOMBEX 2026",
       "tanggal_mulai": "2026-07-09",
       "tanggal_selesai": "2026-07-12",
@@ -3615,7 +3479,7 @@
       "catatan": "Kategori ICE: Trade Shows; ICE BSD di luar DKI (Banten)"
     },
     {
-      "id": "E0208",
+      "id": "E0200",
       "nama_acara": "Indonesia International Search and Rescue",
       "tanggal_mulai": "2026-07-09",
       "tanggal_selesai": "2026-07-12",
@@ -3632,7 +3496,7 @@
       "catatan": "Kalender resmi NICE (filter tahun 2026); NICE PIK2 di Kab. Tangerang, Banten — di luar DKI"
     },
     {
-      "id": "E0209",
+      "id": "E0201",
       "nama_acara": "Nusantara Food Hotel 2026",
       "tanggal_mulai": "2026-07-09",
       "tanggal_selesai": "2026-07-12",
@@ -3649,7 +3513,7 @@
       "catatan": "Kategori ICE: Trade Shows; ICE BSD di luar DKI (Banten)"
     },
     {
-      "id": "E0210",
+      "id": "E0202",
       "nama_acara": "K-FOOD POP-UP STORE",
       "tanggal_mulai": "2026-07-10",
       "tanggal_selesai": "2026-07-12",
@@ -3666,24 +3530,7 @@
       "catatan": "Jenis di sumber: PAMERAN DAN PERFORMANCE DANCE."
     },
     {
-      "id": "E0211",
-      "nama_acara": "LYKN DUSK AND DAWN WORLD TOUR IN JAKARTA",
-      "tanggal_mulai": "2026-07-11",
-      "tanggal_selesai": "2026-07-11",
-      "bulan_mulai": 7,
-      "venue": "The Kasablanka Hall",
-      "lokasi_detail": "THE KASABLANKA HALL, JAKARTA",
-      "kab_kota": "Jakarta Selatan",
-      "di_dki": "ya",
-      "jenis_acara": "Konser",
-      "penyelenggara": "PT. ALCOR KARYA GEMILANG",
-      "sumber_data": "Data izin event Disparekraf DKI 2026",
-      "url_sumber": "",
-      "status_verifikasi": "terkonfirmasi",
-      "catatan": "Jenis di sumber: PERTUNJUKAN MUSIK."
-    },
-    {
-      "id": "E0212",
+      "id": "E0203",
       "nama_acara": "LYKN Dusk & Dawn World Tour 2026",
       "tanggal_mulai": "2026-07-11",
       "tanggal_selesai": "2026-07-11",
@@ -3697,10 +3544,10 @@
       "sumber_data": "Riset kalender venue/penyelenggara/berita",
       "url_sumber": "https://www.idntimes.com/hype/entertainment/harga-tiket-konser-boy-group-thailand-lykn-di-jakarta-2026-00-syg99-k1sjbg",
       "status_verifikasi": "terkonfirmasi",
-      "catatan": "Sumber berita"
+      "catatan": "Sumber berita Juga tercatat di Data izin event Disparekraf DKI 2026."
     },
     {
-      "id": "E0213",
+      "id": "E0204",
       "nama_acara": "The Neighbourhood - The World Tour 2026",
       "tanggal_mulai": "2026-07-18",
       "tanggal_selesai": "2026-07-18",
@@ -3717,7 +3564,7 @@
       "catatan": "Agregator"
     },
     {
-      "id": "E0214",
+      "id": "E0205",
       "nama_acara": "Bazar Kreasi Bhayangkari Nusantara 2026",
       "tanggal_mulai": "2026-07-21",
       "tanggal_selesai": "2026-07-25",
@@ -3734,7 +3581,7 @@
       "catatan": "Sumber polri.go.id"
     },
     {
-      "id": "E0215",
+      "id": "E0206",
       "nama_acara": "Food & Hospitality Indonesia 2026",
       "tanggal_mulai": "2026-07-21",
       "tanggal_selesai": "2026-07-24",
@@ -3751,7 +3598,7 @@
       "catatan": ""
     },
     {
-      "id": "E0216",
+      "id": "E0207",
       "nama_acara": "GAPMMI MEMBER GATHERING",
       "tanggal_mulai": "2026-07-23",
       "tanggal_selesai": "2026-07-23",
@@ -3768,7 +3615,7 @@
       "catatan": ""
     },
     {
-      "id": "E0217",
+      "id": "E0208",
       "nama_acara": "Wedding Market Fair",
       "tanggal_mulai": "2026-07-24",
       "tanggal_selesai": "2026-07-26",
@@ -3785,7 +3632,7 @@
       "catatan": "Kalender resmi Balai Kartini (balaikartini.co.id/event)"
     },
     {
-      "id": "E0218",
+      "id": "E0209",
       "nama_acara": "RENDEZVOUS 2026",
       "tanggal_mulai": "2026-07-25",
       "tanggal_selesai": "2026-07-25",
@@ -3802,7 +3649,7 @@
       "catatan": "Jenis di sumber: PERTUNJUKAN MUSIK DAN PENTAS SENI."
     },
     {
-      "id": "E0219",
+      "id": "E0210",
       "nama_acara": "CHEMICAL INDONESIA 2026",
       "tanggal_mulai": "2026-07-28",
       "tanggal_selesai": "2026-07-30",
@@ -3819,7 +3666,7 @@
       "catatan": ""
     },
     {
-      "id": "E0220",
+      "id": "E0211",
       "nama_acara": "INAGRITECH 2026",
       "tanggal_mulai": "2026-07-28",
       "tanggal_selesai": "2026-07-30",
@@ -3836,7 +3683,7 @@
       "catatan": ""
     },
     {
-      "id": "E0221",
+      "id": "E0212",
       "nama_acara": "INAMARINE 2026",
       "tanggal_mulai": "2026-07-28",
       "tanggal_selesai": "2026-07-30",
@@ -3853,7 +3700,7 @@
       "catatan": ""
     },
     {
-      "id": "E0222",
+      "id": "E0213",
       "nama_acara": "PRO AVL 2026",
       "tanggal_mulai": "2026-07-28",
       "tanggal_selesai": "2026-07-31",
@@ -3870,7 +3717,7 @@
       "catatan": "Kalender resmi NICE (filter tahun 2026); NICE PIK2 di Kab. Tangerang, Banten — di luar DKI"
     },
     {
-      "id": "E0223",
+      "id": "E0214",
       "nama_acara": "RAILWAYTECH INDONESIA 2026",
       "tanggal_mulai": "2026-07-28",
       "tanggal_selesai": "2026-07-30",
@@ -3887,7 +3734,7 @@
       "catatan": ""
     },
     {
-      "id": "E0224",
+      "id": "E0215",
       "nama_acara": "GIIAS 2026",
       "tanggal_mulai": "2026-07-30",
       "tanggal_selesai": "2026-08-09",
@@ -3904,7 +3751,7 @@
       "catatan": "Kategori ICE: Trade Shows; ICE BSD di luar DKI (Banten)"
     },
     {
-      "id": "E0225",
+      "id": "E0216",
       "nama_acara": "METAWIN SOLO FANMEETING IN JAKARTA",
       "tanggal_mulai": "2026-08-01",
       "tanggal_selesai": "2026-08-01",
@@ -3921,7 +3768,7 @@
       "catatan": "Kalender resmi Balai Kartini (balaikartini.co.id/event)"
     },
     {
-      "id": "E0226",
+      "id": "E0217",
       "nama_acara": "SOUL VII - Bring The Light (konser)",
       "tanggal_mulai": "2026-08-01",
       "tanggal_selesai": "2026-08-01",
@@ -3938,7 +3785,7 @@
       "catatan": "Akun resmi penyelenggara (Instagram)"
     },
     {
-      "id": "E0227",
+      "id": "E0218",
       "nama_acara": "SkyAvenue 2026",
       "tanggal_mulai": "2026-08-01",
       "tanggal_selesai": "2026-08-01",
@@ -3955,7 +3802,7 @@
       "catatan": "Situs resmi GBK; hanya tanggal mulai tercantum; jenis perlu dicek"
     },
     {
-      "id": "E0228",
+      "id": "E0219",
       "nama_acara": "Commons Worship - What A Beautiful Name Tour",
       "tanggal_mulai": "2026-08-05",
       "tanggal_selesai": "2026-08-05",
@@ -3972,7 +3819,7 @@
       "catatan": "Sumber berita"
     },
     {
-      "id": "E0229",
+      "id": "E0220",
       "nama_acara": "Data Center Tech Indonesia (DCTI) 2026",
       "tanggal_mulai": "2026-08-05",
       "tanggal_selesai": "2026-08-06",
@@ -3989,7 +3836,7 @@
       "catatan": "Hanya kalender MK Exhibition (kontraktor stand) & blog nebulaproject"
     },
     {
-      "id": "E0230",
+      "id": "E0221",
       "nama_acara": "Fun Asia Expo 2026",
       "tanggal_mulai": "2026-08-05",
       "tanggal_selesai": "2026-08-06",
@@ -4006,7 +3853,7 @@
       "catatan": ""
     },
     {
-      "id": "E0231",
+      "id": "E0222",
       "nama_acara": "ILF – Indo Leather & Footwear 2026 Indo Garment & Textile Expo 2026",
       "tanggal_mulai": "2026-08-05",
       "tanggal_selesai": "2026-08-07",
@@ -4023,7 +3870,7 @@
       "catatan": ""
     },
     {
-      "id": "E0232",
+      "id": "E0223",
       "nama_acara": "Indo Beauty Expo 2026, Indo Healthcare Gakeslab Expo 2026",
       "tanggal_mulai": "2026-08-05",
       "tanggal_selesai": "2026-08-07",
@@ -4040,7 +3887,7 @@
       "catatan": ""
     },
     {
-      "id": "E0233",
+      "id": "E0224",
       "nama_acara": "Indonesia International Electronic and Smart Appliances Expo (IEAE 2026)",
       "tanggal_mulai": "2026-08-05",
       "tanggal_selesai": "2026-08-07",
@@ -4057,7 +3904,7 @@
       "catatan": ""
     },
     {
-      "id": "E0234",
+      "id": "E0225",
       "nama_acara": "KIMOMBY",
       "tanggal_mulai": "2026-08-07",
       "tanggal_selesai": "2026-08-09",
@@ -4074,7 +3921,7 @@
       "catatan": "Kalender resmi Balai Kartini (balaikartini.co.id/event)"
     },
     {
-      "id": "E0235",
+      "id": "E0226",
       "nama_acara": "INTI (Indonesia Technology and Inovation)",
       "tanggal_mulai": "2026-08-11",
       "tanggal_selesai": "2026-08-13",
@@ -4091,7 +3938,7 @@
       "catatan": ""
     },
     {
-      "id": "E0236",
+      "id": "E0227",
       "nama_acara": "Indo Water Indo Waste & Recycling Indo Renergy & Electric Indo Security Indo Firex Indonesia International Smart City 2026 Expo & Forum",
       "tanggal_mulai": "2026-08-11",
       "tanggal_selesai": "2026-08-13",
@@ -4108,7 +3955,7 @@
       "catatan": ""
     },
     {
-      "id": "E0237",
+      "id": "E0228",
       "nama_acara": "EDRR Indonesia 2026",
       "tanggal_mulai": "2026-08-12",
       "tanggal_selesai": "2026-08-14",
@@ -4125,7 +3972,7 @@
       "catatan": ""
     },
     {
-      "id": "E0238",
+      "id": "E0229",
       "nama_acara": "R-I FEST 2026",
       "tanggal_mulai": "2026-08-14",
       "tanggal_selesai": "2026-08-16",
@@ -4142,7 +3989,7 @@
       "catatan": ""
     },
     {
-      "id": "E0239",
+      "id": "E0230",
       "nama_acara": "Anime Festival Asia Indonesia 2026",
       "tanggal_mulai": "2026-08-15",
       "tanggal_selesai": "2026-08-16",
@@ -4159,7 +4006,7 @@
       "catatan": "Kategori ICE: Trade Shows; ICE BSD di luar DKI (Banten)"
     },
     {
-      "id": "E0240",
+      "id": "E0231",
       "nama_acara": "JAPAN EDU EXPO 2026",
       "tanggal_mulai": "2026-08-16",
       "tanggal_selesai": "2026-08-16",
@@ -4176,7 +4023,7 @@
       "catatan": "Kategori ICE: Trade Shows; ICE BSD di luar DKI (Banten)"
     },
     {
-      "id": "E0241",
+      "id": "E0232",
       "nama_acara": "IIGCE 2026",
       "tanggal_mulai": "2026-08-19",
       "tanggal_selesai": "2026-08-21",
@@ -4193,7 +4040,7 @@
       "catatan": "Hanya kalender MK Exhibition (kontraktor stand)"
     },
     {
-      "id": "E0242",
+      "id": "E0233",
       "nama_acara": "International Baby Products & Toys Expo 2026 | Indonesia (IBTE) 2026",
       "tanggal_mulai": "2026-08-19",
       "tanggal_selesai": "2026-08-22",
@@ -4210,7 +4057,7 @@
       "catatan": ""
     },
     {
-      "id": "E0243",
+      "id": "E0234",
       "nama_acara": "Global Houseware Expo (Indonesia) (IGHE 2026)",
       "tanggal_mulai": "2026-08-20",
       "tanggal_selesai": "2026-08-22",
@@ -4227,7 +4074,7 @@
       "catatan": ""
     },
     {
-      "id": "E0244",
+      "id": "E0235",
       "nama_acara": "Indonesia Asean Stationery Expo 2026",
       "tanggal_mulai": "2026-08-20",
       "tanggal_selesai": "2026-08-22",
@@ -4244,7 +4091,7 @@
       "catatan": ""
     },
     {
-      "id": "E0245",
+      "id": "E0236",
       "nama_acara": "BNI wondrX 2026",
       "tanggal_mulai": "2026-08-21",
       "tanggal_selesai": "2026-08-23",
@@ -4261,7 +4108,7 @@
       "catatan": "Kategori ICE: Trade Shows; ICE BSD di luar DKI (Banten)"
     },
     {
-      "id": "E0246",
+      "id": "E0237",
       "nama_acara": "Weddingku Exhibition 2026 (Agustus)",
       "tanggal_mulai": "2026-08-21",
       "tanggal_selesai": "2026-08-23",
@@ -4278,7 +4125,7 @@
       "catatan": "Hanya di kalender MK Exhibition (kontraktor stand), tidak tercantum di kalender resmi venue; NICE PIK2 di luar DKI"
     },
     {
-      "id": "E0247",
+      "id": "E0238",
       "nama_acara": "iKON World Tour FOURever in Jakarta",
       "tanggal_mulai": "2026-08-21",
       "tanggal_selesai": "2026-08-21",
@@ -4295,7 +4142,7 @@
       "catatan": "Portal K-pop"
     },
     {
-      "id": "E0248",
+      "id": "E0239",
       "nama_acara": "LALALAFEST",
       "tanggal_mulai": "2026-08-22",
       "tanggal_selesai": "2026-08-23",
@@ -4312,7 +4159,7 @@
       "catatan": ""
     },
     {
-      "id": "E0249",
+      "id": "E0240",
       "nama_acara": "Asia Fashion (Indonesia) Show 2026",
       "tanggal_mulai": "2026-08-26",
       "tanggal_selesai": "2026-08-28",
@@ -4329,7 +4176,7 @@
       "catatan": ""
     },
     {
-      "id": "E0250",
+      "id": "E0241",
       "nama_acara": "Asia Pacific Coating Show 2026",
       "tanggal_mulai": "2026-08-26",
       "tanggal_selesai": "2026-08-28",
@@ -4346,7 +4193,7 @@
       "catatan": ""
     },
     {
-      "id": "E0251",
+      "id": "E0242",
       "nama_acara": "APKASI Otonomi Expo 2026",
       "tanggal_mulai": "2026-08-27",
       "tanggal_selesai": "2026-08-29",
@@ -4363,7 +4210,7 @@
       "catatan": "Kategori ICE: Trade Shows; ICE BSD di luar DKI (Banten)"
     },
     {
-      "id": "E0252",
+      "id": "E0243",
       "nama_acara": "Asean Arch & Design Expo by Asia Building",
       "tanggal_mulai": "2026-08-27",
       "tanggal_selesai": "2026-08-29",
@@ -4380,7 +4227,7 @@
       "catatan": ""
     },
     {
-      "id": "E0253",
+      "id": "E0244",
       "nama_acara": "Bakery Asean 2026",
       "tanggal_mulai": "2026-08-27",
       "tanggal_selesai": "2026-08-29",
@@ -4397,7 +4244,7 @@
       "catatan": ""
     },
     {
-      "id": "E0254",
+      "id": "E0245",
       "nama_acara": "Danantara Housing Expo 2026",
       "tanggal_mulai": "2026-08-27",
       "tanggal_selesai": "2026-08-30",
@@ -4414,7 +4261,7 @@
       "catatan": "Kalender resmi NICE (filter tahun 2026); NICE PIK2 di Kab. Tangerang, Banten — di luar DKI"
     },
     {
-      "id": "E0255",
+      "id": "E0246",
       "nama_acara": "Indonesia International Paper Chain Industry Expo 2026",
       "tanggal_mulai": "2026-08-27",
       "tanggal_selesai": "2026-08-29",
@@ -4431,7 +4278,7 @@
       "catatan": ""
     },
     {
-      "id": "E0256",
+      "id": "E0247",
       "nama_acara": "MODINITY WAREHOUSE SALE 2026",
       "tanggal_mulai": "2026-08-27",
       "tanggal_selesai": "2026-08-30",
@@ -4448,7 +4295,7 @@
       "catatan": "Kategori ICE: Trade Shows; ICE BSD di luar DKI (Banten)"
     },
     {
-      "id": "E0257",
+      "id": "E0248",
       "nama_acara": "WEPACK ASEAN 2026",
       "tanggal_mulai": "2026-08-27",
       "tanggal_selesai": "2026-08-29",
@@ -4465,7 +4312,7 @@
       "catatan": ""
     },
     {
-      "id": "E0258",
+      "id": "E0249",
       "nama_acara": "25th IFRA Business Expo 2026",
       "tanggal_mulai": "2026-08-28",
       "tanggal_selesai": "2026-08-30",
@@ -4482,7 +4329,7 @@
       "catatan": "Kategori ICE: Trade Shows; ICE BSD di luar DKI (Banten)"
     },
     {
-      "id": "E0259",
+      "id": "E0250",
       "nama_acara": "Muslim LifeFest 2026",
       "tanggal_mulai": "2026-08-28",
       "tanggal_selesai": "2026-08-30",
@@ -4499,7 +4346,7 @@
       "catatan": "Kategori ICE: Trade Shows; ICE BSD di luar DKI (Banten)"
     },
     {
-      "id": "E0260",
+      "id": "E0251",
       "nama_acara": "Pekan Halal Indonesia & EduNation Festival 2026",
       "tanggal_mulai": "2026-08-28",
       "tanggal_selesai": "2026-08-30",
@@ -4516,7 +4363,7 @@
       "catatan": "Sumber berita"
     },
     {
-      "id": "E0261",
+      "id": "E0252",
       "nama_acara": "IONATION 7th",
       "tanggal_mulai": "2026-08-29",
       "tanggal_selesai": "2026-08-29",
@@ -4533,7 +4380,7 @@
       "catatan": "Kalender resmi NICE (filter tahun 2026); NICE PIK2 di Kab. Tangerang, Banten — di luar DKI"
     },
     {
-      "id": "E0262",
+      "id": "E0253",
       "nama_acara": "JCO RUN 2026",
       "tanggal_mulai": "2026-08-30",
       "tanggal_selesai": "2026-08-30",
@@ -4550,7 +4397,7 @@
       "catatan": "Kategori ICE: Special Events; ICE BSD di luar DKI (Banten)"
     },
     {
-      "id": "E0263",
+      "id": "E0254",
       "nama_acara": "ELECTRIC & POWER INDONESIA, THE BATTERY SHOW INDONESIA, DATA CENTER ASIA-INDONESIA 2026",
       "tanggal_mulai": "2026-09-02",
       "tanggal_selesai": "2026-09-05",
@@ -4567,7 +4414,7 @@
       "catatan": ""
     },
     {
-      "id": "E0264",
+      "id": "E0255",
       "nama_acara": "BRIDESTORY MARKET 2026",
       "tanggal_mulai": "2026-09-03",
       "tanggal_selesai": "2026-09-06",
@@ -4584,7 +4431,7 @@
       "catatan": "Kategori ICE: Trade Shows; ICE BSD di luar DKI (Banten)"
     },
     {
-      "id": "E0265",
+      "id": "E0256",
       "nama_acara": "China International E-Commerce Industry Expo and Indonesia",
       "tanggal_mulai": "2026-09-03",
       "tanggal_selesai": "2026-09-05",
@@ -4601,7 +4448,7 @@
       "catatan": ""
     },
     {
-      "id": "E0266",
+      "id": "E0257",
       "nama_acara": "JIPremium 2026 (Jakarta International Premium Products Fair)",
       "tanggal_mulai": "2026-09-03",
       "tanggal_selesai": "2026-09-06",
@@ -4618,7 +4465,7 @@
       "catatan": "Situs resmi penyelenggara"
     },
     {
-      "id": "E0267",
+      "id": "E0258",
       "nama_acara": "Johny Andrean Hair Competition 2026",
       "tanggal_mulai": "2026-09-03",
       "tanggal_selesai": "2026-09-03",
@@ -4635,7 +4482,7 @@
       "catatan": "Kategori ICE: Special Events; ICE BSD di luar DKI (Banten)"
     },
     {
-      "id": "E0268",
+      "id": "E0259",
       "nama_acara": "IDEAFEST 2026",
       "tanggal_mulai": "2026-09-04",
       "tanggal_selesai": "2026-09-06",
@@ -4652,7 +4499,7 @@
       "catatan": "Sumber berita"
     },
     {
-      "id": "E0269",
+      "id": "E0260",
       "nama_acara": "IIPE 2026",
       "tanggal_mulai": "2026-09-04",
       "tanggal_selesai": "2026-09-06",
@@ -4669,7 +4516,7 @@
       "catatan": "Kategori ICE: Trade Shows; ICE BSD di luar DKI (Banten)"
     },
     {
-      "id": "E0270",
+      "id": "E0261",
       "nama_acara": "Indonesia Coffee Expo (ICX) Jakarta 2026",
       "tanggal_mulai": "2026-09-04",
       "tanggal_selesai": "2026-09-06",
@@ -4686,7 +4533,7 @@
       "catatan": "Juga di daftar 2026 Events dyandra.com"
     },
     {
-      "id": "E0271",
+      "id": "E0262",
       "nama_acara": "Festival Awesome Skool Fast 2026",
       "tanggal_mulai": "2026-09-05",
       "tanggal_selesai": "2026-09-05",
@@ -4703,7 +4550,7 @@
       "catatan": ""
     },
     {
-      "id": "E0272",
+      "id": "E0263",
       "nama_acara": "ADEXCO 2026",
       "tanggal_mulai": "2026-09-09",
       "tanggal_selesai": "2026-09-12",
@@ -4720,7 +4567,7 @@
       "catatan": ""
     },
     {
-      "id": "E0273",
+      "id": "E0264",
       "nama_acara": "Building, Interior & Furnish Expo 2026",
       "tanggal_mulai": "2026-09-09",
       "tanggal_selesai": "2026-09-11",
@@ -4737,7 +4584,7 @@
       "catatan": "Hanya di kalender MK Exhibition (kontraktor stand), tidak tercantum di kalender resmi venue; NICE PIK2 di luar DKI"
     },
     {
-      "id": "E0274",
+      "id": "E0265",
       "nama_acara": "CONSTRUCTION INDONESIA, CONCRETE SHOW SEA-INDONESIA 2026",
       "tanggal_mulai": "2026-09-09",
       "tanggal_selesai": "2026-09-12",
@@ -4754,7 +4601,7 @@
       "catatan": ""
     },
     {
-      "id": "E0275",
+      "id": "E0266",
       "nama_acara": "Gifa Metec Indonesia 2026",
       "tanggal_mulai": "2026-09-09",
       "tanggal_selesai": "2026-09-12",
@@ -4771,7 +4618,7 @@
       "catatan": ""
     },
     {
-      "id": "E0276",
+      "id": "E0267",
       "nama_acara": "Mining Indonesia 2026",
       "tanggal_mulai": "2026-09-09",
       "tanggal_selesai": "2026-09-12",
@@ -4788,7 +4635,7 @@
       "catatan": ""
     },
     {
-      "id": "E0277",
+      "id": "E0268",
       "nama_acara": "Oil and Gas Indonesia 2026",
       "tanggal_mulai": "2026-09-09",
       "tanggal_selesai": "2026-09-12",
@@ -4805,7 +4652,7 @@
       "catatan": ""
     },
     {
-      "id": "E0278",
+      "id": "E0269",
       "nama_acara": "RHVAC 2026",
       "tanggal_mulai": "2026-09-09",
       "tanggal_selesai": "2026-09-11",
@@ -4822,7 +4669,7 @@
       "catatan": "Hanya di kalender MK Exhibition (kontraktor stand), tidak tercantum di kalender resmi venue; NICE PIK2 di luar DKI"
     },
     {
-      "id": "E0279",
+      "id": "E0270",
       "nama_acara": "WATER INDONESIA 2026",
       "tanggal_mulai": "2026-09-09",
       "tanggal_selesai": "2026-09-12",
@@ -4839,7 +4686,7 @@
       "catatan": ""
     },
     {
-      "id": "E0280",
+      "id": "E0271",
       "nama_acara": "BCA EXPO 2026",
       "tanggal_mulai": "2026-09-11",
       "tanggal_selesai": "2026-09-13",
@@ -4856,7 +4703,7 @@
       "catatan": "Kategori ICE: Trade Shows; ICE BSD di luar DKI (Banten)"
     },
     {
-      "id": "E0281",
+      "id": "E0272",
       "nama_acara": "PUTBAL SHOW",
       "tanggal_mulai": "2026-09-12",
       "tanggal_selesai": "2026-09-12",
@@ -4873,7 +4720,7 @@
       "catatan": "Kalender resmi Balai Kartini (balaikartini.co.id/event)"
     },
     {
-      "id": "E0282",
+      "id": "E0273",
       "nama_acara": "U-KNOW (TVXQ) Solo Concert",
       "tanggal_mulai": "2026-09-12",
       "tanggal_selesai": "2026-09-12",
@@ -4890,7 +4737,7 @@
       "catatan": "Sumber berita daftar jadwal"
     },
     {
-      "id": "E0283",
+      "id": "E0274",
       "nama_acara": "INDONESIA APPS SUMMIT 2026",
       "tanggal_mulai": "2026-09-14",
       "tanggal_selesai": "2026-09-15",
@@ -4907,7 +4754,7 @@
       "catatan": "Kategori ICE: Trade Shows; ICE BSD di luar DKI (Banten)"
     },
     {
-      "id": "E0284",
+      "id": "E0275",
       "nama_acara": "Festival Kekayaan Intelektual",
       "tanggal_mulai": "2026-09-16",
       "tanggal_selesai": "2026-09-18",
@@ -4924,7 +4771,7 @@
       "catatan": ""
     },
     {
-      "id": "E0285",
+      "id": "E0276",
       "nama_acara": "Fi Asia 2026",
       "tanggal_mulai": "2026-09-16",
       "tanggal_selesai": "2026-09-18",
@@ -4941,7 +4788,7 @@
       "catatan": ""
     },
     {
-      "id": "E0286",
+      "id": "E0277",
       "nama_acara": "ILDEX Indonesia 2026",
       "tanggal_mulai": "2026-09-16",
       "tanggal_selesai": "2026-09-18",
@@ -4958,7 +4805,7 @@
       "catatan": "Kategori ICE: Trade Shows; ICE BSD di luar DKI (Banten)"
     },
     {
-      "id": "E0287",
+      "id": "E0278",
       "nama_acara": "JITEX 2026",
       "tanggal_mulai": "2026-09-16",
       "tanggal_selesai": "2026-09-19",
@@ -4975,7 +4822,7 @@
       "catatan": ""
     },
     {
-      "id": "E0288",
+      "id": "E0279",
       "nama_acara": "FLOII 2026",
       "tanggal_mulai": "2026-09-17",
       "tanggal_selesai": "2026-09-20",
@@ -4992,7 +4839,7 @@
       "catatan": "Kategori ICE: Trade Shows; ICE BSD di luar DKI (Banten)"
     },
     {
-      "id": "E0289",
+      "id": "E0280",
       "nama_acara": "Global Sources Indonesia 2026",
       "tanggal_mulai": "2026-09-17",
       "tanggal_selesai": "2026-09-19",
@@ -5009,7 +4856,7 @@
       "catatan": "Sumber berita"
     },
     {
-      "id": "E0290",
+      "id": "E0281",
       "nama_acara": "END GAME TOWN HALL",
       "tanggal_mulai": "2026-09-19",
       "tanggal_selesai": "2026-09-19",
@@ -5026,7 +4873,7 @@
       "catatan": "Kalender resmi Balai Kartini (balaikartini.co.id/event)"
     },
     {
-      "id": "E0291",
+      "id": "E0282",
       "nama_acara": "Pokemon Premier Ball League",
       "tanggal_mulai": "2026-09-19",
       "tanggal_selesai": "2026-09-20",
@@ -5043,7 +4890,7 @@
       "catatan": "Kalender resmi NICE (filter tahun 2026); NICE PIK2 di Kab. Tangerang, Banten — di luar DKI"
     },
     {
-      "id": "E0292",
+      "id": "E0283",
       "nama_acara": "T.O.P PRE-STUDIO 2026 Fan Meeting in Jakarta",
       "tanggal_mulai": "2026-09-19",
       "tanggal_selesai": "2026-09-19",
@@ -5060,7 +4907,7 @@
       "catatan": "Sumber berita"
     },
     {
-      "id": "E0293",
+      "id": "E0284",
       "nama_acara": "GARMIN RUN 2026",
       "tanggal_mulai": "2026-09-20",
       "tanggal_selesai": "2026-09-20",
@@ -5077,7 +4924,7 @@
       "catatan": "Kategori ICE: Special Events; ICE BSD di luar DKI (Banten)"
     },
     {
-      "id": "E0294",
+      "id": "E0285",
       "nama_acara": "Enlit Asia 2026",
       "tanggal_mulai": "2026-09-22",
       "tanggal_selesai": "2026-09-24",
@@ -5094,7 +4941,7 @@
       "catatan": "Kategori ICE: Trade Shows; ICE BSD di luar DKI (Banten)"
     },
     {
-      "id": "E0295",
+      "id": "E0286",
       "nama_acara": "IFMAC WOODMAC",
       "tanggal_mulai": "2026-09-23",
       "tanggal_selesai": "2026-09-26",
@@ -5111,7 +4958,7 @@
       "catatan": ""
     },
     {
-      "id": "E0296",
+      "id": "E0287",
       "nama_acara": "Indonesia Postgraduate & Research Expo 2026",
       "tanggal_mulai": "2026-09-23",
       "tanggal_selesai": "2026-09-25",
@@ -5128,7 +4975,7 @@
       "catatan": "Kalender resmi Balai Kartini (balaikartini.co.id/event)"
     },
     {
-      "id": "E0297",
+      "id": "E0288",
       "nama_acara": "Automechanika Jakarta",
       "tanggal_mulai": "2026-09-24",
       "tanggal_selesai": "2026-09-27",
@@ -5145,7 +4992,7 @@
       "catatan": "Kalender resmi NICE (filter tahun 2026); NICE PIK2 di Kab. Tangerang, Banten — di luar DKI"
     },
     {
-      "id": "E0298",
+      "id": "E0289",
       "nama_acara": "Halal Indo 2026",
       "tanggal_mulai": "2026-09-24",
       "tanggal_selesai": "2026-09-27",
@@ -5162,7 +5009,7 @@
       "catatan": "Kategori ICE: Trade Shows; ICE BSD di luar DKI (Banten)"
     },
     {
-      "id": "E0299",
+      "id": "E0290",
       "nama_acara": "IFFINA 2026",
       "tanggal_mulai": "2026-09-24",
       "tanggal_selesai": "2026-09-27",
@@ -5179,7 +5026,7 @@
       "catatan": "Hanya di kalender MK Exhibition (kontraktor stand), tidak tercantum di kalender resmi venue; NICE PIK2 di luar DKI"
     },
     {
-      "id": "E0300",
+      "id": "E0291",
       "nama_acara": "International Hardware Fair Indonesia 2026",
       "tanggal_mulai": "2026-09-24",
       "tanggal_selesai": "2026-09-27",
@@ -5196,7 +5043,7 @@
       "catatan": "Kalender resmi NICE (filter tahun 2026); NICE PIK2 di Kab. Tangerang, Banten — di luar DKI"
     },
     {
-      "id": "E0301",
+      "id": "E0292",
       "nama_acara": "Interzum Jakarta",
       "tanggal_mulai": "2026-09-24",
       "tanggal_selesai": "2026-09-27",
@@ -5213,7 +5060,7 @@
       "catatan": "Kalender resmi NICE (filter tahun 2026); NICE PIK2 di Kab. Tangerang, Banten — di luar DKI"
     },
     {
-      "id": "E0302",
+      "id": "E0293",
       "nama_acara": "PESTAPORA",
       "tanggal_mulai": "2026-09-25",
       "tanggal_selesai": "2026-09-27",
@@ -5230,7 +5077,24 @@
       "catatan": ""
     },
     {
-      "id": "E0303",
+      "id": "E0294",
+      "nama_acara": "Pestapora 2026",
+      "tanggal_mulai": "2026-09-25",
+      "tanggal_selesai": "2026-09-27",
+      "bulan_mulai": 9,
+      "venue": "Gambir Expo",
+      "lokasi_detail": "Gambir Expo & Hall D2 JIExpo",
+      "kab_kota": "Jakarta Pusat",
+      "di_dki": "ya",
+      "jenis_acara": "Festival",
+      "penyelenggara": "BOSS Creator",
+      "sumber_data": "Riset kalender venue/penyelenggara/berita",
+      "url_sumber": "https://deta.co.id/kalender-event-jakarta/",
+      "status_verifikasi": "perlu review",
+      "catatan": "Situs resmi exhibition.jiexpo.com menyebut 26-27 Sep; agregator 25-27 Sep. Venue di kompleks JIExpo (Gambir Expo & Hall D2) - mungkin tumpang tindih crawler JIExpo"
+    },
+    {
+      "id": "E0295",
       "nama_acara": "INDONESIA DIECAST EXPO",
       "tanggal_mulai": "2026-09-26",
       "tanggal_selesai": "2026-09-27",
@@ -5247,7 +5111,7 @@
       "catatan": "Kategori ICE: Trade Shows; ICE BSD di luar DKI (Banten)"
     },
     {
-      "id": "E0304",
+      "id": "E0296",
       "nama_acara": "JIVE Vape Expo 2026",
       "tanggal_mulai": "2026-09-26",
       "tanggal_selesai": "2026-09-27",
@@ -5264,7 +5128,7 @@
       "catatan": ""
     },
     {
-      "id": "E0305",
+      "id": "E0297",
       "nama_acara": "Kriyanusa 2026",
       "tanggal_mulai": "2026-09-26",
       "tanggal_selesai": "2026-09-30",
@@ -5281,7 +5145,7 @@
       "catatan": "Sumber berita"
     },
     {
-      "id": "E0306",
+      "id": "E0298",
       "nama_acara": "PRIMAROX 2026",
       "tanggal_mulai": "2026-09-26",
       "tanggal_selesai": "2026-09-26",
@@ -5298,7 +5162,7 @@
       "catatan": "Kategori ICE: Special Events; ICE BSD di luar DKI (Banten)"
     },
     {
-      "id": "E0307",
+      "id": "E0299",
       "nama_acara": "YOUTH CONFERENCE",
       "tanggal_mulai": "2026-09-26",
       "tanggal_selesai": "2026-09-26",
@@ -5315,7 +5179,7 @@
       "catatan": "Kategori ICE: Special Events; ICE BSD di luar DKI (Banten)"
     },
     {
-      "id": "E0308",
+      "id": "E0300",
       "nama_acara": "HERBALIFE RUN 2026",
       "tanggal_mulai": "2026-09-27",
       "tanggal_selesai": "2026-09-27",
@@ -5332,7 +5196,7 @@
       "catatan": "Kategori ICE: Special Events; ICE BSD di luar DKI (Banten)"
     },
     {
-      "id": "E0309",
+      "id": "E0301",
       "nama_acara": "Indonesia International Book Fair (IIBF) 2026",
       "tanggal_mulai": "2026-09-30",
       "tanggal_selesai": "2026-10-04",
@@ -5349,7 +5213,7 @@
       "catatan": "Situs resmi penyelenggara (IKAPI)"
     },
     {
-      "id": "E0310",
+      "id": "E0302",
       "nama_acara": "COSMOBEAUTÉ INDONESIA 2026",
       "tanggal_mulai": "2026-10-01",
       "tanggal_selesai": "2026-10-03",
@@ -5366,7 +5230,7 @@
       "catatan": "Kategori ICE: Trade Shows; ICE BSD di luar DKI (Banten)"
     },
     {
-      "id": "E0311",
+      "id": "E0303",
       "nama_acara": "FIFA ASEAN Cup 2026 (laga di SUGBK)",
       "tanggal_mulai": "2026-10-01",
       "tanggal_selesai": "2026-10-05",
@@ -5383,7 +5247,7 @@
       "catatan": "Laga 1, 2, 5 Okt menurut IG @jakarta-tourism (bukan rentang kontinu)"
     },
     {
-      "id": "E0312",
+      "id": "E0304",
       "nama_acara": "ART JAKARTA 2026",
       "tanggal_mulai": "2026-10-02",
       "tanggal_selesai": "2026-10-04",
@@ -5400,7 +5264,7 @@
       "catatan": ""
     },
     {
-      "id": "E0313",
+      "id": "E0305",
       "nama_acara": "Indonesia International Music Expo 2026",
       "tanggal_mulai": "2026-10-02",
       "tanggal_selesai": "2026-10-04",
@@ -5417,7 +5281,7 @@
       "catatan": "Kalender resmi NICE (filter tahun 2026); NICE PIK2 di Kab. Tangerang, Banten — di luar DKI"
     },
     {
-      "id": "E0314",
+      "id": "E0306",
       "nama_acara": "JAKARTA MEGA WEDDING FESTIVAL dan Whosale International Kids Baby Expo (Wikibex)",
       "tanggal_mulai": "2026-10-02",
       "tanggal_selesai": "2026-10-04",
@@ -5434,7 +5298,7 @@
       "catatan": ""
     },
     {
-      "id": "E0315",
+      "id": "E0307",
       "nama_acara": "Indonesia Card Show 2026",
       "tanggal_mulai": "2026-10-03",
       "tanggal_selesai": "2026-10-04",
@@ -5451,7 +5315,7 @@
       "catatan": "Kalender resmi NICE (filter tahun 2026); NICE PIK2 di Kab. Tangerang, Banten — di luar DKI"
     },
     {
-      "id": "E0316",
+      "id": "E0308",
       "nama_acara": "Indonesia Comic Con 2026",
       "tanggal_mulai": "2026-10-03",
       "tanggal_selesai": "2026-10-04",
@@ -5468,7 +5332,7 @@
       "catatan": ""
     },
     {
-      "id": "E0317",
+      "id": "E0309",
       "nama_acara": "NCT 127 5th Tour NEO CITY: THE REDLINE",
       "tanggal_mulai": "2026-10-03",
       "tanggal_selesai": "2026-10-03",
@@ -5485,7 +5349,7 @@
       "catatan": "Berita mengutip akun resmi @love_gbk"
     },
     {
-      "id": "E0318",
+      "id": "E0310",
       "nama_acara": "PHUWIN 1ST FANCON  IN INDONESIA",
       "tanggal_mulai": "2026-10-03",
       "tanggal_selesai": "2026-10-03",
@@ -5502,7 +5366,7 @@
       "catatan": "Kalender resmi Balai Kartini (balaikartini.co.id/event)"
     },
     {
-      "id": "E0319",
+      "id": "E0311",
       "nama_acara": "ALL PRINT INDONESIA 2026 INTER CORRUGATED EXPO 2026 PAP EXPO – ASIAN PULP AND PAPER EXPO 2026 INDO SIGN & ADVERTISING EXPO 2026",
       "tanggal_mulai": "2026-10-07",
       "tanggal_selesai": "2026-10-10",
@@ -5519,7 +5383,7 @@
       "catatan": ""
     },
     {
-      "id": "E0320",
+      "id": "E0312",
       "nama_acara": "INACRAFT October Vol. 5 2026",
       "tanggal_mulai": "2026-10-07",
       "tanggal_selesai": "2026-10-11",
@@ -5536,7 +5400,7 @@
       "catatan": "Situs resmi inacraft.co.id & gbk.id juga mencantumkan"
     },
     {
-      "id": "E0321",
+      "id": "E0313",
       "nama_acara": "Indonesia Int’l Hospital Expo 2026",
       "tanggal_mulai": "2026-10-07",
       "tanggal_selesai": "2026-10-10",
@@ -5553,7 +5417,7 @@
       "catatan": "Kategori ICE: Trade Shows; ICE BSD di luar DKI (Banten)"
     },
     {
-      "id": "E0322",
+      "id": "E0314",
       "nama_acara": "Indonesia Modification Expo (IMX) 2026",
       "tanggal_mulai": "2026-10-09",
       "tanggal_selesai": "2026-10-11",
@@ -5570,7 +5434,7 @@
       "catatan": "Hanya di kalender MK Exhibition (kontraktor stand), tidak tercantum di kalender resmi venue; ICE BSD di luar DKI"
     },
     {
-      "id": "E0323",
+      "id": "E0315",
       "nama_acara": "Doa Pertobatan Bangsa",
       "tanggal_mulai": "2026-10-10",
       "tanggal_selesai": "2026-10-10",
@@ -5587,7 +5451,7 @@
       "catatan": "Kalender resmi NICE (filter tahun 2026); NICE PIK2 di Kab. Tangerang, Banten — di luar DKI"
     },
     {
-      "id": "E0324",
+      "id": "E0316",
       "nama_acara": "Festival Teman Tulus",
       "tanggal_mulai": "2026-10-10",
       "tanggal_selesai": "2026-10-10",
@@ -5604,7 +5468,7 @@
       "catatan": "Sumber berita daftar jadwal"
     },
     {
-      "id": "E0325",
+      "id": "E0317",
       "nama_acara": "Snada Indonesia 2026",
       "tanggal_mulai": "2026-10-10",
       "tanggal_selesai": "2026-10-10",
@@ -5621,7 +5485,7 @@
       "catatan": "IDN Times mengutip IG @jakarta-tourism"
     },
     {
-      "id": "E0326",
+      "id": "E0318",
       "nama_acara": "Trade Expo Indonesia 2026",
       "tanggal_mulai": "2026-10-14",
       "tanggal_selesai": "2026-10-18",
@@ -5638,7 +5502,7 @@
       "catatan": "Kategori ICE: Trade Shows; ICE BSD di luar DKI (Banten)"
     },
     {
-      "id": "E0327",
+      "id": "E0319",
       "nama_acara": "SYNCHRONIZE FESTIVAL 2026",
       "tanggal_mulai": "2026-10-16",
       "tanggal_selesai": "2026-10-18",
@@ -5655,7 +5519,7 @@
       "catatan": ""
     },
     {
-      "id": "E0328",
+      "id": "E0320",
       "nama_acara": "Synchronize Fest 2026",
       "tanggal_mulai": "2026-10-16",
       "tanggal_selesai": "2026-10-18",
@@ -5672,7 +5536,7 @@
       "catatan": "Pengumuman awal (Jan) menyebut 17-19 Okt; berita terbaru 16-18 Okt"
     },
     {
-      "id": "E0329",
+      "id": "E0321",
       "nama_acara": "2026 Gong Yoo Asia Fanmeeting Tour: The Long Take in Jakarta",
       "tanggal_mulai": "2026-10-17",
       "tanggal_selesai": "2026-10-17",
@@ -5689,7 +5553,7 @@
       "catatan": "Sumber berita"
     },
     {
-      "id": "E0330",
+      "id": "E0322",
       "nama_acara": "BABYMONSTER World Tour [CHOOM] in Jakarta",
       "tanggal_mulai": "2026-10-17",
       "tanggal_selesai": "2026-10-17",
@@ -5706,7 +5570,7 @@
       "catatan": "Berita mengutip akun resmi @love_gbk"
     },
     {
-      "id": "E0331",
+      "id": "E0323",
       "nama_acara": "ALLPACK INDONESIA 2026 ALLPROCESS INDONESIA 2026 IPEX – INDONESIA PHARMACEUTICAL EXPO 2026",
       "tanggal_mulai": "2026-10-20",
       "tanggal_selesai": "2026-10-23",
@@ -5723,7 +5587,7 @@
       "catatan": ""
     },
     {
-      "id": "E0332",
+      "id": "E0324",
       "nama_acara": "HOMEDEC 2026",
       "tanggal_mulai": "2026-10-22",
       "tanggal_selesai": "2026-10-25",
@@ -5740,7 +5604,7 @@
       "catatan": "Kategori ICE: Trade Shows; ICE BSD di luar DKI (Banten)"
     },
     {
-      "id": "E0333",
+      "id": "E0325",
       "nama_acara": "Indonesia Golf Festival 2026",
       "tanggal_mulai": "2026-10-23",
       "tanggal_selesai": "2026-10-25",
@@ -5757,7 +5621,7 @@
       "catatan": "Kategori ICE: Trade Shows; ICE BSD di luar DKI (Banten)"
     },
     {
-      "id": "E0334",
+      "id": "E0326",
       "nama_acara": "The Rose - ROSETOPIA Asia Tour 2026",
       "tanggal_mulai": "2026-10-23",
       "tanggal_selesai": "2026-10-23",
@@ -5774,7 +5638,7 @@
       "catatan": "Sumber berita"
     },
     {
-      "id": "E0335",
+      "id": "E0327",
       "nama_acara": "KIM BUM Fanmeeting PAGE∞ Debut 20th Anniversary Tour",
       "tanggal_mulai": "2026-10-24",
       "tanggal_selesai": "2026-10-24",
@@ -5791,7 +5655,7 @@
       "catatan": "Sumber berita daftar jadwal"
     },
     {
-      "id": "E0336",
+      "id": "E0328",
       "nama_acara": "SUCI FEST 2026",
       "tanggal_mulai": "2026-10-24",
       "tanggal_selesai": "2026-10-24",
@@ -5808,7 +5672,7 @@
       "catatan": "Kalender resmi Balai Kartini (balaikartini.co.id/event)"
     },
     {
-      "id": "E0337",
+      "id": "E0329",
       "nama_acara": "YE Jakarta 2026 (Kanye West)",
       "tanggal_mulai": "2026-10-24",
       "tanggal_selesai": "2026-10-24",
@@ -5825,7 +5689,7 @@
       "catatan": "Sumber berita"
     },
     {
-      "id": "E0338",
+      "id": "E0330",
       "nama_acara": "Indocomtech 2026",
       "tanggal_mulai": "2026-10-29",
       "tanggal_selesai": "2026-11-01",
@@ -5842,7 +5706,7 @@
       "catatan": "Agregator yesjakarta"
     },
     {
-      "id": "E0339",
+      "id": "E0331",
       "nama_acara": "LANY - soft world tour",
       "tanggal_mulai": "2026-10-29",
       "tanggal_selesai": "2026-10-30",
@@ -5859,7 +5723,7 @@
       "catatan": "Sumber berita"
     },
     {
-      "id": "E0340",
+      "id": "E0332",
       "nama_acara": "PEVS 2026",
       "tanggal_mulai": "2026-10-29",
       "tanggal_selesai": "2026-11-01",
@@ -5876,7 +5740,7 @@
       "catatan": ""
     },
     {
-      "id": "E0341",
+      "id": "E0333",
       "nama_acara": "UNGU - Waktu Yang Dinanti: Final Chapter",
       "tanggal_mulai": "2026-10-30",
       "tanggal_selesai": "2026-10-30",
@@ -5893,7 +5757,7 @@
       "catatan": "Sumber berita"
     },
     {
-      "id": "E0342",
+      "id": "E0334",
       "nama_acara": "WEDDING MARKET FAIR",
       "tanggal_mulai": "2026-10-30",
       "tanggal_selesai": "2026-11-01",
@@ -5910,7 +5774,7 @@
       "catatan": "Kalender resmi Balai Kartini (balaikartini.co.id/event)"
     },
     {
-      "id": "E0343",
+      "id": "E0335",
       "nama_acara": "Scream or Dance 2026",
       "tanggal_mulai": "2026-10-31",
       "tanggal_selesai": "2026-11-01",
@@ -5927,7 +5791,7 @@
       "catatan": "Dirut PT Pembangunan Jaya Ancol (24 Sep 2026) menyatakan acara TIDAK/belum berizin di Ancol - kemungkinan batal/pindah"
     },
     {
-      "id": "E0344",
+      "id": "E0336",
       "nama_acara": "Andrea Bocelli: Romanza World Tour",
       "tanggal_mulai": "2026-11-03",
       "tanggal_selesai": "2026-11-03",
@@ -5944,7 +5808,7 @@
       "catatan": ""
     },
     {
-      "id": "E0345",
+      "id": "E0337",
       "nama_acara": "CONFERENCE HEATECH INDONESIA 2026",
       "tanggal_mulai": "2026-11-03",
       "tanggal_selesai": "2026-11-05",
@@ -5961,7 +5825,7 @@
       "catatan": ""
     },
     {
-      "id": "E0346",
+      "id": "E0338",
       "nama_acara": "HEATECH INDONESIA 2026",
       "tanggal_mulai": "2026-11-03",
       "tanggal_selesai": "2026-11-05",
@@ -5978,7 +5842,7 @@
       "catatan": ""
     },
     {
-      "id": "E0347",
+      "id": "E0339",
       "nama_acara": "INDOGRITECH 2026",
       "tanggal_mulai": "2026-11-04",
       "tanggal_selesai": "2026-11-07",
@@ -5995,7 +5859,7 @@
       "catatan": "Kategori ICE: Trade Shows; ICE BSD di luar DKI (Banten)"
     },
     {
-      "id": "E0348",
+      "id": "E0340",
       "nama_acara": "Indonesia Food Transport & Logistic Expo 2026",
       "tanggal_mulai": "2026-11-04",
       "tanggal_selesai": "2026-11-06",
@@ -6012,7 +5876,7 @@
       "catatan": ""
     },
     {
-      "id": "E0349",
+      "id": "E0341",
       "nama_acara": "Krista Interfood Expo 2026",
       "tanggal_mulai": "2026-11-04",
       "tanggal_selesai": "2026-11-07",
@@ -6029,7 +5893,7 @@
       "catatan": "Kalender resmi NICE (filter tahun 2026); NICE PIK2 di Kab. Tangerang, Banten — di luar DKI"
     },
     {
-      "id": "E0350",
+      "id": "E0342",
       "nama_acara": "Nusantara Livestock & Poultry Expo 2026",
       "tanggal_mulai": "2026-11-04",
       "tanggal_selesai": "2026-11-07",
@@ -6046,7 +5910,7 @@
       "catatan": "Kategori ICE: Trade Shows; ICE BSD di luar DKI (Banten)"
     },
     {
-      "id": "E0351",
+      "id": "E0343",
       "nama_acara": "SIAL Food & Drinks Indonesia 2026",
       "tanggal_mulai": "2026-11-04",
       "tanggal_selesai": "2026-11-06",
@@ -6063,7 +5927,7 @@
       "catatan": ""
     },
     {
-      "id": "E0352",
+      "id": "E0344",
       "nama_acara": "ISFEX 2026",
       "tanggal_mulai": "2026-11-05",
       "tanggal_selesai": "2026-11-08",
@@ -6080,7 +5944,7 @@
       "catatan": "Kategori ICE: Trade Shows; ICE BSD di luar DKI (Banten)"
     },
     {
-      "id": "E0353",
+      "id": "E0345",
       "nama_acara": "IFBC EXPO JAKARTA 2 2026",
       "tanggal_mulai": "2026-11-06",
       "tanggal_selesai": "2026-11-08",
@@ -6097,7 +5961,7 @@
       "catatan": "Kategori ICE: Trade Shows; ICE BSD di luar DKI (Banten)"
     },
     {
-      "id": "E0354",
+      "id": "E0346",
       "nama_acara": "Remember Fest 2026 x Cube Concert",
       "tanggal_mulai": "2026-11-07",
       "tanggal_selesai": "2026-11-08",
@@ -6114,7 +5978,7 @@
       "catatan": "Platform tiket"
     },
     {
-      "id": "E0355",
+      "id": "E0347",
       "nama_acara": "Remember Festival",
       "tanggal_mulai": "2026-11-07",
       "tanggal_selesai": "2026-11-08",
@@ -6131,7 +5995,7 @@
       "catatan": ""
     },
     {
-      "id": "E0356",
+      "id": "E0348",
       "nama_acara": "EVCharge Live Indonesia 2026",
       "tanggal_mulai": "2026-11-11",
       "tanggal_selesai": "2026-11-12",
@@ -6148,7 +6012,7 @@
       "catatan": "Kategori ICE: Trade Shows; ICE BSD di luar DKI (Banten)"
     },
     {
-      "id": "E0357",
+      "id": "E0349",
       "nama_acara": "Shanghai Fair going to Indonesia – Trade Show 2026",
       "tanggal_mulai": "2026-11-11",
       "tanggal_selesai": "2026-11-12",
@@ -6165,7 +6029,7 @@
       "catatan": ""
     },
     {
-      "id": "E0358",
+      "id": "E0350",
       "nama_acara": "Solar & Storage Live Indonesia 2026",
       "tanggal_mulai": "2026-11-11",
       "tanggal_selesai": "2026-11-12",
@@ -6182,7 +6046,7 @@
       "catatan": "Kategori ICE: Trade Shows; ICE BSD di luar DKI (Banten)"
     },
     {
-      "id": "E0359",
+      "id": "E0351",
       "nama_acara": "11th EXPO CLEAN & EXPO LAUNDRY",
       "tanggal_mulai": "2026-11-12",
       "tanggal_selesai": "2026-11-14",
@@ -6199,7 +6063,7 @@
       "catatan": "Kategori ICE: Trade Shows; ICE BSD di luar DKI (Banten)"
     },
     {
-      "id": "E0360",
+      "id": "E0352",
       "nama_acara": "5 Seconds of Summer - Everyone's A Star Tour",
       "tanggal_mulai": "2026-11-14",
       "tanggal_selesai": "2026-11-14",
@@ -6216,7 +6080,7 @@
       "catatan": "Sumber berita"
     },
     {
-      "id": "E0361",
+      "id": "E0353",
       "nama_acara": "Plastic & Rubber Indonesia 2026",
       "tanggal_mulai": "2026-11-17",
       "tanggal_selesai": "2026-11-20",
@@ -6233,7 +6097,7 @@
       "catatan": ""
     },
     {
-      "id": "E0362",
+      "id": "E0354",
       "nama_acara": "Indonesian Customer Care (ICC)",
       "tanggal_mulai": "2026-11-20",
       "tanggal_selesai": "2026-11-22",
@@ -6250,7 +6114,7 @@
       "catatan": ""
     },
     {
-      "id": "E0363",
+      "id": "E0355",
       "nama_acara": "CARASEL SERANOVA 2026",
       "tanggal_mulai": "2026-11-21",
       "tanggal_selesai": "2026-11-21",
@@ -6267,7 +6131,7 @@
       "catatan": ""
     },
     {
-      "id": "E0364",
+      "id": "E0356",
       "nama_acara": "Guns N' Roses World Tour 2026",
       "tanggal_mulai": "2026-11-21",
       "tanggal_selesai": "2026-11-21",
@@ -6284,7 +6148,7 @@
       "catatan": "Agregator"
     },
     {
-      "id": "E0365",
+      "id": "E0357",
       "nama_acara": "Lomba Sihir - Konser Ujung Dunia",
       "tanggal_mulai": "2026-11-21",
       "tanggal_selesai": "2026-11-21",
@@ -6301,7 +6165,7 @@
       "catatan": "Berita mengutip akun resmi @love_gbk"
     },
     {
-      "id": "E0366",
+      "id": "E0358",
       "nama_acara": "IndoBuildTech Expo",
       "tanggal_mulai": "2026-11-25",
       "tanggal_selesai": "2026-11-29",
@@ -6318,7 +6182,7 @@
       "catatan": "Kalender resmi NICE (filter tahun 2026); NICE PIK2 di Kab. Tangerang, Banten — di luar DKI"
     },
     {
-      "id": "E0367",
+      "id": "E0359",
       "nama_acara": "Indonesia International Muslim Fair (IIMF) 2026",
       "tanggal_mulai": "2026-11-25",
       "tanggal_selesai": "2026-11-29",
@@ -6335,7 +6199,7 @@
       "catatan": "Agregator/blog"
     },
     {
-      "id": "E0368",
+      "id": "E0360",
       "nama_acara": "Indonesia Medical Expo (INDOMEDEX) 2026",
       "tanggal_mulai": "2026-11-25",
       "tanggal_selesai": "2026-11-28",
@@ -6352,7 +6216,7 @@
       "catatan": "Kalender resmi NICE (filter tahun 2026); NICE PIK2 di Kab. Tangerang, Banten — di luar DKI"
     },
     {
-      "id": "E0369",
+      "id": "E0361",
       "nama_acara": "Supply Chain Indonesia",
       "tanggal_mulai": "2026-11-25",
       "tanggal_selesai": "2026-11-27",
@@ -6369,7 +6233,7 @@
       "catatan": "Kalender resmi NICE (filter tahun 2026); NICE PIK2 di Kab. Tangerang, Banten — di luar DKI"
     },
     {
-      "id": "E0370",
+      "id": "E0362",
       "nama_acara": "Indonesia International Beauty Expo & Wellness Industry Expo 2026",
       "tanggal_mulai": "2026-11-26",
       "tanggal_selesai": "2026-11-28",
@@ -6386,7 +6250,7 @@
       "catatan": "Kalender resmi NICE (filter tahun 2026); NICE PIK2 di Kab. Tangerang, Banten — di luar DKI"
     },
     {
-      "id": "E0371",
+      "id": "E0363",
       "nama_acara": "High School Fest 2026",
       "tanggal_mulai": "2026-11-28",
       "tanggal_selesai": "2026-11-29",
@@ -6403,7 +6267,7 @@
       "catatan": "Berita mengutip akun resmi @love_gbk"
     },
     {
-      "id": "E0372",
+      "id": "E0364",
       "nama_acara": "King of Convenience Live in Jakarta",
       "tanggal_mulai": "2026-11-28",
       "tanggal_selesai": "2026-11-29",
@@ -6420,7 +6284,7 @@
       "catatan": ""
     },
     {
-      "id": "E0373",
+      "id": "E0365",
       "nama_acara": "Manufacturing Indonesia 2026",
       "tanggal_mulai": "2026-12-02",
       "tanggal_selesai": "2026-12-05",
@@ -6437,7 +6301,7 @@
       "catatan": ""
     },
     {
-      "id": "E0374",
+      "id": "E0366",
       "nama_acara": "Weddingku Exhibition 2026",
       "tanggal_mulai": "2026-12-04",
       "tanggal_selesai": "2026-12-06",
@@ -6454,7 +6318,7 @@
       "catatan": "Kalender resmi NICE (filter tahun 2026); NICE PIK2 di Kab. Tangerang, Banten — di luar DKI"
     },
     {
-      "id": "E0375",
+      "id": "E0367",
       "nama_acara": "BOYNEXTDOOR TOUR ‘KNOCK ON Vol.2’ IN JAKARTA",
       "tanggal_mulai": "2026-12-05",
       "tanggal_selesai": "2026-12-05",
@@ -6471,7 +6335,7 @@
       "catatan": "Kategori ICE: Special Events; ICE BSD di luar DKI (Banten)"
     },
     {
-      "id": "E0376",
+      "id": "E0368",
       "nama_acara": "5 Seconds of Summer (show tambahan)",
       "tanggal_mulai": "2026-12-06",
       "tanggal_selesai": "2026-12-06",
@@ -6488,7 +6352,7 @@
       "catatan": "Berita mengutip akun resmi @love_gbk"
     },
     {
-      "id": "E0377",
+      "id": "E0369",
       "nama_acara": "Djakarta Warehouse Project 2026",
       "tanggal_mulai": "2026-12-11",
       "tanggal_selesai": "2026-12-13",
@@ -6505,7 +6369,7 @@
       "catatan": ""
     },
     {
-      "id": "E0378",
+      "id": "E0370",
       "nama_acara": "2026 China Indonesia Automotive Parts and Accessories Fair (CIAAF)",
       "tanggal_mulai": "2026-12-12",
       "tanggal_selesai": "2026-12-14",
@@ -6522,7 +6386,7 @@
       "catatan": "Kategori ICE: Trade Shows; ICE BSD di luar DKI (Banten)"
     },
     {
-      "id": "E0379",
+      "id": "E0371",
       "nama_acara": "Perayaan Natal Impact Community Indonesia 2026",
       "tanggal_mulai": "2026-12-25",
       "tanggal_selesai": "2026-12-25",
@@ -6539,7 +6403,7 @@
       "catatan": ""
     },
     {
-      "id": "E0380",
+      "id": "E0372",
       "nama_acara": "BTS World Tour ARIRANG in Jakarta",
       "tanggal_mulai": "2026-12-26",
       "tanggal_selesai": "2026-12-27",
@@ -6556,7 +6420,7 @@
       "catatan": "Sebagian sumber menyebut juga 29 Des"
     },
     {
-      "id": "E0381",
+      "id": "E0373",
       "nama_acara": "The Premiere Soul 8 Intimate Concert",
       "tanggal_mulai": "2026-12-26",
       "tanggal_selesai": "2026-12-26",
@@ -6573,7 +6437,7 @@
       "catatan": "Situs resmi menyebut 26 Des 2026 tanpa venue di cuplikan; edisi VI (Des 2025) di JICC — venue perlu dicek"
     },
     {
-      "id": "E0382",
+      "id": "E0374",
       "nama_acara": "DRAMA MUSIKAL MAR",
       "tanggal_mulai": "",
       "tanggal_selesai": "",

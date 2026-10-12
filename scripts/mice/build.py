@@ -20,8 +20,13 @@ Input (semuanya di repo, bisa diaudit per baris):
   5. `data/sekunder/event-visitors-2026.json` — data izin event Disparekraf
      2026; hanya baris yang lokasinya cocok dengan venue MICE yang diambil.
 
-Duplikat acara antarsumber digabung berdasarkan nama ternormalisasi + bulan
-mulai; sumber dengan prioritas lebih tinggi (urutan di atas) dipertahankan.
+Duplikat acara antarsumber digabung bila venue sama, nama mirip (lihat
+`nama_mirip`) dan tanggal mulai berselisih ≤ 14 hari; sumber dengan prioritas
+lebih tinggi (urutan di atas) dipertahankan. Acara berulang (mis. pameran
+kuartalan) tetap terpisah karena tanggalnya berjauhan.
+
+Venue: hotel yang juga tercatat sebagai venue khusus, dan hotel yang bagian dari
+hotel lain, digabung (lihat `VENUE_KHUSUS_HOTEL`, `HOTEL_INDUK`).
 
 Output: `data/sekunder/<slug>.json` + mirror `platform-v2/data/<slug>.json`.
 Tanpa akses jaringan; idempoten. Jalankan dari root repo:
@@ -32,6 +37,7 @@ from __future__ import annotations
 import json
 import re
 from collections import Counter
+from datetime import date
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -60,7 +66,7 @@ VENUE_KUNCI = {
     "Beach City International Stadium Ancol": ["BEACH CITY"],
     "Ecovention Hall Ancol": ["ECOVENTION"],
     "The Kasablanka Hall": ["KASABLANKA"],
-    "Senayan Park": ["SENAYAN PARK", "SPARK"],
+    "Senayan Park": ["SENAYAN PARK"],
     "BritAma Arena": ["BRITAMA"],
     "Jakarta International Velodrome": ["VELODROME"],
     "Gedung Sasana Kriya TMII": ["SASANA KRIYA"],
@@ -73,6 +79,13 @@ VENUE_KUNCI = {
     "Pos Bloc Jakarta": ["POS BLOC"],
     "Balai Sarbini": ["BALAI SARBINI"],
 }
+
+# Venue khusus yang sebenarnya hotel bintang 4–5 dan sudah ada di daftar hotel
+# (awalan nama venue → id hotel). Barisnya tidak dihitung dua kali.
+VENUE_KHUSUS_HOTEL = {"The Sultan Hotel & Residence": "H244"}
+
+# Hotel yang fasilitas MICE-nya milik hotel lain (id → id hotel induk).
+HOTEL_INDUK = {"N052": "N051"}  # InterContinental Residences → InterContinental Pondok Indah
 
 JENIS_JIEXPO = {
     "Exhibition": "Pameran", "Concert / Festival": "Konser/Festival", "Concert": "Konser",
@@ -107,6 +120,23 @@ def iso(d: str | None) -> str:
     return f"{m[1]}-{int(m[2]):02d}-{int(m[3]):02d}" if m else ""
 
 
+def nama_mirip(a: str, b: str) -> bool:
+    """Nama acara sama, atau token nama yang lebih pendek (≥ 3 token) termuat
+    utuh di nama yang lebih panjang ('Bryan Adams - Roll with the Punches
+    (special guest …)' ≈ 'BRYAN ADAMS "ROLL WITH THE PUNCHES"')."""
+    ta, tb = norm(a).split(), norm(b).split()
+    if ta == tb:
+        return True
+    pendek, panjang = sorted((ta, tb), key=len)
+    return len(pendek) >= 3 and set(pendek) <= set(panjang)
+
+
+def selisih_hari(a: str, b: str) -> int | None:
+    if not (a and b):
+        return None
+    return abs((date.fromisoformat(a) - date.fromisoformat(b)).days)
+
+
 def tanggal_izin(t: str) -> tuple[str, str]:
     """Teks tanggal izin ('6 - 8 FEBRUARI 2026', '30 JANUARI - 1 FEBRUARI 2026')."""
     t = re.sub(r"\s+", " ", (t or "").upper())
@@ -135,8 +165,11 @@ def load(name: str):
 
 
 def kota(s: str | None) -> str:
-    s = (s or "").upper().replace("KOTA ADMINISTRASI ", "").replace("KOTA ", "").strip()
-    return KOTA.get(s, (s.title() if s else ""))
+    """Nama kota administrasi DKI dibakukan; wilayah lain dipertahankan apa
+    adanya supaya 'Kota …' dan 'Kab. …' tetap bisa dibedakan."""
+    raw = re.sub(r"\s+", " ", (s or "").strip())
+    inti = re.sub(r"^(KOTA ADMINISTRASI|KOTA ADM\.?|KOTA) ", "", raw.upper())
+    return KOTA.get(inti, raw.title() if raw.isupper() else raw)
 
 
 # ── Venue ────────────────────────────────────────────────────────────────
@@ -170,7 +203,12 @@ def yn(v) -> str:
 
 def build_venue() -> list[dict]:
     rows = []
+    hotel_dobel: dict[str, str] = {}
     for i, v in enumerate(load("venue_khusus.json"), 1):
+        hid = next((h for awal, h in VENUE_KHUSUS_HOTEL.items() if v["nama_venue"].startswith(awal)), None)
+        if hid:  # dihitung sebagai hotel; id V-nya sengaja dilewati
+            hotel_dobel[hid] = f"V{i:03d}"
+            continue
         rows.append({
             "id": f"V{i:03d}", "nama_venue": v["nama_venue"], "kategori": "Venue khusus",
             "jenis": v["jenis"], "golongan_hotel": "", "alamat": v["alamat"] or "",
@@ -183,10 +221,14 @@ def build_venue() -> list[dict]:
             "catatan": v["catatan"] or "",
         })
     seen: dict[str, dict] = {}
+    by_id: dict[str, dict] = {}
     for h in load("hotel_ballroom.json"):
         key = norm(h["nama_hotel"])
-        if key in seen:  # hotel sama tercatat dua kali di hotel-kamar-jakarta
-            seen[key]["catatan"] = (seen[key]["catatan"] + f" Juga tercatat sebagai {h['id']} di hotel-kamar-jakarta.").strip()
+        induk = by_id.get(HOTEL_INDUK.get(h["id"], ""))
+        dup = seen.get(key) or induk
+        if dup:  # hotel sama tercatat dua kali, atau bagian dari hotel induk
+            alasan = "bagian dari hotel ini" if induk else "hotel yang sama"
+            dup["catatan"] = (dup["catatan"] + f" {h['id']} di hotel-kamar-jakarta ({h['nama_hotel']}) digabung ke sini: {alasan}.").strip()
             continue
         row = {
             "id": h["id"], "nama_venue": h["nama_hotel"], "kategori": "Hotel bintang 4–5",
@@ -199,8 +241,12 @@ def build_venue() -> list[dict]:
             "jumlah_ruang": h["jumlah_ruang_pertemuan"], "url_sumber": h["url_sumber"] or "",
             "url_verifikasi": "", "status_verifikasi": h["status_verifikasi"], "catatan": h["catatan"] or "",
         }
-        seen[key] = row
+        if h["id"] in hotel_dobel:
+            row["catatan"] = (row["catatan"] + f" Juga diinventarisasi sebagai venue khusus {hotel_dobel[h['id']]}; dihitung sekali di sini.").strip()
+        seen[key] = by_id[h["id"]] = row
         rows.append(row)
+    missing = set(HOTEL_INDUK) - {h["id"] for h in load("hotel_ballroom.json")} | set(VENUE_KHUSUS_HOTEL.values()) - set(by_id)
+    assert not missing, f"id hotel tak dikenal: {missing}"
     return rows
 
 
@@ -231,13 +277,16 @@ def in_2026(a: str, b: str) -> bool:
 
 def build_events() -> list[dict]:
     out: list[dict] = []
-    keys: set[tuple[str, str]] = set()
 
     def add(r: dict) -> None:
-        k = (norm(r["nama_acara"]), r["tanggal_mulai"][:7])
-        if k in keys:
-            return
-        keys.add(k)
+        for o in out:
+            if o["venue"] != r["venue"] or not nama_mirip(o["nama_acara"], r["nama_acara"]):
+                continue
+            beda = selisih_hari(o["tanggal_mulai"], r["tanggal_mulai"])
+            if beda is not None and beda <= 14 or (beda is None and norm(o["nama_acara"]) == norm(r["nama_acara"])):
+                o["catatan"] = (o["catatan"] + f" Juga tercatat di {r['sumber_data']}"
+                                + (f" ({r['tanggal_mulai']})" if r["tanggal_mulai"] != o["tanggal_mulai"] else "") + ".").strip()
+                return
         out.append(r)
 
     cache = json.loads((ROOT / "scripts" / "jiexpo_events_cache.json").read_text(encoding="utf-8"))
@@ -271,7 +320,8 @@ def build_events() -> list[dict]:
     for r in izin["rows"]:
         lok = re.sub(r"\s+", " ", (r.get("lokasi") or "").upper())
         venue = venue_baku(lok)
-        if venue == lok:
+        # Lewati lokasi berganda, mis. city tour "JAKARTA (POS BLOC, MONAS, BLOK M)".
+        if venue == lok or re.search(r"\([^)]*,[^)]*\)", lok):
             continue
         a, b = tanggal_izin(r.get("tanggal") or "")
         add({
