@@ -233,9 +233,8 @@ export function DatasetCharts({ columns, rows }: { columns: Column[]; rows: Row[
   const [x, setX] = useState(defX);
   const [y, setY] = useState(defY);
   const [agg, setAgg] = useState<Agg>(defY ? "sum" : "count");
-  const [charts, setCharts] = useState<ChartCfg[]>(() =>
-    defX ? [{ id: nid(), kind: "bar", x: defX, y: defY, agg: defY ? "sum" : "count" }] : [],
-  );
+  // Tidak ada grafik bawaan; pengguna menambah sendiri lewat "Tambah grafik".
+  const [charts, setCharts] = useState<ChartCfg[]>([]);
 
   if (!rows.length || !cols.length) return null;
 
