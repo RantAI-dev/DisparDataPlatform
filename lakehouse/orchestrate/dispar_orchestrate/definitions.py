@@ -72,11 +72,7 @@ def bronze_sekunder(context) -> None:
 def sdi_meta(context) -> None:
     from dispar_ingest.meta import capture_metadata, fill_totals
     laporan = capture_metadata()
-    try:
-        terisi = fill_totals()
-    except Exception as e:
-        context.log.warning(f"fill_totals dilewati atau gagal: {e}")
-        terisi = 0
+    terisi = fill_totals()
     context.add_output_metadata({
         "katalog": laporan["katalog"],
         "sync": laporan["sync"],

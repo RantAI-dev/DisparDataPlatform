@@ -58,11 +58,13 @@ def append_ingest_log(
     """Catat satu entri penarikan ke bronze_meta.ingest_log (append-only)."""
     if status not in {"masuk", "kosong", "gagal"}:
         raise ValueError(f"status {status!r} tidak valid; harus masuk | kosong | gagal")
+    try:
+        catalog.create_namespace("bronze_meta")
+    except Exception:  # noqa: BLE001
+        pass
+    ident = ("bronze_meta", "ingest_log")
     if ingested_at is None:
         ingested_at = datetime.now(timezone.utc)
-
-    catalog.create_namespace_if_not_exists("bronze_meta")
-    ident = ("bronze_meta", "ingest_log")
 
     tbl_data = pa.table({
         "sumber_id": pa.array([sumber_id], pa.string()),
@@ -110,7 +112,10 @@ def get_last_success_hashes(catalog) -> dict[str, str]:
 
 
 def _replace_table(catalog, namespace: str, name: str, table: pa.Table) -> int:
-    catalog.create_namespace_if_not_exists(namespace)
+    try:
+        catalog.create_namespace(namespace)
+    except Exception:  # noqa: BLE001
+        pass
     ident = (namespace, name)
     if catalog.table_exists(ident):
         catalog.drop_table(ident)
@@ -121,7 +126,6 @@ def _replace_table(catalog, namespace: str, name: str, table: pa.Table) -> int:
 
 def capture_metadata(
     limit: int | None = None,
-    tenant: str = "dispar-dki",
     client: SdiClient | None = None,
     catalog: Any = None,
 ) -> dict:
@@ -136,21 +140,34 @@ def capture_metadata(
     if limit:
         datasets = datasets[:limit]
 
-    # Pengaman penyusutan: jika tabel dataset_catalog sudah ada dan baris baru < 90% dari yang ada,
-    # jangan ganti tabel mana pun; aset gagal dengan menyebut kedua angka.
+    # ── Pengaman penyusutan: cek dataset_catalog sebelum loop /detail ───
     ident_cat = ("bronze_meta", "dataset_catalog")
     if catalog.table_exists(ident_cat):
-        existing_tbl = catalog.load_table(ident_cat)
-        existing_count = existing_tbl.scan().to_arrow().num_rows
-        if existing_count > 0:
-            new_count = len(datasets)
-            if new_count < 0.9 * existing_count:
+        existing_cat_tbl = catalog.load_table(ident_cat)
+        existing_cat_count = existing_cat_tbl.scan().to_arrow().num_rows
+        if existing_cat_count > 0:
+            new_cat_count = len(datasets)
+            if new_cat_count < 0.9 * existing_cat_count:
                 raise MetadataShrinkageError(
-                    f"Penyusutan metadata terdeteksi: jumlah dataset baru ({new_count}) "
-                    f"< 90% dari jumlah yang ada ({existing_count}). Penggantian tabel dibatalkan."
+                    f"Penyusutan metadata terdeteksi pada dataset_catalog: jumlah dataset baru ({new_cat_count}) "
+                    f"< 90% dari jumlah yang ada ({existing_cat_count}). Penggantian tabel dibatalkan."
                 )
 
-    # ── dataset_catalog ──────────────────────────────────────────────────
+    # Ambil nilai total yang ada di dataset_sync jika tabel sudah ada,
+    # supaya total tidak ter-reset ke 0 saat refresh metadata.
+    existing_totals: dict[str, int] = {}
+    ident_sync = ("bronze_meta", "dataset_sync")
+    if catalog.table_exists(ident_sync):
+        try:
+            old_sync_tbl = catalog.load_table(ident_sync)
+            old_arrow = old_sync_tbl.scan().to_arrow()
+            if "slug" in old_arrow.column_names and "total" in old_arrow.column_names:
+                for s, t in zip(old_arrow.column("slug").to_pylist(), old_arrow.column("total").to_pylist()):
+                    existing_totals[str(s)] = int(t or 0)
+        except Exception as e:
+            print(f"  Peringatan: gagal membaca total lama dari dataset_sync: {e}")
+
+    # ── Susun dataset_catalog di memori ─────────────────────────────────
     cat_rows = {
         "slug": [], "title": [], "description": [], "tags": [], "views": [],
         "updated_at": [], "tier": [], "table_name": [],
@@ -159,7 +176,7 @@ def capture_metadata(
         cat_rows["slug"].append(d.slug)
         cat_rows["title"].append(d.title)
         cat_rows["description"].append(d.description or "")
-        cat_rows["tags"].append(json.dumps(d.tags, ensure_ascii=False))
+        cat_rows["tags"].append(json.dumps(d.tags, ensure_ascii=False) if isinstance(d.tags, (list, dict)) else "[]")
         cat_rows["views"].append(int(d.views))
         cat_rows["updated_at"].append(d.updated_at or "")
         cat_rows["tier"].append("primer")
@@ -174,10 +191,8 @@ def capture_metadata(
         "tier": pa.array(cat_rows["tier"], pa.string()),
         "table_name": pa.array(cat_rows["table_name"], pa.string()),
     })
-    n_cat = _replace_table(catalog, "bronze_meta", "dataset_catalog", catalog_tbl)
-    print(f"  dataset_catalog: {n_cat} baris", flush=True)
 
-    # ── dataset_sync + dataset_column (per dataset via /detail) ─────────────
+    # ── Susun dataset_sync + dataset_column di memori (via /detail) ─────
     sync_cols: dict[str, list] = {k: [] for k in [
         "slug", "title", "description", "sumber_data", "frekuensi", "satuan",
         "klasifikasi", "kontak", "author", "total", "table_name", "synced_at"]}
@@ -194,13 +209,17 @@ def capture_metadata(
         sync_cols["slug"].append(d.slug)
         sync_cols["title"].append(det.title)
         sync_cols["description"].append(det.description or "")
-        sync_cols["sumber_data"].append(json.dumps(det.sumber_data, ensure_ascii=False))
+        try:
+            sumber_str = json.dumps(det.sumber_data, ensure_ascii=False)
+        except Exception:
+            sumber_str = "[]"
+        sync_cols["sumber_data"].append(sumber_str)
         sync_cols["frekuensi"].append(det.frekuensi or "")
         sync_cols["satuan"].append(det.satuan or "")
         sync_cols["klasifikasi"].append(det.klasifikasi or "")
         sync_cols["kontak"].append(det.kontak or "")
         sync_cols["author"].append(det.author or "")
-        sync_cols["total"].append(0)  # diisi belakangan dari count Bronze
+        sync_cols["total"].append(existing_totals.get(d.slug, 0))
         sync_cols["table_name"].append(safe_name(d.slug))
         sync_cols["synced_at"].append(now)
         for ord_, c in enumerate(det.columns):
@@ -238,6 +257,41 @@ def capture_metadata(
         "tipe": pa.array(col_cols["tipe"], pa.string()),
         "deskripsi": pa.array(col_cols["deskripsi"], pa.string()),
     })
+
+    # ── Pengaman penyusutan: cek dataset_sync dan dataset_column ───────
+    # 1. Cek dataset_sync
+    if catalog.table_exists(ident_sync):
+        existing_sync_tbl = catalog.load_table(ident_sync)
+        existing_sync_count = existing_sync_tbl.scan().to_arrow().num_rows
+        if existing_sync_count > 0:
+            new_sync_count = sync_tbl.num_rows
+            if new_sync_count < 0.9 * existing_sync_count:
+                raise MetadataShrinkageError(
+                    f"Penyusutan metadata terdeteksi pada dataset_sync: jumlah dataset baru ({new_sync_count}) "
+                    f"< 90% dari jumlah yang ada ({existing_sync_count}). Penggantian tabel dibatalkan."
+                )
+
+    # 2. Cek dataset_column (jumlah dataset berbeda)
+    ident_col = ("bronze_meta", "dataset_column")
+    if catalog.table_exists(ident_col):
+        existing_col_tbl = catalog.load_table(ident_col)
+        existing_col_arrow = existing_col_tbl.scan().to_arrow()
+        if "slug" in existing_col_arrow.column_names:
+            existing_col_datasets = len(set(existing_col_arrow.column("slug").to_pylist()))
+        else:
+            existing_col_datasets = 0
+        if existing_col_datasets > 0:
+            new_col_datasets = len(set(col_cols["slug"]))
+            if new_col_datasets < 0.9 * existing_col_datasets:
+                raise MetadataShrinkageError(
+                    f"Penyusutan metadata terdeteksi pada dataset_column: jumlah dataset berbeda baru ({new_col_datasets}) "
+                    f"< 90% dari jumlah yang ada ({existing_col_datasets}). Penggantian tabel dibatalkan."
+                )
+
+    # ── Tulis ketiga tabel bersama setelah lulus pengaman ───────────────
+    n_cat = _replace_table(catalog, "bronze_meta", "dataset_catalog", catalog_tbl)
+    print(f"  dataset_catalog: {n_cat} baris", flush=True)
+
     n_sync = _replace_table(catalog, "bronze_meta", "dataset_sync", sync_tbl)
     n_col = _replace_table(catalog, "bronze_meta", "dataset_column", col_tbl)
     print(f"  dataset_sync: {n_sync} baris | dataset_column: {n_col} baris", flush=True)
@@ -269,25 +323,22 @@ def fill_totals(catalog: Any = None, ch_client: Any = None) -> int:
                 password=os.environ.get("CH_PASSWORD", "disparch"),
             )
         except Exception as e:
-            print(f"  Peringatan: koneksi ClickHouse gagal ({e}), total diisi 0")
-            ch_client = None
+            raise RuntimeError(f"Gagal menghubungkan ke ClickHouse: {e}") from e
 
     tbl = catalog.load_table(("bronze_meta", "dataset_sync"))
     arrow = tbl.scan().to_arrow()
     tnames = arrow.column("table_name").to_pylist()
 
-    ada = set()
-    if ch_client is not None:
-        try:
-            ada = {n.split(".", 1)[1] for n in
-                   (r[0] for r in ch_client.query("SHOW TABLES FROM lake").result_rows)
-                   if n.startswith("bronze_sdi.")}
-        except Exception as e:
-            print(f"  Peringatan: tidak dapat membaca lake ClickHouse ({e}), total diisi 0")
+    try:
+        ada = {n.split(".", 1)[1] for n in
+               (r[0] for r in ch_client.query("SHOW TABLES FROM lake").result_rows)
+               if n.startswith("bronze_sdi.")}
+    except Exception as e:
+        raise RuntimeError(f"Gagal membaca tabel lake dari ClickHouse: {e}") from e
 
     totals = []
     for tn in tnames:
-        if ch_client is not None and tn in ada:
+        if tn in ada:
             try:
                 totals.append(int(ch_client.query(f"SELECT count() FROM lake.`bronze_sdi.{tn}`").result_rows[0][0]))
             except Exception:  # noqa: BLE001

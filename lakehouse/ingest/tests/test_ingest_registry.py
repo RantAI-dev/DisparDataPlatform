@@ -272,6 +272,65 @@ pembangun = ""
     assert not temp_catalog.table_exists(("bronze_meta_sec", "dataset_column"))
 
 
+def test_ingest_secondary_corrupt_json_raises_and_no_write(
+    tmp_path: Path, temp_catalog: Any
+):
+    """Plan F2 Kriteria 5: ingest_secondary dengan satu berkas terdaftar yang JSON-nya rusak
+    -> tidak ada write_bronze, tidak ada penulisan tabel meta; error menyebut path berkas.
+    """
+    repo_root = tmp_path / "repo"
+    (repo_root / "lakehouse").mkdir(parents=True)
+    (repo_root / "data" / "sekunder").mkdir(parents=True)
+
+    sec1 = repo_root / "data" / "sekunder" / "sec1.json"
+    sec1.write_text(json.dumps({
+        "slug": "sec-1", "title": "S1", "description": "D1", "tags": [], "columns": [], "rows": [{"col1": "val1"}],
+    }), encoding="utf-8")
+
+    sec2 = repo_root / "data" / "sekunder" / "sec2.json"
+    sec2.write_text("{ ini json rusak / bukan json valid }", encoding="utf-8")
+
+    toml_content = """
+[[sumber]]
+id = "sec-1"
+jenis = "sekunder"
+path = "data/sekunder/sec1.json"
+namespace = "bronze_sec"
+tabel = "sec_1"
+kelas_refresh = "snapshot"
+tanggal_ambil = "2026-10-08"
+asal = "test"
+pembangun = ""
+
+[[sumber]]
+id = "sec-2"
+jenis = "sekunder"
+path = "data/sekunder/sec2.json"
+namespace = "bronze_sec"
+tabel = "sec_2"
+kelas_refresh = "snapshot"
+tanggal_ambil = "2026-10-08"
+asal = "test"
+pembangun = ""
+"""
+    (repo_root / "lakehouse" / "sources.toml").write_text(toml_content, encoding="utf-8")
+
+    with pytest.raises(RuntimeError) as exc_info:
+        ingest_secondary(root=repo_root, catalog=temp_catalog)
+
+    # Error harus menyebut path berkas yang rusak
+    assert str(sec2) in str(exc_info.value)
+
+    # Pastikan tidak ada tabel bronze yang ditulis
+    assert not temp_catalog.table_exists(("bronze_sec", "sec_1"))
+    assert not temp_catalog.table_exists(("bronze_sec", "sec_2"))
+
+    # Pastikan ketiga tabel meta sekunder TIDAK disentuh/dibuat
+    assert not temp_catalog.table_exists(("bronze_meta_sec", "dataset_catalog"))
+    assert not temp_catalog.table_exists(("bronze_meta_sec", "dataset_sync"))
+    assert not temp_catalog.table_exists(("bronze_meta_sec", "dataset_column"))
+
+
 def test_dagster_definitions():
     """Kriteria 3: bronze_sekunder ada di refresh_job dan lake_db bergantung padanya."""
     from dispar_orchestrate.definitions import bronze_sekunder, defs, lake_db, refresh_job
