@@ -2,3 +2,18 @@
 kolom = ["bulan"]
 kunci = "if(kf_periode_bulan(2020, v) IS NOT NULL, 1, 0)"
 cocok = "SELECT 1"
+
+[wilayah_kota]
+kolom = ["wilayah", "kota", "kabupaten_atau_kota", "kota_adm", "kota_administrasi", "nama_kabupaten_kota", "wilayah_usaha", "kota_tujuan"]
+kunci = "kf_kunci_wilayah(v)"
+cocok = "SELECT kunci FROM {{konform_db}}.dim_wilayah_kunci WHERE tingkat IN ('kabkota', 'provinsi') AND kunci_induk = ''"
+
+[kecamatan]
+kolom = ["kecamatan", "kecamatan_usaha"]
+kunci = "kf_kunci_wilayah(v)"
+cocok = "SELECT kunci FROM {{konform_db}}.dim_wilayah_kunci WHERE tingkat = 'kecamatan' AND kunci_induk = ''"
+
+[kelurahan]
+kolom = ["kelurahan", "kelurahan_usaha"]
+kunci = "kf_kunci_wilayah(v)"
+cocok = "SELECT kunci FROM {{konform_db}}.dim_wilayah_kunci WHERE tingkat = 'kelurahan' AND kunci_induk = ''"

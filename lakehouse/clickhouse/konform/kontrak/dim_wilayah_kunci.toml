@@ -1,0 +1,31 @@
+nama = "dim_wilayah_kunci"
+deskripsi = "Kamus pencocokan kunci teks wilayah terhadap kode Kemendagri"
+grain = ["tingkat", "kunci", "kunci_induk"]
+kelas_refresh = "snapshot"
+pemilik = "perintis"
+
+[[kolom]]
+nama = "tingkat"
+tipe = "String"
+deskripsi = "Tingkat administrasi wilayah yang dicocokkan"
+nilai_boleh = ["provinsi", "kabkota", "kecamatan", "kelurahan"]
+wajib = true
+
+[[kolom]]
+nama = "kunci"
+tipe = "String"
+deskripsi = "Kunci teks ternormalisasi kf_kunci_wilayah"
+wajib = true
+
+[[kolom]]
+nama = "kunci_induk"
+tipe = "String"
+deskripsi = "Kunci teks wilayah induk (misal nama kecamatan untuk kelurahan, atau string kosong)"
+wajib = true
+
+[[kolom]]
+nama = "kode"
+tipe = "String"
+deskripsi = "Kode wilayah Kemendagri hasil pencocokan unik"
+wajib = true
+dimensi = "dim_wilayah.kode"
