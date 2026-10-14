@@ -1,0 +1,18 @@
+nama = "dim_negara_kunci"
+deskripsi = "Kamus pencocokan kunci teks varian nama negara terhadap kode kanonik"
+grain = ["kunci"]
+kelas_refresh = "snapshot"
+pemilik = "perintis"
+
+[[kolom]]
+nama = "kunci"
+tipe = "String"
+deskripsi = "Kunci teks ternormalisasi kunci_cocok"
+wajib = true
+
+[[kolom]]
+nama = "kode"
+tipe = "String"
+deskripsi = "Kode negara tujuan rujukan pada dim_negara"
+wajib = true
+dimensi = "dim_negara.kode"

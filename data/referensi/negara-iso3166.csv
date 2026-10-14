@@ -1,0 +1,256 @@
+kode,kode_iso2,nama,nama_inggris,kawasan,jenis
+AFG,AF,Afganistan,Afghanistan,Asia,negara
+ALA,AX,Kepulauan Aland,Åland Islands,Eropa,negara
+ALB,AL,Albania,Albania,Eropa,negara
+DZA,DZ,Aljazair,Algeria,Afrika,negara
+ASM,AS,Samoa Amerika,American Samoa,Oseania,negara
+AND,AD,Andorra,Andorra,Eropa,negara
+AGO,AO,Angola,Angola,Afrika,negara
+AIA,AI,Anguilla,Anguilla,Amerika,negara
+ATA,AQ,Antarktika,Antarctica,Lainnya,negara
+ATG,AG,Antigua dan Barbuda,Antigua & Barbuda,Amerika,negara
+ARG,AR,Argentina,Argentina,Amerika,negara
+ARM,AM,Armenia,Armenia,Asia,negara
+ABW,AW,Aruba,Aruba,Amerika,negara
+AUS,AU,Australia,Australia,Oseania,negara
+AUT,AT,Austria,Austria,Eropa,negara
+AZE,AZ,Azerbaijan,Azerbaijan,Asia,negara
+BHS,BS,Bahama,Bahamas,Amerika,negara
+BHR,BH,Bahrain,Bahrain,Timur Tengah,negara
+BGD,BD,Bangladesh,Bangladesh,Asia,negara
+BRB,BB,Barbados,Barbados,Amerika,negara
+BLR,BY,Belarus,Belarus,Eropa,negara
+BEL,BE,Belgia,Belgium,Eropa,negara
+BLZ,BZ,Belize,Belize,Amerika,negara
+BEN,BJ,Benin,Benin,Afrika,negara
+BMU,BM,Bermuda,Bermuda,Amerika,negara
+BTN,BT,Bhutan,Bhutan,Asia,negara
+BOL,BO,Bolivia,Bolivia,Amerika,negara
+BES,BQ,Belanda Karibia,Caribbean Netherlands,Amerika,negara
+BIH,BA,Bosnia dan Herzegovina,Bosnia,Eropa,negara
+BWA,BW,Botswana,Botswana,Afrika,negara
+BVT,BV,Pulau Bouvet,Bouvet Island,Amerika,negara
+BRA,BR,Brasil,Brazil,Amerika,negara
+IOT,IO,Wilayah Inggris di Samudra Hindia,British Indian Ocean Territory,Afrika,negara
+VGB,VG,Kepulauan Virgin Britania Raya,British Virgin Islands,Amerika,negara
+BRN,BN,Brunei,Brunei,Asia,negara
+BGR,BG,Bulgaria,Bulgaria,Eropa,negara
+BFA,BF,Burkina Faso,Burkina Faso,Afrika,negara
+BDI,BI,Burundi,Burundi,Afrika,negara
+CPV,CV,Tanjung Verde,Cape Verde,Afrika,negara
+KHM,KH,Kamboja,Cambodia,Asia,negara
+CMR,CM,Kamerun,Cameroon,Afrika,negara
+CAN,CA,Kanada,Canada,Amerika,negara
+CYM,KY,Kepulauan Cayman,Cayman Islands,Amerika,negara
+CAF,CF,Republik Afrika Tengah,Central African Republic,Afrika,negara
+TCD,TD,Chad,Chad,Afrika,negara
+CHL,CL,Cile,Chile,Amerika,negara
+CHN,CN,Tiongkok,China,Asia,negara
+HKG,HK,Hong Kong,Hong Kong,Asia,negara
+MAC,MO,Makau DAK Tiongkok,Macao,Asia,negara
+CXR,CX,Pulau Natal,Christmas Island,Oseania,negara
+CCK,CC,Kepulauan Cocos (Keeling),Cocos Islands,Oseania,negara
+COL,CO,Kolombia,Colombia,Amerika,negara
+COM,KM,Komoro,Comoros,Afrika,negara
+COG,CG,Kongo - Brazzaville,Congo - Brazzaville,Afrika,negara
+COK,CK,Kepulauan Cook,Cook Islands,Oseania,negara
+CRI,CR,Kosta Rika,Costa Rica,Amerika,negara
+HRV,HR,Kroasia,Croatia,Eropa,negara
+CUB,CU,Kuba,Cuba,Amerika,negara
+CUW,CW,Curaçao,Curaçao,Amerika,negara
+CYP,CY,Siprus,Cyprus,Asia,negara
+CZE,CZ,Ceko,Czechia,Eropa,negara
+PRK,KP,Korea Utara,North Korea,Asia,negara
+COD,CD,Kongo - Kinshasa,Congo - Kinshasa,Afrika,negara
+DNK,DK,Denmark,Denmark,Eropa,negara
+DJI,DJ,Jibuti,Djibouti,Afrika,negara
+DMA,DM,Dominika,Dominica,Amerika,negara
+DOM,DO,Republik Dominika,Dominican Republic,Amerika,negara
+ECU,EC,Ekuador,Ecuador,Amerika,negara
+EGY,EG,Mesir,Egypt,Afrika,negara
+SLV,SV,El Salvador,El Salvador,Amerika,negara
+GNQ,GQ,Guinea Ekuatorial,Equatorial Guinea,Afrika,negara
+ERI,ER,Eritrea,Eritrea,Afrika,negara
+EST,EE,Estonia,Estonia,Eropa,negara
+SWZ,SZ,eSwatini,Eswatini,Afrika,negara
+ETH,ET,Etiopia,Ethiopia,Afrika,negara
+FLK,FK,Kepulauan Falkland,Falkland Islands,Amerika,negara
+FRO,FO,Kepulauan Faroe,Faroe Islands,Eropa,negara
+FJI,FJ,Fiji,Fiji,Oseania,negara
+FIN,FI,Finlandia,Finland,Eropa,negara
+FRA,FR,Perancis,France,Eropa,negara
+GUF,GF,Guyana Prancis,French Guiana,Amerika,negara
+PYF,PF,Polinesia Prancis,French Polynesia,Oseania,negara
+ATF,TF,Wilayah Selatan Prancis,French Southern Territories,Afrika,negara
+GAB,GA,Gabon,Gabon,Afrika,negara
+GMB,GM,Gambia,Gambia,Afrika,negara
+GEO,GE,Georgia,Georgia,Asia,negara
+DEU,DE,Jerman,Germany,Eropa,negara
+GHA,GH,Ghana,Ghana,Afrika,negara
+GIB,GI,Gibraltar,Gibraltar,Eropa,negara
+GRC,GR,Yunani,Greece,Eropa,negara
+GRL,GL,Greenland,Greenland,Amerika,negara
+GRD,GD,Grenada,Grenada,Amerika,negara
+GLP,GP,Guadeloupe,Guadeloupe,Amerika,negara
+GUM,GU,Guam,Guam,Oseania,negara
+GTM,GT,Guatemala,Guatemala,Amerika,negara
+GGY,GG,Guernsey,Guernsey,Eropa,negara
+GIN,GN,Guinea,Guinea,Afrika,negara
+GNB,GW,Guinea-Bissau,Guinea-Bissau,Afrika,negara
+GUY,GY,Guyana,Guyana,Amerika,negara
+HTI,HT,Haiti,Haiti,Amerika,negara
+HMD,HM,Pulau Heard dan Kepulauan McDonald,Heard & McDonald Islands,Oseania,negara
+VAT,VA,Vatikan,Vatican City,Eropa,negara
+HND,HN,Honduras,Honduras,Amerika,negara
+HUN,HU,Hungaria,Hungary,Eropa,negara
+ISL,IS,Islandia,Iceland,Eropa,negara
+IND,IN,India,India,Asia,negara
+IDN,ID,Indonesia,Indonesia,Asia,negara
+IRN,IR,Iran,Iran,Timur Tengah,negara
+IRQ,IQ,Irak,Iraq,Timur Tengah,negara
+IRL,IE,Irlandia,Ireland,Eropa,negara
+IMN,IM,Pulau Man,Isle of Man,Eropa,negara
+ISR,IL,Israel,Israel,Timur Tengah,negara
+ITA,IT,Italia,Italy,Eropa,negara
+CIV,CI,Côte d’Ivoire,Côte d’Ivoire,Afrika,negara
+JAM,JM,Jamaika,Jamaica,Amerika,negara
+JPN,JP,Jepang,Japan,Asia,negara
+JEY,JE,Jersey,Jersey,Eropa,negara
+JOR,JO,Yordania,Jordan,Timur Tengah,negara
+KAZ,KZ,Kazakhstan,Kazakhstan,Asia,negara
+KEN,KE,Kenya,Kenya,Afrika,negara
+KIR,KI,Kiribati,Kiribati,Oseania,negara
+KWT,KW,Kuwait,Kuwait,Timur Tengah,negara
+KGZ,KG,Kirgizstan,Kyrgyzstan,Asia,negara
+LAO,LA,Laos,Laos,Asia,negara
+LVA,LV,Latvia,Latvia,Eropa,negara
+LBN,LB,Lebanon,Lebanon,Timur Tengah,negara
+LSO,LS,Lesotho,Lesotho,Afrika,negara
+LBR,LR,Liberia,Liberia,Afrika,negara
+LBY,LY,Libya,Libya,Afrika,negara
+LIE,LI,Liechtenstein,Liechtenstein,Eropa,negara
+LTU,LT,Lituania,Lithuania,Eropa,negara
+LUX,LU,Luksemburg,Luxembourg,Eropa,negara
+MDG,MG,Madagaskar,Madagascar,Afrika,negara
+MWI,MW,Malawi,Malawi,Afrika,negara
+MYS,MY,Malaysia,Malaysia,Asia,negara
+MDV,MV,Maladewa,Maldives,Asia,negara
+MLI,ML,Mali,Mali,Afrika,negara
+MLT,MT,Malta,Malta,Eropa,negara
+MHL,MH,Kepulauan Marshall,Marshall Islands,Oseania,negara
+MTQ,MQ,Martinik,Martinique,Amerika,negara
+MRT,MR,Mauritania,Mauritania,Afrika,negara
+MUS,MU,Mauritius,Mauritius,Afrika,negara
+MYT,YT,Mayotte,Mayotte,Afrika,negara
+MEX,MX,Meksiko,Mexico,Amerika,negara
+FSM,FM,Mikronesia,Micronesia,Oseania,negara
+MCO,MC,Monako,Monaco,Eropa,negara
+MNG,MN,Mongolia,Mongolia,Asia,negara
+MNE,ME,Montenegro,Montenegro,Eropa,negara
+MSR,MS,Montserrat,Montserrat,Amerika,negara
+MAR,MA,Maroko,Morocco,Afrika,negara
+MOZ,MZ,Mozambik,Mozambique,Afrika,negara
+MMR,MM,Myanmar (Burma),Myanmar,Asia,negara
+NAM,NA,Namibia,Namibia,Afrika,negara
+NRU,NR,Nauru,Nauru,Oseania,negara
+NPL,NP,Nepal,Nepal,Asia,negara
+NLD,NL,Belanda,Netherlands,Eropa,negara
+NCL,NC,Kaledonia Baru,New Caledonia,Oseania,negara
+NZL,NZ,Selandia Baru,New Zealand,Oseania,negara
+NIC,NI,Nikaragua,Nicaragua,Amerika,negara
+NER,NE,Niger,Niger,Afrika,negara
+NGA,NG,Nigeria,Nigeria,Afrika,negara
+NIU,NU,Niue,Niue,Oseania,negara
+NFK,NF,Kepulauan Norfolk,Norfolk Island,Oseania,negara
+MNP,MP,Kepulauan Mariana Utara,Northern Mariana Islands,Oseania,negara
+MKD,MK,Makedonia Utara,North Macedonia,Eropa,negara
+NOR,NO,Norwegia,Norway,Eropa,negara
+OMN,OM,Oman,Oman,Timur Tengah,negara
+PAK,PK,Pakistan,Pakistan,Asia,negara
+PLW,PW,Palau,Palau,Oseania,negara
+PAN,PA,Panama,Panama,Amerika,negara
+PNG,PG,Papua Nugini,Papua New Guinea,Oseania,negara
+PRY,PY,Paraguay,Paraguay,Amerika,negara
+PER,PE,Peru,Peru,Amerika,negara
+PHL,PH,Filipina,Philippines,Asia,negara
+PCN,PN,Kepulauan Pitcairn,Pitcairn,Oseania,negara
+POL,PL,Polandia,Poland,Eropa,negara
+PRT,PT,Portugal,Portugal,Eropa,negara
+PRI,PR,Puerto Riko,Puerto Rico,Amerika,negara
+QAT,QA,Qatar,Qatar,Timur Tengah,negara
+KOR,KR,Korea Selatan,South Korea,Asia,negara
+MDA,MD,Moldova,Moldova,Eropa,negara
+REU,RE,Réunion,Réunion,Afrika,negara
+ROU,RO,Rumania,Romania,Eropa,negara
+RUS,RU,Rusia,Russia,Eropa,negara
+RWA,RW,Rwanda,Rwanda,Afrika,negara
+BLM,BL,Saint Barthélemy,St. Barthélemy,Amerika,negara
+SHN,SH,Saint Helena,St. Helena,Afrika,negara
+KNA,KN,Saint Kitts dan Nevis,St. Kitts & Nevis,Amerika,negara
+LCA,LC,Saint Lucia,St. Lucia,Amerika,negara
+MAF,MF,Saint Martin,St. Martin,Amerika,negara
+SPM,PM,Saint Pierre dan Miquelon,St. Pierre & Miquelon,Amerika,negara
+VCT,VC,Saint Vincent dan Grenadine,St. Vincent & Grenadines,Amerika,negara
+WSM,WS,Samoa,Samoa,Oseania,negara
+SMR,SM,San Marino,San Marino,Eropa,negara
+STP,ST,Sao Tome dan Principe,São Tomé & Príncipe,Afrika,negara
+SAU,SA,Arab Saudi,Saudi Arabia,Timur Tengah,negara
+SEN,SN,Senegal,Senegal,Afrika,negara
+SRB,RS,Serbia,Serbia,Eropa,negara
+SYC,SC,Seychelles,Seychelles,Afrika,negara
+SLE,SL,Sierra Leone,Sierra Leone,Afrika,negara
+SGP,SG,Singapura,Singapore,Asia,negara
+SXM,SX,Sint Maarten,Sint Maarten,Amerika,negara
+SVK,SK,Slovakia,Slovakia,Eropa,negara
+SVN,SI,Slovenia,Slovenia,Eropa,negara
+SLB,SB,Kepulauan Solomon,Solomon Islands,Oseania,negara
+SOM,SO,Somalia,Somalia,Afrika,negara
+ZAF,ZA,Afrika Selatan,South Africa,Afrika,negara
+SGS,GS,Georgia Selatan & Kep. Sandwich Selatan,South Georgia & South Sandwich Islands,Amerika,negara
+SSD,SS,Sudan Selatan,South Sudan,Afrika,negara
+ESP,ES,Spanyol,Spain,Eropa,negara
+LKA,LK,Sri Lanka,Sri Lanka,Asia,negara
+PSE,PS,Wilayah Palestina,Palestine,Timur Tengah,negara
+SDN,SD,Sudan,Sudan,Afrika,negara
+SUR,SR,Suriname,Suriname,Amerika,negara
+SJM,SJ,Kepulauan Svalbard dan Jan Mayen,Svalbard & Jan Mayen,Eropa,negara
+SWE,SE,Swedia,Sweden,Eropa,negara
+CHE,CH,Swiss,Switzerland,Eropa,negara
+SYR,SY,Suriah,Syria,Timur Tengah,negara
+TWN,TW,Taiwan,Taiwan,Asia,negara
+TJK,TJ,Tajikistan,Tajikistan,Asia,negara
+THA,TH,Thailand,Thailand,Asia,negara
+TLS,TL,Timor Leste,Timor-Leste,Asia,negara
+TGO,TG,Togo,Togo,Afrika,negara
+TKL,TK,Tokelau,Tokelau,Oseania,negara
+TON,TO,Tonga,Tonga,Oseania,negara
+TTO,TT,Trinidad dan Tobago,Trinidad & Tobago,Amerika,negara
+TUN,TN,Tunisia,Tunisia,Afrika,negara
+TUR,TR,Turki,Türkiye,Asia,negara
+TKM,TM,Turkmenistan,Turkmenistan,Asia,negara
+TCA,TC,Kepulauan Turks dan Caicos,Turks & Caicos Islands,Amerika,negara
+TUV,TV,Tuvalu,Tuvalu,Oseania,negara
+UGA,UG,Uganda,Uganda,Afrika,negara
+UKR,UA,Ukraina,Ukraine,Eropa,negara
+ARE,AE,Uni Emirat Arab,United Arab Emirates,Timur Tengah,negara
+GBR,GB,Inggris,UK,Eropa,negara
+TZA,TZ,Tanzania,Tanzania,Afrika,negara
+UMI,UM,Kepulauan Terluar AS,U.S. Outlying Islands,Oseania,negara
+USA,US,Amerika Serikat,US,Amerika,negara
+VIR,VI,Kepulauan Virgin Amerika Serikat,U.S. Virgin Islands,Amerika,negara
+URY,UY,Uruguay,Uruguay,Amerika,negara
+UZB,UZ,Uzbekistan,Uzbekistan,Asia,negara
+VUT,VU,Vanuatu,Vanuatu,Oseania,negara
+VEN,VE,Venezuela,Venezuela,Amerika,negara
+VNM,VN,Vietnam,Vietnam,Asia,negara
+WLF,WF,Kepulauan Wallis dan Futuna,Wallis & Futuna,Oseania,negara
+ESH,EH,Sahara Barat,Western Sahara,Afrika,negara
+YEM,YE,Yaman,Yemen,Timur Tengah,negara
+ZMB,ZM,Zambia,Zambia,Afrika,negara
+ZWE,ZW,Zimbabwe,Zimbabwe,Afrika,negara
+XCR,,Crew (WNA),Crew (Foreign),Lainnya,ember
+XXX,,Lainnya,Others,Lainnya,ember
+XYU,,Bekas Yugoslavia,Former Yugoslavia,Eropa,ember
+XNA,,Afrika Utara,North Africa,Afrika,ember
+XAR,,Negara Arab Lainnya,Other Arab Countries,Timur Tengah,ember
+XME,,Timur Tengah Lainnya,Other Middle East,Timur Tengah,ember

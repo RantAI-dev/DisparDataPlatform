@@ -17,3 +17,8 @@ cocok = "SELECT kunci FROM {{konform_db}}.dim_wilayah_kunci WHERE tingkat = 'kec
 kolom = ["kelurahan", "kelurahan_usaha"]
 kunci = "kf_kunci_wilayah(v)"
 cocok = "SELECT kunci FROM {{konform_db}}.dim_wilayah_kunci WHERE tingkat = 'kelurahan' AND kunci_induk = ''"
+
+[negara]
+kolom = ["negara_asal", "kebangsaan", "negara", "asal_negara"]
+kunci = "kunci_cocok(v)"
+cocok = "SELECT kunci FROM {{konform_db}}.dim_negara_kunci"

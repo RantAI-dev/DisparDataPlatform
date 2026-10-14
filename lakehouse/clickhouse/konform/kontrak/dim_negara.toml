@@ -1,0 +1,43 @@
+nama = "dim_negara"
+deskripsi = "Dimensi negara berstandar ISO 3166-1 alpha-3 beserta kategori ember BPS"
+grain = ["kode"]
+kelas_refresh = "snapshot"
+pemilik = "perintis"
+
+[[kolom]]
+nama = "kode"
+tipe = "String"
+deskripsi = "Kode negara 3 huruf kapital (ISO 3166-1 alpha-3 atau kode ember X)"
+wajib = true
+
+[[kolom]]
+nama = "kode_iso2"
+tipe = "String"
+deskripsi = "Kode negara 2 huruf kapital (ISO 3166-1 alpha-2, kosong untuk ember)"
+wajib = true
+
+[[kolom]]
+nama = "nama"
+tipe = "String"
+deskripsi = "Nama resmi negara dalam Bahasa Indonesia"
+wajib = true
+
+[[kolom]]
+nama = "nama_inggris"
+tipe = "String"
+deskripsi = "Nama resmi negara dalam Bahasa Inggris"
+wajib = true
+
+[[kolom]]
+nama = "kawasan"
+tipe = "String"
+deskripsi = "Kawasan geopolitik / benua standar pelaporan pariwisata"
+nilai_boleh = ["Asia", "Eropa", "Afrika", "Amerika", "Oseania", "Timur Tengah", "Lainnya"]
+wajib = true
+
+[[kolom]]
+nama = "jenis"
+tipe = "String"
+deskripsi = "Klasifikasi entitas: negara atau ember pengelompokan non-negara"
+nilai_boleh = ["negara", "ember"]
+wajib = true
