@@ -1,0 +1,66 @@
+nama = "dim_periode"
+jenis = "dimensi"
+kelas_refresh = "snapshot"
+pemilik = "dispar"
+deskripsi = "Dimensi periode multi-tingkat (tahun, semester, triwulan, bulan, hari) rentang 1990-2035"
+grain = ["periode_id"]
+
+[[kolom]]
+nama = "periode_id"
+tipe = "String"
+wajib = true
+deskripsi = "Pengidentifikasi unik periode (misal: 2025, 2025-S1, 2025-T1, 2025-03, 2025-03-14)"
+
+[[kolom]]
+nama = "tingkat"
+tipe = "String"
+wajib = true
+nilai_boleh = ["tahun", "semester", "triwulan", "bulan", "hari"]
+deskripsi = "Tingkat butiran waktu"
+
+[[kolom]]
+nama = "tahun"
+tipe = "UInt16"
+wajib = true
+min = 1990
+max = 2035
+deskripsi = "Tahun kalender"
+
+[[kolom]]
+nama = "semester"
+tipe = "Nullable(UInt8)"
+min = 1
+max = 2
+deskripsi = "Nomor semester (1 atau 2), NULL bila tingkat lebih kasar"
+
+[[kolom]]
+nama = "triwulan"
+tipe = "Nullable(UInt8)"
+min = 1
+max = 4
+deskripsi = "Nomor triwulan (1 sampai 4), NULL bila tingkat lebih kasar"
+
+[[kolom]]
+nama = "bulan_no"
+tipe = "Nullable(UInt8)"
+min = 1
+max = 12
+deskripsi = "Nomor bulan (1 sampai 12), NULL bila tingkat lebih kasar"
+
+[[kolom]]
+nama = "tanggal_awal"
+tipe = "Date"
+wajib = true
+deskripsi = "Tanggal awal periode inklusif"
+
+[[kolom]]
+nama = "tanggal_akhir"
+tipe = "Date"
+wajib = true
+deskripsi = "Tanggal akhir periode inklusif"
+
+[[kolom]]
+nama = "label"
+tipe = "String"
+wajib = true
+deskripsi = "Label terbaca manusia (misal: 2025, Semester 1 2025, Triwulan 1 2025, Maret 2025, 14 Maret 2025)"
