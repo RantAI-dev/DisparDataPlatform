@@ -51,7 +51,7 @@ Pipeline (`lakehouse/orchestrate/dispar_orchestrate/definitions.py`, HEAD `5ab55
 - `quality_gate` memeriksa semua tabel di database `silver` saja.
 - Image Dagster memuat seluruh `lakehouse/` dan tiap `path` di `lakehouse/sources.toml`
   (`lakehouse/scripts/build-dagster-image.sh`). Berkas data yang tidak terdaftar di registri
-  tidak ikut ke image.
+  tidak ikut ke image.\
 - Fungsi SQL (`CREATE FUNCTION`) di ClickHouse bersifat global, bukan per database.
 
 Keadaan Silver:
@@ -59,7 +59,7 @@ Keadaan Silver:
   dan `Nullable(Float64)` di 137 view. Yang Float64: 186.572 baris berisi tahun 4 digit
   (1996–2026), 2.242 baris `202606`, 156 baris `2062026` (rusak di sumber).
 - Kolom `bulan` ada di 55 view; isinya campuran nama bulan, angka `1`–`12`, dan `KOSONG`.
-- `silver.dim_wilayah` hanya 6 kota/kabupaten DKI. `silver.dim_negara` 23 negara.
+- `silver.dim_wilayah` hanya 6 kota/kabupaten DKI. `silver.dim_negara` 23 negara.\
   Keduanya dipakai `silver.wisman`, `silver.restoran`, dan `refresh_wisman`: jangan diubah.
 
 Tingkat kecocokan awal (nilai non-kosong, dijodohkan dengan `kunci_cocok()` ke dimensi lama):
@@ -124,7 +124,7 @@ Batch base: `e8c682c` (plan ditulis terhadap `5ab55c8`; 10 commit sesudahnya han
 |---|---|---|---|---|---|
 | F1 | Pulihkan `compose.yaml` yang terpangkas (perbaikan batch 1) | — | selesai | #13 | `7d726f6` |
 | F2 | Pengaman metadata SDI yang bolong (perbaikan batch 1) | — | selesai | #14 | `9bcb9a2` |
-| 01 | Kerangka konform: penerap SQL, panggung, kontrak, uji | F2 | belum | | |
+| 01 | Kerangka konform: penerap SQL, panggung, kontrak, uji | F2 | selesai | #15 | `b226924` |
 | 02 | `dim_periode` dan fungsi periode | 01 | belum | | |
 | 03 | `dim_wilayah` dari kode Kemendagri | 01 | belum | | |
 | 04 | `dim_negara` ISO 3166 + ember BPS | 03 | belum | | |
