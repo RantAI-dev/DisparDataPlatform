@@ -1,4 +1,4 @@
 [bulan]
 kolom = ["bulan"]
-kunci = "kunci_cocok(v)"
-cocok = "SELECT DISTINCT match_key FROM silver.dim_bulan"
+kunci = "if(kf_periode_bulan(2020, v) IS NOT NULL, 1, 0)"
+cocok = "SELECT 1"
