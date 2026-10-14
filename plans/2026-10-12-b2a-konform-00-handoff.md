@@ -108,7 +108,7 @@ Repo:
 
 Hanya dua hal, keduanya lewat akun `dispar`:
 - Objek di database `konform_dev` (dibuat dan dihapus bebas).
-- Fungsi SQL global berawalan `kf_`.
+- Fungsi SQL global berawalan `kf_`.\
 
 Semua yang lain dibaca saja: tidak ada ingest, tidak ada DDL di `silver`, `serving`, `konform`,
 atau `lake`, tidak ada trigger job, tidak ada restart.
@@ -125,7 +125,7 @@ Batch base: `e8c682c` (plan ditulis terhadap `5ab55c8`; 10 commit sesudahnya han
 | F1 | Pulihkan `compose.yaml` yang terpangkas (perbaikan batch 1) | — | selesai | #13 | `7d726f6` |
 | F2 | Pengaman metadata SDI yang bolong (perbaikan batch 1) | — | selesai | #14 | `9bcb9a2` |
 | 01 | Kerangka konform: penerap SQL, panggung, kontrak, uji | F2 | selesai | #15 | `b226924` |
-| 02 | `dim_periode` dan fungsi periode | 01 | belum | | |
+| 02 | `dim_periode` dan fungsi periode | 01 | selesai | #16 | `6757b76` |
 | 03 | `dim_wilayah` dari kode Kemendagri | 01 | belum | | |
 | 04 | `dim_negara` ISO 3166 + ember BPS | 03 | belum | | |
 | 05 | Fakta perintis: wisman dan wisnus | 02, 03, 04 | belum | | |
