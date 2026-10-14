@@ -127,7 +127,7 @@ Batch base: `e8c682c` (plan ditulis terhadap `5ab55c8`; 10 commit sesudahnya han
 | 01 | Kerangka konform: penerap SQL, panggung, kontrak, uji | F2 | selesai | #15 | `b226924` |
 | 02 | `dim_periode` dan fungsi periode | 01 | selesai | #16 | `6757b76` |
 | 03 | `dim_wilayah` dari kode Kemendagri | 01 | selesai | #17 | `03a4b0e` |
-| 04 | `dim_negara` ISO 3166 + ember BPS | 03 | belum | | |
+| 04 | `dim_negara` ISO 3166 + ember BPS | 03 | selesai | #18 | `27ef784` |
 | 05 | Fakta perintis: wisman dan wisnus | 02, 03, 04 | belum | | |
 | 06 | OPERASI: image baru, tukar container, verifikasi | F1, F2, 01–05 + "lanjut deploy" | belum | | |
 
