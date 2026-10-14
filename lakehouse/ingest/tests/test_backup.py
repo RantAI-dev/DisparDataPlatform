@@ -5,7 +5,7 @@ from unittest.mock import MagicMock, patch
 
 import pytest
 from dagster import build_op_context
-from dispar_ingest.backup import run_backup
+from dispar_ingest.backup import run_backup, run_restore
 
 
 def test_backup_incremental_skips_identical_files():
@@ -84,6 +84,66 @@ def test_backup_retry_on_transient_s3_error():
         r = run_backup("latest")
         assert r["objek_disalin"] == 1
         assert parquet_attempts[0] == 3
+
+
+def test_backup_retry_cat_file_transient_error():
+    """Plan F2 Kriteria 6: Retry src.cat_file di run_backup lulus pada kegagalan sementara pertama."""
+    mock_src_files = {
+        "lakehouse/a.parquet": {"name": "lakehouse/a.parquet", "size": 100},
+    }
+
+    mock_src_fs = MagicMock()
+    mock_src_fs.find.return_value = mock_src_files
+
+    cat_attempts = [0]
+
+    def flaky_cat_file(path):
+        cat_attempts[0] += 1
+        if cat_attempts[0] == 1:
+            raise OSError(16, "SlowDownRead: reduce request rate")
+        return b"x" * 100
+
+    mock_src_fs.cat_file.side_effect = flaky_cat_file
+
+    mock_dst_fs = MagicMock()
+    mock_dst_fs.exists.return_value = True
+    mock_dst_fs.find.return_value = {}
+
+    with patch("dispar_ingest.backup._fs", side_effect=[mock_src_fs, mock_dst_fs]), \
+         patch("time.sleep", return_value=None):
+        r = run_backup("latest")
+        assert r["objek_disalin"] == 1
+        assert cat_attempts[0] == 2
+
+
+def test_restore_retry_transient_error():
+    """Plan F2 Kriteria 6: Retry bk.cat_file di run_restore lulus pada kegagalan sementara pertama."""
+    mock_bk_fs = MagicMock()
+    mock_bk_fs.find.return_value = {
+        "lakehouse-backup/latest/a.parquet": {
+            "name": "lakehouse-backup/latest/a.parquet",
+            "size": 100,
+        }
+    }
+
+    cat_attempts = [0]
+
+    def flaky_cat_file(path):
+        cat_attempts[0] += 1
+        if cat_attempts[0] == 1:
+            raise OSError(16, "SlowDownRead: reduce request rate")
+        return b"x" * 100
+
+    mock_bk_fs.cat_file.side_effect = flaky_cat_file
+
+    mock_lake_fs = MagicMock()
+    mock_lake_fs.exists.return_value = True
+
+    with patch("dispar_ingest.backup._fs", side_effect=[mock_bk_fs, mock_lake_fs]), \
+         patch("time.sleep", return_value=None):
+        r = run_restore("latest", target_bucket="lakehouse")
+        assert r["objek_dipulihkan"] == 1
+        assert cat_attempts[0] == 2
 
 
 def test_backup_lake_asset_uses_stable_target_and_metadata():
