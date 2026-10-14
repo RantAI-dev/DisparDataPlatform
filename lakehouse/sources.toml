@@ -740,6 +740,26 @@ asal = "Kamus alias ejaan dan singkatan wilayah DKI Jakarta dari evaluasi konfor
 pembangun = "scripts/build_referensi_wilayah.py"
 
 [[sumber]]
+id = "ref-negara-iso3166"
+jenis = "berkas"
+path = "data/referensi/negara-iso3166.csv"
+namespace = "bronze_file"
+tabel = "ref_negara_iso3166"
+kelas_refresh = "saat_berubah"
+asal = "ISO 3166-1 (datasets/country-codes), Unicode CLDR id locale, dan silver.dim_negara"
+pembangun = "scripts/build_referensi_negara.py"
+
+[[sumber]]
+id = "ref-negara-alias"
+jenis = "berkas"
+path = "data/referensi/negara-alias.csv"
+namespace = "bronze_file"
+tabel = "ref_negara_alias"
+kelas_refresh = "saat_berubah"
+asal = "Kamus alias varian ejaan negara BPS/SDI dari 10-dim.sql dan evaluasi konform ukur"
+pembangun = "scripts/build_referensi_negara.py"
+
+[[sumber]]
 id = "booking-hotel-2026-09-15"
 jenis = "berkas"
 path = "data/crawl/booking-hotel-2026-09-15.json"
