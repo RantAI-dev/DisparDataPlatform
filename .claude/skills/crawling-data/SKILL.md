@@ -91,9 +91,11 @@ wisman bersih, event, artis).
 1. Tulis `data/sekunder/<slug>.json` berbentuk
    `{slug, title, description, columns, rows}`.
 2. **Salin berkas itu juga ke `platform-v2/data/`** — app membaca mirror-nya.
-3. Ingest: `dispar_ingest.secondary_ingest` → `bronze_sec.<slug>` +
-   `bronze_meta_sec.{dataset_catalog,dataset_sync,dataset_column}` (tier=`sekunder`).
-   **Wajib in-network** — jalankan di network `dispar-lakehouse_lakenet`.
+3. Ingest: berkas data baru wajib didaftarkan di `lakehouse/sources.toml` sebelum
+   bisa masuk Bronze. Jalankan `dispar_ingest.secondary_ingest` →
+   `bronze_sec.<slug>` + `bronze_meta_sec.{dataset_catalog,dataset_sync,dataset_column}`
+   (tier=`sekunder`). **Wajib in-network** — jalankan di network
+   `dispar-lakehouse_lakenet`.
 4. Regenerasi Silver supaya barisnya bertipe (`silver.<slug>`) — boleh dari
    laptop lewat ClickHouse HTTP `:18123`.
 5. Daftarkan di `platform-v2/lib/secondary.ts` (`slug`, `title`, `description`,
