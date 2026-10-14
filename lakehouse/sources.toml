@@ -963,6 +963,28 @@ asal = "SDI registry hotel + filter 5 km simpul transport, lihat scripts/build_h
 pembangun = "scripts/build_hotel_transit.py"
 
 [[sumber]]
+id = "hutan-kota-jakarta"
+jenis = "sekunder"
+path = "data/sekunder/hutan-kota-jakarta.json"
+namespace = "bronze_sec"
+tabel = "hutan_kota_jakarta"
+kelas_refresh = "snapshot"
+tanggal_ambil = "2026-10-14"
+asal = "SDI data-hutan-di-provinsi-dki-jakarta"
+pembangun = "scripts/build_sdi_lintas_opd.py"
+
+[[sumber]]
+id = "jalur-hijau-jakarta"
+jenis = "sekunder"
+path = "data/sekunder/jalur-hijau-jakarta.json"
+namespace = "bronze_sec"
+tabel = "jalur_hijau_jakarta"
+kelas_refresh = "snapshot"
+tanggal_ambil = "2026-10-14"
+asal = "SDI data-jalur-hijau-kota (Dinas Pertamanan dan Hutan Kota)"
+pembangun = "scripts/build_sdi_lintas_opd.py"
+
+[[sumber]]
 id = "kegiatan-mice-jakarta-2026"
 jenis = "sekunder"
 path = "data/sekunder/kegiatan-mice-jakarta-2026.json"
@@ -985,6 +1007,17 @@ asal = "MICHELIN Guide, daftar MICHELIN Keys 2026 Indonesia (transkripsi), diver
 pembangun = "scripts/build_michelin_keys.py"
 
 [[sumber]]
+id = "museum-jakarta"
+jenis = "sekunder"
+path = "data/sekunder/museum-jakarta.json"
+namespace = "bronze_sec"
+tabel = "museum_jakarta"
+kelas_refresh = "snapshot"
+tanggal_ambil = "2026-10-14"
+asal = "SDI data-museum-di-provinsi-dki-jakarta (Dinas Kebudayaan)"
+pembangun = "scripts/build_sdi_lintas_opd.py"
+
+[[sumber]]
 id = "restoran-tripadvisor-jakarta"
 jenis = "sekunder"
 path = "data/sekunder/restoran-tripadvisor-jakarta.json"
@@ -1005,6 +1038,17 @@ kelas_refresh = "snapshot"
 tanggal_ambil = "2026-08-13"
 asal = "TripAdvisor (kolom url_tripadvisor di setiap baris, 67 dari 67)"
 pembangun = ""
+
+[[sumber]]
+id = "taman-jakarta"
+jenis = "sekunder"
+path = "data/sekunder/taman-jakarta.json"
+namespace = "bronze_sec"
+tabel = "taman_jakarta"
+kelas_refresh = "snapshot"
+tanggal_ambil = "2026-10-14"
+asal = "SDI data-jumlah-dan-luas-taman-menurut-jenis-dan-kabupatenkota-administrasi-di-provinsi-dki-jakarta"
+pembangun = "scripts/build_sdi_lintas_opd.py"
 
 [[sumber]]
 id = "tenaga-kerja-ekraf-per-provinsi"

@@ -77,18 +77,18 @@ def _muat(tmp_path: Path, toml: str, berkas=("data/a.tsv",)) -> Registry:
 
 
 def test_registri_repo_termuat(registri: Registry):
-    # Plan 04: 1 SDI + 62 berkas (34 lama + 28 statis/ref/crawl) + 31 sekunder = 94 entri.
+    # Plan 04: 1 SDI + 62 berkas (34 lama + 28 statis/ref/crawl) + 35 sekunder = 98 entri.
     # Tabel bronze_file ke-63 (wellness_jakarta) datang dari tabel_lain, bukan entri sendiri.
-    # Batch 2a Plan 03: +2 ref wilayah, Plan 04: +2 ref negara, Plan 05: +1 ref pintu = 99 entri
-    assert len(registri.sumber) == 99
+    # Batch 2a Plan 03: +2 ref wilayah, Plan 04: +2 ref negara, Plan 05: +1 ref pintu, +4 SDI lintas OPD = 103 entri
+    assert len(registri.sumber) == 103
 
 
 def test_jumlah_sesuai_bronze_hidup(registri: Registry):
-    """Kriteria Plan 04: 1 SDI + 63 bronze_file + 31 bronze_sec.
+    """Kriteria Plan 04: 1 SDI + 63 bronze_file + 35 bronze_sec.
     - bronze_sdi: 1 entri registri (181 tabel live)
     - bronze_file: 62 entri registri berkas + 1 dari tabel_lain (wellness_jakarta) = 63
       (18 tabel live Plan 01 + 17 berkas raw Plan 03 + 28 berkas Plan 04)
-    - bronze_sec: 31 entri registri sekunder (28 tabel live + michelin-keys-indonesia + venue/kegiatan MICE)
+    - bronze_sec: 35 entri registri sekunder (28 tabel live + michelin-keys-indonesia + venue/kegiatan MICE + 4 SDI lintas OPD)
     """
     by_ns: dict[str, int] = {}
     for s in registri.sumber:
@@ -98,7 +98,7 @@ def test_jumlah_sesuai_bronze_hidup(registri: Registry):
     assert by_ns["bronze_sdi"] == 1, "bentuk registri (bukan lake): jumlah SDI"
     # Batch 2a Plan 03-05: 67 entri berkas + 1 dari tabel_lain = 68
     assert by_ns["bronze_file"] == 68, "bentuk registri: jumlah bronze_file"
-    assert by_ns["bronze_sec"] == 31, "bentuk registri (bukan lake): jumlah bronze_sec"
+    assert by_ns["bronze_sec"] == 35, "bentuk registri (bukan lake): jumlah bronze_sec"
 
 
 def test_sumber_data_statis(registri: Registry):

@@ -1,0 +1,375 @@
+{
+  "slug": "taman-jakarta",
+  "title": "Data Jumlah dan Luas Taman Menurut Jenis dan Kabupaten/Kota Administrasi di Provinsi DKI Jakarta",
+  "description": "Dataset ini berisi mengenai Jumlah dan Luas Taman Menurut Jenis dan Kabupaten/Kota Administrasi di Provinsi DKI Jakarta.\r\n\r\nPenjelasan mengenai variabel pada Dataset ini: \r\n\r\n1. periode_data: tahun pendataan\r\n2. wilayah: nama kabupaten/kota administrasi di Provinsi DKI Jakarta\r\n3. jenis_taman: jenis-jenis taman\r\n4. jumlah: jumlah taman di Provinsi DKI Jakarta\r\n5. luas: luas area taman (dalam meter persegi)\r\n\r\nDataset ini hanya mencakup data di tahun 2014. Sumber: Satu Data Jakarta (Badan Pusat Statistik Provinsi DKI Jakarta), dataset 'data-jumlah-dan-luas-taman-menurut-jenis-dan-kabupatenkota-administrasi-di-provinsi-dki-jakarta', periode 2014; snapshot diambil 2026-10-14. https://satudata.jakarta.go.id/open-data/detail?kategori=dataset&page_url=data-jumlah-dan-luas-taman-menurut-jenis-dan-kabupatenkota-administrasi-di-provinsi-dki-jakarta&data_no=1",
+  "columns": [
+    {
+      "key": "periode_data",
+      "label": "Periode Data",
+      "type": "string",
+      "description": null
+    },
+    {
+      "key": "wilayah",
+      "label": "Wilayah",
+      "type": "string",
+      "description": "komponen"
+    },
+    {
+      "key": "jenis_taman",
+      "label": "Jenis Taman",
+      "type": "string",
+      "description": "komponen"
+    },
+    {
+      "key": "jumlah",
+      "label": "Jumlah",
+      "type": "number",
+      "description": "komponen"
+    },
+    {
+      "key": "luas",
+      "label": "Luas",
+      "type": "number",
+      "description": "komponen"
+    }
+  ],
+  "rows": [
+    {
+      "periode_data": "2014",
+      "wilayah": "KEP. SERIBU",
+      "jenis_taman": "TAMAN KOTA DAN  TAMAN LINGKUNGAN",
+      "jumlah": 0,
+      "luas": 0
+    },
+    {
+      "periode_data": "2014",
+      "wilayah": "KEP. SERIBU",
+      "jenis_taman": "TAMAN INTERAKTIF",
+      "jumlah": 0,
+      "luas": 0
+    },
+    {
+      "periode_data": "2014",
+      "wilayah": "KEP. SERIBU",
+      "jenis_taman": "TAMAN/BANGUNAN UMUM",
+      "jumlah": 0,
+      "luas": 0
+    },
+    {
+      "periode_data": "2014",
+      "wilayah": "KEP. SERIBU",
+      "jenis_taman": "TAMAN REKREASI",
+      "jumlah": 0,
+      "luas": 0
+    },
+    {
+      "periode_data": "2014",
+      "wilayah": "KEP. SERIBU",
+      "jenis_taman": "JALUR HIJAU JALAN & PEDESTRIAN",
+      "jumlah": 0,
+      "luas": 0
+    },
+    {
+      "periode_data": "2014",
+      "wilayah": "KEP. SERIBU",
+      "jenis_taman": "JALUR HIJAU TEPIAN AIR & PENYEMPURNA",
+      "jumlah": 0,
+      "luas": 0
+    },
+    {
+      "periode_data": "2014",
+      "wilayah": "KEP. SERIBU",
+      "jenis_taman": "TAMAN PEMAKAMAN",
+      "jumlah": 5,
+      "luas": 44995
+    },
+    {
+      "periode_data": "2014",
+      "wilayah": "KEP. SERIBU",
+      "jenis_taman": "TAMAN EKS REFUNGSI SPBU",
+      "jumlah": 0,
+      "luas": 0
+    },
+    {
+      "periode_data": "2014",
+      "wilayah": "JAKARTA SELATAN",
+      "jenis_taman": "TAMAN KOTA DAN  TAMAN LINGKUNGAN",
+      "jumlah": 596,
+      "luas": 3969675.65
+    },
+    {
+      "periode_data": "2014",
+      "wilayah": "JAKARTA SELATAN",
+      "jenis_taman": "TAMAN INTERAKTIF",
+      "jumlah": 20,
+      "luas": 81112.84
+    },
+    {
+      "periode_data": "2014",
+      "wilayah": "JAKARTA SELATAN",
+      "jenis_taman": "TAMAN/BANGUNAN UMUM",
+      "jumlah": 4,
+      "luas": 3783.47
+    },
+    {
+      "periode_data": "2014",
+      "wilayah": "JAKARTA SELATAN",
+      "jenis_taman": "TAMAN REKREASI",
+      "jumlah": 6,
+      "luas": 224315
+    },
+    {
+      "periode_data": "2014",
+      "wilayah": "JAKARTA SELATAN",
+      "jenis_taman": "JALUR HIJAU JALAN & PEDESTRIAN",
+      "jumlah": 26,
+      "luas": 354242.17
+    },
+    {
+      "periode_data": "2014",
+      "wilayah": "JAKARTA SELATAN",
+      "jenis_taman": "JALUR HIJAU TEPIAN AIR & PENYEMPURNA",
+      "jumlah": 17,
+      "luas": 142422.35
+    },
+    {
+      "periode_data": "2014",
+      "wilayah": "JAKARTA SELATAN",
+      "jenis_taman": "TAMAN PEMAKAMAN",
+      "jumlah": 18,
+      "luas": 1503283
+    },
+    {
+      "periode_data": "2014",
+      "wilayah": "JAKARTA SELATAN",
+      "jenis_taman": "TAMAN EKS REFUNGSI SPBU",
+      "jumlah": 7,
+      "luas": 12277
+    },
+    {
+      "periode_data": "2014",
+      "wilayah": "JAKARTA TIMUR",
+      "jenis_taman": "TAMAN KOTA DAN  TAMAN LINGKUNGAN",
+      "jumlah": 425,
+      "luas": 3660513.6
+    },
+    {
+      "periode_data": "2014",
+      "wilayah": "JAKARTA TIMUR",
+      "jenis_taman": "TAMAN INTERAKTIF",
+      "jumlah": 30,
+      "luas": 92609.48
+    },
+    {
+      "periode_data": "2014",
+      "wilayah": "JAKARTA TIMUR",
+      "jenis_taman": "TAMAN/BANGUNAN UMUM",
+      "jumlah": 5,
+      "luas": 45002.67
+    },
+    {
+      "periode_data": "2014",
+      "wilayah": "JAKARTA TIMUR",
+      "jenis_taman": "TAMAN REKREASI",
+      "jumlah": 0,
+      "luas": 0
+    },
+    {
+      "periode_data": "2014",
+      "wilayah": "JAKARTA TIMUR",
+      "jenis_taman": "JALUR HIJAU JALAN & PEDESTRIAN",
+      "jumlah": 3,
+      "luas": 16554
+    },
+    {
+      "periode_data": "2014",
+      "wilayah": "JAKARTA TIMUR",
+      "jenis_taman": "JALUR HIJAU TEPIAN AIR & PENYEMPURNA",
+      "jumlah": 9,
+      "luas": 417228.34
+    },
+    {
+      "periode_data": "2014",
+      "wilayah": "JAKARTA TIMUR",
+      "jenis_taman": "TAMAN PEMAKAMAN",
+      "jumlah": 28,
+      "luas": 1743832.5
+    },
+    {
+      "periode_data": "2014",
+      "wilayah": "JAKARTA TIMUR",
+      "jenis_taman": "TAMAN EKS REFUNGSI SPBU",
+      "jumlah": 3,
+      "luas": 4123
+    },
+    {
+      "periode_data": "2014",
+      "wilayah": "JAKARTA PUSAT",
+      "jenis_taman": "TAMAN KOTA DAN  TAMAN LINGKUNGAN",
+      "jumlah": 436,
+      "luas": 4451434.18
+    },
+    {
+      "periode_data": "2014",
+      "wilayah": "JAKARTA PUSAT",
+      "jenis_taman": "TAMAN INTERAKTIF",
+      "jumlah": 18,
+      "luas": 6299.65
+    },
+    {
+      "periode_data": "2014",
+      "wilayah": "JAKARTA PUSAT",
+      "jenis_taman": "TAMAN/BANGUNAN UMUM",
+      "jumlah": 3,
+      "luas": 10941
+    },
+    {
+      "periode_data": "2014",
+      "wilayah": "JAKARTA PUSAT",
+      "jenis_taman": "TAMAN REKREASI",
+      "jumlah": 0,
+      "luas": 0
+    },
+    {
+      "periode_data": "2014",
+      "wilayah": "JAKARTA PUSAT",
+      "jenis_taman": "JALUR HIJAU JALAN & PEDESTRIAN",
+      "jumlah": 53,
+      "luas": 322682.46
+    },
+    {
+      "periode_data": "2014",
+      "wilayah": "JAKARTA PUSAT",
+      "jenis_taman": "JALUR HIJAU TEPIAN AIR & PENYEMPURNA",
+      "jumlah": 18,
+      "luas": 239064.92
+    },
+    {
+      "periode_data": "2014",
+      "wilayah": "JAKARTA PUSAT",
+      "jenis_taman": "TAMAN PEMAKAMAN",
+      "jumlah": 4,
+      "luas": 379477
+    },
+    {
+      "periode_data": "2014",
+      "wilayah": "JAKARTA PUSAT",
+      "jenis_taman": "TAMAN EKS REFUNGSI SPBU",
+      "jumlah": 10,
+      "luas": 13022
+    },
+    {
+      "periode_data": "2014",
+      "wilayah": "JAKARTA BARAT",
+      "jenis_taman": "TAMAN KOTA DAN  TAMAN LINGKUNGAN",
+      "jumlah": 329,
+      "luas": 3527653.09
+    },
+    {
+      "periode_data": "2014",
+      "wilayah": "JAKARTA BARAT",
+      "jenis_taman": "TAMAN INTERAKTIF",
+      "jumlah": 15,
+      "luas": 10295
+    },
+    {
+      "periode_data": "2014",
+      "wilayah": "JAKARTA BARAT",
+      "jenis_taman": "TAMAN/BANGUNAN UMUM",
+      "jumlah": 1,
+      "luas": 808
+    },
+    {
+      "periode_data": "2014",
+      "wilayah": "JAKARTA BARAT",
+      "jenis_taman": "TAMAN REKREASI",
+      "jumlah": 1,
+      "luas": 69967
+    },
+    {
+      "periode_data": "2014",
+      "wilayah": "JAKARTA BARAT",
+      "jenis_taman": "JALUR HIJAU JALAN & PEDESTRIAN",
+      "jumlah": 6,
+      "luas": 37120.94
+    },
+    {
+      "periode_data": "2014",
+      "wilayah": "JAKARTA BARAT",
+      "jenis_taman": "JALUR HIJAU TEPIAN AIR & PENYEMPURNA",
+      "jumlah": 5,
+      "luas": 51425.79
+    },
+    {
+      "periode_data": "2014",
+      "wilayah": "JAKARTA BARAT",
+      "jenis_taman": "TAMAN PEMAKAMAN",
+      "jumlah": 12,
+      "luas": 1486898
+    },
+    {
+      "periode_data": "2014",
+      "wilayah": "JAKARTA BARAT",
+      "jenis_taman": "TAMAN EKS REFUNGSI SPBU",
+      "jumlah": 3,
+      "luas": 3188
+    },
+    {
+      "periode_data": "2014",
+      "wilayah": "JAKARTA UTARA",
+      "jenis_taman": "TAMAN KOTA DAN  TAMAN LINGKUNGAN",
+      "jumlah": 365,
+      "luas": 3628160.15
+    },
+    {
+      "periode_data": "2014",
+      "wilayah": "JAKARTA UTARA",
+      "jenis_taman": "TAMAN INTERAKTIF",
+      "jumlah": 18,
+      "luas": 15324.39
+    },
+    {
+      "periode_data": "2014",
+      "wilayah": "JAKARTA UTARA",
+      "jenis_taman": "TAMAN/BANGUNAN UMUM",
+      "jumlah": 4,
+      "luas": 25532.66
+    },
+    {
+      "periode_data": "2014",
+      "wilayah": "JAKARTA UTARA",
+      "jenis_taman": "TAMAN REKREASI",
+      "jumlah": 0,
+      "luas": 0
+    },
+    {
+      "periode_data": "2014",
+      "wilayah": "JAKARTA UTARA",
+      "jenis_taman": "JALUR HIJAU JALAN & PEDESTRIAN",
+      "jumlah": 3,
+      "luas": 27090
+    },
+    {
+      "periode_data": "2014",
+      "wilayah": "JAKARTA UTARA",
+      "jenis_taman": "JALUR HIJAU TEPIAN AIR & PENYEMPURNA",
+      "jumlah": 3,
+      "luas": 74505.92
+    },
+    {
+      "periode_data": "2014",
+      "wilayah": "JAKARTA UTARA",
+      "jenis_taman": "TAMAN PEMAKAMAN",
+      "jumlah": 11,
+      "luas": 786960
+    },
+    {
+      "periode_data": "2014",
+      "wilayah": "JAKARTA UTARA",
+      "jenis_taman": "TAMAN EKS REFUNGSI SPBU",
+      "jumlah": 3,
+      "luas": 4275
+    }
+  ]
+}

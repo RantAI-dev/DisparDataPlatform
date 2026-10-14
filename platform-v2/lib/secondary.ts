@@ -143,6 +143,46 @@ export function secondaryDatasets(): SecondaryDataset[] {
       external: false,
     },
     {
+      id: "sec-museum",
+      title: "Museum di DKI Jakarta (SDI, Dinas Kebudayaan)",
+      description:
+        "Daftar museum di DKI Jakarta beserta wilayah, alamat, pengelola, dan situs web; periode 2024. Sumber: Satu Data Jakarta (data-museum-di-provinsi-dki-jakarta). Koordinat sebagian baris di sumber tidak valid.",
+      tags: ["museum", "budaya", "atraksi", "satu-data-jakarta", "sekunder"],
+      rows: 78,
+      href: "/sdi/museum-jakarta",
+      external: false,
+    },
+    {
+      id: "sec-jalur-hijau",
+      title: "Jalur Hijau Kota DKI Jakarta (SDI, Distamhut)",
+      description:
+        "Jalur hijau yang dikelola Dinas Pertamanan dan Hutan Kota per wilayah dan kecamatan, dengan klasifikasi dan luas; periode 2024–2025. Sumber: Satu Data Jakarta (data-jalur-hijau-kota).",
+      tags: ["ruang-terbuka-hijau", "jalur-hijau", "lingkungan", "satu-data-jakarta", "sekunder"],
+      rows: 1898,
+      href: "/sdi/jalur-hijau-jakarta",
+      external: false,
+    },
+    {
+      id: "sec-hutan-kota",
+      title: "Hutan di DKI Jakarta (SDI)",
+      description:
+        "Hutan kota, hutan lindung, dan kawasan hutan di DKI Jakarta beserta lokasi, luas (ha), dan tahun pembebasan; periode 2012. Sumber: Satu Data Jakarta (data-hutan-di-provinsi-dki-jakarta). Koordinat di sumber tidak valid.",
+      tags: ["ruang-terbuka-hijau", "hutan", "lingkungan", "satu-data-jakarta", "sekunder"],
+      rows: 36,
+      href: "/sdi/hutan-kota-jakarta",
+      external: false,
+    },
+    {
+      id: "sec-taman",
+      title: "Jumlah dan Luas Taman per Jenis dan Kota (SDI)",
+      description:
+        "Jumlah dan luas taman menurut jenis taman dan kabupaten/kota administrasi DKI Jakarta; periode 2014. Sumber: Satu Data Jakarta (data-jumlah-dan-luas-taman-menurut-jenis-dan-kabupatenkota-administrasi-di-provinsi-dki-jakarta).",
+      tags: ["ruang-terbuka-hijau", "taman", "lingkungan", "satu-data-jakarta", "sekunder"],
+      rows: 48,
+      href: "/sdi/taman-jakarta",
+      external: false,
+    },
+    {
       id: "sec-halal-restoran",
       title: "Restoran & Zona KHAS Tersertifikasi Halal Jakarta",
       description:
