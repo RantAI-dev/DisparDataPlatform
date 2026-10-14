@@ -1,0 +1,41 @@
+nama = "f_target_wisman"
+deskripsi = "Fakta target kunjungan wisman tahunan RPJMD"
+grain = ["periode_id"]
+kelas_refresh = "snapshot"
+pemilik = "belum diketahui"
+
+[[kolom]]
+nama = "periode_id"
+tipe = "String"
+deskripsi = "Periode tahunan YYYY"
+dimensi = "dim_periode.periode_id"
+wajib = true
+
+[[kolom]]
+nama = "sumber"
+tipe = "String"
+deskripsi = "Nama view atau dataset Silver sumber"
+wajib = true
+
+[[kolom]]
+nama = "target"
+tipe = "Float64"
+deskripsi = "Target kunjungan wisman (satuan orang)"
+wajib = true
+min = 0.0
+
+[[kolom]]
+nama = "dasar_hukum"
+tipe = "String"
+deskripsi = "Dasar hukum target RPJMD"
+wajib = true
+
+[[rekonsiliasi]]
+nama = "baris_target_wisman"
+fakta = "SELECT count() FROM {{db}}.f_target_wisman WHERE sumber = 'target_wisman'"
+acuan = "SELECT count() FROM silver.target_wisman"
+
+[[rekonsiliasi]]
+nama = "sum_target_wisman"
+fakta = "SELECT sum(target) FROM {{db}}.f_target_wisman WHERE sumber = 'target_wisman'"
+acuan = "SELECT sum(target_wisman) FROM silver.target_wisman"

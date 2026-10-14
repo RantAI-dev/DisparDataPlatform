@@ -1,0 +1,30 @@
+nama = "dim_pintu_masuk"
+deskripsi = "Dimensi pintu masuk wisatawan mancanegara"
+grain = ["kode"]
+kelas_refresh = "snapshot"
+pemilik = "perintis"
+
+[[kolom]]
+nama = "kode"
+tipe = "String"
+deskripsi = "Kode kebab-case pintu masuk"
+wajib = true
+
+[[kolom]]
+nama = "nama"
+tipe = "String"
+deskripsi = "Nama resmi pintu masuk"
+wajib = true
+
+[[kolom]]
+nama = "moda"
+tipe = "String"
+deskripsi = "Moda transportasi pintu masuk"
+nilai_boleh = ["udara", "laut", "darat", "lainnya"]
+wajib = true
+
+[[kolom]]
+nama = "kode_provinsi"
+tipe = "Nullable(String)"
+deskripsi = "Kode provinsi lokasi pintu masuk"
+dimensi = "dim_wilayah.kode"

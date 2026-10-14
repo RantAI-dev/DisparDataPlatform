@@ -1,0 +1,35 @@
+nama = "f_wisman_bulanan"
+deskripsi = "Fakta kunjungan wisatawan mancanegara ke Jakarta bulanan"
+grain = ["periode_id", "sumber"]
+kelas_refresh = "snapshot"
+pemilik = "belum diketahui"
+
+[[kolom]]
+nama = "periode_id"
+tipe = "String"
+deskripsi = "Periode bulanan YYYY-MM"
+dimensi = "dim_periode.periode_id"
+wajib = true
+
+[[kolom]]
+nama = "sumber"
+tipe = "String"
+deskripsi = "Nama view atau dataset Silver sumber"
+wajib = true
+
+[[kolom]]
+nama = "jumlah"
+tipe = "Float64"
+deskripsi = "Jumlah kunjungan wisman"
+wajib = true
+min = 0.0
+
+[[rekonsiliasi]]
+nama = "baris_wisman_jakarta_per_bulan"
+fakta = "SELECT count() FROM {{db}}.f_wisman_bulanan WHERE sumber = 'wisman_jakarta_per_bulan'"
+acuan = "SELECT count() FROM silver.wisman_jakarta_per_bulan"
+
+[[rekonsiliasi]]
+nama = "sum_wisman_jakarta_per_bulan"
+fakta = "SELECT sum(jumlah) FROM {{db}}.f_wisman_bulanan WHERE sumber = 'wisman_jakarta_per_bulan'"
+acuan = "SELECT sum(jumlah_kunjungan) FROM silver.wisman_jakarta_per_bulan"
