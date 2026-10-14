@@ -1,32 +1,24 @@
-# Batch 2a: kerangka konform, tiga dimensi, fakta perintis
+# Handoff: Batch 2a — Kerangka konform, tiga dimensi, fakta perintis
 
-Batch kedua dari peta jalan (`plans/2026-10-08-lakehouse-00-peta-jalan.md`), dipecah dua:
+Dokumen operasional eksekusi batch 2a. Dibaca oleh executor dan reviewer; diperbarui
+tiap kali satu PR selesai di-merge ke `origin/main`.
 
-- **2a (berkas ini):** kerangka, `dim_periode`, `dim_wilayah`, `dim_negara`, dan dua domain
-  fakta perintis (wisman, wisnus) sampai jalan di produksi.
-- **2b (belum ditulis):** domain fakta sisanya (akomodasi, tenaga kerja, PDRB, destinasi,
-  kuliner + usaha/KBLI, event, atlas/GMTI, indikator). Ditulis planner setelah laporan 2a,
-  karena bentuknya mengikuti kerangka yang terbukti di sini.
+## Urutan dan ketergantungan
 
-Tujuan 2a: fakta dari sumber berbeda bisa digabung lewat kunci yang sama, dan itu terbukti
-dengan angka di data produksi, bukan hanya di test.
+```
+[F1 pulihkan compose] ──┐
+                         ├──> [06 operasi: image, tukar container, verifikasi]
+[F2 sdi-meta] ──────────┼───> [01 kerangka] ──┬──> [02 dim_periode] ──┐
+                        │                     ├──> [03 dim_wilayah] ──┼──> [05 fakta perintis] ──┤
+                        │                     │                       │                           │
+                        │                     └──> [04 dim_negara] ───┘                           │
+                        │                                                                         │
+                        └────────────────────── BUTUH "lanjut deploy" DARI PEMILIK ───────────────┘
+```
 
-## Istilah
-
-- **Konform**: database ClickHouse baru `konform`. Isinya hanya tiga jenis objek:
-  `dim_*` (dimensi), `f_*` (fakta bentuk panjang), `tc_*` + `tak_cocok` (nilai yang gagal
-  dijodohkan). View Silver otomatis (`silver.*`) dan mart (`serving.*`) tidak disentuh.
-- **Fakta**: view `konform.f_*`. Satu baris per baris sumber: tidak ada baris sumber yang
-  dibuang atau dijumlahkan. Kolom kunci dimensi boleh NULL bila tak cocok; nilai aslinya tetap
-  ada di kolom `*_asli`. Tiap fakta punya kolom `sumber` (nama view Silver asalnya), sehingga
-  dua sumber yang angkanya berbeda hidup berdampingan dan mart di batch 3 yang memilih.
-- **Kontrak**: berkas TOML per objek konform di `lakehouse/clickhouse/konform/kontrak/`.
-  Menyatakan grain, kolom, tipe, satuan, dimensi rujukan, pemilik, kelas refresh, dan uji.
-- **Panggung**: database `konform_dev` di ClickHouse produksi. Tempat executor menerapkan SQL
-  konform terhadap data sungguhan sebelum ada deploy. Dibuat dan dihapus oleh perintah
-  `panggung` (plan 01).
-- **Keluarga kolom**: sekumpulan nama kolom Silver yang maknanya sama (mis. `wilayah`, `kota`,
-  `kota_adm`). Tingkat kecocokan sebuah dimensi diukur per keluarga, atas semua view Silver.
+Eksekusi per baris tabel di bawah. Jangan mulai plan sebelum semua yang ada di kolom `Butuh`
+berstatus `selesai`. Stop mutlak setelah plan 05: plan 06 menyentuh server produksi dan butuh
+jawaban tegas pemilik atas kriteria yang terkumpul di handoff ini.
 
 ## Fakta terverifikasi planner (12 Okt 2026)
 
@@ -128,7 +120,7 @@ Batch base: `e8c682c` (plan ditulis terhadap `5ab55c8`; 10 commit sesudahnya han
 | 02 | `dim_periode` dan fungsi periode | 01 | selesai | #16 | `6757b76` |
 | 03 | `dim_wilayah` dari kode Kemendagri | 01 | selesai | #17 | `03a4b0e` |
 | 04 | `dim_negara` ISO 3166 + ember BPS | 03 | selesai | #18 | `27ef784` |
-| 05 | Fakta perintis: wisman dan wisnus | 02, 03, 04 | belum | | |
+| 05 | Fakta perintis: wisman dan wisnus | 02, 03, 04 | selesai | #19 | `48a7b61` |
 | 06 | OPERASI: image baru, tukar container, verifikasi | F1, F2, 01–05 + "lanjut deploy" | belum | | |
 
 F1 dan F2 berasal dari review pasca-merge batch 1 (12 Okt 2026): PR #7 memangkas
