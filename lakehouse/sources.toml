@@ -720,6 +720,26 @@ asal = "Peringkat Kearney GCI & 4 sub-indikator pariwisata (jakarta.go.id/compet
 pembangun = "scripts/ekspor_data_statis.ts"
 
 [[sumber]]
+id = "ref-wilayah-kemendagri"
+jenis = "berkas"
+path = "data/referensi/wilayah-kemendagri.csv"
+namespace = "bronze_file"
+tabel = "ref_wilayah_kemendagri"
+kelas_refresh = "saat_berubah"
+asal = "Kepmendagri No 300.2.2-2138 Tahun 2025 / No 300.2.2-2430 Tahun 2025 (https://raw.githubusercontent.com/cahyadsn/wilayah/master/db/wilayah.sql)"
+pembangun = "scripts/build_referensi_wilayah.py"
+
+[[sumber]]
+id = "ref-wilayah-alias"
+jenis = "berkas"
+path = "data/referensi/wilayah-alias.csv"
+namespace = "bronze_file"
+tabel = "ref_wilayah_alias"
+kelas_refresh = "saat_berubah"
+asal = "Kamus alias ejaan dan singkatan wilayah DKI Jakarta dari evaluasi konform ukur"
+pembangun = "scripts/build_referensi_wilayah.py"
+
+[[sumber]]
 id = "booking-hotel-2026-09-15"
 jenis = "berkas"
 path = "data/crawl/booking-hotel-2026-09-15.json"

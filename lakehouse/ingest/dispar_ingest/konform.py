@@ -621,6 +621,12 @@ def ukur(keluarga_nama: str, panggung: bool = False, ch: Any = None) -> dict[str
     kolom_list = cfg.get("kolom", [])
     kunci_tmpl = cfg.get("kunci", "kunci_cocok(v)")
     cocok_subquery = cfg.get("cocok", "")
+    try:
+        has_konform = bool(ch.query("SHOW DATABASES LIKE 'konform'").result_rows)
+    except Exception:
+        has_konform = False
+    konform_db = "konform" if (has_konform and not panggung) else "konform_dev"
+    cocok_subquery = cocok_subquery.replace("{{konform_db}}", konform_db).replace("{{db}}", konform_db)
 
     kolom_in = ", ".join(f"'{c}'" for c in kolom_list)
     sql_find = f"""

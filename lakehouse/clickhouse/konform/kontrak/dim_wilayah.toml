@@ -1,0 +1,62 @@
+nama = "dim_wilayah"
+deskripsi = "Dimensi wilayah administrasi berjenjang sesuai kodifikasi Kemendagri"
+grain = ["kode"]
+kelas_refresh = "snapshot"
+pemilik = "perintis"
+
+[[kolom]]
+nama = "kode"
+tipe = "String"
+deskripsi = "Kode wilayah berformat Kemendagri bertitik (misal: 31.71, 31.71.01)"
+wajib = true
+
+[[kolom]]
+nama = "nama"
+tipe = "String"
+deskripsi = "Nama resmi wilayah administrasi"
+wajib = true
+
+[[kolom]]
+nama = "tingkat"
+tipe = "String"
+deskripsi = "Tingkat administrasi wilayah"
+nilai_boleh = ["provinsi", "kabkota", "kecamatan", "kelurahan"]
+wajib = true
+
+[[kolom]]
+nama = "kode_induk"
+tipe = "Nullable(String)"
+deskripsi = "Kode induk hierarki wilayah di atasnya"
+dimensi = "dim_wilayah.kode"
+
+[[kolom]]
+nama = "kode_provinsi"
+tipe = "String"
+deskripsi = "Kode provinsi wilayah (2 digit awal)"
+wajib = true
+
+[[kolom]]
+nama = "kode_kabkota"
+tipe = "Nullable(String)"
+deskripsi = "Kode kabupaten/kota (5 karakter awal)"
+
+[[kolom]]
+nama = "kode_kecamatan"
+tipe = "Nullable(String)"
+deskripsi = "Kode kecamatan wilayah (8 karakter awal)"
+
+[[kolom]]
+nama = "nama_kabkota"
+tipe = "Nullable(String)"
+deskripsi = "Nama kabupaten/kota induk"
+
+[[kolom]]
+nama = "nama_kecamatan"
+tipe = "Nullable(String)"
+deskripsi = "Nama kecamatan induk"
+
+[[kolom]]
+nama = "di_dki"
+tipe = "UInt8"
+deskripsi = "Indikator apakah wilayah berada di dalam provinsi DKI Jakarta"
+wajib = true

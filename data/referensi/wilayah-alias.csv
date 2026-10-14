@@ -1,0 +1,33 @@
+alias,tingkat,kode
+jakarta,provinsi,31
+dki jakarta,provinsi,31
+jakpus,kabkota,31.71
+jakut,kabkota,31.72
+jakbar,kabkota,31.73
+jaksel,kabkota,31.74
+jaktim,kabkota,31.75
+pulau seribu,kabkota,31.01
+kepulauan seribu,kabkota,31.01
+kepulauan seribu dki jakarta,kabkota,31.01
+kepulauan seribu jakarta,kabkota,31.01
+kepulauan seribu selatan jakarta,kabkota,31.01
+kepulauan seribu utara jakarta,kabkota,31.01
+menteng jakarta pusat,kabkota,31.71
+cikini jakarta pusat,kabkota,31.71
+plaza indonesia jakarta pusat,kabkota,31.71
+grand indonesia jakarta pusat,kabkota,31.71
+hotel mulia senayan jakarta pusat,kabkota,31.71
+scbd jakarta selatan,kabkota,31.74
+kemang jakarta selatan,kabkota,31.74
+kebayoran baru jakarta selatan,kabkota,31.74
+senopati jakarta selatan,kabkota,31.74
+kuningan jakarta selatan,kabkota,31.74
+gunawarman jakarta selatan,kabkota,31.74
+setiabudi jakarta selatan,kabkota,31.74
+pik jakarta utara,kabkota,31.72
+tamansari,kecamatan,31.73.03
+pulo gadung,kecamatan,31.75.02
+kramat jati,kecamatan,31.75.04
+palmerah,kecamatan,31.73.07
+rawa jati,kelurahan,31.74.08.1003
+pinang ranti,kelurahan,31.75.08.1002
