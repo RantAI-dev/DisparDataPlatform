@@ -1,0 +1,58 @@
+nama = "f_wisman_negara_bulanan"
+deskripsi = "Fakta kunjungan wisman ke Jakarta bulanan per kebangsaan / negara asal"
+grain = ["periode_id", "sumber", "negara_asli"]
+kelas_refresh = "snapshot"
+pemilik = "belum diketahui"
+
+[[kolom]]
+nama = "periode_id"
+tipe = "String"
+deskripsi = "Periode bulanan YYYY-MM"
+dimensi = "dim_periode.periode_id"
+wajib = true
+
+[[kolom]]
+nama = "sumber"
+tipe = "String"
+deskripsi = "Nama view atau dataset Silver sumber"
+wajib = true
+
+[[kolom]]
+nama = "negara_asli"
+tipe = "String"
+deskripsi = "Nama negara atau kebangsaan asli dari sumber"
+wajib = true
+
+[[kolom]]
+nama = "kode_negara"
+tipe = "Nullable(String)"
+deskripsi = "Kode negara standar ISO 3166-1 alpha-3 atau kode ember"
+dimensi = "dim_negara.kode"
+cocok_min = 0.95
+
+[[kolom]]
+nama = "jumlah"
+tipe = "Float64"
+deskripsi = "Jumlah kunjungan wisman"
+wajib = true
+min = 0.0
+
+[[rekonsiliasi]]
+nama = "baris_wisman_jakarta_per_negara"
+fakta = "SELECT count() FROM {{db}}.f_wisman_negara_bulanan WHERE sumber = 'wisman_jakarta_per_negara'"
+acuan = "SELECT count() FROM silver.wisman_jakarta_per_negara"
+
+[[rekonsiliasi]]
+nama = "sum_wisman_jakarta_per_negara"
+fakta = "SELECT sum(jumlah) FROM {{db}}.f_wisman_negara_bulanan WHERE sumber = 'wisman_jakarta_per_negara'"
+acuan = "SELECT sum(jumlah_kunjungan) FROM silver.wisman_jakarta_per_negara"
+
+[[rekonsiliasi]]
+nama = "baris_kebangsaan_sdi"
+fakta = "SELECT count() FROM {{db}}.f_wisman_negara_bulanan WHERE sumber = 'data_jumlah_wisatawan_mancanegara_berdasarkan_kebangsaan'"
+acuan = "SELECT count() FROM silver.data_jumlah_wisatawan_mancanegara_berdasarkan_kebangsaan"
+
+[[rekonsiliasi]]
+nama = "sum_kebangsaan_sdi"
+fakta = "SELECT sum(jumlah) FROM {{db}}.f_wisman_negara_bulanan WHERE sumber = 'data_jumlah_wisatawan_mancanegara_berdasarkan_kebangsaan'"
+acuan = "SELECT sum(jumlah_kunjungan) FROM silver.data_jumlah_wisatawan_mancanegara_berdasarkan_kebangsaan"

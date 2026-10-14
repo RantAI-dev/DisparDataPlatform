@@ -1,0 +1,48 @@
+nama = "f_wisnus_kota_bulanan"
+deskripsi = "Fakta perjalanan wisatawan nusantara per kota tujuan bulanan"
+grain = ["periode_id", "sumber", "kota_asli"]
+kelas_refresh = "snapshot"
+pemilik = "belum diketahui"
+
+[[kolom]]
+nama = "periode_id"
+tipe = "String"
+deskripsi = "Periode bulanan YYYY-MM"
+dimensi = "dim_periode.periode_id"
+wajib = true
+
+[[kolom]]
+nama = "sumber"
+tipe = "String"
+deskripsi = "Nama view atau dataset Silver sumber"
+wajib = true
+
+[[kolom]]
+nama = "kota_asli"
+tipe = "String"
+deskripsi = "Nama kota tujuan asli dari sumber"
+wajib = true
+
+[[kolom]]
+nama = "kode_wilayah"
+tipe = "Nullable(String)"
+deskripsi = "Kode wilayah kabupaten/kota standar Kemendagri"
+dimensi = "dim_wilayah.kode"
+cocok_min = 1.0
+
+[[kolom]]
+nama = "jumlah"
+tipe = "Float64"
+deskripsi = "Jumlah perjalanan wisnus"
+wajib = true
+min = 0.0
+
+[[rekonsiliasi]]
+nama = "baris_wisnus_perjalanan_per_kota_tujuan"
+fakta = "SELECT count() FROM {{db}}.f_wisnus_kota_bulanan WHERE sumber = 'wisnus_perjalanan_per_kota_tujuan'"
+acuan = "SELECT count() FROM silver.wisnus_perjalanan_per_kota_tujuan"
+
+[[rekonsiliasi]]
+nama = "sum_wisnus_perjalanan_per_kota_tujuan"
+fakta = "SELECT sum(jumlah) FROM {{db}}.f_wisnus_kota_bulanan WHERE sumber = 'wisnus_perjalanan_per_kota_tujuan'"
+acuan = "SELECT sum(jumlah_perjalanan) FROM silver.wisnus_perjalanan_per_kota_tujuan"

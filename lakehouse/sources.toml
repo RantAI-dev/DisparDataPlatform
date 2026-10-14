@@ -760,6 +760,16 @@ asal = "Kamus alias varian ejaan negara BPS/SDI dari 10-dim.sql dan evaluasi kon
 pembangun = "scripts/build_referensi_negara.py"
 
 [[sumber]]
+id = "ref-pintu-masuk"
+jenis = "berkas"
+path = "data/referensi/pintu-masuk.csv"
+namespace = "bronze_file"
+tabel = "ref_pintu_masuk"
+kelas_refresh = "saat_berubah"
+asal = "Kamus pintu masuk wisatawan mancanegara dari silver.wisman_jakarta_per_pintu_masuk dan bps"
+pembangun = "scripts/build_referensi_pintu_masuk.py"
+
+[[sumber]]
 id = "booking-hotel-2026-09-15"
 jenis = "berkas"
 path = "data/crawl/booking-hotel-2026-09-15.json"

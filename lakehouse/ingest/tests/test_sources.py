@@ -79,8 +79,8 @@ def _muat(tmp_path: Path, toml: str, berkas=("data/a.tsv",)) -> Registry:
 def test_registri_repo_termuat(registri: Registry):
     # Plan 04: 1 SDI + 62 berkas (34 lama + 28 statis/ref/crawl) + 31 sekunder = 94 entri.
     # Tabel bronze_file ke-63 (wellness_jakarta) datang dari tabel_lain, bukan entri sendiri.
-    # Batch 2a Plan 03: +2 referensi wilayah, Plan 04: +2 referensi negara = 98 entri
-    assert len(registri.sumber) == 98
+    # Batch 2a Plan 03: +2 ref wilayah, Plan 04: +2 ref negara, Plan 05: +1 ref pintu = 99 entri
+    assert len(registri.sumber) == 99
 
 
 def test_jumlah_sesuai_bronze_hidup(registri: Registry):
@@ -96,8 +96,8 @@ def test_jumlah_sesuai_bronze_hidup(registri: Registry):
         for ns, _ in s.tabel_lain:
             by_ns[ns] = by_ns.get(ns, 0) + 1
     assert by_ns["bronze_sdi"] == 1, "bentuk registri (bukan lake): jumlah SDI"
-    # Batch 2a Plan 03 & 04: 66 entri berkas + 1 dari tabel_lain = 67
-    assert by_ns["bronze_file"] == 67, "bentuk registri: jumlah bronze_file"
+    # Batch 2a Plan 03-05: 67 entri berkas + 1 dari tabel_lain = 68
+    assert by_ns["bronze_file"] == 68, "bentuk registri: jumlah bronze_file"
     assert by_ns["bronze_sec"] == 31, "bentuk registri (bukan lake): jumlah bronze_sec"
 
 

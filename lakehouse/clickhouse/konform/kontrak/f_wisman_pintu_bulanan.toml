@@ -1,0 +1,58 @@
+nama = "f_wisman_pintu_bulanan"
+deskripsi = "Fakta kunjungan wisman ke Jakarta bulanan per pintu masuk"
+grain = ["periode_id", "sumber", "pintu_asli"]
+kelas_refresh = "snapshot"
+pemilik = "belum diketahui"
+
+[[kolom]]
+nama = "periode_id"
+tipe = "String"
+deskripsi = "Periode bulanan YYYY-MM"
+dimensi = "dim_periode.periode_id"
+wajib = true
+
+[[kolom]]
+nama = "sumber"
+tipe = "String"
+deskripsi = "Nama view atau dataset Silver sumber"
+wajib = true
+
+[[kolom]]
+nama = "pintu_asli"
+tipe = "String"
+deskripsi = "Nama pintu masuk asli dari sumber"
+wajib = true
+
+[[kolom]]
+nama = "kode_pintu"
+tipe = "Nullable(String)"
+deskripsi = "Kode pintu masuk standar"
+dimensi = "dim_pintu_masuk.kode"
+cocok_min = 1.0
+
+[[kolom]]
+nama = "jumlah"
+tipe = "Float64"
+deskripsi = "Jumlah kunjungan wisman"
+wajib = true
+min = 0.0
+
+[[rekonsiliasi]]
+nama = "baris_wisman_jakarta_per_pintu_masuk"
+fakta = "SELECT count() FROM {{db}}.f_wisman_pintu_bulanan WHERE sumber = 'wisman_jakarta_per_pintu_masuk'"
+acuan = "SELECT count() FROM silver.wisman_jakarta_per_pintu_masuk"
+
+[[rekonsiliasi]]
+nama = "sum_wisman_jakarta_per_pintu_masuk"
+fakta = "SELECT sum(jumlah) FROM {{db}}.f_wisman_pintu_bulanan WHERE sumber = 'wisman_jakarta_per_pintu_masuk'"
+acuan = "SELECT sum(jumlah_kunjungan) FROM silver.wisman_jakarta_per_pintu_masuk"
+
+[[rekonsiliasi]]
+nama = "baris_wisman_per_pintu_masuk_bulanan_bps"
+fakta = "SELECT count() FROM {{db}}.f_wisman_pintu_bulanan WHERE sumber = 'wisman_per_pintu_masuk_bulanan_bps'"
+acuan = "SELECT count() FROM silver.wisman_per_pintu_masuk_bulanan_bps"
+
+[[rekonsiliasi]]
+nama = "sum_wisman_per_pintu_masuk_bulanan_bps"
+fakta = "SELECT sum(jumlah) FROM {{db}}.f_wisman_pintu_bulanan WHERE sumber = 'wisman_per_pintu_masuk_bulanan_bps'"
+acuan = "SELECT sum(jumlah_kunjungan) FROM silver.wisman_per_pintu_masuk_bulanan_bps"
