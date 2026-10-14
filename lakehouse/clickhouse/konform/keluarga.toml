@@ -1,0 +1,4 @@
+[bulan]
+kolom = ["bulan"]
+kunci = "kunci_cocok(v)"
+cocok = "SELECT DISTINCT match_key FROM silver.dim_bulan"

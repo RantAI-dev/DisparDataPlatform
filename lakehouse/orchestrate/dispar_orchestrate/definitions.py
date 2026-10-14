@@ -113,6 +113,24 @@ def quality_gate(context) -> None:
         notify("Quality gate menemukan masalah: " + "; ".join(r["fails"][:5]), "warn")
 
 
+@asset(
+    group_name="silver",
+    deps=[quality_gate],
+    description="Silver konform: penerapan SQL terstruktur + uji kontrak",
+)
+def konform(context) -> None:
+    from dispar_ingest.konform import terapkan, uji
+
+    laporan_terapkan = terapkan(mode="lake")
+    laporan_uji = uji(mode="lake")
+    context.add_output_metadata({
+        "jumlah_objek": laporan_terapkan.get("jumlah_objek", 0),
+        "berkas_error": laporan_terapkan.get("berkas_error", 0),
+        "uji_lulus": laporan_uji.get("lulus", 0),
+        "uji_gagal": laporan_uji.get("gagal", 0),
+    })
+
+
 @asset(group_name="gold", deps=[quality_gate],
        description="Silver kurasi (wisman/restoran/dtw/event) + mart Gold MergeTree")
 def curated_gold(context) -> None:
@@ -154,7 +172,19 @@ def iceberg_maintenance(context) -> None:
 
 refresh_job = define_asset_job(
     "refresh_lakehouse",
-    selection=[bronze_sdi, bronze_files, bronze_sekunder, sdi_meta, lake_db, functions_dim, silver_auto, quality_gate, curated_gold, gold_iceberg],
+    selection=[
+        bronze_sdi,
+        bronze_files,
+        bronze_sekunder,
+        sdi_meta,
+        lake_db,
+        functions_dim,
+        silver_auto,
+        quality_gate,
+        konform,
+        curated_gold,
+        gold_iceberg,
+    ],
 )
 ops_job = define_asset_job("ops_backup_maintenance", selection=[backup_lake, iceberg_maintenance])
 
@@ -185,8 +215,19 @@ def alert_on_failure(context: RunStatusSensorContext) -> None:
 
 defs = Definitions(
     assets=[
-        bronze_sdi, bronze_files, bronze_sekunder, sdi_meta, lake_db, functions_dim, silver_auto,
-        quality_gate, curated_gold, gold_iceberg, backup_lake, iceberg_maintenance,
+        bronze_sdi,
+        bronze_files,
+        bronze_sekunder,
+        sdi_meta,
+        lake_db,
+        functions_dim,
+        silver_auto,
+        quality_gate,
+        konform,
+        curated_gold,
+        gold_iceberg,
+        backup_lake,
+        iceberg_maintenance,
     ],
     jobs=[refresh_job, ops_job],
     schedules=[daily, ops_daily],
