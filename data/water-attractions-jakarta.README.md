@@ -97,21 +97,15 @@ python3 scripts/crawl_osm_water_attractions.py    # Phase 2B: Nominatim enrichme
 ## Runbook ingest (2026-09-18)
 
 1. `git pull --ff-only` di repo DisparDataPlatform.
-2. Taruh JSON di lokasi yang dapat dibaca container lakehouse —
-   karena `lake-dagster` mount-bind ke `/repo` dari repo LAMA
-   (`jakarta-restaurant-data`), JSON kita upload manual via
-   `docker exec` ke `/tmp/ingest-data/water-attractions-jakarta.json`
-   (base64 dari `data/sekunder/water-attractions-jakarta.json`).
-3. Jalan `python -m dispar_ingest.secondary_ingest /tmp/ingest-data`
-   di dalam container → tulis `bronze_sec.water_attractions_jakarta`
-   + `bronze_meta_sec.{dataset_catalog,dataset_sync,dataset_column}`
-   lewat Lakekeeper REST catalog (data di RustFS).
-4. Untuk Silver tipe: panggil `tebak_tipe` per kolom lalu
+2. Pastikan dataset terdaftar di `lakehouse/sources.toml` (`tabel = "water_attractions_jakarta"`).
+3. Taruh JSON di lokasi yang dapat dibaca container lakehouse (`/app/data/sekunder/water-attractions-jakarta.json`).
+4. Jalankan `python -m dispar_ingest.secondary_ingest /app` di dalam container `lake-dagster` → tulis `bronze_sec.water_attractions_jakarta` + `bronze_meta_sec.{dataset_catalog,dataset_sync,dataset_column}` lewat Lakekeeper REST catalog (data di RustFS).
+5. Untuk Silver tipe: panggil `tebak_tipe` per kolom lalu
    `CREATE OR REPLACE VIEW silver.<slug> AS SELECT ... FROM lake.\`bronze_sec.<slug>\``
    (lihat jejak di /tmp/check_final.py). Skrip `dispar_ingest.silver`
    yang otomatis memproses 226 tabel bisa gagal ditulis ke log
    karena stdout ter-buffer — bila perlu, generate per-slug.
-5. Verifikasi: `SELECT count() FROM silver.water_attractions_jakarta`
+6. Verifikasi: `SELECT count() FROM silver.water_attractions_jakarta`
    (harus 28). Spot-check 3 baris random.
 
 ## Diagnostik otentikasi (2026-09-17 → 2026-09-18)

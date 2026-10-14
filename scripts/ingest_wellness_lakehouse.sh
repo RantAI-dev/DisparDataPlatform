@@ -25,7 +25,7 @@ set -euo pipefail
 
 CONTAINER="lake-dagster"
 WELLNESS_FILE="/home/alfi/repos/DisparDataPlatform/data/sekunder/wellness-jakarta.json"
-TARGET_DIR_IN_CONTAINER="/repo/data/sekunder"
+TARGET_DIR_IN_CONTAINER="/app/data/sekunder"
 TARGET_FILE_IN_CONTAINER="${TARGET_DIR_IN_CONTAINER}/wellness-jakarta.json"
 
 echo "[1/4] Verifikasi container dispar-lake-dagster running..."
@@ -60,7 +60,7 @@ echo "  Uploaded."
 echo "[4/4] Jalankan secondary_ingest di dalam container ${CONTAINER}..."
 # Env values sudah di-set di container dispar-lake-dagster (CH_PASSWORD, S3_*, dll).
 # Jadi tidak perlu set env tambahan.
-docker exec "$CONTAINER" python -m dispar_ingest.secondary_ingest /repo/data/sekunder 2>&1 | tee /tmp/secondary-ingest-wellness.log
+docker exec "$CONTAINER" python -m dispar_ingest.secondary_ingest /app 2>&1 | tee /tmp/secondary-ingest-wellness.log
 
 echo ""
 echo "=== Selesai ==="
@@ -68,4 +68,4 @@ echo "Log lengkap: /tmp/secondary-ingest-wellness.log"
 echo ""
 echo "Verifikasi count:"
 echo "  curl -sS 'http://192.168.18.187:18123/?user=dispar&password=\$CH_PASSWORD' \\"
-echo "    --data-binary 'SELECT count() FROM bronze_sec.wellness_jakarta FORMAT TSV'"
+echo "    --data-binary 'SELECT count() FROM bronze_sec.wellness_jakarta'"
