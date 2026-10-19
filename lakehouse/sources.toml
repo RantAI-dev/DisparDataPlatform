@@ -1018,6 +1018,17 @@ asal = "SDI data-museum-di-provinsi-dki-jakarta (Dinas Kebudayaan)"
 pembangun = "scripts/build_sdi_lintas_opd.py"
 
 [[sumber]]
+id = "penerbangan-langsung-jakarta"
+jenis = "sekunder"
+path = "data/sekunder/penerbangan-langsung-jakarta.json"
+namespace = "bronze_sec"
+tabel = "penerbangan_langsung_jakarta"
+kelas_refresh = "snapshot"
+tanggal_ambil = "2026-10-14"
+asal = "Wikipedia EN/ID 'Airlines and destinations' + OpenFlights routes.dat (ODbL) + Wikidata (IATA/ICAO/negara) + OurAirports + pengamatan OpenSky /flights/arrival WIII 7 hari. Menutup gap GPCI AC-DF."
+pembangun = "scripts/build_penerbangan_langsung_jakarta.py"
+
+[[sumber]]
 id = "restoran-tripadvisor-jakarta"
 jenis = "sekunder"
 path = "data/sekunder/restoran-tripadvisor-jakarta.json"

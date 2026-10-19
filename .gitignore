@@ -57,3 +57,6 @@ secrets/
 # TETAP di-commit; yang .local ini tidak.
 .claude/settings.local.json
 .claude/worktrees/
+
+# Kredensial API eksternal (OpenSky dsb) — JANGAN di-commit, repo ini publik.
+credentials.json
