@@ -123,13 +123,23 @@ export function secondaryDatasets(): SecondaryDataset[] {
       external: false,
     },
     {
-      id: "sec-penerbangan-langsung",
-      title: "Penerbangan Langsung ke Jakarta (rute nonstop CGK)",
+      id: "sec-penerbangan-langsung-internasional",
+      title: "Penerbangan Langsung Internasional ke Jakarta (rute nonstop CGK)",
       description:
-        "335 pasangan maskapai–bandara pada 108 rute nonstop yang terhubung ke Soekarno-Hatta (209 domestik, 126 internasional). Diturunkan dari tabel destinasi Wikipedia EN & ID, disilang OpenFlights, dilabeli IATA/ICAO/negara lewat Wikidata, dan diverifikasi dengan pengamatan aktual OpenSky (7 hari). Menutup gap indikator GPCI AC-DF.",
-      tags: ["penerbangan", "rute", "bandara", "CGK", "konektivitas", "gpci", "AC-DF", "opensky", "sekunder"],
-      rows: 335,
-      href: "/sdi/penerbangan-langsung-jakarta",
+        "126 pasangan maskapai–bandara pada 59 rute nonstop internasional yang terhubung ke Soekarno-Hatta. Diturunkan dari tabel destinasi Wikipedia EN & ID, disilang OpenFlights, dilabeli IATA/ICAO/negara lewat Wikidata, dan diverifikasi dengan pengamatan aktual OpenSky (7 hari). Menutup gap indikator GPCI AC-DF.",
+      tags: ["penerbangan", "rute", "bandara", "CGK", "internasional", "konektivitas", "gpci", "AC-DF", "opensky", "sekunder"],
+      rows: 126,
+      href: "/sdi/penerbangan-langsung-internasional-jakarta",
+      external: false,
+    },
+    {
+      id: "sec-penerbangan-langsung-domestik",
+      title: "Penerbangan Langsung Domestik ke Jakarta (rute nonstop CGK)",
+      description:
+        "209 pasangan maskapai–bandara pada 49 rute nonstop domestik yang terhubung ke Soekarno-Hatta. Diturunkan dari tabel destinasi Wikipedia EN & ID, disilang OpenFlights, dilabeli IATA/ICAO/negara lewat Wikidata, dan diverifikasi dengan pengamatan aktual OpenSky (7 hari).",
+      tags: ["penerbangan", "rute", "bandara", "CGK", "domestik", "konektivitas", "opensky", "sekunder"],
+      rows: 209,
+      href: "/sdi/penerbangan-langsung-domestik-jakarta",
       external: false,
     },
     {

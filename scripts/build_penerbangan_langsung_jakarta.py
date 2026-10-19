@@ -11,7 +11,9 @@ Sumber (semua terbuka):
   4. Wikidata wbgetentities (P238 IATA, P239 ICAO, P17 negara)        — pelabelan
   5. OpenSky Network /flights/arrival?airport=WIII                     — terukur
 
-Keluaran: data/sekunder/penerbangan-langsung-jakarta.json
+Keluaran (dipecah menurut jenis rute, satu dataset per jenis):
+  data/sekunder/penerbangan-langsung-internasional-jakarta.json
+  data/sekunder/penerbangan-langsung-domestik-jakarta.json
 Cache/resume: scripts/penerbangan_cache.json (tiap entri menyimpan STATUS)
 
 Jalankan dari root repo:
@@ -35,7 +37,7 @@ from datetime import datetime, timedelta, timezone
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 CACHE = os.path.join(ROOT, "scripts", "penerbangan_cache.json")
-OUT = os.path.join(ROOT, "data", "sekunder", "penerbangan-langsung-jakarta.json")
+OUT_DIR = os.path.join(ROOT, "data", "sekunder")
 
 UA = "DisparDataPlatform-research/1.0 (kontak: repo Dinas-Pariwisata; riset rute penerbangan nonstop CGK)"
 CGK_ICAO, CGK_IATA = "WIII", "CGK"
@@ -663,6 +665,57 @@ def minta_token_opensky(kred: dict) -> str:
 
 # ───────────────────────── 5. Rakit ─────────────────────────
 
+
+# Satu dataset per jenis rute. Kolom `jenis_rute` tidak ikut ditulis karena
+# nilainya sudah tetap di tiap dataset.
+DATASET_PER_JENIS = {
+    "internasional": {
+        "slug": "penerbangan-langsung-internasional-jakarta",
+        "title": "Penerbangan Langsung Internasional ke Jakarta (rute nonstop CGK)",
+        "tags": ["penerbangan", "rute", "bandara", "CGK", "Soekarno-Hatta", "internasional", "konektivitas", "gpci", "AC-DF", "opensky", "sekunder"],
+    },
+    "domestik": {
+        "slug": "penerbangan-langsung-domestik-jakarta",
+        "title": "Penerbangan Langsung Domestik ke Jakarta (rute nonstop CGK)",
+        "tags": ["penerbangan", "rute", "bandara", "CGK", "Soekarno-Hatta", "domestik", "konektivitas", "opensky", "sekunder"],
+    },
+}
+
+KOLOM = [
+    {"key": "id", "label": "ID", "type": "string", "description": "Penanda baris"},
+    {"key": "maskapai", "label": "Maskapai", "type": "string", "description": "Nama maskapai yang mengoperasikan rute"},
+    {"key": "bandara_lawan", "label": "Bandara Lawan", "type": "string", "description": "Bandara di ujung rute selain CGK"},
+    {"key": "kota", "label": "Kota", "type": "string", "description": "Kota bandara lawan (dari OpenFlights)"},
+    {"key": "negara", "label": "Negara", "type": "string", "description": "Negara bandara lawan (Wikidata P17)"},
+    {"key": "kode_iata", "label": "IATA", "type": "string", "description": "Kode IATA bandara lawan"},
+    {"key": "kode_icao", "label": "ICAO", "type": "string", "description": "Kode ICAO bandara lawan"},
+    {"key": "rute", "label": "Rute", "type": "string", "description": "Pasangan kode IATA CGK-bandara lawan"},
+    {"key": "status_operasi", "label": "Status Operasi", "type": "string", "description": "Catatan status dari Wikipedia: begins/ends/resumes/seasonal, kosong bila reguler"},
+    {"key": "sumber_wikipedia", "label": "Sumber Wikipedia", "type": "string (en / id / en+id)", "description": "Wikipedia bahasa mana yang mencantumkan rute ini"},
+    {"key": "ada_di_openflights", "label": "Ada di OpenFlights", "type": "bool", "description": "True bila OpenFlights routes.dat (snapshot lama) juga memuat rute CGK-bandara ini"},
+    {"key": "opensky_kedatangan_teramati", "label": "Kedatangan Teramati (maskapai ini)", "type": "number", "description": "Jumlah kedatangan aktual yang terlacak OpenSky dari bandara ini DENGAN maskapai pada baris ini, selama jendela pengamatan. Bukan frekuensi terjadwal."},
+    {"key": "opensky_kedatangan_rute_total", "label": "Kedatangan Teramati (seluruh rute)", "type": "number", "description": "Jumlah seluruh kedatangan teramati dari bandara ini, semua maskapai digabung. Untuk membandingkan kontribusi tiap maskapai pada rute yang sama."},
+    {"key": "sumber", "label": "Sumber", "type": "string", "description": "Gabungan sumber yang mengonfirmasi baris ini: wikipedia, openflights, opensky"},
+]
+
+
+def tulis_keluaran(rows: list[dict]) -> dict[str, tuple[str, int]]:
+    """Tulis satu berkas JSON sekunder per jenis rute; kembalikan {jenis: (path, jumlah baris)}."""
+    # Keterangan dataset dikosongkan atas permintaan. Catatan metode (sumber,
+    # cakupan OpenSky, aturan penyaringan) tetap terdokumentasi di docstring
+    # skrip ini dan di deskripsi tiap kolom — tidak di deskripsi dataset.
+    hasil = {}
+    os.makedirs(OUT_DIR, exist_ok=True)
+    for jenis, meta in DATASET_PER_JENIS.items():
+        baris = [{k: v for k, v in r.items() if k != "jenis_rute"} for r in rows if r["jenis_rute"] == jenis]
+        out = {**meta, "description": "", "columns": KOLOM, "rows": baris}
+        path = os.path.join(OUT_DIR, f"{meta['slug']}.json")
+        with open(path, "w", encoding="utf-8") as f:
+            json.dump(out, f, ensure_ascii=False, indent=0)
+        hasil[jenis] = (path, len(baris))
+    return hasil
+
+
 def main() -> int:
     os.chdir(ROOT)
     cache = muat_cache()
@@ -935,57 +988,20 @@ def main() -> int:
             "kode_icao_maskapai_teramati": kode_mask,
         })
 
-    n_dom = sum(1 for r in rows if r["jenis_rute"] == "domestik")
-    n_int = sum(1 for r in rows if r["jenis_rute"] == "internasional")
     n_blm = sum(1 for r in rows if r["jenis_rute"] == "belum_dilabeli")
-    lawan_unik = {r["kode_iata"] for r in rows if r["kode_iata"]}
-
-    revid_en = cache["sumber"][kunci_en].get("revid")
-    revid_id = cache["sumber"][kunci_id].get("revid")
-    tgl = datetime.now(timezone.utc).strftime("%Y-%m-%d")
-
-    # Keterangan dataset dikosongkan atas permintaan. Catatan metode (sumber,
-    # cakupan OpenSky, aturan penyaringan) tetap terdokumentasi di docstring
-    # skrip ini dan di deskripsi tiap kolom — tidak di deskripsi dataset.
-    deskripsi = ""
-
-    out = {
-        "slug": "penerbangan-langsung-jakarta",
-        "title": "Penerbangan Langsung ke Jakarta (rute nonstop CGK)",
-        "description": deskripsi,
-        "tags": ["penerbangan", "rute", "bandara", "CGK", "Soekarno-Hatta", "konektivitas", "gpci", "AC-DF", "opensky", "sekunder"],
-        "columns": [
-            {"key": "id", "label": "ID", "type": "string", "description": "Penanda baris"},
-            {"key": "maskapai", "label": "Maskapai", "type": "string", "description": "Nama maskapai yang mengoperasikan rute"},
-            {"key": "bandara_lawan", "label": "Bandara Lawan", "type": "string", "description": "Bandara di ujung rute selain CGK"},
-            {"key": "kota", "label": "Kota", "type": "string", "description": "Kota bandara lawan (dari OpenFlights)"},
-            {"key": "negara", "label": "Negara", "type": "string", "description": "Negara bandara lawan (Wikidata P17)"},
-            {"key": "kode_iata", "label": "IATA", "type": "string", "description": "Kode IATA bandara lawan"},
-            {"key": "kode_icao", "label": "ICAO", "type": "string", "description": "Kode ICAO bandara lawan"},
-            {"key": "rute", "label": "Rute", "type": "string", "description": "Pasangan kode IATA CGK-bandara lawan"},
-            {"key": "jenis_rute", "label": "Jenis Rute", "type": "string (domestik / internasional / belum_dilabeli)", "description": "Klasifikasi menurut negara bandara lawan"},
-            {"key": "status_operasi", "label": "Status Operasi", "type": "string", "description": "Catatan status dari Wikipedia: begins/ends/resumes/seasonal, kosong bila reguler"},
-            {"key": "sumber_wikipedia", "label": "Sumber Wikipedia", "type": "string (en / id / en+id)", "description": "Wikipedia bahasa mana yang mencantumkan rute ini"},
-            {"key": "ada_di_openflights", "label": "Ada di OpenFlights", "type": "bool", "description": "True bila OpenFlights routes.dat (snapshot lama) juga memuat rute CGK-bandara ini"},
-            {"key": "opensky_kedatangan_teramati", "label": "Kedatangan Teramati (maskapai ini)", "type": "number", "description": "Jumlah kedatangan aktual yang terlacak OpenSky dari bandara ini DENGAN maskapai pada baris ini, selama jendela pengamatan. Bukan frekuensi terjadwal."},
-            {"key": "opensky_kedatangan_rute_total", "label": "Kedatangan Teramati (seluruh rute)", "type": "number", "description": "Jumlah seluruh kedatangan teramati dari bandara ini, semua maskapai digabung. Untuk membandingkan kontribusi tiap maskapai pada rute yang sama."},
-            {"key": "sumber", "label": "Sumber", "type": "string", "description": "Gabungan sumber yang mengonfirmasi baris ini: wikipedia, openflights, opensky"},
-        ],
-        "rows": rows,
-    }
-
-    os.makedirs(os.path.dirname(OUT), exist_ok=True)
-    with open(OUT, "w", encoding="utf-8") as f:
-        json.dump(out, f, ensure_ascii=False, indent=0)
+    if n_blm:
+        # Tanpa negara, baris tidak bisa dimasukkan ke dataset internasional
+        # maupun domestik — hentikan supaya tidak hilang diam-diam.
+        print(f"  {n_blm} baris belum dilabeli negara — lengkapi dulu sebelum menulis keluaran")
+        return 1
+    keluaran = tulis_keluaran(rows)
 
     print(f"\n== Selesai ==")
     print(f"  baris           : {len(rows)}")
-    print(f"  bandara lawan   : {len(lawan_unik)}")
-    print(f"  domestik        : {n_dom}")
-    print(f"  internasional   : {n_int}")
-    print(f"  belum dilabeli  : {n_blm}")
+    print(f"  bandara lawan   : {len({r['kode_iata'] for r in rows if r['kode_iata']})}")
     print(f"  + dari OpenSky  : {len(baris_tambahan)}")
-    print(f"  keluaran        : {OUT}")
+    for jenis, (path, n) in keluaran.items():
+        print(f"  {jenis:<15} : {n} baris -> {path}")
     return 0
 
 
