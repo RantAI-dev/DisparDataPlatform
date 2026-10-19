@@ -3,6 +3,8 @@
 import { use, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import { DatasetCharts } from "@/components/DatasetCharts";
+import { DatasetFilters } from "@/components/DatasetFilters";
+import { rowQueryParams, type Facet, type Filter, type Sort } from "@/lib/ch/query-filter";
 
 const NAVY = "#ed6b23";
 const GOLD = "#f0a13a";
@@ -77,8 +79,18 @@ export default function DatasetDetailPage({
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(true); // muat awal
   const [loadingMore, setLoadingMore] = useState(false);
+  // Muat ulang karena pencarian/filter/sort: konten lama tetap tampil (panel
+  // filter tidak tertutup), hanya diredupkan.
+  const [refreshing, setRefreshing] = useState(false);
+  const metaRef = useRef<DatasetMeta | null>(null);
+  // Hanya respons dari permintaan terakhir yang dipakai (filter diubah cepat).
+  const reqSeq = useRef(0);
+  metaRef.current = meta;
 
   const [q, setQ] = useState("");
+  const [filters, setFilters] = useState<Filter[]>([]);
+  const [sort, setSort] = useState<Sort | null>(null);
+  const [facets, setFacets] = useState<Facet[]>([]);
   const [debouncedQ, setDebouncedQ] = useState("");
 
   // Debounce input pencarian → query server.
@@ -87,17 +99,46 @@ export default function DatasetDetailPage({
     return () => clearTimeout(t);
   }, [q]);
 
-  // Muat satu halaman. reset=true → ganti (untuk slug/pencarian baru).
+  // Parameter pencarian/filter/sort bersama untuk tabel, unduhan, dan grafik
+  // (format: lib/ch/query-filter.ts). Grafik tidak memakai sort.
+  const filterQs = useMemo(
+    () => rowQueryParams({ search: debouncedQ, filters, sort: null }).toString(),
+    [debouncedQ, filters],
+  );
+  const qs = useMemo(
+    () => rowQueryParams({ search: debouncedQ, filters, sort }).toString(),
+    [debouncedQ, filters, sort],
+  );
+  const filtered = filterQs !== "";
+
+  // Pilihan filter dihitung sekali per dataset (atas seluruh baris).
+  useEffect(() => {
+    let alive = true;
+    setMeta(null);
+    setFilters([]);
+    setSort(null);
+    setFacets([]);
+    fetch(`/api/sdi/${slug}/facets`)
+      .then((r) => r.json())
+      .then((j) => { if (alive) setFacets(j.facets ?? []); })
+      .catch(() => { /* tanpa facet: panel filter tidak ditampilkan */ });
+    return () => { alive = false; };
+  }, [slug]);
+
+  // Muat satu halaman. reset=true → ganti (untuk slug/pencarian/filter/sort baru).
   const load = useCallback(
     async (reset: boolean, curLen: number) => {
       const offset = reset ? 0 : curLen;
-      if (reset) setLoading(true);
-      else setLoadingMore(true);
+      const id = ++reqSeq.current;
+      if (!reset) setLoadingMore(true);
+      else if (metaRef.current) setRefreshing(true);
+      else setLoading(true);
       try {
         const res = await fetch(
-          `/api/sdi/${slug}?offset=${offset}&limit=${PAGE}&q=${encodeURIComponent(debouncedQ)}`
+          `/api/sdi/${slug}?offset=${offset}&limit=${PAGE}${qs ? `&${qs}` : ""}`
         );
         const json = await res.json();
+        if (id !== reqSeq.current) return;
         if (json.error) {
           setError(json.error);
           return;
@@ -117,21 +158,27 @@ export default function DatasetDetailPage({
         });
         setRows((prev) => (reset ? json.rows : [...prev, ...json.rows]));
       } catch {
-        setError("Gagal memuat data");
+        if (id === reqSeq.current) setError("Gagal memuat data");
       } finally {
-        setLoading(false);
-        setLoadingMore(false);
+        if (id === reqSeq.current) {
+          setLoading(false);
+          setLoadingMore(false);
+          setRefreshing(false);
+        }
       }
     },
-    [slug, debouncedQ]
+    [slug, qs]
   );
 
-  // Muat awal / saat slug atau pencarian berubah.
+  // Muat awal / saat slug, pencarian, filter, atau sort berubah.
   useEffect(() => {
-    setRows([]);
     load(true, 0);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [slug, debouncedQ]);
+  }, [slug, qs]);
+
+  // Klik judul kolom: naik → turun → urutan asli.
+  const toggleSort = (col: string) =>
+    setSort((s) => (s?.col !== col ? { col, dir: "asc" } : s.dir === "asc" ? { col, dir: "desc" } : null));
 
   // Lazy-load saat sentinel terlihat.
   const hasMore = rows.length < count;
@@ -140,7 +187,8 @@ export default function DatasetDetailPage({
   rowsLenRef.current = rows.length;
   useEffect(() => {
     const el = sentinel.current;
-    if (!el || !hasMore || loading) return;
+    // Jangan lazy-load selagi muat ulang filter/sort: offset dan hasMore masih milik hasil lama.
+    if (!el || !hasMore || loading || refreshing) return;
     const io = new IntersectionObserver(
       (entries) => {
         if (entries[0].isIntersecting && !loadingMore) {
@@ -151,7 +199,10 @@ export default function DatasetDetailPage({
     );
     io.observe(el);
     return () => io.disconnect();
-  }, [hasMore, loading, loadingMore, load]);
+  }, [hasMore, loading, refreshing, loadingMore, load]);
+
+  // Hanya kolom yang ada di skema Silver yang bisa diurutkan (facets memuat semua kolom Silver).
+  const sortable = useMemo(() => new Set(facets.map((f) => f.key)), [facets]);
 
   const columns = useMemo<Column[]>(() => {
     if (!meta) return [];
@@ -220,7 +271,7 @@ export default function DatasetDetailPage({
         )}
 
         {meta && !loading && rows.length > 0 && (
-          <DatasetCharts columns={columns} rows={rows} storageKey={slug} />
+          <DatasetCharts slug={slug} columns={columns} rows={rows} storageKey={slug} query={filterQs} count={count} />
         )}
 
         {meta && !loading && (
@@ -232,32 +283,50 @@ export default function DatasetDetailPage({
                 placeholder="Cari di dalam data…"
                 className="w-full max-w-sm rounded-lg border border-slate-300 bg-white px-4 py-2.5 text-[14px] outline-none focus:border-[#ed6b23] transition-colors"
               />
-              <div className="flex items-center gap-3">
-                {/* Unduh seluruh dataset (semua baris, bukan halaman ini saja) */}
-                <div className="flex items-center gap-1.5">
+              <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
+                {/* Unduh semua baris yang cocok (bukan halaman ini saja), dengan filter & sort aktif */}
+                <div className="flex flex-wrap items-center gap-1.5">
                   <a
-                    href={`/api/sdi/${slug}/export?format=csv`}
-                    className="inline-flex items-center gap-1.5 rounded-lg border border-slate-300 bg-white px-3 py-2 text-[13px] font-medium text-slate-700 hover:border-[#ed6b23] hover:text-[#ed6b23] transition-colors"
-                    title="Unduh semua baris sebagai CSV"
+                    href={`/api/sdi/${slug}/export?format=csv${qs ? `&${qs}` : ""}`}
+                    className="inline-flex items-center gap-1.5 whitespace-nowrap rounded-lg border border-slate-300 bg-white px-3 py-2 text-[13px] font-medium text-slate-700 hover:border-[#ed6b23] hover:text-[#ed6b23] transition-colors"
+                    title={filtered ? "Unduh baris hasil filter sebagai CSV" : "Unduh semua baris sebagai CSV"}
                   >
-                    <DownloadIcon /> CSV
+                    <DownloadIcon /> CSV{filtered && " (terfilter)"}
                   </a>
                   <a
-                    href={`/api/sdi/${slug}/export?format=xlsx`}
-                    className="inline-flex items-center gap-1.5 rounded-lg border border-slate-300 bg-white px-3 py-2 text-[13px] font-medium text-slate-700 hover:border-[#ed6b23] hover:text-[#ed6b23] transition-colors"
-                    title="Unduh semua baris sebagai Excel (XLSX)"
+                    href={`/api/sdi/${slug}/export?format=xlsx${qs ? `&${qs}` : ""}`}
+                    className="inline-flex items-center gap-1.5 whitespace-nowrap rounded-lg border border-slate-300 bg-white px-3 py-2 text-[13px] font-medium text-slate-700 hover:border-[#ed6b23] hover:text-[#ed6b23] transition-colors"
+                    title={filtered ? "Unduh baris hasil filter sebagai Excel (XLSX)" : "Unduh semua baris sebagai Excel (XLSX)"}
                   >
-                    <DownloadIcon /> XLSX
+                    <DownloadIcon /> XLSX{filtered && " (terfilter)"}
                   </a>
+                  {filtered && (
+                    <a
+                      href={`/api/sdi/${slug}/export?format=csv`}
+                      className="px-1 text-[12.5px] text-slate-500 underline hover:text-slate-700 whitespace-nowrap"
+                      title="Unduh seluruh dataset tanpa filter (CSV)"
+                    >
+                      unduh semua baris
+                    </a>
+                  )}
                 </div>
                 <span className="text-[13px] text-slate-500 tabular-nums whitespace-nowrap">
                   {rows.length.toLocaleString("id-ID")} / {count.toLocaleString("id-ID")} baris
-                  {debouncedQ && " (hasil pencarian)"}
+                  {filtered && meta && ` (terfilter dari ${meta.total.toLocaleString("id-ID")})`}
                 </span>
               </div>
             </div>
 
-            <div className="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden">
+            <DatasetFilters
+              facets={facets.filter((f) => columns.some((c) => c.key === f.key))}
+              filters={filters}
+              onChange={setFilters}
+            />
+
+            <div
+              className={`bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden transition-opacity ${refreshing ? "opacity-60" : ""}`}
+              aria-busy={refreshing}
+            >
               <div className="overflow-x-auto">
                 <table className="w-full text-[14px] border-collapse">
                   <thead>
@@ -266,15 +335,33 @@ export default function DatasetDetailPage({
                       className="text-white text-left text-[12px] uppercase tracking-wider"
                     >
                       <th className="px-4 py-3 font-semibold w-12">#</th>
-                      {columns.map((c) => (
-                        <th
-                          key={c.key}
-                          className="px-4 py-3 font-semibold"
-                          title={c.desc ?? undefined}
-                        >
-                          {humanize(c.key)}
-                        </th>
-                      ))}
+                      {columns.map((c) => {
+                        const dir = sort?.col === c.key ? sort.dir : null;
+                        return (
+                          <th
+                            key={c.key}
+                            className="px-4 py-3 font-semibold"
+                            title={c.desc ?? undefined}
+                            aria-sort={sortable.has(c.key) ? (dir === "asc" ? "ascending" : dir === "desc" ? "descending" : "none") : undefined}
+                          >
+                            {sortable.has(c.key) ? (
+                              <button
+                                type="button"
+                                onClick={() => toggleSort(c.key)}
+                                className="inline-flex items-center gap-1 uppercase tracking-wider hover:text-white/80 focus-visible:ring-2 focus-visible:ring-white/60 rounded"
+                                aria-label={`Urutkan menurut ${humanize(c.key)}`}
+                              >
+                                {humanize(c.key)}
+                                <span aria-hidden className={dir ? "text-white" : "text-white/40"}>
+                                  {dir === "asc" ? "▲" : dir === "desc" ? "▼" : "↕"}
+                                </span>
+                              </button>
+                            ) : (
+                              humanize(c.key)
+                            )}
+                          </th>
+                        );
+                      })}
                     </tr>
                   </thead>
                   <tbody>
@@ -318,7 +405,8 @@ export default function DatasetDetailPage({
 
             <p className="text-[12px] text-slate-400 mt-4">
               Menampilkan {rows.length.toLocaleString("id-ID")} dari{" "}
-              {count.toLocaleString("id-ID")} baris · Sumber: Satu Data Indonesia — Jakarta ·{" "}
+              {count.toLocaleString("id-ID")} baris
+              {filtered && meta && ` (terfilter dari ${meta.total.toLocaleString("id-ID")})`} · Sumber: Satu Data Indonesia — Jakarta ·{" "}
               <a
                 href={`https://satudata.jakarta.go.id/open-data/${slug}`}
                 target="_blank"

@@ -91,35 +91,10 @@ function isNumericCol(col: Column, rows: Row[]): boolean {
   return tot >= 3 && num / tot >= 0.8;
 }
 
-function aggregate(rows: Row[], x: string, y: string, agg: Agg): { name: string; value: number }[] {
-  const groups = new Map<string, number[]>();
-  const counts = new Map<string, number>();
-  for (const r of rows) {
-    const k = String(r[x] ?? "—").trim() || "—";
-    counts.set(k, (counts.get(k) ?? 0) + 1);
-    if (agg !== "count") {
-      const v = toNum(r[y]);
-      if (v === null) continue;
-      if (!groups.has(k)) groups.set(k, []);
-      groups.get(k)!.push(v);
-    }
-  }
-  if (agg === "count") return [...counts].map(([name, value]) => ({ name, value }));
-  const out: { name: string; value: number }[] = [];
-  for (const [name, arr] of groups) {
-    if (!arr.length) continue;
-    let val: number;
-    if (agg === "avg") val = arr.reduce((a, b) => a + b, 0) / arr.length;
-    else if (agg === "max") val = Math.max(...arr);
-    else if (agg === "min") val = Math.min(...arr);
-    else val = arr.reduce((a, b) => a + b, 0);
-    out.push({ name, value: val });
-  }
-  return out;
-}
+type Point = { name: string; value: number };
 
-function buildOption(cfg: ChartCfg, rows: Row[]): { option: EChartsOption; empty: boolean } {
-  let data = aggregate(rows, cfg.x, cfg.y, cfg.agg);
+function buildOption(cfg: ChartCfg, points: Point[]): { option: EChartsOption; empty: boolean } {
+  let data = points;
   const timeLike = cfg.kind === "line" || cfg.kind === "area";
   if (timeLike) {
     data = [...data].sort((a, b) => {
@@ -225,13 +200,53 @@ function loadCharts(key: string, valid: Set<string>): ChartCfg[] {
   }
 }
 
+/** Data satu grafik, diringkas di server atas seluruh baris yang cocok dengan filter. */
+function useChartData(slug: string, cfg: ChartCfg, query: string): Point[] | "gagal" | null {
+  const [data, setData] = useState<Point[] | "gagal" | null>(null);
+  useEffect(() => {
+    let alive = true;
+    setData(null);
+    const p = new URLSearchParams(query);
+    p.set("x", cfg.x);
+    p.set("agg", cfg.agg);
+    if (cfg.agg !== "count") p.set("y", cfg.y);
+    fetch(`/api/sdi/${slug}/aggregate?${p}`)
+      .then((r) => (r.ok ? r.json() : Promise.reject()))
+      .then((j) => { if (alive) setData(j.data ?? []); })
+      .catch(() => { if (alive) setData("gagal"); });
+    return () => { alive = false; };
+  }, [slug, cfg.x, cfg.y, cfg.agg, query]);
+  return data;
+}
+
+function ChartBody({ slug, cfg, query }: { slug: string; cfg: ChartCfg; query: string }) {
+  const data = useChartData(slug, cfg, query);
+  if (data === null) return <p className="grid h-[280px] place-items-center text-[13px] text-slate-400">Memuat grafik…</p>;
+  if (data === "gagal") return <p className="grid h-[280px] place-items-center text-[13px] text-red-500">Gagal memuat grafik.</p>;
+  const { option, empty } = buildOption(cfg, data);
+  return empty
+    ? <p className="grid h-[280px] place-items-center text-[13px] text-slate-400">Tak ada nilai untuk dirangkum.</p>
+    : <ReactECharts option={option} style={{ height: 300, width: "100%" }} notMerge lazyUpdate opts={{ renderer: "canvas" }} />;
+}
+
 /**
- * Pembuat grafik dari data dataset (sisi-klien). User memilih tipe + kolom X/Y +
- * agregasi; data diringkas di browser dari baris yang termuat. Bisa menambah
- * beberapa grafik; konfigurasinya disimpan per dataset di localStorage browser.
- * Menggantikan "Visualisasi cepat".
+ * Pembuat grafik dari data dataset. User memilih tipe + kolom X/Y + agregasi;
+ * angka diringkas di server atas SELURUH baris yang cocok dengan pencarian/filter
+ * aktif (`query`), sedangkan baris termuat hanya dipakai menebak kolom angka dan
+ * kategori default. Konfigurasinya disimpan per dataset di localStorage browser.
  */
-export function DatasetCharts({ columns, rows, storageKey }: { columns: Column[]; rows: Row[]; storageKey: string }) {
+export function DatasetCharts({
+  slug, columns, rows, storageKey, query, count,
+}: {
+  slug: string;
+  columns: Column[];
+  rows: Row[];
+  storageKey: string;
+  /** Parameter pencarian/filter aktif (format lib/ch/query-filter.ts), tanpa sort. */
+  query: string;
+  /** Jumlah baris yang cocok dengan filter. */
+  count: number;
+}) {
   const cols = useMemo(
     () => (columns.length ? columns : Object.keys(rows[0] ?? {}).map((k) => ({ key: k, desc: null, type: null })))
       .filter((c) => !HIDDEN.has(c.key)),
@@ -275,7 +290,7 @@ export function DatasetCharts({ columns, rows, storageKey }: { columns: Column[]
     <div className="mb-6">
       <div className="flex items-center justify-between gap-3 mb-4">
         <h2 className="text-[16px] font-bold tracking-tight text-slate-800">Visualisasi Data</h2>
-        <span className="text-[12px] text-slate-400">Grafik dari {rows.length.toLocaleString("id-ID")} baris termuat · tersimpan di browser ini</span>
+        <span className="text-[12px] text-slate-400">Grafik dari {count.toLocaleString("id-ID")} baris{query && " (terfilter)"} · tersimpan di browser ini</span>
       </div>
 
       <div className="bg-white rounded-xl border border-slate-200 shadow-sm p-4 mb-5">
@@ -327,7 +342,6 @@ export function DatasetCharts({ columns, rows, storageKey }: { columns: Column[]
       ) : (
         <div className="grid gap-4 md:grid-cols-2">
           {charts.map((cfg) => {
-            const { option, empty } = buildOption(cfg, rows);
             const title = `${AGGS.find((a) => a.v === cfg.agg)?.label ?? cfg.agg}${cfg.agg === "count" ? "" : ` ${humanize(cfg.y)}`} per ${humanize(cfg.x)}`;
             return (
               <div key={cfg.id} className="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden">
@@ -345,9 +359,7 @@ export function DatasetCharts({ columns, rows, storageKey }: { columns: Column[]
                   </button>
                 </div>
                 <div className="p-2">
-                  {empty
-                    ? <p className="grid h-[280px] place-items-center text-[13px] text-slate-400">Tak ada nilai untuk dirangkum.</p>
-                    : <ReactECharts option={option} style={{ height: 300, width: "100%" }} notMerge lazyUpdate opts={{ renderer: "canvas" }} />}
+                  <ChartBody slug={slug} cfg={cfg} query={query} />
                 </div>
               </div>
             );

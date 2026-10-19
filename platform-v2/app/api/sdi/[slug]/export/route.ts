@@ -1,8 +1,11 @@
 import * as store from "@/lib/ch/store";
 import * as XLSX from "xlsx";
+import { FilterError, isFiltered, parseRowQuery } from "@/lib/ch/query-filter";
 
-// Export SELURUH baris satu dataset (tanpa paginasi) sebagai CSV atau XLSX.
-//   /api/sdi/<slug>/export?format=csv|xlsx
+// Export baris satu dataset (tanpa paginasi) sebagai CSV atau XLSX.
+//   /api/sdi/<slug>/export?format=csv|xlsx[&q=..&f=..&sort=..]
+// Tanpa q/f/sort → seluruh baris; dengan itu → hasil terfilter & terurut,
+// sama persis dengan tabel di halaman detail.
 // SUMBER TUNGGAL: lakehouse. App tidak memanggil API SDI.
 export const dynamic = "force-dynamic";
 export const maxDuration = 120;
@@ -12,7 +15,17 @@ export async function GET(
   { params }: { params: Promise<{ slug: string }> }
 ) {
   const { slug } = await params;
-  const format = (new URL(req.url).searchParams.get("format") || "csv").toLowerCase();
+  const sp = new URL(req.url).searchParams;
+  const format = (sp.get("format") || "csv").toLowerCase();
+  let rq;
+  try {
+    rq = parseRowQuery(sp);
+  } catch (e) {
+    if (e instanceof FilterError) return Response.json({ error: e.message }, { status: 400 });
+    throw e;
+  }
+  const filtered = isFiltered(rq) || rq.sort !== null;
+  const base = filtered ? `${slug}-terfilter` : slug;
 
   let columns: string[] = [];
   let rows: Record<string, unknown>[] = [];
@@ -22,10 +35,11 @@ export async function GET(
     const cols = await store.columns(slug);
     if (cols.length) {
       columns = cols.map((c) => c.key);
-      rows = await store.rowsForRaw(slug);
+      rows = await store.rowsFiltered(slug, rq);
     }
-  } catch {
-    /* jatuh ke live */
+  } catch (e) {
+    if (e instanceof FilterError) return Response.json({ error: e.message }, { status: 400 });
+    /* lainnya: diperlakukan sebagai belum tersedia di bawah */
   }
 
   // Tidak ada fallback ke API SDI — kalau lakehouse belum punya, 404.
@@ -50,7 +64,7 @@ export async function GET(
     return new Response(new Uint8Array(buf), {
       headers: {
         "Content-Type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
-        "Content-Disposition": `attachment; filename="${slug}.xlsx"`,
+        "Content-Disposition": `attachment; filename="${base}.xlsx"`,
         "Cache-Control": "no-store",
       },
     });
@@ -65,7 +79,7 @@ export async function GET(
   return new Response(csv, {
     headers: {
       "Content-Type": "text/csv; charset=utf-8",
-      "Content-Disposition": `attachment; filename="${slug}.csv"`,
+      "Content-Disposition": `attachment; filename="${base}.csv"`,
       "Cache-Control": "no-store",
     },
   });

@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import * as store from "@/lib/ch/store";
+import { FilterError, isFiltered, parseRowQuery } from "@/lib/ch/query-filter";
 
 const CDN_CACHE = {
   "Cache-Control": "public, s-maxage=86400, stale-while-revalidate=604800",
@@ -12,7 +13,8 @@ const MAX_LIMIT = 200;
  * Detail + isi tabel satu dataset — SUMBER TUNGGAL: lakehouse (bronze_meta +
  * lapisan silver). App TIDAK memanggil API SDI; kalau dataset belum ada di
  * lakehouse, kembalikan "belum tersedia" (pipeline yang mengisinya, terjadwal).
- *   ?offset=0&limit=50&q=term
+ *   ?offset=0&limit=50&q=term&f=kolom:in:nilai&f=kolom:range:min..max&sort=kolom:asc
+ *   (format filter/sort: lib/ch/query-filter.ts)
  */
 export async function GET(
   req: Request,
@@ -25,7 +27,14 @@ export async function GET(
     MAX_LIMIT,
     Math.max(1, parseInt(url.searchParams.get("limit") || String(DEFAULT_LIMIT), 10) || DEFAULT_LIMIT),
   );
-  const q = (url.searchParams.get("q") || "").trim();
+  let rq;
+  try {
+    rq = parseRowQuery(url.searchParams);
+  } catch (e) {
+    if (e instanceof FilterError) return NextResponse.json({ error: e.message }, { status: 400 });
+    throw e;
+  }
+  const varies = isFiltered(rq) || rq.sort !== null;
 
   try {
     const cols = await store.columns(slug);
@@ -35,7 +44,7 @@ export async function GET(
         { status: 404 },
       );
     }
-    const { rows, count } = await store.rowsPage(slug, offset, limit, q);
+    const { rows, count } = await store.rowsPage(slug, offset, limit, rq);
     const sync = await store.sync(slug);
     const medal = (await store.medallion()).get(slug) ?? null;
     return NextResponse.json(
@@ -59,9 +68,10 @@ export async function GET(
         offset,
         limit,
       },
-      { headers: q ? undefined : CDN_CACHE },
+      { headers: varies ? undefined : CDN_CACHE },
     );
   } catch (e) {
+    if (e instanceof FilterError) return NextResponse.json({ error: e.message }, { status: 400 });
     return NextResponse.json(
       { error: "Gagal membaca dari lakehouse", detail: String(e) },
       { status: 503 },

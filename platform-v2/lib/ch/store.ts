@@ -1,4 +1,5 @@
 import { q } from "./client";
+import { buildClauses, FilterError, kindOf, type ColKind, type Facet, type RowQuery } from "./query-filter";
 
 /**
  * Primitif data lakehouse — pengganti tabel Postgres lama (dataset/datasetSync/
@@ -265,23 +266,127 @@ export async function rowsForRaw(slug: string): Promise<Record<string, unknown>[
 
 export const rowsFor = rowsForRaw;
 
-/** Baris dataset dipaginasi + pencarian teks, dari SILVER (processed). */
-export async function rowsPage(
-  slug: string, offset: number, limit: number, search: string,
-): Promise<{ rows: Record<string, unknown>[]; count: number }> {
+/**
+ * Skema tabel Silver: nama kolom → tipe ClickHouse, tanpa kolom audit.
+ * Di-cache 5 menit supaya filter tidak memanggil DESCRIBE di setiap request,
+ * tetapi perubahan skema dari pipeline tetap terbaca.
+ */
+const SCHEMA_TTL_MS = 5 * 60 * 1000;
+const _schemaCache = new Map<string, { at: number; schema: Map<string, string> }>();
+async function schemaFor(table: string): Promise<Map<string, string>> {
+  const hit = _schemaCache.get(table);
+  if (hit && Date.now() - hit.at < SCHEMA_TTL_MS) return hit.schema;
+  const rows = await q<{ name: string; type: string }>(`DESCRIBE TABLE silver.\`${table}\``);
+  const schema = new Map(rows.filter((r) => !AUDIT.has(r.name)).map((r) => [r.name, r.type]));
+  _schemaCache.set(table, { at: Date.now(), schema });
+  return schema;
+}
+
+/** Tabel Silver + skema sebuah slug, atau null bila belum ada di Silver. */
+async function silverTable(slug: string): Promise<{ ref: string; schema: Map<string, string> } | null> {
   const table = await tableFor(slug);
-  if (!table || !(await silverAda()).has(table)) return { rows: [], count: 0 };
-  const ref = `silver.\`${table}\``;
-  const filter = search
-    ? `WHERE positionCaseInsensitive(toString(tuple(*)), {q:String}) > 0`
-    : "";
-  const params: Record<string, unknown> = search ? { q: search } : {};
-  const rows = await q<Record<string, unknown>>(
-    `SELECT * FROM ${ref} ${filter} LIMIT {limit:UInt32} OFFSET {offset:UInt32}`,
-    { ...params, limit, offset },
-  );
-  const cnt = await q<{ c: string }>(`SELECT toString(count()) AS c FROM ${ref} ${filter}`, params);
+  if (!table || !(await silverAda()).has(table)) return null;
+  return { ref: `silver.\`${table}\``, schema: await schemaFor(table) };
+}
+
+/** Baris dataset dipaginasi dengan pencarian, filter, dan sort, dari SILVER (processed). */
+export async function rowsPage(
+  slug: string, offset: number, limit: number, rq: RowQuery,
+): Promise<{ rows: Record<string, unknown>[]; count: number }> {
+  const t = await silverTable(slug);
+  if (!t) return { rows: [], count: 0 };
+  const { where, orderBy, params } = buildClauses(rq, t.schema);
+  const [rows, cnt] = await Promise.all([
+    q<Record<string, unknown>>(
+      `SELECT * FROM ${t.ref} ${where} ${orderBy} LIMIT {limit:UInt32} OFFSET {offset:UInt32}`,
+      { ...params, limit, offset },
+    ),
+    q<{ c: string }>(`SELECT toString(count()) AS c FROM ${t.ref} ${where}`, params),
+  ]);
   return { rows: rows.map(stripAudit), count: Number(cnt[0]?.c ?? 0) };
+}
+
+/** Seluruh baris yang cocok dengan pencarian/filter/sort (untuk unduhan). */
+export async function rowsFiltered(slug: string, rq: RowQuery): Promise<Record<string, unknown>[]> {
+  const t = await silverTable(slug);
+  if (!t) return [];
+  const { where, orderBy, params } = buildClauses(rq, t.schema);
+  const rows = await q<Record<string, unknown>>(`SELECT * FROM ${t.ref} ${where} ${orderBy}`, params);
+  return rows.map(stripAudit);
+}
+
+export const FACET_MAX_VALUES = 50;
+
+/**
+ * Pilihan filter per kolom, dihitung atas SELURUH dataset (bukan hasil filter)
+ * supaya pilihan tidak hilang saat filter lain aktif.
+ */
+export async function facets(slug: string): Promise<Facet[]> {
+  const t = await silverTable(slug);
+  if (!t) return [];
+  const cols = [...t.schema].map(([key, type]) => ({ key, kind: kindOf(type) as ColKind }));
+  const ranged = cols.filter((c) => c.kind === "angka" || c.kind === "tanggal");
+  const texts = cols.filter((c) => c.kind === "teks");
+
+  const stats = new Map<string, string>();
+  const exprs = [
+    ...ranged.flatMap((c, i) => [`toString(min(\`${c.key}\`)) AS mn${i}`, `toString(max(\`${c.key}\`)) AS mx${i}`]),
+    // uniqUpTo cukup menjawab "≤ batas atau tidak" tanpa menghitung semua nilai unik.
+    ...texts.map((c, i) => `toString(uniqUpTo(${FACET_MAX_VALUES + 1})(\`${c.key}\`)) AS u${i}`),
+  ];
+  if (exprs.length) {
+    const [row] = await q<Record<string, string>>(`SELECT ${exprs.join(", ")} FROM ${t.ref}`);
+    for (const [k, v] of Object.entries(row ?? {})) stats.set(k, v);
+  }
+
+  // Nilai semua kolom kategori (≤ FACET_MAX_VALUES unik) dalam satu query.
+  const small = texts.filter((_, i) => Number(stats.get(`u${i}`)) <= FACET_MAX_VALUES);
+  const valuesOf = new Map<string, { v: string; n: number }[]>(small.map((c) => [c.key, []]));
+  if (small.length) {
+    const rows = await q<{ k: string; v: string; n: string }>(
+      small.map((c, i) =>
+        `SELECT {k${i}:String} AS k, toString(\`${c.key}\`) AS v, toString(count()) AS n FROM ${t.ref}
+         WHERE \`${c.key}\` IS NOT NULL AND toString(\`${c.key}\`) != '' GROUP BY v`,
+      ).join(" UNION ALL "),
+      Object.fromEntries(small.map((c, i) => [`k${i}`, c.key])),
+    );
+    for (const r of rows) valuesOf.get(r.k)!.push({ v: r.v, n: Number(r.n) });
+    for (const list of valuesOf.values()) list.sort((a, b) => b.n - a.n || a.v.localeCompare(b.v, "id"));
+  }
+
+  return cols.map((c): Facet => {
+    const ri = ranged.indexOf(c);
+    if (ri >= 0) return { key: c.key, kind: c.kind as "angka" | "tanggal", min: stats.get(`mn${ri}`), max: stats.get(`mx${ri}`) };
+    const values = valuesOf.get(c.key);
+    return values ? { key: c.key, kind: "kategori", values } : { key: c.key, kind: "none" };
+  });
+}
+
+export type Agg = "sum" | "avg" | "count" | "max" | "min";
+/** Batas kelompok yang dikembalikan; grafik sendiri memotong ke 30 teratas. */
+const AGG_MAX_GROUPS = 1000;
+
+/**
+ * Agregasi untuk grafik atas SELURUH baris yang cocok dengan pencarian/filter.
+ * Label kosong → "—"; nilai y teks diubah ke angka (koma → titik) seperti di klien.
+ */
+export async function aggregate(
+  slug: string, rq: RowQuery, x: string, y: string, agg: Agg,
+): Promise<{ name: string; value: number }[]> {
+  const t = await silverTable(slug);
+  if (!t) return [];
+  if (!t.schema.has(x) || (agg !== "count" && !t.schema.has(y))) throw new FilterError("Kolom grafik tidak dikenal");
+  const { where, params } = buildClauses({ ...rq, sort: null }, t.schema);
+  const label = `if(trim(ifNull(toString(\`${x}\`), '')) = '', '—', trim(toString(\`${x}\`)))`;
+  const num = `toFloat64OrNull(replaceAll(replaceAll(toString(\`${y}\`), ' ', ''), ',', '.'))`;
+  const value = agg === "count" ? "count()" : `${agg}(${num})`;
+  const having = agg === "count" ? "" : `HAVING count(${num}) > 0`;
+  const rows = await q<{ name: string; value: string }>(
+    `SELECT ${label} AS name, toString(${value}) AS value FROM ${t.ref} ${where}
+     GROUP BY name ${having} ORDER BY ${value} DESC LIMIT ${AGG_MAX_GROUPS}`,
+    params,
+  );
+  return rows.map((r) => ({ name: r.name, value: Number(r.value) }));
 }
 
 function safeJsonArray(s: string): string[] {
