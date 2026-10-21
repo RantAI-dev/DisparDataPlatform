@@ -358,3 +358,36 @@ def test_dagster_konform_asset_and_failure_resilience():
          patch("dispar_ingest.konform.uji", return_value={"lulus": 10, "gagal": 3}):
         # Harus berjalan sampai tuntas tanpa melempar exception
         konform(context)
+
+
+# ── Panggung meniru tipe Bronze ─────────────────────────────────────────────
+
+def test_panggung_ref_bertipe_nullable_seperti_bronze(tmp_path):
+    """Tabel ref_* di konform_dev wajib Nullable(String) seperti Bronze.
+
+    Kalau panggung memakai String biasa, SQL yang lupa membuang Nullable lolos
+    di panggung tetapi gagal di lake (kunci ORDER BY Nullable ditolak ClickHouse).
+    """
+    from dispar_ingest import konform
+
+    (tmp_path / "lakehouse").mkdir()
+    (tmp_path / "lakehouse" / "sources.toml").write_text(
+        '[[sumber]]\nid = "x"\ntabel = "ref_contoh"\npath = "ref.csv"\n', encoding="utf-8"
+    )
+    (tmp_path / "ref.csv").write_text("kode,nama\nA,Satu\n", encoding="utf-8")
+
+    mock_ch = MagicMock()
+    lap = {"berkas_sukses": 0, "berkas_error": 0, "jumlah_objek": 0}
+    with patch.object(konform, "get_repo_root", return_value=tmp_path), \
+         patch.object(konform, "terapkan", return_value=lap), \
+         patch.object(konform, "uji", return_value={"lulus": 0, "gagal": 0, "total": 0}):
+        konform.panggung(ch=mock_ch)
+
+    perintah = [c.args[0] for c in mock_ch.command.call_args_list]
+    # Panggung mulai dari kosong: objek sisa run lama tidak boleh meloloskan uji.
+    assert perintah[0] == "DROP DATABASE IF EXISTS konform_dev"
+    create = [c.args[0] for c in mock_ch.command.call_args_list
+              if c.args[0].startswith("CREATE TABLE IF NOT EXISTS konform_dev.`ref_contoh`")]
+    assert len(create) == 1
+    assert "`kode` Nullable(String)" in create[0]
+    assert "`nama` Nullable(String)" in create[0]
