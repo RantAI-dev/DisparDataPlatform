@@ -20,6 +20,7 @@ type DatasetMeta = {
   sumberData: string[];
   frekuensi: string | null;
   satuan: string | null;
+  periode: { min: string; max: string } | null;
   columns: Column[];
   total: number;
   medallion: MedallionInfo | null;
@@ -152,6 +153,7 @@ export default function DatasetDetailPage({
           sumberData: json.sumberData ?? [],
           frekuensi: json.frekuensi,
           satuan: json.satuan,
+          periode: json.periode ?? null,
           columns: json.columns ?? [],
           total: json.total ?? 0,
           medallion: json.medallion ?? null,
@@ -237,6 +239,7 @@ export default function DatasetDetailPage({
           {meta && (
             <div className="mt-5 flex flex-wrap gap-x-6 gap-y-2 text-[13px] text-white/80">
               <Meta label="Baris data" value={meta.total.toLocaleString("id-ID")} />
+              {meta.periode && <Meta label="Periode" value={fmtPeriode(meta.periode)} />}
               {meta.satuan && <Meta label="Satuan" value={meta.satuan} />}
               {meta.frekuensi && <Meta label="Frekuensi" value={meta.frekuensi} />}
               {meta.sumberData?.length > 0 && (
@@ -471,6 +474,21 @@ function Meta({ label, value }: { label: string; value: string }) {
       </span>
     </span>
   );
+}
+
+const BULAN = ["Jan", "Feb", "Mar", "Apr", "Mei", "Jun", "Jul", "Agu", "Sep", "Okt", "Nov", "Des"];
+
+/** "2025-01-01" → "Jan 2025"; nilai tahun ("2018") dibiarkan apa adanya. */
+function fmtTitikPeriode(v: string): string {
+  const m = /^(\d{4})-(\d{2})-\d{2}$/.exec(v);
+  return m ? `${BULAN[Number(m[2]) - 1] ?? m[2]} ${m[1]}` : v;
+}
+
+/** Rentang periode: "Jan 2025 – Agu 2026", atau satu titik bila min = max. */
+function fmtPeriode(p: { min: string; max: string }): string {
+  const a = fmtTitikPeriode(p.min);
+  const b = fmtTitikPeriode(p.max);
+  return a === b ? a : `${a} – ${b}`;
 }
 
 function DownloadIcon() {

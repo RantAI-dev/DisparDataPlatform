@@ -96,6 +96,44 @@ export async function columns(slug: string): Promise<ColumnDef[]> {
   }));
 }
 
+/**
+ * Kolom yang ditampilkan/di-export untuk satu dataset: definisi kolom SDI +
+ * kolom Silver yang tidak terdaftar di metadata SDI. SDI tidak pernah
+ * mendaftarkan `periode_data` sebagai kolom (ia ditempel ke tiap baris), jadi
+ * tanpa ini periode hilang dari tabel, grafik, dan export. `periode_data`
+ * ditaruh paling depan; kolom tambahan lain di belakang.
+ */
+export async function displayColumns(slug: string): Promise<ColumnDef[]> {
+  const cols = await columns(slug);
+  if (!cols.length) return cols;
+  const table = await tableFor(slug);
+  if (!table || !(await silverAda()).has(table)) return cols;
+  const known = new Set(cols.map((c) => c.key));
+  const extra = [...(await schemaFor(table)).keys()]
+    .filter((k) => !known.has(k))
+    .map((k): ColumnDef => ({ key: k, description: null, type: null, ordinal: 0 }));
+  const lead = extra.filter((c) => c.key === "periode_data");
+  const rest = extra.filter((c) => c.key !== "periode_data");
+  return [...lead, ...cols, ...rest];
+}
+
+/**
+ * Rentang `periode_data` satu dataset dari Silver: {min, max} sebagai string
+ * ("2025-01-01" untuk kolom Date, "2018" untuk kolom tahun). null bila tidak ada.
+ */
+export async function periode(slug: string): Promise<{ min: string; max: string } | null> {
+  const table = await tableFor(slug);
+  if (!table || !(await silverAda()).has(table)) return null;
+  if (!(await schemaFor(table)).has("periode_data")) return null;
+  const rows = await q<{ lo: string | null; hi: string | null }>(
+    `SELECT toString(min(periode_data)) AS lo, toString(max(periode_data)) AS hi
+     FROM silver.\`${table}\` WHERE periode_data IS NOT NULL`,
+  );
+  const r = rows[0];
+  if (!r?.lo || !r?.hi) return null;
+  return { min: r.lo, max: r.hi };
+}
+
 /** Peta slug→Set(kunci) beberapa dataset (primer + sekunder). */
 export async function columnKeys(slugs: string[]): Promise<Map<string, Set<string>>> {
   const map = new Map<string, Set<string>>();

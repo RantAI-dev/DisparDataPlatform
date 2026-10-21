@@ -32,7 +32,7 @@ export async function GET(
 
   // 1) Dari lakehouse (bronze_meta + bronze_sdi).
   try {
-    const cols = await store.columns(slug);
+    const cols = await store.displayColumns(slug);
     if (cols.length) {
       columns = cols.map((c) => c.key);
       rows = await store.rowsFiltered(slug, rq);

@@ -37,7 +37,7 @@ export async function GET(
   const varies = isFiltered(rq) || rq.sort !== null;
 
   try {
-    const cols = await store.columns(slug);
+    const cols = await store.displayColumns(slug);
     if (!cols.length) {
       return NextResponse.json(
         { source: "lakehouse", slug, error: "Dataset belum tersedia di lakehouse", columns: [], rows: [], total: 0, count: 0, offset, limit },
@@ -47,6 +47,7 @@ export async function GET(
     const { rows, count } = await store.rowsPage(slug, offset, limit, rq);
     const sync = await store.sync(slug);
     const medal = (await store.medallion()).get(slug) ?? null;
+    const periode = await store.periode(slug);
     return NextResponse.json(
       {
         source: "lakehouse",
@@ -56,6 +57,8 @@ export async function GET(
         sumberData: sync?.sumberData ?? [],
         frekuensi: sync?.frekuensi ?? null,
         satuan: sync?.satuan ?? null,
+        // Rentang periode_data di Silver: {min, max} ("2025-01-01" / "2018").
+        periode,
         klasifikasi: sync?.klasifikasi ?? null,
         kontak: sync?.kontak ?? null,
         author: sync?.author ?? null,
