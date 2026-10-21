@@ -1,0 +1,28 @@
+{
+ "endpoint": "/v1/dataset-tematik",
+ "params": {
+  "framework": "GPCI"
+ },
+ "data": {
+  "items": [
+   {
+    "no": "05",
+    "title": "Lapangan Golf",
+    "href": "/gpci/lapangan-golf",
+    "total": 14
+   },
+   {
+    "no": "06",
+    "title": "Toko Suvenir",
+    "href": "/gpci/toko-suvenir",
+    "total": 67
+   },
+   {
+    "no": "07",
+    "title": "Hotel & Akomodasi",
+    "href": "/gpci/hotel",
+    "total": 120
+   }
+  ]
+ }
+}
