@@ -6,10 +6,10 @@ ENGINE = MergeTree
 ORDER BY (kode)
 AS
 SELECT
-    trimBoth(kode) AS kode,
-    trimBoth(nama) AS nama,
-    trimBoth(moda) AS moda,
-    nullIf(trimBoth(kode_provinsi), '') AS kode_provinsi
+    trimBoth(coalesce(kode, '')) AS kode,
+    trimBoth(coalesce(nama, '')) AS nama,
+    trimBoth(coalesce(moda, '')) AS moda,
+    nullIf(trimBoth(coalesce(kode_provinsi, '')), '') AS kode_provinsi
 FROM {{ref:ref_pintu_masuk}};
 
 CREATE OR REPLACE TABLE {{db}}.dim_pintu_masuk_kunci
@@ -36,8 +36,8 @@ WITH semua_kunci AS (
         UNION ALL
 
         SELECT
-            kunci_cocok(arrayJoin(splitByChar('|', alias))) AS kunci,
-            kode
+            kunci_cocok(arrayJoin(splitByChar('|', coalesce(alias, '')))) AS kunci,
+            trimBoth(coalesce(kode, '')) AS kode
         FROM {{ref:ref_pintu_masuk}}
     )
     WHERE kunci != ''

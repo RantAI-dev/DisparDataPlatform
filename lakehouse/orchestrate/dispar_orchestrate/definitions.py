@@ -122,6 +122,11 @@ def konform(context) -> None:
     from dispar_ingest.konform import terapkan, uji
 
     laporan_terapkan = terapkan(mode="lake")
+    # Berkas yang gagal tidak menghentikan job, tapi harus terlihat di log run.
+    for e in laporan_terapkan.get("error_detail", []):
+        context.log.warning(f"konform: {e['berkas']} gagal diterapkan: {e['error'][:500]}")
+    if laporan_terapkan.get("berkas_error"):
+        notify(f"Konform: {laporan_terapkan['berkas_error']} berkas SQL gagal diterapkan", "warn")
     laporan_uji = uji(mode="lake")
     context.add_output_metadata({
         "jumlah_objek": laporan_terapkan.get("jumlah_objek", 0),

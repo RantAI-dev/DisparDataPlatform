@@ -7,10 +7,10 @@ ORDER BY (tingkat, kode)
 AS
 WITH raw AS (
     SELECT
-        trimBoth(kode) AS kode,
-        trimBoth(nama) AS nama,
-        trimBoth(tingkat) AS tingkat,
-        nullIf(trimBoth(kode_induk), '') AS kode_induk
+        trimBoth(coalesce(kode, '')) AS kode,
+        trimBoth(coalesce(nama, '')) AS nama,
+        trimBoth(coalesce(tingkat, '')) AS tingkat,
+        nullIf(trimBoth(coalesce(kode_induk, '')), '') AS kode_induk
     FROM {{ref:ref_wilayah_kemendagri}}
 ),
 kabkota_lookup AS (
@@ -86,12 +86,12 @@ WITH semua_kunci AS (
 
         -- 4. Dari berkas alias
         SELECT
-            tingkat,
-            kf_kunci_wilayah(alias) AS kunci,
+            trimBoth(coalesce(tingkat, '')) AS tingkat,
+            kf_kunci_wilayah(coalesce(alias, '')) AS kunci,
             '' AS kunci_induk,
-            kode
+            trimBoth(coalesce(kode, '')) AS kode
         FROM {{ref:ref_wilayah_alias}}
-        WHERE kf_kunci_wilayah(alias) IS NOT NULL
+        WHERE kf_kunci_wilayah(coalesce(alias, '')) IS NOT NULL
     )
     WHERE kunci IS NOT NULL AND kunci != ''
 )
@@ -153,12 +153,12 @@ WITH semua_kunci AS (
 
         -- 4. Dari berkas alias
         SELECT
-            tingkat,
-            kf_kunci_wilayah(alias) AS kunci,
+            trimBoth(coalesce(tingkat, '')) AS tingkat,
+            kf_kunci_wilayah(coalesce(alias, '')) AS kunci,
             '' AS kunci_induk,
-            kode
+            trimBoth(coalesce(kode, '')) AS kode
         FROM {{ref:ref_wilayah_alias}}
-        WHERE kf_kunci_wilayah(alias) IS NOT NULL
+        WHERE kf_kunci_wilayah(coalesce(alias, '')) IS NOT NULL
     )
     WHERE kunci IS NOT NULL AND kunci != ''
 )

@@ -6,12 +6,12 @@ ENGINE = MergeTree
 ORDER BY (kode)
 AS
 SELECT
-    trimBoth(kode) AS kode,
-    trimBoth(kode_iso2) AS kode_iso2,
-    trimBoth(nama) AS nama,
-    trimBoth(nama_inggris) AS nama_inggris,
-    trimBoth(kawasan) AS kawasan,
-    trimBoth(jenis) AS jenis
+    trimBoth(coalesce(kode, '')) AS kode,
+    trimBoth(coalesce(kode_iso2, '')) AS kode_iso2,
+    trimBoth(coalesce(nama, '')) AS nama,
+    trimBoth(coalesce(nama_inggris, '')) AS nama_inggris,
+    trimBoth(coalesce(kawasan, '')) AS kawasan,
+    trimBoth(coalesce(jenis, '')) AS jenis
 FROM {{ref:ref_negara_iso3166}};
 
 CREATE OR REPLACE TABLE {{db}}.dim_negara_ambigu
@@ -48,10 +48,10 @@ WITH semua_kunci AS (
         UNION ALL
 
         SELECT
-            kunci_cocok(alias) AS kunci,
-            kode
+            kunci_cocok(coalesce(alias, '')) AS kunci,
+            trimBoth(coalesce(kode, '')) AS kode
         FROM {{ref:ref_negara_alias}}
-        WHERE kunci_cocok(alias) != ''
+        WHERE kunci_cocok(coalesce(alias, '')) != ''
     )
     WHERE kunci != ''
 )
@@ -97,10 +97,10 @@ WITH semua_kunci AS (
         UNION ALL
 
         SELECT
-            kunci_cocok(alias) AS kunci,
-            kode
+            kunci_cocok(coalesce(alias, '')) AS kunci,
+            trimBoth(coalesce(kode, '')) AS kode
         FROM {{ref:ref_negara_alias}}
-        WHERE kunci_cocok(alias) != ''
+        WHERE kunci_cocok(coalesce(alias, '')) != ''
     )
     WHERE kunci != ''
 )

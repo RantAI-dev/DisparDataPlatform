@@ -562,7 +562,9 @@ def panggung(ch: Any = None, hapus: bool = False) -> None:
         return
 
     print("Menyiapkan panggung di database konform_dev...", flush=True)
-    ch.command("CREATE DATABASE IF NOT EXISTS konform_dev")
+    # Mulai dari kosong: objek sisa run sebelumnya bisa meloloskan uji untuk SQL yang gagal.
+    ch.command("DROP DATABASE IF EXISTS konform_dev")
+    ch.command("CREATE DATABASE konform_dev")
 
     repo_root = get_repo_root()
     sources_path = repo_root / "lakehouse" / "sources.toml"
@@ -580,12 +582,14 @@ def panggung(ch: Any = None, hapus: bool = False) -> None:
                         sample_row = rows[0]
                         orig_keys = list(sample_row.keys())
                         cols = [safe_name(k) for k in orig_keys]
-                        cols_def = ", ".join(f"`{c}` String" for c in cols)
+                        # Tiru tipe Bronze (Nullable(String), NULL terjaga) supaya SQL yang
+                        # lupa membuang Nullable gagal di panggung, bukan baru di lake.
+                        cols_def = ", ".join(f"`{c}` Nullable(String)" for c in cols)
                         ch.command(
                             f"CREATE TABLE IF NOT EXISTS konform_dev.`{tbl}` ({cols_def}) ENGINE = MergeTree ORDER BY tuple()"
                         )
                         ch.command(f"TRUNCATE TABLE konform_dev.`{tbl}`")
-                        ch_rows = [[to_text(r.get(k)) or "" for k in orig_keys] for r in rows]
+                        ch_rows = [[to_text(r.get(k)) for k in orig_keys] for r in rows]
                         ch.insert(f"konform_dev.{tbl}", ch_rows, column_names=cols)
 
     print("\nMenerapkan SQL konform di mode panggung...", flush=True)
