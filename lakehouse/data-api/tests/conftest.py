@@ -258,3 +258,11 @@ def mentah(monkeypatch):
     from tests.palsu_dashboard import pasang
 
     return pasang(monkeypatch)
+
+
+@pytest.fixture
+def indikator(monkeypatch):
+    """Akses lake fitur indikator diganti data palsu (lihat `tests/palsu_indikator.py`)."""
+    from tests.palsu_indikator import pasang
+
+    return pasang(monkeypatch)

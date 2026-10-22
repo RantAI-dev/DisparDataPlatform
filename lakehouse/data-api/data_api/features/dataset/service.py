@@ -21,7 +21,7 @@ from typing import Any
 from openpyxl import Workbook
 from openpyxl.cell.cell import ILLEGAL_CHARACTERS_RE
 
-from data_api.shared import hitungan
+from data_api.shared import hitungan, lake
 from data_api.shared import queries as sq
 from data_api.shared.atlas_gabungan import kunci_kolasi
 from data_api.shared.errors import InvalidFilter, NotFound, TooLarge
@@ -32,7 +32,6 @@ from data_api.shared.paging import Halaman
 
 from . import queries
 
-TTL_DAFTAR_TABEL = 600
 TTL_SKEMA = 300
 FACET_MAX_VALUES = 50
 EKSPOR_PER_HALAMAN = 10_000
@@ -60,16 +59,8 @@ SUMBER_KATALOG = [sq.META, sq.META_SEC, "lake.bronze_meta*.dataset_sync"]
 # ── metadata dasar ────────────────────────────────────────────────────────────
 
 
-def _silver_ada(k: Konteks) -> set[str]:
-    return k.cache.ambil(("tabel", "silver"), TTL_DAFTAR_TABEL, lambda: sq.daftar_tabel(k, "silver"))
-
-
 def _serving_ada(k: Konteks) -> set[str]:
-    return k.cache.ambil(("tabel", "serving"), TTL_DAFTAR_TABEL, lambda: sq.daftar_tabel(k, "serving"))
-
-
-def _tabel_untuk(k: Konteks, slug: str) -> str | None:
-    return k.cache.ambil(("tabel_untuk", slug), k.konf.cache_ttl_default, lambda: queries.tabel_untuk(k, slug))
+    return k.cache.ambil(("tabel", "serving"), lake.TTL_DAFTAR_TABEL, lambda: sq.daftar_tabel(k, "serving"))
 
 
 def _skema(k: Konteks, tabel: str) -> dict[str, str]:
@@ -82,8 +73,8 @@ def _skema(k: Konteks, tabel: str) -> dict[str, str]:
 
 
 def _tabel_silver(k: Konteks, slug: str) -> tuple[str, dict[str, str]] | None:
-    tabel = _tabel_untuk(k, slug)
-    if not tabel or tabel not in _silver_ada(k):
+    tabel = lake.tabel_untuk(k, slug)
+    if not tabel or tabel not in lake.silver_ada(k):
         return None
     return tabel, _skema(k, tabel)
 
@@ -149,13 +140,13 @@ def _info_medallion(tabel: str, gold: dict[str, str], silver: set[str]) -> dict[
 
 def medallion(k: Konteks) -> dict[str, dict[str, str]]:
     """slug → lapisan medallion tertinggi (`store.medallion`)."""
-    gold, silver = _gold_dari(k), _silver_ada(k)
+    gold, silver = _gold_dari(k), lake.silver_ada(k)
     return {r["slug"]: _info_medallion(r["table_name"], gold, silver) for r in _katalog_lake(k) if r["table_name"]}
 
 
 def _medallion_katalog(k: Konteks) -> dict[str, dict[str, str]]:
     """Peta `/api/sdi/medallion`: slug katalog + id dataset Atlas; isi `{level, mart?}`."""
-    gold, silver = _gold_dari(k), _silver_ada(k)
+    gold, silver = _gold_dari(k), lake.silver_ada(k)
     tabel = {r["slug"]: r["table_name"] for r in _katalog_lake(k) if r["table_name"]} | ATLAS_TABLES
     return {
         kunci: {kk: v for kk, v in _info_medallion(t, gold, silver).items() if kk != "table"}
@@ -236,7 +227,7 @@ def _kolom_tampil(k: Konteks, slug: str) -> list[dict[str, Any]]:
     def buat() -> list[dict[str, Any]]:
         cols = [
             {"key": r["key_asli"], "desc": r["deskripsi"] or None, "type": r["tipe"] or None}
-            for r in queries.kolom(k, slug)
+            for r in lake.kolom_dataset(k, slug)
         ]
         if not cols:
             return cols
