@@ -237,6 +237,14 @@ def test_kode_tidak_dikenal_404(klien, indikator):
     assert klien.get("/v1/indikator/XX-1").status_code == 404
 
 
+def test_kode_huruf_kecil_dan_tanpa_framework_seperti_rute_next(klien, indikator):
+    """C §2.1: `code.toUpperCase()`, dan kedua prefiks (`/gci`, `/gpci`) menerima kode mana pun."""
+    besar = klien.get("/v1/indikator/CE1").json()
+    kecil = klien.get("/v1/indikator/ce1").json()
+    assert kecil["data"] == besar["data"]
+    assert kecil["meta"]["dataset_terpilih"] == besar["meta"]["dataset_terpilih"]
+
+
 # ── gci/resmi + dataset-tematik ───────────────────────────────────────────────
 
 
