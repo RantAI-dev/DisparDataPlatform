@@ -104,8 +104,10 @@ def api(method, path, body=None, ok=(200, 201, 204, 304)):
         raise SystemExit(f"Docker API {method} {path} → {e.code}: {e.read()[:300]!r}")
 
 def http_code(url):
+    # Cloudflare menolak User-Agent bawaan Python (403), jadi pakai UA sendiri.
+    req = urllib.request.Request(url, headers={"User-Agent": "dispar-deploy/1.0 (+curl-compatible)"})
     try:
-        with urllib.request.urlopen(url, context=CTX, timeout=30) as r:
+        with urllib.request.urlopen(req, context=CTX, timeout=30) as r:
             return r.status
     except urllib.error.HTTPError as e:
         return e.code
@@ -161,6 +163,7 @@ api("DELETE", "/containers/dispar-v2-next?force=1", ok=(204, 404))
 api("POST", "/containers/create?name=dispar-v2-next", spec)
 rollback = f"dispar-v2-rollback-{SHA}"
 api("DELETE", f"/containers/{rollback}?force=1", ok=(204, 404))
+api("DELETE", f"/containers/dispar-v2-gagal-{SHA}?force=1", ok=(204, 404))
 
 print(f"stop dispar-v2 ({old_image}) → {rollback}")
 api("POST", "/containers/dispar-v2/stop?t=10")
