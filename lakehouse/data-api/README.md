@@ -15,8 +15,13 @@ data_api/
   main.py              app, request id, log JSON, bentuk error, /v1/health, /v1/admin/cache/flush
   shared/              klien CH, auth, cache, filter, halaman, hitungan, daftar indikator
     queries.py         SQL milik shared/
+    lake.py            metadata dan baris lake (Silver, Bronze ber-cache) yang dipakai >1 fitur
+    atlas_gabungan.py  gabung + dedup Restoran GCI dan Direktori (katalog, atlas, spasial)
+    peta.py            peta kecamatan DKI (dki-jakarta.geojson) dan uji titik-dalam-poligon
     katalog_sekunder.toml  45 entri katalog sekunder (teks app, baris dari lake)
-  features/<fitur>/    router.py, service.py, queries.py (satu-satunya tempat SQL fitur)
+  features/<fitur>/    router.py, service.py, models.py (response_model), queries.py (satu-satunya
+                       tempat SQL fitur), logika.py (port logika Next.js murni, bila ada)
+                       fitur: dataset, beranda, dashboard, indikator, atlas, gmti, spasial, hotel_scraped
 tests/
   unit/ contract/      gate default, ClickHouse palsu
   panggung/            read-only ke ClickHouse panggung, dibandingkan dengan golden live (-m panggung)
@@ -76,3 +81,15 @@ Sebelum uji panggung, buat ulang golden live pada menit yang sama dengan
 - Sel ekspor (CSV/XLSX) berupa teks yang diawali `=`, `+`, `-`, `@`, tab, atau CR diberi awalan `'`
   agar tidak dijalankan sebagai formula di Excel/Sheets. Angka, termasuk angka yang dikirim sebagai
   teks, tidak diubah.
+- Dashboard: query ClickHouse yang gagal menghasilkan 200 dengan data kosong dan `meta.peringatan`
+  (Q21), bukan 5xx; kegagalan tidak di-cache.
+- Indikator: `trendSeries` tidak diport (tren tidak tampil di `/gci` dan `/gpci`); `latest` yang gagal
+  dibaca (mis. timeout 30 detik) menjadi null. `meta.dataset_terpilih` = daftar slug datar.
+- Spasial: dedup, `cities`, dan kepadatan per kecamatan dihitung di server; ibadah tanpa koordinat
+  dikirim sebagai `kepadatan_tanpa_koordinat`, jadi browser tidak perlu `gmti-ibadah.json`. Titik
+  tambahan diurutkan lake lalu ibadah. Detail popup lewat `/v1/spasial/titik/{id}`.
+- Hotel-scraped membaca `bronze_file.booking_hotel_2026_09_15` dan statistiknya tanpa jendela 7 hari
+  (SPEC P5); `/v1/spasial` tetap membaca mart seperti Next.js. Histogram harga dihitung di server.
+
+Paritas atlas, GMTI, dan dedup bergantung pada urutan pindai Bronze (tabel tanpa kolom ordinal), yang
+saat ini sama dengan urutan berkas `data/statis`.
