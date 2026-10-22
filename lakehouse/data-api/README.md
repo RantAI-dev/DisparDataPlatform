@@ -73,3 +73,6 @@ Sebelum uji panggung, buat ulang golden live pada menit yang sama dengan
 - Agregat dengan nilai sama diurut `name` sebagai pengurut kedua.
 - Daftar tabel Silver/serving di-cache 10 menit, bukan sampai restart.
 - Ekspor dibaca per halaman 10.000 baris dan ditolak 413 di atas `EXPORT_MAX_ROWS`.
+- Sel ekspor (CSV/XLSX) berupa teks yang diawali `=`, `+`, `-`, `@`, tab, atau CR diberi awalan `'`
+  agar tidak dijalankan sebagai formula di Excel/Sheets. Angka, termasuk angka yang dikirim sebagai
+  teks, tidak diubah.

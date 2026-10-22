@@ -393,8 +393,23 @@ class Ekspor:
     isi: Iterator[bytes]
 
 
+# Sel teks yang diawali karakter ini dibaca Excel/Sheets sebagai formula (CSV/formula injection).
+_PEMICU_FORMULA = ("=", "+", "-", "@", "\t", "\r")
+_ANGKA = re.compile(r"^-?(\d+\.?\d*|\.\d+)(e[-+]?\d+)?$", re.IGNORECASE)
+
+
+def _netral(s: str) -> str:
+    """Awali `'` pada teks pemicu formula; angka (termasuk Int64 yang dikirim sebagai teks) dibiarkan.
+
+    Satu-satunya pengecualian paritas ekspor: Next.js menulis sel apa adanya.
+    """
+    return "'" + s if s.startswith(_PEMICU_FORMULA) and not _ANGKA.match(s) else s
+
+
 def _sel_csv(v: object) -> str:
     s = teks_sel(v)
+    if not isinstance(v, (int, float)) or isinstance(v, bool):
+        s = _netral(s)
     return '"' + s.replace('"', '""') + '"' if re.search(r'[",\n\r]', s) else s
 
 
@@ -416,7 +431,7 @@ def _nilai_xlsx(v: object) -> object:
         return ""
     if isinstance(v, (int, float)) and not isinstance(v, bool):
         return v
-    return ILLEGAL_CHARACTERS_RE.sub("", teks_sel(v))
+    return _netral(ILLEGAL_CHARACTERS_RE.sub("", teks_sel(v)))
 
 
 def _alir_xlsx(kolom: list[str], rows: Iterator[dict[str, Any]]) -> Iterator[bytes]:
@@ -426,7 +441,7 @@ def _alir_xlsx(kolom: list[str], rows: Iterator[dict[str, Any]]) -> Iterator[byt
     try:
         wb = Workbook(write_only=True)
         ws = wb.create_sheet("Data")
-        ws.append(kolom)
+        ws.append([_nilai_xlsx(c) for c in kolom])
         for r in rows:
             ws.append([_nilai_xlsx(r.get(c)) for c in kolom])
         wb.save(jalur)
