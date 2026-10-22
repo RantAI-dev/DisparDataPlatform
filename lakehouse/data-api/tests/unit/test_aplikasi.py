@@ -115,8 +115,20 @@ def test_response_model_terpasang(ch, env, monkeypatch):
     app = buat_app(muat({**env, "DATA_API_DOCS": "1"}), ch)
     with TestClient(app, headers={"Authorization": f"Bearer {TOKEN}"}) as c:
         skema = c.get("/openapi.json").json()["components"]["schemas"]
-        for nama in ("Katalog", "Detail", "DaftarKolom", "DaftarFacet", "Baris", "Agregat", "Ringkasan"):
-            assert any(k.startswith(f"Amplop_{nama}") for k in skema), nama
+        amplop = [k for k in skema if "Amplop_" in k]
+        for nama in (
+            "Katalog",
+            "Detail",
+            "DaftarKolom",
+            "DaftarFacet",
+            "Baris",
+            "Agregat",
+            "Ringkasan",
+            "WismanTahunan",
+        ):
+            assert any(nama in k for k in amplop), nama
+        # beranda dan dashboard sama-sama punya `Ringkasan`; keduanya terpasang
+        assert sum("Ringkasan" in k for k in amplop) == 2
         asli = service.kolom
         monkeypatch.setattr(service, "kolom", lambda k, slug: [{**x, "rahasia": 1} for x in asli(k, slug)])
         assert "rahasia" not in c.get("/v1/dataset/wisman/kolom").json()["data"]["items"][0]
