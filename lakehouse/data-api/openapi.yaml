@@ -3484,7 +3484,10 @@ paths:
       - bearer: []
       x-kelas: T
       x-sumber: &id025
+      - lake.bronze_file.gci_gpci_indicators
+      - lake.bronze_meta*.dataset_catalog
       - silver.*
+      - lake.bronze_file.gci_gpci_benchmark
       x-catatan:
       - Bentuk dan contoh = golden plan 01 (`tests/golden/`), keluaran logika Next.js yang tayang.
       - '[K-12] Pemilihan dataset memporting `datasetsFor/pickData/primaryData` apa adanya; defect D1–D10 ditiru.
@@ -3541,7 +3544,7 @@ paths:
                               type: string
                             value:
                               type:
-                              - integer
+                              - number
                               - string
                             sub:
                               type:
@@ -3571,7 +3574,7 @@ paths:
                                     label:
                                       type: string
                                     value:
-                                      type: integer
+                                      type: number
                                     lat:
                                       type: number
                                     lng:
@@ -3936,6 +3939,7 @@ paths:
       - silver.wisman_jakarta_per_negara
       - silver.wisman_jakarta_per_pintu_masuk
       - lake.bronze_file.target_wisman
+      - lake.bronze_file.gci_kearney_resmi
       x-catatan:
       - Bentuk dan contoh = golden plan 01 (`tests/golden/`), keluaran logika Next.js yang tayang.
       - 'Struktur cermin halaman Next.js: `shell` (props PariwisataShell), `kpis`, `kartu` (judul, sub, komponen
@@ -4351,8 +4355,9 @@ paths:
       x-kelas: T
       x-sumber: &id029
       - silver.jumlah_restoran_per_kelurahan
-      - silver.data_usaha_jasa_makanan_…
+      - silver.data_usaha_jasa_makanan_dan_minuman_jenis_usaha_restoran_di_dki_jakarta
       - silver.restoran_tripadvisor_jakarta
+      - lake.bronze_file.gci_kearney_resmi
       x-catatan:
       - Bentuk dan contoh = golden plan 01 (`tests/golden/`), keluaran logika Next.js yang tayang.
       - 'Struktur cermin halaman Next.js: `shell` (props PariwisataShell), `kpis`, `kartu` (judul, sub, komponen
@@ -4407,7 +4412,9 @@ paths:
                             judul:
                               type: string
                             sub:
-                              type: string
+                              type:
+                              - string
+                              - 'null'
                             komponen:
                               type: string
                             data:
@@ -4559,10 +4566,14 @@ paths:
       x-kelas: P
       x-sumber: &id030
       - silver.data_seni_pertunjukan_dan_visual
-      - silver.jumlah_penyelenggaraan_event_…
+      - silver.jumlah_penyelenggaraan_event
+      - silver.artis_top_global_chart
+      - silver.data_penyelenggaraan_event_pariwisata_dan_budaya_dki_jakarta
+      - silver.data_event_pariwisata_dan_kebudayaan_dki_jakarta_2011_2019
+      - silver.data_rekomendasi_penyelenggaraan_pertunjukan_musik
       - lake.bronze_file.seni_venue
       - lake.bronze_file.artis_tampil_jakarta
-      - silver.artis_top_global_chart
+      - lake.bronze_file.gci_kearney_resmi
       x-catatan:
       - Bentuk dan contoh = golden plan 01 (`tests/golden/`), keluaran logika Next.js yang tayang.
       - 'Struktur cermin halaman Next.js: `shell` (props PariwisataShell), `kpis`, `kartu` (judul, sub, komponen

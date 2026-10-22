@@ -1,7 +1,7 @@
 """SQL fitur dataset — port `platform-v2/lib/ch/store.ts` @ 6b858eb (inventaris E §3).
 
-Teks SQL disalin apa adanya supaya hasilnya sama dengan Next.js, termasuk keanehannya (mis.
-`ORDER BY ord` pada `columns` hanya mengikat SELECT kedua dan mengurutkan `ord` sebagai teks).
+Teks SQL disalin apa adanya supaya hasilnya sama dengan Next.js, termasuk keanehannya. Query metadata
+yang juga dipakai fitur lain (`columns`, `tableFor`, `tiers`, `rowsForRaw`) ada di `shared/queries.py`.
 Nama tabel/kolom berasal dari metadata server (`table_name`, `DESCRIBE`) dan lolos `ident`.
 """
 
@@ -11,10 +11,7 @@ from collections.abc import Iterator
 from typing import Any
 
 from data_api.shared.konteks import Konteks
-from data_api.shared.queries import META, META_SEC, SYNC, SYNC_SEC, ident
-
-COL = "lake.`bronze_meta.dataset_column`"
-COL_SEC = "lake.`bronze_meta_sec.dataset_column`"
+from data_api.shared.queries import SYNC, SYNC_SEC, ident
 
 # Urutan default deterministik (SPEC §3.3) bila tidak ada `sort`; sama dengan pengurut cadangan
 # `build_clauses`, jadi halaman tanpa sort tidak melompati atau menggandakan baris.
@@ -36,25 +33,6 @@ def sync(k: Konteks, slug: str) -> dict[str, Any] | None:
         {"slug": slug},
     )
     return rows[0] if rows else None
-
-
-def kolom(k: Konteks, slug: str) -> list[dict[str, Any]]:
-    return k.q(
-        f"""SELECT key_asli, deskripsi, tipe, toString(ord) AS ord FROM {COL} WHERE slug={{slug:String}}
-     UNION ALL
-     SELECT key_asli, deskripsi, tipe, toString(ord) AS ord FROM {COL_SEC} WHERE slug={{slug:String}}
-     ORDER BY ord""",
-        {"slug": slug},
-    )
-
-
-def tabel_untuk(k: Konteks, slug: str) -> str | None:
-    rows = k.q(
-        f"""SELECT table_name FROM {META} WHERE slug={{slug:String}}
-     UNION ALL SELECT table_name FROM {META_SEC} WHERE slug={{slug:String}} LIMIT 1""",
-        {"slug": slug},
-    )
-    return rows[0]["table_name"] if rows else None
 
 
 def describe(k: Konteks, tabel: str) -> list[dict[str, Any]]:

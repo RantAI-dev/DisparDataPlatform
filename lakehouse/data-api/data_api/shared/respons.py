@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import math
 from datetime import datetime, timedelta, timezone
 from typing import Any
 
@@ -34,3 +35,18 @@ class Amplop[T](BaseModel):
 
     data: T
     meta: Meta
+
+
+def angka_js(v: Any) -> Any:
+    """Angka seperti `JSON.stringify`: float bulat → bilangan bulat, NaN/±Infinity → null."""
+    if isinstance(v, float):
+        if not math.isfinite(v):
+            return None
+        return int(v) if v.is_integer() and abs(v) < 2**53 else v
+    if isinstance(v, list):
+        return [angka_js(x) for x in v]
+    if isinstance(v, tuple):
+        return tuple(angka_js(x) for x in v)
+    if isinstance(v, dict):
+        return {kk: angka_js(x) for kk, x in v.items()}
+    return v
