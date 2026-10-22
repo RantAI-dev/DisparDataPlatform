@@ -7,7 +7,7 @@ from typing import Annotated, Any
 from fastapi import APIRouter, Depends, Query
 
 from data_api.shared.konteks import Konteks, ambil_konteks
-from data_api.shared.respons import Amplop, sukses
+from data_api.shared.respons import Amplop, angka_js, sukses
 
 from . import models, service
 from .service import Muat
@@ -25,21 +25,10 @@ PDRB_MAKRO = ["lake.bronze_file.pdrb_ekraf_makro", "lake.bronze_file.target_kont
 PDRB_SUB = ["lake.bronze_file.pdrb_ekraf_subsektor"]
 
 
-def _js(v: Any) -> Any:
-    """Angka bulat bertipe float ditulis sebagai bilangan bulat, seperti `JSON.stringify`."""
-    if isinstance(v, float) and v.is_integer() and abs(v) < 2**53:
-        return int(v)
-    if isinstance(v, list):
-        return [_js(x) for x in v]
-    if isinstance(v, dict):
-        return {kk: _js(x) for kk, x in v.items()}
-    return v
-
-
 def _jawab(k: Konteks, m: Muat, data: Any, source: list[str]) -> dict[str, Any]:
     # Q21: query yang gagal → data kosong + peringatan, bukan 5xx.
     extra = {"peringatan": m.peringatan} if m.peringatan else {}
-    return sukses(_js(data), k.rid, source, **extra)
+    return sukses(angka_js(data), k.rid, source, **extra)
 
 
 @router.get("/ringkasan", response_model=Amplop[models.Ringkasan], response_model_exclude_unset=True)

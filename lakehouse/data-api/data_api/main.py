@@ -22,6 +22,7 @@ from starlette.exceptions import HTTPException as StarletteHTTPException
 from data_api.features.beranda.router import router as beranda
 from data_api.features.dashboard.router import router as dashboard
 from data_api.features.dataset.router import router as dataset
+from data_api.features.indikator.router import router as indikator
 from data_api.shared import indikator_sumber, queries
 from data_api.shared.auth import wajib_dagster, wajib_token
 from data_api.shared.cache import Cache
@@ -128,7 +129,7 @@ def buat_app(konf: Konfigurasi | None = None, ch: ClickHouse | None = None) -> F
         return sukses({"dikosongkan": app.state.cache.kosongkan()}, request.state.rid, [])
 
     app.include_router(admin)
-    for r in (dataset, beranda, dashboard):
+    for r in (dataset, beranda, dashboard, indikator):
         app.include_router(r, prefix="/v1", dependencies=[Depends(wajib_token)])
     return app
 

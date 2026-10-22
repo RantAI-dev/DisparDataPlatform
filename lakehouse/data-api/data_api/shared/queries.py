@@ -72,3 +72,54 @@ def buang_audit(r: dict[str, Any]) -> dict[str, Any]:
 def ping(k: Konteks) -> None:
     """Cek koneksi untuk `/v1/health` (bukan `system.*`)."""
     k.q("SELECT 1 AS ok")
+
+
+COL = "lake.`bronze_meta.dataset_column`"
+COL_SEC = "lake.`bronze_meta_sec.dataset_column`"
+
+
+def kolom_dataset(k: Konteks, slug: str) -> list[dict[str, Any]]:
+    """`store.columns`: definisi kolom satu dataset (primer lalu sekunder).
+
+    Keanehan ditiru: `ORDER BY ord` hanya mengikat SELECT kedua dan mengurutkan `ord` sebagai teks.
+    """
+    return k.q(
+        f"""SELECT key_asli, deskripsi, tipe, toString(ord) AS ord FROM {COL} WHERE slug={{slug:String}}
+     UNION ALL
+     SELECT key_asli, deskripsi, tipe, toString(ord) AS ord FROM {COL_SEC} WHERE slug={{slug:String}}
+     ORDER BY ord""",
+        {"slug": slug},
+    )
+
+
+def kunci_kolom(k: Konteks, slugs: list[str]) -> list[dict[str, Any]]:
+    """`store.columnKeys`: pasangan slug–kolom untuk beberapa dataset."""
+    return k.q(
+        f"""SELECT slug, key_asli FROM {COL} WHERE slug IN {{slugs:Array(String)}}
+     UNION ALL SELECT slug, key_asli FROM {COL_SEC} WHERE slug IN {{slugs:Array(String)}}""",
+        {"slugs": slugs},
+    )
+
+
+def tier_dataset(k: Konteks, slugs: list[str]) -> list[dict[str, Any]]:
+    """`store.tiers`: tier (primer/sekunder) beberapa dataset."""
+    return k.q(
+        f"""SELECT slug, tier FROM {META} WHERE slug IN {{slugs:Array(String)}}
+     UNION ALL SELECT slug, tier FROM {META_SEC} WHERE slug IN {{slugs:Array(String)}}""",
+        {"slugs": slugs},
+    )
+
+
+def tabel_untuk(k: Konteks, slug: str) -> str | None:
+    """`table_name` (nama tabel Silver/Bronze) sebuah slug."""
+    rows = k.q(
+        f"""SELECT table_name FROM {META} WHERE slug={{slug:String}}
+     UNION ALL SELECT table_name FROM {META_SEC} WHERE slug={{slug:String}} LIMIT 1""",
+        {"slug": slug},
+    )
+    return rows[0]["table_name"] if rows else None
+
+
+def baris_silver(k: Konteks, tabel: str) -> list[dict[str, Any]]:
+    """`store.rowsForRaw`: seluruh baris Silver, tanpa ORDER BY (urutan simpan, sama dengan Next.js)."""
+    return [buang_audit(r) for r in k.q(f"SELECT * FROM silver.`{ident(tabel)}`")]
