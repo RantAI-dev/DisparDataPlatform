@@ -65,3 +65,30 @@ def test_ekspor_dibaca_per_halaman(klien, ch, monkeypatch):
     assert len(r.content.decode().split("\r\n")) == 6
     halaman = [p for s, p in ch.log if s.startswith("SELECT * FROM silver")]
     assert [(p["limit"], p["offset"]) for p in halaman] == [(2, 0), (2, 2), (2, 4)]
+
+
+def test_sel_formula_dinetralkan():
+    from data_api.features.dataset.service import _nilai_xlsx, _sel_csv
+
+    for teks in ('=HYPERLINK("http://x")', "+1+1", "-2+3", "@SUM(A1)", "\tx", "\rx"):
+        assert _sel_csv(teks).lstrip('"').startswith("'"), teks
+        assert _nilai_xlsx(teks).startswith("'"), teks
+    # angka (bertipe atau teks Int64 dari ClickHouse) dan teks biasa tidak diubah
+    assert [_sel_csv(v) for v in (-20.34, "-5", "-1.5e3", "biasa", "a-b")] == ["-20.34", "-5", "-1.5e3", "biasa", "a-b"]
+    assert _nilai_xlsx(-20.34) == -20.34 and _nilai_xlsx("-5") == "-5"
+
+
+def test_ekspor_menetralkan_formula(klien, ch, monkeypatch):
+    import copy
+    import sys
+
+    conftest = sys.modules[type(ch).__module__]  # modul conftest yang dipakai ChPalsu
+
+    baris = copy.deepcopy(conftest.BARIS["t_wisman"])
+    baris[1]["catatan"] = '=HYPERLINK("http://jahat","klik")'
+    monkeypatch.setitem(conftest.BARIS, "t_wisman", baris)
+    csv = klien.get("/v1/dataset/wisman/ekspor").content.decode()
+    assert '"\'=HYPERLINK(""http://jahat"",""klik"")"' in csv
+    r = klien.get("/v1/dataset/wisman/ekspor", params={"format": "xlsx"})
+    nilai = [c for row in load_workbook(io.BytesIO(r.content))["Data"].iter_rows(values_only=True) for c in row]
+    assert '\'=HYPERLINK("http://jahat","klik")' in nilai
