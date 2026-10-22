@@ -153,7 +153,10 @@ def test_respons_error_memakai_skema_error(spec):
 
 def test_kode_error_sesuai_status(spec):
     """SPEC §3.3: NOT_FOUND 404, INVALID_* 400, TOO_LARGE 413, UNAUTHORIZED 401, UPSTREAM 503."""
-    status = {"NOT_FOUND": "404", "INVALID_PARAM": "400", "INVALID_FILTER": "400", "TOO_LARGE": "413", "UNAUTHORIZED": "401", "UPSTREAM_UNAVAILABLE": "503"}
+    status = {
+        "NOT_FOUND": "404", "INVALID_PARAM": "400", "INVALID_FILTER": "400",
+        "TOO_LARGE": "413", "UNAUTHORIZED": "401", "UPSTREAM_UNAVAILABLE": "503",
+    }
     for path, metode, op in operasi(spec):
         for kode, r in op["responses"].items():
             if kode[0] not in "45":
