@@ -777,6 +777,8 @@ paths:
         `value` angka mentah atau teks siap tampil; `delta` angka mentah). Pengecualian aturan KONTRAK §3.4: dihitung
         di badan render Next.js, Nuxt merender apa adanya tanpa menghitung.'
       - Tahun 2025 (wisman) dan 2024 (PDRB) memang tetap di halaman Next.js.
+      - 'Q21 (ditiru) untuk bagian wisman: bila query ClickHouse gagal, `wisman.jumlah` null dan `meta.peringatan` terisi,
+        bukan 5xx. Bagian PDRB dari Bronze tetap 503 bila gagal (dulu konstanta).'
       responses:
         '200':
           description: OK
@@ -801,7 +803,9 @@ paths:
                           tahun:
                             type: string
                           jumlah:
-                            type: integer
+                            type:
+                            - integer
+                            - 'null'
                           target:
                             type: integer
                         required:
@@ -907,6 +911,8 @@ paths:
         `value` angka mentah atau teks siap tampil; `delta` angka mentah). Pengecualian aturan KONTRAK §3.4: dihitung
         di badan render Next.js, Nuxt merender apa adanya tanpa menghitung.'
       - '`pertumbuhan.persen` = tahun penuh terakhir vs sebelumnya (mentah).'
+      - 'Q21 (ditiru): bila query ClickHouse gagal, respons tetap 200 dengan data kosong dan `meta.peringatan`, bukan
+        5xx (Next.js `safe()` menelan error dan menampilkan "Tidak ada data.").'
       responses:
         '200':
           description: OK
@@ -929,9 +935,13 @@ paths:
                         type: object
                         properties:
                           dari:
-                            type: string
+                            type:
+                            - string
+                            - 'null'
                           sampai:
-                            type: string
+                            type:
+                            - string
+                            - 'null'
                         required:
                         - dari
                         - sampai
@@ -961,15 +971,21 @@ paths:
                           label:
                             type: string
                           persen:
-                            type: number
+                            type:
+                            - number
+                            - 'null'
                           sub:
-                            type: string
+                            type:
+                            - string
+                            - 'null'
                         required:
                         - label
                         - persen
                         - sub
                       tahun_default:
-                        type: string
+                        type:
+                        - string
+                        - 'null'
                       kpi:
                         type: array
                         items:
@@ -1053,13 +1069,15 @@ paths:
       x-kelas: T
       x-sumber: &id009
       - serving.mart_wisman
-      - silver.data_rata_rata_lama_menginap_…
+      - silver.data_rata_rata_lama_menginap_wisatawan_mancanegara_dan_wisatawan_nusantara_pada_hotel_berbintang_di_provinsi_dki_jakarta
       x-catatan:
       - Bentuk dan contoh = golden plan 01 (`tests/golden/`), keluaran logika Next.js yang tayang.
       - '`kpi[]` = props KPI persis seperti dikirim halaman Next.js ke komponen tampilan (label dibangun dari data;
         `value` angka mentah atau teks siap tampil; `delta` angka mentah). Pengecualian aturan KONTRAK §3.4: dihitung
         di badan render Next.js, Nuxt merender apa adanya tanpa menghitung.'
       - '`yoy.seri[].name` memakai `•` untuk tahun berjalan, seperti Next.js.'
+      - 'Q21 (ditiru): bila query ClickHouse gagal, respons tetap 200 dengan data kosong dan `meta.peringatan`, bukan
+        5xx (Next.js `safe()` menelan error dan menampilkan "Tidak ada data.").'
       responses:
         '200':
           description: OK
@@ -1251,6 +1269,8 @@ paths:
         UI di layer Nuxt.'
       - 'Warna tidak dikirim: palet tetap di layer Nuxt (KONTRAK §3.3); warna ditentukan dari label.'
       - Ember `Lainnya` dari sumber digabung ke `Lainnya` (aturan topN Next.js).
+      - 'Q21 (ditiru): bila query ClickHouse gagal, respons tetap 200 dengan data kosong dan `meta.peringatan`, bukan
+        5xx (Next.js `safe()` menelan error dan menampilkan "Tidak ada data.").'
       responses:
         '200':
           description: OK
@@ -1330,6 +1350,7 @@ paths:
       - bearer: []
       x-kelas: P
       x-sumber: &id013
+      - serving.mart_wisman
       - silver.jumlah_wisatawan
       - silver.wisman_per_pintu_masuk_bulanan_bps
       x-catatan:
@@ -1338,6 +1359,8 @@ paths:
         UI di layer Nuxt.'
       - '`sumber`: `bps_bulanan` bila ada data BPS untuk bulan itu, selain itu `sdi_semester`; `items: []` = semester
         belum dirilis.'
+      - 'Q21 (ditiru): bila query ClickHouse gagal, respons tetap 200 dengan data kosong dan `meta.peringatan`, bukan
+        5xx (Next.js `safe()` menelan error dan menampilkan "Tidak ada data.").'
       responses:
         '200':
           description: OK
@@ -1415,9 +1438,11 @@ paths:
       - bearer: []
       x-kelas: T
       x-sumber: &id014
-      - silver.data_rata_rata_lama_menginap_…
+      - silver.data_rata_rata_lama_menginap_wisatawan_mancanegara_dan_wisatawan_nusantara_pada_hotel_berbintang_di_provinsi_dki_jakarta
       x-catatan:
       - Bentuk dan contoh = golden plan 01 (`tests/golden/`), keluaran logika Next.js yang tayang.
+      - 'Q21 (ditiru): bila query ClickHouse gagal, respons tetap 200 dengan data kosong dan `meta.peringatan`, bukan
+        5xx (Next.js `safe()` menelan error dan menampilkan "Tidak ada data.").'
       responses:
         '200':
           description: OK
@@ -1512,12 +1537,14 @@ paths:
       - bearer: []
       x-kelas: P
       x-sumber: &id015
-      - silver.data_rata_rata_lama_menginap_…
+      - silver.data_rata_rata_lama_menginap_wisatawan_mancanegara_dan_wisatawan_nusantara_pada_hotel_berbintang_di_provinsi_dki_jakarta
       x-catatan:
       - Bentuk dan contoh = golden plan 01 (`tests/golden/`), keluaran logika Next.js yang tayang.
       - '`label` = bagian judul kartu yang dibangun dari data (mis. `2026 (s/d Jul)`); judul kartu sendiri teks
         UI di layer Nuxt.'
       - '`tabel` = isi tabel YoY persis seperti tampil (teks terformat id-ID).'
+      - 'Q21 (ditiru): bila query ClickHouse gagal, respons tetap 200 dengan data kosong dan `meta.peringatan`, bukan
+        5xx (Next.js `safe()` menelan error dan menampilkan "Tidak ada data.").'
       responses:
         '200':
           description: OK
@@ -1613,10 +1640,12 @@ paths:
       - bearer: []
       x-kelas: T
       x-sumber: &id016
-      - silver.data_rata_rata_lama_menginap_…
+      - silver.data_rata_rata_lama_menginap_wisatawan_mancanegara_dan_wisatawan_nusantara_pada_hotel_berbintang_di_provinsi_dki_jakarta
       x-catatan:
       - Bentuk dan contoh = golden plan 01 (`tests/golden/`), keluaran logika Next.js yang tayang.
       - Next.js hanya menampilkan `tamu=wisnus`.
+      - 'Q21 (ditiru): bila query ClickHouse gagal, respons tetap 200 dengan data kosong dan `meta.peringatan`, bukan
+        5xx (Next.js `safe()` menelan error dan menampilkan "Tidak ada data.").'
       responses:
         '200':
           description: OK
@@ -1701,6 +1730,8 @@ paths:
       - silver.wisnus_perjalanan_per_kota_tujuan
       x-catatan:
       - Bentuk dan contoh = golden plan 01 (`tests/golden/`), keluaran logika Next.js yang tayang.
+      - 'Q21 (ditiru): bila query ClickHouse gagal, respons tetap 200 dengan data kosong dan `meta.peringatan`, bukan
+        5xx (Next.js `safe()` menelan error dan menampilkan "Tidak ada data.").'
       responses:
         '200':
           description: OK
@@ -1730,7 +1761,9 @@ paths:
                       tahun_hilang_teks:
                         type: 'null'
                       tahun_default:
-                        type: string
+                        type:
+                        - string
+                        - 'null'
                     required:
                     - kota
                     - tahun
@@ -1782,6 +1815,8 @@ paths:
         `value` angka mentah atau teks siap tampil; `delta` angka mentah). Pengecualian aturan KONTRAK §3.4: dihitung
         di badan render Next.js, Nuxt merender apa adanya tanpa menghitung.'
       - '`tujuan_teratas` di KPI tidak ikut filter kota (Q, ditiru).'
+      - 'Q21 (ditiru): bila query ClickHouse gagal, respons tetap 200 dengan data kosong dan `meta.peringatan`, bukan
+        5xx (Next.js `safe()` menelan error dan menampilkan "Tidak ada data.").'
       responses:
         '200':
           description: OK
@@ -1881,6 +1916,8 @@ paths:
       - Bentuk dan contoh = golden plan 01 (`tests/golden/`), keluaran logika Next.js yang tayang.
       - '`label` = bagian judul kartu yang dibangun dari data (mis. `2026 (s/d Jul)`); judul kartu sendiri teks
         UI di layer Nuxt.'
+      - 'Q21 (ditiru): bila query ClickHouse gagal, respons tetap 200 dengan data kosong dan `meta.peringatan`, bukan
+        5xx (Next.js `safe()` menelan error dan menampilkan "Tidak ada data.").'
       responses:
         '200':
           description: OK
@@ -1956,6 +1993,8 @@ paths:
       x-sumber: *id017
       x-catatan:
       - Bentuk dan contoh = golden plan 01 (`tests/golden/`), keluaran logika Next.js yang tayang.
+      - 'Q21 (ditiru): bila query ClickHouse gagal, respons tetap 200 dengan data kosong dan `meta.peringatan`, bukan
+        5xx (Next.js `safe()` menelan error dan menampilkan "Tidak ada data.").'
       responses:
         '200':
           description: OK
@@ -2040,6 +2079,8 @@ paths:
       x-catatan:
       - Bentuk dan contoh = golden plan 01 (`tests/golden/`), keluaran logika Next.js yang tayang.
       - YoY hanya dihitung bila himpunan kota sama di kedua bulan (Q16, ditiru).
+      - 'Q21 (ditiru): bila query ClickHouse gagal, respons tetap 200 dengan data kosong dan `meta.peringatan`, bukan
+        5xx (Next.js `safe()` menelan error dan menampilkan "Tidak ada data.").'
       responses:
         '200':
           description: OK
@@ -2153,6 +2194,8 @@ paths:
       - '`kpi[]` = props KPI persis seperti dikirim halaman Next.js ke komponen tampilan (label dibangun dari data;
         `value` angka mentah atau teks siap tampil; `delta` angka mentah). Pengecualian aturan KONTRAK §3.4: dihitung
         di badan render Next.js, Nuxt merender apa adanya tanpa menghitung.'
+      - 'Q21 (ditiru): bila query ClickHouse gagal, respons tetap 200 dengan data kosong dan `meta.peringatan`, bukan
+        5xx (Next.js `safe()` menelan error dan menampilkan "Tidak ada data.").'
       responses:
         '200':
           description: OK
@@ -2268,6 +2311,8 @@ paths:
       x-catatan:
       - Bentuk dan contoh = golden plan 01 (`tests/golden/`), keluaran logika Next.js yang tayang.
       - 'Warna tidak dikirim: palet tetap di layer Nuxt (KONTRAK §3.3); warna ditentukan dari label.'
+      - 'Q21 (ditiru): bila query ClickHouse gagal, respons tetap 200 dengan data kosong dan `meta.peringatan`, bukan
+        5xx (Next.js `safe()` menelan error dan menampilkan "Tidak ada data.").'
       responses:
         '200':
           description: OK
@@ -2343,10 +2388,12 @@ paths:
       - bearer: []
       x-kelas: T
       x-sumber: &id020
-      - silver.jumlah_tenaga_kerja_…_tersertifikasi
-      - silver.jumlah_tenaga_kerja_…_tersertifikasi_tahun_
+      - silver.jumlah_tenaga_kerja_pariwisata_dan_ekonomi_kreatif_yang_tersertifikasi
+      - silver.jumlah_tenaga_kerja_pariwisata_dan_ekonomi_kreatif_yang_tersertifikasi_tahun_2023_dan_2024
       x-catatan:
       - Bentuk dan contoh = golden plan 01 (`tests/golden/`), keluaran logika Next.js yang tayang.
+      - 'Q21 (ditiru): bila query ClickHouse gagal, respons tetap 200 dengan data kosong dan `meta.peringatan`, bukan
+        5xx (Next.js `safe()` menelan error dan menampilkan "Tidak ada data.").'
       responses:
         '200':
           description: OK
@@ -6914,6 +6961,11 @@ components:
         request_id:
           type: string
           description: Sama dengan header X-Request-Id (dipantulkan).
+        peringatan:
+          type: array
+          items:
+            type: string
+          description: Hanya ada bila sebagian sumber gagal dibaca dan data dikirim kosong (dashboard, Q21).
     MetaTotal:
       allOf:
       - $ref: '#/components/schemas/Meta'

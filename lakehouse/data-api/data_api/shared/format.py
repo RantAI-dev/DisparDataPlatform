@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import math
+from decimal import ROUND_HALF_UP, Decimal
 
 
 def angka_id(n: int) -> str:
@@ -34,3 +35,28 @@ def teks_sel(v: object) -> str:
     if isinstance(v, float) and v.is_integer() and abs(v) < 1e21:
         return str(int(v))
     return str(v)
+
+
+def lokal_id(v: float, min_desimal: int = 0, maks_desimal: int = 3) -> str:
+    """`v.toLocaleString("id-ID", {minimumFractionDigits, maximumFractionDigits})`.
+
+    Bawaan JS: 0–3 desimal. Pembulatan "halfExpand" Intl (setengah menjauhi nol) atas representasi
+    desimal terpendek bilangan (sama dengan `repr` Python), pemisah ribuan `.`, desimal `,`.
+    """
+    d = Decimal(repr(v)) if isinstance(v, float) else Decimal(v)
+    d = d.quantize(Decimal(1).scaleb(-maks_desimal), rounding=ROUND_HALF_UP)
+    tanda = "-" if d.is_signed() else ""
+    bulat, _, pecahan = f"{abs(d):f}".partition(".")
+    pecahan = pecahan.rstrip("0").ljust(min_desimal, "0")
+    teks = f"{int(bulat):,}".replace(",", ".")
+    return tanda + teks + ("," + pecahan if pecahan else "")
+
+
+def id_num(v: float, d: int = 0) -> str:
+    """`idNum` platform-v2 (`components/dashboard/Kit.tsx`): tepat `d` desimal."""
+    return lokal_id(v, d, d)
+
+
+def js_round(x: float) -> float:
+    """`Math.round`: setengah dibulatkan ke atas (+∞), bukan ke genap seperti `round` Python."""
+    return float(math.floor(x + 0.5))
