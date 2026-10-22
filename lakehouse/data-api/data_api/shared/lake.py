@@ -1,4 +1,5 @@
-"""Metadata dan baris dataset lake yang dipakai lebih dari satu fitur (dataset, indikator).
+"""Metadata dan baris dataset lake yang dipakai lebih dari satu fitur (dataset, indikator, atlas,
+GMTI, spasial).
 
 Port fungsi `platform-v2/lib/ch/store.ts` (`tableFor`, `silverAda`, `columns`, `columnKeys`,
 `tiers`, `rowsForRaw`). Daftar tabel Silver di-cache 10 menit (bukan sampai restart, E §4.4).
@@ -39,6 +40,11 @@ def tier_dataset(k: Konteks, slugs: list[str]) -> dict[str, str]:
     if not slugs:
         return {}
     return {r["slug"]: r["tier"] for r in queries.tier_dataset(k, slugs)}
+
+
+def baris_bronze(k: Konteks, tabel: str) -> list[dict[str, Any]]:
+    """Seluruh baris `lake.bronze_file.<tabel>` (di-cache), dalam urutan berkas sumbernya (urutan pindai Iceberg)."""
+    return k.cache.ambil(("bronze_file", tabel), k.konf.cache_ttl_default, lambda: queries.baris_bronze_file(k, tabel))
 
 
 def baris_dataset(k: Konteks, slug: str) -> list[dict[str, Any]]:

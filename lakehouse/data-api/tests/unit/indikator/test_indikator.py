@@ -11,6 +11,7 @@ import pytest
 from data_api.features.indikator import agg
 from data_api.features.indikator.pemilihan import Pemuat, compute_readiness, latest_value, pick_data
 from data_api.shared import indikator_sumber
+from data_api.shared.format import to_fixed
 from data_api.shared.konteks import Konteks
 
 AKAR = Path(__file__).resolve().parents[5]
@@ -301,7 +302,7 @@ def test_id_num_seperti_agg_ts(v, hasil):
 
 
 def test_to_fixed_dan_number_seperti_js():
-    assert [agg.to_fixed(x, d) for x, d in ((-0.04, 1), (0.25, 1), (1.005, 2), (50.455, 2))] == [
+    assert [to_fixed(x, d) for x, d in ((-0.04, 1), (0.25, 1), (1.005, 2), (50.455, 2))] == [
         "-0.0",
         "0.3",
         "1.00",

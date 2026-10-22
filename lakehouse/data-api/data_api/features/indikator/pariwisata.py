@@ -20,7 +20,7 @@ from typing import Any
 from data_api.shared import lake
 from data_api.shared.atlas_gabungan import kunci_kolasi
 from data_api.shared.errors import Upstream
-from data_api.shared.format import angka_json, id_num, lokal_id
+from data_api.shared.format import angka_json, id_num, lokal_id, to_fixed
 from data_api.shared.konteks import Konteks
 
 from . import queries
@@ -35,7 +35,6 @@ from .agg import (
     js_number,
     js_string,
     nullish,
-    to_fixed,
     top_n,
     total,
     truthy,
