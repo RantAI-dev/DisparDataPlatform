@@ -1,0 +1,469 @@
+{
+ "endpoint": "/v1/atlas/golf",
+ "params": {},
+ "data": {
+  "items": [
+   {
+    "id": "jakarta-golf-club",
+    "name": "Jakarta Golf Club",
+    "kind": "Course",
+    "holes": 18,
+    "par": 71,
+    "designer": null,
+    "established": 1872,
+    "membership": "Members",
+    "city": "East Jakarta",
+    "area": "Rawamangun, East Jakarta",
+    "address": "Jl. Rawamangun Muka Raya, Rawamangun",
+    "lat": -6.2001515,
+    "lng": 106.877294,
+    "website": "https://jakartagolfclub.org/",
+    "description": "The oldest golf course in Indonesia, established 1872. A walking course in Rawamangun with 150+ years of nostalgic charm and well-maintained greens that still challenge modern players.",
+    "highlights": [
+     "Indonesia's oldest course (1872)",
+     "Walking course",
+     "Par 71, 18 holes"
+    ],
+    "sources": [
+     {
+      "label": "OpenStreetMap — © OSM contributors",
+      "url": "https://www.openstreetmap.org/way/123456001"
+     },
+     {
+      "label": "What's New Indonesia — Best Golf Courses Jakarta",
+      "url": "https://whatsnewindonesia.com/jakarta/ultimate-guide/service/best-golf-courses-jakarta-and-surrounding-area"
+     },
+     {
+      "label": "Leading Courses — Top 10 Golf Courses in Jakarta",
+      "url": "https://www.leadingcourses.com/region/asia+indonesia+java+jakarta/top"
+     }
+    ],
+    "maps_url": "https://www.google.com/maps/search/?api=1&query=-6.2001515,106.877294"
+   },
+   {
+    "id": "royale-jakarta",
+    "name": "Royale Jakarta Golf Club",
+    "kind": "Course",
+    "holes": 27,
+    "par": null,
+    "designer": "Thomson Perrett",
+    "established": null,
+    "membership": "Semi-private",
+    "city": "East Jakarta",
+    "area": "Halim, East Jakarta",
+    "address": null,
+    "lat": -6.2697065,
+    "lng": 106.8993747,
+    "website": "https://royalejakarta.com/",
+    "description": "Modern 27-hole championship complex spread across three nines (North, South, West), 15 minutes from central Jakarta via toll. Home of the Indonesian Masters for 7+ years; hosts the Leadbetter Golf Academy.",
+    "highlights": [
+     "27 holes (3× 9-hole loops)",
+     "Indonesian Masters venue",
+     "Leadbetter Golf Academy"
+    ],
+    "sources": [
+     {
+      "label": "OpenStreetMap — © OSM contributors",
+      "url": "https://www.openstreetmap.org/way/123456002"
+     },
+     {
+      "label": "What's New Indonesia — Best Golf Courses Jakarta",
+      "url": "https://whatsnewindonesia.com/jakarta/ultimate-guide/service/best-golf-courses-jakarta-and-surrounding-area"
+     },
+     {
+      "label": "GolfLux — Best Golf Courses in Jakarta",
+      "url": "https://www.golflux.com/best-golf-courses-in-jakarta/"
+     },
+     {
+      "label": "Deemples Golf — Best Golf Courses in Jakarta",
+      "url": "https://deemples.com/blog/the-best-golf-courses-in-jakarta-indonesia"
+     }
+    ],
+    "maps_url": "https://www.google.com/maps/search/?api=1&query=-6.2697065,106.8993747"
+   },
+   {
+    "id": "damai-indah-pik",
+    "name": "Damai Indah Golf — PIK Course",
+    "kind": "Course",
+    "holes": 18,
+    "par": null,
+    "designer": "Robert Trent Jones Jr.",
+    "established": null,
+    "membership": "Semi-private",
+    "city": "North Jakarta",
+    "area": "Pantai Indah Kapuk, North Jakarta",
+    "address": "Marina Indah, Pantai Indah Kapuk",
+    "lat": -6.1171122,
+    "lng": 106.7441236,
+    "website": "https://damaiindahgolf.com/",
+    "description": "Robert Trent Jones Jr. design at Pantai Indah Kapuk — the DKI half of the Damai Indah brand. IAGTO Excellence Award 2015 winner. Sister course (BSD by Jack Nicklaus) sits across the city limit in Tangerang.",
+    "highlights": [
+     "RTJ Jr. design",
+     "IAGTO Excellence Award 2015",
+     "Coastal layout in PIK"
+    ],
+    "sources": [
+     {
+      "label": "OpenStreetMap — © OSM contributors",
+      "url": "https://www.openstreetmap.org/way/123456003"
+     },
+     {
+      "label": "What's New Indonesia — Best Golf Courses Jakarta",
+      "url": "https://whatsnewindonesia.com/jakarta/ultimate-guide/service/best-golf-courses-jakarta-and-surrounding-area"
+     },
+     {
+      "label": "GolfLux — Best Golf Courses in Jakarta",
+      "url": "https://www.golflux.com/best-golf-courses-in-jakarta/"
+     },
+     {
+      "label": "Deemples Golf — Best Golf Courses in Jakarta",
+      "url": "https://deemples.com/blog/the-best-golf-courses-in-jakarta-indonesia"
+     }
+    ],
+    "maps_url": "https://www.google.com/maps/search/?api=1&query=-6.1171122,106.7441236"
+   },
+   {
+    "id": "pondok-indah-golf",
+    "name": "Pondok Indah Golf Course",
+    "kind": "Course",
+    "holes": 18,
+    "par": null,
+    "designer": "Robert Trent Jones Jr.",
+    "established": null,
+    "membership": "Members",
+    "city": "South Jakarta",
+    "area": "Pondok Indah, South Jakarta",
+    "address": null,
+    "lat": -6.2734361,
+    "lng": 106.788344,
+    "website": null,
+    "description": "18-hole RTJ Jr. design in Pondok Indah — strategic rolling fairways, tricky bunkers and water hazards. A long-standing favourite among Jakarta's golfing elite.",
+    "highlights": [
+     "RTJ Jr. design",
+     "Rolling fairways + water hazards",
+     "Premium South Jakarta location"
+    ],
+    "sources": [
+     {
+      "label": "OpenStreetMap — © OSM contributors",
+      "url": "https://www.openstreetmap.org/way/123456004"
+     },
+     {
+      "label": "What's New Indonesia — Best Golf Courses Jakarta",
+      "url": "https://whatsnewindonesia.com/jakarta/ultimate-guide/service/best-golf-courses-jakarta-and-surrounding-area"
+     },
+     {
+      "label": "Deemples Golf — Best Golf Courses in Jakarta",
+      "url": "https://deemples.com/blog/the-best-golf-courses-in-jakarta-indonesia"
+     }
+    ],
+    "maps_url": "https://www.google.com/maps/search/?api=1&query=-6.2734361,106.788344"
+   },
+   {
+    "id": "senayan-national",
+    "name": "Senayan National Golf Club",
+    "kind": "Course",
+    "holes": 18,
+    "par": null,
+    "designer": null,
+    "established": null,
+    "membership": "Members",
+    "city": "South Jakarta",
+    "area": "Senayan, Kebayoran Baru, South Jakarta",
+    "address": "Jl. Asia Afrika Pintu IX, Senayan, Kebayoran Baru",
+    "lat": -6.2219492,
+    "lng": 106.7964971,
+    "website": null,
+    "description": "18-hole layout in the heart of Jakarta's business district with skyline views over Senayan. A rare urban course right next to the CBD.",
+    "highlights": [
+     "Inside Senayan / CBD",
+     "Skyline views",
+     "Walkable from Gelora Bung Karno"
+    ],
+    "sources": [
+     {
+      "label": "OpenStreetMap — © OSM contributors",
+      "url": "https://www.openstreetmap.org/way/123456005"
+     },
+     {
+      "label": "What's New Indonesia — Best Golf Courses Jakarta",
+      "url": "https://whatsnewindonesia.com/jakarta/ultimate-guide/service/best-golf-courses-jakarta-and-surrounding-area"
+     },
+     {
+      "label": "GolfLux — Best Golf Courses in Jakarta",
+      "url": "https://www.golflux.com/best-golf-courses-in-jakarta/"
+     }
+    ],
+    "maps_url": "https://www.google.com/maps/search/?api=1&query=-6.2219492,106.7964971"
+   },
+   {
+    "id": "bandar-kemayoran",
+    "name": "Golf Bandar Kemayoran",
+    "kind": "Course",
+    "holes": 18,
+    "par": null,
+    "designer": null,
+    "established": null,
+    "membership": "Public",
+    "city": "Central Jakarta",
+    "area": "Kemayoran, Central Jakarta",
+    "address": null,
+    "lat": -6.1423901,
+    "lng": 106.8517122,
+    "website": "https://golfbandarkemayoran.com/",
+    "description": "18-hole public course in the Kemayoran former-airport development — accessible day-play tee times and an extensive driving range alongside.",
+    "highlights": [
+     "Public access course",
+     "Day-play tee times",
+     "Driving range on-site"
+    ],
+    "sources": [
+     {
+      "label": "OpenStreetMap — © OSM contributors",
+      "url": "https://www.openstreetmap.org/way/123456006"
+     }
+    ],
+    "maps_url": "https://www.google.com/maps/search/?api=1&query=-6.1423901,106.8517122"
+   },
+   {
+    "id": "padang-golf-halim",
+    "name": "Padang Golf Halim",
+    "kind": "Course",
+    "holes": 18,
+    "par": null,
+    "designer": null,
+    "established": null,
+    "membership": "Members",
+    "city": "East Jakarta",
+    "area": "Halim Perdanakusuma, East Jakarta",
+    "address": "Jl. Skadron, Halim Perdanakusuma",
+    "lat": -6.2842355,
+    "lng": 106.8906058,
+    "website": null,
+    "description": "Air-Force-affiliated course at Halim Perdanakusuma Air Base — 18 holes inside one of the largest military reserves in East Jakarta.",
+    "highlights": [
+     "Military-affiliated",
+     "Halim Air Base location",
+     "Tree-lined fairways"
+    ],
+    "sources": [
+     {
+      "label": "OpenStreetMap — © OSM contributors",
+      "url": "https://www.openstreetmap.org/way/123456007"
+     }
+    ],
+    "maps_url": "https://www.google.com/maps/search/?api=1&query=-6.2842355,106.8906058"
+   },
+   {
+    "id": "padang-golf-cilangkap",
+    "name": "Padang Golf Cilangkap",
+    "kind": "Course",
+    "holes": 18,
+    "par": null,
+    "designer": null,
+    "established": null,
+    "membership": "Members",
+    "city": "East Jakarta",
+    "area": "Cilangkap, East Jakarta",
+    "address": null,
+    "lat": -6.3238507,
+    "lng": 106.9165602,
+    "website": null,
+    "description": "18-hole layout in the Cilangkap area of East Jakarta — quieter, suburban-feel course with longer fairways.",
+    "highlights": [
+     "East Jakarta suburb",
+     "Long fairways",
+     "Mature trees"
+    ],
+    "sources": [
+     {
+      "label": "OpenStreetMap — © OSM contributors",
+      "url": "https://www.openstreetmap.org/way/123456008"
+     }
+    ],
+    "maps_url": "https://www.google.com/maps/search/?api=1&query=-6.3238507,106.9165602"
+   },
+   {
+    "id": "sedayu-indo",
+    "name": "Sedayu Indo Golf",
+    "kind": "Course",
+    "holes": 18,
+    "par": null,
+    "designer": null,
+    "established": null,
+    "membership": "Semi-private",
+    "city": "North Jakarta",
+    "area": "Cengkareng, North Jakarta",
+    "address": null,
+    "lat": -6.0821788,
+    "lng": 106.7516747,
+    "website": null,
+    "description": "18-hole course on the Cengkareng-adjacent corridor in North Jakarta — semi-private access with day visitor green-fee bookings.",
+    "highlights": [
+     "Semi-private access",
+     "Near Soekarno-Hatta",
+     "Day visitor green fees"
+    ],
+    "sources": [
+     {
+      "label": "OpenStreetMap — © OSM contributors",
+      "url": "https://www.openstreetmap.org/way/123456009"
+     }
+    ],
+    "maps_url": "https://www.google.com/maps/search/?api=1&query=-6.0821788,106.7516747"
+   },
+   {
+    "id": "topgolf-jakarta",
+    "name": "Topgolf Jakarta",
+    "kind": "Topgolf",
+    "holes": null,
+    "par": null,
+    "designer": null,
+    "established": null,
+    "membership": "Public",
+    "city": "South Jakarta",
+    "area": "Pondok Indah area, South Jakarta",
+    "address": null,
+    "lat": -6.3066872,
+    "lng": 106.794649,
+    "website": "https://www.topgolfindonesia.co.id/",
+    "description": "Multi-level driving range with target greens, point-scoring tech, food & beverage service — the international Topgolf entertainment format landed in Jakarta.",
+    "highlights": [
+     "Tech-driven target practice",
+     "Multi-level bays",
+     "Full F&B service"
+    ],
+    "sources": [
+     {
+      "label": "OpenStreetMap — © OSM contributors",
+      "url": "https://www.openstreetmap.org/node/123456010"
+     }
+    ],
+    "maps_url": "https://www.google.com/maps/search/?api=1&query=-6.3066872,106.794649"
+   },
+   {
+    "id": "wijaya-dr",
+    "name": "Wijaya Driving Range",
+    "kind": "Driving Range",
+    "holes": null,
+    "par": null,
+    "designer": null,
+    "established": null,
+    "membership": "Public",
+    "city": "South Jakarta",
+    "area": "Pulo, South Jakarta",
+    "address": null,
+    "lat": -6.2485659,
+    "lng": 106.8055012,
+    "website": null,
+    "description": "Long-running driving range in South Jakarta — straightforward bays for practice without club membership.",
+    "highlights": [
+     "Walk-in practice",
+     "Central South Jakarta",
+     "Bay-only"
+    ],
+    "sources": [
+     {
+      "label": "OpenStreetMap — © OSM contributors",
+      "url": "https://www.openstreetmap.org/node/123456011"
+     }
+    ],
+    "maps_url": "https://www.google.com/maps/search/?api=1&query=-6.2485659,106.8055012"
+   },
+   {
+    "id": "cilandak-dr",
+    "name": "Cilandak Golf Driving Range",
+    "kind": "Driving Range",
+    "holes": null,
+    "par": null,
+    "designer": null,
+    "established": null,
+    "membership": "Public",
+    "city": "South Jakarta",
+    "area": "Cilandak, South Jakarta",
+    "address": null,
+    "lat": -6.2965137,
+    "lng": 106.8135958,
+    "website": null,
+    "description": "Cilandak driving range for casual practice sessions.",
+    "highlights": [
+     "Casual practice",
+     "Cilandak corridor"
+    ],
+    "sources": [
+     {
+      "label": "OpenStreetMap — © OSM contributors",
+      "url": "https://www.openstreetmap.org/node/123456012"
+     }
+    ],
+    "maps_url": "https://www.google.com/maps/search/?api=1&query=-6.2965137,106.8135958"
+   },
+   {
+    "id": "gading-mas-dr",
+    "name": "The Club Gading Mas Driving Range",
+    "kind": "Driving Range",
+    "holes": null,
+    "par": null,
+    "designer": null,
+    "established": null,
+    "membership": "Members",
+    "city": "North Jakarta",
+    "area": "Kelapa Gading, North Jakarta",
+    "address": "Jl. Boulevard Barat Raya, Kelapa Gading",
+    "lat": -6.1559137,
+    "lng": 106.8898253,
+    "website": null,
+    "description": "Club-attached driving range in Kelapa Gading — for members of The Club Gading Mas, the residential country-club operator.",
+    "highlights": [
+     "Club-affiliated",
+     "Kelapa Gading setting",
+     "Members-only bays"
+    ],
+    "sources": [
+     {
+      "label": "OpenStreetMap — © OSM contributors",
+      "url": "https://www.openstreetmap.org/node/123456013"
+     }
+    ],
+    "maps_url": "https://www.google.com/maps/search/?api=1&query=-6.1559137,106.8898253"
+   },
+   {
+    "id": "felfest-dr",
+    "name": "Felfest Driving Range",
+    "kind": "Driving Range",
+    "holes": null,
+    "par": null,
+    "designer": null,
+    "established": null,
+    "membership": "Public",
+    "city": "South Jakarta",
+    "area": "South Jakarta",
+    "address": null,
+    "lat": -6.3528782,
+    "lng": 106.8306008,
+    "website": null,
+    "description": "Driving range on the southern edge of DKI Jakarta — accessible for residents commuting from southern suburbs.",
+    "highlights": [
+     "Southern DKI edge",
+     "Walk-in"
+    ],
+    "sources": [
+     {
+      "label": "OpenStreetMap — © OSM contributors",
+      "url": "https://www.openstreetmap.org/node/123456014"
+     }
+    ],
+    "maps_url": "https://www.google.com/maps/search/?api=1&query=-6.3528782,106.8306008"
+   }
+  ],
+  "stats": {
+   "total": 14,
+   "courses": 9,
+   "ranges": 5,
+   "total_holes": 171
+  }
+ },
+ "meta": {
+  "total": 14
+ }
+}

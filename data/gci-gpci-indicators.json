@@ -69,7 +69,7 @@
 "desa wisata"
 ],
 "measure": null,
-"note": "Proksi via Obyek Wisata; butuh inventori museum resmi"
+"note": "Menggunakan data Obyek Wisata sebagai proksi; inventori museum resmi dikelola Dinas Kebudayaan."
 },
 {
 "framework": "GCI",
@@ -87,13 +87,14 @@
 "pameran"
 ],
 "measure": "jumlah",
-"note": "Punya Usaha MICE berizin; jumlah konferensi internasional aktual perlu ditambah"
+"note": "Tersedia data Usaha MICE berizin; jumlah konferensi internasional aktual belum tersedia."
 },
 {
 "framework": "GPCI",
 "dimension": "Cultural Interaction",
 "group": "Volume of Interaction",
 "code": "CI-FV",
+"officialNo": 37,
 "name": "Jumlah wisatawan asing (Foreign Visitors)",
 "definition": "Jumlah pengunjung asing",
 "owner": "DISPAREKRAF",
@@ -111,6 +112,7 @@
 "dimension": "Cultural Interaction",
 "group": "Volume of Interaction",
 "code": "CI-IC",
+"officialNo": 22,
 "name": "Jumlah konferensi internasional",
 "definition": "Int'l conferences (MICE)",
 "owner": "DISPAREKRAF",
@@ -122,13 +124,14 @@
 "pameran"
 ],
 "measure": "jumlah",
-"note": "Usaha MICE berizin; jumlah konferensi aktual perlu ditambah"
+"note": "Tersedia data Usaha MICE berizin; jumlah konferensi aktual belum tersedia."
 },
 {
 "framework": "GPCI",
 "dimension": "Cultural Interaction",
 "group": "Trendsetting",
 "code": "CI-CE",
+"officialNo": 23,
 "name": "Jumlah event budaya (Cultural Events)",
 "definition": "Jumlah event budaya besar",
 "owner": "DISPAREKRAF",
@@ -148,6 +151,7 @@
 "dimension": "Cultural Interaction",
 "group": "Trendsetting",
 "code": "CI-CX",
+"officialNo": 24,
 "name": "Nilai ekspor konten budaya (Cultural Content Export)",
 "definition": "Ekspor produk kreatif/budaya",
 "owner": "DISPAREKRAF (Ekraf)",
@@ -158,13 +162,14 @@
 "kekayaan intelektual"
 ],
 "measure": "jumlah|persen",
-"note": "Proksi via Usaha Ekonomi Kreatif & Produk Ekraf ber-HKI; nilai ekspor perlu ditambah"
+"note": "Proksi via Usaha Ekonomi Kreatif & Produk Ekraf ber-HKI; data nilai ekspor belum tersedia."
 },
 {
 "framework": "GPCI",
 "dimension": "Cultural Interaction",
 "group": "Trendsetting",
 "code": "CI-AM",
+"officialNo": 25,
 "name": "Lingkungan pasar seni (Art Market)",
 "definition": "Aktivitas pasar seni/galeri",
 "owner": "DISPAREKRAF (Ekraf) / Disbud",
@@ -175,13 +180,14 @@
 "ekonomi kreatif"
 ],
 "measure": null,
-"note": "Proksi via Seni Visual & Ekraf; data lelang/galeri perlu ditambah"
+"note": "Proksi via Seni Visual & Ekraf; data lelang/galeri belum tersedia."
 },
 {
 "framework": "GPCI",
 "dimension": "Cultural Interaction",
 "group": "Cultural Resources",
 "code": "CI-TA",
+"officialNo": 26,
 "name": "Daya tarik wisata (Tourist Attractions)",
 "definition": "Jumlah & kualitas atraksi wisata",
 "owner": "DISPAREKRAF",
@@ -200,6 +206,7 @@
 "dimension": "Cultural Interaction",
 "group": "Cultural Resources",
 "code": "CI-WH",
+"officialNo": 27,
 "name": "Kedekatan situs warisan dunia",
 "definition": "Proximity to World Heritage",
 "owner": "Dinas Kebudayaan",
@@ -209,13 +216,14 @@
 "obyek wisata"
 ],
 "measure": null,
-"note": "Kandidat Kota Tua; belum ada situs UNESCO di DKI — perlu konfirmasi Disbud"
+"note": "Kandidat Kota Tua; belum ada situs UNESCO di DKI; konfirmasi status dikelola Dinas Kebudayaan."
 },
 {
 "framework": "GPCI",
 "dimension": "Cultural Interaction",
 "group": "Cultural Resources",
 "code": "CI-TH",
+"officialNo": 29,
 "name": "Jumlah teater",
 "definition": "Number of theaters",
 "owner": "Dinas Kebudayaan / DISPAREKRAF",
@@ -225,13 +233,14 @@
 "seni pertunjukan"
 ],
 "measure": null,
-"note": "Proksi via venue seni pertunjukan; inventori teater perlu ditambah"
+"note": "Proksi via venue seni pertunjukan; inventori gedung teater belum tersedia."
 },
 {
 "framework": "GPCI",
 "dimension": "Cultural Interaction",
 "group": "Cultural Resources",
 "code": "CI-MU",
+"officialNo": 30,
 "name": "Jumlah museum",
 "definition": "Number of museums",
 "owner": "Dinas Kebudayaan",
@@ -241,13 +250,14 @@
 "obyek wisata"
 ],
 "measure": null,
-"note": "Proksi Obyek Wisata; inventori museum resmi perlu ditambah"
+"note": "Menggunakan data Obyek Wisata sebagai proksi; inventori museum resmi belum tersedia."
 },
 {
 "framework": "GPCI",
 "dimension": "Cultural Interaction",
 "group": "Facilities for Visitors",
 "code": "CI-HR",
+"officialNo": 32,
 "name": "Jumlah kamar hotel",
 "definition": "Number of hotel rooms",
 "owner": "DISPAREKRAF",
@@ -266,6 +276,7 @@
 "dimension": "Cultural Interaction",
 "group": "Facilities for Visitors",
 "code": "CI-LH",
+"officialNo": 33,
 "name": "Jumlah kamar hotel mewah",
 "definition": "Luxury hotel rooms",
 "owner": "DISPAREKRAF",
@@ -275,13 +286,14 @@
 "tingkat hunian"
 ],
 "measure": "hunian|rata|persen",
-"note": "Proksi Hotel Berbintang (hunian, lama menginap); perlu segmentasi bintang 4-5"
+"note": "Proksi Hotel Berbintang (hunian, lama menginap); segmentasi bintang 4-5 belum tersedia."
 },
 {
 "framework": "GPCI",
 "dimension": "Cultural Interaction",
 "group": "Shopping/Dining",
 "code": "CI-SH",
+"officialNo": 34,
 "name": "Daya tarik belanja (Shopping)",
 "definition": "Attractiveness of shopping",
 "owner": "DISPAREKRAF",
@@ -299,6 +311,7 @@
 "dimension": "Cultural Interaction",
 "group": "Shopping/Dining",
 "code": "CI-DI",
+"officialNo": 35,
 "name": "Daya tarik kuliner (Dining)",
 "definition": "Attractiveness of dining",
 "owner": "DISPAREKRAF",
@@ -318,6 +331,7 @@
 "dimension": "Cultural Interaction",
 "group": "Shopping/Dining",
 "code": "CI-NL",
+"officialNo": 28,
 "name": "Pilihan hiburan malam (Nightlife)",
 "definition": "Nightlife options",
 "owner": "DISPAREKRAF",
@@ -342,7 +356,7 @@
 "draftReadiness": "gap",
 "match": [],
 "measure": null,
-"note": "Lintas-OPD (Dispora)"
+"note": "Data dikelola OPD lain (Dispora)."
 },
 {
 "framework": "GCI",
@@ -356,7 +370,7 @@
 "draftReadiness": "gap",
 "match": [],
 "measure": null,
-"note": "Lintas-OPD (Biro KSD)"
+"note": "Data dikelola OPD lain (Biro KSD)."
 },
 {
 "framework": "GCI",
@@ -370,13 +384,14 @@
 "draftReadiness": "gap",
 "match": [],
 "measure": null,
-"note": "Lintas-instansi; relevan arus wisatawan"
+"note": "Data dikelola instansi lain; relevan untuk arus wisatawan."
 },
 {
 "framework": "GPCI",
 "dimension": "Cultural Interaction",
 "group": "Volume of Interaction",
 "code": "CI-FR",
+"officialNo": 36,
 "name": "Jumlah penduduk asing (Foreign Residents)",
 "definition": "Jumlah ekspatriat menetap",
 "owner": "Disdukcapil / Imigrasi",
@@ -384,13 +399,14 @@
 "draftReadiness": "gap",
 "match": [],
 "measure": null,
-"note": "Lintas-OPD"
+"note": "Data dikelola OPD lain."
 },
 {
 "framework": "GPCI",
 "dimension": "Cultural Interaction",
 "group": "Facilities for Visitors",
 "code": "CI-ST",
+"officialNo": 31,
 "name": "Jumlah stadion",
 "definition": "Number of stadiums",
 "owner": "Dispora",
@@ -398,13 +414,14 @@
 "draftReadiness": "gap",
 "match": [],
 "measure": null,
-"note": "Lintas-OPD (Dispora)"
+"note": "Data dikelola OPD lain (Dispora)."
 },
 {
 "framework": "GPCI",
 "dimension": "Accessibility",
 "group": "International",
 "code": "AC-DF",
+"officialNo": 63,
 "name": "Kota dengan penerbangan langsung internasional",
 "definition": "Cities with direct int'l flights",
 "owner": "Dishub / AP II",
@@ -412,13 +429,14 @@
 "draftReadiness": "gap",
 "match": [],
 "measure": null,
-"note": "Lintas-OPD; konektivitas wisata"
+"note": "Data dikelola OPD lain; relevan untuk konektivitas wisata."
 },
 {
 "framework": "GPCI",
 "dimension": "Accessibility",
 "group": "International",
 "code": "AC-AP",
+"officialNo": 65,
 "name": "Jumlah penumpang udara",
 "definition": "Number of air passengers",
 "owner": "AP II / Dishub",
@@ -426,13 +444,14 @@
 "draftReadiness": "gap",
 "match": [],
 "measure": null,
-"note": "Lintas-OPD; proksi arus wisatawan via bandara (Dispar punya TIC Bandara)"
+"note": "Data dikelola AP II/Dishub; arus wisatawan dipantau melalui TIC Bandara."
 },
 {
 "framework": "GPCI",
 "dimension": "Accessibility",
 "group": "International",
 "code": "AC-AR",
+"officialNo": 66,
 "name": "Kedatangan/keberangkatan bandara",
 "definition": "Airport arrivals/departures",
 "owner": "AP II",
@@ -440,13 +459,14 @@
 "draftReadiness": "gap",
 "match": [],
 "measure": null,
-"note": "Lintas-OPD"
+"note": "Data dikelola OPD lain."
 },
 {
 "framework": "GPCI",
 "dimension": "Accessibility",
 "group": "International",
 "code": "AC-TT",
+"officialNo": 69,
 "name": "Waktu tempuh ke bandara",
 "definition": "Travel time to airport",
 "owner": "Dishub",
@@ -454,6 +474,6 @@
 "draftReadiness": "gap",
 "match": [],
 "measure": null,
-"note": "Lintas-OPD"
+"note": "Data dikelola OPD lain."
 }
 ]

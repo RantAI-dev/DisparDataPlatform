@@ -1,0 +1,14 @@
+{
+  "extends": "../platform-v2/tsconfig.json",
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    "incremental": false,
+    "plugins": [],
+    "paths": {
+      "@/*": ["../platform-v2/*"],
+      "*": ["../platform-v2/node_modules/@types/*", "../platform-v2/node_modules/*"]
+    }
+  },
+  "include": ["portal_golden.tsx", "portal-golden/**/*.ts", "portal-golden/**/*.tsx"],
+  "exclude": []
+}

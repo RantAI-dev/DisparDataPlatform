@@ -1,0 +1,34 @@
+{
+ "endpoint": "/v1/dataset-tematik",
+ "params": {
+  "framework": "GCI"
+ },
+ "data": {
+  "items": [
+   {
+    "no": "01",
+    "title": "Restoran GCI",
+    "href": "/gci/pariwisata/restoran-gci",
+    "total": 2577
+   },
+   {
+    "no": "02",
+    "title": "Direktori Restoran",
+    "href": "/gci/pariwisata/direktori-restoran",
+    "total": 604
+   },
+   {
+    "no": "03",
+    "title": "Pertunjukan & Budaya",
+    "href": "/gci/pariwisata/pertunjukan-budaya",
+    "total": 308
+   },
+   {
+    "no": "04",
+    "title": "Hotel MICHELIN Key",
+    "href": "/sdi/michelin-keys-indonesia",
+    "total": 47
+   }
+  ]
+ }
+}
