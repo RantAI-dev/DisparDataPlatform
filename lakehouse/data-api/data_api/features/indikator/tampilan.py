@@ -13,7 +13,7 @@ from collections.abc import Callable
 from typing import Any
 
 from data_api.shared.atlas_gabungan import kunci_kolasi
-from data_api.shared.format import js_round
+from data_api.shared.format import js_round, to_fixed
 
 from .agg import (
     Point,
@@ -26,7 +26,6 @@ from .agg import (
     id_num,
     js_number,
     nullish,
-    to_fixed,
     top_n,
     total,
     truthy,

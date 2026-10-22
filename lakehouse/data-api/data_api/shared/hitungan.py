@@ -12,7 +12,7 @@ from dataclasses import dataclass
 from functools import cache
 from pathlib import Path
 
-from . import atlas_gabungan, queries
+from . import atlas_gabungan, lake, queries
 from .konteks import Konteks
 
 TOML_SEKUNDER = Path(__file__).with_name("katalog_sekunder.toml")
@@ -55,22 +55,33 @@ def total_sync(k: Konteks) -> dict[str, int]:
     return k.cache.ambil(("hitungan", "total_sync"), k.konf.cache_ttl_default, buat)
 
 
-def _gabungan(k: Konteks, nama: str) -> int:
-    b = lambda t: queries.baris_bronze_file(k, t)  # noqa: E731
-    if nama == "restoran_gci":
-        data = atlas_gabungan.restoran_gci(
-            b("gci_venue_kurasi"),
-            b("gci_venue_osm"),
-            b("gci_venue_rating"),
-            b("gci_venue_alamat"),
-            b("gci_venue_harga"),
-            b("gci_resto_hotel"),
-        )
-    elif nama == "direktori_restoran":
-        data = atlas_gabungan.direktori_restoran(b("restoran_kurasi"), b("restoran_osm"))
-    else:
+TABEL_GABUNGAN = {
+    "restoran_gci": [
+        "gci_venue_kurasi",
+        "gci_venue_osm",
+        "gci_venue_rating",
+        "gci_venue_alamat",
+        "gci_venue_harga",
+        "gci_resto_hotel",
+    ],
+    "direktori_restoran": ["restoran_kurasi", "restoran_osm"],
+}
+
+
+def data_gabungan(k: Konteks, nama: str) -> dict:
+    """Hasil gabung Restoran GCI / Direktori (di-cache); dipakai hitungan, atlas, dan spasial."""
+    if nama not in TABEL_GABUNGAN:
         raise ValueError(f"gabungan tidak dikenal: {nama}")
-    return len(data["items"])
+    fungsi = atlas_gabungan.restoran_gci if nama == "restoran_gci" else atlas_gabungan.direktori_restoran
+
+    def buat() -> dict:
+        return fungsi(*(lake.baris_bronze(k, t) for t in TABEL_GABUNGAN[nama]))
+
+    return k.cache.ambil(("gabungan", nama), k.konf.cache_ttl_default, buat)
+
+
+def _gabungan(k: Konteks, nama: str) -> int:
+    return len(data_gabungan(k, nama)["items"])
 
 
 def baris_entri(k: Konteks, e: EntriSekunder) -> int:

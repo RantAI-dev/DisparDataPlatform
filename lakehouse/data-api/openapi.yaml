@@ -6055,8 +6055,9 @@ paths:
       - Titik ringkas tanpa alamat; detail popup lewat `/v1/spasial/titik/{id}`. Dedup kunci `kategori|nama|lat|lng`,
         statis menang.
       - 'P6 ditiru: titik di luar Indonesia tetap ikut. Total 4.825 titik (golden live 21 Okt 2026).'
-      - '`density_extra` (ibadah tanpa koordinat per kecamatan) tidak tercakup golden lapis 1 (dihitung di callback
-        fetch GmtiMapView); diuji lapis 2.'
+      - '`kepadatan_tanpa_koordinat` (plan 05) = ibadah tanpa koordinat per kecamatan (dulu `density_extra`, dihitung
+        di callback fetch GmtiMapView dari `gmti-ibadah.json` 2 MB); klien menambahkannya ke kategori ibadah. Tidak
+        tercakup golden lapis 1; dites unit terhadap `data/statis/gmti-ibadah.json`.'
       responses:
         '200':
           description: OK
@@ -6171,12 +6172,18 @@ paths:
                         type: array
                       complete:
                         type: boolean
+                      kepadatan_tanpa_koordinat:
+                        type: object
+                        description: Fasilitas ibadah SIMAS tanpa koordinat per geo_key kecamatan (`ibadahNoCoord` GmtiMapView).
+                        additionalProperties:
+                          type: integer
                       catatan:
                         type: string
                     required:
                     - points
                     - cities
                     - kepadatan_berkoordinat
+                    - kepadatan_tanpa_koordinat
                     - inventory
                     - failed
                     - complete
@@ -6244,10 +6251,14 @@ paths:
                     coordinates: 28
                   - slug: data-destinasi-pariwisata-yang-memiliki-aksesibilitas-amenitas-atau-atraksi
                     coordinates: 52
+                  kepadatan_tanpa_koordinat:
+                    tanjungpriok: 507
+                    cakung: 445
                   failed: []
                   complete: true
-                  catatan: Hitungan ibadah tanpa koordinat per kecamatan (density_extra) dihitung di callback fetch
-                    GmtiMapView, bukan di memo; tidak direkam di sini dan diuji di lapis 2.
+                  catatan: 'kepadatan_berkoordinat = titik berkoordinat per kecamatan (point-in-polygon) per kategori;
+                    kepadatan_tanpa_koordinat = fasilitas ibadah SIMAS tanpa koordinat per geo_key kecamatan,
+                    ditambahkan klien ke kategori ibadah saat kategori itu aktif. Detail titik: /v1/spasial/titik/{id}.'
                 meta:
                   generated_at: '2026-10-21T22:00:00+07:00'
                   source: *id038
@@ -6450,19 +6461,19 @@ paths:
                               - 'null'
                             latitude:
                               type:
-                              - string
+                              - number
                               - 'null'
                             longitude:
                               type:
-                              - string
+                              - number
                               - 'null'
                             distance_km:
                               type:
-                              - string
+                              - number
                               - 'null'
                             star_rating:
                               type:
-                              - string
+                              - integer
                               - 'null'
                             review_score:
                               type:
@@ -6490,11 +6501,11 @@ paths:
                               - 'null'
                             rooms_left:
                               type:
-                              - string
+                              - integer
                               - 'null'
                             total_room_types:
                               type:
-                              - string
+                              - integer
                               - 'null'
                             is_available:
                               type:
@@ -6517,6 +6528,10 @@ paths:
                               - string
                               - 'null'
                             source:
+                              type:
+                              - string
+                              - 'null'
+                            room_types_json:
                               type:
                               - string
                               - 'null'

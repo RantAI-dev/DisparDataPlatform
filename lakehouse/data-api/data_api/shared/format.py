@@ -60,3 +60,10 @@ def id_num(v: float, d: int = 0) -> str:
 def js_round(x: float) -> float:
     """`Math.round`: setengah dibulatkan ke atas (+∞), bukan ke genap seperti `round` Python."""
     return float(math.floor(x + 0.5))
+
+
+def to_fixed(x: float, d: int) -> str:
+    """`Number.prototype.toFixed(d)`: nilai biner persis, seri dibulatkan menjauhi nol; x < 0 → "-" + …"""
+    if x < 0:
+        return "-" + to_fixed(-x, d)
+    return f"{Decimal(abs(x)).quantize(Decimal(1).scaleb(-d), rounding=ROUND_HALF_UP):f}"
