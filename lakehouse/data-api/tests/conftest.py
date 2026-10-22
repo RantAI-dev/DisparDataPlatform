@@ -255,3 +255,11 @@ def gabungan_tetap(monkeypatch):
     from data_api.shared import hitungan
 
     monkeypatch.setattr(hitungan, "_gabungan", lambda k, nama: {"restoran_gci": 2577, "direktori_restoran": 604}[nama])
+
+
+@pytest.fixture
+def mentah(monkeypatch):
+    """Baris mentah query dashboard (lihat `tests/palsu_dashboard.py`)."""
+    from tests.palsu_dashboard import pasang
+
+    return pasang(monkeypatch)

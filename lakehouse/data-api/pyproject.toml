@@ -41,3 +41,7 @@ target-version = "py312"
 
 [tool.ruff.lint]
 select = ["E", "F", "I", "B", "UP"]
+
+[tool.ruff.lint.per-file-ignores]
+# SQL disalin apa adanya dari platform-v2 (nama tabel Silver panjang).
+"data_api/features/*/queries.py" = ["E501"]
