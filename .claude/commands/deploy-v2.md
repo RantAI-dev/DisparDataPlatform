@@ -1,6 +1,19 @@
 ---
-description: Deploy app dispar-v2 ke server Portainer 187 (build ulang image + redeploy stack 6)
+description: Deploy app dispar-v2 ke server Portainer 148 (build image lokal + swap container)
 ---
+
+> **Sejak Okt 2026 stack 6 bukan git stack lagi** — langkah redeploy git di bawah
+> TIDAK berlaku. Jalankan `scripts/deploy-v2.sh` (lihat `docs/DEPLOY-RUNBOOK.md` §3):
+>
+> 1. `cd platform-v2 && npx tsc --noEmit` lulus, semua di-commit.
+> 2. `git push origin main && git push lama main`.
+> 3. `scripts/deploy-v2.sh` (atau `( set -a; . platform-v2/.env.local; set +a; scripts/deploy-v2.sh )`
+>    untuk sekaligus set `LLM_*`). Skrip build lokal, kirim image, swap container,
+>    verifikasi, dan swap balik otomatis kalau gagal.
+> 4. Lapor commit yang ter-deploy dan hasil verifikasinya.
+>
+> Teks di bawah ini disimpan sebagai catatan alur lama.
+
 
 Deploy `platform-v2/` ke produksi. Gunakan agen `deploy-portainer`.
 Runbook manusia yang setara: `docs/DEPLOY-RUNBOOK.md`.

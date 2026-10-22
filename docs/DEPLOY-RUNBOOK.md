@@ -122,6 +122,42 @@ Lalu commit dan dorong ke dua repo (lihat di atas).
 
 ## 3. Deploy
 
+> **Berlaku sejak Okt 2026 — cara swap container.** Stack 6 di Portainer
+> (`192.168.18.148`, bukan .187 lagi) **bukan git stack lagi**: tidak punya
+> GitConfig, jadi `StackGitRedeploy` dan "Cara termudah"/"Cara API" di bawah
+> **tidak berlaku**. `dispar-v2` jalan sebagai container dengan image bertag
+> commit (`dispar-v2:<sha>`), dan versi sebelumnya disimpan berhenti sebagai
+> `dispar-v2-rollback-<sha>`.
+
+### Cara yang berlaku: `scripts/deploy-v2.sh`
+
+```bash
+git push origin main && git push lama main   # skrip menolak commit yang belum di origin
+scripts/deploy-v2.sh
+# Sekaligus set/ganti LLM untuk /ai (nilai dari .env.local, tidak pernah dicetak):
+( set -a; . platform-v2/.env.local; set +a; scripts/deploy-v2.sh )
+```
+
+Yang dikerjakan skrip:
+
+1. Build `dispar-v2:<sha>` **di laptop** dari `git archive HEAD` — jangan build di
+   server, itu pernah membekukan containerd.
+2. Smoke test lokal: container dijalankan dengan CH ke server produksi, `/` harus 200.
+3. `docker save` → `POST /api/endpoints/3/docker/images/load` lewat Portainer.
+4. Buat `dispar-v2-next` dengan config container lama (Env aplikasi, port
+   13031+13032→3032, network `dispar-lakehouse_lakenet` alias `dispar-v2`,
+   restart unless-stopped) + `LLM_*` bila diberikan. Tanpa `LLM_*`, nilai di
+   container lama dibawa apa adanya.
+5. Stop lama → rename `dispar-v2-rollback-<sha>`, rename baru → `dispar-v2`, start.
+6. Verifikasi `:13032` dan `https://dispar.rantai.dev` → 200. Gagal → **swap balik
+   otomatis**, container gagal disimpan sebagai `dispar-v2-gagal-<sha>`.
+
+Butuh `PORTAINER_KEY` di `.env` root (gitignored), docker lokal, python3, curl.
+Rollback manual: stop `dispar-v2`, rename ke `dispar-v2-gagal-<sha>`, rename
+`dispar-v2-rollback-<sha>` → `dispar-v2`, start.
+
+### (Lama, tidak berlaku lagi) Cara git redeploy
+
 ### Cara termudah: Portainer UI
 
 1. **Stacks → `dispar-lakehouse` → Editor**
@@ -245,8 +281,9 @@ redeploy. Tidak ada tombol rollback di Portainer untuk stack git.
 - **Situs live tertinggal dari repo.** Container `dispar-v2` dibangun dari commit
   `660d773`; menu `/ai` dan `/scraped-hotels` sudah ada di repo tapi **404** di
   produksi. Deploy pertamamu akan memunculkannya.
-- **`LLM_KEY` belum di-set di stack 6** → halaman `/ai` akan tampil tapi setiap
-  pertanyaan error. Isi env itu dulu kalau tidak mau menu mati terlihat pengguna.
+- **LLM untuk `/ai`** (sejak 22 Okt 2026) ada di Env container `dispar-v2`
+  (`LLM_URL`/`LLM_MODEL`/`LLM_KEY`, OpenCode Go + deepseek-v4.1-flash), bukan di
+  Env stack. `scripts/deploy-v2.sh` membawanya otomatis ke container baru.
 - **Belum ada CI/CD.** Semua deploy manual lewat runbook ini.
 - **Auto-update stack mati** — memang disengaja. Push tidak pernah men-deploy
   sendiri.
