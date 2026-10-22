@@ -14,7 +14,8 @@ type Column = { key: string; desc: string | null; type: string | null };
 type Row = Record<string, unknown>;
 type Kind = "bar" | "hbar" | "line" | "area" | "pie" | "donut";
 type Agg = "sum" | "avg" | "count" | "max" | "min";
-type ChartCfg = { id: string; kind: Kind; x: string; y: string; agg: Agg };
+type Sort = "auto" | "nilai_desc" | "nilai_asc" | "kategori_asc" | "kategori_desc";
+type ChartCfg = { id: string; kind: Kind; x: string; y: string; agg: Agg; sort: Sort };
 
 const KINDS: { v: Kind; label: string }[] = [
   { v: "bar", label: "Batang" },
@@ -31,6 +32,16 @@ const AGGS: { v: Agg; label: string }[] = [
   { v: "max", label: "Maksimum" },
   { v: "min", label: "Minimum" },
 ];
+
+const SORTS: { v: Sort; label: string }[] = [
+  { v: "auto", label: "Otomatis" },
+  { v: "nilai_desc", label: "Nilai terbesar dulu" },
+  { v: "nilai_asc", label: "Nilai terkecil dulu" },
+  { v: "kategori_asc", label: "Kategori A→Z / lama→baru" },
+  { v: "kategori_desc", label: "Kategori Z→A / baru→lama" },
+];
+/** Batas kategori untuk batang/pie; dipilih berdasarkan nilai terbesar sebelum diurutkan. */
+const MAX_CATS = 30;
 
 const HIDDEN = new Set([
   "id", "user_id", "uid_upload", "batch_upload", "jadwal_rilis",
@@ -93,18 +104,28 @@ function isNumericCol(col: Column, rows: Row[]): boolean {
 
 type Point = { name: string; value: number };
 
-function buildOption(cfg: ChartCfg, points: Point[]): { option: EChartsOption; empty: boolean } {
-  let data = points;
-  const timeLike = cfg.kind === "line" || cfg.kind === "area";
-  if (timeLike) {
-    data = [...data].sort((a, b) => {
-      const na = toNum(a.name), nb = toNum(b.name);
-      if (na !== null && nb !== null) return na - nb;
-      return a.name.localeCompare(b.name, "id");
-    });
-  } else {
-    data = [...data].sort((a, b) => b.value - a.value).slice(0, 30);
+/** Urutan kategori: angka dibanding sebagai angka, sisanya teks (tanggal ISO ikut benar). */
+function byName(a: Point, b: Point): number {
+  const na = toNum(a.name), nb = toNum(b.name);
+  if (na !== null && nb !== null) return na - nb;
+  return a.name.localeCompare(b.name, "id", { numeric: true });
+}
+
+function sortPoints(points: Point[], kind: Kind, sort: Sort): Point[] {
+  const timeLike = kind === "line" || kind === "area";
+  // Garis/area memakai semua titik; batang/pie dibatasi ke kategori bernilai terbesar.
+  const pool = timeLike ? [...points] : [...points].sort((a, b) => b.value - a.value).slice(0, MAX_CATS);
+  const mode = sort === "auto" ? (timeLike ? "kategori_asc" : "nilai_desc") : sort;
+  switch (mode) {
+    case "nilai_desc": return pool.sort((a, b) => b.value - a.value);
+    case "nilai_asc": return pool.sort((a, b) => a.value - b.value);
+    case "kategori_asc": return pool.sort(byName);
+    case "kategori_desc": return pool.sort((a, b) => byName(b, a));
   }
+}
+
+function buildOption(cfg: ChartCfg, points: Point[]): { option: EChartsOption; empty: boolean } {
+  const data = sortPoints(points, cfg.kind, cfg.sort);
   if (!data.length) return { option: {}, empty: true };
 
   const horizontal = cfg.kind === "hbar";
@@ -194,7 +215,11 @@ function loadCharts(key: string, valid: Set<string>): ChartCfg[] {
     const list = raw ? (JSON.parse(raw) as Omit<ChartCfg, "id">[]) : [];
     return list
       .filter((c) => KINDS.some((k) => k.v === c.kind) && AGGS.some((a) => a.v === c.agg) && valid.has(c.x) && (c.agg === "count" || valid.has(c.y)))
-      .map((c) => ({ id: nid(), kind: c.kind, x: c.x, y: c.y, agg: c.agg }));
+      .map((c) => ({
+        id: nid(), kind: c.kind, x: c.x, y: c.y, agg: c.agg,
+        // Grafik lama belum punya `sort` → pakai urutan otomatis seperti sebelumnya.
+        sort: SORTS.some((o) => o.v === c.sort) ? c.sort : "auto",
+      }));
   } catch {
     return [];
   }
@@ -264,11 +289,12 @@ export function DatasetCharts({
   const [x, setX] = useState(defX);
   const [y, setY] = useState(defY);
   const [agg, setAgg] = useState<Agg>(defY ? "sum" : "count");
+  const [sort, setSort] = useState<Sort>("auto");
   // Tidak ada grafik bawaan; yang ditambahkan pengguna dipulihkan dari localStorage.
   const [charts, setCharts] = useState<ChartCfg[]>(() => loadCharts(storageKey, new Set(cols.map((c) => c.key))));
   useEffect(() => {
     try {
-      const data = charts.map(({ kind, x, y, agg }) => ({ kind, x, y, agg }));
+      const data = charts.map(({ kind, x, y, agg, sort }) => ({ kind, x, y, agg, sort }));
       if (data.length) window.localStorage.setItem(STORE_PREFIX + storageKey, JSON.stringify(data));
       else window.localStorage.removeItem(STORE_PREFIX + storageKey);
     } catch {
@@ -280,9 +306,11 @@ export function DatasetCharts({
 
   const add = () => {
     if (!x) return;
-    setCharts((c) => [{ id: nid(), kind, x, y: agg === "count" ? "" : y, agg }, ...c]);
+    setCharts((c) => [{ id: nid(), kind, x, y: agg === "count" ? "" : y, agg, sort }, ...c]);
   };
   const remove = (id: string) => setCharts((c) => c.filter((k) => k.id !== id));
+  const setChartSort = (id: string, s: Sort) =>
+    setCharts((c) => c.map((k) => (k.id === id ? { ...k, sort: s } : k)));
 
   const sel = "rounded-lg border border-slate-300 bg-white px-3 py-2 text-[13px] outline-none focus:border-[#ed6b23] transition-colors";
 
@@ -320,6 +348,11 @@ export function DatasetCharts({
               </select>
             </Field>
           )}
+          <Field label="Urutkan">
+            <select className={sel} value={sort} onChange={(e) => setSort(e.target.value as Sort)}>
+              {SORTS.map((o) => <option key={o.v} value={o.v}>{o.label}</option>)}
+            </select>
+          </Field>
           <button
             onClick={add}
             className="rounded-lg px-4 py-2 text-[13px] font-semibold text-white transition-opacity hover:opacity-90"
@@ -350,13 +383,23 @@ export function DatasetCharts({
                     <p className="truncate text-[13px] font-semibold text-slate-700">{title}</p>
                     <p className="text-[11px] text-slate-400">{KINDS.find((k) => k.v === cfg.kind)?.label}</p>
                   </div>
-                  <button
-                    onClick={() => remove(cfg.id)}
-                    aria-label="Hapus grafik"
-                    className="shrink-0 rounded-md px-2 py-1 text-[12px] text-slate-400 hover:bg-slate-100 hover:text-red-600 transition-colors"
-                  >
-                    Hapus
-                  </button>
+                  <div className="flex shrink-0 items-center gap-1">
+                    <select
+                      aria-label="Urutkan grafik"
+                      value={cfg.sort}
+                      onChange={(e) => setChartSort(cfg.id, e.target.value as Sort)}
+                      className="rounded-md border border-slate-200 bg-white px-2 py-1 text-[12px] text-slate-600 outline-none focus:border-[#ed6b23]"
+                    >
+                      {SORTS.map((o) => <option key={o.v} value={o.v}>{o.label}</option>)}
+                    </select>
+                    <button
+                      onClick={() => remove(cfg.id)}
+                      aria-label="Hapus grafik"
+                      className="shrink-0 rounded-md px-2 py-1 text-[12px] text-slate-400 hover:bg-slate-100 hover:text-red-600 transition-colors"
+                    >
+                      Hapus
+                    </button>
+                  </div>
                 </div>
                 <div className="p-2">
                   <ChartBody slug={slug} cfg={cfg} query={query} />
