@@ -1,24 +1,27 @@
 "use client";
 
 import * as React from "react";
-import { ArrowUp, Sparkles, BarChart3, FileText } from "lucide-react";
+import { ArrowUp, MessageSquareText, LayoutDashboard, Square } from "lucide-react";
+import type { AiMode } from "./use-ai";
 
 export function AiComposer({
-  onSend, busy, placeholder,
+  onSend, onStop, busy, placeholder, mode, onModeChange, model,
 }: {
   onSend: (text: string) => void;
+  onStop?: () => void;
   busy: boolean;
   placeholder?: string;
+  mode: AiMode;
+  onModeChange: (m: AiMode) => void;
+  model?: { model: string; configured: boolean } | null;
 }) {
   const [text, setText] = React.useState("");
-  const [mode, setMode] = React.useState<"ask" | "catalog">("ask");
   const textareaRef = React.useRef<HTMLTextAreaElement>(null);
 
   const submit = () => {
     const t = text.trim();
     if (!t || busy) return;
-    const payload = mode === "catalog" ? `dataset: ${t}` : t;
-    onSend(payload);
+    onSend(t);
     setText("");
     if (textareaRef.current) textareaRef.current.style.height = "auto";
   };
@@ -31,7 +34,7 @@ export function AiComposer({
   };
 
   const handleKey = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
-    if (e.key === "Enter" && !e.shiftKey) {
+    if (e.key === "Enter" && !e.shiftKey && !e.nativeEvent.isComposing) {
       e.preventDefault();
       submit();
     }
@@ -47,58 +50,55 @@ export function AiComposer({
             onChange={onChange}
             onKeyDown={handleKey}
             rows={1}
-            placeholder={placeholder ?? "Tanya Atlas tentang data pariwisata Jakarta…  (⏎ kirim, ⇧⏎ baris baru)"}
-            aria-label="Message Atlas"
+            placeholder={
+              placeholder ??
+              (mode === "bi"
+                ? "Topik apa yang ingin dianalisis? mis. “wisman 2024–2026”"
+                : "Tanya data pariwisata Jakarta…")
+            }
+            aria-label="Pesan untuk Atlas"
           />
           <div className="composer-bar">
-            <button
-              type="button"
-              className={`cchip ${mode === "ask" ? "active" : ""}`}
-              onClick={() => setMode("ask")}
-              title="Tanya natural language → SQL otomatis"
-            >
-              <Sparkles />
-              Ask
-            </button>
-            <button
-              type="button"
-              className={`cchip ${mode === "catalog" ? "active" : ""}`}
-              onClick={() => setMode("catalog")}
-              title="Cari dataset di katalog"
-            >
-              <FileText />
-              Catalog
-            </button>
-            <button
-              type="button"
-              className="cchip"
-              onClick={() => setText((s) => (s ? s + "\n\n" : "") + "Bandingkan ")}
-              title="Template bandingkan"
-            >
-              <BarChart3 />
-              Compare
-            </button>
+            <div className="mode-toggle" role="radiogroup" aria-label="Mode">
+              <button
+                type="button"
+                role="radio"
+                aria-checked={mode === "ask"}
+                className={mode === "ask" ? "on" : ""}
+                onClick={() => onModeChange("ask")}
+                title="Ask — jawaban langsung dengan angka, grafik bila membantu"
+              >
+                <MessageSquareText /> Ask
+              </button>
+              <button
+                type="button"
+                role="radio"
+                aria-checked={mode === "bi"}
+                className={mode === "bi" ? "on" : ""}
+                onClick={() => onModeChange("bi")}
+                title="BI — susun mini-dashboard: KPI + beberapa grafik + insight"
+              >
+                <LayoutDashboard /> BI
+              </button>
+            </div>
 
-            <button
-              type="button"
-              onClick={submit}
-              disabled={busy || !text.trim()}
-              aria-label="Send"
-              className="send-btn"
-            >
-              Send <ArrowUp />
-            </button>
+            {busy && onStop ? (
+              <button type="button" onClick={onStop} aria-label="Hentikan" className="send-btn stop">
+                Stop <Square />
+              </button>
+            ) : (
+              <button type="button" onClick={submit} disabled={busy || !text.trim()} aria-label="Kirim" className="send-btn">
+                Kirim <ArrowUp />
+              </button>
+            )}
           </div>
         </div>
         <div className="composer-hint">
-          <span>
-            <span className="kbd">⏎</span> kirim
-          </span>
-          <span>
-            <span className="kbd">⇧⏎</span> baris baru
-          </span>
+          <span><span className="kbd">⏎</span> kirim</span>
+          <span><span className="kbd">⇧⏎</span> baris baru</span>
           <span style={{ marginLeft: "auto" }}>
-            powered by Minimax-M2.7 · {mode === "ask" ? "ask → SQL" : "catalog search"}
+            {model ? (model.configured ? model.model : "LLM belum dikonfigurasi") : "…"} ·{" "}
+            {mode === "bi" ? "BI: dashboard + insight" : "Ask: jawaban + grafik"} · read-only
           </span>
         </div>
       </div>

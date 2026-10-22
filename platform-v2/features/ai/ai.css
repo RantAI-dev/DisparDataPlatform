@@ -1320,3 +1320,205 @@
     padding: 10px 14px;
   }
 }
+
+/* ============================================================
+ * Agen data (Ask / BI): langkah, papan grafik, KPI, mode
+ * ============================================================ */
+.ai-shell .step-row + .step-row {
+  border-top: 1px solid var(--border);
+}
+.ai-shell .step-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  padding: 7px 12px;
+  background: transparent;
+  border: 0;
+  font: inherit;
+  font-size: 11.5px;
+  color: var(--foreground);
+  text-align: left;
+  cursor: pointer;
+}
+.ai-shell .step-head:hover {
+  background: oklch(var(--af) / 3%);
+}
+.ai-shell .step-head .chev {
+  width: 12px;
+  height: 12px;
+  flex: none;
+  color: var(--muted-foreground);
+  transition: transform var(--duration-fast);
+}
+.ai-shell .step-head.open .chev {
+  transform: rotate(90deg);
+}
+.ai-shell .step-ico {
+  width: 13px;
+  height: 13px;
+  flex: none;
+  color: var(--brand-sky);
+}
+.ai-shell .step-label {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.ai-shell .step-meta {
+  flex: none;
+  display: flex;
+  align-items: center;
+}
+.ai-shell .step-meta svg {
+  width: 11px;
+  height: 11px;
+}
+.ai-shell .step-meta .spin {
+  width: 13px;
+  height: 13px;
+  color: var(--brand-sky);
+  animation: ai-spin 0.9s linear infinite;
+}
+@keyframes ai-spin {
+  to { transform: rotate(360deg); }
+}
+.ai-shell .step-body {
+  padding: 0 12px 10px;
+  display: grid;
+  gap: 8px;
+}
+.ai-shell .step-body pre.sql-pre {
+  margin: 0;
+}
+
+.ai-shell .chart-board {
+  display: grid;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+.ai-shell .chart-grid {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: minmax(0, 1fr);
+}
+@media (min-width: 1100px) {
+  .ai-shell .chart-grid.two {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+.ai-shell .chart-head .chart-sub {
+  font-weight: 400;
+  color: var(--muted-foreground);
+}
+.ai-shell .chart-tools {
+  margin-left: auto;
+  display: flex;
+  gap: 2px;
+}
+.ai-shell .chart-tools button {
+  display: grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 6px;
+  border: 0;
+  background: transparent;
+  color: var(--muted-foreground);
+  cursor: pointer;
+}
+.ai-shell .chart-tools button:hover,
+.ai-shell .chart-tools button.on {
+  background: oklch(var(--af) / 5%);
+  color: var(--foreground);
+}
+.ai-shell .chart-tools svg {
+  width: 14px;
+  height: 14px;
+}
+
+.ai-shell .kpi-row {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+}
+.ai-shell .kpi-card {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--card);
+  padding: 12px 14px;
+  border-top: 3px solid var(--brand-sky);
+}
+.ai-shell .kpi-row .kpi-card:nth-child(2) { border-top-color: var(--accent-green); }
+.ai-shell .kpi-row .kpi-card:nth-child(3) { border-top-color: var(--accent-purple); }
+.ai-shell .kpi-row .kpi-card:nth-child(4) { border-top-color: var(--accent-orange); }
+.ai-shell .kpi-label {
+  font-size: 11.5px;
+  color: var(--muted-foreground);
+}
+.ai-shell .kpi-value {
+  margin-top: 4px;
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  font-variant-numeric: tabular-nums;
+}
+.ai-shell .kpi-sub {
+  margin-top: 2px;
+  font-size: 11px;
+  color: var(--muted-foreground);
+}
+
+.ai-shell .unverified-note {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+  margin-top: 10px;
+  padding: 8px 10px;
+  border-radius: var(--radius-md);
+  font-size: 11.5px;
+  color: var(--accent-orange);
+  background: color-mix(in oklab, var(--accent-orange) 10%, transparent);
+}
+.ai-shell .unverified-note svg {
+  width: 14px;
+  height: 14px;
+  flex: none;
+  margin-top: 1px;
+}
+
+.ai-shell .mode-toggle {
+  display: inline-flex;
+  padding: 2px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: oklch(var(--af) / 2%);
+}
+.ai-shell .mode-toggle button {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 11px;
+  border-radius: 999px;
+  border: 0;
+  background: transparent;
+  font: inherit;
+  font-size: 11.5px;
+  color: var(--muted-foreground);
+  cursor: pointer;
+}
+.ai-shell .mode-toggle button svg {
+  width: 13px;
+  height: 13px;
+}
+.ai-shell .mode-toggle button.on {
+  background: var(--card);
+  color: var(--foreground);
+  font-weight: 600;
+  box-shadow: 0 1px 2px oklch(0 0 0 / 10%);
+}
+.ai-shell .send-btn.stop {
+  background: var(--destructive);
+}

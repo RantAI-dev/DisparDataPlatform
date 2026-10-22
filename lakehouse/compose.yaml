@@ -213,6 +213,12 @@ services:
       CH_URL: http://lake-clickhouse:8123
       CH_USER: dispar_app
       CH_PASSWORD: ${CH_APP_PASSWORD:-disparapp}
+      # LLM untuk /ai (Atlas AI). OpenAI-compatible; default langganan OpenCode Go.
+      # Key OpenCode Zen (bayar per pakai) → LLM_URL=https://opencode.ai/zen/v1.
+      # Nilai asli HANYA di Portainer stack 6 → Env (repo ini public).
+      LLM_URL: ${LLM_URL:-https://opencode.ai/inference/go/openai/v1}
+      LLM_MODEL: ${LLM_MODEL:-deepseek-v4.1-flash}
+      LLM_KEY: ${LLM_KEY:-}
       # Image-nya (Next standalone) default PORT=3000; pemetaan port di bawah
       # memakai 3032, jadi porta pendengarnya disamakan di sini.
       PORT: 3032

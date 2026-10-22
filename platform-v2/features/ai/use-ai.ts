@@ -1,164 +1,185 @@
 "use client";
 
 import * as React from "react";
+import type { AgentEvent, AiMode, ChartSpec } from "@/lib/ai/agent";
+
+export type { AiMode, ChartSpec };
+
+/** Satu langkah tool yang dijalankan agen (cari data, query, grafik). */
+export type Step = {
+  id: string;
+  tool: string;
+  label: string;
+  sql?: string;
+  status: "running" | "ok" | "error";
+  error?: string;
+  columns?: string[];
+  rows?: Record<string, unknown>[];
+  rowCount?: number;
+  tables?: { fq: string; title?: string; rows: number }[];
+};
 
 export type Msg = {
   role: "user" | "assistant";
   content: string;
-  /** SQL query text */
-  sql?: string;
-  /** Free-text explanation */
-  explanation?: string;
-  /** Assumptions made by the LLM */
-  assumptions?: string[];
-  /** Result column names (from SQL execution) */
-  columns?: string[];
-  /** Result rows */
-  rows?: Record<string, unknown>[];
-  /** Error from executing the SQL */
-  runError?: string;
-  /** Resulting datasets from a catalog query */
-  datasets?: { id: string; title: string; tier: string; rows: number }[];
-  /** Whether the SQL was repaired after a failure */
-  repaired?: boolean;
-  /** Number of repair attempts the agent went through */
-  repairAttempts?: number;
-  /** Log of repair attempts (each contains the SQL tried + error) */
-  repairLog?: { attempt: number; sql: string; error: string; fixed?: boolean }[];
-  /** True while assistant message is streaming */
+  mode?: AiMode;
+  steps?: Step[];
+  charts?: ChartSpec[];
+  /** Teks status saat agen bekerja. */
+  status?: string;
+  /** Angka di jawaban yang tidak ditemukan di hasil query. */
+  unverified?: string[];
   streaming?: boolean;
+  failed?: boolean;
 };
 
-function isCatalogQuestion(q: string): boolean {
-  return /\b(dataset|katalog|tabel|data apa|apa saja yang ada|list dataset|sebutkan dataset|daftar dataset)\b/i.test(q);
+function newSessionId(): string {
+  const r = typeof crypto !== "undefined" && "randomUUID" in crypto ? crypto.randomUUID() : Math.random().toString(36).slice(2);
+  return `atlas-${r}`;
 }
 
 function useAiState() {
   const [messages, setMessages] = React.useState<Msg[]>([]);
   const [busy, setBusy] = React.useState(false);
   const [error, setError] = React.useState<string | null>(null);
+  const [mode, setMode] = React.useState<AiMode>("ask");
+  const [model, setModel] = React.useState<{ model: string; configured: boolean } | null>(null);
+  const abortRef = React.useRef<AbortController | null>(null);
+  // Satu ID per percakapan → header x-opencode-session (prompt caching di OpenCode Go).
+  const sessionRef = React.useRef<string>(newSessionId());
 
-  const send = React.useCallback(async (text: string) => {
-    const q = text.trim();
-    if (!q || busy) return;
-    setError(null);
+  React.useEffect(() => {
+    fetch("/api/ai/chat")
+      .then((r) => (r.ok ? r.json() : null))
+      .then((j) => j && setModel(j))
+      .catch(() => {});
+  }, []);
 
-    const next: Msg[] = [...messages, { role: "user", content: q }];
-    setMessages(next);
-    setBusy(true);
+  const send = React.useCallback(
+    async (text: string, modeOverride?: AiMode) => {
+      const q = text.trim();
+      if (!q || busy) return;
+      const useMode = modeOverride ?? mode;
+      setError(null);
 
-    // Add a streaming placeholder assistant message
-    const placeholder: Msg = { role: "assistant", content: "", streaming: true };
-    setMessages([...next, placeholder]);
+      const history: Msg[] = [...messages, { role: "user", content: q, mode: useMode }];
+      const assistant: Msg = { role: "assistant", content: "", mode: useMode, steps: [], charts: [], streaming: true, status: "Menghubungi Atlas…" };
+      setMessages([...history, assistant]);
+      setBusy(true);
 
-    try {
-      let res: Response;
-      if (isCatalogQuestion(q)) {
-        res = await fetch("/api/ai/ask", {
+      // Mutasi lokal lalu commit salinan ke state per event.
+      const cur: Msg = { ...assistant, steps: [], charts: [] };
+      const commit = () => setMessages([...history, { ...cur, steps: [...cur.steps!], charts: [...cur.charts!] }]);
+
+      const ac = new AbortController();
+      abortRef.current = ac;
+      try {
+        const res = await fetch("/api/ai/chat", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ question: q }),
+          signal: ac.signal,
+          body: JSON.stringify({
+            mode: useMode,
+            session: sessionRef.current,
+            messages: history.map((m) => ({
+              role: m.role,
+              content: m.content,
+              queries: m.role === "assistant"
+                ? [...(m.charts ?? []).map((c) => c.sql), ...(m.steps ?? []).filter((s) => s.tool === "run_sql" && s.status === "ok" && s.sql).map((s) => s.sql!)].slice(0, 4)
+                : undefined,
+            })),
+          }),
         });
-      } else {
-        res = await fetch("/api/ai/text-to-sql?run=true", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ question: q, run: true }),
-        });
-      }
+        if (!res.ok || !res.body) {
+          const j = await res.json().catch(() => null);
+          throw new Error(j?.error ?? `AI gagal merespons (${res.status})`);
+        }
 
-      const json = await res.json();
-      if (!res.ok) {
-        throw new Error(json?.error ?? json?.detail ?? "AI gagal merespons");
-      }
+        const reader = res.body.getReader();
+        const dec = new TextDecoder();
+        let buf = "";
+        let finished = false;
+        const handle = (e: AgentEvent | { type: "error"; message: string } | { type: "ping" }) => {
+          if (e.type === "ping") return;
+          switch (e.type) {
+            case "status":
+              cur.status = e.text;
+              break;
+            case "step":
+              cur.steps!.push({ id: e.id, tool: e.tool, label: e.label, sql: e.sql, status: "running" });
+              cur.status = e.label + "…";
+              break;
+            case "step_done": {
+              const i = cur.steps!.findIndex((s) => s.id === e.id);
+              if (i >= 0)
+                cur.steps![i] = {
+                  ...cur.steps![i],
+                  status: e.ok ? "ok" : "error",
+                  error: e.error,
+                  columns: e.columns,
+                  rows: e.rows,
+                  rowCount: e.rowCount,
+                  tables: e.tables,
+                };
+              break;
+            }
+            case "chart":
+              cur.charts!.push(e.chart);
+              break;
+            case "answer":
+              cur.content = e.text;
+              break;
+            case "done":
+              cur.unverified = e.unverified;
+              cur.streaming = false;
+              cur.status = undefined;
+              finished = true;
+              break;
+            case "error":
+              throw new Error(e.message);
+          }
+          commit();
+        };
 
-      // Simulate streaming by typing the explanation char-by-char.
-      const explanation: string = json.explanation ?? json.answer ?? "";
-      const assistant: Msg = {
-        role: "assistant",
-        content: explanation,
-        sql: json.sql,
-        explanation: json.explanation,
-        assumptions: json.assumptions,
-        columns: json.columns ?? (json.rows ? Object.keys(json.rows[0] ?? {}) : undefined),
-        rows: json.rows,
-        runError: json.runError,
-        datasets: json.datasets,
-        streaming: false,
-      };
-
-      if (explanation.length > 0) {
-        await typeOut(setMessages, next, explanation, json);
-      } else {
-        // No explanation to stream — just commit the final message
-        setMessages([...next, assistant]);
+        for (;;) {
+          const { value, done } = await reader.read();
+          if (done) break;
+          buf += dec.decode(value, { stream: true });
+          let nl: number;
+          while ((nl = buf.indexOf("\n")) >= 0) {
+            const line = buf.slice(0, nl).trim();
+            buf = buf.slice(nl + 1);
+            if (line) handle(JSON.parse(line));
+          }
+        }
+        if (buf.trim()) handle(JSON.parse(buf));
+        if (!finished) throw new Error("Koneksi ke Atlas terputus sebelum jawaban selesai");
+      } catch (e) {
+        const msg = ac.signal.aborted ? "Dihentikan." : e instanceof Error ? e.message : String(e);
+        cur.streaming = false;
+        cur.status = undefined;
+        cur.failed = !ac.signal.aborted;
+        if (!cur.content) cur.content = ac.signal.aborted ? "_Dihentikan._" : `Maaf, terjadi kesalahan: ${msg}`;
+        commit();
+        if (!ac.signal.aborted) setError(msg);
+      } finally {
+        abortRef.current = null;
+        setBusy(false);
       }
-    } catch (e) {
-      setMessages([...next, {
-        role: "assistant",
-        content: e instanceof Error ? e.message : String(e),
-        streaming: false,
-      }]);
-      setError(e instanceof Error ? e.message : String(e));
-    } finally {
-      setBusy(false);
-    }
-  }, [busy, messages]);
+    },
+    [busy, messages, mode],
+  );
+
+  const stop = React.useCallback(() => abortRef.current?.abort(), []);
 
   const newChat = React.useCallback(() => {
+    abortRef.current?.abort();
+    sessionRef.current = newSessionId();
     setMessages([]);
     setError(null);
   }, []);
 
-  return { messages, busy, error, send, newChat };
-}
-
-async function typeOut(
-  setMessages: React.Dispatch<React.SetStateAction<Msg[]>>,
-  prev: Msg[],
-  explanation: string,
-  json: Record<string, unknown>,
-) {
-  // Stream the explanation in small chunks for a nice effect
-  const chunkSize = Math.max(3, Math.ceil(explanation.length / 60));
-  let rendered = "";
-  while (rendered.length < explanation.length) {
-    rendered += explanation.slice(rendered.length, rendered.length + chunkSize);
-    const partial: Msg = {
-      role: "assistant",
-      content: rendered,
-      sql: json.sql as string | undefined,
-      explanation: json.explanation as string | undefined,
-      assumptions: json.assumptions as string[] | undefined,
-      columns: (json.columns as string[] | undefined) ?? (json.rows && (json.rows as Record<string, unknown>[])[0] ? Object.keys((json.rows as Record<string, unknown>[])[0]) : undefined),
-      rows: json.rows as Record<string, unknown>[] | undefined,
-      runError: json.runError as string | undefined,
-      datasets: json.datasets as { id: string; title: string; tier: string; rows: number }[] | undefined,
-      repaired: json.repaired as boolean | undefined,
-      repairAttempts: json.repairAttempts as number | undefined,
-      repairLog: json.repairLog as { attempt: number; sql: string; error: string; fixed?: boolean }[] | undefined,
-      streaming: true,
-    };
-    setMessages([...prev, partial]);
-    await new Promise((r) => setTimeout(r, 16));
-  }
-  // Final commit with streaming:false
-  const final: Msg = {
-    role: "assistant",
-    content: explanation,
-    sql: json.sql as string | undefined,
-    explanation: json.explanation as string | undefined,
-    assumptions: json.assumptions as string[] | undefined,
-    columns: (json.columns as string[] | undefined) ?? (json.rows && (json.rows as Record<string, unknown>[])[0] ? Object.keys((json.rows as Record<string, unknown>[])[0]) : undefined),
-    rows: json.rows as Record<string, unknown>[] | undefined,
-    runError: json.runError as string | undefined,
-    datasets: json.datasets as { id: string; title: string; tier: string; rows: number }[] | undefined,
-    repaired: json.repaired as boolean | undefined,
-    repairAttempts: json.repairAttempts as number | undefined,
-    repairLog: json.repairLog as { attempt: number; sql: string; error: string; fixed?: boolean }[] | undefined,
-    streaming: false,
-  };
-  setMessages([...prev, final]);
+  return { messages, busy, error, send, stop, newChat, mode, setMode, model };
 }
 
 type AiValue = ReturnType<typeof useAiState>;

@@ -31,6 +31,23 @@ SDI + berkas → Dagster (harian 02:00) → Bronze (Iceberg @ RustFS)
 App **tidak pernah** fetch SDI langsung — semua penarikan lewat pipeline. Dataset
 yang belum ada di lake menghasilkan 404, bukan fetch langsung.
 
+## Atlas AI (`/ai`)
+
+Agen data read-only, porting copilot RantAI-Lakehouse (`console/rust/crates/lakehouse-api/src/routes/ai/`).
+
+- **Mode Ask** — jawab pertanyaan dengan angka dari query; grafik bila membantu.
+- **Mode BI** — susun mini-dashboard: KPI + beberapa grafik + insight.
+- **Peta data** (`lib/ai/data-map.ts`) — semua view `silver.*` dan `serving.mart_*`: judul katalog,
+  jumlah baris, kolom, rentang nilai, contoh nilai teks. Dibangun saat server start (±40 dtk),
+  di-cache 30 menit.
+- **Alat** (`lib/ai/agent.ts`): `search_data`, `describe_table`, `run_sql`, `make_chart`.
+  SQL dijaga `lib/ai/sql-guard.ts` (SELECT saja, hanya silver/serving, tanpa table function,
+  dibungkus LIMIT) — di atas profil `app_readonly` ClickHouse.
+- **Verifikasi angka** — angka di jawaban yang tidak muncul di hasil query memicu satu putaran
+  perbaikan; yang tersisa ditandai di UI.
+- **Endpoint** `POST /api/ai/chat` `{mode, messages}` → stream NDJSON. LLM: `LLM_URL`/`LLM_MODEL`/`LLM_KEY`
+  (OpenAI-compatible, default OpenCode Go + deepseek-v4.1-flash).
+
 ## Pengembangan lokal
 
 ```bash

@@ -32,7 +32,7 @@ export function AiDock() {
           </div>
           <div>
             <div className="title">Atlas AI</div>
-            <div className="sub">Dispar Lakehouse · read-only</div>
+            <div className="sub">{c.mode === "bi" ? "BI mode" : "Ask mode"} · read-only</div>
           </div>
           <button
             className="close"
@@ -52,12 +52,12 @@ export function AiDock() {
               </div>
               <div>
                 <h2 style={{ fontSize: 18 }}>Hai! 👋</h2>
-                <p>Tanya tentang data Dispar — saya akan buat SQL + chart otomatis.</p>
+                <p>Tanya data Dispar — saya cari tabelnya, jalankan query, dan buat grafik.</p>
               </div>
             </div>
           ) : (
             <div className="transcript" style={{ padding: "16px 14px 8px", maxWidth: "100%" }}>
-              <AiMessages messages={c.messages} busy={c.busy} error={c.error} />
+              <AiMessages messages={c.messages} busy={c.busy} error={c.error} compact />
               {c.messages.length > 0 && (
                 <div style={{ display: "flex", justifyContent: "center", paddingTop: 6 }}>
                   <button
@@ -77,7 +77,11 @@ export function AiDock() {
         <div className="ai-dock-foot">
           <AiComposer
             onSend={c.send}
+            onStop={c.stop}
             busy={c.busy}
+            mode={c.mode}
+            onModeChange={c.setMode}
+            model={c.model}
             placeholder="Tanya Atlas…"
           />
         </div>
