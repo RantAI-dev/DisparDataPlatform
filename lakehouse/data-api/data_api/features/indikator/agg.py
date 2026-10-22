@@ -8,7 +8,6 @@ from __future__ import annotations
 
 import math
 import re
-from decimal import ROUND_HALF_UP, Decimal
 from typing import Any
 
 from data_api.shared.atlas_gabungan import kunci_kolasi
@@ -86,13 +85,6 @@ def truthy(v: Any) -> bool:
     if isinstance(v, float) and math.isnan(v):
         return False
     return bool(v)
-
-
-def to_fixed(x: float, d: int) -> str:
-    """`Number.prototype.toFixed(d)`: nilai biner persis, seri dibulatkan menjauhi nol; x < 0 → "-" + …"""
-    if x < 0:
-        return "-" + to_fixed(-x, d)
-    return f"{Decimal(abs(x)).quantize(Decimal(1).scaleb(-d), rounding=ROUND_HALF_UP):f}"
 
 
 def id_num(v: Any) -> float | None:

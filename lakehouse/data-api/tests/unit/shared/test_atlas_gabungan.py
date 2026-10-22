@@ -1,78 +1,18 @@
 """Uji `data_api.shared.atlas_gabungan` terhadap golden platform-v2 dan quirk JavaScript yang ditiru.
 
-Baris masukan dibentuk persis seperti `lake.bronze_file.*`: berkas `data/statis/*.json` dibaca lalu
-dilewatkan konversi yang sama dengan ingest (`lakehouse/ingest/dispar_ingest/lake.py`: `safe_name`
-untuk nama kolom, `to_text` untuk nilai, union kolom dengan `None` untuk kolom yang tak dimiliki baris).
+Baris masukan dibentuk persis seperti `lake.bronze_file.*` (`tests/bronze_statis.py`).
 """
 
 from __future__ import annotations
 
-import json
 import random
-import re
-from pathlib import Path
-from typing import Any
 
 import pytest
 
 from data_api.shared import atlas_gabungan as ag
-
-_DATA_API = Path(__file__).resolve().parents[3]
-_STATIS = _DATA_API.parents[1] / "data" / "statis"
-_GOLDEN = _DATA_API / "tests" / "golden"
-
-# ── konversi ingest (tiruan lake.safe_name / lake.to_text / lake.build_table) ──
-
-_SLUG_RE = re.compile(r"[^a-z0-9_]+")
-
-
-def _safe_name(raw: str) -> str:
-    name = _SLUG_RE.sub("_", str(raw).strip().lower()).strip("_")
-    if not name:
-        name = "kolom"
-    if name[0].isdigit():
-        name = f"k_{name}"
-    return name[:200]
-
-
-def _to_text(v: Any) -> str | None:
-    if v is None:
-        return None
-    if isinstance(v, str):
-        return v
-    if isinstance(v, (dict, list)):
-        return json.dumps(v, ensure_ascii=False, default=str)
-    return str(v)
-
-
-def ke_bronze(rows: list[dict[str, Any]]) -> list[dict[str, str | None]]:
-    keys: list[str] = []
-    for r in rows:
-        for k in r:
-            if _safe_name(k) not in keys:
-                keys.append(_safe_name(k))
-    hasil = []
-    for r in rows:
-        normal = {_safe_name(k): _to_text(v) for k, v in r.items()}
-        hasil.append({k: normal.get(k) for k in keys})
-    return hasil
-
-
-def _bronze(nama: str) -> list[dict[str, str | None]]:
-    return ke_bronze(json.loads((_STATIS / f"{nama}.json").read_text(encoding="utf-8")))
-
-
-def _golden(nama: str) -> dict:
-    return json.loads((_GOLDEN / f"{nama}.json").read_text(encoding="utf-8"))
-
-
-def _tipe(x: Any) -> Any:
-    """Struktur yang sama dengan nilai daun diganti nama tipenya (bedakan int/float/bool)."""
-    if isinstance(x, dict):
-        return {k: _tipe(v) for k, v in x.items()}
-    if isinstance(x, list):
-        return [_tipe(v) for v in x]
-    return type(x).__name__
+from tests.bronze_statis import bronze as _bronze
+from tests.bronze_statis import golden as _golden
+from tests.bronze_statis import tipe as _tipe
 
 
 def _gci_dari_statis() -> dict:

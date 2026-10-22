@@ -363,6 +363,32 @@ async function gmti(): Promise<Golden[]> {
       meta: { total: pool.length, page: 1, size: 200 },
     });
   }
+
+  // Filter server `/v1/gmti/tempat` (plan 05) harus sama dengan filter klien: memo `filtered` komponen
+  // asli dengan state cari (1), kota (2), jenis (3); halaman 1–3 = potongan 200 seperti tombol "muat lagi".
+  const filter: { pilar: string; q?: string; kota?: string; jenis?: string }[] = [
+    { pilar: "semua", kota: "Kota Administrasi Jakarta Timur" },
+    { pilar: "ibadah", q: "  Al " },
+    { pilar: "semua", jenis: "Mushalla Perumahan", q: "jl" },
+    { pilar: "makan", q: "SUSHI" },
+  ];
+  filter.forEach((f, i) => {
+    renderSinkron(h(GmtiView), { 0: f.pilar, 1: f.q ?? "", 2: f.kota ?? "All", 3: f.jenis ?? "All", 6: ibadah });
+    const hasil = memoKe<Place[]>(4);
+    const { pilar, ...lain } = f;
+    tempat.push({
+      nama: `gmti.tempat.filter-${i + 1}`,
+      endpoint: "/v1/gmti/tempat",
+      params: pilar === "semua" ? lain : f,
+      data: {
+        items_halaman_1: hasil.slice(0, 200).map(peta),
+        items_halaman_2: hasil.slice(200, 400).map(peta),
+        items_halaman_3: hasil.slice(400, 600).map(peta),
+        facets: { kota: memoKe<string[]>(2).slice(1), jenis: memoKe<string[]>(3).slice(1) },
+      },
+      meta: { total: hasil.length, page: 1, size: 200 },
+    });
+  });
   return [ringkasan, ...tempat];
 }
 
