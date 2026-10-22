@@ -104,3 +104,19 @@ def test_daftar_tabel_silver_dikosongkan_flush(app, ch):
         c.post("/v1/admin/cache/flush")
         c.get("/v1/dataset/wisman")
         assert sum(1 for s, _ in ch.log if s == "SHOW TABLES FROM silver") == n + 1
+
+
+def test_response_model_terpasang(ch, env, monkeypatch):
+    """`models.py` tiap fitur menjadi skema respons dan menyaring keluaran service."""
+    from data_api.features.dataset import service
+    from data_api.main import buat_app
+    from data_api.shared.konfigurasi import muat
+
+    app = buat_app(muat({**env, "DATA_API_DOCS": "1"}), ch)
+    with TestClient(app, headers={"Authorization": f"Bearer {TOKEN}"}) as c:
+        skema = c.get("/openapi.json").json()["components"]["schemas"]
+        for nama in ("Katalog", "Detail", "DaftarKolom", "DaftarFacet", "Baris", "Agregat", "Ringkasan"):
+            assert any(k.startswith(f"Amplop_{nama}") for k in skema), nama
+        asli = service.kolom
+        monkeypatch.setattr(service, "kolom", lambda k, slug: [{**x, "rahasia": 1} for x in asli(k, slug)])
+        assert "rahasia" not in c.get("/v1/dataset/wisman/kolom").json()["data"]["items"][0]

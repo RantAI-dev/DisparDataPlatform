@@ -11,9 +11,9 @@ from data_api.shared.errors import InvalidParam
 from data_api.shared.filters import parse_row_query
 from data_api.shared.konteks import Konteks, ambil_konteks
 from data_api.shared.paging import halaman
-from data_api.shared.respons import sukses
+from data_api.shared.respons import Amplop, sukses
 
-from . import service
+from . import models, service
 
 router = APIRouter(tags=["dataset"])
 
@@ -23,7 +23,7 @@ F = Annotated[list[str], Query()]
 SILVER = ["silver.<tabel>"]
 
 
-@router.get("/katalog")
+@router.get("/katalog", response_model=Amplop[models.Katalog], response_model_exclude_unset=True)
 def katalog(k: KonteksDep, tier: str = "semua", page: str | None = None, size: str | None = None):
     if tier not in ("semua", "primer", "sekunder"):
         raise InvalidParam("tier harus semua, primer, atau sekunder")
@@ -31,7 +31,7 @@ def katalog(k: KonteksDep, tier: str = "semua", page: str | None = None, size: s
     return sukses(data, k.rid, service.SUMBER_KATALOG, total=total)
 
 
-@router.get("/dataset/{slug}")
+@router.get("/dataset/{slug}", response_model=Amplop[models.Detail], response_model_exclude_unset=True)
 def detail(k: KonteksDep, slug: Slug):
     data, total = service.detail(k, slug)
     return sukses(
@@ -39,17 +39,17 @@ def detail(k: KonteksDep, slug: Slug):
     )
 
 
-@router.get("/dataset/{slug}/kolom")
+@router.get("/dataset/{slug}/kolom", response_model=Amplop[models.DaftarKolom], response_model_exclude_unset=True)
 def kolom(k: KonteksDep, slug: Slug):
     return sukses({"items": service.kolom(k, slug)}, k.rid, ["lake.bronze_meta*.dataset_column", *SILVER])
 
 
-@router.get("/dataset/{slug}/facet")
+@router.get("/dataset/{slug}/facet", response_model=Amplop[models.DaftarFacet], response_model_exclude_unset=True)
 def facet(k: KonteksDep, slug: Slug):
     return sukses({"items": service.facet(k, slug)}, k.rid, SILVER)
 
 
-@router.get("/dataset/{slug}/baris")
+@router.get("/dataset/{slug}/baris", response_model=Amplop[models.Baris], response_model_exclude_unset=True)
 def baris(
     request: Request,
     k: KonteksDep,
@@ -74,7 +74,7 @@ def baris(
     )
 
 
-@router.get("/dataset/{slug}/agregat")
+@router.get("/dataset/{slug}/agregat", response_model=Amplop[models.Agregat], response_model_exclude_unset=True)
 def agregat(
     k: KonteksDep,
     slug: Slug,
