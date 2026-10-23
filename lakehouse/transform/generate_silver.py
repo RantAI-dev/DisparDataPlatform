@@ -34,6 +34,10 @@ KOLOM_BUANG = {
 
 AUDIT = ("_ingested_at", "_source_url", "_batch_id", "_row_hash", "_tenant")
 
+# Kolom kode yang isinya kebetulan angka tetapi bukan besaran: tetap teks (varchar),
+# supaya tidak bisa dijumlah/dirata-rata dan nol di depan (KBLI 01111) tidak hilang.
+KOLOM_TEKS = {"kbli"}
+
 
 def client():
     return clickhouse_connect.get_client(
@@ -150,7 +154,7 @@ def generate_silver() -> int:
                 continue
             if c in KOLOM_BUANG:
                 continue
-            tipe, rasio = tebak_tipe(ch, src_ref, c)
+            tipe, rasio = ("teks", 0.0) if c in KOLOM_TEKS else tebak_tipe(ch, src_ref, c)
             proyeksi.append(f"{EKSPR[tipe](c)} AS `{c}`")
             meta_rows.append([tbl, c, tipe, round(rasio, 4), 1 if tipe != "teks" else 0])
 
