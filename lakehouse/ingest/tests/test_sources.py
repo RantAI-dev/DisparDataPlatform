@@ -80,7 +80,7 @@ def test_registri_repo_termuat(registri: Registry):
     # Plan 04: 1 SDI + 62 berkas (34 lama + 28 statis/ref/crawl) + 35 sekunder = 98 entri.
     # Tabel bronze_file ke-63 (wellness_jakarta) datang dari tabel_lain, bukan entri sendiri.
     # Batch 2a Plan 03: +2 ref wilayah, Plan 04: +2 ref negara, Plan 05: +1 ref pintu, +4 SDI lintas OPD, +2 penerbangan (internasional, domestik) = 105 entri
-    assert len(registri.sumber) == 105
+    assert len(registri.sumber) == 106
 
 
 def test_jumlah_sesuai_bronze_hidup(registri: Registry):
@@ -98,7 +98,7 @@ def test_jumlah_sesuai_bronze_hidup(registri: Registry):
     assert by_ns["bronze_sdi"] == 1, "bentuk registri (bukan lake): jumlah SDI"
     # Batch 2a Plan 03-05: 67 entri berkas + 1 dari tabel_lain = 68
     assert by_ns["bronze_file"] == 68, "bentuk registri: jumlah bronze_file"
-    assert by_ns["bronze_sec"] == 37, "bentuk registri (bukan lake): jumlah bronze_sec"
+    assert by_ns["bronze_sec"] == 38, "bentuk registri (bukan lake): jumlah bronze_sec"
 
 
 def test_sumber_data_statis(registri: Registry):

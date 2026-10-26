@@ -996,6 +996,17 @@ asal = "Kalender resmi JIExpo (scripts/crawl_jiexpo_events.py), ICE BSD, NICE PI
 pembangun = "scripts/mice/build.py"
 
 [[sumber]]
+id = "lokasi-syuting-film-jakarta"
+jenis = "sekunder"
+path = "data/sekunder/lokasi-syuting-film-jakarta.json"
+namespace = "bronze_sec"
+tabel = "lokasi_syuting_film_jakarta"
+kelas_refresh = "snapshot"
+tanggal_ambil = "2026-10-26"
+asal = "Kurasi riset publik (artikel berita, Wikipedia, wawancara produksi; URL sumber per baris) + koordinat Nominatim/OSM"
+pembangun = "scripts/lokasi_syuting_film.py"
+
+[[sumber]]
 id = "michelin-keys-indonesia"
 jenis = "sekunder"
 path = "data/sekunder/michelin-keys-indonesia.json"
