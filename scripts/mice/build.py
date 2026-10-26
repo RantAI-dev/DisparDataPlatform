@@ -343,11 +343,16 @@ def build_events() -> list[dict]:
     return [{k: r[k] for k, *_ in EVENT_COLS} for r in out]
 
 
+# Label publik status verifikasi; nilai mentah tetap di berkas masukan kurasi.
+STATUS_PUBLIK = {"terkonfirmasi": "Terverifikasi", "perlu review": "Perlu dicek manual"}
+
+
 def write(slug: str, title: str, description: str, cols, rows) -> None:
     data = {
         "slug": slug, "title": title, "description": description,
         "columns": [{"key": k, "label": l, "type": t, "description": d} for k, l, t, d in cols],
-        "rows": [{k: r[k] for k, *_ in cols} for r in rows],
+        "rows": [{k: STATUS_PUBLIK.get(r[k], r[k]) if k == "status_verifikasi" else r[k] for k, *_ in cols}
+                 for r in rows],
     }
     text = json.dumps(data, ensure_ascii=False, indent=2) + "\n"
     for d in OUT_DIRS:

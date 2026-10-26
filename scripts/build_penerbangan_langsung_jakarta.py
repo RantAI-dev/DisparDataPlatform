@@ -18,6 +18,9 @@ Cache/resume: scripts/penerbangan_cache.json (tiap entri menyimpan STATUS)
 
 Jalankan dari root repo:
     python3 scripts/build_penerbangan_langsung_jakarta.py
+
+Setelah menjalankan skrip ini, jalankan `python3 scripts/kolom_publik.py`: label kolom
+publik dataset ini (jejak teknis dibuang) diatur di sana.
 """
 
 from __future__ import annotations

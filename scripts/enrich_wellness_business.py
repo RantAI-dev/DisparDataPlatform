@@ -26,6 +26,9 @@ Konvensi repo:
   - Path relatif dari root repo.
   - Idempoten — bisa dijalankan ulang tanpa duplikasi.
   - Tidak menyentuh lakehouse.
+
+Setelah menjalankan skrip ini, jalankan `python3 scripts/kolom_publik.py`: label kolom
+publik dataset ini (jejak teknis dibuang) diatur di sana.
 """
 from __future__ import annotations
 

@@ -23,6 +23,9 @@ Dataset TIDAK menyentuh lakehouse — outputnya adalah dua berkas lokal:
   - `platform-v2/data/hotel-kamar-jakarta.json`  (mirror yang dibaca app)
 
 Jalankan dari root repo: `python scripts/hotel_kamar/build.py`
+
+Setelah menjalankan skrip ini, jalankan `python3 scripts/kolom_publik.py`: label kolom
+publik dataset ini (jejak teknis dibuang) diatur di sana.
 """
 from __future__ import annotations
 

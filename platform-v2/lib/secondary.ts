@@ -126,7 +126,7 @@ export function secondaryDatasets(): SecondaryDataset[] {
       id: "sec-lokasi-syuting-film",
       title: "Lokasi Syuting Film di DKI Jakarta",
       description:
-        "116 pasangan film–lokasi syuting dari 75 film layar lebar (1957–2025, nasional dan internasional) di 92 lokasi DKI Jakarta. Kurasi riset publik: setiap baris menyertakan URL sumber dan kutipan bukti (92 sumber terverifikasi otomatis). Koordinat dari OpenStreetMap; titik perkiraan atau area ditandai review.",
+        "116 pasangan film–lokasi syuting dari 75 film layar lebar (1957–2025, nasional dan internasional) di 92 lokasi DKI Jakarta. Kurasi riset publik: setiap baris menyertakan URL sumber dan kutipan bukti (92 sumber terverifikasi). Titik lokasi dari OpenStreetMap; titik yang hanya perkiraan diberi keterangan.",
       tags: ["film", "lokasi-syuting", "perfilman", "ekraf", "pariwisata-film", "jakarta", "kurasi-riset", "sekunder"],
       rows: 116,
       href: "/sdi/lokasi-syuting-film-jakarta",
@@ -317,7 +317,7 @@ export function secondaryDatasets(): SecondaryDataset[] {
       title: "Atraksi Wisata Air DKI Jakarta",
       description:
         "Inventaris 28 venue atraksi wisata air di DKI Jakarta (bersumber SDI, dilengkapi pemetaan koordinat dan OpenStreetMap). Kategori mengikuti standar Kemenpar 'Aktivitas Wisata Air'.",
-      tags: ["atraksi-air", "water-attractions", "kemenpar", "pantai", "marina", "waterpark", "jakarta", "silver-sdi", "photon-geocode", "nominatim-osm", "sekunder"],
+      tags: ["atraksi-air", "water-attractions", "kemenpar", "pantai", "marina", "waterpark", "jakarta", "sekunder"],
       rows: 28,
       href: "/sdi/water-attractions-jakarta",
       external: false,
@@ -327,7 +327,7 @@ export function secondaryDatasets(): SecondaryDataset[] {
       title: "Venue Wellness DKI Jakarta",
       description:
         "Inventaris 84 venue wellness DKI Jakarta dari OpenStreetMap dan Google Places. Distribusi kategori: 34 Spa & Pijat, 20 Hotel Spa Premium, 16 Fitness & Gym, 12 Klinik Kecantikan & Estetika, 1 Pengobatan Tradisional & Alternatif, 1 Kesehatan Mental & Nutrisi. Distribusi kota adm: 40 JakSel, 38 JakPus, 4 JakBar, 2 JakTim.",
-      tags: ["wellness", "wellness-tourism", "spa", "hotel-spa", "fitness", "kecantikan", "klinik", "jakarta", "nominatim-osm", "google-places", "sekunder"],
+      tags: ["wellness", "wellness-tourism", "spa", "hotel-spa", "fitness", "kecantikan", "klinik", "jakarta", "sekunder"],
       rows: 84,
       href: "/sdi/wellness-jakarta",
       external: false,
@@ -377,7 +377,7 @@ export function secondaryDatasets(): SecondaryDataset[] {
       title: "Hotel Transit DKI Jakarta (≤5 km dari simpul transport)",
       description:
         "Inventaris hotel dalam buffer 5 km dari 24 simpul transport utama DKI Jakarta (bandara, stasiun KAI, terminal bus, halte MRT/LRT). Basis: registry 120 hotel resmi Satu Data Jakarta. Koordinat diperoleh dari pencarian alamat; hotel yang alamatnya tidak dapat dipetakan tidak ditampilkan.",
-      tags: ["hotel", "transit", "transportasi", "satu-data-jakarta", "jakarta", "nominatim-osm", "sekunder"],
+      tags: ["hotel", "transit", "transportasi", "satu-data-jakarta", "jakarta", "sekunder"],
       rows: 43,
       href: "/sdi/hotel-transit-jakarta",
       external: false,

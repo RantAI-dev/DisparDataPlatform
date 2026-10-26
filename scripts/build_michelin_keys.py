@@ -116,7 +116,7 @@ def build() -> dict:
             "lokasi_michelin": lok, "kab_kota": kab, "provinsi": prov, "alamat": alamat,
             "jumlah_kamar": kamar, "latitude": lat, "longitude": lon, "edisi": EDISI,
             "url_michelin": MG + path, "sumber_verifikasi": VERIF[key],
-            "status_verifikasi": "terkonfirmasi",
+            "status_verifikasi": "Terverifikasi",
         })
     counts = {k: sum(r["jumlah_key"] == k for r in rows) for k in (1, 2, 3)}
     # Pemeriksaan silang terhadap angka resmi edisi 2026.

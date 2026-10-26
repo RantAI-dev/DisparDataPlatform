@@ -101,20 +101,23 @@ export async function columns(slug: string): Promise<ColumnDef[]> {
  * kolom Silver yang tidak terdaftar di metadata SDI. SDI tidak pernah
  * mendaftarkan `periode_data` sebagai kolom (ia ditempel ke tiap baris), jadi
  * tanpa ini periode hilang dari tabel, grafik, dan export. `periode_data`
- * ditaruh paling depan; kolom tambahan lain di belakang.
+ * ditaruh paling depan; kolom tambahan lain di belakang. Kolom metadata yang tidak
+ * ada di Silver (mis. `id` yang sengaja dibuang generator Silver) tidak ditampilkan,
+ * karena isinya pasti kosong.
  */
 export async function displayColumns(slug: string): Promise<ColumnDef[]> {
   const cols = await columns(slug);
   if (!cols.length) return cols;
   const table = await tableFor(slug);
   if (!table || !(await silverAda()).has(table)) return cols;
+  const schema = await schemaFor(table);
   const known = new Set(cols.map((c) => c.key));
-  const extra = [...(await schemaFor(table)).keys()]
+  const extra = [...schema.keys()]
     .filter((k) => !known.has(k))
     .map((k): ColumnDef => ({ key: k, description: null, type: null, ordinal: 0 }));
   const lead = extra.filter((c) => c.key === "periode_data");
   const rest = extra.filter((c) => c.key !== "periode_data");
-  return [...lead, ...cols, ...rest];
+  return [...lead, ...cols.filter((c) => schema.has(c.key)), ...rest];
 }
 
 /**
