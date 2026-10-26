@@ -339,6 +339,54 @@ async function dashboard(): Promise<Golden[]> {
     g(`dashboard.wisnus.per-kota.${tahun}`, "/v1/dashboard/wisnus/per-kota", { tahun }, { label: labelDari(kk.judul), items: titik(kk.data.data) });
   }
 
+  // kunjungan destinasi — DestinasiStat per jenis (halaman wisnus dan wisman); state: 0 tahun, 1 destinasi.
+  const destinasiRows = await D.getKunjunganDestinasi();
+  const { DestinasiStat } = await import("@/components/dashboard/DestinasiStat");
+  const angkaId = (s: string) => (s === "—" ? null : Number(s.replace(/%$/, "").replace(/\./g, "").replace(",", ".")));
+  for (const jenis of ["Wisnus", "Wisman"] as const) {
+    const q = jenis.toLowerCase();
+    const nama = jenis === "Wisnus" ? "wisatawan nusantara" : "wisatawan mancanegara";
+    const dest = (state: Record<number, unknown> = {}) => {
+      const html = renderSinkron(h(DestinasiStat, { rows: destinasiRows, jenis }), state);
+      return { html, k: kartu(), kp: kpi(), toggle: propsElemen<{ value: string; options: { value: string; label: string }[] }>("ModeToggle") };
+    };
+    const d0 = dest();
+    const opsi = [...d0.html.matchAll(/<option[^>]*>(.*?)<\/option>/gs)].map((m) => simpulTeks(m[1]).join(" "));
+    const destinasiList = opsi.filter((o) => o !== "Semua destinasi");
+    const tahunOpsi = d0.toggle[0]?.options ?? [];
+    g(`dashboard.destinasi.meta.${q}`, "/v1/dashboard/destinasi/meta", { jenis: q }, {
+      tahun: tahunOpsi.map((o) => ({ value: o.value, label: o.label })), tahun_default: d0.toggle[0]?.value ?? null, destinasi: destinasiList,
+    });
+    // Paragraf catatan di bawah KPI (tidak melaporkan, diduga tertukar), teks utuh.
+    const catatan = (html: string) =>
+      [...html.matchAll(/<p[^>]*>(.*?)<\/p>/gs)]
+        .map((m) => simpulTeks(m[1]).join(" "))
+        .filter((t) => t.startsWith("Tidak melaporkan kunjungan") || t.startsWith("Catatan data:"));
+    for (const o of tahunOpsi) {
+      for (const d of ["Semua destinasi", ...destinasiList]) {
+        const r = d === "Semua destinasi" ? (o.value === d0.toggle[0]?.value ? d0 : dest({ 0: o.value })) : dest({ 0: o.value, 1: d });
+        const params: Record<string, string> = d === "Semua destinasi" ? { jenis: q, tahun: o.value } : { jenis: q, tahun: o.value, destinasi: d };
+        g(`dashboard.destinasi.ringkasan.${q}.${o.value}.${slugAman(d)}`, "/v1/dashboard/destinasi/ringkasan", params, { kpi: r.kp, catatan: catatan(r.html) });
+      }
+      const r = dest({ 0: o.value });
+      const kk = kartuBerjudul(r.k, `Kunjungan ${nama} per destinasi`)[0];
+      const batang = titik(kk.data.data);
+      const tabel = tabelHtml(r.html)[0]?.rows ?? [];
+      const items = tabel.map(([destinasi, jumlah, persen, bulan], i) => {
+        if (batang[i]?.label !== destinasi || batang[i]?.value !== angkaId(jumlah)) throw new Error(`tabel ≠ grafik destinasi: ${destinasi}`);
+        return { destinasi, jumlah: batang[i].value, persen: angkaId(persen), bulan: Number(bulan) };
+      });
+      g(`dashboard.destinasi.per-destinasi.${q}.${o.value}`, "/v1/dashboard/destinasi/per-destinasi", { jenis: q, tahun: o.value }, { label: labelDari(kk.judul), items });
+    }
+    for (const d of ["Semua destinasi", ...destinasiList]) {
+      const r = d === "Semua destinasi" ? d0 : dest({ 1: d });
+      const params: Record<string, string> = d === "Semua destinasi" ? { jenis: q } : { jenis: q, destinasi: d };
+      g(`dashboard.destinasi.bulanan.${q}.${slugAman(d)}`, "/v1/dashboard/destinasi/bulanan", params, {
+        items: titik(kartuBerjudul(r.k, `Kunjungan ${nama} per bulan`)[0].data.data),
+      });
+    }
+  }
+
   // tenaga kerja — halaman server (dki + sertifikasi) dan TkSubsektor (per tahun).
   const { default: Tk } = await import("@/app/dashboard/tenaga-kerja/page");
   await renderAsync(h((Tk as unknown as () => ReactElement)));

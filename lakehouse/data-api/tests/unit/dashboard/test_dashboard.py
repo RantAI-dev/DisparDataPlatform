@@ -295,3 +295,83 @@ def test_format_angka_seperti_intl():
     assert id_num(1.005, 2) == "1,01" and id_num(-0.04, 1) == "-0,0" and id_num(26474118) == "26.474.118"
     assert lokal_id(2.06) == "2,06" and lokal_id(411.0) == "411" and lokal_id(0.1 + 0.2) == "0,3"
     assert [js_round(v) for v in (2.5, -2.5, 0.5)] == [3, -2, 1]
+
+
+# ── kunjungan destinasi (DestinasiStat) ───────────────────────────────────────
+
+CATATAN_MONAS = (
+    "Catatan data: angka nusantara dan mancanegara diduga tertukar di sumber untuk Monumen Nasional Jan 2025 "
+    "(nusantara 50, mancanegara 9.000). Angka ditampilkan apa adanya sesuai Satu Data Jakarta."
+)
+
+
+def test_destinasi_meta_per_jenis(klien, mentah):
+    """Daftar destinasi hanya yang pernah melaporkan jenis itu; tahun parsial berlabel."""
+    assert data(klien, "destinasi/meta", jenis="wisman") == {
+        "tahun": [{"value": "2025", "label": "2025"}, {"value": "2026", "label": "2026 (s/d Mar)"}],
+        "tahun_default": "2025",
+        "destinasi": ["Monumen Nasional"],
+    }
+    wisnus = data(klien, "destinasi/meta", jenis="wisnus")["destinasi"]
+    assert wisnus == ["Monumen Nasional", "Museum Joang '45", "Taman Mini Indonesia Indah"]
+
+
+def test_destinasi_ringkasan_semua_dan_catatan(klien, mentah):
+    d = data(klien, "destinasi/ringkasan", jenis="wisman")
+    assert d["kpi"] == [
+        {"label": "Kunjungan wisatawan mancanegara · 2025", "value": 9627, "sub": "kunjungan"},
+        {"label": "Destinasi melapor", "value": "1 dari 3", "sub": "2025"},
+        {"label": "Destinasi teramai", "value": "Monumen Nasional", "sub": "9.627 kunjungan"},
+    ]
+    assert d["catatan"] == [
+        "Tidak melaporkan kunjungan wisatawan mancanegara: Museum Joang '45, Taman Mini Indonesia Indah. "
+        "Total di atas tidak memuat destinasi tersebut.",
+        CATATAN_MONAS,
+    ]
+    # Catatan tertukar hanya untuk tahun yang dipilih.
+    assert data(klien, "destinasi/ringkasan", jenis="wisman", tahun="2026")["catatan"][1:] == []
+
+
+def test_destinasi_ringkasan_satu_destinasi_bulan_null(klien, mentah):
+    """Bulan NULL tidak dihitung (11 bulan), bukan nol; porsi dan peringkat di antara pelapor."""
+    d = data(klien, "destinasi/ringkasan", jenis="wisnus", tahun="2025", destinasi="Museum Joang '45")
+    assert d["kpi"] == [
+        {"label": "Kunjungan wisatawan nusantara · 2025", "value": 720, "sub": "11 bulan dilaporkan"},
+        {"label": "Porsi dari seluruh destinasi", "value": "0,5%", "sub": "2025"},
+        {"label": "Peringkat kunjungan", "value": "3 dari 3", "sub": "2025"},
+    ]
+    assert d["catatan"] == [CATATAN_MONAS]
+
+
+def test_destinasi_per_destinasi_dan_bulanan(klien, mentah):
+    d = data(klien, "destinasi/per-destinasi", jenis="wisnus", tahun="2025")
+    assert d["label"] == "2025"
+    assert d["items"] == [
+        {"destinasi": "Monumen Nasional", "jumlah": 99127, "persen": 71.4, "bulan": 12},
+        {"destinasi": "Taman Mini Indonesia Indah", "jumlah": 39000, "persen": 28.1, "bulan": 12},
+        {"destinasi": "Museum Joang '45", "jumlah": 720, "persen": 0.5, "bulan": 11},
+    ]
+    seri = data(klien, "destinasi/bulanan", jenis="wisnus", destinasi="Museum Joang '45")["items"]
+    assert len(seri) == 14 and "2025-06" not in [p["label"] for p in seri]
+    assert seri[0] == {"label": "2025-01", "value": 10}
+
+
+def test_destinasi_wisman_dominan_bukan_tertukar(klien, mentah):
+    """Destinasi yang memang sering didominasi wisman tidak ditandai tertukar."""
+    for r in mentah["kunjungan_destinasi"]:
+        if r["destinasi"] == "MONUMEN NASIONAL" and r["jenis"] == "WISATAWAN MANCANEGARA":
+            r["jumlah"] = "20000"
+    assert data(klien, "destinasi/ringkasan", jenis="wisnus")["catatan"] == []
+
+
+@pytest.mark.parametrize(
+    "params",
+    [
+        {"jenis": "lokal"},
+        {"jenis": "wisman", "destinasi": "Taman Mini Indonesia Indah"},
+        {"jenis": "wisnus", "tahun": "2030"},
+    ],
+)
+def test_destinasi_parameter_salah_400(klien, mentah, params):
+    r = klien.get("/v1/dashboard/destinasi/ringkasan", params=params)
+    assert r.status_code == 400, r.text

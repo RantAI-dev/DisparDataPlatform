@@ -25,6 +25,11 @@ KASUS = [
     ("/v1/dashboard/wisnus/per-kota", {"tahun": "2025"}),
     ("/v1/dashboard/wisnus/bulanan", {}),
     ("/v1/dashboard/wisnus/yoy", {"kota": "Seluruh Jakarta"}),
+    ("/v1/dashboard/destinasi/meta", {"jenis": "wisman"}),
+    ("/v1/dashboard/destinasi/ringkasan", {"jenis": "wisnus"}),
+    ("/v1/dashboard/destinasi/ringkasan", {"jenis": "wisman", "tahun": "2026", "destinasi": "Monumen Nasional"}),
+    ("/v1/dashboard/destinasi/per-destinasi", {"jenis": "wisnus", "tahun": "2025"}),
+    ("/v1/dashboard/destinasi/bulanan", {"jenis": "wisnus", "destinasi": "Museum Joang '45"}),
     ("/v1/dashboard/tenaga-kerja/dki", {}),
     ("/v1/dashboard/tenaga-kerja/subsektor", {"tahun": "2024"}),
     ("/v1/dashboard/tenaga-kerja/sertifikasi", {}),
@@ -62,6 +67,8 @@ def test_q21_data_kosong_tetap_sesuai_kontrak(klien, mentah, monkeypatch, path):
     for nama in list(mentah):
         monkeypatch.setattr(queries, nama, gagal)
     params = {"tamu": "wisman"} if "lama-menginap/" in path and "rata-rata" not in path else {}
+    if "/destinasi/" in path:
+        params = {"jenis": "wisnus"}
     r = klien.get(path, params=params)
     assert r.status_code == 200, r.text
     assert r.json()["meta"]["peringatan"]

@@ -3,7 +3,7 @@
 Sumber yang diport:
 - `app/dashboard/page.tsx` (ringkasan), `components/dashboard/WismanStat.tsx`, `LosByClass.tsx`,
   `WisnusLos.tsx`, `WisnusStat.tsx`, `TkSubsektor.tsx`, `app/dashboard/tenaga-kerja/page.tsx`,
-  `PdrbEkrafStat.tsx`.
+  `PdrbEkrafStat.tsx`; `DestinasiStat.tsx` @ 61c2afd (kunjungan destinasi wisnus/wisman).
 - `kpi[]` = props KPI persis seperti dikirim ke komponen tampilan (teks sudah diformat id-ID).
 
 Q21: kegagalan query ClickHouse (yang di Next.js dibungkus `safe()`) menghasilkan baris kosong dan
@@ -18,6 +18,7 @@ import re
 from collections.abc import Callable
 from concurrent.futures import ThreadPoolExecutor
 from dataclasses import dataclass, field
+from decimal import ROUND_HALF_UP, Decimal
 from typing import Any
 
 from data_api.shared.errors import InvalidParam, Upstream
@@ -147,6 +148,15 @@ _UBAH: dict[str, Callable[[dict[str, Any]], dict[str, Any]]] = {
         "jumlah": _angka(r["jumlah"]),
     },
     "pintu_bulanan": lambda r: {"periode": r["periode"], "pintu": r["pintu"], "jumlah": _angka(r["jumlah"])},
+    # null = tidak dilaporkan (bukan nol); apa pun selain MANCANEGARA dianggap Wisnus.
+    "kunjungan_destinasi": lambda r: {
+        "periode": r["periode"],
+        "tahun": r["periode"][:4],
+        "bulan": _angka(r["periode"][5:7]),
+        "destinasi": title_case(r["destinasi"]),
+        "jenis": "Wisman" if re.search("MANCANEGARA", r["jenis"] or "", re.IGNORECASE) else "Wisnus",
+        "jumlah": None if r["jumlah"] is None else _angka(r["jumlah"]),
+    },
     "tk_dki": lambda r: {
         kk: (r[kk] if kk == "tahun" else _angka(r[kk])) for kk in ("tahun", "total", "laki", "perempuan", "nasional")
     },
@@ -691,6 +701,177 @@ def wisnus_per_kota(m: Muat, tahun: str | None) -> dict[str, Any]:
     if not year:
         return {"label": "", "items": []}
     return {"label": wn.y_label(year), "items": wn.per_kota(year)}
+
+
+# ── kunjungan destinasi (DestinasiStat) ───────────────────────────────────────
+
+SEMUA_DESTINASI = "Semua destinasi"
+NAMA_JENIS = {"Wisnus": "wisatawan nusantara", "Wisman": "wisatawan mancanegara"}
+
+
+def _jenis(jenis: str) -> str:
+    if jenis not in ("wisnus", "wisman"):
+        raise InvalidParam("jenis harus wisnus atau wisman")
+    return jenis.capitalize()
+
+
+def _satu_desimal(v: float) -> float:
+    """Angka di balik `idNum(v, 1)` (pembulatan setengah menjauhi nol atas desimal terpendek)."""
+    return float(Decimal(repr(float(v))).quantize(Decimal("0.1"), rounding=ROUND_HALF_UP))
+
+
+@dataclass
+class _Destinasi:
+    """Satu jenis wisatawan; `semua` = baris kedua jenis (untuk destinasi tak melapor dan catatan)."""
+
+    semua: list[dict[str, Any]]
+    jenis: str
+
+    def __post_init__(self) -> None:
+        self.rows = [r for r in self.semua if r["jenis"] == self.jenis and r["jumlah"] is not None]
+        self.years = sorted({r["tahun"] for r in self.rows})
+        self.dest_list = sorted({r["destinasi"] for r in self.rows})
+        self.tanpa_lapor = sorted({r["destinasi"] for r in self.semua} - set(self.dest_list))
+
+    def bulan_tahun(self, y: str) -> set[int]:
+        return {r["bulan"] for r in self.rows if r["tahun"] == y}
+
+    @property
+    def tahun_default(self) -> str:
+        lengkap = [y for y in self.years if len(self.bulan_tahun(y)) == 12]
+        return lengkap[-1] if lengkap else (self.years[-1] if self.years else "")
+
+    def y_label(self, y: str) -> str:
+        b = self.bulan_tahun(y)
+        return f"{y} (s/d {BULAN[max(b) - 1]})" if b and len(b) < 12 else y
+
+    def per_dest(self, y: str) -> list[dict[str, Any]]:
+        hasil = []
+        for d in self.dest_list:
+            own = [r for r in self.rows if r["tahun"] == y and r["destinasi"] == d]
+            bulan = len({r["bulan"] for r in own})
+            if bulan:
+                hasil.append({"destinasi": d, "jumlah": sum(r["jumlah"] for r in own), "bulan": bulan})
+        return sorted(hasil, key=lambda r: -r["jumlah"])
+
+    def tertukar(self, y: str) -> list[dict[str, Any]]:
+        """Bulan wisman > wisnus di destinasi yang hampir selalu didominasi wisnus (diduga tertukar)."""
+        hasil = []
+        for d in self.dest_list:
+            own = [r for r in self.semua if r["destinasi"] == d and r["jumlah"] is not None]
+            pasangan = []
+            for p in dict.fromkeys(r["periode"] for r in own):
+                wn = next((r["jumlah"] for r in own if r["periode"] == p and r["jenis"] == "Wisnus"), None)
+                wm = next((r["jumlah"] for r in own if r["periode"] == p and r["jenis"] == "Wisman"), None)
+                if wn is not None and wm is not None:
+                    pasangan.append({"destinasi": d, "periode": p, "wn": wn, "wm": wm})
+            janggal = [x for x in pasangan if x["wm"] > x["wn"]]
+            if len(janggal) * 4 > len(pasangan):
+                continue
+            hasil += [x for x in janggal if x["periode"].startswith(y)]
+        return hasil
+
+
+def _destinasi_pilihan(dn: _Destinasi, tahun: str | None, destinasi: str | None) -> tuple[str, str]:
+    if tahun is not None and dn.years and tahun not in dn.years:
+        raise InvalidParam(f"tahun tidak tersedia: {tahun}")
+    dest = destinasi if destinasi is not None else SEMUA_DESTINASI
+    if dn.rows and dest != SEMUA_DESTINASI and dest not in dn.dest_list:
+        raise InvalidParam(f"destinasi tidak dikenal: {dest}")
+    return tahun or dn.tahun_default, dest
+
+
+def destinasi_meta(m: Muat, jenis: str) -> dict[str, Any]:
+    j = _jenis(jenis)
+    (rows,) = m.ambil("kunjungan_destinasi")
+    dn = _Destinasi(rows, j)
+    return {
+        "tahun": [{"value": y, "label": dn.y_label(y)} for y in dn.years],
+        "tahun_default": dn.tahun_default or None,
+        "destinasi": dn.dest_list,
+    }
+
+
+def destinasi_ringkasan(m: Muat, jenis: str, tahun: str | None, destinasi: str | None) -> dict[str, Any]:
+    j = _jenis(jenis)
+    (rows,) = m.ambil("kunjungan_destinasi")
+    dn = _Destinasi(rows, j)
+    year, dest = _destinasi_pilihan(dn, tahun, destinasi)
+    if not dn.rows:
+        return {"kpi": [], "catatan": []}
+    nama, label = NAMA_JENIS[j], dn.y_label(year)
+    per = dn.per_dest(year)
+    total = sum(r["jumlah"] for r in per)
+    pilih = next((r for r in per if r["destinasi"] == dest), None) if dest != SEMUA_DESTINASI else None
+    semua = dest == SEMUA_DESTINASI
+    kpis = [
+        kpi(
+            f"Kunjungan {nama} · {label}",
+            pilih["jumlah"] if pilih else (total if semua else "—"),
+            f"{pilih['bulan']} bulan dilaporkan"
+            if pilih
+            else ("kunjungan" if semua else "tidak dilaporkan di tahun ini"),
+        )
+    ]
+    if pilih:
+        kpis += [
+            kpi(
+                "Porsi dari seluruh destinasi", f"{id_num(pilih['jumlah'] / total * 100, 1)}%" if total else "—", label
+            ),
+            kpi("Peringkat kunjungan", f"{per.index(pilih) + 1} dari {len(per)}", label),
+        ]
+    else:
+        kpis += [
+            kpi("Destinasi melapor", f"{len(per)} dari {len(dn.dest_list) + len(dn.tanpa_lapor)}", label),
+            kpi(
+                "Destinasi teramai",
+                per[0]["destinasi"] if per else "—",
+                f"{id_num(per[0]['jumlah'])} kunjungan" if per else None,
+            ),
+        ]
+    catatan = []
+    if dn.tanpa_lapor:
+        catatan.append(
+            f"Tidak melaporkan kunjungan {nama}: {', '.join(dn.tanpa_lapor)}. "
+            "Total di atas tidak memuat destinasi tersebut."
+        )
+    if tukar := dn.tertukar(year):
+        daftar = "; ".join(
+            f"{x['destinasi']} {label_bulan(x['periode'])} (nusantara {id_num(x['wn'])}, mancanegara {id_num(x['wm'])})"
+            for x in tukar
+        )
+        catatan.append(
+            "Catatan data: angka nusantara dan mancanegara diduga tertukar di sumber untuk "
+            f"{daftar}. Angka ditampilkan apa adanya sesuai Satu Data Jakarta."
+        )
+    return {"kpi": kpis, "catatan": catatan}
+
+
+def destinasi_per_destinasi(m: Muat, jenis: str, tahun: str | None) -> dict[str, Any]:
+    j = _jenis(jenis)
+    (rows,) = m.ambil("kunjungan_destinasi")
+    dn = _Destinasi(rows, j)
+    year, _ = _destinasi_pilihan(dn, tahun, None)
+    if not year:
+        return {"label": "", "items": []}
+    per = dn.per_dest(year)
+    total = sum(r["jumlah"] for r in per)
+    return {
+        "label": dn.y_label(year),
+        "items": [{**r, "persen": _satu_desimal(r["jumlah"] / total * 100) if total else None} for r in per],
+    }
+
+
+def destinasi_bulanan(m: Muat, jenis: str, destinasi: str | None) -> dict[str, Any]:
+    j = _jenis(jenis)
+    (rows,) = m.ambil("kunjungan_destinasi")
+    dn = _Destinasi(rows, j)
+    _, dest = _destinasi_pilihan(dn, None, destinasi)
+    seri: dict[str, int | float] = {}
+    for r in dn.rows:
+        if dest == SEMUA_DESTINASI or r["destinasi"] == dest:
+            seri[r["periode"]] = seri.get(r["periode"], 0) + r["jumlah"]
+    return {"items": [{"label": p, "value": v} for p, v in sorted(seri.items())]}
 
 
 # ── tenaga kerja (tenaga-kerja/page.tsx, TkSubsektor) ─────────────────────────

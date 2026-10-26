@@ -111,6 +111,10 @@ Catatan:
 | `GET /v1/dashboard/wisnus/per-kota?tahun` | P | sama | B §4.5 (3) |
 | `GET /v1/dashboard/wisnus/bulanan?kota` | P | sama | B §4.5 (4) |
 | `GET /v1/dashboard/wisnus/yoy?kota` | P | sama | B §4.5 (5) |
+| `GET /v1/dashboard/destinasi/meta?jenis` | T | `silver.jumlah_kunjungan_wisatawan_ke_obyek_wisata_menurut_lokasi_…` | `DestinasiStat` @ 61c2afd (halaman wisnus dan wisman) |
+| `GET /v1/dashboard/destinasi/ringkasan?jenis&tahun&destinasi` | P | sama | sama: KPI + catatan |
+| `GET /v1/dashboard/destinasi/per-destinasi?jenis&tahun` | P | sama | sama: grafik peringkat + tabel rincian |
+| `GET /v1/dashboard/destinasi/bulanan?jenis&destinasi` | P | sama | sama: deret bulanan |
 | `GET /v1/dashboard/tenaga-kerja/dki` | T | `silver.tenaga_kerja_ekraf_per_provinsi` | B §5.3 (1) |
 | `GET /v1/dashboard/tenaga-kerja/subsektor?tahun` | P | `silver.tenaga_kerja_ekraf_per_subsektor_nasional` | B §5.3 (2) |
 | `GET /v1/dashboard/tenaga-kerja/sertifikasi` | T | 2 view sertifikasi, UNION | B §5.3 (3) |

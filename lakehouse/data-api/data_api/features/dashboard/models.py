@@ -157,6 +157,38 @@ class PerKota(BaseModel):
     items: list[Titik]
 
 
+class TahunOpsi(BaseModel):
+    value: str
+    label: str
+
+
+class DestinasiMeta(BaseModel):
+    tahun: list[TahunOpsi]
+    tahun_default: str | None
+    destinasi: list[str]
+
+
+class DestinasiIkhtisar(BaseModel):
+    kpi: list[Kpi]
+    catatan: list[str]
+
+
+class DestinasiItem(BaseModel):
+    destinasi: str
+    jumlah: Angka
+    persen: float | None
+    bulan: int
+
+
+class DestinasiPerDestinasi(BaseModel):
+    label: str
+    items: list[DestinasiItem]
+
+
+class DestinasiBulanan(BaseModel):
+    items: list[Titik]
+
+
 class WisnusYoy(BaseModel):
     kategori: list[str]
     seri: list[Seri]

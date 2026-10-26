@@ -2176,6 +2176,417 @@ paths:
           $ref: '#/components/responses/E401'
         '503':
           $ref: '#/components/responses/E503'
+  /v1/dashboard/destinasi/meta:
+    get:
+      operationId: destinasiMeta
+      tags:
+      - dashboard
+      summary: Pilihan tahun dan destinasi kunjungan obyek wisata
+      parameters:
+      - $ref: '#/components/parameters/XRequestId'
+      - name: jenis
+        in: query
+        required: true
+        schema:
+          type: string
+          enum:
+          - wisnus
+          - wisman
+        description: 'Jenis wisatawan: halaman wisnus memakai `wisnus`, halaman wisman `wisman`.'
+      security:
+      - bearer: []
+      x-kelas: T
+      x-sumber:
+      - silver.jumlah_kunjungan_wisatawan_ke_obyek_wisata_menurut_lokasi_di_provinsi_dki_jakarta
+      x-catatan:
+      - Bentuk dan contoh = golden live (`scripts/portal-golden/live.ts`), keluaran `DestinasiStat` yang tayang (platform-v2
+        @ 61c2afd).
+      - '`tahun[].label` = label tombol tahun (tahun parsial ditandai `(s/d <bulan>)`).'
+      - '`destinasi` hanya destinasi yang pernah melaporkan jenis ini.'
+      - 'Q21 (ditiru): bila query ClickHouse gagal, respons tetap 200 dengan data kosong dan `meta.peringatan`, bukan 5xx (Next.js
+        `safe()` menelan error dan menampilkan "Tidak ada data.").'
+      responses:
+        '200':
+          description: OK
+          headers:
+            X-Request-Id:
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                - data
+                - meta
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      tahun:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            value:
+                              type: string
+                            label:
+                              type: string
+                          required:
+                          - value
+                          - label
+                      tahun_default:
+                        type:
+                        - string
+                        - 'null'
+                      destinasi:
+                        type: array
+                        items:
+                          type: string
+                    required:
+                    - tahun
+                    - tahun_default
+                    - destinasi
+                  meta:
+                    $ref: '#/components/schemas/Meta'
+              example:
+                data:
+                  tahun:
+                  - value: '2025'
+                    label: '2025'
+                  - value: '2026'
+                    label: 2026 (s/d Agu)
+                  tahun_default: '2025'
+                  destinasi:
+                  - Kawasan Kota Tua
+                  - Kepulauan Seribu
+                  - Monumen Nasional
+                meta:
+                  generated_at: '2026-10-26T22:00:00+07:00'
+                  source:
+                  - silver.jumlah_kunjungan_wisatawan_ke_obyek_wisata_menurut_lokasi_di_provinsi_dki_jakarta
+                  request_id: contoh-01
+        '400':
+          $ref: '#/components/responses/E400'
+        '401':
+          $ref: '#/components/responses/E401'
+        '503':
+          $ref: '#/components/responses/E503'
+  /v1/dashboard/destinasi/ringkasan:
+    get:
+      operationId: destinasiRingkasan
+      tags:
+      - dashboard
+      summary: KPI dan catatan kunjungan obyek wisata
+      parameters:
+      - $ref: '#/components/parameters/XRequestId'
+      - name: jenis
+        in: query
+        required: true
+        schema:
+          type: string
+          enum:
+          - wisnus
+          - wisman
+        description: 'Jenis wisatawan: halaman wisnus memakai `wisnus`, halaman wisman `wisman`.'
+      - name: tahun
+        in: query
+        required: false
+        schema:
+          type: string
+          pattern: ^[0-9]{4}$
+        description: 'Bawaan: tahun lengkap (12 bulan) terakhir; bila tidak ada, tahun terakhir.'
+      - name: destinasi
+        in: query
+        required: false
+        schema:
+          type: string
+        description: Nama destinasi persis seperti di `destinasi/meta`; bawaan `Semua destinasi`.
+      security:
+      - bearer: []
+      x-kelas: P
+      x-sumber:
+      - silver.jumlah_kunjungan_wisatawan_ke_obyek_wisata_menurut_lokasi_di_provinsi_dki_jakarta
+      x-catatan:
+      - Bentuk dan contoh = golden live (`scripts/portal-golden/live.ts`), keluaran `DestinasiStat` yang tayang (platform-v2
+        @ 61c2afd).
+      - '`kpi` = props KPI persis seperti dikirim komponen (teks sudah diformat id-ID): total, destinasi melapor, dan destinasi
+        teramai; bila satu destinasi dipilih: total, porsi, dan peringkat.'
+      - '`catatan` = paragraf di bawah KPI: destinasi yang tidak melaporkan jenis ini, dan bulan yang angkanya diduga tertukar
+        di sumber (wisman > wisnus di destinasi yang biasanya didominasi wisnus).'
+      - 'Q21 (ditiru): bila query ClickHouse gagal, respons tetap 200 dengan data kosong dan `meta.peringatan`, bukan 5xx (Next.js
+        `safe()` menelan error dan menampilkan "Tidak ada data.").'
+      responses:
+        '200':
+          description: OK
+          headers:
+            X-Request-Id:
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                - data
+                - meta
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      kpi:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            label:
+                              type: string
+                            value:
+                              type:
+                              - integer
+                              - number
+                              - string
+                            sub:
+                              type:
+                              - string
+                              - 'null'
+                          required:
+                          - label
+                          - value
+                          - sub
+                      catatan:
+                        type: array
+                        items:
+                          type: string
+                    required:
+                    - kpi
+                    - catatan
+                  meta:
+                    $ref: '#/components/schemas/Meta'
+              example:
+                data:
+                  kpi:
+                  - label: Kunjungan wisatawan mancanegara · 2025
+                    value: 636235
+                    sub: kunjungan
+                  - label: Destinasi melapor
+                    value: 21 dari 29
+                    sub: '2025'
+                  - label: Destinasi teramai
+                    value: Monumen Nasional
+                    sub: 426.241 kunjungan
+                  catatan:
+                  - 'Tidak melaporkan kunjungan wisatawan mancanegara: Museum Satria Mandala, Old Shanghai, Pos Bloc, Ruang
+                    Terbuka Hijau Tebet Eco Park, Taman Impian Jaya Ancol, Taman Lapangan Banteng, Taman Mini Indonesia Indah.
+                    Total di atas tidak memuat destinasi tersebut.'
+                  - 'Catatan data: angka nusantara dan mancanegara diduga tertukar di sumber untuk Monumen Nasional Jan 2025
+                    (nusantara 5.372, mancanegara 360.209). Angka ditampilkan apa adanya sesuai Satu Data Jakarta.'
+                meta:
+                  generated_at: '2026-10-26T22:00:00+07:00'
+                  source:
+                  - silver.jumlah_kunjungan_wisatawan_ke_obyek_wisata_menurut_lokasi_di_provinsi_dki_jakarta
+                  request_id: contoh-01
+        '400':
+          $ref: '#/components/responses/E400'
+        '401':
+          $ref: '#/components/responses/E401'
+        '503':
+          $ref: '#/components/responses/E503'
+  /v1/dashboard/destinasi/per-destinasi:
+    get:
+      operationId: destinasiPerDestinasi
+      tags:
+      - dashboard
+      summary: Kunjungan per destinasi untuk satu tahun
+      parameters:
+      - $ref: '#/components/parameters/XRequestId'
+      - name: jenis
+        in: query
+        required: true
+        schema:
+          type: string
+          enum:
+          - wisnus
+          - wisman
+        description: 'Jenis wisatawan: halaman wisnus memakai `wisnus`, halaman wisman `wisman`.'
+      - name: tahun
+        in: query
+        required: false
+        schema:
+          type: string
+          pattern: ^[0-9]{4}$
+        description: 'Bawaan: tahun lengkap (12 bulan) terakhir; bila tidak ada, tahun terakhir.'
+      security:
+      - bearer: []
+      x-kelas: P
+      x-sumber:
+      - silver.jumlah_kunjungan_wisatawan_ke_obyek_wisata_menurut_lokasi_di_provinsi_dki_jakarta
+      x-catatan:
+      - Bentuk dan contoh = golden live (`scripts/portal-golden/live.ts`), keluaran `DestinasiStat` yang tayang (platform-v2
+        @ 61c2afd).
+      - Urut jumlah terbesar; hanya destinasi yang melaporkan di tahun itu. Satu respons melayani grafik peringkat dan tabel
+        rincian.
+      - '`persen` = porsi dari total tahun itu, 1 desimal (null bila total 0); `bulan` = banyak bulan yang dilaporkan.'
+      - 'Q21 (ditiru): bila query ClickHouse gagal, respons tetap 200 dengan data kosong dan `meta.peringatan`, bukan 5xx (Next.js
+        `safe()` menelan error dan menampilkan "Tidak ada data.").'
+      responses:
+        '200':
+          description: OK
+          headers:
+            X-Request-Id:
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                - data
+                - meta
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      label:
+                        type: string
+                      items:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            destinasi:
+                              type: string
+                            jumlah:
+                              type:
+                              - integer
+                              - number
+                            persen:
+                              type:
+                              - number
+                              - 'null'
+                            bulan:
+                              type: integer
+                          required:
+                          - destinasi
+                          - jumlah
+                          - persen
+                          - bulan
+                    required:
+                    - label
+                    - items
+                  meta:
+                    $ref: '#/components/schemas/Meta'
+              example:
+                data:
+                  label: '2025'
+                  items:
+                  - destinasi: Monumen Nasional
+                    jumlah: 426241
+                    persen: 67
+                    bulan: 12
+                  - destinasi: Kawasan Kota Tua
+                    jumlah: 78171
+                    persen: 12.3
+                    bulan: 12
+                meta:
+                  generated_at: '2026-10-26T22:00:00+07:00'
+                  source:
+                  - silver.jumlah_kunjungan_wisatawan_ke_obyek_wisata_menurut_lokasi_di_provinsi_dki_jakarta
+                  request_id: contoh-01
+        '400':
+          $ref: '#/components/responses/E400'
+        '401':
+          $ref: '#/components/responses/E401'
+        '503':
+          $ref: '#/components/responses/E503'
+  /v1/dashboard/destinasi/bulanan:
+    get:
+      operationId: destinasiBulanan
+      tags:
+      - dashboard
+      summary: Kunjungan bulanan semua destinasi atau satu destinasi
+      parameters:
+      - $ref: '#/components/parameters/XRequestId'
+      - name: jenis
+        in: query
+        required: true
+        schema:
+          type: string
+          enum:
+          - wisnus
+          - wisman
+        description: 'Jenis wisatawan: halaman wisnus memakai `wisnus`, halaman wisman `wisman`.'
+      - name: destinasi
+        in: query
+        required: false
+        schema:
+          type: string
+        description: Nama destinasi persis seperti di `destinasi/meta`; bawaan `Semua destinasi`.
+      security:
+      - bearer: []
+      x-kelas: P
+      x-sumber:
+      - silver.jumlah_kunjungan_wisatawan_ke_obyek_wisata_menurut_lokasi_di_provinsi_dki_jakarta
+      x-catatan:
+      - Bentuk dan contoh = golden live (`scripts/portal-golden/live.ts`), keluaran `DestinasiStat` yang tayang (platform-v2
+        @ 61c2afd).
+      - '`label` = periode `YYYY-MM`; bulan yang tidak dilaporkan tidak ada di deret (bukan nol).'
+      - 'Q21 (ditiru): bila query ClickHouse gagal, respons tetap 200 dengan data kosong dan `meta.peringatan`, bukan 5xx (Next.js
+        `safe()` menelan error dan menampilkan "Tidak ada data.").'
+      responses:
+        '200':
+          description: OK
+          headers:
+            X-Request-Id:
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                - data
+                - meta
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      items:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            label:
+                              type: string
+                            value:
+                              type:
+                              - integer
+                              - number
+                          required:
+                          - label
+                          - value
+                    required:
+                    - items
+                  meta:
+                    $ref: '#/components/schemas/Meta'
+              example:
+                data:
+                  items:
+                  - label: 2025-01
+                    value: 738
+                  - label: 2025-02
+                    value: 1032
+                meta:
+                  generated_at: '2026-10-26T22:00:00+07:00'
+                  source:
+                  - silver.jumlah_kunjungan_wisatawan_ke_obyek_wisata_menurut_lokasi_di_provinsi_dki_jakarta
+                  request_id: contoh-01
+        '400':
+          $ref: '#/components/responses/E400'
+        '401':
+          $ref: '#/components/responses/E401'
+        '503':
+          $ref: '#/components/responses/E503'
   /v1/dashboard/tenaga-kerja/dki:
     get:
       operationId: tkDki

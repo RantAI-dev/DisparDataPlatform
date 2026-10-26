@@ -82,6 +82,17 @@ def wisnus_kota(k: Konteks) -> Baris:
     )
 
 
+def kunjungan_destinasi(k: Konteks) -> Baris:
+    # sum() mengabaikan NULL dan memberi 0; NULL dipertahankan bila tak satu pun nilai dilaporkan.
+    return k.q(
+        """SELECT formatDateTime(periode_data, '%Y-%m') AS periode, obyek_wisata AS destinasi, jenis_wisatawan AS jenis,
+              if(count(jumlah_kunjungan) = 0, NULL, toString(sum(jumlah_kunjungan))) AS jumlah
+       FROM silver.jumlah_kunjungan_wisatawan_ke_obyek_wisata_menurut_lokasi_di_provinsi_dki_jakarta
+       WHERE periode_data IS NOT NULL AND obyek_wisata IS NOT NULL AND jenis_wisatawan IS NOT NULL
+       GROUP BY periode, destinasi, jenis ORDER BY periode, destinasi"""
+    )
+
+
 def pintu_bulanan(k: Konteks) -> Baris:
     return k.q(
         """SELECT formatDateTime(periode, '%Y-%m') AS periode, pintu_masuk AS pintu, toString(sum(jumlah_kunjungan)) AS jumlah

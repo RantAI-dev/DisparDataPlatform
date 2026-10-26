@@ -21,6 +21,7 @@ LOS = (
     "_pada_hotel_berbintang_di_provinsi_dki_jakarta"
 )
 WISNUS = "silver.wisnus_perjalanan_per_kota_tujuan"
+DESTINASI = "silver.jumlah_kunjungan_wisatawan_ke_obyek_wisata_menurut_lokasi_di_provinsi_dki_jakarta"
 PDRB_MAKRO = ["lake.bronze_file.pdrb_ekraf_makro", "lake.bronze_file.target_kontribusi_ekraf_rpjmd"]
 PDRB_SUB = ["lake.bronze_file.pdrb_ekraf_subsektor"]
 
@@ -126,6 +127,34 @@ def wisnus_bulanan(k: KonteksDep, kota: str | None = None):
 def wisnus_yoy(k: KonteksDep, kota: str | None = None):
     m = Muat(k)
     return _jawab(k, m, service.wisnus_yoy(m, kota), [WISNUS])
+
+
+@router.get("/destinasi/meta", response_model=Amplop[models.DestinasiMeta], response_model_exclude_unset=True)
+def destinasi_meta(k: KonteksDep, jenis: str):
+    m = Muat(k)
+    return _jawab(k, m, service.destinasi_meta(m, jenis), [DESTINASI])
+
+
+@router.get("/destinasi/ringkasan", response_model=Amplop[models.DestinasiIkhtisar], response_model_exclude_unset=True)
+def destinasi_ringkasan(k: KonteksDep, jenis: str, tahun: str | None = None, destinasi: str | None = None):
+    m = Muat(k)
+    return _jawab(k, m, service.destinasi_ringkasan(m, jenis, tahun, destinasi), [DESTINASI])
+
+
+@router.get(
+    "/destinasi/per-destinasi",
+    response_model=Amplop[models.DestinasiPerDestinasi],
+    response_model_exclude_unset=True,
+)
+def destinasi_per_destinasi(k: KonteksDep, jenis: str, tahun: str | None = None):
+    m = Muat(k)
+    return _jawab(k, m, service.destinasi_per_destinasi(m, jenis, tahun), [DESTINASI])
+
+
+@router.get("/destinasi/bulanan", response_model=Amplop[models.DestinasiBulanan], response_model_exclude_unset=True)
+def destinasi_bulanan(k: KonteksDep, jenis: str, destinasi: str | None = None):
+    m = Muat(k)
+    return _jawab(k, m, service.destinasi_bulanan(m, jenis, destinasi), [DESTINASI])
 
 
 @router.get("/tenaga-kerja/dki", response_model=Amplop[models.TenagaKerjaDki], response_model_exclude_unset=True)

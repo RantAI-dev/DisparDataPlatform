@@ -47,7 +47,31 @@ def mentah_bawaan() -> dict[str, list[dict]]:
         for b in bulan:
             for kota, dasar in (("Jakarta Pusat", 10), ("Jakarta Selatan", 20)):
                 wisnus.append({"periode": f"{tahun}-{b:02d}", "kota": kota, "jumlah": str(dasar * (tahun - 2023) + b)})
+    # Kunjungan destinasi: A melapor keduanya; B hanya wisnus (wisman tak pernah dilaporkan);
+    # C wisnus dengan satu bulan kosong (NULL). Monas Jan 2025 meniru angka tertukar di sumber.
+    destinasi = []
+    for tahun, bulan in ((2025, range(1, 13)), (2026, range(1, 4))):
+        for b in bulan:
+            p = f"{tahun}-{b:02d}"
+            wn_a, wm_a = (50, 9000) if p == "2025-01" else (9000 + b, 50 + b)
+            destinasi += [
+                {"periode": p, "destinasi": "MONUMEN NASIONAL", "jenis": "WISATAWAN NUSANTARA", "jumlah": str(wn_a)},
+                {"periode": p, "destinasi": "MONUMEN NASIONAL", "jenis": "WISATAWAN MANCANEGARA", "jumlah": str(wm_a)},
+                {
+                    "periode": p,
+                    "destinasi": "TAMAN MINI INDONESIA INDAH",
+                    "jenis": "WISATAWAN NUSANTARA",
+                    "jumlah": str(500 * b),
+                },
+                {
+                    "periode": p,
+                    "destinasi": "MUSEUM JOANG '45",
+                    "jenis": "WISATAWAN NUSANTARA",
+                    "jumlah": None if (tahun, b) == (2025, 6) else str(10 * b),
+                },
+            ]
     return {
+        "kunjungan_destinasi": destinasi,
         "wisman_bulanan": bulanan,
         "wisman_negara": negara,
         "wisman_pintu": pintu,
