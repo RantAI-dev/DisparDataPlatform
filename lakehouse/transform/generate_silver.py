@@ -38,6 +38,10 @@ AUDIT = ("_ingested_at", "_source_url", "_batch_id", "_row_hash", "_tenant")
 # supaya tidak bisa dijumlah/dirata-rata dan nol di depan (KBLI 01111) tidak hilang.
 KOLOM_TEKS = {"kbli"}
 
+# Kolom lintang/bujur: titik selalu desimal (koordinat_id). angka_id akan membaca
+# '-6.033' sebagai -6033 karena polanya sama dengan ribuan format Indonesia.
+KOLOM_KOORDINAT = {"lat", "lon", "lng", "latitude", "longitude"}
+
 
 def client():
     return clickhouse_connect.get_client(
@@ -71,6 +75,8 @@ def tebak_tipe(ch, src_ref, kolom) -> tuple[str, float]:
     tipe ∈ {'angka', 'tanggal', 'teks'}.
     """
     col = f"`{kolom}`"
+    # Ukur dengan fungsi yang sama dengan yang dipakai view (lihat KOLOM_KOORDINAT).
+    konversi = "koordinat_id" if kolom in KOLOM_KOORDINAT else "angka_id"
     # Sampel SAMPEL baris cukup untuk deteksi tipe pada ambang 95% — jauh lebih
     # cepat daripada men-scan Parquet penuh dari object storage per kolom.
     # tgl_struktural = tanggal yang PUNYA struktur tanggal: ada pemisah (-,/),
@@ -81,7 +87,7 @@ def tebak_tipe(ch, src_ref, kolom) -> tuple[str, float]:
     q = f"""
         SELECT
             countIf(bersih_teks({col}) IS NOT NULL) AS non_kosong,
-            countIf(angka_id({col}) IS NOT NULL) AS bisa_angka,
+            countIf({konversi}({col}) IS NOT NULL) AS bisa_angka,
             countIf(tanggal_id({col}) IS NOT NULL) AS bisa_tanggal,
             countIf(tanggal_id({col}) IS NOT NULL AND (
                 match(bersih_teks({col}), '[-/]')
@@ -155,7 +161,8 @@ def generate_silver() -> int:
             if c in KOLOM_BUANG:
                 continue
             tipe, rasio = ("teks", 0.0) if c in KOLOM_TEKS else tebak_tipe(ch, src_ref, c)
-            proyeksi.append(f"{EKSPR[tipe](c)} AS `{c}`")
+            ekspr = f"koordinat_id(`{c}`)" if tipe == "angka" and c in KOLOM_KOORDINAT else EKSPR[tipe](c)
+            proyeksi.append(f"{ekspr} AS `{c}`")
             meta_rows.append([tbl, c, tipe, round(rasio, 4), 1 if tipe != "teks" else 0])
 
         if not proyeksi:
