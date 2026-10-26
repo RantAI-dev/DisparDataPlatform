@@ -123,6 +123,16 @@ export function secondaryDatasets(): SecondaryDataset[] {
       external: false,
     },
     {
+      id: "sec-lokasi-syuting-film",
+      title: "Lokasi Syuting Film di DKI Jakarta",
+      description:
+        "116 pasangan film–lokasi syuting dari 75 film layar lebar (1957–2025, nasional dan internasional) di 92 lokasi DKI Jakarta. Kurasi riset publik: setiap baris menyertakan URL sumber dan kutipan bukti (92 sumber terverifikasi otomatis). Koordinat dari OpenStreetMap; titik perkiraan atau area ditandai review.",
+      tags: ["film", "lokasi-syuting", "perfilman", "ekraf", "pariwisata-film", "jakarta", "kurasi-riset", "sekunder"],
+      rows: 116,
+      href: "/sdi/lokasi-syuting-film-jakarta",
+      external: false,
+    },
+    {
       id: "sec-penerbangan-langsung-internasional",
       title: "Penerbangan Langsung Internasional ke Jakarta (rute nonstop CGK)",
       description:
