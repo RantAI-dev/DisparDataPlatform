@@ -5328,13 +5328,13 @@
      }
     ],
     "source": "curated",
-    "lat": -5.7129,
-    "lng": 106.5165,
+    "lat": -5.59859,
+    "lng": 106.54925,
     "osm_id": null,
     "phone": null,
     "website": null,
-    "maps_url": "https://www.google.com/maps/search/?api=1&query=-5.7129,106.5165",
-    "embed_url": "https://www.google.com/maps?q=-5.7129,106.5165&hl=en&z=17&output=embed"
+    "maps_url": "https://www.google.com/maps/search/?api=1&query=-5.59859,106.54925",
+    "embed_url": "https://www.google.com/maps?q=-5.59859,106.54925&hl=en&z=17&output=embed"
    },
    {
     "id": "pulau-bidadari",
@@ -5362,13 +5362,13 @@
      }
     ],
     "source": "curated",
-    "lat": -6.0392,
-    "lng": 106.7402,
+    "lat": -6.0357,
+    "lng": 106.74682,
     "osm_id": null,
     "phone": null,
     "website": null,
-    "maps_url": "https://www.google.com/maps/search/?api=1&query=-6.0392,106.7402",
-    "embed_url": "https://www.google.com/maps?q=-6.0392,106.7402&hl=en&z=17&output=embed"
+    "maps_url": "https://www.google.com/maps/search/?api=1&query=-6.0357,106.74682",
+    "embed_url": "https://www.google.com/maps?q=-6.0357,106.74682&hl=en&z=17&output=embed"
    },
    {
     "id": "pulau-putri",
@@ -5396,13 +5396,13 @@
      }
     ],
     "source": "curated",
-    "lat": -5.5874,
-    "lng": 106.5512,
+    "lat": -5.59432,
+    "lng": 106.55964,
     "osm_id": null,
     "phone": null,
     "website": null,
-    "maps_url": "https://www.google.com/maps/search/?api=1&query=-5.5874,106.5512",
-    "embed_url": "https://www.google.com/maps?q=-5.5874,106.5512&hl=en&z=17&output=embed"
+    "maps_url": "https://www.google.com/maps/search/?api=1&query=-5.59432,106.55964",
+    "embed_url": "https://www.google.com/maps?q=-5.59432,106.55964&hl=en&z=17&output=embed"
    },
    {
     "id": "pulau-ayer",
@@ -5430,13 +5430,13 @@
      }
     ],
     "source": "curated",
-    "lat": -6.0277,
-    "lng": 106.7444,
+    "lat": -6.00398,
+    "lng": 106.78124,
     "osm_id": null,
     "phone": null,
     "website": null,
-    "maps_url": "https://www.google.com/maps/search/?api=1&query=-6.0277,106.7444",
-    "embed_url": "https://www.google.com/maps?q=-6.0277,106.7444&hl=en&z=17&output=embed"
+    "maps_url": "https://www.google.com/maps/search/?api=1&query=-6.00398,106.78124",
+    "embed_url": "https://www.google.com/maps?q=-6.00398,106.78124&hl=en&z=17&output=embed"
    },
    {
     "id": "pulau-sepa",
@@ -5464,13 +5464,13 @@
      }
     ],
     "source": "curated",
-    "lat": -5.5772,
-    "lng": 106.5709,
+    "lat": -5.57613,
+    "lng": 106.58073,
     "osm_id": null,
     "phone": null,
     "website": null,
-    "maps_url": "https://www.google.com/maps/search/?api=1&query=-5.5772,106.5709",
-    "embed_url": "https://www.google.com/maps?q=-5.5772,106.5709&hl=en&z=17&output=embed"
+    "maps_url": "https://www.google.com/maps/search/?api=1&query=-5.57613,106.58073",
+    "embed_url": "https://www.google.com/maps?q=-5.57613,106.58073&hl=en&z=17&output=embed"
    },
    {
     "id": "pulau-pelangi",
@@ -5498,13 +5498,13 @@
      }
     ],
     "source": "curated",
-    "lat": -5.6463,
-    "lng": 106.5728,
+    "lat": -5.58603,
+    "lng": 106.59055,
     "osm_id": null,
     "phone": null,
     "website": null,
-    "maps_url": "https://www.google.com/maps/search/?api=1&query=-5.6463,106.5728",
-    "embed_url": "https://www.google.com/maps?q=-5.6463,106.5728&hl=en&z=17&output=embed"
+    "maps_url": "https://www.google.com/maps/search/?api=1&query=-5.58603,106.59055",
+    "embed_url": "https://www.google.com/maps?q=-5.58603,106.59055&hl=en&z=17&output=embed"
    },
    {
     "id": "pulau-pantara",
@@ -5532,13 +5532,13 @@
      }
     ],
     "source": "curated",
-    "lat": -5.6519,
-    "lng": 106.5926,
+    "lat": -5.5298,
+    "lng": 106.54177,
     "osm_id": null,
     "phone": null,
     "website": null,
-    "maps_url": "https://www.google.com/maps/search/?api=1&query=-5.6519,106.5926",
-    "embed_url": "https://www.google.com/maps?q=-5.6519,106.5926&hl=en&z=17&output=embed"
+    "maps_url": "https://www.google.com/maps/search/?api=1&query=-5.5298,106.54177",
+    "embed_url": "https://www.google.com/maps?q=-5.5298,106.54177&hl=en&z=17&output=embed"
    },
    {
     "id": "pulau-kotok",
@@ -5566,13 +5566,13 @@
      }
     ],
     "source": "curated",
-    "lat": -5.7113,
-    "lng": 106.5478,
+    "lat": -5.70059,
+    "lng": 106.53867,
     "osm_id": null,
     "phone": null,
     "website": null,
-    "maps_url": "https://www.google.com/maps/search/?api=1&query=-5.7113,106.5478",
-    "embed_url": "https://www.google.com/maps?q=-5.7113,106.5478&hl=en&z=17&output=embed"
+    "maps_url": "https://www.google.com/maps/search/?api=1&query=-5.70059,106.53867",
+    "embed_url": "https://www.google.com/maps?q=-5.70059,106.53867&hl=en&z=17&output=embed"
    },
    {
     "id": "yialos",

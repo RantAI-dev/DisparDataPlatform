@@ -10,7 +10,7 @@
    },
    {
     "label": "Baris pendataan lapangan",
-    "nilai": "19.428"
+    "nilai": "19.544"
    },
    {
     "label": "Indikator GCI · GPCI dipantau",
@@ -24,7 +24,7 @@
   "kartu": [
    {
     "judul": "Katalog Data",
-    "stat": "182 + 44 dataset"
+    "stat": "182 + 45 dataset"
    },
    {
     "judul": "GCI",
@@ -36,7 +36,7 @@
    },
    {
     "judul": "Spatial",
-    "stat": "19.428 baris"
+    "stat": "19.544 baris"
    }
   ]
  }
