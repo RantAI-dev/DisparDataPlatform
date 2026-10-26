@@ -359,11 +359,12 @@
  },
  "25604": {
   "found": true,
-  "lat": -5.6529942,
-  "lon": 106.5775729,
-  "source": "nominatim",
-  "query": "AL-HIDAYAH, Kepulauan Seribu Utara, Kabupaten Administrasi Kepulauan Seribu, DKI Jakarta",
-  "checkedAt": "2026-08-31T16:31:05.440Z"
+  "lat": -5.7396829,
+  "lon": 106.6022891,
+  "source": "koreksi-osm",
+  "query": "pusat Kel. Pulau Panggang (OSM; Pulau Panggang belum punya poligon pulau) (alamat SIMAS: Pulau Panggang)",
+  "checkedAt": "2026-10-26T00:00:00.000Z",
+  "catatan": "Nominatim sebelumnya mencocokkan masjid bernama sama di pulau lain (-5.6529942, 106.5775729)"
  },
  "25615": {
   "found": true,
@@ -743,11 +744,12 @@
  },
  "69638": {
   "found": true,
-  "lat": -5.857389,
-  "lon": 106.6169858,
-  "source": "nominatim",
-  "query": "AL-IKHLAS, Kepulauan Seribu Selatan, Kabupaten Administrasi Kepulauan Seribu, DKI Jakarta",
-  "checkedAt": "2026-08-31T16:29:38.708Z"
+  "lat": -5.82157,
+  "lon": 106.55435,
+  "source": "koreksi-osm",
+  "query": "Pulau Payung Besar way/157522076 (alamat SIMAS: Pulau Payung, Kel. Pulau Tidung)",
+  "checkedAt": "2026-10-26T00:00:00.000Z",
+  "catatan": "Nominatim sebelumnya mencocokkan masjid bernama sama di pulau lain (-5.857389, 106.6169858)"
  },
  "69639": {
   "found": false,
@@ -6274,11 +6276,12 @@
  },
  "288403": {
   "found": true,
-  "lat": -5.7383062,
-  "lon": 106.6018227,
-  "source": "nominatim",
-  "query": "ANNI''MAH, Kepulauan Seribu Utara, Kabupaten Administrasi Kepulauan Seribu, DKI Jakarta",
-  "checkedAt": "2026-08-31T15:58:56.995Z"
+  "lat": -5.65313,
+  "lon": 106.57822,
+  "source": "koreksi-osm",
+  "query": "Pulau Harapan way/156132056 (alamat SIMAS: Pulau Harapan, Kel. Pulau Harapan)",
+  "checkedAt": "2026-10-26T00:00:00.000Z",
+  "catatan": "Nominatim sebelumnya mencocokkan masjid bernama sama di pulau lain (-5.7383062, 106.6018227)"
  },
  "288912": {
   "found": false,
@@ -8350,11 +8353,12 @@
  },
  "399181": {
   "found": true,
-  "lat": -5.857389,
-  "lon": 106.6169858,
-  "source": "nominatim",
-  "query": "AL- IKHLAS, Kepulauan Seribu Selatan, Kabupaten Administrasi Kepulauan Seribu, DKI Jakarta",
-  "checkedAt": "2026-08-31T16:34:56.865Z"
+  "lat": -5.79718,
+  "lon": 106.49409,
+  "source": "koreksi-osm",
+  "query": "Pulau Tidung Besar way/157522067 (alamat SIMAS: Jl. KP Baru, Pulau Tidung)",
+  "checkedAt": "2026-10-26T00:00:00.000Z",
+  "catatan": "Nominatim sebelumnya mencocokkan masjid bernama sama di pulau lain (-5.857389, 106.6169858)"
  },
  "399200": {
   "found": true,
