@@ -15,7 +15,7 @@ data_api/
   main.py              app, request id, log JSON, bentuk error, /v1/health, /v1/admin/cache/flush
   shared/              klien CH, auth, cache, filter, halaman, hitungan, daftar indikator
     queries.py         SQL milik shared/
-    katalog_sekunder.toml  44 entri katalog sekunder (teks app, baris dari lake)
+    katalog_sekunder.toml  45 entri katalog sekunder (teks app, baris dari lake)
   features/<fitur>/    router.py, service.py, queries.py (satu-satunya tempat SQL fitur)
 tests/
   unit/ contract/      gate default, ClickHouse palsu

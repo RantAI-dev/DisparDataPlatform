@@ -167,7 +167,7 @@ def _medallion_katalog(k: Konteks) -> dict[str, dict[str, str]]:
 
 
 def katalog(k: Konteks, tier: str, hal: Halaman) -> tuple[dict[str, Any], int]:
-    """Gabungan katalog seperti `CatalogView`: primer (lake) lalu 44 entri sekunder."""
+    """Gabungan katalog seperti `CatalogView`: primer (lake) lalu entri sekunder (`katalog_sekunder.toml`)."""
     primer = [r for r in _katalog_lake(k) if r["tier"] == "primer"]
     # `/api/sdi`: urut updated_at menurun (sort stabil; kosong paling akhir).
     primer.sort(key=lambda r: r["updated_at"] or "", reverse=True)
@@ -231,7 +231,9 @@ def katalog(k: Konteks, tier: str, hal: Halaman) -> tuple[dict[str, Any], int]:
 
 
 def _kolom_tampil(k: Konteks, slug: str) -> list[dict[str, Any]]:
-    """`displayColumns`: kolom SDI + kolom Silver yang tak terdaftar (`periode_data` paling depan)."""
+    """`displayColumns`: kolom SDI yang ada di Silver + kolom Silver yang tak terdaftar
+    (`periode_data` paling depan). Kolom metadata yang tak ada di Silver (mis. `id` yang dibuang
+    generator Silver) tidak ditampilkan karena isinya pasti kosong."""
 
     def buat() -> list[dict[str, Any]]:
         cols = [
@@ -246,7 +248,9 @@ def _kolom_tampil(k: Konteks, slug: str) -> list[dict[str, Any]]:
         dikenal = {c["key"] for c in cols}
         ekstra = [{"key": c, "desc": None, "type": None} for c in t[1] if c not in dikenal]
         return (
-            [c for c in ekstra if c["key"] == "periode_data"] + cols + [c for c in ekstra if c["key"] != "periode_data"]
+            [c for c in ekstra if c["key"] == "periode_data"]
+            + [c for c in cols if c["key"] in t[1]]
+            + [c for c in ekstra if c["key"] != "periode_data"]
         )
 
     return k.cache.ambil(("kolom", slug), k.konf.cache_ttl_default, buat)

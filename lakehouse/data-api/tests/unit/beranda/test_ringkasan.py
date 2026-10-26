@@ -8,7 +8,7 @@ def test_ringkasan(klien):
     assert r.status_code == 200
     assert r.json()["data"] == {
         "dataset_primer": 3,
-        "dataset_sekunder": 44,
+        "dataset_sekunder": 45,
         # 604 (sync) + 8.331 + 308 + 14 + 67 + 120 (bronze_file) + 2.577 + 604 (gabungan); slug lain 0 di data palsu
         "baris_sekunder": 604 + 8331 + 308 + 14 + 67 + 120 + 2577 + 604,
         "indikator": {"gci": 8, "gpci": 20, "total": 28},

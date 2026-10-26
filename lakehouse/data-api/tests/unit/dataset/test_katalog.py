@@ -1,4 +1,4 @@
-"""Katalog (E §4.2 butir 1): gabungan primer lake + 44 entri sekunder, medallion, urutan."""
+"""Katalog (E §4.2 butir 1): gabungan primer lake + 45 entri sekunder, medallion, urutan."""
 
 
 def test_katalog_semua(klien):
@@ -6,7 +6,7 @@ def test_katalog_semua(klien):
     assert r.status_code == 200
     d, meta = r.json()["data"], r.json()["meta"]
     items = d["items"]
-    assert meta["total"] == len(items) == 3 + 44
+    assert meta["total"] == len(items) == 3 + 45
     # primer diurut updated_at menurun, yang kosong paling akhir
     assert [i["id"] for i in items[:3]] == ["sdi-wisman", "sdi-event", "sdi-mentah"]
     w = items[0]
@@ -29,7 +29,7 @@ def test_katalog_semua(klien):
 
 def test_entri_sekunder_teks_app_baris_lake(klien):
     items = klien.get("/v1/katalog", params={"tier": "sekunder"}).json()["data"]["items"]
-    assert len(items) == 44 and all(i["tier"] == "sekunder" for i in items)
+    assert len(items) == 45 and all(i["tier"] == "sekunder" for i in items)
     neg = items[0]
     # teks dari katalog_sekunder.toml (salinan lib/secondary.ts), bukan teks lake
     assert neg["title"] == "Wisman DKI Jakarta per Negara (BPS dibersihkan)"
@@ -67,7 +67,7 @@ def test_stats_dan_layer(klien):
 def test_halaman_dan_tier_salah(klien):
     r = klien.get("/v1/katalog", params={"page": 2, "size": 10}).json()
     assert [i["id"] for i in r["data"]["items"]][0] == "sec-tk-ekraf-provinsi" or len(r["data"]["items"]) == 10
-    assert r["meta"]["total"] == 47
+    assert r["meta"]["total"] == 48
     e = klien.get("/v1/katalog", params={"tier": "lain"})
     assert e.status_code == 400 and e.json()["error"]["code"] == "INVALID_PARAM"
 

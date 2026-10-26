@@ -52,7 +52,12 @@ SYNC = {
     "wisman-jakarta-per-negara": {"total": "604", "sumber_data": "[]", "frekuensi": "", "satuan": ""},
 }
 KOLOM = {
-    "wisman": [("kebangsaan", "komponen", "varchar", "1"), ("jumlah", "nilai", "int", "2")],
+    # `id` terdaftar di metadata tetapi dibuang generator Silver: tidak boleh tampil.
+    "wisman": [
+        ("id", "ID", "varchar", "0"),
+        ("kebangsaan", "komponen", "varchar", "1"),
+        ("jumlah", "nilai", "int", "2"),
+    ],
     "event": [("nama_event", "komponen", "varchar", "1")],
     "mentah": [("a", "", "", "1")],
     "wisman-jakarta-per-negara": [("negara", "Negara", "string", "1")],
