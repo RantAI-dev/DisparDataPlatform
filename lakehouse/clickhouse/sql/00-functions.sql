@@ -20,6 +20,12 @@ CREATE OR REPLACE FUNCTION angka_id AS (s) ->
          bersih_teks(s)),
       ',', '.'));
 
+-- Koordinat (lintang/bujur): titik SELALU desimal, koma juga desimal. angka_id
+-- membaca '-6.033' sebagai -6033 karena polanya mirip ribuan; koordinat tidak
+-- pernah memakai pemisah ribuan. Nilai rusak ('-6.357.216.667') jadi NULL.
+CREATE OR REPLACE FUNCTION koordinat_id AS (s) ->
+  toFloat64OrNull(replaceAll(bersih_teks(s), ',', '.'));
+
 CREATE OR REPLACE FUNCTION bilangan_id AS (s) -> toInt64OrNull(toString(round(angka_id(s))));
 
 CREATE OR REPLACE FUNCTION bulan_id AS (b) ->

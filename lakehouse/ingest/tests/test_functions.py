@@ -56,6 +56,22 @@ def test_angka_id_kosong_jadi_null(ch, inp):
 
 
 @pytest.mark.parametrize("inp,expected", [
+    ("-6.033", -6.033),        # 3 desimal: angka_id membacanya -6033
+    ("106.733", 106.733),
+    ("-5.57613", -5.57613),
+    ("-6,2088", -6.2088),      # koma = desimal
+    (" 106.8456 ", 106.8456),
+])
+def test_koordinat_id_titik_desimal(ch, inp, expected):
+    assert _val(ch, f"koordinat_id('{inp}')") == pytest.approx(expected)
+
+
+@pytest.mark.parametrize("inp", ["", "-6.357.216.667", "abc"])
+def test_koordinat_id_rusak_jadi_null(ch, inp):
+    assert _val(ch, f"koordinat_id('{inp}')") is None
+
+
+@pytest.mark.parametrize("inp,expected", [
     ("2026-04-19 21:28:12", "2026-04-19"),
     ("2026-07", "2026-07-01"),
     ("31 DESEMBER 2025", "2025-12-31"),

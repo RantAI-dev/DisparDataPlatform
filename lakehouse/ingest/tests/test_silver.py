@@ -45,5 +45,36 @@ class KolomKodeTetapTeks(unittest.TestCase):
         self.assertIn(["usaha_berizin", "kbli", "teks", 0.0, 0], ch.meta)
 
 
+class KolomKoordinatTitikDesimal(unittest.TestCase):
+    def test_lat_lon_memakai_koordinat_id(self):
+        ch = Client(["lat", "lon", "jumlah"])
+        with patch.object(silver, "client", return_value=ch), \
+             patch.object(silver, "tebak_tipe", return_value=("angka", 1.0)):
+            self.assertEqual(silver.generate_silver(), 0)
+
+        ddl = next(c for c in ch.commands if c.startswith("CREATE OR REPLACE VIEW silver.usaha_berizin"))
+        self.assertIn("koordinat_id(`lat`) AS `lat`", ddl)
+        self.assertIn("koordinat_id(`lon`) AS `lon`", ddl)
+        # Kolom besaran biasa tetap angka_id (titik = ribuan).
+        self.assertIn("angka_id(`jumlah`) AS `jumlah`", ddl)
+
+    def test_ambang_tipe_diukur_dengan_koordinat_id(self):
+        sql = []
+
+        class Ch:
+            def query(self, q):
+                sql.append(q)
+
+                class Hasil:
+                    result_rows = [(10, 10, 0, 0)]
+
+                return Hasil()
+
+        silver.tebak_tipe(Ch(), "lake.`t`", "lat")
+        silver.tebak_tipe(Ch(), "lake.`t`", "jumlah")
+        self.assertIn("koordinat_id(`lat`) IS NOT NULL", sql[0])
+        self.assertIn("angka_id(`jumlah`) IS NOT NULL", sql[1])
+
+
 if __name__ == "__main__":
     unittest.main()
