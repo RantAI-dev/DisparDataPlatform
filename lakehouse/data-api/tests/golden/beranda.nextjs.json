@@ -1,0 +1,43 @@
+{
+ "endpoint": "/v1/beranda/ringkasan",
+ "params": {},
+ "data": {
+  "catatan": "Angka beku halaman beranda Next.js (P4). Portal memakai angka hidup; selisihnya di-whitelist uji paritas.",
+  "hero": [
+   {
+    "label": "Dataset primer SDI",
+    "nilai": "182"
+   },
+   {
+    "label": "Baris pendataan lapangan",
+    "nilai": "19.544"
+   },
+   {
+    "label": "Indikator GCI · GPCI dipantau",
+    "nilai": "28"
+   },
+   {
+    "label": "Indeks global (GCI · GPCI)",
+    "nilai": "2"
+   }
+  ],
+  "kartu": [
+   {
+    "judul": "Katalog Data",
+    "stat": "182 + 45 dataset"
+   },
+   {
+    "judul": "GCI",
+    "stat": "8 indikator"
+   },
+   {
+    "judul": "GPCI",
+    "stat": "20 indikator"
+   },
+   {
+    "judul": "Spatial",
+    "stat": "19.544 baris"
+   }
+  ]
+ }
+}

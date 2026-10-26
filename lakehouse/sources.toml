@@ -106,10 +106,9 @@ jenis = "berkas"
 path = "data/gci-gpci-indicators.json"
 namespace = "bronze_file"
 tabel = "gci_gpci_indicators"
-kelas_refresh = "snapshot"
-tanggal_ambil = "2026-08-13"
-asal = "belum diketahui"
-pembangun = ""
+kelas_refresh = "saat_berubah"
+asal = "Salinan platform-v2/data/gci-gpci-indicators.json (daftar indikator yang dipakai app; sumber kebenaran)"
+pembangun = "scripts/salin_daftar_indikator.py"
 
 [[sumber]]
 id = "gci-gpci-pariwisata-data-ada"

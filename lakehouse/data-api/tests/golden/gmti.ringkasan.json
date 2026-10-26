@@ -1,0 +1,582 @@
+{
+ "endpoint": "/v1/gmti/ringkasan",
+ "params": {},
+ "data": {
+  "meta": {
+   "source": "SIMAS Kemenag RI — Sistem Informasi Masjid",
+   "source_url": "https://simas.kemenag.go.id/page/profilmasjid",
+   "fetched_at": "2026-08-31T13:42:12.938Z",
+   "ibadah_total": 8331,
+   "masjid": 4041,
+   "mushalla": 4290,
+   "ibadah_non_signature": 6926,
+   "ibadah_signature": 1405,
+   "ibadah_berkoordinat": 770,
+   "halal_total": 335,
+   "halal_berkoordinat": 291,
+   "kecamatan": 44,
+   "kecamatan_tanpa_poligon": [
+    "Kepulauan Seribu Selatan",
+    "Kepulauan Seribu Utara"
+   ],
+   "tanpa_kecamatan": 0
+  },
+  "pillars": [
+   {
+    "id": "ibadah",
+    "label": "Ibadah",
+    "desc": "Masjid & mushalla terdaftar SIMAS Kemenag se-DKI Jakarta.",
+    "color": "#0f7b6c"
+   },
+   {
+    "id": "makan",
+    "label": "Makan & minum",
+    "desc": "Restoran, RPH, dan produk kuliner bersertifikat halal BPJPH/LPPOM MUI.",
+    "color": "#ed6b23"
+   },
+   {
+    "id": "menginap",
+    "label": "Menginap",
+    "desc": "Hotel syariah & ramah muslim — arah kiblat, mushalla, tempat wudhu.",
+    "color": "#7048b6"
+   },
+   {
+    "id": "destinasi",
+    "label": "Destinasi & fasilitas",
+    "desc": "Mall, bandara, dan situs warisan Islam dengan fasilitas ramah muslim.",
+    "color": "#1e6bb8"
+   },
+   {
+    "id": "program",
+    "label": "Program dan Event",
+    "desc": "Program, event, festival, kampung wisata, dan inovasi pendukung.",
+    "color": "#c2185b"
+   }
+  ],
+  "kecamatan": [
+   {
+    "kecamatan": "Tanjung Priok",
+    "kota": "Kota Administrasi Jakarta Utara",
+    "geo_key": "tanjungpriok",
+    "masjid": 177,
+    "mushalla": 331,
+    "total": 508
+   },
+   {
+    "kecamatan": "Cakung",
+    "kota": "Kota Administrasi Jakarta Timur",
+    "geo_key": "cakung",
+    "masjid": 167,
+    "mushalla": 284,
+    "total": 451
+   },
+   {
+    "kecamatan": "Koja",
+    "kota": "Kota Administrasi Jakarta Utara",
+    "geo_key": "koja",
+    "masjid": 127,
+    "mushalla": 290,
+    "total": 417
+   },
+   {
+    "kecamatan": "Cengkareng",
+    "kota": "Kota Administrasi Jakarta Barat",
+    "geo_key": "cengkareng",
+    "masjid": 135,
+    "mushalla": 212,
+    "total": 347
+   },
+   {
+    "kecamatan": "Duren Sawit",
+    "kota": "Kota Administrasi Jakarta Timur",
+    "geo_key": "durensawit",
+    "masjid": 189,
+    "mushalla": 146,
+    "total": 335
+   },
+   {
+    "kecamatan": "Cilincing",
+    "kota": "Kota Administrasi Jakarta Utara",
+    "geo_key": "cilincing",
+    "masjid": 162,
+    "mushalla": 152,
+    "total": 314
+   },
+   {
+    "kecamatan": "Jagakarsa",
+    "kota": "Kota Administrasi Jakarta Selatan",
+    "geo_key": "jagakarsa",
+    "masjid": 101,
+    "mushalla": 212,
+    "total": 313
+   },
+   {
+    "kecamatan": "Jatinegara",
+    "kota": "Kota Administrasi Jakarta Timur",
+    "geo_key": "jatinegara",
+    "masjid": 104,
+    "mushalla": 170,
+    "total": 274
+   },
+   {
+    "kecamatan": "Kalideres",
+    "kota": "Kota Administrasi Jakarta Barat",
+    "geo_key": "kalideres",
+    "masjid": 106,
+    "mushalla": 150,
+    "total": 256
+   },
+   {
+    "kecamatan": "Ciracas",
+    "kota": "Kota Administrasi Jakarta Timur",
+    "geo_key": "ciracas",
+    "masjid": 131,
+    "mushalla": 114,
+    "total": 245
+   },
+   {
+    "kecamatan": "Makasar",
+    "kota": "Kota Administrasi Jakarta Timur",
+    "geo_key": "makasar",
+    "masjid": 93,
+    "mushalla": 149,
+    "total": 242
+   },
+   {
+    "kecamatan": "Pasar Rebo",
+    "kota": "Kota Administrasi Jakarta Timur",
+    "geo_key": "pasarrebo",
+    "masjid": 118,
+    "mushalla": 99,
+    "total": 217
+   },
+   {
+    "kecamatan": "Kebon Jeruk",
+    "kota": "Kota Administrasi Jakarta Barat",
+    "geo_key": "kebonjeruk",
+    "masjid": 72,
+    "mushalla": 138,
+    "total": 210
+   },
+   {
+    "kecamatan": "Kebayoran Lama",
+    "kota": "Kota Administrasi Jakarta Selatan",
+    "geo_key": "kebayoranlama",
+    "masjid": 103,
+    "mushalla": 106,
+    "total": 209
+   },
+   {
+    "kecamatan": "Cipayung",
+    "kota": "Kota Administrasi Jakarta Timur",
+    "geo_key": "cipayung",
+    "masjid": 123,
+    "mushalla": 85,
+    "total": 208
+   },
+   {
+    "kecamatan": "Kramatjati",
+    "kota": "Kota Administrasi Jakarta Timur",
+    "geo_key": "kramatjati",
+    "masjid": 75,
+    "mushalla": 131,
+    "total": 206
+   },
+   {
+    "kecamatan": "Tanah Abang",
+    "kota": "Kota Administrasi Jakarta Pusat",
+    "geo_key": "tanahabang",
+    "masjid": 120,
+    "mushalla": 75,
+    "total": 195
+   },
+   {
+    "kecamatan": "Matraman",
+    "kota": "Kota Administrasi Jakarta Timur",
+    "geo_key": "matraman",
+    "masjid": 92,
+    "mushalla": 99,
+    "total": 191
+   },
+   {
+    "kecamatan": "Penjaringan",
+    "kota": "Kota Administrasi Jakarta Utara",
+    "geo_key": "penjaringan",
+    "masjid": 76,
+    "mushalla": 111,
+    "total": 187
+   },
+   {
+    "kecamatan": "Kemayoran",
+    "kota": "Kota Administrasi Jakarta Pusat",
+    "geo_key": "kemayoran",
+    "masjid": 97,
+    "mushalla": 89,
+    "total": 186
+   },
+   {
+    "kecamatan": "Tebet",
+    "kota": "Kota Administrasi Jakarta Selatan",
+    "geo_key": "tebet",
+    "masjid": 84,
+    "mushalla": 100,
+    "total": 184
+   },
+   {
+    "kecamatan": "Pulogadung",
+    "kota": "Kota Administrasi Jakarta Timur",
+    "geo_key": "pulogadung",
+    "masjid": 112,
+    "mushalla": 72,
+    "total": 184
+   },
+   {
+    "kecamatan": "Pasar Minggu",
+    "kota": "Kota Administrasi Jakarta Selatan",
+    "geo_key": "pasarminggu",
+    "masjid": 130,
+    "mushalla": 37,
+    "total": 167
+   },
+   {
+    "kecamatan": "Pancoran",
+    "kota": "Kota Administrasi Jakarta Selatan",
+    "geo_key": "pancoran",
+    "masjid": 87,
+    "mushalla": 79,
+    "total": 166
+   },
+   {
+    "kecamatan": "Kembangan",
+    "kota": "Kota Administrasi Jakarta Barat",
+    "geo_key": "kembangan",
+    "masjid": 80,
+    "mushalla": 79,
+    "total": 159
+   },
+   {
+    "kecamatan": "Grogol Petamburan",
+    "kota": "Kota Administrasi Jakarta Barat",
+    "geo_key": "grogolpetamburan",
+    "masjid": 92,
+    "mushalla": 60,
+    "total": 152
+   },
+   {
+    "kecamatan": "Pal Merah",
+    "kota": "Kota Administrasi Jakarta Barat",
+    "geo_key": "palmerah",
+    "masjid": 98,
+    "mushalla": 54,
+    "total": 152
+   },
+   {
+    "kecamatan": "Mampang Prapatan",
+    "kota": "Kota Administrasi Jakarta Selatan",
+    "geo_key": "mampangprapatan",
+    "masjid": 75,
+    "mushalla": 73,
+    "total": 148
+   },
+   {
+    "kecamatan": "Tambora",
+    "kota": "Kota Administrasi Jakarta Barat",
+    "geo_key": "tambora",
+    "masjid": 81,
+    "mushalla": 66,
+    "total": 147
+   },
+   {
+    "kecamatan": "Kebayoran Baru",
+    "kota": "Kota Administrasi Jakarta Selatan",
+    "geo_key": "kebayoranbaru",
+    "masjid": 85,
+    "mushalla": 50,
+    "total": 135
+   },
+   {
+    "kecamatan": "Gambir",
+    "kota": "Kota Administrasi Jakarta Pusat",
+    "geo_key": "gambir",
+    "masjid": 80,
+    "mushalla": 55,
+    "total": 135
+   },
+   {
+    "kecamatan": "Sawah Besar",
+    "kota": "Kota Administrasi Jakarta Pusat",
+    "geo_key": "sawahbesar",
+    "masjid": 72,
+    "mushalla": 41,
+    "total": 113
+   },
+   {
+    "kecamatan": "Pesanggrahan",
+    "kota": "Kota Administrasi Jakarta Selatan",
+    "geo_key": "pesanggrahan",
+    "masjid": 82,
+    "mushalla": 26,
+    "total": 108
+   },
+   {
+    "kecamatan": "Pademangan",
+    "kota": "Kota Administrasi Jakarta Utara",
+    "geo_key": "pademangan",
+    "masjid": 52,
+    "mushalla": 55,
+    "total": 107
+   },
+   {
+    "kecamatan": "Johar Baru",
+    "kota": "Kota Administrasi Jakarta Pusat",
+    "geo_key": "joharbaru",
+    "masjid": 51,
+    "mushalla": 55,
+    "total": 106
+   },
+   {
+    "kecamatan": "Menteng",
+    "kota": "Kota Administrasi Jakarta Pusat",
+    "geo_key": "menteng",
+    "masjid": 51,
+    "mushalla": 53,
+    "total": 104
+   },
+   {
+    "kecamatan": "Cilandak",
+    "kota": "Kota Administrasi Jakarta Selatan",
+    "geo_key": "cilandak",
+    "masjid": 78,
+    "mushalla": 25,
+    "total": 103
+   },
+   {
+    "kecamatan": "Senen",
+    "kota": "Kota Administrasi Jakarta Pusat",
+    "geo_key": "senen",
+    "masjid": 52,
+    "mushalla": 50,
+    "total": 102
+   },
+   {
+    "kecamatan": "Setiabudi",
+    "kota": "Kota Administrasi Jakarta Selatan",
+    "geo_key": "setiabudi",
+    "masjid": 70,
+    "mushalla": 25,
+    "total": 95
+   },
+   {
+    "kecamatan": "Cempaka Putih",
+    "kota": "Kota Administrasi Jakarta Pusat",
+    "geo_key": "cempakaputih",
+    "masjid": 57,
+    "mushalla": 30,
+    "total": 87
+   },
+   {
+    "kecamatan": "Kelapa Gading",
+    "kota": "Kota Administrasi Jakarta Utara",
+    "geo_key": "kelapagading",
+    "masjid": 49,
+    "mushalla": 20,
+    "total": 69
+   },
+   {
+    "kecamatan": "Taman Sari",
+    "kota": "Kota Administrasi Jakarta Barat",
+    "geo_key": "tamansari",
+    "masjid": 44,
+    "mushalla": 1,
+    "total": 45
+   },
+   {
+    "kecamatan": "Kepulauan Seribu Selatan",
+    "kota": "Kabupaten Administrasi Kepulauan Seribu",
+    "geo_key": "kepulauanseribuselatan",
+    "masjid": 5,
+    "mushalla": 24,
+    "total": 29
+   },
+   {
+    "kecamatan": "Kepulauan Seribu Utara",
+    "kota": "Kabupaten Administrasi Kepulauan Seribu",
+    "geo_key": "kepulauanseribuutara",
+    "masjid": 6,
+    "mushalla": 17,
+    "total": 23
+   }
+  ],
+  "tipologi": [
+   {
+    "tipologi": "Masjid Jami",
+    "jenis": "masjid",
+    "count": 3712
+   },
+   {
+    "tipologi": "Mushalla Perumahan",
+    "jenis": "mushalla",
+    "count": 3214
+   },
+   {
+    "tipologi": "Mushalla di Tempat Publik",
+    "jenis": "mushalla",
+    "count": 964
+   },
+   {
+    "tipologi": "Masjid di Tempat Publik",
+    "jenis": "masjid",
+    "count": 282
+   },
+   {
+    "tipologi": "Mushalla Pendidikan",
+    "jenis": "mushalla",
+    "count": 76
+   },
+   {
+    "tipologi": "Mushalla Perkantoran",
+    "jenis": "mushalla",
+    "count": 36
+   },
+   {
+    "tipologi": "Masjid Besar",
+    "jenis": "masjid",
+    "count": 25
+   },
+   {
+    "tipologi": "Masjid Bersejarah",
+    "jenis": "masjid",
+    "count": 13
+   },
+   {
+    "tipologi": "Masjid Agung",
+    "jenis": "masjid",
+    "count": 6
+   },
+   {
+    "tipologi": "Masjid Raya",
+    "jenis": "masjid",
+    "count": 2
+   },
+   {
+    "tipologi": "Masjid Negara",
+    "jenis": "masjid",
+    "count": 1
+   }
+  ],
+  "capaian": [
+   {
+    "nama": "GMTI 2019 — Peringkat 1 Destinasi Wisata Ramah Muslim Dunia (Bersama Malaysia)",
+    "pemberi": "Mastercard & CrescentRating (Global Muslim Travel Index / GMTI)",
+    "tahun": "2019",
+    "tingkat": "internasional",
+    "deskripsi": "Indonesia berbagi posisi teratas dengan Malaysia dalam GMTI 2019 dengan skor 78 dari 130 destinasi yang dinilai."
+   },
+   {
+    "nama": "GMTI 2021 — Peringkat 4 Destinasi Wisata Ramah Muslim Dunia",
+    "pemberi": "Mastercard & CrescentRating (Global Muslim Travel Index / GMTI)",
+    "tahun": "2021",
+    "tingkat": "internasional",
+    "deskripsi": "Indonesia berada di peringkat 4 dalam GMTI 2021 dengan skor 73, di belakang Malaysia (80), Turki (77), dan Arab Saudi (76). Laporan diluncurkan 14-15 Juli 2021."
+   },
+   {
+    "nama": "GMTI 2022 — Peringkat 2 Destinasi Wisata Ramah Muslim Dunia (Bersama Turki dan Arab Saudi)",
+    "pemberi": "Mastercard & CrescentRating (Global Muslim Travel Index / GMTI)",
+    "tahun": "2022",
+    "tingkat": "internasional",
+    "deskripsi": "Indonesia naik dua posisi dari peringkat 4 (2021) ke peringkat 2 dalam GMTI 2022 dengan skor 70, berbagi posisi dengan Turki dan Arab Saudi."
+   },
+   {
+    "nama": "GMTI 2023 — Peringkat 1 Destinasi Wisata Ramah Muslim Dunia (Bersama Malaysia)",
+    "pemberi": "Mastercard & CrescentRating (Global Muslim Travel Index / GMTI)",
+    "tahun": "2023",
+    "tingkat": "internasional",
+    "deskripsi": "Indonesia dan Malaysia berbagi peringkat 1 dalam GMTI 2023 dengan skor 73 dari 138 destinasi yang dinilai. Pengumuman dilakukan 1 Juni 2023 di Singapura."
+   },
+   {
+    "nama": "GMTI 2024 — Peringkat 1 Destinasi Wisata Ramah Muslim Dunia untuk Kedua Kali Berturut-turut (Bersama Malaysia)",
+    "pemberi": "Mastercard & CrescentRating (Global Muslim Travel Index / GMTI)",
+    "tahun": "2024",
+    "tingkat": "internasional",
+    "deskripsi": "Indonesia dan Malaysia mempertahankan posisi teratas bersama dalam GMTI 2024 dengan skor 76 — naik 3 poin dari 2023 (skor 73)."
+   },
+   {
+    "nama": "GMTI 2025 — Peringkat 5 Destinasi Wisata Ramah Muslim Dunia",
+    "pemberi": "Mastercard & CrescentRating (Global Muslim Travel Index / GMTI)",
+    "tahun": "2025",
+    "tingkat": "internasional",
+    "deskripsi": "Indonesia turun ke peringkat 5 dalam GMTI 2025, di bawah Malaysia, Turki, Arab Saudi, dan UAE."
+   },
+   {
+    "nama": "GMTI 2026 — Peringkat 2 Destinasi Wisata Ramah Muslim Dunia (Bersama Turki dan Arab Saudi), Skor Tertinggi Sepanjang Sejarah",
+    "pemberi": "Mastercard & CrescentRating (Global Muslim Travel Index / GMTI)",
+    "tahun": "2026",
+    "tingkat": "internasional",
+    "deskripsi": "Indonesia naik tiga peringkat dari posisi 5 (2025) ke posisi 2 dalam GMTI 2026 dengan skor 79 — tertinggi sepanjang partisipasi Indonesia dalam indeks ini."
+   },
+   {
+    "nama": "World Halal Travel Award 2015 — World's Best Halal Tourism Destination (Lombok) & World's Best Halal Honeymoon Destination (Lombok)",
+    "pemberi": "World Halal Travel Summit / Abu Dhabi Tourism Authority",
+    "tahun": "2015",
+    "tingkat": "internasional",
+    "deskripsi": "Indonesia meraih 3 penghargaan dari 14 kategori dalam World Halal Travel Award 2015 yang diselenggarakan di Emirates Palace Ballroom, Abu Dhabi, 20 Oktober 2015."
+   },
+   {
+    "nama": "World Halal Travel Award 2015 — World's Best Family Friendly Hotel (Sofyan Hotel Betawi, Jakarta)",
+    "pemberi": "World Halal Travel Summit / Abu Dhabi Tourism Authority",
+    "tahun": "2015",
+    "tingkat": "internasional",
+    "deskripsi": "Sofyan Hotel Betawi Jakarta memenangkan kategori World's Best Family Friendly Hotel dalam World Halal Travel Award 2015 di Emirates Palace Ballroom, Abu Dhabi."
+   },
+   {
+    "nama": "World Halal Tourism Award 2016 — 12 dari 16 Kategori Dimenangkan Indonesia",
+    "pemberi": "International Travel Week Abu Dhabi (penyelenggara World Halal Tourism Award)",
+    "tahun": "2016",
+    "tingkat": "internasional",
+    "deskripsi": "Indonesia mendominasi World Halal Tourism Award 2016 dengan memenangkan 12 dari 16 kategori yang diperebutkan 383 peserta dari 116 negara (1,8 juta suara)."
+   },
+   {
+    "nama": "World Halal Tourism Award 2016 — World's Best Hajj & Umrah Operator (ESQ Tours & Travel, Jakarta)",
+    "pemberi": "International Travel Week Abu Dhabi (penyelenggara World Halal Tourism Award)",
+    "tahun": "2016",
+    "tingkat": "internasional",
+    "deskripsi": "ESQ Tours & Travel yang berbasis di Jakarta memenangkan kategori World's Best Hajj & Umrah Operator dalam World Halal Tourism Award 2016 di Abu Dhabi."
+   },
+   {
+    "nama": "World Halal Tourism Award 2016 — World's Best Airline for Halal Travellers (Garuda Indonesia)",
+    "pemberi": "International Travel Week Abu Dhabi (penyelenggara World Halal Tourism Award)",
+    "tahun": "2016",
+    "tingkat": "internasional",
+    "deskripsi": "Garuda Indonesia (maskapai flag carrier Indonesia, berkantor pusat di Jakarta) memenangkan kategori World's Best Airline for Halal Travellers dalam World Halal Tourism Award 2016 d…"
+   },
+   {
+    "nama": "Indonesia Muslim Travel Index (IMTI) 2025 — Program Nasional Penilaian 15 Provinsi Ramah Muslim",
+    "pemberi": "Kementerian Pariwisata RI, Bank Indonesia, CrescentRating, KNEKS, Enhaii Halal Tourism Center (EHTC), PPHI",
+    "tahun": "2025",
+    "tingkat": "nasional",
+    "deskripsi": "IMTI 2025 adalah indeks penilaian pariwisata ramah Muslim pertama di tingkat provinsi di Indonesia, menilai 15 provinsi menggunakan kerangka ACES (Accessibility 10%, Communication…"
+   },
+   {
+    "nama": "Program BPJPH — Sertifikasi Halal Gratis (Sehati) 1 Juta UMKM per Tahun untuk Sektor Wisata",
+    "pemberi": "Badan Penyelenggara Jaminan Produk Halal (BPJPH) — Kementerian Agama RI",
+    "tahun": "2023",
+    "tingkat": "nasional",
+    "deskripsi": "BPJPH membuka kuota 1 juta sertifikasi halal gratis (program Sehati) bagi pelaku usaha mikro dan kecil (UMK) setiap tahun sejak 2023, termasuk 2024 dan 2025."
+   },
+   {
+    "nama": "Soekarno-Hatta International Airport — Fasilitas Ramah Muslim (CrescentRating HalalTrip)",
+    "pemberi": "HalalTrip / CrescentRating",
+    "tahun": null,
+    "tingkat": "internasional",
+    "deskripsi": "Bandara Soekarno-Hatta tercatat dalam direktori HalalTrip (platform CrescentRating) sebagai bandara ramah Muslim dengan fasilitas ibadah lengkap termasuk musholla/masjid di beberap…"
+   }
+  ],
+  "award": {
+   "nama": "GMTI 2019 — Peringkat 1 Destinasi Wisata Ramah Muslim Dunia (Bersama Malaysia)",
+   "pemberi": "Mastercard & CrescentRating (Global Muslim Travel Index / GMTI)",
+   "tahun": "2019",
+   "tingkat": "internasional",
+   "deskripsi": "Indonesia berbagi posisi teratas dengan Malaysia dalam GMTI 2019 dengan skor 78 dari 130 destinasi yang dinilai."
+  }
+ }
+}

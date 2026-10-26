@@ -1,0 +1,47 @@
+[project]
+name = "dispar-data-api"
+version = "0.1.0"
+description = "Data API read-only lakehouse Dispar untuk portal Disparekraf (kontrak: openapi.yaml)"
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi>=0.115",
+    "uvicorn>=0.32",
+    "httpx>=0.27",
+    "pydantic>=2.9",
+    "openpyxl>=3.1",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8",
+    "ruff>=0.7",
+    "jsonschema>=4.23",
+    "openapi-spec-validator>=0.7",
+    "pyyaml>=6",
+]
+
+[project.scripts]
+data-api = "data_api.main:jalankan"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["data_api"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = ["panggung: uji live read-only ke ClickHouse panggung (tidak masuk gate default)"]
+addopts = "-m 'not panggung'"
+
+[tool.ruff]
+line-length = 120
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP"]
+
+[tool.ruff.lint.per-file-ignores]
+# SQL disalin apa adanya dari platform-v2 (nama tabel Silver panjang).
+"data_api/features/*/queries.py" = ["E501"]

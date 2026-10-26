@@ -1,0 +1,85 @@
+{
+ "endpoint": "/v1/dashboard/pdrb-ekraf/subsektor/pertumbuhan",
+ "params": {
+  "periode": "2021"
+ },
+ "data": {
+  "periode_list": [
+   "2019",
+   "2020",
+   "2021",
+   "2022",
+   "2023",
+   "2024",
+   "S1 2025"
+  ],
+  "periode": "2021",
+  "label": "2021",
+  "items": [
+   {
+    "label": "Kriya",
+    "value": 10.75
+   },
+   {
+    "label": "Penerbitan",
+    "value": 10.53
+   },
+   {
+    "label": "Kuliner",
+    "value": 9.83
+   },
+   {
+    "label": "Arsitektur",
+    "value": 8.08
+   },
+   {
+    "label": "Seni Pertunjukan",
+    "value": 8.03
+   },
+   {
+    "label": "Periklanan",
+    "value": 7.93
+   },
+   {
+    "label": "Desain Produk",
+    "value": 7.03
+   },
+   {
+    "label": "Aplikasi dan Pengembang Permainan",
+    "value": 7.02
+   },
+   {
+    "label": "Televisi dan Radio",
+    "value": 6.8
+   },
+   {
+    "label": "Film, Animasi, dan Video",
+    "value": 6.62
+   },
+   {
+    "label": "Desain Komunikasi Visual",
+    "value": 5.95
+   },
+   {
+    "label": "Fotografi",
+    "value": 5.8
+   },
+   {
+    "label": "Musik",
+    "value": 5.7
+   },
+   {
+    "label": "Fashion",
+    "value": 5.57
+   },
+   {
+    "label": "Desain Interior",
+    "value": 5.48
+   },
+   {
+    "label": "Seni Rupa",
+    "value": 3.75
+   }
+  ]
+ }
+}
