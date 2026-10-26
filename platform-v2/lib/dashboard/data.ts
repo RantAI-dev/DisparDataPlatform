@@ -1,4 +1,5 @@
 import { q } from "@/lib/ch/client";
+import { titleCase } from "@/lib/pariwisata/parse";
 
 /**
  * Data Dashboard Statistik (menu /dashboard) — dibaca langsung dari Silver.
@@ -143,6 +144,39 @@ export async function getWisnusKotaTujuan(): Promise<WisnusRow[]> {
     bulan: Number(r.periode.slice(5, 7)),
     kota: r.kota,
     jumlah: Number(r.jumlah),
+  }));
+}
+
+export type DestinasiRow = {
+  periode: string;
+  tahun: string;
+  bulan: number;
+  destinasi: string;
+  jenis: "Wisnus" | "Wisman";
+  /** null = baris ada tetapi angkanya tidak dilaporkan (bukan nol). */
+  jumlah: number | null;
+};
+
+/** Kunjungan bulanan ke obyek wisata per jenis wisatawan (SDI Disparekraf). */
+export async function getKunjunganDestinasi(): Promise<DestinasiRow[]> {
+  const rows = await safe(
+    q<{ periode: string; destinasi: string; jenis: string; jumlah: string | null }>(
+      // sum() mengabaikan NULL dan memberi 0; NULL dipertahankan bila tak satu pun nilai dilaporkan.
+      `SELECT formatDateTime(periode_data, '%Y-%m') AS periode, obyek_wisata AS destinasi, jenis_wisatawan AS jenis,
+              if(count(jumlah_kunjungan) = 0, NULL, toString(sum(jumlah_kunjungan))) AS jumlah
+       FROM silver.jumlah_kunjungan_wisatawan_ke_obyek_wisata_menurut_lokasi_di_provinsi_dki_jakarta
+       WHERE periode_data IS NOT NULL AND obyek_wisata IS NOT NULL AND jenis_wisatawan IS NOT NULL
+       GROUP BY periode, destinasi, jenis ORDER BY periode, destinasi`,
+    ),
+    "silver.jumlah_kunjungan_wisatawan_ke_obyek_wisata",
+  );
+  return rows.map((r) => ({
+    periode: r.periode,
+    tahun: r.periode.slice(0, 4),
+    bulan: Number(r.periode.slice(5, 7)),
+    destinasi: titleCase(r.destinasi),
+    jenis: /MANCANEGARA/i.test(r.jenis) ? "Wisman" : "Wisnus",
+    jumlah: r.jumlah == null ? null : Number(r.jumlah),
   }));
 }
 
