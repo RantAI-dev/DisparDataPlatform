@@ -103,6 +103,31 @@ wisman bersih, event, artis).
 
 Tanpa langkah 5 datanya ada di lake tapi tak terlihat siapa pun.
 
+#### Kolom publik vs jejak teknis
+
+Dataset sekunder tayang di web dan dibaca orang Dinas, bukan engineer. Sebelum
+menulis `columns`, pisahkan:
+
+- **Kolom publik** — hanya yang berguna bagi pembaca, label dan isinya bahasa
+  sehari-hari. Status jadi kategori pendek: "Tepat di lokasi" / "Perkiraan
+  (area atau ruas jalan)" / "Belum ada titik"; "Terverifikasi" / "Perlu dicek
+  manual". Bukti yang membuat data bisa dipercaya (URL sumber, judul sumber,
+  kutipan) tetap kolom publik.
+- **Jejak teknis** — kode HTTP, robots.txt, objek OSM (`way/…`), skor
+  `importance`, kueri geocoder, nama penyedia (Photon/Nominatim). Simpan di
+  berkas cache/bukti pembangun (`scripts/<nama>_cache.json`), bukan di dataset.
+  Jejaknya tetap bisa ditelusuri per baris tanpa membebani pembaca.
+
+Tempat aturannya: pembangun yang bisa dijalankan ulang persis memberi label publik
+sendiri (contoh `scripts/lokasi_syuting_film.py`, `scripts/mice/build.py`). Untuk
+dataset yang pembangunnya butuh jaringan, hasilnya sudah dikurasi di luar skrip,
+atau tidak tercatat, aturannya di `scripts/kolom_publik.py` — jalankan lagi setelah
+pembangunnya dijalankan ulang (idempoten).
+
+Mengubah kolom dataset yang sudah tayang: cek dulu pemakainya (`grep` slug dan
+nama kolom di `platform-v2/` dan `lakehouse/clickhouse/sql/`). Peta Spatial
+membaca `nama`/`name`, `lat`/`latitude`, `lon`/`lng`/`longitude`.
+
 ### Jalur pengecualian: mart langsung
 
 Hanya untuk **snapshot deret waktu** yang memang bukan katalog dataset — sejauh

@@ -59,14 +59,10 @@
 "type": "number"
 },
 {
-"key": "koordinat_status",
-"label": "Status Koordinat",
-"type": "string"
-},
-{
-"key": "sumber_koordinat",
-"label": "Sumber Koordinat",
-"type": "string"
+"key": "sumber_titik",
+"label": "Sumber Titik",
+"type": "string",
+"description": "Asal titik lokasi di peta"
 },
 {
 "key": "sumber_data",
@@ -97,8 +93,7 @@
 "periode_data": "2024",
 "latitude": null,
 "longitude": null,
-"koordinat_status": "NOT_FOUND",
-"sumber_koordinat": "",
+"sumber_titik": "Belum ada titik",
 "sumber_data": "Satu Data Jakarta — data-desa-wisata",
 "tanggal_upload_sdi": "2025-02-20 16:45:41",
 "tanggal_update_sdi": null
@@ -115,8 +110,7 @@
 "periode_data": "2024",
 "latitude": -6.1855894,
 "longitude": 106.8740941,
-"koordinat_status": "OK",
-"sumber_koordinat": "Nominatim (OSM)",
+"sumber_titik": "OpenStreetMap",
 "sumber_data": "Satu Data Jakarta — data-desa-wisata",
 "tanggal_upload_sdi": "2025-02-20 16:45:41",
 "tanggal_update_sdi": null
@@ -133,8 +127,7 @@
 "periode_data": "2024",
 "latitude": -6.1857255,
 "longitude": 106.8701041,
-"koordinat_status": "OK",
-"sumber_koordinat": "Nominatim (OSM)",
+"sumber_titik": "OpenStreetMap",
 "sumber_data": "Satu Data Jakarta — data-desa-wisata",
 "tanggal_upload_sdi": "2025-02-20 16:45:41",
 "tanggal_update_sdi": null
@@ -151,8 +144,7 @@
 "periode_data": "2024",
 "latitude": null,
 "longitude": null,
-"koordinat_status": "NOT_FOUND",
-"sumber_koordinat": "",
+"sumber_titik": "Belum ada titik",
 "sumber_data": "Satu Data Jakarta — data-desa-wisata",
 "tanggal_upload_sdi": "2025-02-20 16:45:41",
 "tanggal_update_sdi": null
@@ -169,8 +161,7 @@
 "periode_data": "2024",
 "latitude": null,
 "longitude": null,
-"koordinat_status": "NOT_FOUND",
-"sumber_koordinat": "",
+"sumber_titik": "Belum ada titik",
 "sumber_data": "Satu Data Jakarta — data-desa-wisata",
 "tanggal_upload_sdi": "2025-02-20 16:45:41",
 "tanggal_update_sdi": null
@@ -187,8 +178,7 @@
 "periode_data": "2024",
 "latitude": null,
 "longitude": null,
-"koordinat_status": "NOT_FOUND",
-"sumber_koordinat": "",
+"sumber_titik": "Belum ada titik",
 "sumber_data": "Satu Data Jakarta — data-desa-wisata",
 "tanggal_upload_sdi": "2025-02-20 16:45:41",
 "tanggal_update_sdi": null
@@ -205,8 +195,7 @@
 "periode_data": "2024",
 "latitude": null,
 "longitude": null,
-"koordinat_status": "NOT_FOUND",
-"sumber_koordinat": "",
+"sumber_titik": "Belum ada titik",
 "sumber_data": "Satu Data Jakarta — data-desa-wisata",
 "tanggal_upload_sdi": "2025-02-20 16:45:41",
 "tanggal_update_sdi": null
@@ -223,8 +212,7 @@
 "periode_data": "2024",
 "latitude": -6.2478756,
 "longitude": 106.814144,
-"koordinat_status": "OK",
-"sumber_koordinat": "Nominatim (OSM)",
+"sumber_titik": "OpenStreetMap",
 "sumber_data": "Satu Data Jakarta — data-desa-wisata",
 "tanggal_upload_sdi": "2025-02-20 16:45:41",
 "tanggal_update_sdi": null
@@ -241,8 +229,7 @@
 "periode_data": "2024",
 "latitude": null,
 "longitude": null,
-"koordinat_status": "NOT_FOUND",
-"sumber_koordinat": "",
+"sumber_titik": "Belum ada titik",
 "sumber_data": "Satu Data Jakarta — data-desa-wisata",
 "tanggal_upload_sdi": "2025-02-20 16:45:41",
 "tanggal_update_sdi": null
@@ -259,8 +246,7 @@
 "periode_data": "2024",
 "latitude": null,
 "longitude": null,
-"koordinat_status": "NOT_FOUND",
-"sumber_koordinat": "",
+"sumber_titik": "Belum ada titik",
 "sumber_data": "Satu Data Jakarta — data-desa-wisata",
 "tanggal_upload_sdi": "2025-02-20 16:45:41",
 "tanggal_update_sdi": null
@@ -277,8 +263,7 @@
 "periode_data": "2024",
 "latitude": null,
 "longitude": null,
-"koordinat_status": "NOT_FOUND",
-"sumber_koordinat": "",
+"sumber_titik": "Belum ada titik",
 "sumber_data": "Satu Data Jakarta — data-desa-wisata",
 "tanggal_upload_sdi": "2025-02-20 16:45:41",
 "tanggal_update_sdi": null
@@ -295,8 +280,7 @@
 "periode_data": "2024",
 "latitude": null,
 "longitude": null,
-"koordinat_status": "NOT_FOUND",
-"sumber_koordinat": "",
+"sumber_titik": "Belum ada titik",
 "sumber_data": "Satu Data Jakarta — data-desa-wisata",
 "tanggal_upload_sdi": "2025-02-20 16:45:41",
 "tanggal_update_sdi": null
@@ -313,8 +297,7 @@
 "periode_data": "2024",
 "latitude": null,
 "longitude": null,
-"koordinat_status": "NOT_FOUND",
-"sumber_koordinat": "",
+"sumber_titik": "Belum ada titik",
 "sumber_data": "Satu Data Jakarta — data-desa-wisata",
 "tanggal_upload_sdi": "2025-02-20 16:45:41",
 "tanggal_update_sdi": null
@@ -331,8 +314,7 @@
 "periode_data": "2024",
 "latitude": -5.6533066,
 "longitude": 106.5781284,
-"koordinat_status": "OK",
-"sumber_koordinat": "Nominatim (OSM)",
+"sumber_titik": "OpenStreetMap",
 "sumber_data": "Satu Data Jakarta — data-desa-wisata",
 "tanggal_upload_sdi": "2025-02-20 16:45:41",
 "tanggal_update_sdi": null
@@ -349,8 +331,7 @@
 "periode_data": "2024",
 "latitude": null,
 "longitude": null,
-"koordinat_status": "NOT_FOUND",
-"sumber_koordinat": "",
+"sumber_titik": "Belum ada titik",
 "sumber_data": "Satu Data Jakarta — data-desa-wisata",
 "tanggal_upload_sdi": "2025-02-20 16:45:41",
 "tanggal_update_sdi": null
@@ -367,8 +348,7 @@
 "periode_data": "2024",
 "latitude": null,
 "longitude": null,
-"koordinat_status": "NOT_FOUND",
-"sumber_koordinat": "",
+"sumber_titik": "Belum ada titik",
 "sumber_data": "Satu Data Jakarta — data-desa-wisata",
 "tanggal_upload_sdi": "2025-02-20 16:45:41",
 "tanggal_update_sdi": null
@@ -385,8 +365,7 @@
 "periode_data": "2024",
 "latitude": null,
 "longitude": null,
-"koordinat_status": "NOT_FOUND",
-"sumber_koordinat": "",
+"sumber_titik": "Belum ada titik",
 "sumber_data": "Satu Data Jakarta — data-desa-wisata",
 "tanggal_upload_sdi": "2025-02-20 16:45:41",
 "tanggal_update_sdi": null
@@ -403,8 +382,7 @@
 "periode_data": "2024",
 "latitude": null,
 "longitude": null,
-"koordinat_status": "NOT_FOUND",
-"sumber_koordinat": "",
+"sumber_titik": "Belum ada titik",
 "sumber_data": "Satu Data Jakarta — data-desa-wisata",
 "tanggal_upload_sdi": "2025-02-20 16:45:41",
 "tanggal_update_sdi": null
@@ -421,8 +399,7 @@
 "periode_data": "2024",
 "latitude": null,
 "longitude": null,
-"koordinat_status": "NOT_FOUND",
-"sumber_koordinat": "",
+"sumber_titik": "Belum ada titik",
 "sumber_data": "Satu Data Jakarta — data-desa-wisata",
 "tanggal_upload_sdi": "2025-02-20 16:45:41",
 "tanggal_update_sdi": null
@@ -439,8 +416,7 @@
 "periode_data": "2024",
 "latitude": -6.1415782,
 "longitude": 106.8135182,
-"koordinat_status": "OK",
-"sumber_koordinat": "Nominatim (OSM)",
+"sumber_titik": "OpenStreetMap",
 "sumber_data": "Satu Data Jakarta — data-desa-wisata",
 "tanggal_upload_sdi": "2025-02-20 16:45:41",
 "tanggal_update_sdi": null
@@ -457,8 +433,7 @@
 "periode_data": "2024",
 "latitude": null,
 "longitude": null,
-"koordinat_status": "NOT_FOUND",
-"sumber_koordinat": "",
+"sumber_titik": "Belum ada titik",
 "sumber_data": "Satu Data Jakarta — data-desa-wisata",
 "tanggal_upload_sdi": "2025-02-20 16:45:41",
 "tanggal_update_sdi": null
@@ -475,8 +450,7 @@
 "periode_data": "2024",
 "latitude": null,
 "longitude": null,
-"koordinat_status": "NOT_FOUND",
-"sumber_koordinat": "",
+"sumber_titik": "Belum ada titik",
 "sumber_data": "Satu Data Jakarta — data-desa-wisata",
 "tanggal_upload_sdi": "2025-02-20 16:45:41",
 "tanggal_update_sdi": null
@@ -493,8 +467,7 @@
 "periode_data": "2024",
 "latitude": -6.3468688,
 "longitude": 106.8618829,
-"koordinat_status": "OK",
-"sumber_koordinat": "Nominatim (OSM)",
+"sumber_titik": "OpenStreetMap",
 "sumber_data": "Satu Data Jakarta — data-desa-wisata",
 "tanggal_upload_sdi": "2025-02-20 16:45:41",
 "tanggal_update_sdi": null
@@ -511,8 +484,7 @@
 "periode_data": "2024",
 "latitude": null,
 "longitude": null,
-"koordinat_status": "NOT_FOUND",
-"sumber_koordinat": "",
+"sumber_titik": "Belum ada titik",
 "sumber_data": "Satu Data Jakarta — data-desa-wisata",
 "tanggal_upload_sdi": "2025-02-20 16:45:41",
 "tanggal_update_sdi": null
@@ -529,8 +501,7 @@
 "periode_data": "2024",
 "latitude": null,
 "longitude": null,
-"koordinat_status": "NOT_FOUND",
-"sumber_koordinat": "",
+"sumber_titik": "Belum ada titik",
 "sumber_data": "Satu Data Jakarta — data-desa-wisata",
 "tanggal_upload_sdi": "2025-02-20 16:45:41",
 "tanggal_update_sdi": null
@@ -547,8 +518,7 @@
 "periode_data": "2024",
 "latitude": null,
 "longitude": null,
-"koordinat_status": "NOT_FOUND",
-"sumber_koordinat": "",
+"sumber_titik": "Belum ada titik",
 "sumber_data": "Satu Data Jakarta — data-desa-wisata",
 "tanggal_upload_sdi": "2025-02-20 16:45:41",
 "tanggal_update_sdi": null
@@ -565,8 +535,7 @@
 "periode_data": "2024",
 "latitude": null,
 "longitude": null,
-"koordinat_status": "NOT_FOUND",
-"sumber_koordinat": "",
+"sumber_titik": "Belum ada titik",
 "sumber_data": "Satu Data Jakarta — data-desa-wisata",
 "tanggal_upload_sdi": "2025-02-20 16:45:41",
 "tanggal_update_sdi": null
@@ -583,8 +552,7 @@
 "periode_data": "2024",
 "latitude": -6.210044,
 "longitude": 106.8991437,
-"koordinat_status": "OK",
-"sumber_koordinat": "Nominatim (OSM)",
+"sumber_titik": "OpenStreetMap",
 "sumber_data": "Satu Data Jakarta — data-desa-wisata",
 "tanggal_upload_sdi": "2025-02-20 16:45:41",
 "tanggal_update_sdi": null
@@ -601,8 +569,7 @@
 "periode_data": "2024",
 "latitude": -6.1090904,
 "longitude": 106.9428098,
-"koordinat_status": "OK",
-"sumber_koordinat": "Nominatim (OSM)",
+"sumber_titik": "OpenStreetMap",
 "sumber_data": "Satu Data Jakarta — data-desa-wisata",
 "tanggal_upload_sdi": "2025-02-20 16:45:41",
 "tanggal_update_sdi": null
@@ -619,8 +586,7 @@
 "periode_data": "2024",
 "latitude": null,
 "longitude": null,
-"koordinat_status": "NOT_FOUND",
-"sumber_koordinat": "",
+"sumber_titik": "Belum ada titik",
 "sumber_data": "Satu Data Jakarta — data-desa-wisata",
 "tanggal_upload_sdi": "2025-02-20 16:45:41",
 "tanggal_update_sdi": null
@@ -637,8 +603,7 @@
 "periode_data": "2024",
 "latitude": null,
 "longitude": null,
-"koordinat_status": "NOT_FOUND",
-"sumber_koordinat": "",
+"sumber_titik": "Belum ada titik",
 "sumber_data": "Satu Data Jakarta — data-desa-wisata",
 "tanggal_upload_sdi": "2025-02-20 16:45:41",
 "tanggal_update_sdi": null
@@ -655,8 +620,7 @@
 "periode_data": "2024",
 "latitude": null,
 "longitude": null,
-"koordinat_status": "NOT_FOUND",
-"sumber_koordinat": "",
+"sumber_titik": "Belum ada titik",
 "sumber_data": "Satu Data Jakarta — data-desa-wisata",
 "tanggal_upload_sdi": "2025-02-20 16:45:41",
 "tanggal_update_sdi": null
@@ -673,8 +637,7 @@
 "periode_data": "2025",
 "latitude": null,
 "longitude": null,
-"koordinat_status": "NOT_FOUND",
-"sumber_koordinat": "",
+"sumber_titik": "Belum ada titik",
 "sumber_data": "Satu Data Jakarta — data-desa-wisata",
 "tanggal_upload_sdi": "2026-01-27 09:25:32",
 "tanggal_update_sdi": null
@@ -691,8 +654,7 @@
 "periode_data": "2025",
 "latitude": -6.1855894,
 "longitude": 106.8740941,
-"koordinat_status": "OK",
-"sumber_koordinat": "Nominatim (OSM)",
+"sumber_titik": "OpenStreetMap",
 "sumber_data": "Satu Data Jakarta — data-desa-wisata",
 "tanggal_upload_sdi": "2026-01-27 09:25:32",
 "tanggal_update_sdi": null
@@ -709,8 +671,7 @@
 "periode_data": "2025",
 "latitude": null,
 "longitude": null,
-"koordinat_status": "NOT_FOUND",
-"sumber_koordinat": "",
+"sumber_titik": "Belum ada titik",
 "sumber_data": "Satu Data Jakarta — data-desa-wisata",
 "tanggal_upload_sdi": "2026-01-27 09:25:32",
 "tanggal_update_sdi": null
@@ -727,8 +688,7 @@
 "periode_data": "2025",
 "latitude": null,
 "longitude": null,
-"koordinat_status": "NOT_FOUND",
-"sumber_koordinat": "",
+"sumber_titik": "Belum ada titik",
 "sumber_data": "Satu Data Jakarta — data-desa-wisata",
 "tanggal_upload_sdi": "2026-01-27 09:25:32",
 "tanggal_update_sdi": null
@@ -745,8 +705,7 @@
 "periode_data": "2025",
 "latitude": null,
 "longitude": null,
-"koordinat_status": "NOT_FOUND",
-"sumber_koordinat": "",
+"sumber_titik": "Belum ada titik",
 "sumber_data": "Satu Data Jakarta — data-desa-wisata",
 "tanggal_upload_sdi": "2026-01-27 09:25:32",
 "tanggal_update_sdi": null
@@ -763,8 +722,7 @@
 "periode_data": "2025",
 "latitude": null,
 "longitude": null,
-"koordinat_status": "NOT_FOUND",
-"sumber_koordinat": "",
+"sumber_titik": "Belum ada titik",
 "sumber_data": "Satu Data Jakarta — data-desa-wisata",
 "tanggal_upload_sdi": "2026-01-27 09:25:32",
 "tanggal_update_sdi": null
@@ -781,8 +739,7 @@
 "periode_data": "2025",
 "latitude": null,
 "longitude": null,
-"koordinat_status": "NOT_FOUND",
-"sumber_koordinat": "",
+"sumber_titik": "Belum ada titik",
 "sumber_data": "Satu Data Jakarta — data-desa-wisata",
 "tanggal_upload_sdi": "2026-01-27 09:25:32",
 "tanggal_update_sdi": null
@@ -799,8 +756,7 @@
 "periode_data": "2025",
 "latitude": null,
 "longitude": null,
-"koordinat_status": "NOT_FOUND",
-"sumber_koordinat": "",
+"sumber_titik": "Belum ada titik",
 "sumber_data": "Satu Data Jakarta — data-desa-wisata",
 "tanggal_upload_sdi": "2026-01-27 09:25:32",
 "tanggal_update_sdi": null
@@ -817,8 +773,7 @@
 "periode_data": "2025",
 "latitude": null,
 "longitude": null,
-"koordinat_status": "NOT_FOUND",
-"sumber_koordinat": "",
+"sumber_titik": "Belum ada titik",
 "sumber_data": "Satu Data Jakarta — data-desa-wisata",
 "tanggal_upload_sdi": "2026-01-27 09:25:32",
 "tanggal_update_sdi": null
@@ -835,8 +790,7 @@
 "periode_data": "2025",
 "latitude": null,
 "longitude": null,
-"koordinat_status": "NOT_FOUND",
-"sumber_koordinat": "",
+"sumber_titik": "Belum ada titik",
 "sumber_data": "Satu Data Jakarta — data-desa-wisata",
 "tanggal_upload_sdi": "2026-01-27 09:25:32",
 "tanggal_update_sdi": null
@@ -853,8 +807,7 @@
 "periode_data": "2025",
 "latitude": null,
 "longitude": null,
-"koordinat_status": "NOT_FOUND",
-"sumber_koordinat": "",
+"sumber_titik": "Belum ada titik",
 "sumber_data": "Satu Data Jakarta — data-desa-wisata",
 "tanggal_upload_sdi": "2026-01-27 09:25:32",
 "tanggal_update_sdi": null
@@ -871,8 +824,7 @@
 "periode_data": "2025",
 "latitude": null,
 "longitude": null,
-"koordinat_status": "NOT_FOUND",
-"sumber_koordinat": "",
+"sumber_titik": "Belum ada titik",
 "sumber_data": "Satu Data Jakarta — data-desa-wisata",
 "tanggal_upload_sdi": "2026-01-27 09:25:32",
 "tanggal_update_sdi": null
@@ -889,8 +841,7 @@
 "periode_data": "2025",
 "latitude": null,
 "longitude": null,
-"koordinat_status": "NOT_FOUND",
-"sumber_koordinat": "",
+"sumber_titik": "Belum ada titik",
 "sumber_data": "Satu Data Jakarta — data-desa-wisata",
 "tanggal_upload_sdi": "2026-01-27 09:25:32",
 "tanggal_update_sdi": null
@@ -907,8 +858,7 @@
 "periode_data": "2025",
 "latitude": null,
 "longitude": null,
-"koordinat_status": "NOT_FOUND",
-"sumber_koordinat": "",
+"sumber_titik": "Belum ada titik",
 "sumber_data": "Satu Data Jakarta — data-desa-wisata",
 "tanggal_upload_sdi": "2026-01-27 09:25:32",
 "tanggal_update_sdi": null
@@ -925,8 +875,7 @@
 "periode_data": "2025",
 "latitude": -6.210044,
 "longitude": 106.8991437,
-"koordinat_status": "OK",
-"sumber_koordinat": "Nominatim (OSM)",
+"sumber_titik": "OpenStreetMap",
 "sumber_data": "Satu Data Jakarta — data-desa-wisata",
 "tanggal_upload_sdi": "2026-01-27 09:25:32",
 "tanggal_update_sdi": null
@@ -943,8 +892,7 @@
 "periode_data": "2025",
 "latitude": null,
 "longitude": null,
-"koordinat_status": "NOT_FOUND",
-"sumber_koordinat": "",
+"sumber_titik": "Belum ada titik",
 "sumber_data": "Satu Data Jakarta — data-desa-wisata",
 "tanggal_upload_sdi": "2026-01-27 09:25:32",
 "tanggal_update_sdi": null

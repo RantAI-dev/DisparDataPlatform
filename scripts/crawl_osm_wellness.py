@@ -24,6 +24,9 @@ Kategori OSM yang dipakai (sesuai RELEVANT_TYPES):
 Output:
   - data/wellness-jakarta-osm-additions.json  (cache + summary)
   - data/sekunder/wellness-jakarta.json       (final, format standar)
+
+Setelah menjalankan skrip ini, jalankan `python3 scripts/kolom_publik.py`: label kolom
+publik dataset ini (jejak teknis dibuang) diatur di sana.
 """
 from __future__ import annotations
 import json

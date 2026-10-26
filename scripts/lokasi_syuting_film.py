@@ -15,6 +15,8 @@ Tiga tahap, masing-masing ber-cache di scripts/lokasi_syuting_film_cache.json (r
      "(review)". Koreksi manual: ubah entri cache menjadi {"match": "manual", "lat": .., "lon": ..,
      "sumber": ..}; hasil yang sudah ada tidak dicari ulang, NOT FOUND dicoba lagi bila kuerinya berubah.
   3. bangun    — tulis data/sekunder/lokasi-syuting-film-jakarta.json + salinan platform-v2/data/.
+     Dataset hanya memuat kolom publik berbahasa umum; jejak teknis per baris (objek OSM, kode
+     HTTP, alasan review) tetap di cache.
 
 Sopan: robots.txt dicek per domain, User-Agent jujur dengan kontak, jeda ±20% jitter, berhenti total
 saat 403/429/tantangan Cloudflare dari Nominatim. Situs berita yang menolak hanya dicatat
@@ -202,22 +204,29 @@ KOLOM = [
     ("kota", "Kota Administrasi", "string", None),
     ("lat", "Lintang", "number", None),
     ("lon", "Bujur", "number", None),
-    ("koordinat_status", "Status Koordinat", "string", "nominatim / nominatim (review) / manual / NOT FOUND"),
-    ("koordinat_sumber", "Sumber Koordinat", "string", "Objek OSM atau keterangan koreksi manual"),
-    ("keyakinan", "Keyakinan Bukti", "string", "tinggi = film dan lokasi disebut tegas; sedang = samar"),
-    ("verifikasi_sumber", "Verifikasi Sumber", "string", "Hasil pengecekan otomatis halaman sumber"),
+    ("ketepatan_titik", "Ketepatan Titik", "string", "Seberapa tepat titik di peta menunjuk lokasi syuting"),
+    ("status_sumber", "Status Sumber", "string", "Terverifikasi = halaman sumber menyebut film dan lokasinya"),
+    ("keyakinan", "Tingkat Keyakinan", "string", "Tinggi = sumber menyebut film dan lokasi dengan tegas; Sedang = samar"),
     ("kutipan", "Kutipan Bukti", "string", "Potongan kalimat sumber (maks 25 kata)"),
     ("sumber_judul", "Judul Sumber", "string", None),
     ("sumber_url", "URL Sumber", "string", None),
 ]
 
 
+# Label publik. Jejak teknis (objek OSM, kode HTTP, alasan review) tetap di CACHE.
+KETEPATAN = {
+    "nominatim": "Tepat di lokasi",
+    "manual": "Tepat di lokasi",
+    "nominatim (review)": "Perkiraan (area atau ruas jalan)",
+}
+
+
 def bangun(temuan: list[dict], cache: dict) -> None:
     lokasi = cache.get("lokasi", {})
     sumber = cache.get("sumber", {})
-    status = lambda r: sumber.get(kunci_baris(r), {}).get("status", "belum diverifikasi")  # noqa: E731
+    status = lambda r: sumber.get(kunci_baris(r), {}).get("status", "belum diverifikasi")
     # Satu baris per (film, lokasi): sumber terverifikasi menang, lalu bukti "tinggi", lalu urutan berkas.
-    skor = lambda x: (status(x) == "terverifikasi", x["keyakinan"] == "tinggi")  # noqa: E731
+    skor = lambda x: (status(x) == "terverifikasi", x["keyakinan"] == "tinggi")
     terbaik: dict[tuple[str, str], dict] = {}
     for r in temuan:
         k = (norm(r["judul_film"]), norm(r["lokasi"]))
@@ -235,10 +244,9 @@ def bangun(temuan: list[dict], cache: dict) -> None:
                 "kota": r.get("kota_administrasi") or "",
                 "lat": g.get("lat"),
                 "lon": g.get("lon"),
-                "koordinat_status": g.get("match", "belum di-geocode"),
-                "koordinat_sumber": g.get("sumber") or g.get("osm") or "",
-                "keyakinan": r["keyakinan"],
-                "verifikasi_sumber": status(r),
+                "ketepatan_titik": KETEPATAN.get(g.get("match"), "Belum ada titik"),
+                "status_sumber": "Terverifikasi" if status(r) == "terverifikasi" else "Perlu dicek manual",
+                "keyakinan": r["keyakinan"].capitalize(),
                 "kutipan": r["kutipan"],
                 "sumber_judul": r.get("sumber_judul") or "",
                 "sumber_url": r["sumber_url"],
@@ -252,19 +260,19 @@ def bangun(temuan: list[dict], cache: dict) -> None:
             f"Sebaran {len({norm(r['nama']) for r in rows})} lokasi syuting dari {len(film)} film layar lebar "
             "(nasional dan internasional) di DKI Jakarta beserta tahun rilisnya. Kurasi riset publik (artikel "
             "berita, Wikipedia, wawancara produksi); setiap baris menyertakan URL sumber dan kutipan bukti. "
-            "Koordinat dari OpenStreetMap (Nominatim), baris ragu ditandai review."
+            "Titik lokasi dari OpenStreetMap; titik yang hanya perkiraan diberi keterangan."
         ),
-        "tags": ["film", "lokasi-syuting", "perfilman", "ekraf", "jakarta", "kurasi-riset", "nominatim-osm", "sekunder"],
+        "tags": ["film", "lokasi-syuting", "perfilman", "ekraf", "jakarta", "kurasi-riset", "sekunder"],
         "columns": [{"key": k, "label": lbl, "type": t, "description": d} for k, lbl, t, d in KOLOM],
         "rows": rows,
     }
     teks = json.dumps(dataset, ensure_ascii=False, indent=2) + "\n"
     KELUARAN.write_text(teks, encoding="utf-8")
     CERMIN.write_text(teks, encoding="utf-8")
-    hitung = lambda kolom: {v: sum(1 for r in rows if r[kolom] == v) for v in sorted({r[kolom] for r in rows})}  # noqa: E731
+    hitung = lambda kolom: {v: sum(1 for r in rows if r[kolom] == v) for v in sorted({r[kolom] for r in rows})}
     print(f"{len(rows)} baris, {len(film)} film → {KELUARAN} (+ {CERMIN})")
-    print("koordinat:", hitung("koordinat_status"))
-    print("verifikasi:", hitung("verifikasi_sumber"))
+    print("ketepatan titik:", hitung("ketepatan_titik"))
+    print("status sumber:", hitung("status_sumber"))
 
 
 def main() -> int:
