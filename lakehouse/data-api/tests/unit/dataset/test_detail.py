@@ -57,3 +57,16 @@ def test_kolom_tampil_periode_depan_ekstra_belakang(klien):
     assert [c["key"] for c in items] == ["periode_data", "kebangsaan", "jumlah", "catatan"]
     assert items[0] == {"key": "periode_data", "desc": None, "type": None}
     assert items[1] == {"key": "kebangsaan", "desc": "komponen", "type": "varchar"}
+
+
+def test_kolom_tampil_urut_ord_angka(klien, monkeypatch):
+    # metadata datang berurut teks ("10" sebelum "2"); tabel harus memakai urutan angka
+    from data_api.shared import lake
+
+    teks = [
+        {"key_asli": "jumlah", "deskripsi": "", "tipe": "", "ord": "10"},
+        {"key_asli": "kebangsaan", "deskripsi": "", "tipe": "", "ord": "2"},
+    ]
+    monkeypatch.setattr(lake, "kolom_dataset", lambda k, slug: teks)
+    items = klien.get("/v1/dataset/wisman/kolom").json()["data"]["items"]
+    assert [c["key"] for c in items] == ["periode_data", "kebangsaan", "jumlah", "catatan"]
