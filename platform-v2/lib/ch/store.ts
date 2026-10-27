@@ -106,7 +106,10 @@ export async function columns(slug: string): Promise<ColumnDef[]> {
  * karena isinya pasti kosong.
  */
 export async function displayColumns(slug: string): Promise<ColumnDef[]> {
-  const cols = await columns(slug);
+  // `columns()` mengurutkan `ord` sebagai teks (0, 1, 10, 2, …). Urutan itu sengaja
+  // tidak diubah di sana karena readiness.ts memilih "kolom pertama yang cocok" darinya;
+  // tabel memakai urutan angka.
+  const cols = (await columns(slug)).sort((a, b) => a.ordinal - b.ordinal);
   if (!cols.length) return cols;
   const table = await tableFor(slug);
   if (!table || !(await silverAda()).has(table)) return cols;

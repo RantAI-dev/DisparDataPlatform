@@ -250,10 +250,10 @@ def _kolom_tampil(k: Konteks, slug: str) -> list[dict[str, Any]]:
     generator Silver) tidak ditampilkan karena isinya pasti kosong."""
 
     def buat() -> list[dict[str, Any]]:
-        cols = [
-            {"key": r["key_asli"], "desc": r["deskripsi"] or None, "type": r["tipe"] or None}
-            for r in lake.kolom_dataset(k, slug)
-        ]
+        # Tabel memakai urutan `ord` sebagai angka; `kolom_dataset` (teks, ditiru dari store.columns)
+        # tetap dipakai apa adanya oleh pemilihan indikator.
+        urut = sorted(lake.kolom_dataset(k, slug), key=lambda r: int(r["ord"] or 0))
+        cols = [{"key": r["key_asli"], "desc": r["deskripsi"] or None, "type": r["tipe"] or None} for r in urut]
         if not cols:
             return cols
         t = _tabel_silver(k, slug)
