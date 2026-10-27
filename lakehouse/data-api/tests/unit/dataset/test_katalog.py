@@ -16,6 +16,7 @@ def test_katalog_semua(klien):
         "description": "Deskripsi wisman",
         "tags": ["Wisman", "kebangsaan"],
         "tier": "primer",
+        "sumber": "sdi",
         "source": "SDI · Satu Data Jakarta",
         "size_label": "1.598 dilihat",
         "href": "/sdi/wisman",
@@ -42,7 +43,36 @@ def test_entri_sekunder_teks_app_baris_lake(klien):
     assert per_id["sec-hotel-statistik"]["size_label"] == "120 baris"
     assert per_id["sec-gci-resto"]["medallion"] == {"level": "bronze"}  # ATLAS_TABLES, tidak di Silver palsu
     assert per_id["sec-golf"]["medallion"] is None
-    assert {i["source"] for i in items} == {"Dinas Pariwisata & Ekraf DKI Jakarta"}
+    # label kolom Sumber mengikuti kategori asal data
+    assert per_id["sec-michelin-keys"]["sumber"] == "instansi"
+    assert per_id["sec-michelin-keys"]["source"] == "Instansi lain"
+    assert per_id["sec-hotel-kamar"]["source"] == "Data internal Dispar"
+    assert {i["sumber"] for i in items} == {"sdi", "internal", "instansi", "crawling"}
+
+
+def test_filter_sumber(klien):
+    jumlah = {
+        s: klien.get("/v1/katalog", params={"sumber": s}).json()["meta"]["total"]
+        for s in ("sdi", "internal", "instansi", "crawling")
+    }
+    # 3 primer palsu + 11 sekunder olahan SDI; total tetap 3 + 45
+    assert jumlah == {"sdi": 14, "internal": 2, "instansi": 6, "crawling": 26}
+    items = klien.get("/v1/katalog", params={"sumber": "crawling", "tier": "sekunder"}).json()["data"]["items"]
+    assert len(items) == 26 and {i["source"] for i in items} == {"Crawling"}
+
+
+def test_filter_tag_utuh_tanpa_beda_huruf(klien):
+    items = klien.get("/v1/katalog", params={"tag": "WISMAN"}).json()["data"]["items"]
+    ids = [i["id"] for i in items]
+    assert "sdi-wisman" in ids  # tag "Wisman"
+    assert all(any(t.lower() == "wisman" for t in i["tags"]) for i in items)
+    # bukan pencocokan sebagian
+    assert klien.get("/v1/katalog", params={"tag": "wis"}).json()["meta"]["total"] == 0
+
+
+def test_filter_sumber_tidak_dikenal(klien):
+    r = klien.get("/v1/katalog", params={"sumber": "lain"})
+    assert r.status_code == 400
 
 
 def test_stats_dan_layer(klien):

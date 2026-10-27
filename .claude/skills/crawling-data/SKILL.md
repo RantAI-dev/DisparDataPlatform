@@ -124,6 +124,10 @@ dataset yang pembangunnya butuh jaringan, hasilnya sudah dikurasi di luar skrip,
 atau tidak tercatat, aturannya di `scripts/kolom_publik.py` — jalankan lagi setelah
 pembangunnya dijalankan ulang (idempoten).
 
+Urutan kolom tabel juga di `scripts/kolom_publik.py` (`URUTAN`): apa (nama,
+kategori) → angka yang dicari → di mana → kontak/deskripsi → sumber/verifikasi →
+titik koordinat dan ID. Dataset baru hasil crawling didaftarkan di sana juga.
+
 Mengubah kolom dataset yang sudah tayang: cek dulu pemakainya (`grep` slug dan
 nama kolom di `platform-v2/` dan `lakehouse/clickhouse/sql/`). Peta Spatial
 membaca `nama`/`name`, `lat`/`latitude`, `lon`/`lng`/`longitude`.

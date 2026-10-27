@@ -11,7 +11,10 @@ jaringan, atau hasilnya sudah dikurasi di luar skrip) atau tidak tercatat. Datas
 yang pembangunnya bisa direproduksi (MICE, Michelin, lokasi syuting film) memberi
 label publik di pembangunnya sendiri.
 
-Setelah menjalankan ulang pembangun dataset di ATURAN, jalankan skrip ini lagi.
+Urutan kolom tabel dataset hasil scraping (URUTAN) juga diatur di sini, termasuk
+untuk dataset yang pembangunnya memberi label sendiri.
+
+Setelah menjalankan ulang pembangun dataset di ATURAN atau URUTAN, jalankan skrip ini lagi.
 Idempoten: kolom yang sudah ditata dilewati. Tiap salinan (data/sekunder/ dan
 cermin platform-v2/data/) diproses sendiri dengan format JSON aslinya, tanpa
 saling menyalin.
@@ -156,6 +159,90 @@ def format_asli(raw: str, data) -> dict:
     sys.exit("format JSON tidak dikenali; tidak ditulis supaya diff tidak membengkak")
 
 
+# Urutan kolom tabel menurut kepentingan bagi pembaca: apa (nama, kategori) →
+# angka yang dicari (rating, kapasitas, kamar, tanggal) → di mana (kota, alamat)
+# → kontak dan deskripsi → sumber dan verifikasi → titik koordinat dan ID.
+# Kunci = nama berkas tanpa .json. Daftar harus memuat SEMUA kolom berkas itu;
+# kalau pembangun menambah atau membuang kolom, skrip berhenti supaya daftar
+# ini diperbarui, bukan kolom baru tercecer di ujung.
+HALAL_LOKASI = ["kota", "alamat", "no_sertifikat_halal", "lembaga_sertifikasi", "deskripsi", "gmaps", "sumber", "lat", "lon"]
+TERBANG = [
+    "maskapai", "rute", "kota", "negara", "bandara_lawan", "status_operasi",
+    "opensky_kedatangan_teramati", "opensky_kedatangan_rute_total",
+    "kode_iata_maskapai", "kode_icao_maskapai", "kode_iata", "kode_icao",
+    "sumber", "sumber_wikipedia", "ada_di_openflights", "id",
+]
+URUTAN = {
+    "restoran-tripadvisor-jakarta": [
+        "nama", "jenis_masakan", "rating", "jumlah_ulasan", "ranking", "price_level", "michelin",
+        "kota", "alamat", "url_tripadvisor", "gmaps", "lat", "lon"],
+    "souvenir-tripadvisor-2026": [
+        "nama", "kategori_tripadvisor", "produk_utama", "rating", "jumlah_ulasan", "kota_administrasi",
+        "kecamatan", "alamat", "telepon", "status", "relevan_suvenir", "url_tripadvisor", "catatan",
+        "lat", "lon", "sumber_titik", "no"],
+    "artis-top-global-chart": ["artis", "negara_asal", "tahun", "chart", "peringkat", "sumber"],
+    "michelin-keys-indonesia": [
+        "nama_hotel", "jumlah_key", "kategori_key", "kab_kota", "provinsi", "lokasi_michelin",
+        "jumlah_kamar", "alamat", "edisi", "url_michelin", "latitude", "longitude",
+        "sumber_verifikasi", "status_verifikasi", "no"],
+    "lokasi-syuting-film-jakarta": [
+        "judul_film", "tahun_rilis", "nama", "kawasan", "kota", "kutipan", "sumber_judul", "sumber_url",
+        "keyakinan", "status_sumber", "lat", "lon", "ketepatan_titik"],
+    "penerbangan-langsung-internasional-jakarta": TERBANG,
+    "penerbangan-langsung-domestik-jakarta": TERBANG,
+    "venue-mice-jakarta": [
+        "nama_venue", "kategori", "jenis", "kapasitas_maks_orang", "luas_m2", "jumlah_ruang",
+        "ruang_terbesar", "punya_ballroom", "golongan_hotel", "kab_kota", "provinsi", "di_dki", "alamat",
+        "status_operasi", "url_sumber", "url_verifikasi", "status_verifikasi", "catatan", "id"],
+    "kegiatan-mice-jakarta-2026": [
+        "nama_acara", "tanggal_mulai", "tanggal_selesai", "jenis_acara", "venue", "kab_kota", "di_dki",
+        "penyelenggara", "lokasi_detail", "bulan_mulai", "url_sumber", "sumber_data", "status_verifikasi",
+        "catatan", "id"],
+    "halal-restoran-halal": ["nama", "jenis", *HALAL_LOKASI],
+    "halal-hotel-ramah-muslim": ["nama", "jenis", "fasilitas", *HALAL_LOKASI],
+    "halal-inovasi-ramah-muslim": [
+        "nama", "jenis", "penyelenggara", "deskripsi", "kota", "alamat", "gmaps", "sumber", "lat", "lon"],
+    "halal-mall-fasilitas-halal": [
+        "nama", "fasilitas", "kota", "alamat", "deskripsi", "gmaps", "sumber", "lat", "lon"],
+    "halal-rph-halal": [
+        "nama", "jenis", "penyelenggara", "kota", "alamat", "no_sertifikat_halal", "lembaga_sertifikasi",
+        "gmaps", "sumber", "lat", "lon"],
+    "halal-produk-kreatif-halal": [
+        "nama", "jenis", "penyelenggara", "kota", "no_sertifikat_halal", "lembaga_sertifikasi",
+        "deskripsi", "gmaps", "sumber"],
+    "bandara-ramah-muslim-jakarta": [
+        "nama", "jenis", "fasilitas", "kota", "alamat", "deskripsi", "gmaps", "sumber", "lat", "lon"],
+    "capaian-pariwisata-ramah-muslim": ["nama", "tahun", "pemberi", "tingkat", "deskripsi", "sumber"],
+    "warisan-islam-wisata-budaya-muslim-jakarta": [
+        "nama", "jenis", "tahun", "kota", "alamat", "deskripsi", "gmaps", "sumber", "lat", "lon"],
+    "wellness-jakarta": [
+        "nama", "kategori_wellness", "kota_adm", "alamat", "telepon", "website", "deskripsi", "sumber",
+        "latitude", "longitude", "id"],
+    "usaha-wellness-jakarta": [
+        "nama", "nama_dagang", "kategori_wellness", "jenis_usaha", "status_usaha", "asosiasi", "kota_adm",
+        "alamat", "telepon", "website", "deskripsi", "sumber", "tanggal_enrich", "latitude", "longitude", "id"],
+    "hotel-kamar-jakarta": [
+        "nama", "nama_terkini", "golongan", "jenis", "kamar_terkini", "tahun_kamar_terkini", "wilayah",
+        "alamat", "status_operasi", "kamar_2023", "kamar_2020", "sumber_kamar_terkini", "url_sumber",
+        "status_riset", "kamar_riset_ragu", "catatan", "id"],
+}
+
+
+def urutkan(data: dict, urutan: list[str], nama: str) -> int:
+    """Susun ulang kolom (dan kunci tiap baris) mengikuti `urutan`; kembalikan 1 bila berubah."""
+    ada = [c["key"] for c in data["columns"]]
+    if sorted(ada) != sorted(urutan):
+        sys.exit(f"{nama}: daftar URUTAN tidak cocok dengan kolom berkas "
+                 f"(kurang {sorted(set(ada) - set(urutan))}, lebih {sorted(set(urutan) - set(ada))})")
+    if ada == urutan:
+        return 0
+    pos = {k: i for i, k in enumerate(urutan)}
+    data["columns"].sort(key=lambda c: pos[c["key"]])
+    data["rows"] = [{k: r[k] for k in urutan if k in r} | {k: v for k, v in r.items() if k not in pos}
+                    for r in data["rows"]]
+    return 1
+
+
 def tata(data: dict, aturan: dict) -> int:
     berubah = 0
     buang = [k for k in aturan.get("buang", []) if any(c["key"] == k for c in data["columns"])]
@@ -194,13 +281,15 @@ def tata(data: dict, aturan: dict) -> int:
 
 
 def main() -> int:
-    for slug, aturan in ATURAN.items():
+    for slug in [*ATURAN, *(s for s in URUTAN if s not in ATURAN)]:
         for d in SALINAN:
             p = d / f"{slug}.json"
             raw = p.read_text(encoding="utf-8")
             data = json.loads(raw)
             fmt = format_asli(raw, data)
-            n = tata(data, aturan)
+            n = tata(data, ATURAN.get(slug, {}))
+            if slug in URUTAN:
+                n += urutkan(data, URUTAN[slug], str(p))
             if n:
                 teks = json.dumps(data, ensure_ascii=fmt["ensure_ascii"], indent=fmt["indent"])
                 p.write_text(teks + ("\n" if fmt["newline"] else ""), encoding="utf-8")

@@ -59,7 +59,9 @@ def _get(klien, g: dict):
     return klien.get(path, params=params)
 
 
-@pytest.mark.parametrize("nama", ["katalog.semua", "katalog.primer", "katalog.sekunder"])
+@pytest.mark.parametrize(
+    "nama", ["katalog.semua", "katalog.primer", "katalog.sekunder", "katalog.sumber-crawling", "katalog.tag-halal"]
+)
 def test_katalog(klien, nama):
     g = _golden(nama)
     r = _get(klien, g)

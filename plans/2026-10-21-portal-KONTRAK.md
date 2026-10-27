@@ -72,7 +72,7 @@ P = berparameter (cache TTL), S = aliran.
 
 | Data API | Kelas | Sumber | Bentuk |
 |---|---|---|---|
-| `GET /v1/katalog?tier=primer\|sekunder\|semua` | T | `lake.bronze_meta*.dataset_catalog` ∪ katalog sekunder + medallion | E §4.1 `/v1/datasets`, ditambah baris sekunder (lihat catatan 1) |
+| `GET /v1/katalog?tier=primer\|sekunder\|semua&sumber=sdi\|internal\|instansi\|crawling&tag=…` | T | `lake.bronze_meta*.dataset_catalog` ∪ katalog sekunder + medallion | E §4.1 `/v1/datasets`, ditambah baris sekunder (lihat catatan 1) |
 | `GET /v1/dataset/{slug}` | P | `dataset_catalog` + `dataset_sync` + periode min/max Silver | E §4.1 |
 | `GET /v1/dataset/{slug}/kolom` | P | `dataset_column` + `DESCRIBE silver.<t>` | E §4.1 `/columns` |
 | `GET /v1/dataset/{slug}/facet` | P | Silver | E §2.5 |

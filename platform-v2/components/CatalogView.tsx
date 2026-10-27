@@ -9,7 +9,7 @@ import {
   sdiStats,
   type SdiDataset,
 } from "@/lib/sdi";
-import { secondaryDatasets } from "@/lib/secondary";
+import { secondaryDatasets, SUMBER_DATA, type SumberData } from "@/lib/secondary";
 
 const NAVY = "#ed6b23";
 const GOLD = "#f0a13a";
@@ -26,6 +26,7 @@ type CatalogRow = {
   description: string;
   tags: string[];
   tier: Tier;
+  sumber: SumberData;
   source: string;
   size: string; // teks ukuran (dilihat / baris)
   href: string;
@@ -65,7 +66,8 @@ function buildCatalog(sdi: SdiDataset[]): CatalogRow[] {
     description: r.description,
     tags: r.tags,
     tier: "primer",
-    source: "SDI · Satu Data Jakarta",
+    sumber: "sdi",
+    source: SUMBER_DATA.sdi,
     size: `${r.views.toLocaleString("id-ID")} dilihat`,
     href: `/sdi/${r.slug}`,
     external: false,
@@ -77,7 +79,8 @@ function buildCatalog(sdi: SdiDataset[]): CatalogRow[] {
     description: s.description,
     tags: s.tags,
     tier: "sekunder",
-    source: s.external === false ? "Dinas Pariwisata & Ekraf DKI Jakarta" : "Pendataan Jakarta",
+    sumber: s.sumber,
+    source: SUMBER_DATA[s.sumber],
     size: `${s.rows.toLocaleString("id-ID")} baris`,
     href: s.href,
     external: s.external ?? true,
@@ -96,6 +99,12 @@ export function CatalogView({ primaryOnly = false }: { primaryOnly?: boolean }) 
   const [tier, setTier] = useState<"all" | Tier>("all");
   const [medal, setMedal] = useState<MedallionMap>({});
   const [medalFilter, setMedalFilter] = useState<"all" | Medallion>("all");
+  const [sumber, setSumber] = useState<"all" | SumberData>("all");
+  // `tag` = filter yang berlaku (huruf kecil); `tagTeks` = isi kotak. Filter baru
+  // berlaku saat isi kotak sama persis dengan salah satu tag, supaya ketikan
+  // setengah jadi tidak mengosongkan tabel.
+  const [tag, setTag] = useState("");
+  const [tagTeks, setTagTeks] = useState("");
 
   const catalog = useMemo(() => buildCatalog(rows).filter((r) => !primaryOnly || r.tier === "primer"), [rows, primaryOnly]);
 
@@ -133,6 +142,8 @@ export function CatalogView({ primaryOnly = false }: { primaryOnly?: boolean }) 
     return catalog.filter((r) => {
       if (tier !== "all" && r.tier !== tier) return false;
       if (medalFilter !== "all" && medal[r.medalKey]?.level !== medalFilter) return false;
+      if (sumber !== "all" && r.sumber !== sumber) return false;
+      if (tag && !r.tags.some((t) => t.toLowerCase() === tag)) return false;
       if (!term) return true;
       return (
         r.title.toLowerCase().includes(term) ||
@@ -141,9 +152,20 @@ export function CatalogView({ primaryOnly = false }: { primaryOnly?: boolean }) 
         r.tags.some((t) => t.toLowerCase().includes(term))
       );
     });
-  }, [catalog, q, tier, medal, medalFilter]);
+  }, [catalog, q, tier, medal, medalFilter, sumber, tag]);
 
   const stats = useMemo(() => sdiStats(rows), [rows]);
+  // Pilihan filter beserta jumlah dataset; tag diurutkan dari yang paling sering.
+  const sumberCounts = useMemo(() => {
+    const c: Partial<Record<SumberData, number>> = {};
+    for (const r of catalog) c[r.sumber] = (c[r.sumber] ?? 0) + 1;
+    return c;
+  }, [catalog]);
+  const tagOptions = useMemo(() => {
+    const c = new Map<string, number>();
+    for (const r of catalog) for (const t of new Set(r.tags.map((x) => x.toLowerCase()))) c.set(t, (c.get(t) ?? 0) + 1);
+    return [...c].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0], "id"));
+  }, [catalog]);
   const secondaryCount = secondaryDatasets().length;
 
   return (
@@ -186,7 +208,8 @@ export function CatalogView({ primaryOnly = false }: { primaryOnly?: boolean }) 
 
       {/* ── TOOLBAR ── */}
       <div className="mx-auto max-w-[1320px] px-6 -mt-6 relative z-10">
-        <div className="bg-white rounded-xl border border-slate-200 shadow-sm p-4 flex flex-col lg:flex-row lg:items-center gap-3">
+        <div className="bg-white rounded-xl border border-slate-200 shadow-sm p-4 flex flex-col gap-3">
+        <div className="flex flex-col lg:flex-row lg:items-center gap-3">
           <input
             value={q}
             onChange={(e) => setQ(e.target.value)}
@@ -260,6 +283,62 @@ export function CatalogView({ primaryOnly = false }: { primaryOnly?: boolean }) 
             </span>
           </div>
         </div>
+        {/* Filter sumber data dan tag */}
+        <div className="flex flex-col sm:flex-row sm:items-center gap-3 text-[13px]">
+          {!primaryOnly && (
+            <label className="flex items-center gap-2">
+              <span className="font-medium text-slate-600">Sumber</span>
+              <select
+                value={sumber}
+                onChange={(e) => setSumber(e.target.value as "all" | SumberData)}
+                className="rounded-lg border border-slate-300 bg-slate-50 px-3 py-2 text-[13px] text-slate-700 focus:border-[#ed6b23] focus:bg-white"
+              >
+                <option value="all">Semua sumber</option>
+                {(Object.keys(SUMBER_DATA) as SumberData[]).map((s) => (
+                  <option key={s} value={s}>
+                    {SUMBER_DATA[s]} ({sumberCounts[s] ?? 0})
+                  </option>
+                ))}
+              </select>
+            </label>
+          )}
+          <label className="flex items-center gap-2">
+            <span className="font-medium text-slate-600">Tag</span>
+            <input
+              value={tagTeks}
+              onChange={(e) => {
+                const v = e.target.value;
+                setTagTeks(v);
+                const t = v.trim().toLowerCase();
+                if (!t) setTag("");
+                else if (tagOptions.some(([x]) => x === t)) setTag(t);
+              }}
+              list="katalog-tag"
+              placeholder="Ketik atau pilih tag…"
+              className="w-56 rounded-lg border border-slate-300 bg-slate-50 px-3 py-2 text-[13px] text-slate-700 focus:border-[#ed6b23] focus:bg-white"
+            />
+            <datalist id="katalog-tag">
+              {tagOptions.map(([t, n]) => (
+                <option key={t} value={t}>{`${n} dataset`}</option>
+              ))}
+            </datalist>
+          </label>
+          {(tag || sumber !== "all") && (
+            <button
+              type="button"
+              onClick={() => {
+                setSumber("all");
+                setTag("");
+                setTagTeks("");
+              }}
+              className="self-start sm:self-auto text-[13px] font-medium hover:underline"
+              style={{ color: LINK }}
+            >
+              Hapus filter
+            </button>
+          )}
+        </div>
+        </div>
       </div>
 
       {/* ── TABLE ── */}
@@ -312,12 +391,18 @@ export function CatalogView({ primaryOnly = false }: { primaryOnly?: boolean }) 
                     <td className="px-4 py-3 hidden md:table-cell">
                       <div className="flex flex-wrap gap-1 max-w-[220px]">
                         {r.tags.slice(0, 4).map((t) => (
-                          <span
+                          <button
                             key={t}
-                            className="text-[11px] px-2 py-0.5 rounded-full bg-slate-100 text-slate-600"
+                            type="button"
+                            onClick={() => {
+                              setTag(t.toLowerCase());
+                              setTagTeks(t.toLowerCase());
+                            }}
+                            title={`Tampilkan dataset bertag "${t}"`}
+                            className="text-[11px] px-2 py-0.5 rounded-full bg-slate-100 text-slate-600 hover:bg-slate-200"
                           >
                             {t}
-                          </span>
+                          </button>
                         ))}
                       </div>
                     </td>

@@ -157,8 +157,22 @@ def _medallion_katalog(k: Konteks) -> dict[str, dict[str, str]]:
 # ── katalog ───────────────────────────────────────────────────────────────────
 
 
-def katalog(k: Konteks, tier: str, hal: Halaman) -> tuple[dict[str, Any], int]:
-    """Gabungan katalog seperti `CatalogView`: primer (lake) lalu entri sekunder (`katalog_sekunder.toml`)."""
+# Label kolom Sumber katalog, padanan `SUMBER_DATA` di platform-v2 lib/secondary.ts.
+SUMBER_DATA = {
+    "sdi": "SDI · Satu Data Jakarta",
+    "internal": "Data internal Dispar",
+    "instansi": "Instansi lain",
+    "crawling": "Crawling",
+}
+
+
+def katalog(
+    k: Konteks, tier: str, hal: Halaman, sumber: str = "semua", tag: str | None = None
+) -> tuple[dict[str, Any], int]:
+    """Gabungan katalog seperti `CatalogView`: primer (lake) lalu entri sekunder (`katalog_sekunder.toml`).
+
+    `sumber` dan `tag` menyaring seperti filter Sumber dan Tag di halaman; tag dicocokkan utuh,
+    tanpa beda huruf besar-kecil."""
     primer = [r for r in _katalog_lake(k) if r["tier"] == "primer"]
     # `/api/sdi`: urut updated_at menurun (sort stabil; kosong paling akhir).
     primer.sort(key=lambda r: r["updated_at"] or "", reverse=True)
@@ -171,7 +185,8 @@ def katalog(k: Konteks, tier: str, hal: Halaman) -> tuple[dict[str, Any], int]:
             "description": r["description"] or "",
             "tags": r["tags"],
             "tier": "primer",
-            "source": "SDI · Satu Data Jakarta",
+            "sumber": "sdi",
+            "source": SUMBER_DATA["sdi"],
             "size_label": f"{angka_id(r['views'])} dilihat",
             "href": f"/sdi/{r['slug']}",
             "external": False,
@@ -187,7 +202,8 @@ def katalog(k: Konteks, tier: str, hal: Halaman) -> tuple[dict[str, Any], int]:
                 "description": e.description,
                 "tags": list(e.tags),
                 "tier": "sekunder",
-                "source": "Dinas Pariwisata & Ekraf DKI Jakarta" if e.external is False else "Pendataan Jakarta",
+                "sumber": e.sumber,
+                "source": SUMBER_DATA[e.sumber],
                 "size_label": f"{angka_id(n)} baris",
                 "href": e.href,
                 "external": e.external,
@@ -200,7 +216,14 @@ def katalog(k: Konteks, tier: str, hal: Halaman) -> tuple[dict[str, Any], int]:
     for b in katalog_tampil:
         if lvl := medal.get(b["_medal"], {}).get("level"):
             layer[lvl] += 1
-    terpilih = [b for b in katalog_tampil if tier != "sekunder" or b["tier"] == "sekunder"]
+    tag_kecil = tag.lower() if tag else None
+    terpilih = [
+        b
+        for b in katalog_tampil
+        if (tier != "sekunder" or b["tier"] == "sekunder")
+        and (sumber == "semua" or b["sumber"] == sumber)
+        and (tag_kecil is None or any(t.lower() == tag_kecil for t in b["tags"]))
+    ]
     items = [
         {**{kk: v for kk, v in b.items() if kk != "_medal"}, "medallion": medal.get(b["_medal"])} for b in terpilih
     ]

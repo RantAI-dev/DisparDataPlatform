@@ -77,6 +77,14 @@ def normalkan_negara(nilai: str) -> str:
         return ISO2_KE_NEGARA.get(v.upper(), v.upper())
     return v
 
+# Kode maskapai yang belum tercatat di Wikidata maupun OpenFlights airlines.dat.
+# Nama Wikipedia EN -> (IATA, ICAO). Sumber per entri wajib dicatat.
+KODE_MASKAPAI_TAMBAHAN = {
+    # IATA: help.superairjet.com/article/contact-center-super-air-jet/579;
+    # ICAO: avcodes.co.uk (ID 29526) dan profil CAPA
+    "Super Air Jet": ("IU", "SJV"),
+}
+
 # Jendela observasi OpenSky. Endpoint hanya mengembalikan data yang sudah
 # diproses batch semalam, jadi berakhir kemarin. Batas 2 hari per permintaan.
 OPENSKY_HARI = 7
@@ -492,7 +500,7 @@ def prop_wikidata(qids: list[str], cache: dict) -> dict[str, dict]:
     """QID -> {iata, icao, negara_qid, negara} dengan cache status."""
     wd = cache["wikidata"]
     perlu = [q for q in dict.fromkeys(qids) if q and (
-        wd.get(q, {}).get("status") != "ok" or "callsign_icao" not in wd.get(q, {}))]
+        wd.get(q, {}).get("status") != "ok" or "iata_maskapai" not in wd.get(q, {}))]
     for a in range(0, len(perlu), 40):
         potong = perlu[a:a + 40]
         for e in _ambil_entitas(potong):
@@ -518,6 +526,9 @@ def prop_wikidata(qids: list[str], cache: dict) -> dict[str, dict]:
                 # (SIA/AXM/GIA); P239 hanya untuk bandara. Tanpa ini seluruh
                 # pencocokan callsign OpenSky selalu nihil.
                 "callsign_icao": satu("P230"),
+                # kode IATA maskapai 2 huruf (GA, QZ, OD) — kunci resmi pembeda
+                # maskapai sekelompok (Batik Air ID vs Batik Air Malaysia OD)
+                "iata_maskapai": satu("P229"),
                 "negara_qid": satu("P17"),
                 "negara": "",
             }
@@ -558,12 +569,18 @@ def ambil_opensky(cache: dict, kred: dict) -> dict:
     yang tidak rata tengah malam UTC akan menyentuh hari ketiga dan ditolak 400.
     Maka jendela dibuat rata tengah malam UTC: [D 00:00, D+1 23:59:59].
     """
-    tok = os.environ.get("OPENSKY_TOKEN") or minta_token_opensky(kred)
+    # Token diminta hanya kalau ada jendela yang belum ada di cache, supaya
+    # pembangunan ulang dari cache tidak butuh credentials.json.
+    tok = os.environ.get("OPENSKY_TOKEN") or ""
 
     # hari penuh terakhir yang sudah diproses batch = kemarin;
     # berhenti di awal kemarin supaya aman dari hari yang belum lengkap.
-    kini = datetime.now(timezone.utc)
-    akhir = (kini - timedelta(days=1)).replace(hour=0, minute=0, second=0, microsecond=0)
+    # OPENSKY_AKHIR=YYYY-MM-DD mengunci jendela ke run lama (bangun ulang dari cache).
+    if os.environ.get("OPENSKY_AKHIR"):
+        akhir = datetime.strptime(os.environ["OPENSKY_AKHIR"], "%Y-%m-%d").replace(tzinfo=timezone.utc)
+    else:
+        kini = datetime.now(timezone.utc)
+        akhir = (kini - timedelta(days=1)).replace(hour=0, minute=0, second=0, microsecond=0)
     mulai = akhir - timedelta(days=OPENSKY_HARI)
 
     jendela: list[tuple[int, int]] = []
@@ -581,6 +598,10 @@ def ambil_opensky(cache: dict, kred: dict) -> dict:
         kunci = f"{CGK_ICAO}_{datetime.fromtimestamp(awal, timezone.utc):%Y-%m-%d}"
         entri = cache["opensky"].get(kunci, {})
         if entri.get("status") != "ok":
+            if not kred and not tok:
+                sys.exit(f"jendela OpenSky {kunci} belum ada di cache dan credentials.json tidak ada; "
+                         "set OPENSKY_AKHIR ke tanggal run yang tersimpan di cache")
+            tok = tok or minta_token_opensky(kred)
             url = (f"https://opensky-network.org/api/flights/arrival"
                    f"?airport={CGK_ICAO}&begin={awal}&end={akhir_j}")
             try:
@@ -687,6 +708,8 @@ DATASET_PER_JENIS = {
 KOLOM = [
     {"key": "id", "label": "ID", "type": "string", "description": "Penanda baris"},
     {"key": "maskapai", "label": "Maskapai", "type": "string", "description": "Nama maskapai yang mengoperasikan rute"},
+    {"key": "kode_iata_maskapai", "label": "Kode IATA Maskapai", "type": "string", "description": "Kode maskapai 2 huruf dari IATA (mis. GA, QZ, OD); membedakan maskapai bernama mirip seperti Batik Air (ID) dan Batik Air Malaysia (OD)"},
+    {"key": "kode_icao_maskapai", "label": "Kode ICAO Maskapai", "type": "string", "description": "Kode maskapai 3 huruf dari ICAO (mis. GIA, AWQ); bersama kode IATA bandara lawan menjadi kunci unik baris"},
     {"key": "bandara_lawan", "label": "Bandara Lawan", "type": "string", "description": "Bandara di ujung rute selain CGK"},
     {"key": "kota", "label": "Kota", "type": "string", "description": "Kota bandara lawan (dari OpenFlights)"},
     {"key": "negara", "label": "Negara", "type": "string", "description": "Negara bandara lawan (Wikidata P17)"},
@@ -751,9 +774,9 @@ def main() -> int:
     try:
         kred = json.load(open(os.path.join(ROOT, "credentials.json"), encoding="utf-8"))
     except FileNotFoundError:
-        print("  credentials.json tidak ada — bagian OpenSky dilewati")
+        print("  credentials.json tidak ada — OpenSky hanya dari cache")
         kred = None
-    agg = ambil_opensky(cache, kred) if kred else {}
+    agg = ambil_opensky(cache, kred)
     total_obs = sum(v["jumlah"] for v in agg.values())
     n_null = sum(v.get("tanpa_asal", 0) for v in cache["opensky"].values() if isinstance(v, dict))
     n_total = sum(v.get("jumlah_penerbangan", 0) for v in cache["opensky"].values() if isinstance(v, dict))
@@ -834,7 +857,9 @@ def main() -> int:
         qid_m = qid_mask.get(artikel_m, "")
         # kode ICAO maskapai (Wikidata P239) -> dipakai mencocokkan callsign OpenSky
         wm = wd.get(qid_m, {}) if qid_m else {}
-        icao_m = ((wm.get("callsign_icao") or wm.get("icao") or "")).upper()
+        iata_tambahan, icao_tambahan = KODE_MASKAPAI_TAMBAHAN.get(maskapai, ("", ""))
+        icao_m = ((wm.get("callsign_icao") or wm.get("icao") or icao_tambahan)).upper()
+        iata_m = (wm.get("iata_maskapai") or iata_tambahan).upper()
 
         # kunci penggabungan: IATA netral-bahasa dulu. QID/artikel hanya cadangan.
         # Tanpa ini, Citilink-Zhangjiajie dari EN dan ID jadi dua baris karena
@@ -845,6 +870,7 @@ def main() -> int:
                 "maskapai": maskapai,
                 "artikel_maskapai": artikel_m,
                 "icao_maskapai": icao_m,
+                "iata_maskapai": iata_m,
                 "bandara_lawan": nama_b,
                 "artikel_bandara": artikel_b,
                 "kota": kota,
@@ -872,6 +898,8 @@ def main() -> int:
                 r["negara"] = negara
             if not r["icao_maskapai"] and icao_m:
                 r["icao_maskapai"] = icao_m
+            if not r["iata_maskapai"] and iata_m:
+                r["iata_maskapai"] = iata_m
 
     for b in baris_en:
         for t in b["tujuan"]:
@@ -948,9 +976,15 @@ def main() -> int:
         r["negara"] = normalkan_negara(r.get("negara") or "")
         internasional = bool(r["negara"]) and r["negara"].lower() not in (
             "indonesia", "indonesian", "")
+        icao_m = r.get("icao_maskapai") or ""
+        iata_m = r.get("iata_maskapai") or (air_icao.get(icao_m) or {}).get("iata", "").upper()
+        if iata_m in ("\\N", "-"):
+            iata_m = ""
         rows.append({
             "id": f"rute-cgk-{idx:04d}",
             "maskapai": r["maskapai"],
+            "kode_iata_maskapai": iata_m,
+            "kode_icao_maskapai": icao_m,
             "bandara_lawan": r["bandara_lawan"],
             "kota": r["kota"],
             "negara": r["negara"],
@@ -967,29 +1001,28 @@ def main() -> int:
                       + ("+opensky" if n_mask else ""),
         })
 
+    # Pengamatan OpenSky yang tidak tercantum di Wikipedia TIDAK ditulis sebagai
+    # rute: itu bukan bukti jadwal reguler. Contohnya CGK-Seletar (XSP), isinya
+    # jet pribadi dan carter campuran yang lolos ambang observasi. Daftarnya
+    # tetap dicetak supaya bisa ditelusuri manual.
     for r in baris_tambahan:
-        idx += 1
-        r["negara"] = normalkan_negara(r.get("negara") or "")
-        internasional = r["negara"].lower() not in ("indonesia", "indonesian", "")
-        kode_mask = ", ".join(sorted(r["per_maskapai"]))
-        rows.append({
-            "id": f"rute-cgk-{idx:04d}",
-            "maskapai": r["maskapai"],
-            "bandara_lawan": r["bandara_lawan"],
-            "kota": r["kota"],
-            "negara": r["negara"],
-            "kode_iata": r["kode_iata"],
-            "kode_icao": r["kode_icao"],
-            "rute": f"{CGK_IATA}-{r['kode_iata']}" if r["kode_iata"] else "",
-            "jenis_rute": "internasional" if internasional else "domestik",
-            "status_operasi": "",
-            "sumber_wikipedia": "",
-            "ada_di_openflights": r["kode_iata"] in of_lawan,
-            "opensky_kedatangan_teramati": r["jumlah_obs"],
-            "opensky_kedatangan_rute_total": r["jumlah_obs"],
-            "sumber": "opensky",
-            "kode_icao_maskapai_teramati": kode_mask,
-        })
+        print(f"  dibuang (hanya OpenSky): CGK-{r['kode_iata']} {r['bandara_lawan']} "
+              f"[{r['jumlah_obs']} obs, {', '.join(sorted(r['per_maskapai']))}]")
+
+    # Satu baris = satu maskapai pada satu rute. Kuncinya kode resmi: kode
+    # maskapai (ICAO, atau IATA bila ICAO kosong) + kode IATA bandara lawan.
+    # Baris tanpa kode maskapai memakai nama, dan dicetak supaya dilengkapi.
+    ganda: dict[tuple[str, str], list[str]] = defaultdict(list)
+    for r in rows:
+        kode_m = r["kode_icao_maskapai"] or r["kode_iata_maskapai"]
+        if not kode_m:
+            print(f"  tanpa kode maskapai: {r['maskapai']} {r['rute']}")
+        ganda[(kode_m or r["maskapai"].lower(), r["kode_iata"])].append(r["id"])
+    ganda = {k: v for k, v in ganda.items() if len(v) > 1}
+    if ganda:
+        for k, v in ganda.items():
+            print(f"  GANDA {k}: {v}")
+        return 1
 
     n_blm = sum(1 for r in rows if r["jenis_rute"] == "belum_dilabeli")
     if n_blm:
@@ -1002,7 +1035,7 @@ def main() -> int:
     print(f"\n== Selesai ==")
     print(f"  baris           : {len(rows)}")
     print(f"  bandara lawan   : {len({r['kode_iata'] for r in rows if r['kode_iata']})}")
-    print(f"  + dari OpenSky  : {len(baris_tambahan)}")
+    print(f"  dibuang OpenSky : {len(baris_tambahan)}")
     for jenis, (path, n) in keluaran.items():
         print(f"  {jenis:<15} : {n} baris -> {path}")
     return 0

@@ -15,7 +15,7 @@
 "jumlah_rute_cgk": 367,
 "jumlah_bandara": 6072,
 "jumlah_maskapai": 5242,
-"diambil": "2026-10-15T02:08:01+00:00"
+"diambil": "2026-10-27T08:57:44+00:00"
 }
 },
 "wikidata": {
@@ -24,6 +24,7 @@
 "iata": "KUL",
 "icao": "WMKK",
 "callsign_icao": "",
+"iata_maskapai": "",
 "negara_qid": "Q833",
 "negara": "Malaysia"
 },
@@ -32,6 +33,7 @@
 "iata": "ICN",
 "icao": "RKSI",
 "callsign_icao": "",
+"iata_maskapai": "",
 "negara_qid": "Q884",
 "negara": "Korea Selatan"
 },
@@ -40,6 +42,7 @@
 "iata": "DMK",
 "icao": "VTBD",
 "callsign_icao": "",
+"iata_maskapai": "",
 "negara_qid": "Q869",
 "negara": "Thailand"
 },
@@ -48,6 +51,7 @@
 "iata": "PEK",
 "icao": "ZBAA",
 "callsign_icao": "",
+"iata_maskapai": "",
 "negara_qid": "Q148",
 "negara": "Tiongkok"
 },
@@ -56,6 +60,7 @@
 "iata": "PER",
 "icao": "YPPH",
 "callsign_icao": "",
+"iata_maskapai": "",
 "negara_qid": "Q408",
 "negara": "Australia"
 },
@@ -64,6 +69,7 @@
 "iata": "CAN",
 "icao": "ZGGG",
 "callsign_icao": "",
+"iata_maskapai": "",
 "negara_qid": "Q148",
 "negara": "Tiongkok"
 },
@@ -72,6 +78,7 @@
 "iata": "TKG",
 "icao": "WILL",
 "callsign_icao": "",
+"iata_maskapai": "",
 "negara_qid": "Q252",
 "negara": "Indonesia"
 },
@@ -80,6 +87,7 @@
 "iata": "PEN",
 "icao": "WMKP",
 "callsign_icao": "",
+"iata_maskapai": "",
 "negara_qid": "Q833",
 "negara": "Malaysia"
 },
@@ -88,6 +96,7 @@
 "iata": "BPN",
 "icao": "WALL",
 "callsign_icao": "",
+"iata_maskapai": "",
 "negara_qid": "Q252",
 "negara": "Indonesia"
 },
@@ -96,6 +105,7 @@
 "iata": "SOC",
 "icao": "WARQ",
 "callsign_icao": "",
+"iata_maskapai": "",
 "negara_qid": "Q252",
 "negara": "Indonesia"
 },
@@ -104,6 +114,7 @@
 "iata": "PDG",
 "icao": "WIPT",
 "callsign_icao": "",
+"iata_maskapai": "",
 "negara_qid": "Q252",
 "negara": "Indonesia"
 },
@@ -112,6 +123,7 @@
 "iata": "MDC",
 "icao": "WAMM",
 "callsign_icao": "",
+"iata_maskapai": "",
 "negara_qid": "Q252",
 "negara": "Indonesia"
 },
@@ -120,6 +132,7 @@
 "iata": "KNO",
 "icao": "WIMM",
 "callsign_icao": "",
+"iata_maskapai": "",
 "negara_qid": "Q252",
 "negara": "Indonesia"
 },
@@ -128,6 +141,7 @@
 "iata": "SRG",
 "icao": "WAHS",
 "callsign_icao": "",
+"iata_maskapai": "",
 "negara_qid": "Q252",
 "negara": "Indonesia"
 },
@@ -136,6 +150,7 @@
 "iata": "KBR",
 "icao": "WMKC",
 "callsign_icao": "",
+"iata_maskapai": "",
 "negara_qid": "Q833",
 "negara": "Malaysia"
 },
@@ -144,6 +159,7 @@
 "iata": "SUB",
 "icao": "WARR",
 "callsign_icao": "",
+"iata_maskapai": "",
 "negara_qid": "Q252",
 "negara": "Indonesia"
 },
@@ -152,6 +168,7 @@
 "iata": "PKU",
 "icao": "WIBB",
 "callsign_icao": "",
+"iata_maskapai": "",
 "negara_qid": "Q252",
 "negara": "Indonesia"
 },
@@ -160,6 +177,7 @@
 "iata": "BTJ",
 "icao": "WITT",
 "callsign_icao": "",
+"iata_maskapai": "",
 "negara_qid": "Q252",
 "negara": "Indonesia"
 },
@@ -168,6 +186,7 @@
 "iata": "PLM",
 "icao": "WIPP",
 "callsign_icao": "",
+"iata_maskapai": "",
 "negara_qid": "Q252",
 "negara": "Indonesia"
 },
@@ -176,6 +195,7 @@
 "iata": "AMQ",
 "icao": "WAPP",
 "callsign_icao": "",
+"iata_maskapai": "",
 "negara_qid": "Q252",
 "negara": "Indonesia"
 },
@@ -184,6 +204,7 @@
 "iata": "BDJ",
 "icao": "WAOO",
 "callsign_icao": "",
+"iata_maskapai": "",
 "negara_qid": "Q252",
 "negara": "Indonesia"
 },
@@ -192,6 +213,7 @@
 "iata": "BTH",
 "icao": "WIDD",
 "callsign_icao": "",
+"iata_maskapai": "",
 "negara_qid": "Q252",
 "negara": "Indonesia"
 },
@@ -200,6 +222,7 @@
 "iata": "BEJ",
 "icao": "WRLK",
 "callsign_icao": "",
+"iata_maskapai": "",
 "negara_qid": "Q252",
 "negara": "Indonesia"
 },
@@ -208,6 +231,7 @@
 "iata": "GTO",
 "icao": "WAMG",
 "callsign_icao": "",
+"iata_maskapai": "",
 "negara_qid": "Q252",
 "negara": "Indonesia"
 },
@@ -216,6 +240,7 @@
 "iata": "DJB",
 "icao": "WIJJ",
 "callsign_icao": "",
+"iata_maskapai": "",
 "negara_qid": "Q252",
 "negara": "Indonesia"
 },
@@ -224,6 +249,7 @@
 "iata": "DJJ",
 "icao": "WAJJ",
 "callsign_icao": "",
+"iata_maskapai": "",
 "negara_qid": "Q252",
 "negara": "Indonesia"
 },
@@ -232,6 +258,7 @@
 "iata": "KDI",
 "icao": "WAWW",
 "callsign_icao": "",
+"iata_maskapai": "",
 "negara_qid": "Q252",
 "negara": "Indonesia"
 },
@@ -240,6 +267,7 @@
 "iata": "KOE",
 "icao": "WATT",
 "callsign_icao": "",
+"iata_maskapai": "",
 "negara_qid": "Q252",
 "negara": "Indonesia"
 },
@@ -248,6 +276,7 @@
 "iata": "LBJ",
 "icao": "WATO",
 "callsign_icao": "",
+"iata_maskapai": "",
 "negara_qid": "Q252",
 "negara": "Indonesia"
 },
@@ -256,6 +285,7 @@
 "iata": "MLG",
 "icao": "WARA",
 "callsign_icao": "",
+"iata_maskapai": "",
 "negara_qid": "Q252",
 "negara": "Indonesia"
 },
@@ -264,6 +294,7 @@
 "iata": "PKY",
 "icao": "WAGG",
 "callsign_icao": "",
+"iata_maskapai": "",
 "negara_qid": "Q252",
 "negara": "Indonesia"
 },
@@ -272,6 +303,7 @@
 "iata": "PLW",
 "icao": "WAML",
 "callsign_icao": "",
+"iata_maskapai": "",
 "negara_qid": "Q252",
 "negara": "Indonesia"
 },
@@ -280,6 +312,7 @@
 "iata": "PKN",
 "icao": "WAGI",
 "callsign_icao": "",
+"iata_maskapai": "",
 "negara_qid": "Q252",
 "negara": "Indonesia"
 },
@@ -288,6 +321,7 @@
 "iata": "PNK",
 "icao": "WIOO",
 "callsign_icao": "",
+"iata_maskapai": "",
 "negara_qid": "Q252",
 "negara": "Indonesia"
 },
@@ -296,6 +330,7 @@
 "iata": "SOQ",
 "icao": "WASS",
 "callsign_icao": "",
+"iata_maskapai": "",
 "negara_qid": "Q252",
 "negara": "Indonesia"
 },
@@ -304,6 +339,7 @@
 "iata": "TRK",
 "icao": "WAQQ",
 "callsign_icao": "",
+"iata_maskapai": "",
 "negara_qid": "Q252",
 "negara": "Indonesia"
 },
@@ -312,6 +348,7 @@
 "iata": "UPG",
 "icao": "WAAA",
 "callsign_icao": "",
+"iata_maskapai": "",
 "negara_qid": "Q252",
 "negara": "Indonesia"
 },
@@ -320,6 +357,7 @@
 "iata": "TNJ",
 "icao": "WIDN",
 "callsign_icao": "",
+"iata_maskapai": "",
 "negara_qid": "Q252",
 "negara": "Indonesia"
 },
@@ -328,6 +366,7 @@
 "iata": "BKS",
 "icao": "WIPL",
 "callsign_icao": "",
+"iata_maskapai": "",
 "negara_qid": "Q252",
 "negara": "Indonesia"
 },
@@ -336,6 +375,7 @@
 "iata": "AAP",
 "icao": "WALS",
 "callsign_icao": "",
+"iata_maskapai": "",
 "negara_qid": "Q252",
 "negara": "Indonesia"
 },
@@ -344,6 +384,7 @@
 "iata": "YIA",
 "icao": "WAHI",
 "callsign_icao": "",
+"iata_maskapai": "",
 "negara_qid": "Q252",
 "negara": "Indonesia"
 },
@@ -352,6 +393,7 @@
 "iata": "SIN",
 "icao": "WSSS",
 "callsign_icao": "",
+"iata_maskapai": "",
 "negara_qid": "Q334",
 "negara": "Singapura"
 },
@@ -360,6 +402,7 @@
 "iata": "TTE",
 "icao": "WAMT",
 "callsign_icao": "",
+"iata_maskapai": "",
 "negara_qid": "Q252",
 "negara": "Indonesia"
 },
@@ -368,6 +411,7 @@
 "iata": "HND",
 "icao": "RJTT",
 "callsign_icao": "",
+"iata_maskapai": "",
 "negara_qid": "Q17",
 "negara": "Jepang"
 },
@@ -376,6 +420,7 @@
 "iata": "NRT",
 "icao": "RJAA",
 "callsign_icao": "",
+"iata_maskapai": "",
 "negara_qid": "Q17",
 "negara": "Jepang"
 },
@@ -384,6 +429,7 @@
 "iata": "LOP",
 "icao": "WADL",
 "callsign_icao": "",
+"iata_maskapai": "",
 "negara_qid": "Q252",
 "negara": "Indonesia"
 },
@@ -392,6 +438,7 @@
 "iata": "BUU",
 "icao": "WIPI",
 "callsign_icao": "",
+"iata_maskapai": "",
 "negara_qid": "Q252",
 "negara": "Indonesia"
 },
@@ -400,6 +447,7 @@
 "iata": "LLJ",
 "icao": "WIPB",
 "callsign_icao": "",
+"iata_maskapai": "",
 "negara_qid": "Q252",
 "negara": "Indonesia"
 },
@@ -408,6 +456,7 @@
 "iata": "TFU",
 "icao": "ZUTF",
 "callsign_icao": "",
+"iata_maskapai": "",
 "negara_qid": "Q148",
 "negara": "Tiongkok"
 },
@@ -416,6 +465,7 @@
 "iata": "DPS",
 "icao": "WADD",
 "callsign_icao": "",
+"iata_maskapai": "",
 "negara_qid": "Q252",
 "negara": "Indonesia"
 },
@@ -424,6 +474,7 @@
 "iata": "AMS",
 "icao": "EHAM",
 "callsign_icao": "",
+"iata_maskapai": "",
 "negara_qid": "Q55",
 "negara": "Belanda"
 },
@@ -432,6 +483,7 @@
 "iata": "DXB",
 "icao": "OMDB",
 "callsign_icao": "",
+"iata_maskapai": "",
 "negara_qid": "Q878",
 "negara": "Uni Emirat Arab"
 },
@@ -440,6 +492,7 @@
 "iata": "HKG",
 "icao": "VHHH",
 "callsign_icao": "",
+"iata_maskapai": "",
 "negara_qid": "Q148",
 "negara": "Tiongkok"
 },
@@ -448,6 +501,7 @@
 "iata": "SYD",
 "icao": "YSSY",
 "callsign_icao": "",
+"iata_maskapai": "",
 "negara_qid": "Q408",
 "negara": "Australia"
 },
@@ -456,6 +510,7 @@
 "iata": "MEL",
 "icao": "YMML",
 "callsign_icao": "",
+"iata_maskapai": "",
 "negara_qid": "Q408",
 "negara": "Australia"
 },
@@ -464,6 +519,7 @@
 "iata": "TPE",
 "icao": "RCTP",
 "callsign_icao": "",
+"iata_maskapai": "",
 "negara_qid": "Q865",
 "negara": "Taiwan"
 },
@@ -472,6 +528,7 @@
 "iata": "BOM",
 "icao": "VABB",
 "callsign_icao": "",
+"iata_maskapai": "",
 "negara_qid": "Q668",
 "negara": "India"
 },
@@ -480,6 +537,7 @@
 "iata": "MNL",
 "icao": "RPLL",
 "callsign_icao": "",
+"iata_maskapai": "",
 "negara_qid": "Q928",
 "negara": "Filipina"
 },
@@ -488,6 +546,7 @@
 "iata": "PVG",
 "icao": "ZSPD",
 "callsign_icao": "",
+"iata_maskapai": "",
 "negara_qid": "Q148",
 "negara": "Tiongkok"
 },
@@ -496,6 +555,7 @@
 "iata": "BKK",
 "icao": "VTBS",
 "callsign_icao": "",
+"iata_maskapai": "",
 "negara_qid": "Q869",
 "negara": "Thailand"
 },
@@ -504,6 +564,7 @@
 "iata": "RUH",
 "icao": "OERK",
 "callsign_icao": "",
+"iata_maskapai": "",
 "negara_qid": "Q851",
 "negara": "Arab Saudi"
 },
@@ -512,6 +573,7 @@
 "iata": "SZB",
 "icao": "WMSA",
 "callsign_icao": "",
+"iata_maskapai": "",
 "negara_qid": "Q833",
 "negara": "Malaysia"
 },
@@ -520,6 +582,7 @@
 "iata": "AUH",
 "icao": "OMAA",
 "callsign_icao": "",
+"iata_maskapai": "",
 "negara_qid": "Q878",
 "negara": "Uni Emirat Arab"
 },
@@ -528,6 +591,7 @@
 "iata": "CAI",
 "icao": "HECA",
 "callsign_icao": "",
+"iata_maskapai": "",
 "negara_qid": "Q79",
 "negara": "Mesir"
 },
@@ -536,6 +600,7 @@
 "iata": "BWN",
 "icao": "WBSB",
 "callsign_icao": "",
+"iata_maskapai": "",
 "negara_qid": "Q921",
 "negara": "Brunei"
 },
@@ -544,6 +609,7 @@
 "iata": "ADD",
 "icao": "HAAB",
 "callsign_icao": "",
+"iata_maskapai": "",
 "negara_qid": "Q115",
 "negara": "Etiopia"
 },
@@ -552,6 +618,7 @@
 "iata": "JED",
 "icao": "OEJN",
 "callsign_icao": "",
+"iata_maskapai": "",
 "negara_qid": "Q851",
 "negara": "Arab Saudi"
 },
@@ -560,6 +627,7 @@
 "iata": "SZX",
 "icao": "ZGSZ",
 "callsign_icao": "",
+"iata_maskapai": "",
 "negara_qid": "Q148",
 "negara": "Tiongkok"
 },
@@ -568,6 +636,7 @@
 "iata": "JHB",
 "icao": "WMKJ",
 "callsign_icao": "",
+"iata_maskapai": "",
 "negara_qid": "Q833",
 "negara": "Malaysia"
 },
@@ -576,6 +645,7 @@
 "iata": "MED",
 "icao": "OEMA",
 "callsign_icao": "",
+"iata_maskapai": "",
 "negara_qid": "Q851",
 "negara": "Arab Saudi"
 },
@@ -584,6 +654,7 @@
 "iata": "CMB",
 "icao": "VCBI",
 "callsign_icao": "",
+"iata_maskapai": "",
 "negara_qid": "Q854",
 "negara": "Sri Lanka"
 },
@@ -592,6 +663,7 @@
 "iata": "DAD",
 "icao": "VVDN",
 "callsign_icao": "",
+"iata_maskapai": "",
 "negara_qid": "Q881",
 "negara": "Vietnam"
 },
@@ -600,6 +672,7 @@
 "iata": "HAN",
 "icao": "VVNB",
 "callsign_icao": "",
+"iata_maskapai": "",
 "negara_qid": "Q881",
 "negara": "Vietnam"
 },
@@ -608,6 +681,7 @@
 "iata": "XMN",
 "icao": "ZSAM",
 "callsign_icao": "",
+"iata_maskapai": "",
 "negara_qid": "Q148",
 "negara": "Tiongkok"
 },
@@ -616,6 +690,7 @@
 "iata": "HGH",
 "icao": "ZSHC",
 "callsign_icao": "",
+"iata_maskapai": "",
 "negara_qid": "Q148",
 "negara": "Tiongkok"
 },
@@ -624,6 +699,7 @@
 "iata": "KCH",
 "icao": "WBGG",
 "callsign_icao": "",
+"iata_maskapai": "",
 "negara_qid": "Q833",
 "negara": "Malaysia"
 },
@@ -632,6 +708,7 @@
 "iata": "WNZ",
 "icao": "ZSWZ",
 "callsign_icao": "",
+"iata_maskapai": "",
 "negara_qid": "Q148",
 "negara": "Tiongkok"
 },
@@ -640,6 +717,7 @@
 "iata": "BKI",
 "icao": "WBKK",
 "callsign_icao": "",
+"iata_maskapai": "",
 "negara_qid": "Q833",
 "negara": "Malaysia"
 },
@@ -648,6 +726,7 @@
 "iata": "HAK",
 "icao": "ZJHK",
 "callsign_icao": "",
+"iata_maskapai": "",
 "negara_qid": "Q148",
 "negara": "Tiongkok"
 },
@@ -656,6 +735,7 @@
 "iata": "CKG",
 "icao": "ZUCK",
 "callsign_icao": "",
+"iata_maskapai": "",
 "negara_qid": "Q148",
 "negara": "Tiongkok"
 },
@@ -664,6 +744,7 @@
 "iata": "DOH",
 "icao": "OTHH",
 "callsign_icao": "",
+"iata_maskapai": "",
 "negara_qid": "Q846",
 "negara": "Qatar"
 },
@@ -672,6 +753,7 @@
 "iata": "DYG",
 "icao": "ZGDY",
 "callsign_icao": "",
+"iata_maskapai": "",
 "negara_qid": "Q148",
 "negara": "Tiongkok"
 },
@@ -680,6 +762,7 @@
 "iata": "NNG",
 "icao": "ZGNN",
 "callsign_icao": "",
+"iata_maskapai": "",
 "negara_qid": "Q148",
 "negara": "Tiongkok"
 },
@@ -688,6 +771,7 @@
 "iata": "SYX",
 "icao": "ZJSY",
 "callsign_icao": "",
+"iata_maskapai": "",
 "negara_qid": "Q148",
 "negara": "Tiongkok"
 },
@@ -696,6 +780,7 @@
 "iata": "MKQ",
 "icao": "WAKK",
 "callsign_icao": "",
+"iata_maskapai": "",
 "negara_qid": "Q252",
 "negara": "Indonesia"
 },
@@ -704,6 +789,7 @@
 "iata": "PGK",
 "icao": "WIPK",
 "callsign_icao": "",
+"iata_maskapai": "",
 "negara_qid": "Q252",
 "negara": "Indonesia"
 },
@@ -712,6 +798,7 @@
 "iata": "SMQ",
 "icao": "WAOS",
 "callsign_icao": "",
+"iata_maskapai": "",
 "negara_qid": "Q252",
 "negara": "Indonesia"
 },
@@ -720,6 +807,7 @@
 "iata": "TJQ",
 "icao": "WIKT",
 "callsign_icao": "",
+"iata_maskapai": "",
 "negara_qid": "Q252",
 "negara": "Indonesia"
 },
@@ -728,6 +816,7 @@
 "iata": "TIM",
 "icao": "WABP",
 "callsign_icao": "",
+"iata_maskapai": "",
 "negara_qid": "Q252",
 "negara": "Indonesia"
 },
@@ -736,6 +825,7 @@
 "iata": "KMG",
 "icao": "ZPPP",
 "callsign_icao": "",
+"iata_maskapai": "",
 "negara_qid": "Q148",
 "negara": "Tiongkok"
 },
@@ -744,6 +834,7 @@
 "iata": "BWX",
 "icao": "WADY",
 "callsign_icao": "",
+"iata_maskapai": "",
 "negara_qid": "Q252",
 "negara": "Indonesia"
 },
@@ -752,6 +843,7 @@
 "iata": "MCT",
 "icao": "OOMS",
 "callsign_icao": "",
+"iata_maskapai": "",
 "negara_qid": "Q842",
 "negara": "Oman"
 },
@@ -760,6 +852,7 @@
 "iata": "DTB",
 "icao": "WIMN",
 "callsign_icao": "",
+"iata_maskapai": "",
 "negara_qid": "Q252",
 "negara": "Indonesia"
 },
@@ -768,6 +861,7 @@
 "iata": "MOH",
 "icao": "WAFO",
 "callsign_icao": "",
+"iata_maskapai": "",
 "negara_qid": "Q252",
 "negara": "Indonesia"
 },
@@ -776,6 +870,7 @@
 "iata": "DHX",
 "icao": "",
 "callsign_icao": "",
+"iata_maskapai": "",
 "negara_qid": "Q252",
 "negara": "Indonesia"
 },
@@ -784,6 +879,7 @@
 "iata": "KTI",
 "icao": "VDTI",
 "callsign_icao": "",
+"iata_maskapai": "",
 "negara_qid": "Q424",
 "negara": "Kamboja"
 },
@@ -792,6 +888,7 @@
 "iata": "SKJ",
 "icao": "WIOD",
 "callsign_icao": "",
+"iata_maskapai": "",
 "negara_qid": "Q252",
 "negara": "Indonesia"
 },
@@ -800,6 +897,7 @@
 "iata": "SGN",
 "icao": "VVTS",
 "callsign_icao": "",
+"iata_maskapai": "",
 "negara_qid": "Q881",
 "negara": "Vietnam"
 },
@@ -808,6 +906,7 @@
 "iata": "NKG",
 "icao": "ZSNJ",
 "callsign_icao": "",
+"iata_maskapai": "",
 "negara_qid": "Q148",
 "negara": "Tiongkok"
 },
@@ -816,6 +915,7 @@
 "iata": "WUH",
 "icao": "ZHHH",
 "callsign_icao": "",
+"iata_maskapai": "",
 "negara_qid": "Q148",
 "negara": "Tiongkok"
 },
@@ -824,6 +924,7 @@
 "iata": "FOC",
 "icao": "ZSFZ",
 "callsign_icao": "",
+"iata_maskapai": "",
 "negara_qid": "Q148",
 "negara": "Tiongkok"
 },
@@ -832,6 +933,7 @@
 "iata": "KWE",
 "icao": "ZUGY",
 "callsign_icao": "",
+"iata_maskapai": "",
 "negara_qid": "Q148",
 "negara": "Tiongkok"
 },
@@ -840,6 +942,7 @@
 "iata": "IST",
 "icao": "LTFM",
 "callsign_icao": "",
+"iata_maskapai": "",
 "negara_qid": "Q43",
 "negara": "Turki"
 },
@@ -848,6 +951,7 @@
 "iata": "MFM",
 "icao": "VMMC",
 "callsign_icao": "",
+"iata_maskapai": "",
 "negara_qid": "Q148",
 "negara": "Tiongkok"
 },
@@ -856,6 +960,7 @@
 "iata": "BIK",
 "icao": "WABB",
 "callsign_icao": "",
+"iata_maskapai": "",
 "negara_qid": "Q252",
 "negara": "Indonesia"
 },
@@ -864,6 +969,7 @@
 "iata": "PNH",
 "icao": "VDPP",
 "callsign_icao": "",
+"iata_maskapai": "",
 "negara_qid": "Q424",
 "negara": "Kamboja"
 },
@@ -872,6 +978,7 @@
 "iata": "TAS",
 "icao": "UZTT",
 "callsign_icao": "",
+"iata_maskapai": "",
 "negara_qid": "Q265",
 "negara": "Uzbekistan"
 },
@@ -880,6 +987,7 @@
 "iata": "",
 "icao": "",
 "callsign_icao": "KLM",
+"iata_maskapai": "KL",
 "negara_qid": "Q55",
 "negara": "Belanda"
 },
@@ -888,6 +996,7 @@
 "iata": "",
 "icao": "",
 "callsign_icao": "QFA",
+"iata_maskapai": "QF",
 "negara_qid": "Q408",
 "negara": "Australia"
 },
@@ -896,6 +1005,7 @@
 "iata": "",
 "icao": "",
 "callsign_icao": "SVA",
+"iata_maskapai": "SV",
 "negara_qid": "Q851",
 "negara": "Arab Saudi"
 },
@@ -904,6 +1014,7 @@
 "iata": "",
 "icao": "",
 "callsign_icao": "CAL",
+"iata_maskapai": "CI",
 "negara_qid": "Q865",
 "negara": "Taiwan"
 },
@@ -912,6 +1023,7 @@
 "iata": "",
 "icao": "",
 "callsign_icao": "UAE",
+"iata_maskapai": "EK",
 "negara_qid": "Q878",
 "negara": "Uni Emirat Arab"
 },
@@ -920,6 +1032,7 @@
 "iata": "",
 "icao": "",
 "callsign_icao": "RBA",
+"iata_maskapai": "BI",
 "negara_qid": "Q921",
 "negara": "Brunei"
 },
@@ -928,6 +1041,7 @@
 "iata": "",
 "icao": "",
 "callsign_icao": "CPA",
+"iata_maskapai": "CX",
 "negara_qid": "Q148",
 "negara": "Tiongkok"
 },
@@ -936,6 +1050,7 @@
 "iata": "",
 "icao": "",
 "callsign_icao": "MAS",
+"iata_maskapai": "MH",
 "negara_qid": "Q833",
 "negara": "Malaysia"
 },
@@ -944,6 +1059,7 @@
 "iata": "",
 "icao": "",
 "callsign_icao": "SIA",
+"iata_maskapai": "SQ",
 "negara_qid": "Q334",
 "negara": "Singapura"
 },
@@ -952,6 +1068,7 @@
 "iata": "",
 "icao": "",
 "callsign_icao": "GIA",
+"iata_maskapai": "GA",
 "negara_qid": "Q252",
 "negara": "Indonesia"
 },
@@ -960,6 +1077,7 @@
 "iata": "",
 "icao": "",
 "callsign_icao": "JAL",
+"iata_maskapai": "JL",
 "negara_qid": "Q17",
 "negara": "Jepang"
 },
@@ -968,6 +1086,7 @@
 "iata": "",
 "icao": "",
 "callsign_icao": "ANA",
+"iata_maskapai": "NH",
 "negara_qid": "Q17",
 "negara": "Jepang"
 },
@@ -976,6 +1095,7 @@
 "iata": "",
 "icao": "",
 "callsign_icao": "AXM",
+"iata_maskapai": "AK",
 "negara_qid": "Q833",
 "negara": "Malaysia"
 },
@@ -984,6 +1104,7 @@
 "iata": "",
 "icao": "",
 "callsign_icao": "PAL",
+"iata_maskapai": "PR",
 "negara_qid": "Q928",
 "negara": "Filipina"
 },
@@ -992,6 +1113,7 @@
 "iata": "",
 "icao": "",
 "callsign_icao": "CCA",
+"iata_maskapai": "CA",
 "negara_qid": "Q148",
 "negara": "Tiongkok"
 },
@@ -1000,6 +1122,7 @@
 "iata": "",
 "icao": "",
 "callsign_icao": "KAL",
+"iata_maskapai": "KE",
 "negara_qid": "Q884",
 "negara": "Korea Selatan"
 },
@@ -1008,6 +1131,7 @@
 "iata": "",
 "icao": "",
 "callsign_icao": "MSR",
+"iata_maskapai": "MS",
 "negara_qid": "Q79",
 "negara": "Mesir"
 },
@@ -1016,6 +1140,7 @@
 "iata": "",
 "icao": "",
 "callsign_icao": "AAR",
+"iata_maskapai": "OZ",
 "negara_qid": "Q884",
 "negara": "Korea Selatan"
 },
@@ -1024,6 +1149,7 @@
 "iata": "",
 "icao": "",
 "callsign_icao": "CEB",
+"iata_maskapai": "5J",
 "negara_qid": "Q928",
 "negara": "Filipina"
 },
@@ -1032,6 +1158,7 @@
 "iata": "",
 "icao": "",
 "callsign_icao": "EVA",
+"iata_maskapai": "BR",
 "negara_qid": "Q865",
 "negara": "Taiwan"
 },
@@ -1040,6 +1167,7 @@
 "iata": "",
 "icao": "",
 "callsign_icao": "ETH",
+"iata_maskapai": "ET",
 "negara_qid": "Q115",
 "negara": "Etiopia"
 },
@@ -1048,6 +1176,7 @@
 "iata": "",
 "icao": "",
 "callsign_icao": "QTR",
+"iata_maskapai": "QR",
 "negara_qid": "Q846",
 "negara": "Qatar"
 },
@@ -1056,6 +1185,7 @@
 "iata": "",
 "icao": "",
 "callsign_icao": "ALK",
+"iata_maskapai": "UL",
 "negara_qid": "Q854",
 "negara": "Sri Lanka"
 },
@@ -1064,6 +1194,7 @@
 "iata": "",
 "icao": "",
 "callsign_icao": "ETD",
+"iata_maskapai": "EY",
 "negara_qid": "Q878",
 "negara": "Uni Emirat Arab"
 },
@@ -1072,6 +1203,7 @@
 "iata": "",
 "icao": "",
 "callsign_icao": "CES",
+"iata_maskapai": "MU",
 "negara_qid": "Q148",
 "negara": "Tiongkok"
 },
@@ -1080,6 +1212,7 @@
 "iata": "",
 "icao": "",
 "callsign_icao": "CSZ",
+"iata_maskapai": "ZH",
 "negara_qid": "Q148",
 "negara": "Tiongkok"
 },
@@ -1088,6 +1221,7 @@
 "iata": "",
 "icao": "",
 "callsign_icao": "LNI",
+"iata_maskapai": "JT",
 "negara_qid": "Q252",
 "negara": "Indonesia"
 },
@@ -1096,6 +1230,7 @@
 "iata": "",
 "icao": "",
 "callsign_icao": "AWQ",
+"iata_maskapai": "QZ",
 "negara_qid": "Q252",
 "negara": "Indonesia"
 },
@@ -1104,6 +1239,7 @@
 "iata": "",
 "icao": "",
 "callsign_icao": "OMA",
+"iata_maskapai": "WY",
 "negara_qid": "Q842",
 "negara": "Oman"
 },
@@ -1112,6 +1248,7 @@
 "iata": "",
 "icao": "",
 "callsign_icao": "CHH",
+"iata_maskapai": "HU",
 "negara_qid": "Q148",
 "negara": "Tiongkok"
 },
@@ -1120,6 +1257,7 @@
 "iata": "",
 "icao": "",
 "callsign_icao": "CDG",
+"iata_maskapai": "SC",
 "negara_qid": "Q148",
 "negara": "Tiongkok"
 },
@@ -1128,6 +1266,7 @@
 "iata": "",
 "icao": "",
 "callsign_icao": "SJY",
+"iata_maskapai": "SJ",
 "negara_qid": "Q252",
 "negara": "Indonesia"
 },
@@ -1136,6 +1275,7 @@
 "iata": "",
 "icao": "",
 "callsign_icao": "PAS",
+"iata_maskapai": "6D",
 "negara_qid": "Q252",
 "negara": "Indonesia"
 },
@@ -1144,6 +1284,7 @@
 "iata": "",
 "icao": "",
 "callsign_icao": "IGO",
+"iata_maskapai": "6E",
 "negara_qid": "Q668",
 "negara": "India"
 },
@@ -1152,6 +1293,7 @@
 "iata": "",
 "icao": "",
 "callsign_icao": "CQH",
+"iata_maskapai": "9C",
 "negara_qid": "Q148",
 "negara": "Tiongkok"
 },
@@ -1160,6 +1302,7 @@
 "iata": "",
 "icao": "",
 "callsign_icao": "CTV",
+"iata_maskapai": "QG",
 "negara_qid": "Q252",
 "negara": "Indonesia"
 },
@@ -1168,6 +1311,7 @@
 "iata": "",
 "icao": "",
 "callsign_icao": "LKE",
+"iata_maskapai": "8L",
 "negara_qid": "Q148",
 "negara": "Tiongkok"
 },
@@ -1176,6 +1320,7 @@
 "iata": "",
 "icao": "",
 "callsign_icao": "SJX",
+"iata_maskapai": "JX",
 "negara_qid": "Q865",
 "negara": "Taiwan"
 },
@@ -1184,6 +1329,7 @@
 "iata": "",
 "icao": "",
 "callsign_icao": "DKH",
+"iata_maskapai": "HO",
 "negara_qid": "Q148",
 "negara": "Tiongkok"
 },
@@ -1192,6 +1338,7 @@
 "iata": "",
 "icao": "",
 "callsign_icao": "TNU",
+"iata_maskapai": "M8",
 "negara_qid": "Q252",
 "negara": "Indonesia"
 },
@@ -1200,6 +1347,7 @@
 "iata": "",
 "icao": "",
 "callsign_icao": "TWB",
+"iata_maskapai": "TW",
 "negara_qid": "Q884",
 "negara": "Korea Selatan"
 },
@@ -1208,6 +1356,7 @@
 "iata": "",
 "icao": "",
 "callsign_icao": "SCO",
+"iata_maskapai": "TZ",
 "negara_qid": "Q334",
 "negara": "Singapura"
 },
@@ -1216,6 +1365,7 @@
 "iata": "",
 "icao": "",
 "callsign_icao": "BTK",
+"iata_maskapai": "ID",
 "negara_qid": "Q252",
 "negara": "Indonesia"
 },
@@ -1224,6 +1374,7 @@
 "iata": "",
 "icao": "",
 "callsign_icao": "MXD",
+"iata_maskapai": "OD",
 "negara_qid": "Q833",
 "negara": "Malaysia"
 },
@@ -1232,6 +1383,7 @@
 "iata": "",
 "icao": "",
 "callsign_icao": "TLM",
+"iata_maskapai": "SL",
 "negara_qid": "Q869",
 "negara": "Thailand"
 },
@@ -1240,6 +1392,7 @@
 "iata": "",
 "icao": "",
 "callsign_icao": "CDC",
+"iata_maskapai": "GJ",
 "negara_qid": "Q148",
 "negara": "Tiongkok"
 },
@@ -1248,6 +1401,7 @@
 "iata": "",
 "icao": "",
 "callsign_icao": "JYH",
+"iata_maskapai": "AQ",
 "negara_qid": "Q148",
 "negara": "Tiongkok"
 },
@@ -1256,6 +1410,7 @@
 "iata": "",
 "icao": "",
 "callsign_icao": "NIH",
+"iata_maskapai": "IN",
 "negara_qid": "Q252",
 "negara": "Indonesia"
 },
@@ -1264,6 +1419,7 @@
 "iata": "",
 "icao": "",
 "callsign_icao": "",
+"iata_maskapai": "",
 "negara_qid": "Q252",
 "negara": "Indonesia"
 },
@@ -1272,6 +1428,7 @@
 "iata": "",
 "icao": "",
 "callsign_icao": "RXI",
+"iata_maskapai": "RX",
 "negara_qid": "Q851",
 "negara": "Arab Saudi"
 },
@@ -1280,6 +1437,7 @@
 "iata": "",
 "icao": "",
 "callsign_icao": "THY",
+"iata_maskapai": "TK",
 "negara_qid": "Q43",
 "negara": "Turki"
 },
@@ -1288,6 +1446,7 @@
 "iata": "",
 "icao": "",
 "callsign_icao": "HVN",
+"iata_maskapai": "VN",
 "negara_qid": "Q881",
 "negara": "Vietnam"
 },
@@ -1296,6 +1455,7 @@
 "iata": "",
 "icao": "",
 "callsign_icao": "CXA",
+"iata_maskapai": "MF",
 "negara_qid": "Q148",
 "negara": "Tiongkok"
 },
@@ -1304,6 +1464,7 @@
 "iata": "",
 "icao": "",
 "callsign_icao": "VJC",
+"iata_maskapai": "VJ",
 "negara_qid": "Q881",
 "negara": "Vietnam"
 },
@@ -1312,6 +1473,7 @@
 "iata": "",
 "icao": "",
 "callsign_icao": "UZB",
+"iata_maskapai": "HY",
 "negara_qid": "Q265",
 "negara": "Uzbekistan"
 },
@@ -1320,6 +1482,7 @@
 "iata": "",
 "icao": "",
 "callsign_icao": "CSC",
+"iata_maskapai": "3U",
 "negara_qid": "Q148",
 "negara": "Tiongkok"
 },
@@ -1328,6 +1491,7 @@
 "iata": "",
 "icao": "",
 "callsign_icao": "AMU",
+"iata_maskapai": "NX",
 "negara_qid": "Q148",
 "negara": "Tiongkok"
 },
@@ -3663,7 +3827,7 @@
 },
 "maskapai": {},
 "meta": {
-"diperbarui": "2026-10-15T02:08:19+00:00",
+"diperbarui": "2026-10-27T08:58:49+00:00",
 "entri_wikidata": 188,
 "chunk_opensky": 8
 }

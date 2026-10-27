@@ -25,6 +25,25 @@ paths:
           - primer
           - sekunder
           default: semua
+      - name: sumber
+        in: query
+        required: false
+        description: Filter Sumber di Katalog Data (asal data mentah).
+        schema:
+          type: string
+          enum:
+          - semua
+          - sdi
+          - internal
+          - instansi
+          - crawling
+          default: semua
+      - name: tag
+        in: query
+        required: false
+        description: Filter Tag; dicocokkan utuh tanpa beda huruf besar-kecil.
+        schema:
+          type: string
       - $ref: '#/components/parameters/Page'
       - name: size
         in: query
@@ -80,6 +99,9 @@ paths:
                                 type: string
                             tier:
                               type: string
+                            sumber:
+                              type: string
+                              enum: [sdi, internal, instansi, crawling]
                             source:
                               type: string
                             size_label:
@@ -105,6 +127,7 @@ paths:
                           - description
                           - tags
                           - tier
+                          - sumber
                           - source
                           - size_label
                           - href
@@ -164,6 +187,7 @@ paths:
                     - wisatawan mancanegara
                     - kebangsaan
                     tier: primer
+                    sumber: sdi
                     source: SDI · Satu Data Jakarta
                     size_label: 1.598 dilihat
                     href: /sdi/data-jumlah-wisatawan-mancanegara-berdasarkan-kebangsaan
@@ -180,6 +204,7 @@ paths:
                     - nilai kepuasan
                     - pengunjung
                     tier: primer
+                    sumber: sdi
                     source: SDI · Satu Data Jakarta
                     size_label: 936 dilihat
                     href: /sdi/nilai-kepuasan-pengunjung-objek-wisata
