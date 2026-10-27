@@ -24,10 +24,19 @@ SILVER = ["silver.<tabel>"]
 
 
 @router.get("/katalog", response_model=Amplop[models.Katalog], response_model_exclude_unset=True)
-def katalog(k: KonteksDep, tier: str = "semua", page: str | None = None, size: str | None = None):
+def katalog(
+    k: KonteksDep,
+    tier: str = "semua",
+    sumber: str = "semua",
+    tag: str | None = None,
+    page: str | None = None,
+    size: str | None = None,
+):
     if tier not in ("semua", "primer", "sekunder"):
         raise InvalidParam("tier harus semua, primer, atau sekunder")
-    data, total = service.katalog(k, tier, halaman(page, size, 500, 500))
+    if sumber != "semua" and sumber not in service.SUMBER_DATA:
+        raise InvalidParam("sumber harus semua, sdi, internal, instansi, atau crawling")
+    data, total = service.katalog(k, tier, halaman(page, size, 500, 500), sumber, tag or None)
     return sukses(data, k.rid, service.SUMBER_KATALOG, total=total)
 
 

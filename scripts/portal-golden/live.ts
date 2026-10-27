@@ -96,24 +96,32 @@ async function katalog(): Promise<Golden[]> {
   const { CatalogView } = await import("@/components/CatalogView");
   const sdi = (await panggilRoute(rSdi.GET as never, "/api/sdi")).json;
   const med = (await panggilRoute(rMed.GET as never, "/api/sdi/medallion")).json;
-  type Row = { id: string; title: string; description: string; tags: string[]; tier: string; source: string; size: string; href: string; external: boolean; medalKey: string };
+  type Row = { id: string; title: string; description: string; tags: string[]; tier: string; sumber: string; source: string; size: string; href: string; external: boolean; medalKey: string };
   const medal = med.datasets as Record<string, { level: string; mart?: string }>;
   const keluaran: Golden[] = [];
-  // useState CatalogView: 0 rows (hasil /api/sdi), 1 q, 2 tier, 3 medallion (hasil /api/sdi/medallion).
-  for (const tier of ["semua", "primer", "sekunder"] as const) {
-    const el = h(CatalogView, { primaryOnly: tier === "primer" });
-    renderSinkron(el, { 0: sdi.datasets, 2: tier === "sekunder" ? "sekunder" : "all", 3: medal });
+  // useState CatalogView: 0 rows (hasil /api/sdi), 1 q, 2 tier, 3 medallion (hasil /api/sdi/medallion),
+  // 4 filter medallion, 5 filter sumber, 6 filter tag.
+  const kasus = [
+    { nama: "semua", params: {}, state: {} },
+    { nama: "primer", params: { tier: "primer" }, state: {} },
+    { nama: "sekunder", params: { tier: "sekunder" }, state: { 2: "sekunder" } },
+    { nama: "sumber-crawling", params: { sumber: "crawling" }, state: { 5: "crawling" } },
+    { nama: "tag-halal", params: { tag: "halal" }, state: { 6: "halal" } },
+  ] as const;
+  for (const { nama, params, state } of kasus) {
+    const el = h(CatalogView, { primaryOnly: nama === "primer" });
+    renderSinkron(el, { 0: sdi.datasets, 3: medal, ...state });
     // Memo komponen asli: 0 catalog, 1 medalCounts, 2 filtered, lalu stats (sdiStats).
     const stats = memoDengan<{ total: number; tags: number; views: number; lastUpdated: string | null }>("tags", "views");
     const counts = memoDengan<Record<string, number>>("bronze", "silver", "gold");
     const baris = memoKe<Row[]>(2);
     keluaran.push({
-      nama: `katalog.${tier}`,
+      nama: `katalog.${nama}`,
       endpoint: "/v1/katalog",
-      params: tier === "semua" ? {} : { tier },
+      params,
       data: {
         items: baris.map((r) => ({
-          id: r.id, title: r.title, description: r.description, tags: r.tags, tier: r.tier, source: r.source,
+          id: r.id, title: r.title, description: r.description, tags: r.tags, tier: r.tier, sumber: r.sumber, source: r.source,
           size_label: r.size, href: r.href, external: r.external, medallion: medal[r.medalKey] ?? null,
         })),
         stats: { total: stats.total, tags: stats.tags, views: stats.views, last_updated: stats.lastUpdated },
@@ -582,9 +590,12 @@ async function spasial(): Promise<Golden[]> {
   }];
 }
 
-/** Semua golden live, urutan tetap. */
+/** Semua golden live, urutan tetap. `GOLDEN_KELOMPOK=katalog,dataset` membatasi kelompok yang dibuat ulang. */
 export async function goldenLive(): Promise<Golden[]> {
-  const kelompok = [katalog, dataset, dashboard, indikator, pariwisata, spasial];
+  const pilih = process.env.GOLDEN_KELOMPOK?.split(",").map((s) => s.trim());
+  const kelompok = [katalog, dataset, dashboard, indikator, pariwisata, spasial].filter(
+    (f) => !pilih || pilih.includes(f.name),
+  );
   const semua: Golden[] = [];
   for (const f of kelompok) {
     const t = Date.now();

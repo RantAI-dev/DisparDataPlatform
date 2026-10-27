@@ -24,6 +24,8 @@ class EntriSekunder:
     title: str
     description: str
     tags: tuple[str, ...]
+    # sdi / internal / instansi / crawling, padanan `SumberData` di lib/secondary.ts
+    sumber: str
     href: str
     external: bool
     # `bronze_file:<tabel>` / `gabungan:<nama>`; kosong = dataset_sync.total slug di href

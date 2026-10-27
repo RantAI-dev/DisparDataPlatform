@@ -26,6 +26,7 @@ class KatalogItem(BaseModel):
     description: str
     tags: list[str]
     tier: str
+    sumber: str
     source: str
     size_label: str
     href: str
