@@ -76,6 +76,36 @@ Nilai default SPEC dipakai kecuali disebut lain. Pemilik boleh membatalkan tiap 
   tumpang tindih (`labelLayout.hideOverlap`) tidak disembunyikan persis sama dengan v2 (seri PDRB DKI
   2017–2019). Opsi dan data identik; penyebabnya urutan render ECharts di bawah React vs Vue.
   Chart lain di modal identik per piksel.
+- **Gradien chart berbentuk objek** `{type:'linear', x, y, x2, y2, colorStops, global}` (SPEC §5.1),
+  setara `new graphic.LinearGradient(…)` v2; builder tidak lagi mengimpor `echarts/core`.
+- **`xlsx` 0.18.5 (versi v2), bukan 0.20.3.** Uji ekspor contoh v2 dengan kedua versi: `.xlsx`
+  identik per byte, `.xls` isi selnya identik tetapi 0.20.3 menambah record gambar kosong
+  (MSODRAWINGGROUP/MSODRAWING), jadi berkasnya tidak identik → aturan SPEC §5.1 memilih 0.18.5.
+  Risiko: advisori GHSA-4r6h-8v6p-xvw6 (prototype pollution) dan GHSA-5pgg-2g8v-p4x9 (ReDoS) ada
+  di jalur *membaca* berkas; portal hanya *menulis* ekspor, dan SheetJS dimuat malas saat klik.
+  Catatan bila pemilik memilih 0.20.3: npm di lingkungan kerja menolak paket `remote`
+  (`allow-remote`), jadi tarball resmi (`xlsx-0.20.3.tgz`, sha512 `oLDq3jw7…uH+3AJA==`) perlu
+  divendor ke repo dan dipasang lewat `file:`.
+- **SdiTable memakai rute Laravel dataset** (plan 11): halaman pertama tanpa pencarian lewat
+  `dataset/{slug}/halaman`, dengan bentuk yang diandalkan
+  `data = {dataset: {total_bronze}, kolom: {items}, baris: {items}}` dan `meta.total` = total baris
+  Silver; pencarian dan halaman berikutnya lewat `dataset/{slug}/baris?page&size&q`
+  (`page = baris_dimuat / 50 + 1`, setara offset v2). Jawaban usang (slug/pencarian lama) dibuang.
+- **Peta = komponen universal, bukan `.client.vue`.** SSR merender teks memuat yang sama dengan
+  fallback `ssr:false` v2 ("Memuat peta…", "Memuat peta venue…", "Memuat peta Spatial…"); Leaflet
+  (dan markercluster, yang butuh `window.L`) diimpor dinamis di `onMounted`. SPEC §5.1 mengizinkan
+  `.client.vue` atau pembungkus client-only.
+- **Basemap K-9**: `useBasemap.addBasemap` memasang Esri seperti v2; bila 3 tile alas gagal sebelum
+  satu pun termuat, Esri diganti OSM. Ikon marker dari `/leaflet/*` lokal. VenueMap menaruh label
+  Esri di pane tile bawaan (meniru TileLayer react-leaflet v2), peta lain di `shadowPane`.
+- **SpatialMap hanya tampilan**: props berbentuk `/v1/spasial` (titik ringkas, `cities`,
+  `kepadatan_berkoordinat`, `kepadatan_tanpa_koordinat`); popup tampil dari data ringkas lalu
+  alamat/sertifikat menyusul dari `muatDetail(id)` (`/v1/spasial/titik/{id}`). Konsekuensi titik
+  tanpa alamat (KONTRAK §2.5): pencarian di peta hanya mencocokkan nama + wilayah, padahal v2 juga
+  alamat (placeholder tetap "Cari nama, alamat, atau wilayah…") — dicatat untuk pemilik.
+- **HeroDark** = pola hero gelap yang di v2 ditulis ulang di enam berkas (inventaris A §8);
+  padding vertikal per halaman lewat prop `pad`. **PageFooter tidak ada di v2** (SPEC §5.2
+  menyebutnya di `components/app`), jadi tidak dibuat.
 
 ## Penyimpangan dari teks SPEC (disengaja)
 

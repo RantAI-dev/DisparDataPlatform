@@ -1,4 +1,3 @@
-import { graphic } from "echarts/core";
 import { fmtPeriode, idfmt, type Point } from "../format";
 
 /** Bar vertikal per periode; dipakai tren framework & detail dataset (components/BarChart.tsx). */
@@ -31,10 +30,19 @@ export function opsiBarChart({ data }: { data: Point[] }) {
         barMaxWidth: 28,
         itemStyle: {
           borderRadius: [4, 4, 0, 0],
-          color: new graphic.LinearGradient(0, 0, 0, 1, [
-            { offset: 0, color: "#1b5aa8" },
-            { offset: 1, color: "#ed6b23" },
-          ]),
+          // Bentuk objek gradien (SPEC §5.1), setara `new graphic.LinearGradient(0, 0, 0, 1, …)` di v2.
+          color: {
+            type: "linear",
+            x: 0,
+            y: 0,
+            x2: 0,
+            y2: 1,
+            colorStops: [
+              { offset: 0, color: "#1b5aa8" },
+              { offset: 1, color: "#ed6b23" },
+            ],
+            global: false,
+          },
         },
       },
     ],

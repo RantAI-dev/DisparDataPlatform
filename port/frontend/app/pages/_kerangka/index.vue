@@ -4,9 +4,11 @@
  * golden plan 01 (`app/kerangka/golden`, salinan `lakehouse/data-api/tests/golden`). Bagian chart
  * meniru /dashboard/pdrb-ekraf produksi supaya bisa dibandingkan berdampingan.
  */
-import makro from "../kerangka/golden/dashboard.pdrb-ekraf.makro.json";
-import sebaran from "../kerangka/golden/dashboard.pdrb-ekraf.subsektor.sebaran.2024.json";
-import pertumbuhan from "../kerangka/golden/dashboard.pdrb-ekraf.subsektor.pertumbuhan.2024.json";
+import makro from "../../kerangka/golden/dashboard.pdrb-ekraf.makro.json";
+import sebaran from "../../kerangka/golden/dashboard.pdrb-ekraf.subsektor.sebaran.2024.json";
+import pertumbuhan from "../../kerangka/golden/dashboard.pdrb-ekraf.subsektor.pertumbuhan.2024.json";
+import seniVenues from "../../kerangka/golden/seni-venues.json";
+import type { ExportFormat } from "../../../layers/shared/composables/useSpreadsheetExport";
 
 useHead({ title: "Kerangka komponen", meta: [{ name: "robots", content: "noindex" }] });
 
@@ -22,6 +24,24 @@ const nilaiSub = sebaran.data.nilai_top10;
 const tumbuhSub = pertumbuhan.data.items;
 
 const periode = ref("2024");
+// PointMap: venue seni berkoordinat, radius ∝ jumlah event.
+const titikVenue = seniVenues
+  .filter((v) => typeof v.lat === "number" && typeof v.lon === "number")
+  .map((v) => ({ lat: v.lat as number, lng: v.lon as number, label: v.venue, value: v.eventCount }));
+
+const { downloadSpreadsheet, dateStamp } = useSpreadsheetExport();
+const ekspor = (format: ExportFormat) =>
+  downloadSpreadsheet(
+    `pdrb-ekraf-subsektor-${dateStamp()}`,
+    nilaiSub,
+    [
+      { header: "No", value: (_r, i) => i + 1 },
+      { header: "Subsektor", value: (r) => r.label },
+      { header: "Nilai (Rp miliar)", value: (r) => r.value },
+    ],
+    format,
+    "Subsektor",
+  );
 const pilihanPeriode = sebaran.data.periode_list.map((p) => ({ value: p, label: p === "S1 2025" ? "2025 (Sem I)" : p }));
 </script>
 
@@ -118,6 +138,28 @@ const pilihanPeriode = sebaran.data.periode_list.map((p) => ({ value: p, label: 
         </ChartCard>
         <KpiStat label="KpiStat angka" :value="rows[iFull]!.adhb_ekraf" sub="toLocaleString id-ID" />
       </ChartGrid>
+
+      <SectionHead title="Peta" desc="PointMap (OSM) — VenueMap ada di /_kerangka/pariwisata, SpatialMap di /_kerangka/spasial." />
+      <PointMap :points="titikVenue" />
+      <div class="mt-4">
+        <PointMap :points="[]" />
+      </div>
+
+      <SectionHead title="Tabel & ekspor" desc="SdiTable dan RawDataDisclosure memanggil dataset/{slug}/halaman (rute Laravel plan 11; sebelum itu tampil keadaan error)." />
+      <div class="mb-4 flex justify-end">
+        <ExportButton label="Unduh" :on-export="ekspor" />
+      </div>
+      <RawDataDisclosure slug="data-event-pariwisata-dan-kebudayaan-dki-jakarta-2011-2019" title="Event Pariwisata & Kebudayaan 2011–2019" :count="1391" />
+
+      <SectionHead title="Hero gelap" desc="HeroDark — dipakai PariwisataShell dan halaman katalog/indikator." />
+      <HeroDark>
+        <div class="text-[12px] font-mono uppercase tracking-widest text-white/60">Eyebrow</div>
+        <h2 class="atlas-display text-white">Judul di atas hero gelap</h2>
+      </HeroDark>
+      <p class="mt-4 apple-caption">
+        Halaman lain: <NuxtLink to="/_kerangka/pariwisata" class="underline">PariwisataShell + VenueMap</NuxtLink> ·
+        <NuxtLink to="/_kerangka/spasial" class="underline">SpatialMap</NuxtLink>
+      </p>
 
       <SourceNote>{{ makro.data.sumber }}</SourceNote>
     </div>

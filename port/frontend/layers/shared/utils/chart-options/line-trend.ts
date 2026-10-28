@@ -1,4 +1,3 @@
-import { graphic } from "echarts/core";
 import { fmtPeriode, idfmt, type Point } from "../format";
 import { categoryZoom, ZOOM_PAD } from "./zoom";
 
@@ -51,10 +50,19 @@ export function opsiLineTrend({ data, unit = "kunjungan", yName = "Kunjungan" }:
         lineStyle: { color: "#ed6b23", width: 2.5 },
         itemStyle: { color: "#ed6b23" },
         areaStyle: {
-          color: new graphic.LinearGradient(0, 0, 0, 1, [
-            { offset: 0, color: "rgba(237, 107, 35,0.28)" },
-            { offset: 1, color: "rgba(237, 107, 35,0.02)" },
-          ]),
+          // Bentuk objek gradien (SPEC §5.1), setara `new graphic.LinearGradient(0, 0, 0, 1, …)` di v2.
+          color: {
+            type: "linear",
+            x: 0,
+            y: 0,
+            x2: 0,
+            y2: 1,
+            colorStops: [
+              { offset: 0, color: "rgba(237, 107, 35,0.28)" },
+              { offset: 1, color: "rgba(237, 107, 35,0.02)" },
+            ],
+            global: false,
+          },
         },
       },
     ],
