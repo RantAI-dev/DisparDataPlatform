@@ -59,6 +59,23 @@ Nilai default SPEC dipakai kecuali disebut lain. Pemilik boleh membatalkan tiap 
   ribuan Indonesia (`1.234.567`, `1.234,5`) dibaca sebagai ribuan, koma tunggal sebagai
   desimal, selain itu titik desimal (`12.5`). Perbaikan yang sama dibuat di v2 supaya paritas
   pulih setelah v2 di-deploy.
+- **Chart: builder opsi murni + satu pembungkus `EChart.vue`.** `utils/chart-options/*` menyalin
+  opsi tiap komponen v2 sebagai fungsi `(props, expanded) → option`; komponen Vue hanya memilih
+  tinggi dan keadaan kosong. `categoryZoom` menerima lebar layar sebagai argumen (bawaan
+  `window.innerWidth`, sama dengan v2) supaya bisa diuji. Snapshot pertama dibandingkan dengan opsi
+  komponen v2 asli lewat harness golden plan 01: 28 kasus (normal + diperbesar) identik, termasuk
+  keluaran formatter. Di browser, 7 chart `/dashboard/pdrb-ekraf` identik per piksel pada 1440 px
+  dan 375 px.
+- **`vue-echarts/csp`**, bukan build bawaan: build bawaan menyuntik `<style>` lewat `document` saat
+  diimpor sehingga SSR gagal (500). Gaya `x-vue-echarts` ditulis inline di `EChart.vue`.
+  Modul ECharts didaftarkan per kebutuhan (bar, line, pie, treemap + grid, tooltip, legend,
+  dataZoom, canvas). `notMerge` + `lazyUpdate` dan ukur ulang otomatis sama dengan echarts-for-react.
+- **API Vue untuk dua komponen**: `ModeToggle` memakai `v-model` (bukan `value` + `onChange`);
+  `class` pada `ChartCard` digabung Vue ke div akar setelah kelas bawaan (hasil sama dengan v2).
+- **Perbedaan yang diketahui**: di modal "Perbesar grafik" GroupedLines, label nilai yang saling
+  tumpang tindih (`labelLayout.hideOverlap`) tidak disembunyikan persis sama dengan v2 (seri PDRB DKI
+  2017–2019). Opsi dan data identik; penyebabnya urutan render ECharts di bawah React vs Vue.
+  Chart lain di modal identik per piksel.
 
 ## Penyimpangan dari teks SPEC (disengaja)
 
