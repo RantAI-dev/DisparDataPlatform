@@ -106,6 +106,18 @@ Nilai default SPEC dipakai kecuali disebut lain. Pemilik boleh membatalkan tiap 
 - **HeroDark** = pola hero gelap yang di v2 ditulis ulang di enam berkas (inventaris A §8);
   padding vertikal per halaman lewat prop `pad`. **PageFooter tidak ada di v2** (SPEC §5.2
   menyebutnya di `components/app`), jadi tidak dibuat.
+- **ESLint hanya untuk aturan pemisahan layer** (SPEC §5.3): `import/no-restricted-paths` dengan
+  zona per layer fitur + `shared`, resolver TypeScript membaca alias Nuxt (`#layers/*`, `~~/*`).
+  Tidak memasang aturan gaya (prettier/recommended) — di luar cakupan plan 10. ESLint 9.39.5
+  karena `eslint-plugin-import` 2.32.0 belum mendukung ESLint 10. Mutation check di
+  `tests/unit/arsitektur.spec.ts` membuktikan impor relatif, alias, dan `.vue` ditolak.
+  **Celah yang diketahui**: komponen/composable auto-import Nuxt dari layer lain tidak memakai
+  `import`, jadi tidak tertangkap ESLint; layer fitur (plan 11+) perlu menamai komponennya dengan
+  awalan fitur dan review menjaga aturan ini.
+- **Galeri `/_kerangka`** (dihapus di plan 17): `index` (komponen + PDRB Ekraf golden),
+  `pariwisata` (PariwisataShell + VenueMap), `spasial` (SpatialMap, kepadatan dihitung di galeri
+  dari golden), `dashboard` (layout dashboard). RawDataDisclosure/SdiTable memanggil rute dataset
+  Laravel plan 11, jadi sampai plan 11 galeri menampilkan keadaan error-nya; e2e mencegat rute itu.
 
 ## Penyimpangan dari teks SPEC (disengaja)
 

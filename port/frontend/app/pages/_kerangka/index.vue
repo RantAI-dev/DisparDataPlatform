@@ -29,6 +29,7 @@ const titikVenue = seniVenues
   .filter((v) => typeof v.lat === "number" && typeof v.lon === "number")
   .map((v) => ({ lat: v.lat as number, lng: v.lon as number, label: v.venue, value: v.eventCount }));
 
+const { lang, t, toggle } = useLang();
 const { downloadSpreadsheet, dateStamp } = useSpreadsheetExport();
 const ekspor = (format: ExportFormat) =>
   downloadSpreadsheet(
@@ -50,6 +51,16 @@ const pilihanPeriode = sebaran.data.periode_list.map((p) => ({ value: p, label: 
     <div class="mx-auto max-w-[1320px] px-6 py-8">
       <h1 class="atlas-display-md text-ink">Kerangka komponen</h1>
       <p class="apple-fine text-ink-muted-48">Halaman sementara plan 10 — data contoh dari golden plan 01.</p>
+
+      <SectionHead title="Navigasi" desc="DashboardSubnav (layout dashboard) dan AtlasToolbar + LangToggle (direktori restoran)." />
+      <DashboardSubnav />
+      <div class="mt-4 overflow-hidden rounded-xl border border-hairline">
+        <AtlasToolbar view="list">
+          <template #right><ExportButton label="Ekspor" :on-export="ekspor" /></template>
+          <template #lang><LangToggle :lang="lang" :t="t" @toggle="toggle" /></template>
+        </AtlasToolbar>
+      </div>
+      <p class="mt-2 apple-fine text-ink-muted-48">LangToggle aktif: {{ lang }} — {{ t("nav.switch_to") }}</p>
 
       <SectionHead title="KPI" desc="KpiRow + Kpi (dengan dan tanpa delta) + KpiStat." />
       <KpiRow>
@@ -158,7 +169,8 @@ const pilihanPeriode = sebaran.data.periode_list.map((p) => ({ value: p, label: 
       </HeroDark>
       <p class="mt-4 apple-caption">
         Halaman lain: <NuxtLink to="/_kerangka/pariwisata" class="underline">PariwisataShell + VenueMap</NuxtLink> ·
-        <NuxtLink to="/_kerangka/spasial" class="underline">SpatialMap</NuxtLink>
+        <NuxtLink to="/_kerangka/spasial" class="underline">SpatialMap</NuxtLink> ·
+        <NuxtLink to="/_kerangka/dashboard" class="underline">layout dashboard</NuxtLink>
       </p>
 
       <SourceNote>{{ makro.data.sumber }}</SourceNote>
