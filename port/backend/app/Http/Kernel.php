@@ -45,6 +45,8 @@ class Kernel extends HttpKernel
     protected $middleware = [
         // \App\Http\Middleware\TrustHosts::class,
         RequestId::class,
+        // Global (bukan grup api) supaya 404/405 di /api/* juga tercatat; difilter di dalamnya.
+        LogRequest::class,
         RejectPatch::class,
         TrustProxies::class,
         HandleCors::class,
@@ -71,7 +73,6 @@ class Kernel extends HttpKernel
 
         'api' => [
             ForceJson::class,
-            LogRequest::class,
             ThrottleRequests::class.':api',
             SubstituteBindings::class,
         ],

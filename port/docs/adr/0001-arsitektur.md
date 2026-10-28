@@ -46,6 +46,13 @@ Nilai default SPEC dipakai kecuali disebut lain. Pemilik boleh membatalkan tiap 
   (CLOB, `IS JSON`, ORA-00001, byte semantics) ikut teruji.
 - **Fixture Data API = rekaman body mentah** (`tools/fixture-server`), bukan mock dari OpenAPI:
   mock statis tidak bisa melayani filter dan paging. URL yang belum direkam → 599.
+- **Tes di skema `portal_test`**, terpisah dari skema dev `portal`, karena `RefreshDatabase`
+  menjalankan `migrate:fresh`. Skema dibuat `backend/docker/oracle-startdb` tiap Oracle start.
+- **Rantai X-Forwarded-For**: proxy `/_api` meneruskan XFF yang masuk lalu menambahkan IP soket
+  (pola XFF standar). Laravel membaca dari kanan dan melewati alamat di `PORTAL_PROXY_TEPERCAYA`,
+  jadi IP asli tetap benar selama daftar itu memuat server Nuxt **dan** reverse proxy/LB di
+  depannya. Kalau LB tidak didaftarkan, yang tercatat adalah IP LB (bukan IP palsu dari klien).
+  Batas tunggu proxy ke Laravel 330 s (di atas timeout ekspor 300 s); lewat itu → 504.
 
 ## Penyimpangan dari teks SPEC (disengaja)
 

@@ -5,6 +5,7 @@ use Tests\TestCase;
 
 uses(TestCase::class, RefreshDatabase::class)->in('Feature');
 uses(TestCase::class)->in('Arch');
+uses(TestCase::class)->in('Integrasi');
 
 /*
 | Pembantu tes bersama.

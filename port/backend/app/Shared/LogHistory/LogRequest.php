@@ -11,7 +11,8 @@ use Throwable;
 
 /**
  * Menulis LOG_HISTORY setelah respons terkirim (`terminate`), sehingga kegagalan log tidak
- * pernah menggagalkan request (SPEC §4.5).
+ * pernah menggagalkan request (SPEC §4.5). Dipasang global dan hanya mencatat /api/*, supaya
+ * request ke alamat yang tidak ada (404) dan metode yang ditolak (405) ikut tercatat.
  */
 final class LogRequest
 {
@@ -27,7 +28,7 @@ final class LogRequest
 
     public function terminate(Request $request, Response $response): void
     {
-        if (! config('loghistory.aktif')) {
+        if (! config('loghistory.aktif') || ! $request->is('api/*')) {
             return;
         }
 

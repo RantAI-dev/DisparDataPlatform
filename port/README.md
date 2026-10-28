@@ -18,11 +18,17 @@ image `backend/Dockerfile` (PHP 8.2 + Oracle Instant Client 19 + oci8).
 
 ```bash
 cd port
-docker compose -f compose.dev.yaml up -d oracle          # Oracle XE 18, ±1 menit sampai healthy
-docker compose -f compose.dev.yaml run --rm backend php artisan migrate:fresh --seed --force
-docker compose -f compose.dev.yaml run --rm backend php artisan portal:token frontend read   # token dicetak sekali
-cd frontend && npm ci && npm run dev                     # http://localhost:3000
+cp backend/.env.example backend/.env                     # sekali; lalu:
+docker compose -f compose.dev.yaml run --rm backend php artisan key:generate
+docker compose -f compose.dev.yaml up -d oracle fixture-server backend nginx   # Oracle ±1 menit sampai healthy
+docker compose -f compose.dev.yaml exec backend php artisan migrate:fresh --seed --force
+(cd frontend && npm ci)
+# token frontend dicetak sekali; berikan ke Nuxt lewat env, jangan ditulis ke berkas repo
+NUXT_FRONTEND_TOKEN="$(docker compose -f compose.dev.yaml exec -T backend php artisan portal:token frontend read | head -1)" \
+  docker compose -f compose.dev.yaml up -d frontend      # http://localhost:3000, Laravel di :18000
 ```
+
+Rantai dev: Nuxt (:3000, proxy `/_api`) → nginx (:18000) → php-fpm Laravel → Oracle + fixture-server.
 
 Gate backend (Oracle harus jalan; tes memakai Oracle, bukan sqlite):
 

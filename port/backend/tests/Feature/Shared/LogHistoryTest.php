@@ -34,6 +34,15 @@ it('mencatat request yang gagal juga', function () {
     expect((int) LogHistory::first()->status_http)->toBe(401);
 });
 
+it('mencatat juga alamat yang tidak ada dan PATCH yang ditolak, tetapi bukan halaman non-API', function () {
+    $this->getJson('/api/v1/tidak-ada', tokenAkun())->assertNotFound();
+    $this->patchJson('/api/v1/sistem/kesehatan')->assertStatus(405);
+    $this->get('/');
+
+    expect(LogHistory::orderBy('id')->get(['path', 'status_http'])->map(fn ($l) => [$l->path, (int) $l->status_http])->all())
+        ->toBe([['/api/v1/tidak-ada', 404], ['/api/v1/sistem/kesehatan', 405]]);
+});
+
 it('memakai IP asli dari X-Forwarded-For hanya bila datang dari proxy tepercaya', function () {
     config(['portal.proxy_tepercaya' => ['10.1.1.1']]);
     $token = tokenAkun();

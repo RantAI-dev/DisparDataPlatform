@@ -15,13 +15,18 @@ Pesan commit dan dokumen dalam Bahasa Indonesia, bentuk `type(scope): ringkasan`
 # backend (Oracle harus jalan; tes memakai Oracle, bukan sqlite)
 docker compose -f compose.dev.yaml up -d oracle fixture-server
 docker compose -f compose.dev.yaml run --rm backend sh -c \
-  'composer install && vendor/bin/pint --test && php artisan migrate:fresh --seed --force && vendor/bin/pest'
+  'composer install && vendor/bin/pint --test && vendor/bin/pest'
 
 # perkakas fixture
 node --test tools/fixture-server/*.test.mjs
+
+# frontend
+cd frontend && npm ci && npx nuxt typecheck && npx vitest run
 ```
 
-Gate frontend menyusul bersama kerangka frontend (plan 10).
+Vitest punya tiga project: `unit` (fungsi murni), `nuxt` (composable di runtime Nuxt), dan
+`nitro` (membangun Nuxt lalu menguji server sungguhan: proxy `/_api`, redirect lama, halaman
+error). Lint dan Playwright ditambahkan bersama layer shared dan CI.
 
 ## Aturan yang dijaga tes
 
