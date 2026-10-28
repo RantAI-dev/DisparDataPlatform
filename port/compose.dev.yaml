@@ -21,10 +21,25 @@ services:
       retries: 60
       start_period: 60s
 
+  # Pengganti Data API untuk dev/CI: memutar rekaman fixtures/data-api (tools/fixture-server).
+  fixture-server:
+    image: node:20-alpine
+    working_dir: /portal
+    command: ["node", "tools/fixture-server/putar.mjs"]
+    environment:
+      PORT: 8080
+    ports:
+      - "127.0.0.1:${FIXTURE_PORT:-18090}:8080"
+    volumes:
+      - ./tools:/portal/tools:ro
+      - ./fixtures:/portal/fixtures:ro
+
   backend:
     build: ./backend
     image: dispar-portal-php:dev
     environment:
+      DATA_API_URL: ${DATA_API_URL:-http://fixture-server:8080}
+      DATA_API_TOKEN: ${DATA_API_TOKEN:-token-fixture}
       DB_CONNECTION: oracle
       DB_HOST: oracle
       DB_PORT: 1521
@@ -34,6 +49,7 @@ services:
       DB_PASSWORD: ${DB_PASSWORD:-portal_dev}
     volumes:
       - ./backend:/var/www/backend
+      - ./fixtures:/var/www/fixtures:ro
     depends_on:
       oracle:
         condition: service_healthy

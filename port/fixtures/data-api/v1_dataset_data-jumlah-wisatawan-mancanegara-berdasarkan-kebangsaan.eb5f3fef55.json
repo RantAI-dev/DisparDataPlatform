@@ -1,0 +1,8 @@
+{
+  "kunci": "/v1/dataset/data-jumlah-wisatawan-mancanegara-berdasarkan-kebangsaan",
+  "status": 200,
+  "headers": {
+    "content-type": "application/json"
+  },
+  "body": "{\"data\":{\"slug\":\"data-jumlah-wisatawan-mancanegara-berdasarkan-kebangsaan\",\"title\":\"Data Jumlah Wisatawan Mancanegara Berdasarkan Kebangsaan\",\"description\":\"Data ini berisikan data kunjungan wisatawan mancanegara ditinjau dari kebangsaannya dan merupakan kelanjutan dari data kunjungan wisatawan mancanegara ditinjau dari kebangsaannya tahun 2023.\",\"sumber_data\":[\"Badan Pusat Statistik Provinsi DKI Jakarta\"],\"frekuensi\":\"1 Bulan Sekali\",\"satuan\":\"Orang\",\"periode\":{\"min\":\"2024-01-01\",\"max\":\"2026-07-01\"},\"klasifikasi\":null,\"kontak\":\"disparekraf@jakarta.go.id\",\"author\":\"Ruth Magdalena\",\"medallion\":{\"level\":\"silver\",\"table\":\"data_jumlah_wisatawan_mancanegara_berdasarkan_kebangsaan\"},\"total_bronze\":664},\"meta\":{\"generated_at\":\"2026-10-28T21:45:12+07:00\",\"source\":[\"lake.bronze_meta*.dataset_catalog\",\"lake.bronze_meta*.dataset_sync\",\"silver.<tabel>\"],\"request_id\":\"37fd11d1b0ec425d9e41e6b0dcce6f15\",\"total\":664}}"
+}

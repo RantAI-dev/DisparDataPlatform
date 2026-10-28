@@ -32,6 +32,20 @@ scripts/oracle-dump.sh          # tulis backend/database/oracle/portal-{ddl,seed
 scripts/oracle-dump.sh --cek    # terapkan dump ke skema kosong
 ```
 
+## Data API palsu (fixture)
+
+Dev dan CI tidak memanggil Data API sungguhan. `fixture-server` di `compose.dev.yaml` memutar
+rekaman `fixtures/data-api/` (body mentah per URL); URL yang belum direkam dijawab **599**.
+
+```bash
+# rekam ulang dari Data API lokal (lakehouse/data-api, `uv run data-api` di port 18080)
+DATA_API_URL=http://localhost:18080 DATA_API_TOKEN=… node tools/fixture-server/rekam.mjs
+```
+
+Daftar URL ada di `tools/fixture-server/daftar-url.txt`. Kontrak Data API disalin ke
+`docs/api/` lewat `scripts/salin-openapi.sh`; keputusan dan risiko ada di
+`docs/adr/0001-arsitektur.md`.
+
 ## Aturan backend (dijaga tes)
 
 - Kode fitur di `backend/app/Features/<Fitur>/`, bagian bersama di `backend/app/Shared/`.

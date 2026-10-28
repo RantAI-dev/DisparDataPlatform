@@ -37,6 +37,10 @@ function daftarkanRuteUji(): void
             return ApiResponse::sukses('{}');
         }, modul: 'uji', kelas: 'P')->name('uji.validasi');
 
+        Route::apiGet('uji/teruskan/{path}', fn (DataApiClient $c, string $path) => ApiResponse::dariDataApi(
+            $c->get('/'.$path, request()->query())
+        ), modul: 'uji', kelas: 'P')->where('path', '.*')->name('uji.teruskan');
+
         Route::apiGet('uji/admin', fn () => ApiResponse::sukses('{}'), modul: 'uji', kelas: 'P', ability: 'admin')
             ->name('uji.admin');
     });

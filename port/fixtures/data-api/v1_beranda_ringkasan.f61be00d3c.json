@@ -1,0 +1,8 @@
+{
+  "kunci": "/v1/beranda/ringkasan",
+  "status": 200,
+  "headers": {
+    "content-type": "application/json"
+  },
+  "body": "{\"data\":{\"dataset_primer\":183,\"dataset_sekunder\":45,\"baris_sekunder\":19543,\"indikator\":{\"gci\":8,\"gpci\":20,\"total\":28},\"indeks_global\":2},\"meta\":{\"generated_at\":\"2026-10-28T21:45:08+07:00\",\"source\":[\"lake.`bronze_meta.dataset_catalog`\",\"lake.`bronze_meta_sec.dataset_catalog`\",\"lake.bronze_meta*.dataset_sync\",\"lake.bronze_file.gci_gpci_indicators\"],\"request_id\":\"94222ce28d194d6f96ad9bf355d215da\"}}"
+}
