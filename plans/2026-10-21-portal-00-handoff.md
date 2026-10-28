@@ -157,13 +157,13 @@ di `main` setelah merge.
 
 | Plan | Repo | Judul | Butuh | Status | PR | Merge SHA |
 |---|---|---|---|---|---|---|
-| 01 | ini | Kontrak OpenAPI Data API + draf Laravel + skrip golden | — | belum | | |
-| 02 | ini | Data API: kerangka, fitur dataset, katalog, beranda | 01 | belum | | |
-| 03 | ini | Data API: dashboard | 02 | belum | | |
-| 04 | ini | Data API: indikator + pariwisata | 02 | belum | | |
-| 05 | ini | Data API: atlas, gmti, spasial, hotel-scraped | 02 | belum | | |
-| 06 | ini | OPERASI: A image Dagster (indikator + flush), B container Data API, hostname | 01–05 + "lanjut deploy" | belum | | |
-| 10 | portal | Kerangka monorepo, shared backend/frontend, Oracle, CI | 01 + repo ada | belum | | |
+| 01 | ini | Kontrak OpenAPI Data API + draf Laravel + skrip golden | — | selesai* | RantAI-dev/DisparDataPlatform#22 | `1c5ce31` |
+| 02 | ini | Data API: kerangka, fitur dataset, katalog, beranda | 01 | selesai* | RantAI-dev/DisparDataPlatform#23 | `1c5ce31` |
+| 03 | ini | Data API: dashboard | 02 | selesai* | RantAI-dev/DisparDataPlatform#24 | `1c5ce31` |
+| 04 | ini | Data API: indikator + pariwisata | 02 | selesai* | RantAI-dev/DisparDataPlatform#25 | `1c5ce31` |
+| 05 | ini | Data API: atlas, gmti, spasial, hotel-scraped | 02 | selesai* | RantAI-dev/DisparDataPlatform#26 | `1c5ce31` |
+| 06 | ini | OPERASI: A image Dagster (indikator + flush), B container Data API, hostname | 01–05 + "lanjut deploy" | menunggu "lanjut deploy" | | |
+| 10 | portal | Kerangka monorepo, shared backend/frontend, Oracle, CI | 01 + repo ada | menunggu keputusan repo | | |
 | 11 | portal | Fitur dataset + beranda + docs (pola acuan) | 10, 02 | belum | | |
 | 12 | portal | Fitur dashboard | 11, 03 | belum | | |
 | 13 | portal | Fitur indikator | 11, 04 | belum | | |
@@ -173,6 +173,19 @@ di `main` setelah merge.
 | 17 | portal | Paritas penuh vs dispar.rantai.dev | 16 | belum | | |
 | 18 | portal | Dokumen serah terima | 17 | belum | | |
 | 19 | portal | Paket deploy + panduan pindah GitLab | 16 | belum | | |
+
+\* 01–05 (diperbarui 28 Okt 2026):
+
+- Kelimanya masuk `main` sekaligus lewat merge commit `1c5ce31` (26 Okt). Sebelumnya stack
+  di-rebase ke `main` `61c2afd` dan diselaraskan dengan perubahan web saat itu (kolom tampil,
+  katalog sekunder 45 entri, endpoint destinasi).
+- Merge **tanpa reviewer APPROVE** atas arahan pemilik, jadi syarat "PR green" di atas belum
+  terpenuhi secara formal. Gate lokal lulus di ujung stack: ruff, pytest 401, golden statis 39,
+  panggung 469.
+- Perubahan Data API sesudahnya: RantAI-dev/DisparDataPlatform#32 (`/v1/katalog` field dan filter
+  `sumber`, filter `tag`) dan RantAI-dev/DisparDataPlatform#33 (urutan kolom tabel numerik).
+- Kode portal plan 10–19: repo `dispar-portal` belum dibuat. Keputusan 21 Okt menaruhnya sementara
+  di folder `port/` repo ini; perlu dikonfirmasi ulang sebelum plan 10 dimulai.
 
 ## Di luar batch ini (sudah diketahui, sengaja ditunda)
 
