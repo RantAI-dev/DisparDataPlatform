@@ -14,17 +14,21 @@ export const idfmt = (v: number) => v.toLocaleString("id-ID");
 export const idNum = (v: number, d = 0) => v.toLocaleString("id-ID", { maximumFractionDigits: d, minimumFractionDigits: d });
 
 /**
- * Parse angka Indonesia: "51,85"->51.85, "3645837"->3645837.
- * Ditiru persis (K-10) dengan quirk-nya: titik diikuti angka dianggap desimal ("1.000"->1,
- * "1.234,5"->1.2345, "1.234.567"->null), dan hanya koma pertama yang jadi desimal
- * ("1,234,567"->1.234567). Komentar asli di lib/agg.ts mengklaim "1.234.567"->1234567.
+ * Parse angka Indonesia. Angka JS dikembalikan apa adanya; string memakai konvensi Indonesia
+ * (titik ribuan, koma desimal) bila bentuknya jelas, selain itu titik dianggap desimal:
+ * "1.234.567"->1234567, "1.000"->1000, "1.234,5"->1234.5, "51,85"->51.85,
+ * "1,234,567"->1234567, "12.5"->12.5, "Rp 3.645.837"->3645837.
+ * Menyimpang dari K-10: lib/agg.ts lama salah membaca titik ribuan (diperbaiki bersamaan di v2).
  */
 export function parseIdNum(v: unknown): number | null {
+  if (typeof v === "number") return Number.isFinite(v) ? v : null;
   let s = String(v ?? "").trim();
   if (!s) return null;
-  if (s.includes(",") && !/\.\d/.test(s)) s = s.replace(/\./g, "").replace(",", ".");
+  s = s.replace(/[^\d.,-]/g, "");
+  if (/^-?[1-9]\d{0,2}(\.\d{3})+(,\d+)?$/.test(s)) s = s.replace(/\./g, "").replace(",", ".");
+  else if (/^-?\d+,\d+$/.test(s)) s = s.replace(",", ".");
   else s = s.replace(/,/g, "");
-  const n = Number(s.replace(/[^\d.-]/g, ""));
+  const n = Number(s);
   return Number.isFinite(n) ? n : null;
 }
 

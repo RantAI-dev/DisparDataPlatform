@@ -11,13 +11,21 @@ describe("format angka Indonesia", () => {
 
   it("parseIdNum membaca koma desimal, titik ribuan, dan menolak kosong", () => {
     expect(parseIdNum("51,85")).toBe(51.85);
-    // Quirk asli lib/agg.ts (ditiru, K-10): titik diikuti angka selalu dibaca sebagai desimal.
-    expect(parseIdNum("1.234,5")).toBe(1.2345);
-    expect(parseIdNum("1.234.567")).toBeNull();
-    expect(parseIdNum("1.000")).toBe(1);
+    expect(parseIdNum("1.234,5")).toBe(1234.5);
+    expect(parseIdNum("1.234.567")).toBe(1234567);
+    expect(parseIdNum("1.000")).toBe(1000);
+    expect(parseIdNum("-1.000")).toBe(-1000);
+    expect(parseIdNum("Rp 3.645.837")).toBe(3645837);
     expect(parseIdNum("3645837")).toBe(3645837);
-    expect(parseIdNum("1,234,567")).toBe(1.234567);
+    expect(parseIdNum("1,234,567")).toBe(1234567);
+    expect(parseIdNum("1,234.5")).toBe(1234.5);
+    // Titik yang bukan pola ribuan tetap desimal (nilai Float dari ClickHouse berbentuk string).
     expect(parseIdNum("12.5")).toBe(12.5);
+    expect(parseIdNum("0.125")).toBe(0.125);
+    expect(parseIdNum("1234.567")).toBe(1234.567);
+    // Angka JS tidak ditafsir ulang (1.125 bukan 1125).
+    expect(parseIdNum(1.125)).toBe(1.125);
+    expect(parseIdNum(Number.NaN)).toBeNull();
     expect(parseIdNum("")).toBeNull();
     expect(parseIdNum(null)).toBeNull();
     expect(parseIdNum("abc")).toBe(0);
@@ -37,7 +45,7 @@ describe("format angka Indonesia", () => {
       { p: "202401", k: "A", v: null },
       { p: null, k: "A", v: "3" },
     ];
-    expect(groupSum(rows, "k", "v")).toEqual([{ label: "A", value: 4 }, { label: "B", value: 2.5 }]);
+    expect(groupSum(rows, "k", "v")).toEqual([{ label: "A", value: 1003 }, { label: "B", value: 2.5 }]);
     expect(groupCount(rows, "p")).toEqual([{ label: "202402", value: 1 }, { label: "202401", value: 2 }, { label: "—", value: 1 }]);
     expect(byPeriod(rows, "p").map((x) => x.label)).toEqual(["—", "202401", "202402"]);
     expect(topN([{ label: "a", value: 1 }, { label: "b", value: 3 }, { label: "c", value: 2 }], 2).map((x) => x.label)).toEqual(["b", "c"]);

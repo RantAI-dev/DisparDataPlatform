@@ -53,6 +53,12 @@ Nilai default SPEC dipakai kecuali disebut lain. Pemilik boleh membatalkan tiap 
   jadi IP asli tetap benar selama daftar itu memuat server Nuxt **dan** reverse proxy/LB di
   depannya. Kalau LB tidak didaftarkan, yang tercatat adalah IP LB (bukan IP palsu dari klien).
   Batas tunggu proxy ke Laravel 330 s (di atas timeout ekspor 300 s); lewat itu → 504.
+- **Parser angka `parseIdNum` diperbaiki, bukan ditiru** (keputusan pemilik 29 Okt 2026,
+  pengecualian K-10). `idNum` di `lib/agg.ts` v2 membaca titik ribuan sebagai desimal
+  ("1.000"→1, "1.234.567"→null). Kini: angka JS dikembalikan apa adanya; string berpola
+  ribuan Indonesia (`1.234.567`, `1.234,5`) dibaca sebagai ribuan, koma tunggal sebagai
+  desimal, selain itu titik desimal (`12.5`). Perbaikan yang sama dibuat di v2 supaya paritas
+  pulih setelah v2 di-deploy.
 
 ## Penyimpangan dari teks SPEC (disengaja)
 
