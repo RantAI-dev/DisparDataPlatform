@@ -1,0 +1,42 @@
+# Lingkungan pengembangan lokal portal (plan 10). Bukan untuk produksi: deploy ada di deploy/ (plan 19).
+# Sandi di sini hanya untuk Oracle XE lokal; timpa lewat port/.env bila perlu.
+name: dispar-portal
+
+services:
+  oracle:
+    image: gvenzl/oracle-xe:18-slim
+    environment:
+      ORACLE_PASSWORD: ${ORACLE_PASSWORD:-portal_dev}
+      APP_USER: ${DB_USERNAME:-portal}
+      APP_USER_PASSWORD: ${DB_PASSWORD:-portal_dev}
+    ports:
+      # Hanya localhost: sandi dev ada di repo publik.
+      - "127.0.0.1:${ORACLE_PORT:-15210}:1521"
+    volumes:
+      - oracle-data:/opt/oracle/oradata
+    healthcheck:
+      test: ["CMD", "healthcheck.sh"]
+      interval: 10s
+      timeout: 5s
+      retries: 60
+      start_period: 60s
+
+  backend:
+    build: ./backend
+    image: dispar-portal-php:dev
+    environment:
+      DB_CONNECTION: oracle
+      DB_HOST: oracle
+      DB_PORT: 1521
+      DB_SERVICE_NAME: XEPDB1
+      DB_SERVER_VERSION: 12c
+      DB_USERNAME: ${DB_USERNAME:-portal}
+      DB_PASSWORD: ${DB_PASSWORD:-portal_dev}
+    volumes:
+      - ./backend:/var/www/backend
+    depends_on:
+      oracle:
+        condition: service_healthy
+
+volumes:
+  oracle-data:
