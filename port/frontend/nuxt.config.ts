@@ -6,10 +6,6 @@ export default defineNuxtConfig({
   extends: ["./layers/shared"],
   ssr: true,
 
-  // Nuxt 4: `~` menunjuk app/; CSS layer memakai path relatif layer (SPEC §5.1).
-  css: ["~/assets/css/tailwind.css"],
-  postcss: { plugins: { tailwindcss: {}, autoprefixer: {} } },
-
   runtimeConfig: {
     // Server-only. Diisi NUXT_LARAVEL_URL dan NUXT_FRONTEND_TOKEN; tidak pernah ke browser.
     laravelUrl: "http://localhost:18000",

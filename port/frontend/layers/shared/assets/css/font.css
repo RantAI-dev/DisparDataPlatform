@@ -1,0 +1,8 @@
+/*
+ * Pengganti next/font (app/layout.tsx): Plus Jakarta Sans variabel sebagai --font-sans di <html>.
+ * "… fallback" dibuat @nuxtjs/fontaine dengan metrik Arial, seperti fallback size-adjust next/font,
+ * supaya tata letak tidak bergeser saat font dimuat (SPEC §5.1). globals.css tidak disentuh.
+ */
+html {
+  --font-sans: "Plus Jakarta Sans Variable", "Plus Jakarta Sans Variable fallback";
+}
