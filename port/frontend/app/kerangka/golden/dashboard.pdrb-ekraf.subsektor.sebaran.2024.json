@@ -1,0 +1,91 @@
+{
+ "endpoint": "/v1/dashboard/pdrb-ekraf/subsektor/sebaran",
+ "params": {},
+ "data": {
+  "periode_list": [
+   "2019",
+   "2020",
+   "2021",
+   "2022",
+   "2023",
+   "2024",
+   "S1 2025"
+  ],
+  "periode": "2024",
+  "label": "2024",
+  "distribusi": [
+   {
+    "label": "Kuliner",
+    "nama": "Kuliner",
+    "pct": 38.94
+   },
+   {
+    "label": "TV & Radio",
+    "nama": "Televisi dan Radio",
+    "pct": 23.69
+   },
+   {
+    "label": "Penerbitan",
+    "nama": "Penerbitan",
+    "pct": 14.26
+   },
+   {
+    "label": "Aplikasi & Game",
+    "nama": "Aplikasi dan Pengembang Permainan",
+    "pct": 5.72
+   },
+   {
+    "label": "Fashion",
+    "nama": "Fashion",
+    "pct": 5.63
+   },
+   {
+    "label": "Lainnya",
+    "nama": "Lainnya",
+    "pct": 11.77
+   }
+  ],
+  "nilai_top10": [
+   {
+    "label": "Kuliner",
+    "value": 159870.42
+   },
+   {
+    "label": "Televisi dan Radio",
+    "value": 97274.79
+   },
+   {
+    "label": "Penerbitan",
+    "value": 58534.65
+   },
+   {
+    "label": "Aplikasi dan Pengembang Permainan",
+    "value": 23483.64
+   },
+   {
+    "label": "Fashion",
+    "value": 23099.66
+   },
+   {
+    "label": "Kriya",
+    "value": 15158.83
+   },
+   {
+    "label": "Periklanan",
+    "value": 11559.84
+   },
+   {
+    "label": "Arsitektur",
+    "value": 7245.73
+   },
+   {
+    "label": "Musik",
+    "value": 5924.48
+   },
+   {
+    "label": "Seni Pertunjukan",
+    "value": 3135.8
+   }
+  ]
+ }
+}

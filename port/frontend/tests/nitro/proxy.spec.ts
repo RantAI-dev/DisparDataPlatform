@@ -99,7 +99,8 @@ describe("halaman", () => {
   });
 
   it("head sama dengan platform-v2", async () => {
-    const html = await $fetch<string>("/");
+    // Halaman sungguhan pertama = galeri /_kerangka (beranda menyusul di plan 11).
+    const html = await $fetch<string>("/_kerangka");
     expect(html).toMatch(/<html\s+lang="id"/);
     expect(html).toContain('<link rel="manifest" href="/site.webmanifest">');
   });

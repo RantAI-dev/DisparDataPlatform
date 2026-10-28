@@ -1,5 +1,5 @@
 // Shell bersama di runtime Nuxt: AppNav (tanpa AI, item aktif, tombol kembali) dan useLang.
-import { describe, expect, it } from "vitest";
+import { beforeAll, describe, expect, it } from "vitest";
 import { defineComponent, h, nextTick } from "vue";
 import { mountSuspended } from "@nuxt/test-utils/runtime";
 import AppNav from "../../layers/shared/components/app/AppNav.vue";
@@ -7,6 +7,11 @@ import DashboardSubnav from "../../layers/shared/components/app/DashboardSubnav.
 import { useLang } from "../../layers/shared/composables/useLang";
 
 const label = (el: Element) => el.textContent?.trim() ?? "";
+
+// Halaman fitur belum ada (plan 11+); rute penampung supaya `route` di mountSuspended bisa dituju.
+beforeAll(() => {
+  useRouter().addRoute({ name: "uji-penampung", path: "/:jalur(.*)*", component: defineComponent({ render: () => null }) });
+});
 
 describe("AppNav", () => {
   it("di beranda: tanpa tombol kembali, tanpa item AI, item sama dengan produksi", async () => {
