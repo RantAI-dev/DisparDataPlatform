@@ -1,12 +1,20 @@
 /** Helper agregasi untuk dashboard bespoke per indikator (Plan 7). */
 
-/** Parse angka Indonesia: "51,85"->51.85, "1.234.567"->1234567, "3645837"->3645837. */
+/**
+ * Parse angka Indonesia. Angka JS dikembalikan apa adanya; string berpola ribuan Indonesia
+ * dibaca sebagai ribuan, koma tunggal sebagai desimal, selain itu titik desimal:
+ * "1.234.567"->1234567, "1.000"->1000, "1.234,5"->1234.5, "51,85"->51.85,
+ * "1,234,567"->1234567, "12.5"->12.5, "3645837"->3645837.
+ */
 export function idNum(v: unknown): number | null {
+  if (typeof v === "number") return Number.isFinite(v) ? v : null;
   let s = String(v ?? "").trim();
   if (!s) return null;
-  if (s.includes(",") && !/\.\d/.test(s)) s = s.replace(/\./g, "").replace(",", ".");
+  s = s.replace(/[^\d.,-]/g, "");
+  if (/^-?[1-9]\d{0,2}(\.\d{3})+(,\d+)?$/.test(s)) s = s.replace(/\./g, "").replace(",", ".");
+  else if (/^-?\d+,\d+$/.test(s)) s = s.replace(",", ".");
   else s = s.replace(/,/g, "");
-  const n = Number(s.replace(/[^\d.-]/g, ""));
+  const n = Number(s);
   return Number.isFinite(n) ? n : null;
 }
 
