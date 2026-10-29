@@ -1,0 +1,8 @@
+{
+  "kunci": "/v1/dataset/penerbangan-langsung-internasional-jakarta",
+  "status": 200,
+  "headers": {
+    "content-type": "application/json"
+  },
+  "body": "{\"data\":{\"slug\":\"penerbangan-langsung-internasional-jakarta\",\"title\":\"Penerbangan Langsung Internasional ke Jakarta (rute nonstop CGK)\",\"description\":\"\",\"sumber_data\":[],\"frekuensi\":null,\"satuan\":null,\"periode\":null,\"klasifikasi\":null,\"kontak\":null,\"author\":\"Dinas Pariwisata & Ekonomi Kreatif DKI Jakarta\",\"medallion\":{\"level\":\"silver\",\"table\":\"penerbangan_langsung_internasional_jakarta\"},\"total_bronze\":125},\"meta\":{\"generated_at\":\"2026-10-30T04:25:47+07:00\",\"source\":[\"lake.bronze_meta*.dataset_catalog\",\"lake.bronze_meta*.dataset_sync\",\"silver.<tabel>\"],\"request_id\":\"c3bab2574d194ac2ab46c2e449ed67c3\",\"total\":125}}"
+}

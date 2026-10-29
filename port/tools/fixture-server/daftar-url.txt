@@ -14,6 +14,30 @@
 /v1/dataset/penerbangan-langsung-internasional-jakarta/baris?f=negara:in:Jepang&f=negara:in:Singapura&sort=maskapai:asc&size=20
 /v1/dataset/tidak-ada
 
+# plan 11 — dataset (docs/skenario/dataset.md). Slug acuan: S1 primer Silver bertanggal,
+# S2 sekunder, S3 angka besar.
+/v1/katalog?tier=semua
+/v1/katalog?tier=primer
+/v1/dataset/data-jumlah-wisatawan-mancanegara-berdasarkan-kebangsaan/facet
+/v1/dataset/data-jumlah-wisatawan-mancanegara-berdasarkan-kebangsaan/baris?page=1&size=50
+/v1/dataset/data-jumlah-wisatawan-mancanegara-berdasarkan-kebangsaan/baris?page=2&size=50
+/v1/dataset/data-jumlah-wisatawan-mancanegara-berdasarkan-kebangsaan/baris?page=1&size=50&q=JEPANG
+/v1/dataset/data-jumlah-wisatawan-mancanegara-berdasarkan-kebangsaan/baris?page=1&size=50&f=kebangsaan:in:JEPANG
+/v1/dataset/data-jumlah-wisatawan-mancanegara-berdasarkan-kebangsaan/baris?page=1&size=50&sort=jumlah_kunjungan:asc
+/v1/dataset/data-jumlah-wisatawan-mancanegara-berdasarkan-kebangsaan/baris?page=1&size=50&sort=jumlah_kunjungan:desc
+/v1/dataset/data-jumlah-wisatawan-mancanegara-berdasarkan-kebangsaan/baris?page=1&size=50&f=kolom_palsu:in:x
+/v1/dataset/data-jumlah-wisatawan-mancanegara-berdasarkan-kebangsaan/ekspor?format=csv&f=kebangsaan:in:JEPANG
+/v1/dataset/data-jumlah-wisatawan-mancanegara-berdasarkan-kebangsaan/agregat?x=kebangsaan&y=jumlah_kunjungan&agg=sum
+/v1/dataset/data-jumlah-wisatawan-mancanegara-berdasarkan-kebangsaan/agregat?x=kebangsaan&y=jumlah_kunjungan&agg=sum&f=kebangsaan:in:JEPANG
+/v1/dataset/penerbangan-langsung-internasional-jakarta
+/v1/dataset/penerbangan-langsung-internasional-jakarta/kolom
+/v1/dataset/penerbangan-langsung-internasional-jakarta/facet
+/v1/dataset/penerbangan-langsung-internasional-jakarta/baris?page=1&size=50
+/v1/dataset/data-pendapatan-asli-daerah-pad-sektor-pariwisata
+/v1/dataset/data-pendapatan-asli-daerah-pad-sektor-pariwisata/kolom
+/v1/dataset/data-pendapatan-asli-daerah-pad-sektor-pariwisata/facet
+/v1/dataset/data-pendapatan-asli-daerah-pad-sektor-pariwisata/baris?page=1&size=50
+
 # dashboard
 /v1/dashboard/ringkasan
 /v1/dashboard/wisman/kebangsaan?tahun=2025&top=10

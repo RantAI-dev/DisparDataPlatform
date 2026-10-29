@@ -1,0 +1,8 @@
+{
+  "kunci": "/v1/dataset/data-pendapatan-asli-daerah-pad-sektor-pariwisata/kolom",
+  "status": 200,
+  "headers": {
+    "content-type": "application/json"
+  },
+  "body": "{\"data\":{\"items\":[{\"key\":\"periode_data\",\"desc\":null,\"type\":null},{\"key\":\"pajak_hotel\",\"desc\":\"komponen\",\"type\":\"varchar\"},{\"key\":\"pajak_restoran\",\"desc\":\"komponen\",\"type\":\"varchar\"},{\"key\":\"pajak_hiburan\",\"desc\":\"komponen\",\"type\":\"varchar\"},{\"key\":\"retribusi\",\"desc\":\"komponen\",\"type\":\"varchar\"},{\"key\":\"jumlah\",\"desc\":\"komponen\",\"type\":\"varchar\"},{\"key\":\"perbandingan_tahun_sebelumnya\",\"desc\":\"komponen\",\"type\":\"varchar\"},{\"key\":\"growth_year_on_year\",\"desc\":\"komponen\",\"type\":\"varchar\"}]},\"meta\":{\"generated_at\":\"2026-10-30T04:25:49+07:00\",\"source\":[\"lake.bronze_meta*.dataset_column\",\"silver.<tabel>\"],\"request_id\":\"0c419f1f5b1f482189891b4531a9eb58\"}}"
+}
