@@ -193,6 +193,26 @@ Nilai default SPEC dipakai kecuali disebut lain. Pemilik boleh membatalkan tiap 
   S2 `penerbangan-langsung-internasional-jakarta`, S3
   `data-pendapatan-asli-daerah-pad-sektor-pariwisata` (`docs/skenario/dataset.md`).
 
+## Keputusan teknis plan 12 (dashboard)
+
+- **Penyimpangan dari pola fitur: satu Source/Service generik** (`DashboardSource::ambil($endpoint,
+  $query)`, `DashboardService::baca`) untuk 23 endpoint passthrough tanpa logika per endpoint.
+  Kelas baca per endpoint ada di `DashboardService::KELAS` (diuji sama dengan daftar KONTRAK).
+  Controller tetap satu metode per endpoint (docblock = isi `/docs`), FormRequest per kelompok
+  parameter. Endpoint T berparameter (`lama-menginap/seri?tamu`, `destinasi/meta?jenis`) punya
+  `varian` untuk sinkron; `wisman/bulanan?periode` kelas T di KONTRAK — tanpa `periode` dibaca dari
+  snapshot, dengan `periode` disimpan sebagai snapshot per bulan (kunci berbeda).
+- **Angka turunan dari Data API**: halaman memakai KPI, label tahun parsial ("2026 (s/d Jul)"),
+  top-8 + Lainnya, YoY, dan catatan data destinasi yang dihitung Data API (K-1, golden plan 01),
+  bukan menghitung ulang dari baris mentah seperti komponen React. Hanya format tampilan
+  (`labelBulan`, `idNum`) dan KPI PDRB (dari `makro`, sama dengan `PdrbEkrafStat`) di frontend.
+- **Muat data SSR** (`useAsyncData`), sama dengan server component v2; filter memanggil ulang
+  endpoint P di browser (`watch`).
+- **LosByClass**: deret batang dibaca dari sel tabel `per-kelas` (string id-ID) supaya tabel dan
+  grafik berasal dari satu respons.
+- Paritas `/dashboard` + 4 sub-halaman lulus di 1440 dan 390 (30 Okt 2026), termasuk quirk Q3
+  ("Rp 411 T" vs "Rp 410,6 T").
+
 ## Penyimpangan dari teks SPEC (disengaja)
 
 | SPEC | Yang dibuat | Alasan |

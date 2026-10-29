@@ -1,0 +1,8 @@
+{
+  "kunci": "/v1/dashboard/pdrb-ekraf/subsektor/sebaran?periode=2022",
+  "status": 200,
+  "headers": {
+    "content-type": "application/json"
+  },
+  "body": "{\"data\":{\"periode_list\":[\"2019\",\"2020\",\"2021\",\"2022\",\"2023\",\"2024\",\"S1 2025\"],\"periode\":\"2022\",\"label\":\"2022\",\"distribusi\":[{\"label\":\"Kuliner\",\"nama\":\"Kuliner\",\"pct\":38.24},{\"label\":\"TV & Radio\",\"nama\":\"Televisi dan Radio\",\"pct\":23.81},{\"label\":\"Penerbitan\",\"nama\":\"Penerbitan\",\"pct\":14.12},{\"label\":\"Fashion\",\"nama\":\"Fashion\",\"pct\":6.25},{\"label\":\"Aplikasi & Game\",\"nama\":\"Aplikasi dan Pengembang Permainan\",\"pct\":5.73},{\"label\":\"Lainnya\",\"nama\":\"Lainnya\",\"pct\":11.85}],\"nilai_top10\":[{\"label\":\"Kuliner\",\"value\":126089.99},{\"label\":\"Televisi dan Radio\",\"value\":78504.55},{\"label\":\"Penerbitan\",\"value\":46541.04},{\"label\":\"Fashion\",\"value\":20616.46},{\"label\":\"Aplikasi dan Pengembang Permainan\",\"value\":18881.44},{\"label\":\"Kriya\",\"value\":12458.94},{\"label\":\"Periklanan\",\"value\":9182.64},{\"label\":\"Arsitektur\",\"value\":5755.69},{\"label\":\"Musik\",\"value\":4851.32},{\"label\":\"Seni Pertunjukan\",\"value\":2504.01}]},\"meta\":{\"generated_at\":\"2026-10-30T05:21:46+07:00\",\"source\":[\"lake.bronze_file.pdrb_ekraf_subsektor\"],\"request_id\":\"df902d509e98421f8c002c221e48393f\"}}"
+}

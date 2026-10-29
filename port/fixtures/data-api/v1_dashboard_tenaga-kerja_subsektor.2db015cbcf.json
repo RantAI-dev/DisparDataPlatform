@@ -1,0 +1,8 @@
+{
+  "kunci": "/v1/dashboard/tenaga-kerja/subsektor",
+  "status": 200,
+  "headers": {
+    "content-type": "application/json"
+  },
+  "body": "{\"data\":{\"tahun_list\":[\"2020\",\"2021\",\"2022\",\"2023\",\"2024\"],\"tahun\":\"2024\",\"items\":[{\"label\":\"Kuliner\",\"value\":15580149},{\"label\":\"Fesyen\",\"value\":4968211},{\"label\":\"Kriya\",\"value\":3946414},{\"label\":\"Penerbitan\",\"value\":445998},{\"label\":\"Seni Pertunjukan\",\"value\":287952},{\"label\":\"Film, Animasi, dan Video\",\"value\":284536},{\"label\":\"Musik\",\"value\":228792},{\"label\":\"Fotografi\",\"value\":193004},{\"label\":\"Aplikasi dan Game Developer\",\"value\":108285},{\"label\":\"Desain Produk\",\"value\":100722},{\"label\":\"Seni Rupa\",\"value\":88756},{\"label\":\"Arsitektur\",\"value\":61422},{\"label\":\"Periklanan\",\"value\":50915},{\"label\":\"Desain Interior\",\"value\":49836},{\"label\":\"Televisi dan Radio\",\"value\":41233},{\"label\":\"Desain Komunikasi Visual\",\"value\":37893}]},\"meta\":{\"generated_at\":\"2026-10-30T05:21:46+07:00\",\"source\":[\"silver.tenaga_kerja_ekraf_per_subsektor_nasional\"],\"request_id\":\"f7b09065749b48d79814065f64bfec2c\"}}"
+}

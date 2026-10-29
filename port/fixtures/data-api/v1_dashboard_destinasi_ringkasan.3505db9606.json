@@ -1,0 +1,8 @@
+{
+  "kunci": "/v1/dashboard/destinasi/ringkasan?jenis=wisnus&tahun=2025",
+  "status": 200,
+  "headers": {
+    "content-type": "application/json"
+  },
+  "body": "{\"data\":{\"kpi\":[{\"label\":\"Kunjungan wisatawan nusantara · 2025\",\"value\":29970834,\"sub\":\"kunjungan\"},{\"label\":\"Destinasi melapor\",\"value\":\"29 dari 29\",\"sub\":\"2025\"},{\"label\":\"Destinasi teramai\",\"value\":\"Taman Impian Jaya Ancol\",\"sub\":\"9.092.653 kunjungan\"}],\"catatan\":[\"Catatan data: angka nusantara dan mancanegara diduga tertukar di sumber untuk Monumen Nasional Jan 2025 (nusantara 5.372, mancanegara 360.209). Angka ditampilkan apa adanya sesuai Satu Data Jakarta.\"]},\"meta\":{\"generated_at\":\"2026-10-30T05:21:46+07:00\",\"source\":[\"silver.jumlah_kunjungan_wisatawan_ke_obyek_wisata_menurut_lokasi_di_provinsi_dki_jakarta\"],\"request_id\":\"8c347d19da284e5ba2d5c920195709b8\"}}"
+}

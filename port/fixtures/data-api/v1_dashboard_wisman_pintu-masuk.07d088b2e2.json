@@ -1,0 +1,8 @@
+{
+  "kunci": "/v1/dashboard/wisman/pintu-masuk?periode=2024-05",
+  "status": 200,
+  "headers": {
+    "content-type": "application/json"
+  },
+  "body": "{\"data\":{\"sumber\":\"bps_bulanan\",\"label\":\"Mei 2024\",\"semester\":null,\"items\":[{\"label\":\"Halim Perdana Kusuma\",\"value\":86},{\"label\":\"Soekarno-Hatta\",\"value\":201574},{\"label\":\"Tanjung Priok\",\"value\":4}]},\"meta\":{\"generated_at\":\"2026-10-30T05:21:46+07:00\",\"source\":[\"serving.mart_wisman\",\"silver.jumlah_wisatawan\",\"silver.wisman_per_pintu_masuk_bulanan_bps\"],\"request_id\":\"c59585b4891745a6879b90430bd337f3\"}}"
+}
