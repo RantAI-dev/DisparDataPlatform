@@ -12,3 +12,7 @@ composer install --no-interaction --no-progress --prefer-dist
 php artisan key:generate --force
 vendor/bin/pint --test
 vendor/bin/pest --log-junit storage/logs/pest-junit.xml
+# Migration naik-turun-naik di XE 18 (plan 10 §Test); job migrasi-xe21 mengulanginya di XE 21.
+php artisan migrate:fresh --force
+php artisan migrate:rollback --force
+php artisan migrate --force
