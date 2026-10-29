@@ -1743,6 +1743,245 @@
                 }
             }
         },
+        "/gmti/ringkasan": {
+            "get": {
+                "operationId": "gmti.ringkasan",
+                "description": "Jakarta Ramah Muslim: angka per pilar, kepadatan per kecamatan, tipologi, capaian, dan penghargaan.",
+                "summary": "Ringkasan GMTI",
+                "tags": [
+                    "Gmti"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/AuthenticationException"
+                    }
+                }
+            }
+        },
+        "/gmti/tempat": {
+            "get": {
+                "operationId": "gmti.tempat",
+                "description": "Tempat ramah Muslim berhalaman (200 per halaman) dengan filter pilar, kota, jenis, dan cari.",
+                "summary": "Daftar tempat GMTI",
+                "tags": [
+                    "Gmti"
+                ],
+                "parameters": [
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Nomor halaman, mulai 1.",
+                        "schema": {
+                            "type": [
+                                "integer",
+                                "null"
+                            ],
+                            "minimum": 1
+                        }
+                    },
+                    {
+                        "name": "size",
+                        "in": "query",
+                        "description": "Baris per halaman (maks. 200).",
+                        "schema": {
+                            "type": [
+                                "integer",
+                                "null"
+                            ],
+                            "minimum": 1,
+                            "maximum": 200
+                        }
+                    },
+                    {
+                        "name": "pilar",
+                        "in": "query",
+                        "description": "Pilar GMTI; `semua` = tanpa filter.",
+                        "schema": {
+                            "type": [
+                                "string",
+                                "null"
+                            ],
+                            "enum": [
+                                "semua",
+                                "ibadah",
+                                "makan",
+                                "menginap",
+                                "destinasi",
+                                "program",
+                                null
+                            ]
+                        }
+                    },
+                    {
+                        "name": "kota",
+                        "in": "query",
+                        "description": "Kota administrasi; kosong = semua kota.",
+                        "schema": {
+                            "type": [
+                                "string",
+                                "null"
+                            ],
+                            "maxLength": 100
+                        }
+                    },
+                    {
+                        "name": "jenis",
+                        "in": "query",
+                        "description": "Jenis tempat dalam pilar; kosong = semua jenis.",
+                        "schema": {
+                            "type": [
+                                "string",
+                                "null"
+                            ],
+                            "maxLength": 100
+                        }
+                    },
+                    {
+                        "name": "q",
+                        "in": "query",
+                        "description": "Cari nama atau alamat.",
+                        "schema": {
+                            "type": [
+                                "string",
+                                "null"
+                            ],
+                            "maxLength": 200
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/AuthenticationException"
+                    },
+                    "422": {
+                        "$ref": "#/components/responses/ValidationException"
+                    }
+                }
+            }
+        },
+        "/spasial": {
+            "get": {
+                "operationId": "spasial.index",
+                "description": "Titik ringkas berkoordinat (atlas, venue seni, GMTI, dataset Silver) beserta kepadatan per kecamatan.",
+                "summary": "Peta Spatial",
+                "tags": [
+                    "Gmti"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/AuthenticationException"
+                    }
+                }
+            }
+        },
+        "/spasial/titik/{id}": {
+            "get": {
+                "operationId": "spasial.titik",
+                "description": "Detail satu titik untuk popup peta (mis. sertifikat halal).",
+                "summary": "Detail titik Spatial",
+                "tags": [
+                    "Gmti"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/AuthenticationException"
+                    }
+                }
+            }
+        },
+        "/hotel-scraped": {
+            "get": {
+                "operationId": "hotel-scraped",
+                "description": "Harga kamar hotel hasil scraping Booking.com (snapshot Bronze).",
+                "summary": "Hotel hasil scraping",
+                "tags": [
+                    "Gmti"
+                ],
+                "parameters": [
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "Jumlah hotel paling banyak (1\u2013500, bawaan 100).",
+                        "schema": {
+                            "type": [
+                                "integer",
+                                "null"
+                            ],
+                            "minimum": 1,
+                            "maximum": 500
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/AuthenticationException"
+                    },
+                    "422": {
+                        "$ref": "#/components/responses/ValidationException"
+                    }
+                }
+            }
+        },
         "/indikator": {
             "get": {
                 "operationId": "indikator.daftar",

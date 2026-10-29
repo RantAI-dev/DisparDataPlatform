@@ -135,3 +135,14 @@
 /v1/atlas/pertunjukan
 /v1/atlas/pertunjukan?tahun=2025
 /v1/atlas/pertunjukan?tahun=2026
+
+# plan 15 — gmti, spasial, hotel-scraped (docs/skenario/gmti.md)
+/v1/gmti/tempat?page=1&size=200&pilar=semua
+/v1/gmti/tempat?page=2&size=200&pilar=semua
+/v1/gmti/tempat?page=1&size=200&pilar=makan
+/v1/gmti/tempat?page=1&size=200&pilar=makan&kota=Jakarta Selatan
+/v1/gmti/tempat?page=1&size=200&pilar=program
+/v1/gmti/tempat?page=1&size=200&pilar=semua&q=istiqlal
+/v1/spasial
+/v1/spasial/titik/gci-osm-w-370539428
+/v1/hotel-scraped

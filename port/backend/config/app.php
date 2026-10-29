@@ -4,6 +4,7 @@ use App\Features\Atlas\AtlasServiceProvider;
 use App\Features\Beranda\BerandaServiceProvider;
 use App\Features\Dashboard\DashboardServiceProvider;
 use App\Features\Dataset\DatasetServiceProvider;
+use App\Features\Gmti\GmtiServiceProvider;
 use App\Features\Indikator\IndikatorServiceProvider;
 use App\Features\Sistem\SistemServiceProvider;
 use App\Providers\AppServiceProvider;
@@ -188,6 +189,7 @@ return [
         DashboardServiceProvider::class,
         IndikatorServiceProvider::class,
         AtlasServiceProvider::class,
+        GmtiServiceProvider::class,
     ])->toArray(),
 
     /*

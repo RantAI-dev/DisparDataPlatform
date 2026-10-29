@@ -1104,6 +1104,153 @@
     ]
   },
   {
+    "id": "gmti-ringkasan",
+    "method": "GET",
+    "path": "/api/v1/gmti/ringkasan",
+    "title": "Ringkasan GMTI",
+    "desc": "Jakarta Ramah Muslim: angka per pilar, kepadatan per kecamatan, tipologi, capaian, dan penghargaan.",
+    "params": [],
+    "contoh": "/api/v1/gmti/ringkasan",
+    "respons": "json",
+    "errors": [
+      {
+        "code": "401",
+        "when": "Token tidak ada atau tidak valid."
+      }
+    ]
+  },
+  {
+    "id": "gmti-tempat",
+    "method": "GET",
+    "path": "/api/v1/gmti/tempat",
+    "title": "Daftar tempat GMTI",
+    "desc": "Tempat ramah Muslim berhalaman (200 per halaman) dengan filter pilar, kota, jenis, dan cari.",
+    "params": [
+      {
+        "name": "page",
+        "in": "query",
+        "type": "integer (≥ 1)",
+        "required": false,
+        "desc": "Nomor halaman, mulai 1."
+      },
+      {
+        "name": "size",
+        "in": "query",
+        "type": "integer (1–200)",
+        "required": false,
+        "desc": "Baris per halaman (maks. 200)."
+      },
+      {
+        "name": "pilar",
+        "in": "query",
+        "type": "semua | ibadah | makan | menginap | destinasi | program | ",
+        "required": false,
+        "desc": "Pilar GMTI; `semua` = tanpa filter."
+      },
+      {
+        "name": "kota",
+        "in": "query",
+        "type": "string",
+        "required": false,
+        "desc": "Kota administrasi; kosong = semua kota."
+      },
+      {
+        "name": "jenis",
+        "in": "query",
+        "type": "string",
+        "required": false,
+        "desc": "Jenis tempat dalam pilar; kosong = semua jenis."
+      },
+      {
+        "name": "q",
+        "in": "query",
+        "type": "string",
+        "required": false,
+        "desc": "Cari nama atau alamat."
+      }
+    ],
+    "contoh": "/api/v1/gmti/tempat",
+    "respons": "json",
+    "errors": [
+      {
+        "code": "401",
+        "when": "Token tidak ada atau tidak valid."
+      },
+      {
+        "code": "422",
+        "when": "Parameter tidak sesuai aturan (rincian per parameter di errors.fields)."
+      }
+    ]
+  },
+  {
+    "id": "spasial-index",
+    "method": "GET",
+    "path": "/api/v1/spasial",
+    "title": "Peta Spatial",
+    "desc": "Titik ringkas berkoordinat (atlas, venue seni, GMTI, dataset Silver) beserta kepadatan per kecamatan.",
+    "params": [],
+    "contoh": "/api/v1/spasial",
+    "respons": "json",
+    "errors": [
+      {
+        "code": "401",
+        "when": "Token tidak ada atau tidak valid."
+      }
+    ]
+  },
+  {
+    "id": "spasial-titik",
+    "method": "GET",
+    "path": "/api/v1/spasial/titik/{id}",
+    "title": "Detail titik Spatial",
+    "desc": "Detail satu titik untuk popup peta (mis. sertifikat halal).",
+    "params": [
+      {
+        "name": "id",
+        "in": "path",
+        "type": "string",
+        "required": true,
+        "desc": ""
+      }
+    ],
+    "contoh": "/api/v1/spasial/titik/{id}",
+    "respons": "json",
+    "errors": [
+      {
+        "code": "401",
+        "when": "Token tidak ada atau tidak valid."
+      }
+    ]
+  },
+  {
+    "id": "hotel-scraped",
+    "method": "GET",
+    "path": "/api/v1/hotel-scraped",
+    "title": "Hotel hasil scraping",
+    "desc": "Harga kamar hotel hasil scraping Booking.com (snapshot Bronze).",
+    "params": [
+      {
+        "name": "limit",
+        "in": "query",
+        "type": "integer (1–500)",
+        "required": false,
+        "desc": "Jumlah hotel paling banyak (1–500, bawaan 100)."
+      }
+    ],
+    "contoh": "/api/v1/hotel-scraped",
+    "respons": "json",
+    "errors": [
+      {
+        "code": "401",
+        "when": "Token tidak ada atau tidak valid."
+      },
+      {
+        "code": "422",
+        "when": "Parameter tidak sesuai aturan (rincian per parameter di errors.fields)."
+      }
+    ]
+  },
+  {
     "id": "indikator-daftar",
     "method": "GET",
     "path": "/api/v1/indikator",
