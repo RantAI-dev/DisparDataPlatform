@@ -256,6 +256,28 @@ asal = "Disparekraf DKI Jakarta, diperkaya geocoding (scripts/geocode_events.py)
 pembangun = "scripts/merge_final.py"
 
 [[sumber]]
+id = "disparekraf-hotel-per-kota"
+jenis = "berkas"
+path = "data/sumber/disparekraf/hotel-per-kota.tsv"
+namespace = "bronze_file"
+tabel = "disparekraf_hotel_per_kota"
+kelas_refresh = "saat_berubah"
+tanggal_ambil = "2026-10-29"
+asal = "Disparekraf DKI Jakarta, pendataan hotel per kota (sheet Hotel di 'Data Hotel dan Hiburan (per kota).xlsx'); dipublikasikan atas permintaan Disparekraf, termasuk kontak"
+pembangun = "scripts/pisah_hotel_hiburan.py"
+
+[[sumber]]
+id = "disparekraf-hiburan-per-kota"
+jenis = "berkas"
+path = "data/sumber/disparekraf/hiburan-per-kota.tsv"
+namespace = "bronze_file"
+tabel = "disparekraf_hiburan_per_kota"
+kelas_refresh = "saat_berubah"
+tanggal_ambil = "2026-10-29"
+asal = "Disparekraf DKI Jakarta, pendataan usaha hiburan per kota (sheet Hiburan di 'Data Hotel dan Hiburan (per kota).xlsx'); dipublikasikan atas permintaan Disparekraf, termasuk kontak"
+pembangun = "scripts/pisah_hotel_hiburan.py"
+
+[[sumber]]
 id = "satudata-ekraf-tenaga-kerja-subsektor-2020"
 jenis = "berkas"
 path = "data/sumber/satudata-ekraf/dl_17o8miba9bfiyx1_tenaga_kerja_subsektor_tahun_2020_ihMOJ549ok.csv"
@@ -1292,3 +1314,7 @@ alasan = "duplikat dari atlas-restoran"
 [[abaikan]]
 path = "data-souvenir-GCI-jakarta.tsv"
 alasan = "duplikat dari atlas-souvenir"
+
+[[abaikan]]
+path = "data/sumber/disparekraf/Data Hotel dan Hiburan (per kota).xlsx"
+alasan = "berkas asli 10 sheet (pembaca xlsx Bronze hanya membaca sheet pertama); dipecah scripts/pisah_hotel_hiburan.py menjadi hotel-per-kota.tsv dan hiburan-per-kota.tsv"
