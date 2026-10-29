@@ -1,0 +1,139 @@
+stages:
+  - .pre
+  - image
+  - uji
+  - .post
+variables:
+  PHP_CI_IMAGE: $CI_REGISTRY_IMAGE/php-ci:$CI_COMMIT_SHORT_SHA
+  ORACLE_PASSWORD: portal_ci
+image-php:
+  stage: image
+  image:
+    name: docker:27
+  services:
+    - name: docker:27-dind
+  variables:
+    DOCKER_TLS_CERTDIR: /certs
+  script:
+    - >-
+      echo "$CI_REGISTRY_PASSWORD" | docker login -u "$CI_REGISTRY_USER"
+      --password-stdin "$CI_REGISTRY"
+    - docker build -t "$PHP_CI_IMAGE" backend
+    - docker push "$PHP_CI_IMAGE"
+.oracle-db:
+  variables:
+    DB_CONNECTION: oracle
+    DB_HOST: oracle
+    DB_PORT: '1521'
+    DB_SERVICE_NAME: XEPDB1
+    DB_SERVER_VERSION: 12c
+backend:
+  variables:
+    DB_CONNECTION: oracle
+    DB_HOST: oracle
+    DB_PORT: '1521'
+    DB_SERVICE_NAME: XEPDB1
+    DB_SERVER_VERSION: 12c
+  stage: uji
+  needs:
+    - job: image-php
+      artifacts: true
+      optional: false
+  image:
+    name: $PHP_CI_IMAGE
+  services:
+    - name: gvenzl/oracle-xe:18-slim
+      alias: oracle
+      variables:
+        APP_USER: portal_test
+        APP_USER_PASSWORD: portal_test
+  script:
+    - bash scripts/ci/backend.sh
+  artifacts:
+    when: always
+    reports:
+      junit: backend/storage/logs/pest-junit.xml
+dump-oracle:
+  stage: uji
+  image:
+    name: gvenzl/oracle-xe:18-slim
+    entrypoint:
+      - ''
+  services:
+    - name: gvenzl/oracle-xe:18-slim
+      alias: oracle
+  variables:
+    ORACLE_SQLPLUS: sqlplus -s -L
+    ORACLE_DSN: //oracle:1521/XEPDB1
+  script:
+    - >-
+      timeout 600 bash -c 'until echo "select 1 from dual;" | sqlplus -s -L
+      "system/${ORACLE_PASSWORD}@${ORACLE_DSN}" >/dev/null; do sleep 10; done'
+    - scripts/oracle-dump.sh --cek
+    - scripts/cek-oracle-terlarang.sh
+migrasi-xe21:
+  variables:
+    DB_CONNECTION: oracle
+    DB_HOST: oracle
+    DB_PORT: '1521'
+    DB_SERVICE_NAME: XEPDB1
+    DB_SERVER_VERSION: 12c
+    DB_USERNAME: portal_ci
+    DB_PASSWORD: portal_ci
+  stage: uji
+  needs:
+    - job: image-php
+      artifacts: true
+      optional: false
+  image:
+    name: $PHP_CI_IMAGE
+  services:
+    - name: gvenzl/oracle-xe:21-slim
+      alias: oracle
+      variables:
+        APP_USER: portal_ci
+        APP_USER_PASSWORD: portal_ci
+  script:
+    - bash scripts/ci/migrasi.sh
+frontend:
+  stage: uji
+  needs: []
+  image:
+    name: node:20-bookworm
+  script:
+    - bash scripts/ci/frontend.sh
+  artifacts:
+    when: always
+    reports:
+      junit: frontend/test-results/vitest-junit.xml
+e2e:
+  stage: uji
+  needs:
+    - job: image-php
+      artifacts: true
+      optional: false
+  image:
+    name: $PHP_CI_IMAGE
+  services:
+    - name: gvenzl/oracle-xe:18-slim
+      alias: oracle
+      variables:
+        APP_USER: portal_test
+        APP_USER_PASSWORD: portal_test
+  variables:
+    DB_CONNECTION: oracle
+    DB_HOST: oracle
+    DB_PORT: '1521'
+    DB_SERVICE_NAME: XEPDB1
+    DB_SERVER_VERSION: 12c
+  script:
+    - bash scripts/ci/pasang-node.sh
+    - bash scripts/ci/e2e.sh
+  artifacts:
+    when: always
+    paths:
+      - frontend/test-results
+      - frontend/playwright-report
+    reports:
+      junit: frontend/test-results/e2e-junit.xml
+default: {}

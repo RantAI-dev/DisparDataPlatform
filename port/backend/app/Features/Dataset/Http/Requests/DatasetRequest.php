@@ -14,6 +14,9 @@ abstract class DatasetRequest extends FormRequest
 
     protected const SORT = ['nullable', 'string', 'regex:/^[^:]+:(asc|desc)$/'];
 
+    /** Filter berulang `f[]`; tiap nilai dibatasi di aturan `f.*`. */
+    protected const F = ['nullable', 'array', 'max:50'];
+
     public function authorize(): bool
     {
         return true;
@@ -23,11 +26,5 @@ abstract class DatasetRequest extends FormRequest
     public function untukDataApi(): array
     {
         return $this->validated();
-    }
-
-    /** @return array<string, list<string>> aturan `f[]` (filter berulang) */
-    protected static function filter(): array
-    {
-        return ['f' => ['nullable', 'array', 'max:50'], 'f.*' => ['string', 'max:500']];
     }
 }

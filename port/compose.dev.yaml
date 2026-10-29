@@ -44,6 +44,8 @@ services:
       DATA_API_TOKEN: ${DATA_API_TOKEN:-token-fixture}
       # Dev: Nuxt dan nginx berada di subnet Docker; produksi memakai alamat server Nuxt.
       PORTAL_PROXY_TEPERCAYA: ${PORTAL_PROXY_TEPERCAYA:-172.16.0.0/12}
+      # e2e memanggil jauh di atas 120/menit dari satu klien; naikkan lewat env saat menjalankannya.
+      PORTAL_BATAS_PER_MENIT: ${PORTAL_BATAS_PER_MENIT:-120}
       DB_CONNECTION: oracle
       DB_HOST: oracle
       DB_PORT: 1521

@@ -9,7 +9,7 @@ Dipakai e2e, uji paritas, dan plan 17. Ditetapkan 30 Okt 2026 dari katalog yang 
 
 | Kode | Slug | Mengapa |
 |---|---|---|
-| S1 | `data-jumlah-wisatawan-mancanegara-berdasarkan-kebangsaan` | primer, Silver, kolom tanggal (`periode_data`), 1.000+ baris (scroll) |
+| S1 | `data-jumlah-wisatawan-mancanegara-berdasarkan-kebangsaan` | primer, Silver, kolom tanggal (`periode_data`), 664 baris (scroll) |
 | S2 | `penerbangan-langsung-internasional-jakarta` | sekunder (`/sdi/…` dari katalog sekunder), banyak kolom teks |
 | S3 | `data-pendapatan-asli-daerah-pad-sektor-pariwisata` | angka besar (ratusan miliar rupiah, format id-ID) |
 
@@ -39,11 +39,11 @@ Data API dipalsukan dengan rekaman `fixtures/data-api` (`dataApiDariFixture()`).
 
 | ID | Skenario |
 |---|---|
-| DS-F01 | `useDataset`: muat awal lewat `halaman`, halaman berikut lewat `baris` dengan `page = baris_dimuat / 50 + 1` |
-| DS-F02 | `useDataset`: pencarian di-debounce 350 ms dan di-trim; ketikan beruntun hanya memicu satu request |
+| DS-F01 | `useDatasetBaris`: muat awal lewat `halaman`, halaman berikut lewat `baris` dengan `page = baris_dimuat / 50 + 1` |
+| DS-F02 | `useDatasetBaris`: pencarian di-debounce 350 ms dan di-trim; ketikan beruntun hanya memicu satu request |
 | DS-F03 | Serialisasi filter: `rowQueryParams` ↔ `parseRowQuery` bolak-balik (in berulang, range terbuka, sort, q) dan bentuk `f[]` untuk Laravel |
-| DS-F04 | `useDataset`: jawaban usang (filter lama) dibuang |
-| DS-F05 | `useDataset`: 404 → "Dataset belum tersedia di lakehouse", gagal jaringan → "Gagal memuat data" |
+| DS-F04 | `useDatasetBaris`: jawaban usang (filter lama) dibuang |
+| DS-F05 | `useDatasetBaris`: 404 → "Dataset belum tersedia di lakehouse", gagal jaringan → "Gagal memuat data" |
 | DS-F06 | Chart builder: `isNumericCol`, `pickDefaultDim`, dan sanitasi preferensi `localStorage["dispar:dataset-charts:{slug}"]` sama dengan v2 |
 | DS-F07 | `fmtPeriode`, `renderCell`/`fmtCell`, label chip filter (`Kebangsaan: 5 nilai`, rentang `…`) |
 | DS-F08 | `/docs`: `endpoints.json` = hasil `scripts/docs-dari-openapi.ts` atas ekspor Scramble terbaru; rute `sistem/*` tidak ada |
