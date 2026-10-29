@@ -118,6 +118,23 @@ Nilai default SPEC dipakai kecuali disebut lain. Pemilik boleh membatalkan tiap 
   `pariwisata` (PariwisataShell + VenueMap), `spasial` (SpatialMap, kepadatan dihitung di galeri
   dari golden), `dashboard` (layout dashboard). RawDataDisclosure/SdiTable memanggil rute dataset
   Laravel plan 11, jadi sampai plan 11 galeri menampilkan keadaan error-nya; e2e mencegat rute itu.
+- **CI: satu sumber perintah** di `scripts/ci/*.sh`; `.github/workflows/ci.yml` dan `.gitlab-ci.yml`
+  hanya menyiapkan lingkungan. Oracle selalu sebagai *service* CI (bukan compose/dind, karena
+  dind GitLab tidak bisa bind-mount direktori build). Service tes memakai `APP_USER=portal_test`
+  (skema yang dipaksa phpunit.xml). GitHub membangun image PHP di job (cache buildx); GitLab
+  membangunnya sekali ke registry (`image-php`). Cek dump di GitLab memakai image
+  `gvenzl/oracle-xe` sebagai klien sqlplus; `oracle-dump.sh` menerima `ORACLE_SQLPLUS` +
+  `ORACLE_DSN` untuk itu. Diverifikasi lokal: actionlint 1.7.12 dan `gitlab-ci-local --list`
+  (skema valid), serta tiap skrip CI dijalankan di image/service yang sama (Pest 59, migrasi
+  naik-turun-naik di XE 21, dump ke skema kosong lewat compose, `docker exec`, dan klien gvenzl).
+  CI sungguhan belum pernah jalan (repo belum didorong).
+- **E2E plan 10 hanya frontend**: Nuxt hasil build + Playwright (desktop 1440 dan Pixel 7) untuk
+  galeri, satu redirect lama, dan 404. Rute dataset Laravel (plan 11) dipalsukan di browser
+  sesuai kontrak; tile peta dari internet dijawab 204 supaya tidak bergantung jaringan CI. Tes
+  kesehatan backend (`E2E_LARAVEL_URL`) dijalankan lokal; di CI kesehatan dijaga Pest. Plan 11
+  menambah backend + fixture-server ke job e2e saat rute fitur pertama ada.
+- **`@playwright/test` 1.64.1** (rilis 14 Okt 2026); job GitLab memakai image Playwright versi
+  yang sama.
 
 ## Penyimpangan dari teks SPEC (disengaja)
 

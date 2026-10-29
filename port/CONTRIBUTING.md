@@ -20,13 +20,36 @@ docker compose -f compose.dev.yaml run --rm backend sh -c \
 # perkakas fixture
 node --test tools/fixture-server/*.test.mjs
 
+# dump Oracle bisa diterapkan + fitur Oracle terlarang (SPEC §6)
+scripts/oracle-dump.sh --cek && scripts/cek-oracle-terlarang.sh
+
 # frontend
 cd frontend && npm ci && npm run lint && npx nuxt typecheck && npx vitest run
+
+# e2e (Playwright; build dulu, server .output dijalankan Playwright)
+npx nuxt build && npx playwright test
 ```
 
 Vitest punya tiga project: `unit` (fungsi murni), `nuxt` (composable di runtime Nuxt), dan
 `nitro` (membangun Nuxt lalu menguji server sungguhan: proxy `/_api`, redirect lama, halaman
-error). `npm run lint` menjaga pemisahan layer (SPEC §5.3); Playwright ditambahkan bersama CI.
+error). `npm run lint` menjaga pemisahan layer (SPEC §5.3). Playwright (`tests/e2e`) membuka
+galeri `/_kerangka`, redirect lama, dan halaman 404; isi `NUXT_LARAVEL_URL`,
+`NUXT_FRONTEND_TOKEN`, dan `E2E_LARAVEL_URL` untuk ikut menguji kesehatan backend.
+
+## CI
+
+`.github/workflows/ci.yml` (selama di GitHub) dan `.gitlab-ci.yml` (GitLab Disparekraf) menjalankan
+job yang sama; perintahnya ada di `scripts/ci/*.sh` supaya keduanya tidak menyimpang:
+
+| Job | Isi |
+|---|---|
+| `backend` | pint + Pest di image `backend/Dockerfile`, Oracle XE 18 sebagai service; dump bisa diterapkan; grep fitur terlarang |
+| `migrasi-xe21` | `migrate:fresh --seed`, rollback, migrate di Oracle XE 21 |
+| `frontend` | eslint, typecheck, Vitest, tes perkakas fixture |
+| `e2e` | Nuxt build + Playwright |
+
+Di GitLab, image PHP dibangun sekali per commit (`image-php`) ke registry proyek; cek dump memakai
+image Oracle yang sama sebagai klien sqlplus.
 
 ## Aturan yang dijaga tes
 
