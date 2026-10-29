@@ -24,8 +24,10 @@ export type SpasialTitik = {
   href: string;
   kind?: string | null;
   source?: string | null;
+  /** Belum dikirim /v1/spasial (KONTRAK §2.5); dipakai pencarian bila ada. */
+  address?: string | null;
 };
-export type SpasialDetail = SpasialTitik & { address?: string | null; cert?: string | null };
+export type SpasialDetail = SpasialTitik & { cert?: string | null };
 type KecCount = { total: number; byCat: Partial<Record<SpatialCategory, number>> };
 
 const props = defineProps<{
@@ -123,9 +125,13 @@ function colorFor(total: number) {
 
 const pins = computed(() => {
   const needle = search.value.trim().toLowerCase();
-  // Titik ringkas tanpa alamat: pencarian mencocokkan nama + wilayah (v2 juga alamat; lihat ADR 0001).
+  // Sama dengan v2 (nama + alamat + wilayah). Titik ringkas /v1/spasial belum membawa alamat; bila
+  // kosong, pencarian hanya mengenai nama + wilayah (ADR 0001).
   return props.points.filter(
-    (p) => active.value.has(p.category) && (!city.value || p.city === city.value) && (!needle || `${p.name} ${p.city}`.toLowerCase().includes(needle)),
+    (p) =>
+      active.value.has(p.category) &&
+      (!city.value || p.city === city.value) &&
+      (!needle || `${p.name} ${p.address ?? ""} ${p.city}`.toLowerCase().includes(needle)),
   );
 });
 

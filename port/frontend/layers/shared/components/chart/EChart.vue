@@ -6,11 +6,14 @@
 import { use } from "echarts/core";
 import { BarChart, LineChart, PieChart, TreemapChart } from "echarts/charts";
 import { DataZoomComponent, GridComponent, LegendComponent, TooltipComponent } from "echarts/components";
+import { LabelLayout, UniversalTransition } from "echarts/features";
 import { CanvasRenderer } from "echarts/renderers";
 // Build CSP: tidak menyuntik <style> lewat `document` saat diimpor (SSR); gayanya diberi inline di bawah.
 import VChart from "vue-echarts/csp";
 
-use([CanvasRenderer, BarChart, LineChart, PieChart, TreemapChart, GridComponent, TooltipComponent, LegendComponent, DataZoomComponent]);
+// LabelLayout menjalankan `labelLayout.hideOverlap`; UniversalTransition = transisi antaropsi. Keduanya
+// ikut di build `echarts` lengkap yang dipakai v2 — tanpa LabelLayout label yang bertumpuk tidak disembunyikan.
+use([CanvasRenderer, LabelLayout, UniversalTransition, BarChart, LineChart, PieChart, TreemapChart, GridComponent, TooltipComponent, LegendComponent, DataZoomComponent]);
 
 const props = defineProps<{ option: object; height: number | string }>();
 const UPDATE = { notMerge: true, lazyUpdate: true };

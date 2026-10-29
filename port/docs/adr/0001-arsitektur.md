@@ -69,13 +69,22 @@ Nilai default SPEC dipakai kecuali disebut lain. Pemilik boleh membatalkan tiap 
 - **`vue-echarts/csp`**, bukan build bawaan: build bawaan menyuntik `<style>` lewat `document` saat
   diimpor sehingga SSR gagal (500). Gaya `x-vue-echarts` ditulis inline di `EChart.vue`.
   Modul ECharts didaftarkan per kebutuhan (bar, line, pie, treemap + grid, tooltip, legend,
-  dataZoom, canvas). `notMerge` + `lazyUpdate` dan ukur ulang otomatis sama dengan echarts-for-react.
+  dataZoom, canvas) **plus fitur `LabelLayout` dan `UniversalTransition`** yang ikut di build
+  `echarts` lengkap v2 — tanpa `LabelLayout`, `labelLayout.hideOverlap` tidak berjalan dan label
+  bertumpuk di modal GroupedLines (ditemukan saat membandingkan dengan produksi). `notMerge` +
+  `lazyUpdate` dan ukur ulang otomatis sama dengan echarts-for-react.
 - **API Vue untuk dua komponen**: `ModeToggle` memakai `v-model` (bukan `value` + `onChange`);
   `class` pada `ChartCard` digabung Vue ke div akar setelah kelas bawaan (hasil sama dengan v2).
-- **Perbedaan yang diketahui**: di modal "Perbesar grafik" GroupedLines, label nilai yang saling
-  tumpang tindih (`labelLayout.hideOverlap`) tidak disembunyikan persis sama dengan v2 (seri PDRB DKI
-  2017–2019). Opsi dan data identik; penyebabnya urutan render ECharts di bawah React vs Vue.
-  Chart lain di modal identik per piksel.
+- **Paritas visual terhadap produksi** (dispar.rantai.dev, 29 Okt 2026, `/dashboard/pdrb-ekraf`
+  vs galeri `/_kerangka` dengan data golden yang sama): 7/7 chart dan 7/7 modal "Perbesar grafik"
+  identik per piksel pada 1440×900 dan 375×812; tinggi header, lebar item nav, KPI, dan kartu sama.
+- **Font = berkas yang persis dilayani produksi, bukan fontsource + fontaine** (menyimpang dari
+  SPEC §5.1). Plus Jakarta Sans dari `@fontsource-variable` 5.3.0 berbeda versi dari berkas Google
+  Fonts yang di-bundle `next/font` saat v2 dibangun: teks yang sama 3,5% lebih sempit (1088 vs
+  1128 px), sehingga baris membungkus berbeda dan ambang paritas 2% terlewati. Empat subset woff2
+  produksi di-host di `public/fonts/plus-jakarta-sans/` (OFL, `OFL.txt`); aturan `@font-face`,
+  termasuk fallback `size-adjust` Arial buatan `next/font`, disalin dari CSS produksi, sehingga
+  `@nuxtjs/fontaine` tidak diperlukan lagi. Subset latin dipreload seperti `next/font`.
 - **Gradien chart berbentuk objek** `{type:'linear', x, y, x2, y2, colorStops, global}` (SPEC §5.1),
   setara `new graphic.LinearGradient(…)` v2; builder tidak lagi mengimpor `echarts/core`.
 - **`xlsx` 0.18.5 (versi v2), bukan 0.20.3.** Uji ekspor contoh v2 dengan kedua versi: `.xlsx`
@@ -100,9 +109,10 @@ Nilai default SPEC dipakai kecuali disebut lain. Pemilik boleh membatalkan tiap 
   Esri di pane tile bawaan (meniru TileLayer react-leaflet v2), peta lain di `shadowPane`.
 - **SpatialMap hanya tampilan**: props berbentuk `/v1/spasial` (titik ringkas, `cities`,
   `kepadatan_berkoordinat`, `kepadatan_tanpa_koordinat`); popup tampil dari data ringkas lalu
-  alamat/sertifikat menyusul dari `muatDetail(id)` (`/v1/spasial/titik/{id}`). Konsekuensi titik
-  tanpa alamat (KONTRAK §2.5): pencarian di peta hanya mencocokkan nama + wilayah, padahal v2 juga
-  alamat (placeholder tetap "Cari nama, alamat, atau wilayah…") — dicatat untuk pemilik.
+  alamat/sertifikat menyusul dari `muatDetail(id)` (`/v1/spasial/titik/{id}`). Pencarian sama
+  dengan v2 (nama + alamat + wilayah) bila titik membawa `address`; titik ringkas KONTRAK §2.5
+  belum membawanya, jadi sampai kontrak spasial (plan 05/plan spasial) menambah alamat, pencarian
+  hanya mengenai nama + wilayah — dicatat untuk pemilik.
 - **HeroDark** = pola hero gelap yang di v2 ditulis ulang di enam berkas (inventaris A §8);
   padding vertikal per halaman lewat prop `pad`. **PageFooter tidak ada di v2** (SPEC §5.2
   menyebutnya di `components/app`), jadi tidak dibuat.
@@ -142,6 +152,7 @@ Nilai default SPEC dipakai kecuali disebut lain. Pemilik boleh membatalkan tiap 
 |---|---|---|
 | §4.4 `Query::build($q, false)` | `Query::build($q)` (encoding RFC 3986) | argumen `false` mematikan percent-encoding: nilai filter berisi `&`, `=`, `#` terpotong. Encoding bawaan tetap menghasilkan `f=` berulang (diuji `DataApiClientTest`) |
 | §4.4 "status HTTP diteruskan dari Data API" | 401/403 Data API → **502 `UPSTREAM_AUTH`** | 401/403 dari Data API berarti token layanan Laravel salah (konfigurasi server); meneruskannya membuat Nuxt mengira tokennya sendiri yang salah |
+| §5.1 font `@fontsource-variable/plus-jakarta-sans` + `@nuxtjs/fontaine` | berkas woff2 + `@font-face` produksi di-host sendiri | metrik fontsource 5.3.0 berbeda 3,5% dari font produksi (lihat "Font" di atas) |
 | §4.4 data di-decode bila perlu dibaca | `data` **diambil mentah** dari body (`JsonMentah::nilaiMentah`), tidak di-decode-encode | decode-encode membulatkan bilangan bulat > 2^63 (UInt64 ClickHouse) menjadi float |
 | KONTRAK §2.7 kesehatan | `GET /api/v1/sistem/kesehatan` selalu **200** dengan `status: ok \| terganggu` dan rincian per komponen; `meta.sumber = null` | pemantau tetap bisa membaca komponen mana yang gagal; cek Data API memakai timeout 3 s tanpa retry supaya rute publik ini tidak menahan worker |
 
