@@ -1,5 +1,6 @@
 <?php
 
+use App\Features\Atlas\AtlasServiceProvider;
 use App\Features\Beranda\BerandaServiceProvider;
 use App\Features\Dashboard\DashboardServiceProvider;
 use App\Features\Dataset\DatasetServiceProvider;
@@ -186,6 +187,7 @@ return [
         DatasetServiceProvider::class,
         DashboardServiceProvider::class,
         IndikatorServiceProvider::class,
+        AtlasServiceProvider::class,
     ])->toArray(),
 
     /*
