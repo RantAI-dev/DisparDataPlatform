@@ -263,7 +263,7 @@ Nilai default SPEC dipakai kecuali disebut lain. Pemilik boleh membatalkan tiap 
   `/v1/spasial`). Peringatan memakai teks v2: gagal → "Titik lakehouse belum dapat dimuat.",
   `complete: false` → "Sebagian dataset lakehouse gagal dimuat.".
 - **`/scraped-hotels`** membaca Bronze (P5), jadi berisi sementara produksi kosong; paritas visual
-  menunggu review manual pemilik. ECharts mendaftarkan `ScatterChart` (dipakai grafik skor vs harga).
+  dibandingkan dengan menyuntikkan respons produksi ke portal (render atas data sama, lulus 1440/390); isi Bronze-nya diuji e2e. ECharts mendaftarkan `ScatterChart` (dipakai grafik skor vs harga).
 - Paritas `/gmti` dan panel `/spatial` lulus di 1440 dan 390 (30 Okt 2026).
 
 ## Penyimpangan dari teks SPEC (disengaja)

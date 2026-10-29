@@ -1,5 +1,4 @@
 // Paritas gmti/spasial (docs/skenario/gmti.md GM-P*): portal vs dispar.rantai.dev.
-// /scraped-hotels tidak dibandingkan: produksi kosong (tabel mart 0 baris), portal membaca Bronze (P5).
 import { test, type Page } from "@playwright/test";
 import { bandingkanHalaman } from "./bantu";
 
@@ -20,5 +19,20 @@ test("GM-P02 /spatial (panel; tile, pin, dan choropleth di-mask)", async ({ brow
     mask: [".leaflet-container"],
     layar: "viewport",
     siapkan: hitungUlangTinggi,
+  });
+});
+
+// /scraped-hotels: produksi membaca mart kosong, portal membaca Bronze (P5). Respons produksi
+// (rows, stats, last_checkin) disuntikkan ke portal, jadi yang dibandingkan adalah render atas data
+// yang sama (keadaan produksi saat ini).
+test("GM-P03 /scraped-hotels", async ({ browser, page }, info) => {
+  await bandingkanHalaman(browser, page, "/scraped-hotels", info, {
+    tunggu: "text=/Hotels \\(\\d+\\)/",
+    samakanBaris: {
+      produksi: "/api/hotels/scraped",
+      portal: "/_api/hotel-scraped",
+      ambil: (j) => [j],
+      pasang: (j, [p]: any[]) => ({ ...j, data: { ...j.data, rows: p.rows ?? [], stats: p.stats ?? null, last_checkin: p.last_checkin ?? null } }),
+    },
   });
 });

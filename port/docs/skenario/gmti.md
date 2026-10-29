@@ -30,4 +30,4 @@ Satu tes per ID. Nama tes diawali ID-nya. Pola penulisan: `docs/pola-fitur.md`.
 |---|---|---|
 | GM-P01 | `/gmti` | — |
 | GM-P02 | `/spatial` | panel saja; tile/pin/choropleth di-mask; tinggi dihitung ulang setelah dock AI dibuang |
-| — | `/scraped-hotels` | tidak dibandingkan: produksi kosong (P5), tangkapan saat berisi tidak ada → review manual pemilik |
+| GM-P03 | `/scraped-hotels` | respons produksi (kosong) disuntikkan ke portal; render atas data sama |
