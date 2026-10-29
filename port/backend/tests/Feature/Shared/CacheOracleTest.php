@@ -24,3 +24,11 @@ it('increment() bekerja di Oracle (tanpa FETCH FIRST … FOR UPDATE)', function 
         ->and($cache->decrement('uji:hitung'))->toBe(4)
         ->and($cache->increment('uji:tidak-ada'))->toBeFalse();
 });
+
+it('put() menyimpan dan menimpa nilai di atas 32 KB (tanpa MERGE, ORA-01461)', function () {
+    $besar = str_repeat('{"angka":1234567890}', 3300); // ±66 KB
+    expect(Cache::put('besar', $besar, 60))->toBeTrue()
+        ->and(Cache::get('besar'))->toBe($besar)
+        ->and(Cache::put('besar', $besar.'x', 60))->toBeTrue()
+        ->and(Cache::get('besar'))->toBe($besar.'x');
+});

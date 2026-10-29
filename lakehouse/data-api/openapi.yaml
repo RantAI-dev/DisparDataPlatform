@@ -3541,6 +3541,43 @@ paths:
                     properties:
                       code:
                         type: string
+                      indikator:
+                        type: object
+                        description: Identitas indikator untuk hero halaman (nama, definisi, dimensi).
+                        required: [framework, dimension, name, definition, owner, note]
+                        properties:
+                          framework: {type: string}
+                          dimension: {type: ['string', 'null']}
+                          name: {type: string}
+                          definition: {type: ['string', 'null']}
+                          owner: {type: ['string', 'null']}
+                          note: {type: ['string', 'null']}
+                      konteks:
+                        description: Benchmark indeks (kartu IndexContext), dari `gci_gpci_benchmark`; null bila tidak ada.
+                        oneOf:
+                        - type: 'null'
+                        - type: object
+                          required: [index_metric, index_source, unit, frontier, jakarta, target, data_needed]
+                          properties:
+                            index_metric: {type: string}
+                            index_source: {type: string}
+                            unit: {type: string}
+                            frontier:
+                              type: object
+                              properties: {city: {type: ['string', 'null']}, value: {type: ['string', 'null']}}
+                            jakarta:
+                              type: object
+                              properties: {value: {type: ['string', 'null']}, note: {type: ['string', 'null']}}
+                            target: {type: ['string', 'null']}
+                            data_needed:
+                              type: array
+                              items:
+                                type: object
+                                required: [status, label, owner]
+                                properties:
+                                  status: {type: string, enum: [punya, proksi, belum]}
+                                  label: {type: string}
+                                  owner: {type: string}
                       sources:
                         type: array
                         items:
@@ -3654,6 +3691,8 @@ paths:
                             type: string
                     required:
                     - code
+                    - indikator
+                    - konteks
                     - sources
                     - source_text
                     - kpis
@@ -4766,6 +4805,11 @@ paths:
                                 type: array
                                 items:
                                   type: string
+                            tautan:
+                              description: URL verifikasi per baris tabel artis yang tampil di Jakarta (null = data event Dispar).
+                              type: array
+                              items:
+                                type: ['string', 'null']
                           required:
                           - header
                           - rows

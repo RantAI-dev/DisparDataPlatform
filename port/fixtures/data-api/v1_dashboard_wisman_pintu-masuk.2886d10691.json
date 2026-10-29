@@ -4,5 +4,5 @@
   "headers": {
     "content-type": "application/json"
   },
-  "body": "{\"data\":{\"sumber\":\"sdi_semester\",\"label\":\"2024\",\"semester\":\"1 & 2\",\"items\":[{\"label\":\"Soekarno-Hatta\",\"value\":2272612},{\"label\":\"Halim Perdana Kusuma\",\"value\":1506},{\"label\":\"Tanjung Priok\",\"value\":10799}]},\"meta\":{\"generated_at\":\"2026-10-30T05:21:46+07:00\",\"source\":[\"serving.mart_wisman\",\"silver.jumlah_wisatawan\",\"silver.wisman_per_pintu_masuk_bulanan_bps\"],\"request_id\":\"f84f0d57bc8a499796e4dad0b5f44b5e\"}}"
+  "body": "{\"data\":{\"sumber\":\"sdi_semester\",\"label\":\"2024\",\"semester\":\"1 & 2\",\"items\":[{\"label\":\"Soekarno-Hatta\",\"value\":2272612},{\"label\":\"Halim Perdana Kusuma\",\"value\":1506},{\"label\":\"Tanjung Priok\",\"value\":10799}]},\"meta\":{\"generated_at\":\"2026-10-30T05:45:17+07:00\",\"source\":[\"serving.mart_wisman\",\"silver.jumlah_wisatawan\",\"silver.wisman_per_pintu_masuk_bulanan_bps\"],\"request_id\":\"8f465e67d4e843b6b0761b3abc6998a1\"}}"
 }

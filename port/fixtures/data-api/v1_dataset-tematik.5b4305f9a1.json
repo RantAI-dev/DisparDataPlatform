@@ -1,0 +1,8 @@
+{
+  "kunci": "/v1/dataset-tematik?framework=GCI",
+  "status": 200,
+  "headers": {
+    "content-type": "application/json"
+  },
+  "body": "{\"data\":{\"items\":[{\"no\":\"01\",\"title\":\"Restoran GCI\",\"href\":\"/gci/pariwisata/restoran-gci\",\"total\":2577},{\"no\":\"02\",\"title\":\"Direktori Restoran\",\"href\":\"/gci/pariwisata/direktori-restoran\",\"total\":604},{\"no\":\"03\",\"title\":\"Pertunjukan & Budaya\",\"href\":\"/gci/pariwisata/pertunjukan-budaya\",\"total\":308},{\"no\":\"04\",\"title\":\"Hotel MICHELIN Key\",\"href\":\"/sdi/michelin-keys-indonesia\",\"total\":47}]},\"meta\":{\"generated_at\":\"2026-10-30T05:45:51+07:00\",\"source\":[\"shared/hitungan.py (tabel sumber atlas + katalog sekunder)\"],\"request_id\":\"658b9aa37c03478e9c6308fedef018b5\"}}"
+}

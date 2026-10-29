@@ -71,8 +71,45 @@ class Blok(BaseModel):
     data: Any
 
 
+class InfoIndikator(BaseModel):
+    framework: str
+    dimension: str | None
+    name: str
+    definition: str | None
+    owner: str | None
+    note: str | None
+
+
+class Frontier(BaseModel):
+    city: str | None
+    value: str | None
+
+
+class NilaiJakarta(BaseModel):
+    value: str | None
+    note: str | None
+
+
+class DataDibutuhkan(BaseModel):
+    status: str
+    label: str
+    owner: str
+
+
+class KonteksIndeks(BaseModel):
+    index_metric: str
+    index_source: str
+    unit: str
+    frontier: Frontier
+    jakarta: NilaiJakarta
+    target: str | None
+    data_needed: list[DataDibutuhkan]
+
+
 class DetailIndikator(BaseModel):
     code: str
+    indikator: InfoIndikator
+    konteks: KonteksIndeks | None
     sources: list[Sumber]
     source_text: str | None
     kpis: list[KpiStat]
@@ -146,6 +183,7 @@ class Raw(BaseModel):
 class Tabel(BaseModel):
     header: list[str]
     rows: list[list[str]]
+    tautan: list[str | None] | None = None
 
 
 class HalamanPariwisata(BaseModel):

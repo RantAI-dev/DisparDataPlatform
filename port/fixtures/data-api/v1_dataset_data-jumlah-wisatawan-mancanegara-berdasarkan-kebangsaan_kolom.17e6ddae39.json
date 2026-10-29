@@ -4,5 +4,5 @@
   "headers": {
     "content-type": "application/json"
   },
-  "body": "{\"data\":{\"items\":[{\"key\":\"periode_data\",\"desc\":null,\"type\":null},{\"key\":\"kebangsaan\",\"desc\":\"komponen\",\"type\":\"varchar\"},{\"key\":\"jumlah_kunjungan\",\"desc\":\"komponen\",\"type\":\"varchar\"},{\"key\":\"perbandingan_bulan_sebelumnya\",\"desc\":\"komponen\",\"type\":\"varchar\"},{\"key\":\"perbandingan_tahun_sebelumnya\",\"desc\":\"komponen\",\"type\":\"varchar\"}]},\"meta\":{\"generated_at\":\"2026-10-30T05:21:13+07:00\",\"source\":[\"lake.bronze_meta*.dataset_column\",\"silver.<tabel>\"],\"request_id\":\"38b0cabb48344614a39df6e074875280\"}}"
+  "body": "{\"data\":{\"items\":[{\"key\":\"periode_data\",\"desc\":null,\"type\":null},{\"key\":\"kebangsaan\",\"desc\":\"komponen\",\"type\":\"varchar\"},{\"key\":\"jumlah_kunjungan\",\"desc\":\"komponen\",\"type\":\"varchar\"},{\"key\":\"perbandingan_bulan_sebelumnya\",\"desc\":\"komponen\",\"type\":\"varchar\"},{\"key\":\"perbandingan_tahun_sebelumnya\",\"desc\":\"komponen\",\"type\":\"varchar\"}]},\"meta\":{\"generated_at\":\"2026-10-30T05:44:40+07:00\",\"source\":[\"lake.bronze_meta*.dataset_column\",\"silver.<tabel>\"],\"request_id\":\"705467f856a546d6813c824ca4a7c0b0\"}}"
 }

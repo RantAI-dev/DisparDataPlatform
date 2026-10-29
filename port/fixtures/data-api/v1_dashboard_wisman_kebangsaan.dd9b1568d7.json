@@ -4,5 +4,5 @@
   "headers": {
     "content-type": "application/json"
   },
-  "body": "{\"data\":{\"periode\":\"2026-07\",\"label\":\"Jul 2026\",\"items\":[{\"label\":\"Tiongkok\",\"value\":59365},{\"label\":\"Malaysia\",\"value\":41474},{\"label\":\"Arab Saudi\",\"value\":19263},{\"label\":\"Singapura\",\"value\":18720},{\"label\":\"Belanda\",\"value\":15770},{\"label\":\"Jepang\",\"value\":13131},{\"label\":\"Korea Selatan\",\"value\":11682},{\"label\":\"Perancis\",\"value\":11040},{\"label\":\"Lainnya\",\"value\":116802}]},\"meta\":{\"generated_at\":\"2026-10-30T05:21:46+07:00\",\"source\":[\"serving.mart_wisman\"],\"request_id\":\"868e97a20d7849769b2f4024df34de01\"}}"
+  "body": "{\"data\":{\"periode\":\"2026-07\",\"label\":\"Jul 2026\",\"items\":[{\"label\":\"Tiongkok\",\"value\":59365},{\"label\":\"Malaysia\",\"value\":41474},{\"label\":\"Arab Saudi\",\"value\":19263},{\"label\":\"Singapura\",\"value\":18720},{\"label\":\"Belanda\",\"value\":15770},{\"label\":\"Jepang\",\"value\":13131},{\"label\":\"Korea Selatan\",\"value\":11682},{\"label\":\"Perancis\",\"value\":11040},{\"label\":\"Lainnya\",\"value\":116802}]},\"meta\":{\"generated_at\":\"2026-10-30T05:45:15+07:00\",\"source\":[\"serving.mart_wisman\"],\"request_id\":\"dfe677a690cf41478306700c7384d608\"}}"
 }

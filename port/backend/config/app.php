@@ -3,6 +3,7 @@
 use App\Features\Beranda\BerandaServiceProvider;
 use App\Features\Dashboard\DashboardServiceProvider;
 use App\Features\Dataset\DatasetServiceProvider;
+use App\Features\Indikator\IndikatorServiceProvider;
 use App\Features\Sistem\SistemServiceProvider;
 use App\Providers\AppServiceProvider;
 use App\Providers\AuthServiceProvider;
@@ -184,6 +185,7 @@ return [
         BerandaServiceProvider::class,
         DatasetServiceProvider::class,
         DashboardServiceProvider::class,
+        IndikatorServiceProvider::class,
     ])->toArray(),
 
     /*

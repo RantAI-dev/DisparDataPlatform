@@ -4,5 +4,5 @@
   "headers": {
     "content-type": "application/json"
   },
-  "body": "{\"data\":{\"label\":\"2025\",\"items\":[{\"label\":\"Jakarta Selatan\",\"value\":27032572},{\"label\":\"Jakarta Pusat\",\"value\":20739990},{\"label\":\"Jakarta Timur\",\"value\":19167400},{\"label\":\"Jakarta Barat\",\"value\":16532290},{\"label\":\"Jakarta Utara\",\"value\":15532133},{\"label\":\"Kepulauan Seribu\",\"value\":392607}]},\"meta\":{\"generated_at\":\"2026-10-30T05:21:46+07:00\",\"source\":[\"silver.wisnus_perjalanan_per_kota_tujuan\"],\"request_id\":\"8450c702a6c54ff3a776bb0626e91158\"}}"
+  "body": "{\"data\":{\"label\":\"2025\",\"items\":[{\"label\":\"Jakarta Selatan\",\"value\":27032572},{\"label\":\"Jakarta Pusat\",\"value\":20739990},{\"label\":\"Jakarta Timur\",\"value\":19167400},{\"label\":\"Jakarta Barat\",\"value\":16532290},{\"label\":\"Jakarta Utara\",\"value\":15532133},{\"label\":\"Kepulauan Seribu\",\"value\":392607}]},\"meta\":{\"generated_at\":\"2026-10-30T05:45:18+07:00\",\"source\":[\"silver.wisnus_perjalanan_per_kota_tujuan\"],\"request_id\":\"c3a9dc4c0ce3496781e99813d5d9d73a\"}}"
 }

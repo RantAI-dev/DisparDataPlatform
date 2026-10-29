@@ -1,0 +1,8 @@
+{
+  "kunci": "/v1/gci/resmi",
+  "status": 200,
+  "headers": {
+    "content-type": "application/json"
+  },
+  "body": "{\"data\":{\"ranking\":{\"cultural\":{\"y2024\":52,\"y2025\":58},\"overall\":{\"y2024\":74,\"y2025\":71},\"sumber\":{\"label\":\"jakarta.go.id/competitiveness\",\"url\":\"https://www.jakarta.go.id/competitiveness\"},\"catatan\":\"Kearney GCI 2025. Peringkat makin kecil makin baik.\"},\"kartu\":[{\"label\":\"Jumlah Museum\",\"nilai\":\"79\",\"satuan\":\"Museum\",\"tahun\":\"2025\",\"sumber\":\"satudata.jakarta.go.id\",\"catatan\":null,\"href\":null},{\"label\":\"Seni Visual & Pertunjukan\",\"nilai\":\"156\",\"satuan\":\"Karya / kegiatan\",\"tahun\":\"2024\",\"sumber\":\"Dinas Pariwisata & Ekraf\",\"catatan\":\"Belum mencakup data Dinas Kebudayaan.\",\"href\":\"/gci/pariwisata/seni-pertunjukan\"},{\"label\":\"Wisatawan Internasional\",\"nilai\":\"2.767.622\",\"satuan\":\"Wisatawan\",\"tahun\":\"2025\",\"sumber\":\"jakarta.bps.go.id\",\"catatan\":null,\"href\":\"/gci/pariwisata/wisatawan-internasional\"},{\"label\":\"Penawaran Kuliner (Michelin)\",\"nilai\":\"0\",\"satuan\":\"Restoran Michelin\",\"tahun\":\"2025\",\"sumber\":\"Michelin\",\"catatan\":\"Belum ada Michelin Star di Jakarta.\",\"href\":\"/gci/pariwisata/kuliner-michelin\"}]},\"meta\":{\"generated_at\":\"2026-10-30T05:45:51+07:00\",\"source\":[\"lake.bronze_file.gci_kearney_resmi\"],\"request_id\":\"356fc6a0241741a6aaeeae6f84cda698\"}}"
+}
