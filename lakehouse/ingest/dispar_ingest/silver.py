@@ -35,8 +35,9 @@ KOLOM_BUANG = {
 AUDIT = ("_ingested_at", "_source_url", "_batch_id", "_row_hash", "_tenant")
 
 # Kolom kode yang isinya kebetulan angka tetapi bukan besaran: tetap teks (varchar),
-# supaya tidak bisa dijumlah/dirata-rata dan nol di depan (KBLI 01111) tidak hilang.
-KOLOM_TEKS = {"kbli"}
+# supaya tidak bisa dijumlah/dirata-rata dan nol di depan (KBLI 01111, NIB 0230010120158)
+# tidak hilang. NIB juga kadang berisi nomor izin lama (TDUP/TDP) yang bukan angka.
+KOLOM_TEKS = {"kbli", "nib"}
 
 # Kolom lintang/bujur: titik selalu desimal (koordinat_id). angka_id akan membaca
 # '-6.033' sebagai -6033 karena polanya sama dengan ribuan format Indonesia.

@@ -44,6 +44,19 @@ class KolomKodeTetapTeks(unittest.TestCase):
         self.assertEqual([c.args[2] for c in tebak.call_args_list], ["jumlah_tki"])
         self.assertIn(["usaha_berizin", "kbli", "teks", 0.0, 0], ch.meta)
 
+    def test_nib_tidak_dipromosikan_ke_angka(self):
+        # NIB = nomor identitas berusaha: nol di depan (0230010120158) harus tetap, dan nomor
+        # izin lama (TDUP/TDP) yang bukan angka tidak boleh jadi kosong.
+        ch = Client(["nib", "jml_naker"])
+        with patch.object(silver, "client", return_value=ch), \
+             patch.object(silver, "tebak_tipe", return_value=("angka", 1.0)) as tebak:
+            self.assertEqual(silver.generate_silver(), 0)
+
+        ddl = next(c for c in ch.commands if c.startswith("CREATE OR REPLACE VIEW silver.usaha_berizin"))
+        self.assertIn("bersih_teks(`nib`) AS `nib`", ddl)
+        self.assertIn("angka_id(`jml_naker`) AS `jml_naker`", ddl)
+        self.assertEqual([c.args[2] for c in tebak.call_args_list], ["jml_naker"])
+
 
 class KolomKoordinatTitikDesimal(unittest.TestCase):
     def test_lat_lon_memakai_koordinat_id(self):
