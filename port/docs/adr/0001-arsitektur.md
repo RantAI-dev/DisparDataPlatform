@@ -109,10 +109,9 @@ Nilai default SPEC dipakai kecuali disebut lain. Pemilik boleh membatalkan tiap 
   Esri di pane tile bawaan (meniru TileLayer react-leaflet v2), peta lain di `shadowPane`.
 - **SpatialMap hanya tampilan**: props berbentuk `/v1/spasial` (titik ringkas, `cities`,
   `kepadatan_berkoordinat`, `kepadatan_tanpa_koordinat`); popup tampil dari data ringkas lalu
-  alamat/sertifikat menyusul dari `muatDetail(id)` (`/v1/spasial/titik/{id}`). Pencarian sama
-  dengan v2 (nama + alamat + wilayah) bila titik membawa `address`; titik ringkas KONTRAK §2.5
-  belum membawanya, jadi sampai kontrak spasial (plan 05/plan spasial) menambah alamat, pencarian
-  hanya mengenai nama + wilayah — dicatat untuk pemilik.
+  sertifikat menyusul dari `muatDetail(id)` (`/v1/spasial/titik/{id}`). Pencarian sama dengan v2
+  (nama + alamat + wilayah): titik ringkas `/v1/spasial` membawa `address` sejak plan 11 (keputusan
+  pemilik 29 Okt 2026; payload ±1,26 MB vs 0,85 MB tanpa alamat).
 - **HeroDark** = pola hero gelap yang di v2 ditulis ulang di enam berkas (inventaris A §8);
   padding vertikal per halaman lewat prop `pad`. **PageFooter tidak ada di v2** (SPEC §5.2
   menyebutnya di `components/app`), jadi tidak dibuat.
