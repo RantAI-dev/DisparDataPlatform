@@ -186,9 +186,11 @@ dedup** (D, ringkasan butir 3).
 | `GET /v1/spasial/titik/{id}` | P | sama; detail satu titik untuk popup | D §4.10 |
 | `GET /v1/hotel-scraped?limit` | T | `bronze_file.booking_hotel_2026_09_15` (SPEC P5, hanya halaman ini) | D §4.11, E §2.8 |
 
-`/v1/spasial` mengirim titik ringkas tanpa alamat, plus kepadatan per kecamatan yang sudah
-dihitung. Dengan begitu browser tidak lagi mengunduh `gmti-ibadah.json` 2 MB. Popup detail
-memakai `/v1/spasial/titik/{id}`.
+`/v1/spasial` mengirim titik ringkas, plus kepadatan per kecamatan yang sudah dihitung. Dengan
+begitu browser tidak lagi mengunduh `gmti-ibadah.json` 2 MB. Titik ringkas **membawa alamat**
+(diputuskan pemilik 29 Okt 2026), supaya pencarian peta mencocokkan nama + alamat + wilayah
+seperti `GmtiMapView` yang tayang; ukurannya ±1,26 MB vs ±0,85 MB tanpa alamat (golden 4.217
+titik statis). Popup detail (sertifikat dll.) memakai `/v1/spasial/titik/{id}`.
 
 ### 2.6 beranda
 
