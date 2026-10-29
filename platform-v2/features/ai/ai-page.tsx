@@ -1,10 +1,11 @@
 "use client";
 
 import * as React from "react";
-import { Sparkles, Plus, Plane, Hotel, CalendarDays, Utensils, TrendingUp, Map, LayoutDashboard, Database } from "lucide-react";
+import { Plus, Plane, Hotel, CalendarDays, Utensils, TrendingUp, Map, LayoutDashboard, Database } from "lucide-react";
 import { useAi, type AiMode } from "./use-ai";
 import { AiMessages } from "./ai-messages";
 import { AiComposer } from "./ai-composer";
+import { JekateAvatar } from "./jekate-avatar";
 
 const SUGGESTIONS: Record<AiMode, { icon: React.ComponentType<{ className?: string }>; label: string }[]> = {
   ask: [
@@ -30,7 +31,7 @@ export function AiPage() {
     <div className="ai-shell">
       <div className="ai-app">
         <div className="ai-topbar">
-          <h1>Atlas AI</h1>
+          <h1>Jekate</h1>
           <span className="crumb">
             <span className="chan-dot" />
             Dispar Lakehouse{c.model?.configured ? ` · ${c.model.model}` : ""}
@@ -48,15 +49,15 @@ export function AiPage() {
         <div className="scroll-area">
           {c.messages.length === 0 ? (
             <div className="chat-empty">
-              <div className="ce-mark">
-                <Sparkles className="size-6" />
+              <div className="ce-mark mascot">
+                <JekateAvatar size={96} />
               </div>
               <div>
-                <h2>Halo! Saya Atlas</h2>
+                <h2>Halo, aye Jekate!</h2>
                 <p>
                   {c.mode === "bi"
-                    ? "Mode BI: sebut topiknya, saya susun dashboard — KPI, beberapa grafik, dan insight."
-                    : "Tanya apa saja tentang data pariwisata & ekraf DKI — saya cari tabelnya, jalankan query, dan buat grafik."}
+                    ? "Mode BI: sebut aja topiknya, aye susunin dashboard — KPI, beberapa grafik, dan insight."
+                    : "Tanya apa aja soal data pariwisata & ekraf Jakarta — aye cariin tabelnya, jalanin query, terus bikin grafiknya."}
                 </p>
                 {c.model && !c.model.configured ? (
                   <p style={{ color: "var(--destructive)" }}>LLM belum dikonfigurasi di server (LLM_KEY kosong).</p>

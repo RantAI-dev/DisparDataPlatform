@@ -1522,3 +1522,28 @@
 .ai-shell .send-btn.stop {
   background: var(--destructive);
 }
+
+/* ============================================================
+ * Maskot Jekate — avatar gambar menggantikan ikon gradien
+ * ============================================================ */
+.ai-shell .bot-ava.mascot,
+.ai-shell .ai-dock-head .ai-ava.mascot,
+.ai-shell .chat-empty .ce-mark.mascot,
+.ai-shell .ce-mark.mascot {
+  background: none;
+  box-shadow: none;
+  border-radius: 0;
+  overflow: visible;
+}
+.ai-shell .chat-empty .ce-mark.mascot {
+  width: auto;
+  height: auto;
+}
+.ai-shell .ai-dock-btn {
+  background: #fffbe8;
+  border: 2px solid #f26a2b;
+  box-shadow: 0 8px 24px color-mix(in oklab, #f26a2b 35%, transparent);
+}
+.ai-shell .ai-dock-btn::after {
+  border-color: color-mix(in oklab, #f26a2b 45%, transparent);
+}

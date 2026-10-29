@@ -16,7 +16,7 @@ const ITEMS = [
   { href: "/spatial", label: "Spatial" },
   { href: "/scraped-hotels", label: "Hotel POC" },
   { href: "/docs", label: "API" },
-  { href: "/ai", label: "AI" },
+  { href: "/ai", label: "Jekate" },
 ];
 
 /**

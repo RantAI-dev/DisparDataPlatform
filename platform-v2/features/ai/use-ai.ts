@@ -63,7 +63,7 @@ function useAiState() {
       setError(null);
 
       const history: Msg[] = [...messages, { role: "user", content: q, mode: useMode }];
-      const assistant: Msg = { role: "assistant", content: "", mode: useMode, steps: [], charts: [], streaming: true, status: "Menghubungi Atlas…" };
+      const assistant: Msg = { role: "assistant", content: "", mode: useMode, steps: [], charts: [], streaming: true, status: "Manggil Jekate…" };
       setMessages([...history, assistant]);
       setBusy(true);
 
@@ -153,7 +153,7 @@ function useAiState() {
           }
         }
         if (buf.trim()) handle(JSON.parse(buf));
-        if (!finished) throw new Error("Koneksi ke Atlas terputus sebelum jawaban selesai");
+        if (!finished) throw new Error("Koneksi ke Jekate terputus sebelum jawaban selesai");
       } catch (e) {
         const msg = ac.signal.aborted ? "Dihentikan." : e instanceof Error ? e.message : String(e);
         cur.streaming = false;

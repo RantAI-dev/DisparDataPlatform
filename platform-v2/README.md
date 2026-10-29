@@ -31,7 +31,7 @@ SDI + berkas → Dagster (harian 02:00) → Bronze (Iceberg @ RustFS)
 App **tidak pernah** fetch SDI langsung — semua penarikan lewat pipeline. Dataset
 yang belum ada di lake menghasilkan 404, bukan fetch langsung.
 
-## Atlas AI (`/ai`)
+## Jekate — asisten AI (`/ai`)
 
 Agen data read-only, porting copilot RantAI-Lakehouse (`console/rust/crates/lakehouse-api/src/routes/ai/`).
 

@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { Sparkles } from "lucide-react";
+import { JekateAvatar } from "./jekate-avatar";
 
 /* OpenUI-style generative-UI renderer: agent emits a fenced ```ui block
  * holding a JSON array of components, rendered as interactive UI. Prose
@@ -211,8 +211,8 @@ function Component({ c, onAction }: { c: Comp; onAction?: (value: string) => voi
       );
     case "sparkles":
       return (
-        <div className="ce-mark" style={{ width: 44, height: 44 }}>
-          <Sparkles className="size-5" />
+        <div className="ce-mark mascot" style={{ width: 56, height: 56 }}>
+          <JekateAvatar size={56} />
         </div>
       );
     default:

@@ -62,7 +62,7 @@ export async function POST(req: Request) {
         {
           role: "system",
           content:
-            "Kamu asisten katalog data lakehouse pariwisata DKI. Jawab RINGKAS dalam Bahasa Indonesia " +
+            "Kamu Jekate, maskot macan asisten katalog data lakehouse pariwisata DKI. Jawab RINGKAS dalam Bahasa Indonesia " +
             "berdasarkan HANYA daftar dataset yang diberikan. Sebutkan dataset yang relevan + jumlah barisnya. " +
             "Jangan mengarang dataset di luar daftar.",
         },

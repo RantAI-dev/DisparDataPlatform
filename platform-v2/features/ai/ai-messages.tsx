@@ -6,6 +6,7 @@ import { GenerativeMessage } from "./generative-ui";
 import { ResultTable } from "./chart-view";
 import { ChartBoard } from "./spec-chart";
 import type { Msg, Step } from "./use-ai";
+import { JekateAvatar } from "./jekate-avatar";
 
 const TOOL_ICON: Record<string, React.ComponentType<{ className?: string }>> = {
   search_data: Search,
@@ -95,7 +96,7 @@ function Thinking({ text }: { text?: string }) {
   return (
     <div className="think-body">
       <span className="dots"><i /><i /><i /></span>
-      <span>{text ?? "Atlas sedang menganalisis data…"}</span>
+      <span>{text ?? "Jekate lagi ngulik datanya…"}</span>
     </div>
   );
 }
@@ -104,10 +105,10 @@ function BotTurn({ m, compact }: { m: Msg; compact?: boolean }) {
   return (
     <div className="turn fade-up">
       <div className="msg-bot">
-        <div className="bot-ava" aria-hidden>AI</div>
+        <div className="bot-ava mascot" aria-hidden><JekateAvatar size={30} /></div>
         <div className="bot-body">
           <div className="bot-name">
-            <b>Atlas</b>
+            <b>Jekate</b>
             <span className="tag">{m.mode === "bi" ? "bi" : "ask"}</span>
           </div>
           <Steps steps={m.steps ?? []} live={!!m.streaming} />

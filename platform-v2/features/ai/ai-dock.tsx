@@ -1,10 +1,11 @@
 "use client";
 
 import * as React from "react";
-import { Sparkles, X, Plus } from "lucide-react";
+import { X, Plus } from "lucide-react";
 import { useAi } from "./use-ai";
 import { AiMessages } from "./ai-messages";
 import { AiComposer } from "./ai-composer";
+import { JekateAvatar } from "./jekate-avatar";
 
 export function AiDock() {
   const [open, setOpen] = React.useState(false);
@@ -14,11 +15,11 @@ export function AiDock() {
     return (
       <button
         onClick={() => setOpen(true)}
-        aria-label="Buka Atlas AI"
+        aria-label="Buka Jekate"
         className="ai-dock-btn"
-        title="Tanya Atlas AI"
+        title="Tanya Jekate"
       >
-        <Sparkles className="size-6" />
+        <JekateAvatar size={44} />
       </button>
     );
   }
@@ -27,11 +28,11 @@ export function AiDock() {
     <div className="ai-shell">
       <div className="ai-dock-panel">
         <div className="ai-dock-head">
-          <div className="ai-ava">
-            <Sparkles className="size-4" />
+          <div className="ai-ava mascot">
+            <JekateAvatar size={32} />
           </div>
           <div>
-            <div className="title">Atlas AI</div>
+            <div className="title">Jekate</div>
             <div className="sub">{c.mode === "bi" ? "BI mode" : "Ask mode"} · read-only</div>
           </div>
           <button
@@ -47,12 +48,12 @@ export function AiDock() {
         <div className="ai-dock-body">
           {c.messages.length === 0 ? (
             <div className="chat-empty" style={{ padding: "32px 18px" }}>
-              <div className="ce-mark" style={{ width: 44, height: 44 }}>
-                <Sparkles className="size-5" />
+              <div className="ce-mark mascot" style={{ width: 72, height: 72 }}>
+                <JekateAvatar size={72} />
               </div>
               <div>
-                <h2 style={{ fontSize: 18 }}>Hai! 👋</h2>
-                <p>Tanya data Dispar — saya cari tabelnya, jalankan query, dan buat grafik.</p>
+                <h2 style={{ fontSize: 18 }}>Halo, aye Jekate! 👋</h2>
+                <p>Tanya data Dispar — aye cariin tabelnya, jalanin query, terus bikin grafiknya.</p>
               </div>
             </div>
           ) : (
@@ -82,7 +83,7 @@ export function AiDock() {
             mode={c.mode}
             onModeChange={c.setMode}
             model={c.model}
-            placeholder="Tanya Atlas…"
+            placeholder="Tanya Jekate…"
           />
         </div>
       </div>
