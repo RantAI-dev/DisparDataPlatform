@@ -12,11 +12,20 @@ Nilai sel disalin apa adanya (teks, termasuk baris baru); hanya angka bulat yang
 openpyxl sebagai float ditulis tanpa ".0", dan kolom kosong sisa format Excel dibuang.
 Dipublikasikan atas permintaan Disparekraf (pemilik data), termasuk kolom kontak.
 
+Isi yang sama juga ditulis sebagai dataset sekunder (JSON {slug,title,description,columns,rows})
+supaya tampil di Katalog Data:
+
+  data/sekunder/hotel-per-kota-disparekraf.json
+  data/sekunder/hiburan-per-kota-disparekraf.json
+
+Nama kolom tetap seperti berkas asli (label); kunci = label yang dinormalkan.
+
 Jalankan dari root repo:  python3 scripts/pisah_hotel_hiburan.py
 """
 from __future__ import annotations
 
 import csv
+import json
 import re
 import sys
 from pathlib import Path
@@ -34,6 +43,48 @@ KOTA = {
     "Jakut": "Jakarta Utara",
 }
 NAMA_SHEET = re.compile(r"^(Hotel|Hiburan)\s+(Jak\w+)\s*\((\d+)\)\s*$")
+SEKUNDER = {
+    "Hotel": (
+        Path("data/sekunder/hotel-per-kota-disparekraf.json"),
+        "hotel-per-kota-disparekraf",
+        "Hotel per Kota DKI Jakarta (Disparekraf)",
+        "Pendataan usaha hotel per kota administrasi DKI Jakarta dari Disparekraf: NIB, pelaku usaha, "
+        "klasifikasi, alamat, kontak, jumlah kamar, dan tenaga kerja. Dipublikasikan atas permintaan "
+        "Disparekraf, termasuk kontak usaha.",
+    ),
+    "Hiburan": (
+        Path("data/sekunder/hiburan-per-kota-disparekraf.json"),
+        "hiburan-per-kota-disparekraf",
+        "Usaha Hiburan per Kota DKI Jakarta (Disparekraf)",
+        "Pendataan usaha hiburan (bar, karaoke, dan diskotek) per kota administrasi DKI "
+        "Jakarta dari Disparekraf: jenis usaha, NIB, pelaku usaha, alamat, kontak, kapasitas, dan tenaga "
+        "kerja. Dipublikasikan atas permintaan Disparekraf, termasuk kontak usaha.",
+    ),
+}
+
+
+def kunci(label: str) -> str:
+    """'Jml. Kamar' → 'jml_kamar', '(L)' → 'l'."""
+    return re.sub(r"[^a-z0-9]+", "_", label.lower()).strip("_")
+
+
+def tulis_sekunder(kategori: str, kepala: list[str], rows: list[list[str]]) -> None:
+    path, slug, judul, deskripsi = SEKUNDER[kategori]
+    keys = [kunci(k) for k in kepala]
+    if len(set(keys)) != len(keys):
+        raise SystemExit(f"kunci kolom {kategori} bertabrakan: {keys}")
+    data = {
+        "slug": slug,
+        "title": judul,
+        "description": deskripsi,
+        "columns": [
+            {"key": k, "label": label, "type": "string", "description": f"{label} sesuai berkas Disparekraf."}
+            for k, label in zip(keys, kepala)
+        ],
+        "rows": [dict(zip(keys, r)) for r in rows],
+    }
+    path.write_text(json.dumps(data, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
+    print(f"{path}: {len(rows)} baris, {len(keys)} kolom")
 
 
 def teks(v: object) -> str:
@@ -81,6 +132,7 @@ def main() -> int:
             w.writerow(["Kota", *kepala])
             w.writerows(rows)
         print(f"{OUT[kategori]}: {len(rows)} baris, {len(kepala) + 1} kolom")
+        tulis_sekunder(kategori, ["Kota", *kepala], rows)
     return 0
 
 

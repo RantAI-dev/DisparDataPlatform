@@ -464,6 +464,28 @@ export function secondaryDatasets(): SecondaryDataset[] {
       external: false,
     },
     {
+      id: "sec-hotel-per-kota-disparekraf",
+      title: "Hotel per Kota DKI Jakarta (Disparekraf)",
+      description:
+        "Pendataan usaha hotel per kota administrasi DKI Jakarta dari Disparekraf: NIB, pelaku usaha, klasifikasi, alamat, kontak, jumlah kamar, dan tenaga kerja. Dipublikasikan atas permintaan Disparekraf, termasuk kontak usaha.",
+      tags: ["hotel", "akomodasi", "kontak", "disparekraf", "sekunder"],
+      sumber: "internal",
+      rows: 236,
+      href: "/sdi/hotel-per-kota-disparekraf",
+      external: false,
+    },
+    {
+      id: "sec-hiburan-per-kota-disparekraf",
+      title: "Usaha Hiburan per Kota DKI Jakarta (Disparekraf)",
+      description:
+        "Pendataan usaha hiburan (bar, karaoke, dan diskotek) per kota administrasi DKI Jakarta dari Disparekraf: jenis usaha, NIB, pelaku usaha, alamat, kontak, kapasitas, dan tenaga kerja. Dipublikasikan atas permintaan Disparekraf, termasuk kontak usaha.",
+      tags: ["hiburan", "bar", "karaoke", "diskotek", "kontak", "disparekraf", "sekunder"],
+      sumber: "internal",
+      rows: 581,
+      href: "/sdi/hiburan-per-kota-disparekraf",
+      external: false,
+    },
+    {
       id: "sec-gci-resto",
       title: "Restoran & Kafe GCI Jakarta",
       description:
