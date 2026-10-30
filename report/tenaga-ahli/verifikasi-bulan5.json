@@ -1,0 +1,394 @@
+{
+  "verified_date": "2026-10-30",
+  "verified_time_wib": "10.55–11.40 WIB",
+  "endpoint": "ClickHouse 192.168.18.148 HTTP :18123",
+  "access": "dispar_app read-only (profil readonly=1); SHOW/DESCRIBE/SELECT; tanpa perubahan produksi",
+  "report_period": "Oktober 2026 (1–30 Oktober; laporan disusun 30 Oktober)",
+  "period_bounds_utc": [
+    "2026-09-30 17:00:00",
+    "2026-10-31 17:00:00"
+  ],
+  "inventory": {
+    "snapshot": "30 Oktober 2026",
+    "lake_total_objects": 306,
+    "breakdown": {
+      "bronze_file": 70,
+      "bronze_meta": 4,
+      "bronze_meta_sec": 3,
+      "bronze_sdi": 182,
+      "bronze_sec": 41,
+      "gold": 6
+    },
+    "bronze_data_tables": 293,
+    "bronze_meta_objects": 7,
+    "lake_gold_namespace": 6,
+    "silver_objects": 302,
+    "silver_views": 298,
+    "silver_tables": 4,
+    "gold_operational_marts": 7,
+    "gold_staging_baru": 7,
+    "konform_objects": 18,
+    "konform_dims": 9,
+    "konform_facts": 5,
+    "sql": [
+      "SHOW TABLES FROM lake",
+      "SHOW TABLES FROM silver + SHOW CREATE TABLE per objek",
+      "SHOW TABLES FROM serving",
+      "SHOW TABLES FROM konform"
+    ],
+    "comparison_bulan4": {
+      "bronze_data_tables": 227,
+      "silver_views": 232,
+      "silver_tables": 4
+    }
+  },
+  "marts": {
+    "sql": "SELECT 'mart_wisman' AS mart,count() AS n FROM serving.mart_wisman UNION ALL SELECT 'mart_kunjungan_dtw',count() FROM serving.mart_kunjungan_dtw UNION ALL SELECT 'mart_gci_readiness',count() FROM serving.mart_gci_readiness UNION ALL SELECT 'mart_event',count() FROM serving.mart_event UNION ALL SELECT 'mart_kuliner',count() FROM serving.mart_kuliner UNION ALL SELECT 'mart_atlas',count() FROM serving.mart_atlas UNION ALL SELECT 'mart_hotel_scraped_booking',count() FROM serving.mart_hotel_scraped_booking",
+    "results": {
+      "mart_wisman": 940,
+      "mart_kunjungan_dtw": 35,
+      "mart_gci_readiness": 28,
+      "mart_event": 9,
+      "mart_kuliner": 5,
+      "mart_atlas": 4,
+      "mart_hotel_scraped_booking": 0
+    },
+    "mart_wisman_years": {
+      "awal": 2014,
+      "akhir": 2026,
+      "negara": 23
+    }
+  },
+  "quality_last_full_day": {
+    "date_wib": "2026-10-29",
+    "pass": 408,
+    "fail": 95,
+    "warn": 77,
+    "sql": "SELECT verdict,count() n FROM _silver_meta.quality WHERE dibuat_pada>=toDateTime('2026-10-28 17:00:00','UTC') AND dibuat_pada<toDateTime('2026-10-29 17:00:00','UTC') GROUP BY verdict",
+    "note": "30 Oktober memuat beberapa run ulang manual, jadi hari penuh terakhir yang dipakai 29 Oktober."
+  },
+  "quality_october_cumulative": {
+    "pass": 12039,
+    "fail": 3786,
+    "warn": 2697,
+    "sql": "SELECT verdict,count() n FROM _silver_meta.quality WHERE dibuat_pada>=toDateTime('2026-09-30 17:00:00','UTC') AND dibuat_pada<toDateTime('2026-10-31 17:00:00','UTC') GROUP BY verdict"
+  },
+  "rowcount_history": {
+    "n": 10389,
+    "tabel": 302,
+    "hari": 29,
+    "awal": "2026-10-01 02:19:45",
+    "akhir": "2026-10-30 03:24:44",
+    "sql": "SELECT count() n,uniqExact(tabel) tabel,uniqExact(toDate(dibuat_pada,'Asia/Jakarta')) hari,min(dibuat_pada) awal,max(dibuat_pada) akhir FROM _silver_meta.rowcount_history WHERE dibuat_pada>=toDateTime('2026-09-30 17:00:00','UTC') AND dibuat_pada<toDateTime('2026-10-31 17:00:00','UTC')"
+  },
+  "quarantine": {
+    "snapshot_groups": 175,
+    "raw_rows": 672,
+    "date": "2026-10-30",
+    "samples": [
+      {
+        "reason": "jumlah (angka) gagal konversi",
+        "tables": 9,
+        "failed_values": 52755
+      },
+      {
+        "reason": "jumlah_tki (angka) gagal konversi",
+        "tables": 1,
+        "failed_values": 24888
+      },
+      {
+        "reason": "lat (angka) gagal konversi",
+        "tables": 12,
+        "failed_values": 8110
+      },
+      {
+        "reason": "lon (angka) gagal konversi",
+        "tables": 10,
+        "failed_values": 7931
+      },
+      {
+        "reason": "periode_data (tanggal) gagal konversi",
+        "tables": 2,
+        "failed_values": 2235
+      }
+    ],
+    "sql": "SELECT alasan,uniqExact(tabel) tabel,sum(j) nilai_gagal FROM (SELECT tabel,alasan,argMax(jumlah,dibuat_pada) j FROM _silver_meta.karantina GROUP BY tabel,alasan) GROUP BY alasan ORDER BY nilai_gagal DESC LIMIT 5",
+    "warning": "Tabel karantina hanya berisi run 30 Oktober; tiap pasangan tabel+alasan tercatat 4 kali karena run ulang, jadi dihitung sekali (672 baris mentah -> 175 kelompok). Riwayat per tanggal sebelumnya tidak tersimpan. Nilai gagal konversi bukan jumlah baris sumber."
+  },
+  "indicators": [
+    {
+      "label": "Wisman Jakarta (sumber dashboard: serving.mart_wisman)",
+      "sql": "SELECT tahun,count(),min(bulan_no),max(bulan_no),sum(jumlah),uniqExact(kode_negara) FROM serving.mart_wisman WHERE tahun>=2024 GROUP BY tahun ORDER BY tahun",
+      "results": [
+        {
+          "tahun": 2024,
+          "baris": 264,
+          "bulan_awal": 1,
+          "bulan_akhir": 12,
+          "jumlah": 2526842,
+          "negara": 22
+        },
+        {
+          "tahun": 2025,
+          "baris": 260,
+          "bulan_awal": 1,
+          "bulan_akhir": 12,
+          "jumlah": 2754220,
+          "negara": 22
+        },
+        {
+          "tahun": 2026,
+          "baris": 140,
+          "bulan_awal": 1,
+          "bulan_akhir": 7,
+          "jumlah": 1586937,
+          "negara": 20
+        }
+      ],
+      "note": "silver.wisman_jakarta_per_bulan masih berakhir April 2026 (803.500); dashboard sejak commit 3c77f5d (6 Okt) membaca mart_wisman."
+    },
+    {
+      "label": "Wisman Jakarta per bulan",
+      "sql": "SELECT toYear(periode_data) AS tahun,count() AS baris,min(periode_data) AS awal,max(periode_data) AS akhir,sum(jumlah_kunjungan) AS jumlah FROM silver.wisman_jakarta_per_bulan GROUP BY tahun ORDER BY tahun",
+      "results": [
+        {
+          "tahun": 2024,
+          "baris": 12,
+          "awal": "2024-01-01",
+          "akhir": "2024-12-01",
+          "jumlah": 2526842
+        },
+        {
+          "tahun": 2025,
+          "baris": 12,
+          "awal": "2025-01-01",
+          "akhir": "2025-12-01",
+          "jumlah": 2754220
+        },
+        {
+          "tahun": 2026,
+          "baris": 4,
+          "awal": "2026-01-01",
+          "akhir": "2026-04-01",
+          "jumlah": 803500
+        }
+      ]
+    },
+    {
+      "label": "Perjalanan wisnus menurut kota tujuan",
+      "sql": "SELECT tahun,min(bulan) AS bulan_awal,max(bulan) AS bulan_akhir,count() AS baris,sum(jumlah_perjalanan) AS jumlah FROM silver.wisnus_perjalanan_per_kota_tujuan GROUP BY tahun ORDER BY tahun",
+      "results": [
+        {
+          "tahun": 2019,
+          "bulan_awal": 1,
+          "bulan_akhir": 12,
+          "baris": 72,
+          "jumlah": 64617819
+        },
+        {
+          "tahun": 2020,
+          "bulan_awal": 1,
+          "bulan_akhir": 12,
+          "baris": 72,
+          "jumlah": 30914200
+        },
+        {
+          "tahun": 2021,
+          "bulan_awal": 1,
+          "bulan_akhir": 12,
+          "baris": 72,
+          "jumlah": 37634468
+        },
+        {
+          "tahun": 2022,
+          "bulan_awal": 1,
+          "bulan_akhir": 12,
+          "baris": 72,
+          "jumlah": 56008041
+        },
+        {
+          "tahun": 2023,
+          "bulan_awal": 1,
+          "bulan_akhir": 12,
+          "baris": 72,
+          "jumlah": 63622596
+        },
+        {
+          "tahun": 2024,
+          "bulan_awal": 1,
+          "bulan_akhir": 12,
+          "baris": 72,
+          "jumlah": 87233238
+        },
+        {
+          "tahun": 2025,
+          "bulan_awal": 1,
+          "bulan_akhir": 12,
+          "baris": 72,
+          "jumlah": 99396992
+        },
+        {
+          "tahun": 2026,
+          "bulan_awal": 1,
+          "bulan_akhir": 5,
+          "baris": 30,
+          "jumlah": 42690440
+        }
+      ]
+    },
+    {
+      "label": "Kunjungan ke destinasi wisata (SDI Disparekraf)",
+      "sql": "SELECT toYear(periode_data) th, if(match(jenis_wisatawan,'(?i)MANCANEGARA'),'Wisman','Wisnus') jenis, sum(jumlah_kunjungan) jumlah, min(periode_data) awal, max(periode_data) akhir, uniqExact(obyek_wisata) destinasi FROM silver.jumlah_kunjungan_wisatawan_ke_obyek_wisata_menurut_lokasi_di_provinsi_dki_jakarta WHERE periode_data IS NOT NULL AND obyek_wisata IS NOT NULL AND jenis_wisatawan IS NOT NULL AND toYear(periode_data)>=2025 GROUP BY th,jenis ORDER BY th,jenis",
+      "results": [
+        {
+          "th": 2025,
+          "jenis": "Wisman",
+          "jumlah": 636235,
+          "awal": "2025-01-01",
+          "akhir": "2025-12-01",
+          "destinasi": 21
+        },
+        {
+          "th": 2025,
+          "jenis": "Wisnus",
+          "jumlah": 29970834,
+          "awal": "2025-01-01",
+          "akhir": "2025-12-01",
+          "destinasi": 29
+        },
+        {
+          "th": 2026,
+          "jenis": "Wisman",
+          "jumlah": 232946,
+          "awal": "2026-01-01",
+          "akhir": "2026-08-01",
+          "destinasi": 21
+        },
+        {
+          "th": 2026,
+          "jenis": "Wisnus",
+          "jumlah": 21419325,
+          "awal": "2026-01-01",
+          "akhir": "2026-08-01",
+          "destinasi": 28
+        }
+      ]
+    },
+    {
+      "label": "Tenaga kerja ekraf DKI",
+      "sql": "SELECT tahun,jumlah_tenaga_kerja FROM silver.tenaga_kerja_ekraf_per_provinsi WHERE kode_wilayah=31 AND jenis_kelamin='Total' ORDER BY tahun DESC LIMIT 1",
+      "results": [
+        {
+          "tahun": 2024,
+          "jumlah_tenaga_kerja": 1257285
+        }
+      ]
+    }
+  ],
+  "new_datasets_october": {
+    "sql": "SELECT count() FROM silver.<tabel>",
+    "results": {
+      "penerbangan_langsung_internasional_jakarta": 125,
+      "penerbangan_langsung_domestik_jakarta": 209,
+      "kegiatan_mice_jakarta_2026": 374,
+      "venue_mice_jakarta": 114,
+      "michelin_keys_indonesia": 47,
+      "lokasi_syuting_film_jakarta": 116,
+      "museum_jakarta": 78,
+      "jalur_hijau_jakarta": 1898,
+      "hutan_kota_jakarta": 36,
+      "taman_jakarta": 48,
+      "hotel_per_kota_jakarta": 236,
+      "hiburan_per_kota_jakarta": 581
+    },
+    "source": "berkas data/sekunder/*.json yang ditambahkan pada riwayat Git 1–30 Oktober 2026"
+  },
+  "konform": {
+    "counts": {
+      "dim_negara": 255,
+      "dim_negara_kunci": 721,
+      "dim_periode": 17675,
+      "dim_pintu_masuk": 22,
+      "dim_wilayah": 863,
+      "dim_wilayah_kunci": 1621,
+      "f_wisman_bulanan": 28,
+      "f_wisman_negara_bulanan": 1268,
+      "f_wisman_pintu_bulanan": 516,
+      "f_wisnus_kota_bulanan": 534,
+      "f_target_wisman": 6,
+      "tak_cocok": 0
+    },
+    "wilayah_tingkat": {
+      "provinsi": 38,
+      "kabkota": 514,
+      "kecamatan": 44,
+      "kelurahan": 267
+    },
+    "negara_jenis": {
+      "negara": 249,
+      "ember": 6
+    },
+    "fakta_tanpa_kode": [
+      {
+        "f": "pintu",
+        "n": 0
+      },
+      {
+        "f": "negara",
+        "n": 0
+      },
+      {
+        "f": "wisnus",
+        "n": 0
+      }
+    ],
+    "sql": "SELECT count() FROM konform.<tabel>; SELECT tingkat,count() FROM konform.dim_wilayah GROUP BY tingkat; countIf(kode_* IS NULL) pada tiap fakta"
+  },
+  "dagster": {
+    "source": "GraphQL Dagster :13030 runsOrError createdAfter 2026-09-30 17:00 UTC, dibaca 30 Oktober",
+    "first_run_in_history": "2026-10-04T02:00:16Z",
+    "refresh_lakehouse": {
+      "SUCCESS": 35,
+      "FAILURE": 6,
+      "success_days": 27
+    },
+    "ops_backup_maintenance": {
+      "SUCCESS": 22,
+      "FAILURE": 5,
+      "CANCELED": 1,
+      "STARTED": 1,
+      "success_days": 22,
+      "daily_success_since": "2026-10-09"
+    },
+    "note": "Riwayat run sebelum 4 Oktober tidak tersimpan di instance Dagster saat ini; jangan klaim 1–3 Oktober berhasil atau gagal."
+  },
+  "web": {
+    "katalog": {
+      "primer": 183,
+      "sekunder": 47,
+      "total_baris": 230,
+      "url": "https://dispar.rantai.dev/katalog"
+    },
+    "jekate_test": {
+      "question": "Berapa total kunjungan wisman ke Jakarta tahun 2025, dan 5 negara asal terbesar?",
+      "answer_total": 2754220,
+      "answer_top5": {
+        "Tiongkok": 504574,
+        "Malaysia": 469695,
+        "Singapura": 221748,
+        "Jepang": 139700,
+        "Arab Saudi": 127167
+      },
+      "check_sql": "SELECT negara,sum(jumlah_kunjungan) FROM silver.wisman_jakarta_per_negara WHERE toYear(periode_data)=2025 GROUP BY negara ORDER BY 2 DESC",
+      "match": true,
+      "caveat": "Satu pertanyaan saja; teks jawaban dibuka dengan kalimat koreksi diri (53,1% bukan 53,2%)."
+    },
+    "data_api": "lakehouse/data-api selesai dibangun dan digabung 26 Oktober; commit 9591762 mencatat belum dideploy"
+  },
+  "boundaries": [
+    "Inventaris dan jumlah baris adalah snapshot 30 Oktober, bukan rekonstruksi 31 Oktober.",
+    "Indikator wisman terbaru Januari–Juli 2026 (mart_wisman) dan wisnus kota tujuan Januari–Mei 2026; kunjungan destinasi s.d. Agustus 2026; tidak ada angka Oktober 2026.",
+    "mart_hotel_scraped_booking berisi 0 baris karena TTL 30 hari; uji pengumpulan hotel tidak berlanjut.",
+    "Riwayat karantina tidak tersimpan per tanggal; hanya isi terakhir 30 Oktober."
+  ]
+}
