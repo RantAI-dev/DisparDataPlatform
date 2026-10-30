@@ -13,6 +13,7 @@ Satu tes per ID, nama tes diawali ID-nya. Pola: `docs/pola-fitur.md`. Sumber tam
 | DB-B04 | Data API mati → 503 `UPSTREAM_UNAVAILABLE` |
 | DB-B05 | LOG_HISTORY: modul `dashboard`, aksi = nama rute, sumber |
 | DB-B06 | Tanpa token → 401 |
+| DB-B07 | Parameter di luar kontrak endpoint (mis. `top` di pintu-masuk, `tahun` di destinasi/bulanan) tidak diteruskan ke Data API |
 
 ## Frontend — Vitest (`frontend/tests/nuxt/dashboard.spec.ts`)
 
