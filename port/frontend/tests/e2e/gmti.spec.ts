@@ -68,8 +68,12 @@ test("GM-E03 /spatial: choropleth, chip, cari, wilayah, reset, popup", async ({ 
   await expect(jumlah).toContainText(/^1 \//);
   const pin = page.locator(".leaflet-marker-icon").first();
   await expect(pin).toBeVisible();
-  await pin.click({ force: true });
-  await expect(page.locator(".leaflet-popup")).toContainText("Canary Coffee Shop");
+  // Klik koordinat bisa mengenai poligon kecamatan (popup kepadatan) saat peta masih beranimasi;
+  // event dikirim langsung ke elemen pin, diulang sampai popup titik terbuka.
+  await expect(async () => {
+    await pin.dispatchEvent("click");
+    await expect(page.locator(".leaflet-popup")).toContainText("Canary Coffee Shop", { timeout: 2000 });
+  }).toPass({ timeout: 15_000 });
 });
 
 test("GM-E04 /spatial: API gagal → peringatan, Coba lagi memuat ulang", async ({ page }) => {
@@ -84,8 +88,9 @@ test("GM-E04 /spatial: API gagal → peringatan, Coba lagi memuat ulang", async 
 });
 
 test("GM-E05 /scraped-hotels: data Bronze tampil, baris dibuka memperlihatkan tipe kamar", async ({ page }) => {
-  await buka(page, "/scraped-hotels");
-  await expect(page.getByRole("heading", { name: /Hotels \(\d+\)/ })).toBeVisible();
+  // Tanpa networkidle: halaman memuat banyak berkas chart; cukup tunggu daftar hotel terisi.
+  await page.goto("/scraped-hotels");
+  await expect(page.getByRole("heading", { name: /Hotels \([1-9]\d*\)/ })).toBeVisible({ timeout: 20_000 });
   const n = Number((await page.getByRole("heading", { name: /Hotels \(\d+\)/ }).innerText()).match(/\d+/)![0]);
   expect(n).toBeGreaterThan(0);
   const kartu = page.locator("div.rounded-xl.border").filter({ has: page.locator("button") });
