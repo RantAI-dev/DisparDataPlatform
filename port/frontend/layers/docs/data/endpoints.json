@@ -1,5 +1,113 @@
 [
   {
+    "id": "atlas-restoran-gci",
+    "method": "GET",
+    "path": "/api/v1/atlas/restoran-gci",
+    "title": "Restoran GCI",
+    "desc": "Seluruh restoran & kafe se-Jakarta untuk Global City Index: gabungan kurasi, OSM, rating, alamat, harga, dan restoran hotel (dedup ≤ 60 m).",
+    "params": [],
+    "contoh": "/api/v1/atlas/restoran-gci",
+    "respons": "json",
+    "errors": [
+      {
+        "code": "401",
+        "when": "Token tidak ada atau tidak valid."
+      }
+    ]
+  },
+  {
+    "id": "atlas-direktori-restoran",
+    "method": "GET",
+    "path": "/api/v1/atlas/direktori-restoran",
+    "title": "Direktori restoran",
+    "desc": "Restoran & kafe pilihan Jakarta dengan sumber sitasi publik (kurasi + OSM, dedup, hanya DKI).",
+    "params": [],
+    "contoh": "/api/v1/atlas/direktori-restoran",
+    "respons": "json",
+    "errors": [
+      {
+        "code": "401",
+        "when": "Token tidak ada atau tidak valid."
+      }
+    ]
+  },
+  {
+    "id": "atlas-golf",
+    "method": "GET",
+    "path": "/api/v1/atlas/golf",
+    "title": "Lapangan golf",
+    "desc": "Lapangan & driving range golf di Jakarta dan sekitarnya.",
+    "params": [],
+    "contoh": "/api/v1/atlas/golf",
+    "respons": "json",
+    "errors": [
+      {
+        "code": "401",
+        "when": "Token tidak ada atau tidak valid."
+      }
+    ]
+  },
+  {
+    "id": "atlas-suvenir",
+    "method": "GET",
+    "path": "/api/v1/atlas/suvenir",
+    "title": "Toko suvenir",
+    "desc": "Toko suvenir, oleh-oleh & kerajinan dari TripAdvisor.",
+    "params": [],
+    "contoh": "/api/v1/atlas/suvenir",
+    "respons": "json",
+    "errors": [
+      {
+        "code": "401",
+        "when": "Token tidak ada atau tidak valid."
+      }
+    ]
+  },
+  {
+    "id": "atlas-hotel",
+    "method": "GET",
+    "path": "/api/v1/atlas/hotel",
+    "title": "Hotel & akomodasi",
+    "desc": "Registri hotel berbintang, tingkat penghunian kamar (TPK), dan lama menginap.",
+    "params": [],
+    "contoh": "/api/v1/atlas/hotel",
+    "respons": "json",
+    "errors": [
+      {
+        "code": "401",
+        "when": "Token tidak ada atau tidak valid."
+      }
+    ]
+  },
+  {
+    "id": "atlas-pertunjukan",
+    "method": "GET",
+    "path": "/api/v1/atlas/pertunjukan",
+    "title": "Pertunjukan budaya",
+    "desc": "Konser, festival, tari, teater, seni rupa, dan film; semua tahun atau satu `tahun`.",
+    "params": [
+      {
+        "name": "tahun",
+        "in": "query",
+        "type": "string",
+        "required": false,
+        "desc": "Tahun pertunjukan, `YYYY`; kosong = semua tahun."
+      }
+    ],
+    "contoh": "/api/v1/atlas/pertunjukan",
+    "respons": "json",
+    "errors": [
+      {
+        "code": "401",
+        "when": "Token tidak ada atau tidak valid."
+      },
+      {
+        "code": "422",
+        "when": "Parameter tidak sesuai aturan (rincian per parameter di errors.fields)."
+      }
+    ]
+  },
+  {
     "id": "dashboard-ringkasan",
     "method": "GET",
     "path": "/api/v1/dashboard/ringkasan",

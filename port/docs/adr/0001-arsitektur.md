@@ -234,6 +234,23 @@ Nilai default SPEC dipakai kecuali disebut lain. Pemilik boleh membatalkan tiap 
 - **Quirk produksi ditiru**: peta venue seni pertunjukan setinggi 0 px di layar < md.
 - Paritas `/gci`, `/gpci`, 28 detail, dan 3 halaman pariwisata lulus di 1440 dan 390 (30 Okt 2026).
 
+## Keputusan teknis plan 14 (atlas)
+
+- **Data datang utuh, olah di klien**: enam endpoint `atlas/*` kelas T (snapshot), varian
+  pertunjukan per tahun 2025/2026. Filter, cari, urut, paging (Restoran GCI 200 baris), dan ekspor
+  CSV/XLS/XLSX berjalan di browser seperti v2; URL Google Maps (`maps_url`, `embed_url`) dan alamat
+  tampilan (`address_display`) dihitung Data API. Feature Atlas memakai `dataapi.timeout_lambat`.
+- **Halaman client-only**: keenam halaman v2 `ssr:false` dengan "Memuat data…", jadi portal memakai
+  `useLazyAsyncData({ server: false })` + `AtlasMemuat`.
+- **P1**: kicker golf memakai `home.vol2_kicker_short` ("LAPANGAN GOLF"), bukan kunci literal.
+- **P2**: tombol "Verifikasi sumber" dan kolom footer `/api/restaurants` + `/api/refresh` tidak
+  di-port; slot kolom footer dibiarkan kosong agar tata letak sama. `AtlasNav` tanpa tombol bahasa
+  (golf, suvenir) tidak merender bilah apa pun, seperti produksi.
+- **Golf membaca `dpj.lang` tanpa tombol** (seperti v2): bahasa direktori ikut ke golf.
+- **Quirk ditiru**: di layar sempit toolbar sticky Restoran GCI (top 56 px) tertutup nav setelah
+  halaman digulir.
+- Paritas enam halaman lulus di 1440 dan 390 (30 Okt 2026).
+
 ## Penyimpangan dari teks SPEC (disengaja)
 
 | SPEC | Yang dibuat | Alasan |
