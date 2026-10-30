@@ -139,6 +139,26 @@ def _teks_fallback(ind: dict[str, Any], b: dict[str, Any] | None) -> list[str]:
     return [s.strip() for s in t if s and s.strip()]
 
 
+def _info(ind: dict[str, Any]) -> dict[str, Any]:
+    """Identitas indikator untuk hero halaman detail (IndicatorShell / IndicatorFallback)."""
+    return {kk: ind.get(kk) for kk in ("framework", "dimension", "name", "definition", "owner", "note")}
+
+
+def _konteks(b: dict[str, Any] | None) -> dict[str, Any] | None:
+    """Benchmark indeks untuk kartu IndexContext (inventaris C §4.4: benchmark → konteks)."""
+    if b is None:
+        return None
+    return {
+        "index_metric": b["indexMetric"],
+        "index_source": b["indexSource"],
+        "unit": b["unit"],
+        "frontier": b["frontier"],
+        "jakarta": b["jakarta"],
+        "target": b["target"],
+        "data_needed": b["dataNeeded"],
+    }
+
+
 def detail(k: Konteks, code: str) -> tuple[dict[str, Any], list[str]]:
     p = Pemuat(k)
     code = code.upper()
@@ -150,6 +170,8 @@ def detail(k: Konteks, code: str) -> tuple[dict[str, Any], list[str]]:
         # 9 indikator dataAvailable:false → kartu "Data belum tersedia".
         isi = {
             "code": code,
+            "indikator": _info(ind),
+            "konteks": _konteks(_benchmark(k).get(code)),
             "sources": [],
             "source_text": ind["name"] if ind.get("dataAvailable") is False else None,
             "kpis": [],
@@ -162,6 +184,8 @@ def detail(k: Konteks, code: str) -> tuple[dict[str, Any], list[str]]:
     tier = lake.tier_dataset(k, slugs)
     isi = {
         "code": code,
+        "indikator": _info(ind),
+        "konteks": _konteks(_benchmark(k).get(code)),
         "sources": [{"slug": d.slug, "title": d.title, "tier": tier.get(d.slug, "primer")} for d in h["sumber"]],
         "source_text": None,
         "kpis": h["kpis"],

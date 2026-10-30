@@ -4,5 +4,5 @@
   "headers": {
     "content-type": "application/json"
   },
-  "body": "{\"data\":{\"items\":[{\"name\":\"JEPANG\",\"value\":348477}]},\"meta\":{\"generated_at\":\"2026-10-30T05:21:36+07:00\",\"source\":[\"silver.<tabel>\"],\"request_id\":\"3d3824c818e844e6aa75f2d431cc7363\"}}"
+  "body": "{\"data\":{\"items\":[{\"name\":\"JEPANG\",\"value\":348477}]},\"meta\":{\"generated_at\":\"2026-10-30T05:45:03+07:00\",\"source\":[\"silver.<tabel>\"],\"request_id\":\"7d97b3a75bbe41f3933380aa614eebfd\"}}"
 }

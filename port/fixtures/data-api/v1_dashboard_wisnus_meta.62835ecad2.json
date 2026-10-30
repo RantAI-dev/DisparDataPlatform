@@ -4,5 +4,5 @@
   "headers": {
     "content-type": "application/json"
   },
-  "body": "{\"data\":{\"kota\":[\"Jakarta Barat\",\"Jakarta Pusat\",\"Jakarta Selatan\",\"Jakarta Timur\",\"Jakarta Utara\",\"Kepulauan Seribu\"],\"tahun\":[\"2019\",\"2020\",\"2021\",\"2022\",\"2023\",\"2024\",\"2025\",\"2026\"],\"tahun_hilang_teks\":null,\"tahun_default\":\"2025\"},\"meta\":{\"generated_at\":\"2026-10-30T05:21:46+07:00\",\"source\":[\"silver.wisnus_perjalanan_per_kota_tujuan\"],\"request_id\":\"d2df74cfe9ff4f0b80e44d38a17c8432\"}}"
+  "body": "{\"data\":{\"kota\":[\"Jakarta Barat\",\"Jakarta Pusat\",\"Jakarta Selatan\",\"Jakarta Timur\",\"Jakarta Utara\",\"Kepulauan Seribu\"],\"tahun\":[\"2019\",\"2020\",\"2021\",\"2022\",\"2023\",\"2024\",\"2025\",\"2026\"],\"tahun_hilang_teks\":null,\"tahun_default\":\"2025\"},\"meta\":{\"generated_at\":\"2026-10-30T05:45:18+07:00\",\"source\":[\"silver.wisnus_perjalanan_per_kota_tujuan\"],\"request_id\":\"f4f969b1dca34f169ba3bbae0f99ce76\"}}"
 }

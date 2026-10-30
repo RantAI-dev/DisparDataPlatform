@@ -996,6 +996,162 @@
     ]
   },
   {
+    "id": "indikator-daftar",
+    "method": "GET",
+    "path": "/api/v1/indikator",
+    "title": "Daftar indikator",
+    "desc": "Kesiapan data tiap indikator satu framework: status, dataset pengisi, nilai terbaru, dan ringkasan jumlah per status.",
+    "params": [
+      {
+        "name": "framework",
+        "in": "query",
+        "type": "GCI | GPCI",
+        "required": true,
+        "desc": "Framework indeks: GCI (Kearney) atau GPCI (Mori)."
+      }
+    ],
+    "contoh": "/api/v1/indikator?framework=",
+    "respons": "json",
+    "errors": [
+      {
+        "code": "401",
+        "when": "Token tidak ada atau tidak valid."
+      },
+      {
+        "code": "422",
+        "when": "Parameter tidak sesuai aturan (rincian per parameter di errors.fields)."
+      }
+    ]
+  },
+  {
+    "id": "indikator-detail",
+    "method": "GET",
+    "path": "/api/v1/indikator/{code}",
+    "title": "Detail indikator",
+    "desc": "Identitas, konteks indeks (benchmark), dataset sumber, KPI, dan blok grafik satu indikator; indikator tanpa data memuat `teks_fallback`.",
+    "params": [
+      {
+        "name": "code",
+        "in": "path",
+        "type": "string",
+        "required": true,
+        "desc": "Kode indikator, mis. `CI-MU`."
+      }
+    ],
+    "contoh": "/api/v1/indikator/{code}",
+    "respons": "json",
+    "errors": [
+      {
+        "code": "401",
+        "when": "Token tidak ada atau tidak valid."
+      }
+    ]
+  },
+  {
+    "id": "indikator-gci-resmi",
+    "method": "GET",
+    "path": "/api/v1/gci/resmi",
+    "title": "Peringkat resmi GCI",
+    "desc": "Peringkat Kearney GCI Jakarta (keseluruhan dan Pengalaman Budaya) serta empat kartu indikator pariwisata resmi.",
+    "params": [],
+    "contoh": "/api/v1/gci/resmi",
+    "respons": "json",
+    "errors": [
+      {
+        "code": "401",
+        "when": "Token tidak ada atau tidak valid."
+      }
+    ]
+  },
+  {
+    "id": "indikator-dataset-tematik",
+    "method": "GET",
+    "path": "/api/v1/dataset-tematik",
+    "title": "Dataset tematik",
+    "desc": "Kartu dataset tematik per framework dengan jumlah baris yang dihitung dari tabel sumber.",
+    "params": [
+      {
+        "name": "framework",
+        "in": "query",
+        "type": "GCI | GPCI",
+        "required": true,
+        "desc": "Framework indeks: GCI (Kearney) atau GPCI (Mori)."
+      }
+    ],
+    "contoh": "/api/v1/dataset-tematik?framework=",
+    "respons": "json",
+    "errors": [
+      {
+        "code": "401",
+        "when": "Token tidak ada atau tidak valid."
+      },
+      {
+        "code": "422",
+        "when": "Parameter tidak sesuai aturan (rincian per parameter di errors.fields)."
+      }
+    ]
+  },
+  {
+    "id": "indikator-wisatawan-internasional",
+    "method": "GET",
+    "path": "/api/v1/pariwisata/wisatawan-internasional",
+    "title": "Wisatawan internasional",
+    "desc": "Isi halaman pariwisata wisatawan internasional: shell, KPI, kartu grafik, dan data per tahun.",
+    "params": [],
+    "contoh": "/api/v1/pariwisata/wisatawan-internasional",
+    "respons": "json",
+    "errors": [
+      {
+        "code": "401",
+        "when": "Token tidak ada atau tidak valid."
+      }
+    ]
+  },
+  {
+    "id": "indikator-kuliner-michelin",
+    "method": "GET",
+    "path": "/api/v1/pariwisata/kuliner-michelin",
+    "title": "Kuliner (Michelin)",
+    "desc": "Isi halaman pariwisata penawaran kuliner: Michelin, restoran per wilayah, dan tabel pendukung.",
+    "params": [],
+    "contoh": "/api/v1/pariwisata/kuliner-michelin",
+    "respons": "json",
+    "errors": [
+      {
+        "code": "401",
+        "when": "Token tidak ada atau tidak valid."
+      }
+    ]
+  },
+  {
+    "id": "indikator-seni-pertunjukan",
+    "method": "GET",
+    "path": "/api/v1/pariwisata/seni-pertunjukan",
+    "title": "Seni visual & pertunjukan",
+    "desc": "Isi halaman seni pertunjukan untuk semua tahun atau satu `tahun`: KPI, grafik, venue peta, dan artis Top-10 yang tampil di Jakarta.",
+    "params": [
+      {
+        "name": "tahun",
+        "in": "query",
+        "type": "string",
+        "required": false,
+        "desc": "Tahun, `YYYY`; kosong = semua tahun."
+      }
+    ],
+    "contoh": "/api/v1/pariwisata/seni-pertunjukan",
+    "respons": "json",
+    "errors": [
+      {
+        "code": "401",
+        "when": "Token tidak ada atau tidak valid."
+      },
+      {
+        "code": "422",
+        "when": "Parameter tidak sesuai aturan (rincian per parameter di errors.fields)."
+      }
+    ]
+  },
+  {
     "id": "beranda-ringkasan",
     "method": "GET",
     "path": "/api/v1/beranda/ringkasan",

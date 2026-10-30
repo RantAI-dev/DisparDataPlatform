@@ -4,5 +4,5 @@
   "headers": {
     "content-type": "application/json"
   },
-  "body": "{\"data\":{\"sumber\":\"sdi_semester\",\"label\":\"Semester 2 2026\",\"semester\":null,\"items\":[]},\"meta\":{\"generated_at\":\"2026-10-30T05:21:46+07:00\",\"source\":[\"serving.mart_wisman\",\"silver.jumlah_wisatawan\",\"silver.wisman_per_pintu_masuk_bulanan_bps\"],\"request_id\":\"29f2918fe7534a67828f4fda8120c24e\"}}"
+  "body": "{\"data\":{\"sumber\":\"sdi_semester\",\"label\":\"Semester 2 2026\",\"semester\":null,\"items\":[]},\"meta\":{\"generated_at\":\"2026-10-30T05:45:17+07:00\",\"source\":[\"serving.mart_wisman\",\"silver.jumlah_wisatawan\",\"silver.wisman_per_pintu_masuk_bulanan_bps\"],\"request_id\":\"29b4fc24e28547d9a2f88607944d1d1c\"}}"
 }

@@ -321,3 +321,23 @@ def test_to_fixed_dan_number_seperti_js():
         and agg.js_number(" 12 ") == 12
         and agg.js_number(agg.UNDEFINED) != agg.js_number(agg.UNDEFINED)
     )
+
+
+def test_detail_membawa_identitas_dan_konteks_indeks(klien, indikator):
+    """Hero (nama, definisi, dimensi) dan kartu IndexContext dibaca dari respons detail."""
+    d = detail(klien, "AC-AP")["data"]
+    assert d["indikator"] == {
+        "framework": "GPCI",
+        "dimension": "Accessibility",
+        "name": "Penumpang udara",
+        "definition": "Number of air passengers",
+        "owner": d["indikator"]["owner"],
+        "note": d["indikator"]["note"],
+    }
+    k = d["konteks"]
+    assert (k["index_metric"], k["index_source"], k["unit"]) == (
+        "Jumlah penumpang udara",
+        "GPCI — Accessibility",
+        "penumpang/tahun",
+    )
+    assert set(k) == {"index_metric", "index_source", "unit", "frontier", "jakarta", "target", "data_needed"}
