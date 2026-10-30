@@ -87,10 +87,14 @@ function kunciFixture(string $url): string
  */
 function dataApiDariFixture(): ArrayObject
 {
-    $rekaman = [];
-    foreach (glob(dirname(__DIR__, 2).'/fixtures/data-api/*.json') ?: [] as $berkas) {
-        $r = json_decode(file_get_contents($berkas), true);
-        $rekaman[$r['kunci']] = $r;
+    // Dimuat sekali per proses: men-decode ulang semua rekaman (±5 MB) di tiap tes menghabiskan memori.
+    static $rekaman = null;
+    if ($rekaman === null) {
+        $rekaman = [];
+        foreach (glob(dirname(__DIR__, 2).'/fixtures/data-api/*.json') ?: [] as $berkas) {
+            $r = json_decode(file_get_contents($berkas), true);
+            $rekaman[$r['kunci']] = $r;
+        }
     }
     $dipanggil = new ArrayObject;
     Http::fake(function ($req) use ($rekaman, $dipanggil) {

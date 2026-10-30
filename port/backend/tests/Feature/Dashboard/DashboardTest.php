@@ -83,3 +83,21 @@ it('DB-B05 tercatat di LOG_HISTORY dengan modul dashboard dan nama rute', functi
 it('DB-B06 tanpa token → 401', function () {
     $this->getJson('/api/v1/dashboard/ringkasan')->assertUnauthorized();
 });
+
+it('DB-B07 parameter di luar kontrak endpoint tidak diteruskan ke Data API', function (string $alamat, string $kunci) {
+    Http::swap(new Factory);
+    $url = null;
+    Http::fake(function ($req) use (&$url) {
+        $url = $req->url();
+
+        return Http::response(['data' => [], 'meta' => []]);
+    });
+
+    $this->getJson("/api/v1/dashboard/$alamat", tokenAkun())->assertOk();
+    expect($url)->not->toContain($kunci);
+})->with([
+    ['wisman/pintu-masuk?tahun=2025&top=5', 'top='],
+    ['lama-menginap/seri?tamu=wisman&periode=2025-01', 'periode='],
+    ['destinasi/per-destinasi?jenis=wisman&tahun=2025&destinasi=Monas', 'destinasi='],
+    ['destinasi/bulanan?jenis=wisman&destinasi=Monas&tahun=2025', 'tahun='],
+]);
