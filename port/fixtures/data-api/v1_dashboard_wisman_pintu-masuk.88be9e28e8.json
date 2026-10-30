@@ -1,0 +1,8 @@
+{
+  "kunci": "/v1/dashboard/wisman/pintu-masuk?tahun=2025",
+  "status": 200,
+  "headers": {
+    "content-type": "application/json"
+  },
+  "body": "{\"data\":{\"sumber\":\"sdi_semester\",\"label\":\"2025\",\"semester\":\"1 & 2\",\"items\":[{\"label\":\"Halim Perdana Kusuma\",\"value\":1700},{\"label\":\"Soekarno-Hatta\",\"value\":2760838},{\"label\":\"Tanjung Priok\",\"value\":5084}]},\"meta\":{\"generated_at\":\"2026-10-30T05:21:46+07:00\",\"source\":[\"serving.mart_wisman\",\"silver.jumlah_wisatawan\",\"silver.wisman_per_pintu_masuk_bulanan_bps\"],\"request_id\":\"4e66ea17d8804b929434a0dfc50253da\"}}"
+}

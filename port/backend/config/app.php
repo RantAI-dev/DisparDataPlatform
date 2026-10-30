@@ -1,6 +1,7 @@
 <?php
 
 use App\Features\Beranda\BerandaServiceProvider;
+use App\Features\Dashboard\DashboardServiceProvider;
 use App\Features\Dataset\DatasetServiceProvider;
 use App\Features\Sistem\SistemServiceProvider;
 use App\Providers\AppServiceProvider;
@@ -182,6 +183,7 @@ return [
         SistemServiceProvider::class,
         BerandaServiceProvider::class,
         DatasetServiceProvider::class,
+        DashboardServiceProvider::class,
     ])->toArray(),
 
     /*

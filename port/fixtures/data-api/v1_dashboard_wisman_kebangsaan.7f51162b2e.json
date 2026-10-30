@@ -1,0 +1,8 @@
+{
+  "kunci": "/v1/dashboard/wisman/kebangsaan?periode=2024-05&top=8",
+  "status": 200,
+  "headers": {
+    "content-type": "application/json"
+  },
+  "body": "{\"data\":{\"periode\":\"2024-05\",\"label\":\"Mei 2024\",\"items\":[{\"label\":\"Tiongkok\",\"value\":41001},{\"label\":\"Malaysia\",\"value\":34616},{\"label\":\"Singapura\",\"value\":16577},{\"label\":\"Jepang\",\"value\":9949},{\"label\":\"Arab Saudi\",\"value\":8883},{\"label\":\"Korea Selatan\",\"value\":8211},{\"label\":\"Amerika Serikat\",\"value\":7721},{\"label\":\"India\",\"value\":7296},{\"label\":\"Lainnya\",\"value\":67410}]},\"meta\":{\"generated_at\":\"2026-10-30T05:21:46+07:00\",\"source\":[\"serving.mart_wisman\"],\"request_id\":\"623835b2832d486782ec7d7ff011b85e\"}}"
+}
