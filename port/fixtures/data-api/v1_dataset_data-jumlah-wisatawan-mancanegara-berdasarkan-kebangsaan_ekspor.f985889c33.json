@@ -1,0 +1,11 @@
+{
+  "kunci": "/v1/dataset/data-jumlah-wisatawan-mancanegara-berdasarkan-kebangsaan/ekspor?f=kebangsaan%3Ain%3AJEPANG&format=csv",
+  "status": 200,
+  "headers": {
+    "content-type": "text/csv; charset=utf-8",
+    "content-disposition": "attachment; filename=\"data-jumlah-wisatawan-mancanegara-berdasarkan-kebangsaan-terfilter.csv\"",
+    "cache-control": "no-store",
+    "x-row-count": "31"
+  },
+  "body": "﻿periode_data,kebangsaan,jumlah_kunjungan,perbandingan_bulan_sebelumnya,perbandingan_tahun_sebelumnya\r\n2025-07-01,JEPANG,13703,18.12,11.52\r\n2026-02-01,JEPANG,12472,30.62,0.26\r\n2024-01-01,JEPANG,8271,-7.45,40.35\r\n2024-03-01,JEPANG,9221,8.04,17.52\r\n2024-05-01,JEPANG,9949,31.71,1.05\r\n2026-07-01,JEPANG,13131,14.35,-4.17\r\n2025-06-01,JEPANG,11601,9.63,1.26\r\n2025-11-01,JEPANG,13077,8.67,3.68\r\n2025-03-01,JEPANG,8793,-29.32,-4.64\r\n2026-03-01,JEPANG,8134,-34.78,-7.49\r\n2025-01-01,JEPANG,8248,-28.51,-0.28\r\n2025-08-01,JEPANG,16386,19.58,7.16\r\n2024-09-01,JEPANG,13725,-10.2413184226015,0.27\r\n2025-02-01,JEPANG,12440,50.82,45.75\r\n2024-10-01,JEPANG,10883,-20.71,8.58\r\n2025-12-01,JEPANG,11609,-11.23,0.62\r\n2024-12-01,JEPANG,11537,-8.53,29.09\r\n2026-05-01,JEPANG,10726,-10.33,1.36\r\n2026-06-01,JEPANG,11483,7.06,-1.02\r\n2024-04-01,JEPANG,7554,-18.08,-23.28\r\n2026-01-01,JEPANG,9548,-17.75,15.76\r\n2024-02-01,JEPANG,8535,3.19,8.53\r\n2024-07-01,JEPANG,12288,7.25,13.99\r\n2026-04-01,JEPANG,11962,47.06,26.02\r\n2024-06-01,JEPANG,11454,15.13,35.23\r\n2024-11-01,JEPANG,12613,15.89,12.21\r\n2025-04-01,JEPANG,9492,7.95,25.66\r\n2025-09-01,JEPANG,11735,-28.38,-14.49\r\n2025-05-01,JEPANG,10582,11.48,6.36\r\n2025-10-01,JEPANG,12034,2.55,10.58\r\n2024-08-01,JEPANG,15291,24.44,18.19"
+}

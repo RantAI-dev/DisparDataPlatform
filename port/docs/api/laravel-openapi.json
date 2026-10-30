@@ -1,0 +1,679 @@
+{
+    "openapi": "3.1.2",
+    "info": {
+        "title": "Portal Disparekraf",
+        "version": "0.0.1"
+    },
+    "servers": [
+        {
+            "url": "http://localhost/api/v1"
+        }
+    ],
+    "paths": {
+        "/katalog": {
+            "get": {
+                "operationId": "dataset.katalog",
+                "description": "Dataset primer Satu Data Jakarta dan dataset sekunder Dinas, lengkap dengan lapisan lakehouse\n(medallion), statistik katalog, dan jumlah per lapisan. Dibaca dari snapshot harian.",
+                "summary": "Katalog dataset",
+                "tags": [
+                    "Dataset"
+                ],
+                "parameters": [
+                    {
+                        "name": "tier",
+                        "in": "query",
+                        "description": "Tier dataset: semua (bawaan), primer (Satu Data Jakarta), atau sekunder.",
+                        "schema": {
+                            "type": [
+                                "string",
+                                "null"
+                            ],
+                            "enum": [
+                                "semua",
+                                "primer",
+                                "sekunder",
+                                null
+                            ]
+                        }
+                    },
+                    {
+                        "name": "sumber",
+                        "in": "query",
+                        "description": "Sumber data: sdi, internal, instansi, atau crawling; semua = tanpa saringan.",
+                        "schema": {
+                            "type": [
+                                "string",
+                                "null"
+                            ],
+                            "enum": [
+                                "semua",
+                                "sdi",
+                                "internal",
+                                "instansi",
+                                "crawling",
+                                null
+                            ]
+                        }
+                    },
+                    {
+                        "name": "tag",
+                        "in": "query",
+                        "description": "Hanya dataset dengan tag ini.",
+                        "schema": {
+                            "type": [
+                                "string",
+                                "null"
+                            ],
+                            "maxLength": 100
+                        }
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Nomor halaman, mulai 1.",
+                        "schema": {
+                            "type": [
+                                "integer",
+                                "null"
+                            ],
+                            "minimum": 1
+                        }
+                    },
+                    {
+                        "name": "size",
+                        "in": "query",
+                        "description": "Jumlah baris per halaman.",
+                        "schema": {
+                            "type": [
+                                "integer",
+                                "null"
+                            ],
+                            "minimum": 1,
+                            "maximum": 500
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/AuthenticationException"
+                    },
+                    "422": {
+                        "$ref": "#/components/responses/ValidationException"
+                    }
+                }
+            }
+        },
+        "/dataset/{slug}": {
+            "get": {
+                "operationId": "dataset.detail",
+                "description": "Metadata satu dataset: judul, deskripsi, sumber, frekuensi, satuan, periode data, lapisan\nlakehouse, dan jumlah baris Bronze (`total_bronze`). `meta.total` = jumlah baris Silver.",
+                "summary": "Detail dataset",
+                "tags": [
+                    "Dataset"
+                ],
+                "parameters": [
+                    {
+                        "name": "slug",
+                        "in": "path",
+                        "required": true,
+                        "description": "Slug dataset, mis. `data-jumlah-wisatawan-mancanegara-berdasarkan-kebangsaan`.",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/AuthenticationException"
+                    }
+                }
+            }
+        },
+        "/dataset/{slug}/kolom": {
+            "get": {
+                "operationId": "dataset.kolom",
+                "description": "Daftar kolom yang ditampilkan beserta keterangan dan tipe aslinya.",
+                "summary": "Kolom dataset",
+                "tags": [
+                    "Dataset"
+                ],
+                "parameters": [
+                    {
+                        "name": "slug",
+                        "in": "path",
+                        "required": true,
+                        "description": "Slug dataset, mis. `data-jumlah-wisatawan-mancanegara-berdasarkan-kebangsaan`.",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/AuthenticationException"
+                    }
+                }
+            }
+        },
+        "/dataset/{slug}/facet": {
+            "get": {
+                "operationId": "dataset.facet",
+                "description": "Pilihan filter per kolom Silver: kategori (\u2264 50 nilai beserta jumlahnya), rentang angka, atau\nrentang tanggal. Dihitung atas seluruh dataset.",
+                "summary": "Pilihan filter",
+                "tags": [
+                    "Dataset"
+                ],
+                "parameters": [
+                    {
+                        "name": "slug",
+                        "in": "path",
+                        "required": true,
+                        "description": "Slug dataset, mis. `data-jumlah-wisatawan-mancanegara-berdasarkan-kebangsaan`.",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/AuthenticationException"
+                    }
+                }
+            }
+        },
+        "/dataset/{slug}/baris": {
+            "get": {
+                "operationId": "dataset.baris",
+                "description": "Baris dataset dari lapisan Silver, berhalaman. `q` mencari teks di semua kolom; `f[]` memfilter\n(`kolom:in:nilai`, diulang untuk nilai lain, atau `kolom:range:min..max`); `sort` = `kolom:asc|desc`.\n`meta.total` = jumlah baris yang cocok.",
+                "summary": "Baris data",
+                "tags": [
+                    "Dataset"
+                ],
+                "parameters": [
+                    {
+                        "name": "slug",
+                        "in": "path",
+                        "required": true,
+                        "description": "Slug dataset, mis. `data-jumlah-wisatawan-mancanegara-berdasarkan-kebangsaan`.",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Nomor halaman, mulai 1.",
+                        "schema": {
+                            "type": [
+                                "integer",
+                                "null"
+                            ],
+                            "minimum": 1
+                        }
+                    },
+                    {
+                        "name": "size",
+                        "in": "query",
+                        "description": "Jumlah baris per halaman.",
+                        "schema": {
+                            "type": [
+                                "integer",
+                                "null"
+                            ],
+                            "minimum": 1,
+                            "maximum": 200
+                        }
+                    },
+                    {
+                        "name": "sort",
+                        "in": "query",
+                        "description": "Urutan satu kolom: `kolom:asc` atau `kolom:desc`.",
+                        "schema": {
+                            "type": [
+                                "string",
+                                "null"
+                            ],
+                            "pattern": "^[^:]+:(asc|desc)$"
+                        }
+                    },
+                    {
+                        "name": "q",
+                        "in": "query",
+                        "description": "Cari teks di semua kolom.",
+                        "schema": {
+                            "type": [
+                                "string",
+                                "null"
+                            ],
+                            "maxLength": 500
+                        }
+                    },
+                    {
+                        "name": "f[]",
+                        "in": "query",
+                        "description": "Filter, diulang: `kolom:in:nilai` (ulangi untuk nilai lain) atau `kolom:range:min..max`.",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "string",
+                                "maxLength": 500
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/AuthenticationException"
+                    },
+                    "422": {
+                        "$ref": "#/components/responses/ValidationException"
+                    }
+                }
+            }
+        },
+        "/dataset/{slug}/agregat": {
+            "get": {
+                "operationId": "dataset.agregat",
+                "description": "Ringkasan nilai `y` per kategori `x` (sum, avg, count, max, min) atas seluruh baris yang cocok\ndengan pencarian dan filter; diurutkan menurun, maksimal 1.000 kelompok.",
+                "summary": "Agregat untuk grafik",
+                "tags": [
+                    "Dataset"
+                ],
+                "parameters": [
+                    {
+                        "name": "slug",
+                        "in": "path",
+                        "required": true,
+                        "description": "Slug dataset, mis. `data-jumlah-wisatawan-mancanegara-berdasarkan-kebangsaan`.",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "x",
+                        "in": "query",
+                        "required": true,
+                        "description": "Kolom kategori.",
+                        "schema": {
+                            "type": "string",
+                            "maxLength": 200
+                        }
+                    },
+                    {
+                        "name": "y",
+                        "in": "query",
+                        "description": "Kolom nilai; tidak dipakai untuk count.",
+                        "schema": {
+                            "type": [
+                                "string",
+                                "null"
+                            ],
+                            "maxLength": 200
+                        }
+                    },
+                    {
+                        "name": "agg",
+                        "in": "query",
+                        "required": true,
+                        "description": "Agregasi: sum, avg, count, max, atau min.",
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "sum",
+                                "avg",
+                                "count",
+                                "max",
+                                "min"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "q",
+                        "in": "query",
+                        "description": "Cari teks di semua kolom.",
+                        "schema": {
+                            "type": [
+                                "string",
+                                "null"
+                            ],
+                            "maxLength": 500
+                        }
+                    },
+                    {
+                        "name": "f[]",
+                        "in": "query",
+                        "description": "Filter, diulang: `kolom:in:nilai` (ulangi untuk nilai lain) atau `kolom:range:min..max`.",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "string",
+                                "maxLength": 500
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/AuthenticationException"
+                    },
+                    "422": {
+                        "$ref": "#/components/responses/ValidationException"
+                    }
+                }
+            }
+        },
+        "/dataset/{slug}/halaman": {
+            "get": {
+                "operationId": "dataset.halaman",
+                "description": "Gabungan detail, kolom, dan baris halaman pertama dalam satu permintaan:\n`data = {dataset, kolom, baris}`.",
+                "summary": "Halaman pertama dataset",
+                "tags": [
+                    "Dataset"
+                ],
+                "parameters": [
+                    {
+                        "name": "slug",
+                        "in": "path",
+                        "required": true,
+                        "description": "Slug dataset, mis. `data-jumlah-wisatawan-mancanegara-berdasarkan-kebangsaan`.",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Nomor halaman, mulai 1.",
+                        "schema": {
+                            "type": [
+                                "integer",
+                                "null"
+                            ],
+                            "minimum": 1
+                        }
+                    },
+                    {
+                        "name": "size",
+                        "in": "query",
+                        "description": "Jumlah baris per halaman.",
+                        "schema": {
+                            "type": [
+                                "integer",
+                                "null"
+                            ],
+                            "minimum": 1,
+                            "maximum": 200
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/AuthenticationException"
+                    },
+                    "422": {
+                        "$ref": "#/components/responses/ValidationException"
+                    }
+                }
+            }
+        },
+        "/dataset/{slug}/ekspor": {
+            "get": {
+                "operationId": "dataset.ekspor",
+                "description": "Mengunduh semua baris yang cocok dengan pencarian, filter, dan urutan. CSV memakai BOM dan CRLF;\nXLSX berisi sheet `Data`. Nama berkas `{slug}.csv`, atau `{slug}-terfilter.csv` bila ada filter.\nJumlah baris ada di header `X-Row-Count`; lebih dari 100.000 baris \u2192 413.",
+                "summary": "Ekspor CSV / XLSX",
+                "tags": [
+                    "Dataset"
+                ],
+                "parameters": [
+                    {
+                        "name": "slug",
+                        "in": "path",
+                        "required": true,
+                        "description": "Slug dataset, mis. `data-jumlah-wisatawan-mancanegara-berdasarkan-kebangsaan`.",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "format",
+                        "in": "query",
+                        "description": "Format berkas: csv (bawaan) atau xlsx.",
+                        "schema": {
+                            "type": [
+                                "string",
+                                "null"
+                            ],
+                            "enum": [
+                                "csv",
+                                "xlsx",
+                                null
+                            ]
+                        }
+                    },
+                    {
+                        "name": "sort",
+                        "in": "query",
+                        "description": "Urutan satu kolom: `kolom:asc` atau `kolom:desc`.",
+                        "schema": {
+                            "type": [
+                                "string",
+                                "null"
+                            ],
+                            "pattern": "^[^:]+:(asc|desc)$"
+                        }
+                    },
+                    {
+                        "name": "q",
+                        "in": "query",
+                        "description": "Cari teks di semua kolom.",
+                        "schema": {
+                            "type": [
+                                "string",
+                                "null"
+                            ],
+                            "maxLength": 500
+                        }
+                    },
+                    {
+                        "name": "f[]",
+                        "in": "query",
+                        "description": "Filter, diulang: `kolom:in:nilai` (ulangi untuk nilai lain) atau `kolom:range:min..max`.",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "string",
+                                "maxLength": 500
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/AuthenticationException"
+                    },
+                    "422": {
+                        "$ref": "#/components/responses/ValidationException"
+                    }
+                }
+            }
+        },
+        "/sistem/kesehatan": {
+            "get": {
+                "operationId": "sistem.kesehatan",
+                "tags": [
+                    "Kesehatan"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/beranda/ringkasan": {
+            "get": {
+                "operationId": "beranda.ringkasan",
+                "description": "Angka beranda: jumlah dataset primer dan sekunder, jumlah baris pendataan lapangan, jumlah\nindikator GCI dan GPCI, dan jumlah indeks global yang dipantau.",
+                "summary": "Ringkasan beranda",
+                "tags": [
+                    "Ringkasan"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/AuthenticationException"
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "responses": {
+            "AuthenticationException": {
+                "description": "Unauthenticated",
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "message": {
+                                    "type": "string",
+                                    "description": "Error overview."
+                                }
+                            },
+                            "required": [
+                                "message"
+                            ]
+                        }
+                    }
+                }
+            },
+            "ValidationException": {
+                "description": "Validation error",
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "message": {
+                                    "type": "string",
+                                    "description": "Errors overview."
+                                },
+                                "errors": {
+                                    "type": "object",
+                                    "description": "A detailed description of each field that failed validation.",
+                                    "additionalProperties": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            },
+                            "required": [
+                                "message",
+                                "errors"
+                            ]
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

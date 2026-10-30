@@ -109,10 +109,9 @@ Nilai default SPEC dipakai kecuali disebut lain. Pemilik boleh membatalkan tiap 
   Esri di pane tile bawaan (meniru TileLayer react-leaflet v2), peta lain di `shadowPane`.
 - **SpatialMap hanya tampilan**: props berbentuk `/v1/spasial` (titik ringkas, `cities`,
   `kepadatan_berkoordinat`, `kepadatan_tanpa_koordinat`); popup tampil dari data ringkas lalu
-  alamat/sertifikat menyusul dari `muatDetail(id)` (`/v1/spasial/titik/{id}`). Pencarian sama
-  dengan v2 (nama + alamat + wilayah) bila titik membawa `address`; titik ringkas KONTRAK §2.5
-  belum membawanya, jadi sampai kontrak spasial (plan 05/plan spasial) menambah alamat, pencarian
-  hanya mengenai nama + wilayah — dicatat untuk pemilik.
+  sertifikat menyusul dari `muatDetail(id)` (`/v1/spasial/titik/{id}`). Pencarian sama dengan v2
+  (nama + alamat + wilayah): titik ringkas `/v1/spasial` membawa `address` sejak plan 11 (keputusan
+  pemilik 29 Okt 2026; payload ±1,26 MB vs 0,85 MB tanpa alamat).
 - **HeroDark** = pola hero gelap yang di v2 ditulis ulang di enam berkas (inventaris A §8);
   padding vertikal per halaman lewat prop `pad`. **PageFooter tidak ada di v2** (SPEC §5.2
   menyebutnya di `components/app`), jadi tidak dibuat.
@@ -145,6 +144,54 @@ Nilai default SPEC dipakai kecuali disebut lain. Pemilik boleh membatalkan tiap 
   menambah backend + fixture-server ke job e2e saat rute fitur pertama ada.
 - **`@playwright/test` 1.64.1** (rilis 14 Okt 2026); job GitLab memakai image Playwright versi
   yang sama.
+
+## Keputusan teknis plan 11 (dataset, beranda, docs)
+
+- **Sumber paritas = versi yang tayang**, bukan hanya `6b858eb`. `dispar.rantai.dev` menjalankan
+  `dispar-v2:464fc15`; sejak `6b858eb` katalog mendapat filter Sumber + Tag (c3f536f), chart builder
+  mendapat pilihan urutan dan `kbli` (a7996d2, 55c45af), dan item asisten AI di nav berganti
+  "Jekate" (464fc15). Portal mengikuti versi tayang (K-10); KONTRAK §2.1 memang sudah memuat
+  `sumber`/`tag`. Item Jekate/AI dan dock-nya tetap tidak di-port (SPEC §1, §5.4).
+- **Kelas P lewat `Shared/Cache/BacaCache`** (body mentah, kunci SHA-256 karena kolom KEY 255 byte,
+  TTL `portal.cache_menit` = 15). Error tidak di-cache. Kunci snapshot/cache dibuat
+  `Shared/Support/KunciQuery` (parameter kosong dibuang, kunci diurutkan); job sinkron plan 16
+  memakai fungsi yang sama dengan `varian` rute (katalog: `tier=semua`, `tier=primer`).
+- **`dataset/{slug}/halaman`** = `{dataset, kolom, baris}` disambung sebagai JSON mentah; `meta`
+  = meta baris (`total` = baris Silver), `source` gabungan ketiganya; `sumber = cache` hanya bila
+  ketiganya dari cache. Detail dipanggil lebih dulu supaya slug tak dikenal langsung 404.
+- **Ekspor** = `StreamedResponse` yang menyalin body Data API per 64 KB; `Content-Type`,
+  `Content-Disposition`, `X-Row-Count` diteruskan, `X-Accel-Buffering: no`. LOG_HISTORY mencatat
+  filter (query) dan jumlah baris dari `X-Row-Count`. Proxy Nuxt ikut meneruskan `X-Row-Count`.
+- **Validasi Laravel → 422 `INVALID_PARAM`** (pola plan 10); nilai filter/sort/kolom tetap
+  divalidasi Data API (400 diteruskan). Draf OpenAPI menulis 400 untuk keduanya.
+- **Halaman detail dimuat di browser** (`onMounted`), sama dengan client component v2: HTML SSR
+  berisi "Memuat data dari Satu Data Jakarta…". Katalog dan beranda dimuat SSR (`useAsyncData`),
+  tanpa seed statis `lib/sdi-data.json` (E §1.1). Teks 404 v2 ("Dataset belum tersedia di
+  lakehouse") ditampilkan untuk 404 apa pun dari Laravel.
+- **Komposabel**: `useDataset()` = satu fungsi per endpoint (pola plan 12–15); keadaan tabel detail
+  di `useDatasetBaris(slug)`. Filter tidak ditulis ke URL halaman (v2 juga tidak); serialisasi
+  filter ↔ query API diuji bolak-balik.
+- **`/docs` (P3)**: isi dari ekspor Scramble yang di-commit (`docs/api/laravel-openapi.json`) →
+  `scripts/docs-dari-openapi.ts` → `layers/docs/data/endpoints.json`. Ringkasan/deskripsi dari
+  docblock controller, keterangan parameter dari komentar aturan FormRequest. CI backend gagal bila
+  ekspor berbeda dengan kode; Vitest gagal bila `endpoints.json` berbeda dengan ekspor. Rute
+  `sistem/*` tidak ditampilkan. Base URL dari `NUXT_PUBLIC_API_BASE_URL`. Pill "Baca publik tanpa
+  autentikasi" diganti "Token layanan (Bearer)" karena API portal memang bertoken (K-5).
+- **Uji paritas** (`tests/parity/`, `playwright.parity.config.ts`, lokal): tangkapan produksi
+  menjadi pembanding `toMatchSnapshot` (ambang 2%) dan himpunan angka `<main>` harus identik.
+  Header di-mask; dock AI dibuang dari halaman produksi. Baris tanpa ORDER BY tidak deterministik
+  (E §4.4), jadi baris halaman pertama produksi disuntikkan ke respons `halaman` portal
+  (`samakanBaris`): yang diuji render atas data yang sama. `/docs` dibandingkan hero layar pertama
+  di desktop saja (di 390 px pill P3 membungkus berbeda).
+- **E2E melawan Laravel + fixture-server** (tanpa memalsukan rute di browser). CI:
+  `scripts/ci/e2e.sh` menyalakan fixture-server dan Laravel (`laravel-e2e.sh`: skema bersih, akun
+  layanan, token ke berkas, `artisan serve`; nilai env ditulis ke `.env` karena `serve` tidak
+  meneruskan env proses). Batas laju dinaikkan untuk e2e (`PORTAL_BATAS_PER_MENIT`). GitHub:
+  Laravel di image PHP lewat `docker run`; GitLab: image PHP sebagai image job + Node 20.20.2
+  (`pasang-node.sh`, SHA256 disematkan) + Chromium Playwright.
+- **Slug acuan** (dipakai plan 17): S1 `data-jumlah-wisatawan-mancanegara-berdasarkan-kebangsaan`,
+  S2 `penerbangan-langsung-internasional-jakarta`, S3
+  `data-pendapatan-asli-daerah-pad-sektor-pariwisata` (`docs/skenario/dataset.md`).
 
 ## Penyimpangan dari teks SPEC (disengaja)
 

@@ -13,7 +13,10 @@ use Illuminate\Support\Facades\Http;
 function berkasFixture(): array
 {
     $dir = dirname(__DIR__, 4).'/fixtures/data-api'; // port/fixtures, dari backend/tests/Feature/Shared
-    $daftar = glob($dir.'/*.json') ?: [];
+    // Hanya rekaman JSON: ekspor (CSV) diuji di tests/Feature/Dataset.
+    $daftar = array_values(array_filter(glob($dir.'/*.json') ?: [], fn ($b) => str_contains(
+        json_decode(file_get_contents($b), true)['headers']['content-type'] ?? 'application/json', 'json'
+    )));
 
     return array_combine(array_map('basename', $daftar), array_map(fn ($b) => [$b], $daftar));
 }

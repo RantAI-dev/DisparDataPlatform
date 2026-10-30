@@ -10,7 +10,7 @@
 import { randomUUID } from "node:crypto";
 import type { H3Event } from "h3";
 
-const HEADER_KELUAR = ["content-type", "content-disposition", "cache-control", "x-request-id", "retry-after"];
+const HEADER_KELUAR = ["content-type", "content-disposition", "cache-control", "x-request-id", "retry-after", "x-row-count"];
 
 // Batas tunggu Laravel: di atas timeout ekspor Data API (300 s, SPEC §4.6) supaya aliran ekspor
 // tidak terpotong, tetapi request yang macet tetap berakhir.
