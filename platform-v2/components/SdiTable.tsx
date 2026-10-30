@@ -6,6 +6,7 @@
  * pariwisata untuk menampilkan data pendukung. Tema putih + header oranye.
  */
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { fmtCell } from "@/lib/format-sel";
 
 const ACCENT = "#ed6b23";
 const PAGE = 50;
@@ -27,16 +28,6 @@ const HIDDEN = new Set([
 
 function humanize(key: string) {
   return key.replace(/_/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
-}
-
-function fmtCell(v: unknown): string {
-  if (v === null || v === undefined || v === "") return "—";
-  const s = String(v);
-  if (/^\d{4,}$/.test(s)) {
-    const n = Number(s);
-    if (!isNaN(n) && s.length > 4) return n.toLocaleString("id-ID");
-  }
-  return s;
 }
 
 export function SdiTable({
@@ -195,7 +186,7 @@ export function SdiTable({
                   <td className="px-4 py-3 tabular-nums text-slate-400">{i + 1}</td>
                   {columns.map((c) => (
                     <td key={c.key} className="px-4 py-3 tabular-nums text-slate-700">
-                      {fmtCell(row[c.key])}
+                      {fmtCell(c.key, row[c.key])}
                     </td>
                   ))}
                 </tr>

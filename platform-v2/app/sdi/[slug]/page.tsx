@@ -5,6 +5,7 @@ import Link from "next/link";
 import { DatasetCharts } from "@/components/DatasetCharts";
 import { DatasetFilters } from "@/components/DatasetFilters";
 import { rowQueryParams, type Facet, type Filter, type Sort } from "@/lib/ch/query-filter";
+import { fmtCell } from "@/lib/format-sel";
 
 const NAVY = "#ed6b23";
 const GOLD = "#f0a13a";
@@ -526,15 +527,6 @@ function renderCell(key: string, v: unknown) {
       </a>
     );
   }
-  return fmtCell(v);
+  return fmtCell(key, v);
 }
 
-function fmtCell(v: unknown): string {
-  if (v === null || v === undefined || v === "") return "—";
-  const s = String(v);
-  if (/^\d{4,}$/.test(s)) {
-    const n = Number(s);
-    if (!isNaN(n) && s.length > 4) return n.toLocaleString("id-ID");
-  }
-  return s;
-}
