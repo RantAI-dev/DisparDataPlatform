@@ -1,97 +1,97 @@
 {
- "slug": "hotel-per-kota-disparekraf",
- "title": "Hotel per Kota DKI Jakarta (Disparekraf)",
- "description": "Pendataan usaha hotel per kota administrasi DKI Jakarta dari Disparekraf: NIB, pelaku usaha, klasifikasi, alamat, kontak, jumlah kamar, dan tenaga kerja. Dipublikasikan atas permintaan Disparekraf, termasuk kontak usaha.",
+ "slug": "hotel-per-kota-jakarta",
+ "title": "Hotel per Kota DKI Jakarta",
+ "description": "Pendataan usaha hotel per kota administrasi DKI Jakarta: NIB, pelaku usaha, klasifikasi, alamat, kontak, jumlah kamar, dan tenaga kerja.",
  "columns": [
   {
    "key": "kota",
    "label": "Kota",
    "type": "string",
-   "description": "Kota sesuai berkas Disparekraf."
+   "description": "Kota sesuai berkas pendataan."
   },
   {
    "key": "no",
    "label": "No",
    "type": "string",
-   "description": "No sesuai berkas Disparekraf."
+   "description": "No sesuai berkas pendataan."
   },
   {
    "key": "nib",
    "label": "NIB",
    "type": "string",
-   "description": "NIB sesuai berkas Disparekraf."
+   "description": "NIB sesuai berkas pendataan."
   },
   {
    "key": "nama_pelaku_usaha",
    "label": "Nama Pelaku Usaha",
    "type": "string",
-   "description": "Nama Pelaku Usaha sesuai berkas Disparekraf."
+   "description": "Nama Pelaku Usaha sesuai berkas pendataan."
   },
   {
    "key": "nama_usaha",
    "label": "Nama Usaha",
    "type": "string",
-   "description": "Nama Usaha sesuai berkas Disparekraf."
+   "description": "Nama Usaha sesuai berkas pendataan."
   },
   {
    "key": "klasifikasi",
    "label": "Klasifikasi",
    "type": "string",
-   "description": "Klasifikasi sesuai berkas Disparekraf."
+   "description": "Klasifikasi sesuai berkas pendataan."
   },
   {
    "key": "alamat",
    "label": "Alamat",
    "type": "string",
-   "description": "Alamat sesuai berkas Disparekraf."
+   "description": "Alamat sesuai berkas pendataan."
   },
   {
    "key": "kontak_usaha",
    "label": "Kontak Usaha",
    "type": "string",
-   "description": "Kontak Usaha sesuai berkas Disparekraf."
+   "description": "Kontak Usaha sesuai berkas pendataan."
   },
   {
    "key": "jml_kamar",
    "label": "Jml. Kamar",
    "type": "string",
-   "description": "Jml. Kamar sesuai berkas Disparekraf."
+   "description": "Jml. Kamar sesuai berkas pendataan."
   },
   {
    "key": "jml_naker",
    "label": "Jml. Naker",
    "type": "string",
-   "description": "Jml. Naker sesuai berkas Disparekraf."
+   "description": "Jml. Naker sesuai berkas pendataan."
   },
   {
    "key": "l",
    "label": "(L)",
    "type": "string",
-   "description": "(L) sesuai berkas Disparekraf."
+   "description": "(L) sesuai berkas pendataan."
   },
   {
    "key": "p",
    "label": "(P)",
    "type": "string",
-   "description": "(P) sesuai berkas Disparekraf."
+   "description": "(P) sesuai berkas pendataan."
   },
   {
    "key": "a",
    "label": "(A)",
    "type": "string",
-   "description": "(A) sesuai berkas Disparekraf."
+   "description": "(A) sesuai berkas pendataan."
   },
   {
    "key": "rata_rata_usia",
    "label": "Rata-Rata Usia",
    "type": "string",
-   "description": "Rata-Rata Usia sesuai berkas Disparekraf."
+   "description": "Rata-Rata Usia sesuai berkas pendataan."
   },
   {
    "key": "jenis_sertifikasi",
    "label": "Jenis Sertifikasi",
    "type": "string",
-   "description": "Jenis Sertifikasi sesuai berkas Disparekraf."
+   "description": "Jenis Sertifikasi sesuai berkas pendataan."
   }
  ],
  "rows": [

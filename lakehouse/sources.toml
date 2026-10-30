@@ -984,22 +984,22 @@ asal = "SDI registry hotel + filter 5 km simpul transport, lihat scripts/build_h
 pembangun = "scripts/build_hotel_transit.py"
 
 [[sumber]]
-id = "hotel-per-kota-disparekraf"
+id = "hotel-per-kota-jakarta"
 jenis = "sekunder"
-path = "data/sekunder/hotel-per-kota-disparekraf.json"
+path = "data/sekunder/hotel-per-kota-jakarta.json"
 namespace = "bronze_sec"
-tabel = "hotel_per_kota_disparekraf"
+tabel = "hotel_per_kota_jakarta"
 kelas_refresh = "saat_berubah"
 tanggal_ambil = "2026-10-29"
 asal = "Disparekraf DKI Jakarta (data/sumber/disparekraf/hotel-per-kota.tsv) sebagai dataset katalog; dipublikasikan atas permintaan Disparekraf, termasuk kontak"
 pembangun = "scripts/pisah_hotel_hiburan.py"
 
 [[sumber]]
-id = "hiburan-per-kota-disparekraf"
+id = "hiburan-per-kota-jakarta"
 jenis = "sekunder"
-path = "data/sekunder/hiburan-per-kota-disparekraf.json"
+path = "data/sekunder/hiburan-per-kota-jakarta.json"
 namespace = "bronze_sec"
-tabel = "hiburan_per_kota_disparekraf"
+tabel = "hiburan_per_kota_jakarta"
 kelas_refresh = "saat_berubah"
 tanggal_ambil = "2026-10-29"
 asal = "Disparekraf DKI Jakarta (data/sumber/disparekraf/hiburan-per-kota.tsv) sebagai dataset katalog; dipublikasikan atas permintaan Disparekraf, termasuk kontak"

@@ -15,8 +15,8 @@ Dipublikasikan atas permintaan Disparekraf (pemilik data), termasuk kolom kontak
 Isi yang sama juga ditulis sebagai dataset sekunder (JSON {slug,title,description,columns,rows})
 supaya tampil di Katalog Data:
 
-  data/sekunder/hotel-per-kota-disparekraf.json
-  data/sekunder/hiburan-per-kota-disparekraf.json
+  data/sekunder/hotel-per-kota-jakarta.json
+  data/sekunder/hiburan-per-kota-jakarta.json
 
 Nama kolom tetap seperti berkas asli (label); kunci = label yang dinormalkan.
 
@@ -45,20 +45,18 @@ KOTA = {
 NAMA_SHEET = re.compile(r"^(Hotel|Hiburan)\s+(Jak\w+)\s*\((\d+)\)\s*$")
 SEKUNDER = {
     "Hotel": (
-        Path("data/sekunder/hotel-per-kota-disparekraf.json"),
-        "hotel-per-kota-disparekraf",
-        "Hotel per Kota DKI Jakarta (Disparekraf)",
-        "Pendataan usaha hotel per kota administrasi DKI Jakarta dari Disparekraf: NIB, pelaku usaha, "
-        "klasifikasi, alamat, kontak, jumlah kamar, dan tenaga kerja. Dipublikasikan atas permintaan "
-        "Disparekraf, termasuk kontak usaha.",
+        Path("data/sekunder/hotel-per-kota-jakarta.json"),
+        "hotel-per-kota-jakarta",
+        "Hotel per Kota DKI Jakarta",
+        "Pendataan usaha hotel per kota administrasi DKI Jakarta: NIB, pelaku usaha, klasifikasi, "
+        "alamat, kontak, jumlah kamar, dan tenaga kerja.",
     ),
     "Hiburan": (
-        Path("data/sekunder/hiburan-per-kota-disparekraf.json"),
-        "hiburan-per-kota-disparekraf",
-        "Usaha Hiburan per Kota DKI Jakarta (Disparekraf)",
+        Path("data/sekunder/hiburan-per-kota-jakarta.json"),
+        "hiburan-per-kota-jakarta",
+        "Usaha Hiburan per Kota DKI Jakarta",
         "Pendataan usaha hiburan (bar, karaoke, dan diskotek) per kota administrasi DKI "
-        "Jakarta dari Disparekraf: jenis usaha, NIB, pelaku usaha, alamat, kontak, kapasitas, dan tenaga "
-        "kerja. Dipublikasikan atas permintaan Disparekraf, termasuk kontak usaha.",
+        "Jakarta: jenis usaha, NIB, pelaku usaha, alamat, kontak, kapasitas, dan tenaga kerja.",
     ),
 }
 
@@ -78,7 +76,7 @@ def tulis_sekunder(kategori: str, kepala: list[str], rows: list[list[str]]) -> N
         "title": judul,
         "description": deskripsi,
         "columns": [
-            {"key": k, "label": label, "type": "string", "description": f"{label} sesuai berkas Disparekraf."}
+            {"key": k, "label": label, "type": "string", "description": f"{label} sesuai berkas pendataan."}
             for k, label in zip(keys, kepala)
         ],
         "rows": [dict(zip(keys, r)) for r in rows],
