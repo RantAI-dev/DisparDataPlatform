@@ -229,13 +229,6 @@
         "type": "string",
         "required": false,
         "desc": "Bulan, `YYYY-MM` (menggantikan tahun)."
-      },
-      {
-        "name": "top",
-        "in": "query",
-        "type": "integer (1–50)",
-        "required": false,
-        "desc": "Jumlah kategori teratas sebelum Lainnya."
       }
     ],
     "contoh": "/api/v1/dashboard/wisman/pintu-masuk",
@@ -315,13 +308,6 @@
         "type": "wisman | wisnus",
         "required": true,
         "desc": "Jenis tamu: wisman atau wisnus."
-      },
-      {
-        "name": "periode",
-        "in": "query",
-        "type": "string",
-        "required": false,
-        "desc": "Bulan, `YYYY-MM`; bawaan bulan terakhir."
       }
     ],
     "contoh": "/api/v1/dashboard/lama-menginap/seri?tamu=",
@@ -555,13 +541,6 @@
         "type": "string",
         "required": false,
         "desc": "Tahun, `YYYY`."
-      },
-      {
-        "name": "destinasi",
-        "in": "query",
-        "type": "string",
-        "required": false,
-        "desc": "Nama destinasi; kosong = semua."
       }
     ],
     "contoh": "/api/v1/dashboard/destinasi/per-destinasi?jenis=",
@@ -590,13 +569,6 @@
         "type": "wisnus | wisman",
         "required": true,
         "desc": "Jenis pengunjung: wisnus atau wisman."
-      },
-      {
-        "name": "tahun",
-        "in": "query",
-        "type": "string",
-        "required": false,
-        "desc": "Tahun, `YYYY`."
       },
       {
         "name": "destinasi",
