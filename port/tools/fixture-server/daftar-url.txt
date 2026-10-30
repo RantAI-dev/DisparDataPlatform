@@ -1,0 +1,23 @@
+# URL Data API yang direkam ke fixtures/data-api/ (rekam.mjs). Satu path + query per baris.
+# Plan 10: contoh yang mewakili tiap bentuk respons. Plan 11–15 menambah URL skenario e2e
+# fiturnya di bawah judul fitur masing-masing.
+
+# sistem
+/v1/health
+
+# beranda + dataset
+/v1/beranda/ringkasan
+/v1/katalog?tier=sekunder
+/v1/dataset/data-jumlah-wisatawan-mancanegara-berdasarkan-kebangsaan
+/v1/dataset/data-jumlah-wisatawan-mancanegara-berdasarkan-kebangsaan/kolom
+/v1/dataset/data-jumlah-wisatawan-mancanegara-berdasarkan-kebangsaan/baris?size=5
+/v1/dataset/penerbangan-langsung-internasional-jakarta/baris?f=negara:in:Jepang&f=negara:in:Singapura&sort=maskapai:asc&size=20
+/v1/dataset/tidak-ada
+
+# dashboard
+/v1/dashboard/ringkasan
+/v1/dashboard/wisman/kebangsaan?tahun=2025&top=10
+
+# atlas + gmti
+/v1/atlas/golf
+/v1/gmti/ringkasan

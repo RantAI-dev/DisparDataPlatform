@@ -1,0 +1,2801 @@
+[
+ {
+  "venue": "Jakarta International Stadium (JIS)",
+  "address": "PAPANGGO, KEC. TJ. PRIOK, JKT UTARA, DAERAH KHUSUS IBUKOTA JAKARTA",
+  "wilayah": "Jakarta Utara",
+  "lat": -6.121,
+  "lon": 106.843,
+  "eventCount": 3,
+  "events": [
+   {
+    "nama_event": "MAROON 5 ASIA 2025",
+    "periode": "2025"
+   },
+   {
+    "nama_event": "SEVENTEEN (RIGHT HERE) WORLD TOUR IN JAKARTA",
+    "periode": "2025"
+   },
+   {
+    "nama_event": "2025 NCT DREAM TOUR <THE DREAM SHOW 4 : DREAM THE FUTURE> IN JAKARTA",
+    "periode": "2025"
+   }
+  ],
+  "gold": true,
+  "artists": [
+   "Ed Sheeran (2024)",
+   "Bruno Mars (2024)"
+  ]
+ },
+ {
+  "venue": "Gelora Bung Karno (GBK)",
+  "address": "JL. PINTU SATU SENAYAN, GELORA, KECAMATAN TANAH ABANG, KOTA JAKARTA PUSAT, DAERAH KHUSUS IBUKOTA JAKARTA 10270",
+  "wilayah": "Jakarta Pusat",
+  "lat": -6.2185,
+  "lon": 106.8021,
+  "eventCount": 1,
+  "events": [
+   {
+    "nama_event": "BLACKPINK 2025 WORLD TOUR IN JAKARTA",
+    "periode": "2025"
+   }
+  ],
+  "gold": true,
+  "artists": [
+   "Ed Sheeran (2019)",
+   "Bruno Mars (2014)",
+   "Justin Bieber (2013, 2022)"
+  ]
+ },
+ {
+  "venue": "THE H CLUB SCBD, JAKARTA",
+  "address": "JL. JEND. SUDIRMAN KAV 52-53 JL. SCBD NO.LOT 19, SENAYAN, KEC. KBY. BARU, KOTA JAKARTA SELATAN, DAERAH KHUSUS IBUKOTA JAKARTA 12190 JAKARTA",
+  "wilayah": "Jakarta Selatan",
+  "lat": -6.227652,
+  "lon": 106.811161,
+  "eventCount": 18,
+  "events": [
+   {
+    "nama_event": "HALOS PRESENT PERFORMANCE DJ ANNJO",
+    "periode": "2025"
+   },
+   {
+    "nama_event": "HALOS PRESENT PERFORMANCE DJ INQUISITIVE",
+    "periode": "2025"
+   },
+   {
+    "nama_event": "HALOS PRESENT PERFORMANCE DJ SALLY",
+    "periode": "2025"
+   },
+   {
+    "nama_event": "HALOS PRESENT PERFORMANCE DJ VINAI",
+    "periode": "2025"
+   },
+   {
+    "nama_event": "LIVE MUSIC / PERFORMANCE THIRD PARTY",
+    "periode": "2025"
+   },
+   {
+    "nama_event": "LIVE MUSIC / PERFORMANCE QUINTINO",
+    "periode": "2025"
+   },
+   {
+    "nama_event": "LIVE MUSIC / PERFORMANCE JADEN BOJSEN",
+    "periode": "2025"
+   },
+   {
+    "nama_event": "LIVE MUSIC / PERFORMANCE FAR EAST MOVEMENT",
+    "periode": "2025"
+   },
+   {
+    "nama_event": "HALOS PRESENT PERFORMANCE DJ YUKIO",
+    "periode": "2025"
+   },
+   {
+    "nama_event": "LIVE MUSIC/PERFORMANCE ALYSHIA",
+    "periode": "2025"
+   },
+   {
+    "nama_event": "LOV3TOWN TOUR X SORN",
+    "periode": "2025"
+   },
+   {
+    "nama_event": "DJ NOBILEE",
+    "periode": "2025"
+   },
+   {
+    "nama_event": "LIVE MUSIC/PERFORMANCE COSMIS GATE",
+    "periode": "2025"
+   },
+   {
+    "nama_event": "LIVE MUSIC/PERFORMANCE KAAZE",
+    "periode": "2025"
+   },
+   {
+    "nama_event": "LIVE MUSIC/PERFORMANCE BASSJACKERS",
+    "periode": "2025"
+   },
+   {
+    "nama_event": "LIVE MUSIC/PERFORMANCE SICK INDIVIDUALS",
+    "periode": "2025"
+   },
+   {
+    "nama_event": "LIVE MUSIC/PERFORMANCE VEENA",
+    "periode": "2025"
+   },
+   {
+    "nama_event": "LIVE MUSIC/PERFORMANCE A1 BAND (PRIVATE BIRTHDAY PARTY)",
+    "periode": "2025"
+   }
+  ],
+  "gold": false,
+  "artists": []
+ },
+ {
+  "venue": "THE KASABLANKA HALL, JAKARTA",
+  "address": "KOTA KASABLANKA, JL. RAYA CASABLANCA NO.RAYA LT. 3, RT.3/RW.14, MENTENG DALAM, KEC. TEBET, KOTA JAKARTA SELATAN, DAERAH KHUSUS IBUKOTA JAKARTA 12870",
+  "wilayah": "Jakarta Selatan",
+  "lat": -6.265507,
+  "lon": 106.782498,
+  "eventCount": 13,
+  "events": [
+   {
+    "nama_event": "KHYUHYUN \"COLOR\" 10TH ANNIVERSARY ASIA TOUR",
+    "periode": "2025"
+   },
+   {
+    "nama_event": "HWANG IN YOUP FAN MEETING IN JAKARTA 2025",
+    "periode": "2025"
+   },
+   {
+    "nama_event": "KISS OF LIFE 1ST WORLD TOUR IN JAKARTA",
+    "periode": "2025"
+   },
+   {
+    "nama_event": "TAPE: RE LOAD, JAY B CONCERT IN ASIA",
+    "periode": "2025"
+   },
+   {
+    "nama_event": "2025 JAY PARK WORLD TOUR : \" SERENADES & BODY ROLLS\" IN JAKARTA",
+    "periode": "2025"
+   },
+   {
+    "nama_event": "2025 EVNNE CONCERT : \"SET N GO\"",
+    "periode": "2025"
+   },
+   {
+    "nama_event": "HYERI FANMEETING TOUR 2025",
+    "periode": "2025"
+   },
+   {
+    "nama_event": "SOUL INTIMATE CONCERT 5.0",
+    "periode": "2025"
+   },
+   {
+    "nama_event": "2025 LEE DO HYUN FANMEETING : \"RE DO HYUN\"",
+    "periode": "2025"
+   },
+   {
+    "nama_event": "2025 HAN SO HEE 1ST FANMEETING WORLD TOUR IN JAKARTA",
+    "periode": "2025"
+   },
+   {
+    "nama_event": "INTIMATE CONCERT BLUE",
+    "periode": "2025"
+   },
+   {
+    "nama_event": "THE PAPER KITES",
+    "periode": "2025"
+   },
+   {
+    "nama_event": "2025 B.I THE LAST PARADE TOUR IN JAKARTA",
+    "periode": "2025"
+   }
+  ],
+  "gold": false,
+  "artists": []
+ },
+ {
+  "venue": "TENNIS INDOOR SENAYAN, JAKARTA",
+  "address": "JL. PINTU SATU SENAYAN BLOK B, RT.1/RW.3, GELORA, KECAMATAN TANAH ABANG, KOTA JAKARTA PUSAT, DAERAH KHUSUS IBUKOTA JAKARTA 10270",
+  "wilayah": "Jakarta Pusat",
+  "lat": -6.213205,
+  "lon": 106.798021,
+  "eventCount": 12,
+  "events": [
+   {
+    "nama_event": "KONSER SONU NIGAM",
+    "periode": "2025"
+   },
+   {
+    "nama_event": "VIDIOGAME CONCERT",
+    "periode": "2025"
+   },
+   {
+    "nama_event": "FUNTAZTIC BY BRIMO",
+    "periode": "2025"
+   },
+   {
+    "nama_event": "DISNEY JR LIVE ON TOUR LET'S PLAY",
+    "periode": "2025"
+   },
+   {
+    "nama_event": "INFINITE 15TH ANNIVERSARY CONCERT 2025",
+    "periode": "2025"
+   },
+   {
+    "nama_event": "2025 KAI SOLO CONCERT TOUR IN JAKARTA",
+    "periode": "2025"
+   },
+   {
+    "nama_event": "2025 NCT WISH ASIA TOUR LOG IN JAKARTA",
+    "periode": "2025"
+   },
+   {
+    "nama_event": "HEART & SOUL LIVE IN JAKARTA",
+    "periode": "2025"
+   },
+   {
+    "nama_event": "HATSUNE MIKU EXPO 2025 ASIA",
+    "periode": "2025"
+   },
+   {
+    "nama_event": "HYDE (INSIDE) LIVE 2025 WORLD TOUR",
+    "periode": "2025"
+   },
+   {
+    "nama_event": "THE BEST OF KITARO WORLD TOUR 2025",
+    "periode": "2025"
+   },
+   {
+    "nama_event": "2025 ASIA CONCERT : WINNER OUR MOMENT",
+    "periode": "2025"
+   }
+  ],
+  "gold": false,
+  "artists": []
+ },
+ {
+  "venue": "ISTORA SENAYAN, JAKARTA",
+  "address": "JL. PINTU SATU SENAYAN NO.1, RT.1/RW.3, GELORA, KECAMATAN TANAH ABANG, KOTA JAKARTA PUSAT, DAERAH KHUSUS IBUKOTA JAKARTA 10270",
+  "wilayah": "Jakarta Pusat",
+  "lat": -6.220338,
+  "lon": 106.80575,
+  "eventCount": 10,
+  "events": [
+   {
+    "nama_event": "WAVE TO EARTH - PLAY WITH EARTH 0.03 WORLD TOUR",
+    "periode": "2025"
+   },
+   {
+    "nama_event": "YOASOBI ASIA TOUR IN JAKARTA 2025",
+    "periode": "2025"
+   },
+   {
+    "nama_event": "BOYNEXTDOOR TOUR 'KNOCK ON VOL. 1' IN JAKARTA",
+    "periode": "2025"
+   },
+   {
+    "nama_event": "DISNEY ON ICE FIND YOUR HERO",
+    "periode": "2025"
+   },
+   {
+    "nama_event": "BOYZ II MEN & KAHITNA LIVE IN JAKARTA",
+    "periode": "2025"
+   },
+   {
+    "nama_event": "ALLO BANK FESTIVAL",
+    "periode": "2025"
+   },
+   {
+    "nama_event": "NANCY AJRAM LIVE IN JAKARTA",
+    "periode": "2025"
+   },
+   {
+    "nama_event": "MAHER ZAIN LIVE IN CONCERT - INDONESIA TOUR",
+    "periode": "2025"
+   },
+   {
+    "nama_event": "20TH YEAR ANNIVERSARY A SECONHAND SYMPHONY",
+    "periode": "2025"
+   },
+   {
+    "nama_event": "JAKCLOTH 2025",
+    "periode": "2025"
+   }
+  ],
+  "gold": false,
+  "artists": []
+ },
+ {
+  "venue": "MANTRA PIK, JAKARTA",
+  "address": "SHIPYARD UNIT 18, KAWASAN PANTAI KITA, JALAN PEJAPI, KAMAL MUARA, KECAMATAN PENJARINGAN, JKT UTARA, DAERAH KHUSUS IBUKOTA JAKARTA 14470",
+  "wilayah": "Jakarta Utara",
+  "lat": -6.087121,
+  "lon": 106.729581,
+  "eventCount": 9,
+  "events": [
+   {
+    "nama_event": "HALOS PRESENT PERFORMANCE ADRIAN LEE",
+    "periode": "2025"
+   },
+   {
+    "nama_event": "DJ AMBER NA",
+    "periode": "2025"
+   },
+   {
+    "nama_event": "DJ RAM",
+    "periode": "2025"
+   },
+   {
+    "nama_event": "DJ OMNIA",
+    "periode": "2025"
+   },
+   {
+    "nama_event": "DJ GUISEPPE OTTAVIANI",
+    "periode": "2025"
+   },
+   {
+    "nama_event": "DJ WUKONG",
+    "periode": "2025"
+   },
+   {
+    "nama_event": "POLICE IN PARIS",
+    "periode": "2025"
+   },
+   {
+    "nama_event": "DJ EXIS",
+    "periode": "2025"
+   },
+   {
+    "nama_event": "DIWALI NIGHT DJ",
+    "periode": "2025"
+   }
+  ],
+  "gold": false,
+  "artists": []
+ },
+ {
+  "venue": "ZOO SCBD, JAKARTA",
+  "address": "JL. JEND. SUDIRMAN KAV 52-53 NO.LOT 14, SENAYAN, KEC. KBY. BARU, JAKARTA, DAERAH KHUSUS IBUKOTA JAKARTA 12190",
+  "wilayah": "Jakarta Selatan",
+  "lat": -6.223685,
+  "lon": 106.808612,
+  "eventCount": 9,
+  "events": [
+   {
+    "nama_event": "DJ KATAYANAGI TWINS",
+    "periode": "2025"
+   },
+   {
+    "nama_event": "DJ CHANGING CURRENTS",
+    "periode": "2025"
+   },
+   {
+    "nama_event": "DJ JAZMINE NIKITTA",
+    "periode": "2025"
+   },
+   {
+    "nama_event": "DJ CHAMOS",
+    "periode": "2025"
+   },
+   {
+    "nama_event": "DJ NEMS",
+    "periode": "2025"
+   },
+   {
+    "nama_event": "DJ BRII",
+    "periode": "2025"
+   },
+   {
+    "nama_event": "DJ BRONKA",
+    "periode": "2025"
+   },
+   {
+    "nama_event": "DJ FRANCHISE",
+    "periode": "2025"
+   },
+   {
+    "nama_event": "DJ TERA KORA",
+    "periode": "2025"
+   }
+  ],
+  "gold": false,
+  "artists": []
+ },
+ {
+  "venue": "BEACH CITY INTERNATIONAL STADIUM, JAKARTA",
+  "address": "BEACH CITY INTERNATIONAL STADIUM, JL. KW. WISATA ANCOL, ANCOL, PADEMANGAN, NORTH JAKARTA CITY, JAKARTA 14430",
+  "wilayah": "Jakarta Utara",
+  "lat": -6.117558,
+  "lon": 106.85814,
+  "eventCount": 7,
+  "events": [
+   {
+    "nama_event": "THE CORRS FROM JAKARTA WITH LOVE",
+    "periode": "2025"
+   },
+   {
+    "nama_event": "NIKI : WORLD BUZZ TOUR",
+    "periode": "2025"
+   },
+   {
+    "nama_event": "CIGARETTES AFTER SEX",
+    "periode": "2025"
+   },
+   {
+    "nama_event": "KONSER MUSIK POP VIRTUAL KOREA (PLAVE)",
+    "periode": "2025"
+   },
+   {
+    "nama_event": "BABYFACE LIVE IN JAKARTA 2025",
+    "periode": "2025"
+   },
+   {
+    "nama_event": "SCREAM OR DANCE",
+    "periode": "2025"
+   },
+   {
+    "nama_event": "RICH BRIAN : WHERE IS MY HEAD?",
+    "periode": "2025"
+   }
+  ],
+  "gold": false,
+  "artists": []
+ },
+ {
+  "venue": "INDONESIA ARENA, JAKARTA",
+  "address": "JL. PINTU SATU SENAYAN, RT.1/RW.3, GELORA, KECAMATAN TANAH ABANG, KOTA JAKARTA PUSAT, DAERAH KHUSUS IBUKOTA JAKARTA 10270",
+  "wilayah": "Jakarta Pusat",
+  "lat": -6.214829,
+  "lon": 106.800522,
+  "eventCount": 6,
+  "events": [
+   {
+    "nama_event": "NCT 127 4TH TOUR \"NEO CITY : JAKARTA - THE MOMENTUM\"",
+    "periode": "2025"
+   },
+   {
+    "nama_event": "G-DRAGON 2025 WORLD TOUR [UBERMENSCH] IN JAKARTA",
+    "periode": "2025"
+   },
+   {
+    "nama_event": "KOSTCON - KOREAN OST CONCERT IN JAKARTA",
+    "periode": "2025"
+   },
+   {
+    "nama_event": "DOH KYUNG SOO ASIA CONCERT TOUR IN JAKARTA 2025 - DO IT",
+    "periode": "2025"
+   },
+   {
+    "nama_event": "TAEYON CONCERT - THE TENSE IN JAKARTA",
+    "periode": "2025"
+   },
+   {
+    "nama_event": "J-HOPE TOUR 'HOPE ON THE STAGE' IN JAKARTA",
+    "periode": "2025"
+   }
+  ],
+  "gold": false,
+  "artists": []
+ },
+ {
+  "venue": "LUCY IN THE SKY SCBD, JAKARTA",
+  "address": "FAIRGROUNDS BUILDING, JL. JEND. SUDIRMAN KAV 52-53 NO.LOT 14, RT.5/RW.3, SENAYAN, KEBAYORAN BARU, SOUTH JAKARTA CITY, JAKARTA 12190",
+  "wilayah": "Jakarta Selatan",
+  "lat": -6.226771,
+  "lon": 106.806954,
+  "eventCount": 6,
+  "events": [
+   {
+    "nama_event": "DJ BABY J",
+    "periode": "2025"
+   },
+   {
+    "nama_event": "DJ ZEE 2",
+    "periode": "2025"
+   },
+   {
+    "nama_event": "HOMECOMMING : JAILO",
+    "periode": "2025"
+   },
+   {
+    "nama_event": "DJ BADDIEJUICE",
+    "periode": "2025"
+   },
+   {
+    "nama_event": "DJ RICHTANNER",
+    "periode": "2025"
+   },
+   {
+    "nama_event": "HOMECOMMING : ALE ROSSI",
+    "periode": "2025"
+   }
+  ],
+  "gold": false,
+  "artists": []
+ },
+ {
+  "venue": "THE SWILLHOUSE, JAKARTA",
+  "address": "FAIRGROUNDS, SCBD LOT, JL. JENDERAL SUDIRMAN NO.14, RT.5/RW.3, SENAYAN, KEC. KBY. BARU, KOTA JAKARTA SELATAN, DAERAH KHUSUS IBUKOTA JAKARTA 12190",
+  "wilayah": "Jakarta Selatan",
+  "lat": -6.228528,
+  "lon": 106.827155,
+  "eventCount": 6,
+  "events": [
+   {
+    "nama_event": "DJ JXL",
+    "periode": "2025"
+   },
+   {
+    "nama_event": "DJ EJ X YIDA",
+    "periode": "2025"
+   },
+   {
+    "nama_event": "DJ JUDO",
+    "periode": "2025"
+   },
+   {
+    "nama_event": "DJ 6K",
+    "periode": "2025"
+   },
+   {
+    "nama_event": "DJ SEA RAE",
+    "periode": "2025"
+   },
+   {
+    "nama_event": "DJ PASS THE MIC",
+    "periode": "2025"
+   }
+  ],
+  "gold": false,
+  "artists": []
+ },
+ {
+  "venue": "56 BOUTIQUE BAR, JAKARTA",
+  "address": "JL. SURYO NO.56, RW. BAR., KEC. KBY. BARU, KOTA JAKARTA SELATAN, DAERAH KHUSUS IBUKOTA JAKARTA 12180",
+  "wilayah": "Jakarta Selatan",
+  "lat": -6.22743,
+  "lon": 106.824397,
+  "eventCount": 5,
+  "events": [
+   {
+    "nama_event": "DJ JXL",
+    "periode": "2025"
+   },
+   {
+    "nama_event": "DJ DCR MILDA",
+    "periode": "2025"
+   },
+   {
+    "nama_event": "DJ BADDIEJUICE",
+    "periode": "2025"
+   },
+   {
+    "nama_event": "DJ PATRICK MORDI",
+    "periode": "2025"
+   },
+   {
+    "nama_event": "DJ MINA",
+    "periode": "2025"
+   }
+  ],
+  "gold": false,
+  "artists": []
+ },
+ {
+  "venue": "BALI UNITED STUDIO, JAKARTA",
+  "address": "JL. DURI UTAMA RAYA NO.43, RT.11/RW.7, DURI KEPA, KEC. KB. JERUK, KOTA JAKARTA BARAT, DAERAH KHUSUS IBUKOTA JAKARTA 11510",
+  "wilayah": "Jakarta Barat",
+  "lat": -6.181659,
+  "lon": 106.767605,
+  "eventCount": 4,
+  "events": [
+   {
+    "nama_event": "TOTAL CHAOS LIVE IN JAKARTA",
+    "periode": "2025"
+   },
+   {
+    "nama_event": "CENTIMILIMENTAL ASIA TOUR 2025 RIBBON IN JAKARTA",
+    "periode": "2025"
+   },
+   {
+    "nama_event": "THY ARTS IS MURDER",
+    "periode": "2025"
+   },
+   {
+    "nama_event": "SUNAMI - OUTTA POCKET LIVE IN JAKARTA",
+    "periode": "2025"
+   }
+  ],
+  "gold": false,
+  "artists": []
+ },
+ {
+  "venue": "H CLUB, JAKARTA",
+  "address": "JL. ARAH SENOPATI/DISTRICT VIII JL. SCBD NO.19, SENAYAN, KEC. KBY. BARU, KOTA JAKARTA SELATAN, DAERAH KHUSUS IBUKOTA JAKARTA 12190A",
+  "wilayah": "Jakarta Selatan",
+  "lat": -6.227652,
+  "lon": 106.811161,
+  "eventCount": 4,
+  "events": [
+   {
+    "nama_event": "LIVE MUSIC / PERFORMANCE WUKONG",
+    "periode": "2025"
+   },
+   {
+    "nama_event": "LIVE MUSIK/PERFORMANCE SIANGYOO",
+    "periode": "2025"
+   },
+   {
+    "nama_event": "LIVE MUSIK/PERFORMANCE INQUISTIVE",
+    "periode": "2025"
+   },
+   {
+    "nama_event": "DJ WUKONG",
+    "periode": "2025"
+   }
+  ],
+  "gold": false,
+  "artists": []
+ },
+ {
+  "venue": "JAKARTA CONCERT HALL",
+  "address": "INEWS TOWER, 14TH - 15TH FLOOR, RW.7, KB. SIRIH, KEC. MENTENG, KOTA JAKARTA PUSAT, DAERAH KHUSUS IBUKOTA JAKARTA 10340",
+  "wilayah": "Jakarta Pusat",
+  "lat": -6.215342,
+  "lon": 106.807273,
+  "eventCount": 4,
+  "events": [
+   {
+    "nama_event": "AILEE: ASCEND, LIVE IN JAKARTA",
+    "periode": "2025"
+   },
+   {
+    "nama_event": "BALLET SOUNDTRACK SHOW WITH ORCHESTRA",
+    "periode": "2025"
+   },
+   {
+    "nama_event": "WETV CHUANG ASIA MINI TOUR 2025",
+    "periode": "2025"
+   },
+   {
+    "nama_event": "BALLET SOUNDTRACK SHOW 2",
+    "periode": "2025"
+   }
+  ],
+  "gold": false,
+  "artists": []
+ },
+ {
+  "venue": "THE H CLUB, JAKARTA",
+  "address": "JL. JEND. SUDIRMAN KAV 52-53 JL. SCBD NO.LOT 19, SENAYAN, KEC. KBY. BARU, KOTA JAKARTA SELATAN, DAERAH KHUSUS IBUKOTA JAKARTA 12190 JAKARTA",
+  "wilayah": "Jakarta Selatan",
+  "lat": -6.227652,
+  "lon": 106.811161,
+  "eventCount": 4,
+  "events": [
+   {
+    "nama_event": "LIVE MUSIC/PERFORMANCE GHETTO & KRISHA",
+    "periode": "2025"
+   },
+   {
+    "nama_event": "LIVE MUSIC/PERFORMANCE DUBVISION",
+    "periode": "2025"
+   },
+   {
+    "nama_event": "DJ ALEC M.O.R.P.H",
+    "periode": "2025"
+   },
+   {
+    "nama_event": "DJ IAN ASHER",
+    "periode": "2025"
+   }
+  ],
+  "gold": false,
+  "artists": []
+ },
+ {
+  "venue": "VAULT JAKARTA",
+  "address": "MULTIVISION TOWER, 25TH FLOOR (LANTAI 25, JL. KUNINGAN MULIA LOT 9B, KARET KUNINGAN, KECAMATAN SETIABUDI, KOTA JAKARTA SELATAN, DAERAH KHUSUS IBUKOTA JAKARTA 12980",
+  "wilayah": "Jakarta Barat",
+  "lat": -6.178419,
+  "lon": 106.78036,
+  "eventCount": 4,
+  "events": [
+   {
+    "nama_event": "DJ OROSA",
+    "periode": "2025"
+   },
+   {
+    "nama_event": "DJ ELEXANDOM",
+    "periode": "2025"
+   },
+   {
+    "nama_event": "DJ JOE LOBEL",
+    "periode": "2025"
+   },
+   {
+    "nama_event": "DJ JOHNNY 500",
+    "periode": "2025"
+   }
+  ],
+  "gold": false,
+  "artists": []
+ },
+ {
+  "venue": "BENGKEL SPACE SCBD, JAKARTA",
+  "address": "QRF5+72R, FAIRGROUNDS SCBD LOT 14, JL. JEND. SUDIRMAN KAV 52-53, RT.5/RW.3, SENAYAN, KEC. KBY. BARU, KOTA JAKARTA SELATAN, DAERAH KHUSUS IBUKOTA JAKARTA 12190",
+  "wilayah": "Jakarta Selatan",
+  "lat": -6.227896,
+  "lon": 106.805891,
+  "eventCount": 3,
+  "events": [
+   {
+    "nama_event": "DJ ANDY PURNELL",
+    "periode": "2025"
+   },
+   {
+    "nama_event": "HAMMERCLASH 2025",
+    "periode": "2025"
+   },
+   {
+    "nama_event": "ELEPHANT KIND LIVE IN INDONESIA",
+    "periode": "2025"
+   }
+  ],
+  "gold": false,
+  "artists": []
+ },
+ {
+  "venue": "GEDUNG KESENIAN JAKARTA",
+  "address": "PASAR BARU, SAWAH BESAR, CENTRAL JAKARTA CITY, JAKARTA 10710",
+  "wilayah": "Jakarta Pusat",
+  "lat": -6.161764,
+  "lon": 106.832525,
+  "eventCount": 3,
+  "events": [
+   {
+    "nama_event": "AN EVENING WITH GEORGE HARLIONO",
+    "periode": "2025"
+   },
+   {
+    "nama_event": "HABIS GELAP TERBITLAH TERANG",
+    "periode": "2025"
+   },
+   {
+    "nama_event": "MUSICAL TANGO KARTINI 2025",
+    "periode": "2025"
+   }
+  ],
+  "gold": false,
+  "artists": []
+ },
+ {
+  "venue": "JIEXPO THEATRE JAKARTA",
+  "address": "VR3W+3C4, JALAN HAJI BENYAMIN SUEB ARENA JIEXPO KEMAYORAN KELURAHAN :, ARENA PEKAN RAYA JKT - KEMAYORAN, JL. H. BENYAMIN SUEB, RW.10, PADEMANGAN TIM., KEC. KEMAYORAN, JKT UTARA, DAERAH KHUSUS IBUKOTA JAKARTA 10620",
+  "wilayah": "Jakarta Utara",
+  "lat": -6.148047,
+  "lon": 106.847255,
+  "eventCount": 3,
+  "events": [
+   {
+    "nama_event": "YOO YEON SEOK FANMEETING IN JAKARTA 2025",
+    "periode": "2025"
+   },
+   {
+    "nama_event": "LIBERA LIVE IN JAKARTA",
+    "periode": "2025"
+   },
+   {
+    "nama_event": "PIANO RECITAL - ADAM GYORGY",
+    "periode": "2025"
+   }
+  ],
+  "gold": false,
+  "artists": []
+ },
+ {
+  "venue": "LYN SKYLOUNGE, JAKARTA",
+  "address": "SOHO RODEO DRIVE.10-15, EBONY II FLOOR R, JKT UTARA, DAERAH KHUSUS IBUKOTA JAKARTA 14470",
+  "wilayah": "Jakarta Pusat",
+  "lat": -6.168864,
+  "lon": 106.811141,
+  "eventCount": 3,
+  "events": [
+   {
+    "nama_event": "DJ CINDY AT LYN SKYLOUNGE",
+    "periode": "2025"
+   },
+   {
+    "nama_event": "DJ ECHO & MC YALING AT LYN SKYLOUNGE",
+    "periode": "2025"
+   },
+   {
+    "nama_event": "HALLOWEEN EVENT",
+    "periode": "2025"
+   }
+  ],
+  "gold": false,
+  "artists": []
+ },
+ {
+  "venue": "ROSE, JAKARTA",
+  "address": "JL. SULAIMAN NO.79 A 6, RT.6/RW.3, SUKABUMI UTARA, KEC. KB. JERUK, KOTA JAKARTA BARAT, DAERAH KHUSUS IBUKOTA JAKARTA 11540",
+  "wilayah": "Jakarta Timur",
+  "lat": -6.350088,
+  "lon": 106.868166,
+  "eventCount": 3,
+  "events": [
+   {
+    "nama_event": "FIFTY SIX BOUTIQUE BAR",
+    "periode": "2025"
+   },
+   {
+    "nama_event": "DJ BBYMIA",
+    "periode": "2025"
+   },
+   {
+    "nama_event": "DJ TYE TURNER",
+    "periode": "2025"
+   }
+  ],
+  "gold": false,
+  "artists": []
+ },
+ {
+  "venue": "ZOO, JAKARTA",
+  "address": "JL. JEND. SUDIRMAN KAV 52-53 NO.LOT 14, SENAYAN, KEC. KBY. BARU, JAKARTA, DAERAH KHUSUS IBUKOTA JAKARTA 12190",
+  "wilayah": "Jakarta Selatan",
+  "lat": -6.311406,
+  "lon": 106.82169,
+  "eventCount": 3,
+  "events": [
+   {
+    "nama_event": "DJ HAIVAI B",
+    "periode": "2025"
+   },
+   {
+    "nama_event": "DJ WILDEALER",
+    "periode": "2025"
+   },
+   {
+    "nama_event": "DJ JOEL LOBEL",
+    "periode": "2025"
+   }
+  ],
+  "gold": false,
+  "artists": []
+ },
+ {
+  "venue": "AMBYAR SUPERCLUB, JAKARTA",
+  "address": "JL. CIKINI RAYA NO.8, CIKINI, KEC. MENTENG, KOTA JAKARTA PUSAT, DAERAH KHUSUS IBUKOTA JAKARTA 10330",
+  "wilayah": "Jakarta Selatan",
+  "lat": -6.305258,
+  "lon": 106.802955,
+  "eventCount": 2,
+  "events": [
+   {
+    "nama_event": "LIVE MUSIC/PERFORMANCE KATTY BUTTERFLY",
+    "periode": "2025"
+   },
+   {
+    "nama_event": "LIVE MUSIC/PERFORMANCE KATY BUTTERFLY",
+    "periode": "2025"
+   }
+  ],
+  "gold": false,
+  "artists": []
+ },
+ {
+  "venue": "BALAI SARBINI HALL, JAKARTA",
+  "address": "JL. JEND. SUDIRMAN NO.KAV. 50 1, RT.1/RW.4, KARET SEMANGGI, KECAMATAN SETIABUDI, KOTA JAKARTA SELATAN, DAERAH KHUSUS IBUKOTA JAKARTA 10220",
+  "wilayah": "Jakarta Pusat",
+  "lat": -6.166307,
+  "lon": 106.840069,
+  "eventCount": 2,
+  "events": [
+   {
+    "nama_event": "HELLO BOYSSS ASIA TOUR IN JAKARTA",
+    "periode": "2025"
+   },
+   {
+    "nama_event": "RYOKUOUSHOKU SHAKAI ASIA TOUR 2025",
+    "periode": "2025"
+   }
+  ],
+  "gold": false,
+  "artists": []
+ },
+ {
+  "venue": "BALLROOM HOTEL PULLMAN CENTRAL PARK, JAKARTA",
+  "address": "PODOMORO CITY JL. LET. JEND S PARMAN KAV 28, JAKARTA BARAT, JAKARTA, 11470",
+  "wilayah": "Jakarta Barat",
+  "lat": -6.178563,
+  "lon": 106.789043,
+  "eventCount": 2,
+  "events": [
+   {
+    "nama_event": "BOYCE AVENUE LIVE IN JAKARTA",
+    "periode": "2025"
+   },
+   {
+    "nama_event": "COCOMELON SING A SONG LIVE",
+    "periode": "2025"
+   }
+  ],
+  "gold": false,
+  "artists": []
+ },
+ {
+  "venue": "BASKET HALL, GBK, JAKARTA",
+  "address": "JL. PINTU SATU SENAYAN NO.1, RT.1/RW.3, GELORA, KECAMATAN TANAH ABANG, KOTA JAKARTA PUSAT, DAERAH KHUSUS IBUKOTA JAKARTA 10270",
+  "wilayah": "Jakarta Pusat",
+  "lat": -6.215299,
+  "lon": 106.798219,
+  "eventCount": 2,
+  "events": [
+   {
+    "nama_event": "2025 STAYC TOUR : \"STAY TUNED\"",
+    "periode": "2025"
+   },
+   {
+    "nama_event": "THE 1/9 TOUR BY EAJ",
+    "periode": "2025"
+   }
+  ],
+  "gold": false,
+  "artists": []
+ },
+ {
+  "venue": "CHAO CHAO ROOFTOP",
+  "address": "SCBD LOT 11, JL. JEND. SUDIRMAN, JAKARTA, DAERAH KHUSUS IBUKOTA JAKARTA 12910",
+  "wilayah": "Jakarta Timur",
+  "lat": -6.19165,
+  "lon": 106.877841,
+  "eventCount": 2,
+  "events": [
+   {
+    "nama_event": "LIVE MUSIC/PERFORMANCE JONAS BLUE",
+    "periode": "2025"
+   },
+   {
+    "nama_event": "LIVE MUSIC/PERFORMANCE JOEL CORRY",
+    "periode": "2025"
+   }
+  ],
+  "gold": false,
+  "artists": []
+ },
+ {
+  "venue": "CIPUTRA ARTPRENEUR, JAKARTA",
+  "address": "JL. PROF. DR. SATRIO KAV. 3-5 CIPUTRA WORLD 1, RETAIL PODIUM, RT.18/RW.4, KUNINGAN, KARET KUNINGAN, KOTA JAKARTA SELATAN, DAERAH KHUSUS IBUKOTA JAKARTA 12940",
+  "wilayah": "Jakarta Barat",
+  "lat": -6.168228,
+  "lon": 106.786638,
+  "eventCount": 2,
+  "events": [
+   {
+    "nama_event": "DEMON SLAYER IN CONCERT",
+    "periode": "2025"
+   },
+   {
+    "nama_event": "STARDEW VALLEY : FESTIVAL OF SEASONS",
+    "periode": "2025"
+   }
+  ],
+  "gold": false,
+  "artists": []
+ },
+ {
+  "venue": "CLUB 36, JAKARTA",
+  "address": "THE JAYAKARTA SP JAKARTA HOTEL & SPA JALAN HAYAM WURUK 126 GLODOK, RT.2/RW.6, MANGGA BESAR, KEC. TAMAN SARI, KOTA JAKARTA BARAT, DAERAH KHUSUS IBUKOTA JAKARTA 11180",
+  "wilayah": "Jakarta Timur",
+  "lat": -6.177376,
+  "lon": 106.956401,
+  "eventCount": 2,
+  "events": [
+   {
+    "nama_event": "DJ AMBER NA",
+    "periode": "2025"
+   },
+   {
+    "nama_event": "WE ARE SPLENDID",
+    "periode": "2025"
+   }
+  ],
+  "gold": false,
+  "artists": []
+ },
+ {
+  "venue": "ECOVENTION HALL ANCOL, JAKARTA",
+  "address": "JL. LODAN TIMUR NO.7, RW.10, ANCOL, KEC. PADEMANGAN, JKT UTARA, DAERAH KHUSUS IBUKOTA JAKARTA 14430",
+  "wilayah": "Jakarta Utara",
+  "lat": -6.127398,
+  "lon": 106.837337,
+  "eventCount": 2,
+  "events": [
+   {
+    "nama_event": "M2M \"THE BETTER ENDINGS TOUR 2025\"",
+    "periode": "2025"
+   },
+   {
+    "nama_event": "10TH ANNIVERSARY OF HAMMERSONIC: SAOSIN \"INDONESIA TOUR 2025\"",
+    "periode": "2025"
+   }
+  ],
+  "gold": false,
+  "artists": []
+ },
+ {
+  "venue": "GAMBIR EXPO, JAKARTA",
+  "address": "VR4W+GQH, JL. BENYAMIN SUAEB, PADEMANGAN TIM., KEC. PADEMANGAN, JKT UTARA, DAERAH KHUSUS IBUKOTA JAKARTA 14410",
+  "wilayah": "Jakarta Utara",
+  "lat": -6.143973,
+  "lon": 106.847079,
+  "eventCount": 2,
+  "events": [
+   {
+    "nama_event": "PESTAPORA 2025",
+    "periode": "2025"
+   },
+   {
+    "nama_event": "SOUNDFEST 2025",
+    "periode": "2025"
+   }
+  ],
+  "gold": false,
+  "artists": []
+ },
+ {
+  "venue": "JAKARTA INTERNATIONAL CONVENTION CENTER, JAKARTA",
+  "address": "JL. GATOT SUBROTO, RT.1/RW.3, GELORA, KECAMATAN TANAH ABANG, KOTA JAKARTA PUSAT, DAERAH KHUSUS IBUKOTA JAKARTA 10270",
+  "wilayah": "Jakarta Pusat",
+  "lat": -6.214395,
+  "lon": 106.807103,
+  "eventCount": 2,
+  "events": [
+   {
+    "nama_event": "INTERNATIONAL MEDICAL WELLNESS TOURISM EXPO & IVF FESTIVAL (IMWTE) 2025",
+    "periode": "2025"
+   },
+   {
+    "nama_event": "ANIME FESTIVAL ASIA 2025 IN JAKARTA",
+    "periode": "2025"
+   }
+  ],
+  "gold": false,
+  "artists": []
+ },
+ {
+  "venue": "JIEXPO KEMAYORAN, JAKARTA",
+  "address": "RW.10, PADEMANGAN TIM., KEC. PADEMANGAN, KOTA JAKARTA PUSAT, DAERAH KHUSUS IBUKOTA JAKARTA 14410",
+  "wilayah": "Jakarta Utara",
+  "lat": -6.144836,
+  "lon": 106.848663,
+  "eventCount": 2,
+  "events": [
+   {
+    "nama_event": "JAVA JAZZ FESTIVAL 2025",
+    "periode": "2025"
+   },
+   {
+    "nama_event": "THE SMASHING PUMPKINS - ROCK INVASION 2025 TOUR IN JAKARTA",
+    "periode": "2025"
+   }
+  ],
+  "gold": false,
+  "artists": []
+ },
+ {
+  "venue": "KASABLANKA HALL, JAKARTA",
+  "address": "KOTA KASABLANKA, JL. RAYA CASABLANCA NO.RAYA LT. 3, RT.3/RW.14, MENTENG DALAM, KEC. TEBET, KOTA JAKARTA SELATAN, DAERAH KHUSUS IBUKOTA JAKARTA 12870",
+  "wilayah": "Jakarta Selatan",
+  "lat": -6.222252,
+  "lon": 106.844419,
+  "eventCount": 2,
+  "events": [
+   {
+    "nama_event": "FLOW ANIME SHIBARI 2024 - 2025",
+    "periode": "2025"
+   },
+   {
+    "nama_event": "LIVE MUSIC/PERFORMANCE KT&G SANGSANG FESTIVAL 2025",
+    "periode": "2025"
+   }
+  ],
+  "gold": false,
+  "artists": []
+ },
+ {
+  "venue": "KYRO RESTO & BAR",
+  "address": "PACIFIC PLACE MALL, JL. JEND. SUDIRMAN KAV 52-53 UNIT G-05 GROUND LEVEL, SENAYAN, KEBAYORAN BARU, SOUTH JAKARTA CITY, JAKARTA 12190",
+  "wilayah": "Jakarta Pusat",
+  "lat": -6.184055,
+  "lon": 106.830398,
+  "eventCount": 2,
+  "events": [
+   {
+    "nama_event": "DIA DE LOS VIVOS DE KYRO",
+    "periode": "2025"
+   },
+   {
+    "nama_event": "PRESENT TSS CRAIG DAVID",
+    "periode": "2025"
+   }
+  ],
+  "gold": false,
+  "artists": []
+ },
+ {
+  "venue": "LAGUNA ATRIUM CENTRAL PARK MALL, JAKARTA",
+  "address": "JL. LETJEN S. PARMAN NO.RT.12 12, RT.12/RW.1, TJ. DUREN SEL., KEC. GROGOL PETAMBURAN, KOTA JAKARTA BARAT, DAERAH KHUSUS IBUKOTA JAKARTA 11470",
+  "wilayah": "Jakarta Barat",
+  "lat": -6.177047,
+  "lon": 106.790171,
+  "eventCount": 2,
+  "events": [
+   {
+    "nama_event": "THAILAND WEEK 2025",
+    "periode": "2025"
+   },
+   {
+    "nama_event": "MEET & GREET WITH JUDY & NICK - DISNEY' ZOOTOPIA",
+    "periode": "2025"
+   }
+  ],
+  "gold": false,
+  "artists": []
+ },
+ {
+  "venue": "LIL TIGER X, SCBD",
+  "address": "KAWASAN SCBD, JL. JEND. SUDIRMAN KAV 52-53 NO.LOT 19, SENAYAN, KEC. KBY. BARU, KOTA JAKARTA SELATAN, DAERAH KHUSUS IBUKOTA JAKARTA 12190",
+  "wilayah": "Jakarta Selatan",
+  "lat": -6.2273,
+  "lon": 106.811035,
+  "eventCount": 2,
+  "events": [
+   {
+    "nama_event": "LIVE MUSIC / PERFORMANCE DJ LEX",
+    "periode": "2025"
+   },
+   {
+    "nama_event": "LIVE MUSIC PERFORMANCE DJ KIARA ASHLEY",
+    "periode": "2025"
+   }
+  ],
+  "gold": false,
+  "artists": []
+ },
+ {
+  "venue": "LOTTE SHOPPING AVENUE MALL, JAKARTA",
+  "address": "JL. PROF. DR. SATRIO NO.KAV 3, RT.17/RW.4, KUNINGAN, KARET KUNINGAN, KECAMATAN SETIABUDI, KOTA JAKARTA SELATAN, DAERAH KHUSUS IBUKOTA JAKARTA 12940",
+  "wilayah": "Jakarta Selatan",
+  "lat": -6.224347,
+  "lon": 106.823257,
+  "eventCount": 2,
+  "events": [
+   {
+    "nama_event": "LIVE MUSIC / PERFORMANCE FANSIGN TZI XUAN",
+    "periode": "2025"
+   },
+   {
+    "nama_event": "LIVE MUSIK/PERFORMANCE FINSIGN INFLUENCER WYNN",
+    "periode": "2025"
+   }
+  ],
+  "gold": false,
+  "artists": []
+ },
+ {
+  "venue": "MGP SPACE SCBD PARK, JAKARTA",
+  "address": "SCBD PARK, JL. JEND. SUDIRMAN KAV 52-53, SENAYAN, KEBAYORAN BARU, SOUTH JAKARTA CITY, JAKARTA 12190",
+  "wilayah": "Jakarta Selatan",
+  "lat": -6.224767,
+  "lon": 106.809851,
+  "eventCount": 2,
+  "events": [
+   {
+    "nama_event": "AKB 2ND FAN MEETING IN JAKARTA WITH JKT48",
+    "periode": "2025"
+   },
+   {
+    "nama_event": "TIKTOK RISING STAR 2025",
+    "periode": "2025"
+   }
+  ],
+  "gold": false,
+  "artists": []
+ },
+ {
+  "venue": "MOA BAR, JAKARTA",
+  "address": "JL. PANGERAN ANTASARI NO.9-B 13, RT.3/RW.6, CIPETE SEL., KEC. CILANDAK, KOTA JAKARTA SELATAN, DAERAH KHUSUS IBUKOTA JAKARTA 12510",
+  "wilayah": "Jakarta Barat",
+  "lat": -6.161569,
+  "lon": 106.743891,
+  "eventCount": 2,
+  "events": [
+   {
+    "nama_event": "GLASLOOP REPTANT",
+    "periode": "2025"
+   },
+   {
+    "nama_event": "DJ DICA",
+    "periode": "2025"
+   }
+  ],
+  "gold": false,
+  "artists": []
+ },
+ {
+  "venue": "PANTJA BAR, JAKARTA",
+  "address": "JL. SENOPATI NO.37, SENAYAN, KEC. KBY. BARU, JAKARTA, DAERAH KHUSUS IBUKOTA JAKARTA 12190",
+  "wilayah": "Jakarta Selatan",
+  "lat": -6.230902,
+  "lon": 106.809095,
+  "eventCount": 2,
+  "events": [
+   {
+    "nama_event": "DJ CRAZE & DJ SHORKUT",
+    "periode": "2025"
+   },
+   {
+    "nama_event": "DJ DARYL KNOWS",
+    "periode": "2025"
+   }
+  ],
+  "gold": false,
+  "artists": []
+ },
+ {
+  "venue": "SECTOR JAKARTA",
+  "address": "JL. MERPATI IV NO.8 BLOK P3, RT.6/RW.8, BINTARO, KEC. PESANGGRAHAN, KOTA JAKARTA SELATAN, DAERAH KHUSUS IBUKOTA JAKARTA 12330",
+  "wilayah": "Jakarta Pusat",
+  "lat": -6.175405,
+  "lon": 106.827168,
+  "eventCount": 2,
+  "events": [
+   {
+    "nama_event": "DJ HYSTA",
+    "periode": "2025"
+   },
+   {
+    "nama_event": "DJ JOHNATHON DUY NGUYEN",
+    "periode": "2025"
+   }
+  ],
+  "gold": false,
+  "artists": []
+ },
+ {
+  "venue": "SHANGRI-LA HOTEL, JAKARTA",
+  "address": "SHANGRI-LA JAKARTA, KOTA BNI, JL. JENDERAL SUDIRMAN NO.KAV. 1, KOTA JAKARTA PUSAT, DAERAH KHUSUS IBUKOTA JAKARTA 10220",
+  "wilayah": "Jakarta Pusat",
+  "lat": -6.203108,
+  "lon": 106.818852,
+  "eventCount": 2,
+  "events": [
+   {
+    "nama_event": "HIGH BEATS BAND AT SHANGRI-LA HOTEL JAKARTA",
+    "periode": "2025"
+   },
+   {
+    "nama_event": "SOUND MACHINE BAND AT SHANGRI-LA HOTEL JAKARTA",
+    "periode": "2025"
+   }
+  ],
+  "gold": false,
+  "artists": []
+ },
+ {
+  "venue": "STADION MADYA SENAYAN, JAKARTA",
+  "address": "QQMX+3R8, JL. ASIA AFRIKA, RT.1/RW.3, GELORA, KECAMATAN TANAH ABANG, KOTA JAKARTA SELATAN, DAERAH KHUSUS IBUKOTA JAKARTA 10270",
+  "wilayah": "Jakarta Pusat",
+  "lat": -6.218612,
+  "lon": 106.802554,
+  "eventCount": 2,
+  "events": [
+   {
+    "nama_event": "LINKIN PARK \"FROM ZERO WORLD TOUR\" 2025 IN JAKARTA",
+    "periode": "2025"
+   },
+   {
+    "nama_event": "DAY 6 3RD WORLD TOUR IN JAKARTA",
+    "periode": "2025"
+   }
+  ],
+  "gold": false,
+  "artists": []
+ },
+ {
+  "venue": "THE 21 CLUB, JAKARTA",
+  "address": "RUKO CROWN GOLF MARINA BLOK B.52-56, RT.6/RW.2, KAMAL MUARA, JKT UTARA, DAERAH KHUSUS IBUKOTA JAKARTA 14470",
+  "wilayah": "Jakarta Utara",
+  "lat": -6.155848,
+  "lon": 106.889876,
+  "eventCount": 2,
+  "events": [
+   {
+    "nama_event": "POLICE IN PARIS",
+    "periode": "2025"
+   },
+   {
+    "nama_event": "DJ NICOLE CHEN",
+    "periode": "2025"
+   }
+  ],
+  "gold": false,
+  "artists": []
+ },
+ {
+  "venue": "TOBA DREAM, JAKARTA",
+  "address": "JL. DR. SAHARJO NO.90, MENTENG ATAS, KECAMATAN SETIABUDI, KOTA JAKARTA SELATAN, DAERAH KHUSUS IBUKOTA JAKARTA 12850",
+  "wilayah": "Jakarta Selatan",
+  "lat": -6.215994,
+  "lon": 106.843507,
+  "eventCount": 2,
+  "events": [
+   {
+    "nama_event": "TOUCHE AMORE ASIA 2025",
+    "periode": "2025"
+   },
+   {
+    "nama_event": "THE RESIGNATOR INDONESIA TOUR 2025",
+    "periode": "2025"
+   }
+  ],
+  "gold": false,
+  "artists": []
+ },
+ {
+  "venue": "TRIBECA PARK - CENTRAL PARK MALL",
+  "address": "LETJEN S. PARMAN NO.28, RT.12/RW.6, TJ. DUREN SEL., KEC. GROGOL PETAMBURAN, KOTA JAKARTA BARAT, DAERAH KHUSUS IBUKOTA JAKARTA 11470",
+  "wilayah": "Jakarta Barat",
+  "lat": -6.177047,
+  "lon": 106.790171,
+  "eventCount": 2,
+  "events": [
+   {
+    "nama_event": "K-FOOD FAIR JAKARTA 2025",
+    "periode": "2025"
+   },
+   {
+    "nama_event": "THAI FESTIVAL 2025",
+    "periode": "2025"
+   }
+  ],
+  "gold": false,
+  "artists": []
+ },
+ {
+  "venue": "W SUPERCLUB, JAKARTA",
+  "address": "JL. GATOT SUBROTO NO.1003, MENTENG DALAM, KEC. TEBET, KOTA JAKARTA SELATAN, DAERAH KHUSUS IBUKOTA JAKARTA 12870",
+  "wilayah": "Jakarta Timur",
+  "lat": -6.262891,
+  "lon": 106.882229,
+  "eventCount": 2,
+  "events": [
+   {
+    "nama_event": "DJ ALEC M.O.R.P.H",
+    "periode": "2025"
+   },
+   {
+    "nama_event": "HOLYWINGS SPORT SHOW",
+    "periode": "2025"
+   }
+  ],
+  "gold": false,
+  "artists": []
+ },
+ {
+  "venue": "XXX LE MERIDIEN, JAKARTA",
+  "address": "JL. JENDERAL SUDIRMAN NO.KAV 18 - 20, KARET TENGSIN, KECAMATAN TANAH ABANG, KOTA JAKARTA PUSAT, DAERAH KHUSUS IBUKOTA JAKARTA 10220",
+  "wilayah": "Jakarta Pusat",
+  "lat": -6.213272,
+  "lon": 106.818721,
+  "eventCount": 2,
+  "events": [
+   {
+    "nama_event": "DJ SEIJI ISHIDA",
+    "periode": "2025"
+   },
+   {
+    "nama_event": "DJ SUPERNOVA",
+    "periode": "2025"
+   }
+  ],
+  "gold": false,
+  "artists": []
+ },
+ {
+  "venue": "AEON MALL GARDEN CITY, JAKARTA",
+  "address": "JL. JKT GARDEN CITY BOULEVARD NO.1, RT.8/RW.6, CAKUNG TIM., KEC. CAKUNG, KOTA JAKARTA TIMUR, DAERAH KHUSUS IBUKOTA JAKARTA 13910",
+  "wilayah": "Jakarta Timur",
+  "lat": -6.172693,
+  "lon": 106.952369,
+  "eventCount": 1,
+  "events": [
+   {
+    "nama_event": "ULTRAMAN THE HERO PREMIER 2025 IN INDONESIA",
+    "periode": "2025"
+   }
+  ],
+  "gold": false,
+  "artists": []
+ },
+ {
+  "venue": "AM LOUNGE SCBD, JAKARTA",
+  "address": "ÉLYSÉE SCBD JL. SCBD NO.21 2ND FLOOR, RT.7/RW.1, SENAYAN, KEC. KBY. BARU, KOTA JAKARTA SELATAN, DAERAH KHUSUS IBUKOTA JAKARTA 12190",
+  "wilayah": "Jakarta Selatan",
+  "lat": -6.224087,
+  "lon": 106.809539,
+  "eventCount": 1,
+  "events": [
+   {
+    "nama_event": "DJ STEVE LEVY",
+    "periode": "2025"
+   }
+  ],
+  "gold": false,
+  "artists": []
+ },
+ {
+  "venue": "ASSEMBLY HALL, JAKARTA INTERNATIONAL CONVENTION CENTER",
+  "address": "QRM4+VPP, JL. GERBANG PEMUDA, RT.1/RW.3, GELORA, KECAMATAN TANAH ABANG, KOTA JAKARTA PUSAT, DAERAH KHUSUS IBUKOTA JAKARTA 10270",
+  "wilayah": "Jakarta Pusat",
+  "lat": -6.213919,
+  "lon": 106.806718,
+  "eventCount": 1,
+  "events": [
+   {
+    "nama_event": "INDONESIA INTERNATIONAL BOOK FAIR 2025",
+    "periode": "2025"
+   }
+  ],
+  "gold": false,
+  "artists": []
+ },
+ {
+  "venue": "ATRIUM 2 LIPPO MALL PURI, JAKARTA",
+  "address": "JL. PURI INDAH RAYA, RT.3/RW.2, KEMBANGAN SEL., KEC. KEMBANGAN, KOTA JAKARTA BARAT, DAERAH KHUSUS IBUKOTA JAKARTA 11610",
+  "wilayah": "Jakarta Barat",
+  "lat": -6.186921,
+  "lon": 106.739508,
+  "eventCount": 1,
+  "events": [
+   {
+    "nama_event": "MARK & LONAS'S HOUSE PARTY WITH VVUP",
+    "periode": "2025"
+   }
+  ],
+  "gold": false,
+  "artists": []
+ },
+ {
+  "venue": "ATRIUM MALL CIPUTRA, JAKARTA",
+  "address": "JL. LETJEN S. PARMAN, RT.11/RW.1, TJ. DUREN UTARA, KEC. GROGOL PETAMBURAN, KOTA JAKARTA BARAT, DAERAH KHUSUS IBUKOTA JAKARTA 11470",
+  "wilayah": "Jakarta Barat",
+  "lat": -6.168228,
+  "lon": 106.786638,
+  "eventCount": 1,
+  "events": [
+   {
+    "nama_event": "ABRACADABRA - GALA PREMIER, PRESS CONFERENCE AND FANMEETING",
+    "periode": "2025"
+   }
+  ],
+  "gold": false,
+  "artists": []
+ },
+ {
+  "venue": "AULA SIMFONIA JAKARTA",
+  "address": "JL. INDUSTRI RAYA NO.KAV.1 BLOK B14, PADEMANGAN TIM., KEC. KEMAYORAN, KOTA JAKARTA PUSAT, DAERAH KHUSUS IBUKOTA JAKARTA 10610",
+  "wilayah": "Jakarta Pusat",
+  "lat": -6.153143,
+  "lon": 106.843288,
+  "eventCount": 1,
+  "events": [
+   {
+    "nama_event": "IN PERFECT HARMONY GEORGE HARLINO X HYESANG HERA PARK",
+    "periode": "2025"
+   }
+  ],
+  "gold": false,
+  "artists": []
+ },
+ {
+  "venue": "BALAI KARTINI, JAKARTA",
+  "address": "JL. GATOT SUBROTO NO.6 KAV. 37, RT.6/RW.3, KUNINGAN, KUNINGAN TIM., KECAMATAN SETIABUDI, KOTA JAKARTA SELATAN, DAERAH KHUSUS IBUKOTA JAKARTA 12950",
+  "wilayah": "Jakarta Selatan",
+  "lat": -6.234617,
+  "lon": 106.825379,
+  "eventCount": 1,
+  "events": [
+   {
+    "nama_event": "TOGETHER AS ONE FAN CONCERT",
+    "periode": "2025"
+   }
+  ],
+  "gold": false,
+  "artists": []
+ },
+ {
+  "venue": "BALAI SARBINI, JAKARTA",
+  "address": "JL. JEND. SUDIRMAN NO.KAV. 50 1, RT.1/RW.4, KARET SEMANGGI, KECAMATAN SETIABUDI, KOTA JAKARTA SELATAN, DAERAH KHUSUS IBUKOTA JAKARTA 10220",
+  "wilayah": "Jakarta Pusat",
+  "lat": -6.214395,
+  "lon": 106.807103,
+  "eventCount": 1,
+  "events": [
+   {
+    "nama_event": "2025 LEE CHAE MIN FAN MEETING TOUR CHAEM-INTO YOU",
+    "periode": "2025"
+   }
+  ],
+  "gold": false,
+  "artists": []
+ },
+ {
+  "venue": "BALI UNITED - JAKARTA",
+  "address": "JL. DURI UTAMA RAYA NO.43, RT.11/RW.7, DURI KEPA, KEC. KB. JERUK, KOTA JAKARTA BARAT, DAERAH KHUSUS IBUKOTA JAKARTA 11510",
+  "wilayah": "Jakarta Barat",
+  "lat": -6.181659,
+  "lon": 106.767605,
+  "eventCount": 1,
+  "events": [
+   {
+    "nama_event": "TOE : NEW ALBUM RELEASE TOUR 2025",
+    "periode": "2025"
+   }
+  ],
+  "gold": false,
+  "artists": []
+ },
+ {
+  "venue": "BALLROOM GRAND MERCURE HOTEL HARMONI, JAKARTA",
+  "address": "HAYAM WURUK ST NO.36 37, RT.14/RW.1, KEBON KELAPA, GAMBIR, JAKARTA, 10120",
+  "wilayah": "Jakarta Pusat",
+  "lat": -6.160145,
+  "lon": 106.819952,
+  "eventCount": 1,
+  "events": [
+   {
+    "nama_event": "JAKARTA INTERNATIONAL TRAVEL MART (JITM) 2025",
+    "periode": "2025"
+   }
+  ],
+  "gold": false,
+  "artists": []
+ },
+ {
+  "venue": "BEBOP BAR + KITCHEN, JAKARTA",
+  "address": "JL. SENOPATI NO.61, RT.8/RW.4, SELONG, KEC. KBY. BARU, KOTA JAKARTA SELATAN, DAERAH KHUSUS IBUKOTA JAKARTA 12110",
+  "wilayah": "Jakarta Selatan",
+  "lat": -6.230869,
+  "lon": 106.80762,
+  "eventCount": 1,
+  "events": [
+   {
+    "nama_event": "DJ ROBIN BRAUM",
+    "periode": "2025"
+   }
+  ],
+  "gold": false,
+  "artists": []
+ },
+ {
+  "venue": "BENGKEL SCBD, JAKARTA",
+  "address": "QRF5+72R, FAIRGROUNDS SCBD LOT 14, JL. JEND. SUDIRMAN KAV 52-53, RT.5/RW.3, SENAYAN, KEC. KBY. BARU, KOTA JAKARTA SELATAN, DAERAH KHUSUS IBUKOTA JAKARTA 12190",
+  "wilayah": "Jakarta Selatan",
+  "lat": -6.223685,
+  "lon": 106.808612,
+  "eventCount": 1,
+  "events": [
+   {
+    "nama_event": "DJ WUKONG",
+    "periode": "2025"
+   }
+  ],
+  "gold": false,
+  "artists": []
+ },
+ {
+  "venue": "BENGKEL SPACE, JAKARTA",
+  "address": "QRF5+72R, FAIRGROUNDS SCBD LOT 14, JL. JEND. SUDIRMAN KAV 52-53, RT.5/RW.3, SENAYAN, KEC. KBY. BARU, KOTA JAKARTA SELATAN, DAERAH KHUSUS IBUKOTA JAKARTA 12190",
+  "wilayah": "Jakarta Selatan",
+  "lat": -6.282011,
+  "lon": 106.791755,
+  "eventCount": 1,
+  "events": [
+   {
+    "nama_event": "DJ AXL",
+    "periode": "2025"
+   }
+  ],
+  "gold": false,
+  "artists": []
+ },
+ {
+  "venue": "BOCA RESTO & LOUNGE, JAKARTA",
+  "address": "JL. GATOT SUBROTO KAV. II NO.3, RT.1/RW.4, KARET SEMANGGI, KECAMATAN SETIABUDI, KOTA JAKARTA SELATAN, DAERAH KHUSUS IBUKOTA JAKARTA 12930",
+  "wilayah": "Jakarta Selatan",
+  "lat": -6.224087,
+  "lon": 106.809539,
+  "eventCount": 1,
+  "events": [
+   {
+    "nama_event": "DJ TWO BUNNIES",
+    "periode": "2025"
+   }
+  ],
+  "gold": false,
+  "artists": []
+ },
+ {
+  "venue": "BOCA RICA LOUNGE, JAKARTA",
+  "address": "JL. GATOT SUBROTO KAV. II NO.3, RT.1/RW.4, KARET SEMANGGI, KECAMATAN SETIABUDI, KOTA JAKARTA SELATAN, DAERAH KHUSUS IBUKOTA JAKARTA 12930",
+  "wilayah": "Jakarta Utara",
+  "lat": -6.145832,
+  "lon": 106.896338,
+  "eventCount": 1,
+  "events": [
+   {
+    "nama_event": "DJ JAEL & JARREAU VANDAL",
+    "periode": "2025"
+   }
+  ],
+  "gold": false,
+  "artists": []
+ },
+ {
+  "venue": "BOCA RICA, JAKARTA",
+  "address": "JL. GATOT SUBROTO KAV. II NO.3, RT.1/RW.4, KARET SEMANGGI, KECAMATAN SETIABUDI, KOTA JAKARTA SELATAN, DAERAH KHUSUS IBUKOTA JAKARTA 12930",
+  "wilayah": "Jakarta Pusat",
+  "lat": -6.205986,
+  "lon": 106.821533,
+  "eventCount": 1,
+  "events": [
+   {
+    "nama_event": "DJ JARREAU & JAEL",
+    "periode": "2025"
+   }
+  ],
+  "gold": false,
+  "artists": []
+ },
+ {
+  "venue": "BOCA, JAKARTA",
+  "address": "JL. GATOT SUBROTO KAV. II NO.3, RT.1/RW.4, KARET SEMANGGI, KECAMATAN SETIABUDI, KOTA JAKARTA SELATAN, DAERAH KHUSUS IBUKOTA JAKARTA 12930",
+  "wilayah": "Jakarta Pusat",
+  "lat": -6.175405,
+  "lon": 106.827168,
+  "eventCount": 1,
+  "events": [
+   {
+    "nama_event": "DJ LIMITLEZZ",
+    "periode": "2025"
+   }
+  ],
+  "gold": false,
+  "artists": []
+ },
+ {
+  "venue": "BULUNGAN, JAKARTA",
+  "address": "JL. BULUNGAN NO.1, RT.11/RW.7, KRAMAT PELA, KEC. KBY. BARU, KOTA JAKARTA SELATAN, DAERAH KHUSUS IBUKOTA JAKARTA 12130",
+  "wilayah": "Jakarta Selatan",
+  "lat": -6.241727,
+  "lon": 106.796108,
+  "eventCount": 1,
+  "events": [
+   {
+    "nama_event": "JAKARTA DEATH FEST 2025",
+    "periode": "2025"
+   }
+  ],
+  "gold": false,
+  "artists": []
+ },
+ {
+  "venue": "CARNAVAL ANCOL. JAKARTA",
+  "address": "VVM4+CWG, JL. PANTAI KARNAVAL ANCOL, ANCOL, KEC. PADEMANGAN, JKT UTARA, DAERAH KHUSUS IBUKOTA JAKARTA 14430",
+  "wilayah": "Jakarta Utara",
+  "lat": -6.117139,
+  "lon": 106.856217,
+  "eventCount": 1,
+  "events": [
+   {
+    "nama_event": "MUSE LIVE IN JAKARTA",
+    "periode": "2025"
+   }
+  ],
+  "gold": false,
+  "artists": []
+ },
+ {
+  "venue": "DEHENG HOUSE, JAKARTA",
+  "address": "DEHENG HOUSE, JL. TAMAN KEMANG NO.32, RT.14/RW.1, BANGKA, KEC. MAMPANG PRPT., KOTA JAKARTA SELATAN, DAERAH KHUSUS IBUKOTA JAKARTA 12150",
+  "wilayah": "Jakarta Timur",
+  "lat": -6.177376,
+  "lon": 106.956401,
+  "eventCount": 1,
+  "events": [
+   {
+    "nama_event": "JOY IN HARMONY INDONESIA TOUR",
+    "periode": "2025"
+   }
+  ],
+  "gold": false,
+  "artists": []
+ },
+ {
+  "venue": "DOME SENAYAN PARK, JAKARTA",
+  "address": "JL. GERBANG PEMUDA NO.3, RT.1/RW.3, GELORA, KECAMATAN TANAH ABANG, KOTA JAKARTA PUSAT, DAERAH KHUSUS IBUKOTA JAKARTA 10270",
+  "wilayah": "Jakarta Pusat",
+  "lat": -6.21252,
+  "lon": 106.80386,
+  "eventCount": 1,
+  "events": [
+   {
+    "nama_event": "JAKARTA MUSIC CON 2025",
+    "periode": "2025"
+   }
+  ],
+  "gold": false,
+  "artists": []
+ },
+ {
+  "venue": "ECOPARK ANCOL, JAKARTA",
+  "address": "JL. LODAN TIMUR NO.7, RW.10, ANCOL, KEC. PADEMANGAN, JKT UTARA, DAERAH KHUSUS IBUKOTA JAKARTA 14430",
+  "wilayah": "Jakarta Utara",
+  "lat": -6.125626,
+  "lon": 106.836542,
+  "eventCount": 1,
+  "events": [
+   {
+    "nama_event": "THE SOUNDS PROJECT 8",
+    "periode": "2025"
+   }
+  ],
+  "gold": false,
+  "artists": []
+ },
+ {
+  "venue": "EPICENTRUM XXI, JAKARTA",
+  "address": "JL. H. R. RASUNA SAID, RT.2/RW.5, KARET KUNINGAN, KECAMATAN SETIABUDI, KOTA JAKARTA SELATAN, DAERAH KHUSUS IBUKOTA JAKARTA 12940",
+  "wilayah": "Jakarta Selatan",
+  "lat": -6.216801,
+  "lon": 106.834752,
+  "eventCount": 1,
+  "events": [
+   {
+    "nama_event": "FANSIGN MEET EVENT XODIAC",
+    "periode": "2025"
+   }
+  ],
+  "gold": false,
+  "artists": []
+ },
+ {
+  "venue": "FOOGU BAR, JAKARTA",
+  "address": "JL. GUNAWARMAN NO.79, RW. BAR., KEC. KBY. BARU, KOTA JAKARTA SELATAN, DAERAH KHUSUS IBUKOTA JAKARTA 12110",
+  "wilayah": "Jakarta Barat",
+  "lat": -6.161569,
+  "lon": 106.743891,
+  "eventCount": 1,
+  "events": [
+   {
+    "nama_event": "LIVE MUSIC/PERFORMANCE AUTOGRAF",
+    "periode": "2025"
+   }
+  ],
+  "gold": false,
+  "artists": []
+ },
+ {
+  "venue": "GAMBIR EXPO KEMAYORAN, JAKARTA",
+  "address": "VR4W+GQH, JL. BENYAMIN SUAEB, PADEMANGAN TIM., KEC. PADEMANGAN, JKT UTARA, DAERAH KHUSUS IBUKOTA JAKARTA 14410",
+  "wilayah": "Jakarta Utara",
+  "lat": -6.143973,
+  "lon": 106.847079,
+  "eventCount": 1,
+  "events": [
+   {
+    "nama_event": "SYNCHRONIZE FESTIVAL 2025",
+    "periode": "2025"
+   }
+  ],
+  "gold": false,
+  "artists": []
+ },
+ {
+  "venue": "GEDUNG PUSAT PERFILMAN H USMAR ISMAIL, JAKARTA",
+  "address": "JL. HR RASUNA SAID KAV C-22 SETIABUDI SETIABUDI JAKARTA SELATAN DKI JAKARTA GEDUNG PUSAT PERFILMAN H. USMAR ISMAIL RT.2, RW.5, KARET KUNINGAN, KECAMATAN SETIABUDI, KOTA JAKARTA SELATAN, DAERAH KHUSUS IBUKOTA JAKARTA 12920",
+  "wilayah": "Jakarta Selatan",
+  "lat": -6.222088,
+  "lon": 106.833096,
+  "eventCount": 1,
+  "events": [
+   {
+    "nama_event": "KONSER BIOLA ISKANDAR WIDJAJA \"THE CLASSICAL RECITAL\"",
+    "periode": "2025"
+   }
+  ],
+  "gold": false,
+  "artists": []
+ },
+ {
+  "venue": "GRAND INDONESIA, JAKARTA",
+  "address": "JL. MH THAMRIN NO.1, MENTENG, KEC. MENTENG, KOTA JAKARTA PUSAT, DAERAH KHUSUS IBUKOTA JAKARTA 10310",
+  "wilayah": "Jakarta Pusat",
+  "lat": -6.19576,
+  "lon": 106.821455,
+  "eventCount": 1,
+  "events": [
+   {
+    "nama_event": "DISNEY LINE'S CRUISE",
+    "periode": "2025"
+   }
+  ],
+  "gold": false,
+  "artists": []
+ },
+ {
+  "venue": "GRAND THEATRE JAKARTA INTERNATIONAL EXPO KEMAYORAN JAKARTA",
+  "address": "VR3W+3C4, JALAN HAJI BENYAMIN SUEB ARENA JIEXPO KEMAYORAN KELURAHAN :, ARENA PEKAN RAYA JKT - KEMAYORAN, JL. H. BENYAMIN SUEB, RW.10, PADEMANGAN TIM., KEC. KEMAYORAN, JKT UTARA, DAERAH KHUSUS IBUKOTA JAKARTA 10620",
+  "wilayah": "Jakarta Utara",
+  "lat": -6.148208,
+  "lon": 106.846204,
+  "eventCount": 1,
+  "events": [
+   {
+    "nama_event": "SWAN LAKE",
+    "periode": "2025"
+   }
+  ],
+  "gold": false,
+  "artists": []
+ },
+ {
+  "venue": "GRAND THEATRE JIEXPO, JAKARTA",
+  "address": "VR3W+3C4, JALAN HAJI BENYAMIN SUEB ARENA JIEXPO KEMAYORAN KELURAHAN :, ARENA PEKAN RAYA JKT - KEMAYORAN, JL. H. BENYAMIN SUEB, RW.10, PADEMANGAN TIM., KEC. KEMAYORAN, JKT UTARA, DAERAH KHUSUS IBUKOTA JAKARTA 10620",
+  "wilayah": "Jakarta Utara",
+  "lat": -6.148047,
+  "lon": 106.847255,
+  "eventCount": 1,
+  "events": [
+   {
+    "nama_event": "DON MOEN LIVE IN CONCERT",
+    "periode": "2025"
+   }
+  ],
+  "gold": false,
+  "artists": []
+ },
+ {
+  "venue": "H BAR SCBD, JAKARTA",
+  "address": "JL. ARAH SENOPATI/DISTRICT VIII JL. SCBD NO.19, SENAYAN, KEC. KBY. BARU, KOTA JAKARTA SELATAN, DAERAH KHUSUS IBUKOTA JAKARTA 12190",
+  "wilayah": "Jakarta Selatan",
+  "lat": -6.226263,
+  "lon": 106.809678,
+  "eventCount": 1,
+  "events": [
+   {
+    "nama_event": "DOLLY MIXOLOGIST",
+    "periode": "2025"
+   }
+  ],
+  "gold": false,
+  "artists": []
+ },
+ {
+  "venue": "H LIST SCBD, JAKARTA",
+  "address": "JL. ARAH SENOPATI/DISTRICT VIII JL. SCBD NO.19, SENAYAN, KEC. KBY. BARU, KOTA JAKARTA SELATAN, DAERAH KHUSUS IBUKOTA JAKARTA 12190",
+  "wilayah": "Jakarta Selatan",
+  "lat": -6.226263,
+  "lon": 106.809678,
+  "eventCount": 1,
+  "events": [
+   {
+    "nama_event": "HALOS PRESENT PERFORMANCE DJ ANAIS B",
+    "periode": "2025"
+   }
+  ],
+  "gold": false,
+  "artists": []
+ },
+ {
+  "venue": "H SHOW SCBD",
+  "address": "JL. JEND. SUDIRMAN KAV 52-53 JL. SCBD NO.LOT 19, SENAYAN, KEC. KBY. BARU, KOTA JAKARTA SELATAN, DAERAH KHUSUS IBUKOTA JAKARTA 12190 JAKARTA",
+  "wilayah": "Jakarta Selatan",
+  "lat": -6.226263,
+  "lon": 106.809678,
+  "eventCount": 1,
+  "events": [
+   {
+    "nama_event": "LIVE MUSIC/PERFORMANCE DROPSHIP",
+    "periode": "2025"
+   }
+  ],
+  "gold": false,
+  "artists": []
+ },
+ {
+  "venue": "HALL BASKET GBK, JAKARTA",
+  "address": "JL. PINTU SATU SENAYAN NO.1, RT.1/RW.3, GELORA, KECAMATAN TANAH ABANG, KOTA JAKARTA PUSAT, DAERAH KHUSUS IBUKOTA JAKARTA 10270",
+  "wilayah": "Jakarta Pusat",
+  "lat": -6.215299,
+  "lon": 106.798219,
+  "eventCount": 1,
+  "events": [
+   {
+    "nama_event": "PERTAMINA INTERNATIONAL SHIPPING 9TH ANNIVERSARY",
+    "periode": "2025"
+   }
+  ],
+  "gold": false,
+  "artists": []
+ },
+ {
+  "venue": "HALL D2 JIEXPO KEMAYORAN, JAKARTA",
+  "address": "JL. RAJAWALI SELATAN RAYA NO.6, PADEMANGAN TIM., KEC. PADEMANGAN, JKT UTARA, DAERAH KHUSUS IBUKOTA JAKARTA 14410",
+  "wilayah": "Jakarta Utara",
+  "lat": -6.147012,
+  "lon": 106.846823,
+  "eventCount": 1,
+  "events": [
+   {
+    "nama_event": "2025 AHN HYO SEOP FAN MEETING : I WANT TO SAY (LOVE, JAKARTA)",
+    "periode": "2025"
+   }
+  ],
+  "gold": false,
+  "artists": []
+ },
+ {
+  "venue": "HARMONI EXCHANGE, JAKARTA",
+  "address": "JL. HAYAM WURUK VI NO.6, RT.6/RW.2, LANTAI, RW.3, KB. KLP., KECAMATAN GAMBIR, KOTA JAKARTA PUSAT, DAERAH KHUSUS IBUKOTA JAKARTA 10120",
+  "wilayah": "Jakarta Pusat",
+  "lat": -6.164316,
+  "lon": 106.820711,
+  "eventCount": 1,
+  "events": [
+   {
+    "nama_event": "SKA REVOLUTION INDONESIA",
+    "periode": "2025"
+   }
+  ],
+  "gold": false,
+  "artists": []
+ },
+ {
+  "venue": "HASAKA BLOK M, JAKARTA",
+  "address": "JL. MELAWAI VIII NO.3, RT.3/RW.1, MELAWAI, KEC. KBY. BARU, KOTA JAKARTA SELATAN, DAERAH KHUSUS IBUKOTA JAKARTA 12160",
+  "wilayah": "Jakarta Selatan",
+  "lat": -6.242879,
+  "lon": 106.802077,
+  "eventCount": 1,
+  "events": [
+   {
+    "nama_event": "DJ NORSICAA",
+    "periode": "2025"
+   }
+  ],
+  "gold": false,
+  "artists": []
+ },
+ {
+  "venue": "HASAKA, JAKARTA",
+  "address": "JL. MELAWAI VIII NO.3, RT.3/RW.1, MELAWAI, KEC. KBY. BARU, KOTA JAKARTA SELATAN, DAERAH KHUSUS IBUKOTA JAKARTA 12160",
+  "wilayah": "Jakarta Pusat",
+  "lat": -6.175405,
+  "lon": 106.827168,
+  "eventCount": 1,
+  "events": [
+   {
+    "nama_event": "DJ KOJI ASANO",
+    "periode": "2025"
+   }
+  ],
+  "gold": false,
+  "artists": []
+ },
+ {
+  "venue": "HATS BAR JAKARTA",
+  "address": "JL. ISKANDARSYAH I NO.9, RT.5/RW.2, MELAWAI, KEC. KBY. BARU, KOTA JAKARTA SELATAN, DAERAH KHUSUS IBUKOTA JAKARTA 12160",
+  "wilayah": "Jakarta Barat",
+  "lat": -6.161569,
+  "lon": 106.743891,
+  "eventCount": 1,
+  "events": [
+   {
+    "nama_event": "COALITION AFTER PARTY",
+    "periode": "2025"
+   }
+  ],
+  "gold": false,
+  "artists": []
+ },
+ {
+  "venue": "HOTEL INDONESIA KEMPINSKI, JAKARTA",
+  "address": "JL. M.H. THAMRIN NO.1, MENTENG, KEC. MENTENG, KOTA JAKARTA PUSAT, DAERAH KHUSUS IBUKOTA JAKARTA 10310",
+  "wilayah": "Jakarta Pusat",
+  "lat": -6.195729,
+  "lon": 106.822451,
+  "eventCount": 1,
+  "events": [
+   {
+    "nama_event": "JUST BEING KOY TOUR",
+    "periode": "2025"
+   }
+  ],
+  "gold": false,
+  "artists": []
+ },
+ {
+  "venue": "HOTEL MONOPOLI, JAKARTA",
+  "address": "JL. TAMAN KEMANG NO.12, RT.14/RW.1, BANGKA, KEC. MAMPANG PRPT., KOTA JAKARTA SELATAN, DAERAH KHUSUS IBUKOTA JAKARTA 12730",
+  "wilayah": "Jakarta Selatan",
+  "lat": -6.256127,
+  "lon": 106.809921,
+  "eventCount": 1,
+  "events": [
+   {
+    "nama_event": "DJ ZEE 2",
+    "periode": "2025"
+   }
+  ],
+  "gold": false,
+  "artists": []
+ },
+ {
+  "venue": "HOTEL MULIA JAKARTA",
+  "address": "JALAN ASIA AFRIKA SENAYAN, RT.1/RW.3, GELORA, KECAMATAN TANAH ABANG, KOTA JAKARTA PUSAT, DAERAH KHUSUS IBUKOTA JAKARTA 10270",
+  "wilayah": "Jakarta Pusat",
+  "lat": -6.213733,
+  "lon": 106.796059,
+  "eventCount": 1,
+  "events": [
+   {
+    "nama_event": "A GRAND NEW YEAR'S CELEBRATION",
+    "periode": "2025"
+   }
+  ],
+  "gold": false,
+  "artists": []
+ },
+ {
+  "venue": "HOTEL PULLMAN CENTRAL PARK, JAKARTA",
+  "address": "PODOMORO CITY JL. LET. JEND S PARMAN KAV 28, JAKARTA BARAT, JAKARTA, 11470",
+  "wilayah": "Jakarta Barat",
+  "lat": -6.178563,
+  "lon": 106.789043,
+  "eventCount": 1,
+  "events": [
+   {
+    "nama_event": "BONEY M 50TH ANNIVERSARY",
+    "periode": "2025"
+   }
+  ],
+  "gold": false,
+  "artists": []
+ },
+ {
+  "venue": "JAKARTA INTERNATIONAL CONVENTION CENTER",
+  "address": "JL. GATOT SUBROTO, RT.1/RW.3, GELORA, KECAMATAN TANAH ABANG, KOTA JAKARTA PUSAT, DAERAH KHUSUS IBUKOTA JAKARTA 10270",
+  "wilayah": "Jakarta Pusat",
+  "lat": -6.214395,
+  "lon": 106.807103,
+  "eventCount": 1,
+  "events": [
+   {
+    "nama_event": "KONSER MUSIK OVERPASS JAKARTA 2025",
+    "periode": "2025"
+   }
+  ],
+  "gold": false,
+  "artists": []
+ },
+ {
+  "venue": "JAKARTA INTERNATIONAL EXPO (JIEXPO), JAKARTA",
+  "address": "GEDUNG PUSAT NIAGA, ARENA JIEXPO, JL. BENYAMIN SUAEB, KEC. KEMAYORAN, KOTA JAKARTA PUSAT, DAERAH KHUSUS IBUKOTA JAKARTA 10720",
+  "wilayah": "Jakarta Utara",
+  "lat": -6.145786,
+  "lon": 106.846213,
+  "eventCount": 1,
+  "events": [
+   {
+    "nama_event": "BIG BANG FESTIVAL 2025",
+    "periode": "2025"
+   }
+  ],
+  "gold": false,
+  "artists": []
+ },
+ {
+  "venue": "JAKARTA INTERNATIONAL EXPO, JAKARTA",
+  "address": "RW.10, PADEMANGAN TIMUR, PADEMANGAN, CENTRAL JAKARTA CITY, JAKARTA 14410",
+  "wilayah": "Jakarta Utara",
+  "lat": -6.132196,
+  "lon": 106.845502,
+  "eventCount": 1,
+  "events": [
+   {
+    "nama_event": "STATE CHAMPS WORLD TOUR 2025",
+    "periode": "2025"
+   }
+  ],
+  "gold": false,
+  "artists": []
+ },
+ {
+  "venue": "JAKARTA INTERNATIONAL VELODROME",
+  "address": "JL. BALAP SEPEDA NO.35, RW.6, JATI, KEC. PULO GADUNG, KOTA JAKARTA TIMUR, DAERAH KHUSUS IBUKOTA JAKARTA 13220, INDONESIA",
+  "wilayah": "Jakarta Timur",
+  "lat": -6.190896,
+  "lon": 106.890101,
+  "eventCount": 1,
+  "events": [
+   {
+    "nama_event": "ALLO BANK HANGOUT GAK BAKAL RUGI BARENG WONWOO & MINGYU",
+    "periode": "2025"
+   }
+  ],
+  "gold": false,
+  "artists": []
+ },
+ {
+  "venue": "JICC JAKARTA",
+  "address": "JL. GATOT SUBROTO, RT.1/RW.3, GELORA, KECAMATAN TANAH ABANG, KOTA JAKARTA PUSAT, DAERAH KHUSUS IBUKOTA JAKARTA 10270",
+  "wilayah": "Jakarta Pusat",
+  "lat": -6.175405,
+  "lon": 106.827168,
+  "eventCount": 1,
+  "events": [
+   {
+    "nama_event": "BSI INTERNATIONAL EXPO 2025",
+    "periode": "2025"
+   }
+  ],
+  "gold": false,
+  "artists": []
+ },
+ {
+  "venue": "JIEXPO GRAND THEATRE, JAKARTA",
+  "address": "VR3W+3C4, JALAN HAJI BENYAMIN SUEB ARENA JIEXPO KEMAYORAN KELURAHAN :, ARENA PEKAN RAYA JKT - KEMAYORAN, JL. H. BENYAMIN SUEB, RW.10, PADEMANGAN TIM., KEC. KEMAYORAN, JKT UTARA, DAERAH KHUSUS IBUKOTA JAKARTA 10620",
+  "wilayah": "Jakarta Utara",
+  "lat": -6.148047,
+  "lon": 106.847255,
+  "eventCount": 1,
+  "events": [
+   {
+    "nama_event": "THE LORD OF THE RINGS : \"THE FELLOWSHIP OF THE RING IN CONCERT\"",
+    "periode": "2025"
+   }
+  ],
+  "gold": false,
+  "artists": []
+ },
+ {
+  "venue": "JIEXPO KEMAYORAN JAKARTA",
+  "address": "RW.10, PADEMANGAN TIMUR, PADEMANGAN, CENTRAL JAKARTA CITY, JAKARTA 14410",
+  "wilayah": "Jakarta Utara",
+  "lat": -6.132196,
+  "lon": 106.845502,
+  "eventCount": 1,
+  "events": [
+   {
+    "nama_event": "INDONESIA INTERNATIONAL MOTOR SHOW (IIMS) 2025",
+    "periode": "2025"
+   }
+  ],
+  "gold": false,
+  "artists": []
+ },
+ {
+  "venue": "KEMPINSKI GRAND BALLROOM, JAKARTA",
+  "address": "JL. KEBON KACANG RAYA BLOK D6, KB. KACANG, KECAMATAN TANAH ABANG, KOTA JAKARTA PUSAT, DAERAH KHUSUS IBUKOTA JAKARTA 10230",
+  "wilayah": "Jakarta Timur",
+  "lat": -6.303264,
+  "lon": 106.887135,
+  "eventCount": 1,
+  "events": [
+   {
+    "nama_event": "KUMAR FIFTY : 50",
+    "periode": "2025"
+   }
+  ],
+  "gold": false,
+  "artists": []
+ },
+ {
+  "venue": "KRAPELA, JAKARTA",
+  "address": "ROW, JL. BULUNGAN NO.9 9 LT.5, KRAMAT PELA, KEC. KBY. BARU, KOTA JAKARTA SELATAN, DAERAH KHUSUS IBUKOTA JAKARTA 12130",
+  "wilayah": "Jakarta Selatan",
+  "lat": -6.24539,
+  "lon": 106.797583,
+  "eventCount": 1,
+  "events": [
+   {
+    "nama_event": "YOUTUBE MUSIC NIGHT",
+    "periode": "2025"
+   }
+  ],
+  "gold": false,
+  "artists": []
+ },
+ {
+  "venue": "KUNINGAN CITY BALLROOM, JAKARTA",
+  "address": "JL. PROF. DR. SATRIO NO.18, KUNINGAN, KARET KUNINGAN, KUNINGAN, KOTA JAKARTA SELATAN, DAERAH KHUSUS IBUKOTA JAKARTA 12940, INDONESIA",
+  "wilayah": "Jakarta Selatan",
+  "lat": -6.22738,
+  "lon": 106.824394,
+  "eventCount": 1,
+  "events": [
+   {
+    "nama_event": "ALESANA \"THE SOUTHEAST ASIA TOUR 2025\"",
+    "periode": "2025"
+   }
+  ],
+  "gold": false,
+  "artists": []
+ },
+ {
+  "venue": "LAPANGAN HOCKEY, PLAZA FESTIVAL JAKARTA SELATAN",
+  "address": "JL. H. R. RASUNA SAID NO.22 KAV. C, RT.2/RW.5, KARET KUNINGAN, KECAMATAN SETIABUDI, KOTA JAKARTA SELATAN, DAERAH KHUSUS IBUKOTA JAKARTA 12940",
+  "wilayah": "Jakarta Selatan",
+  "lat": -6.221078,
+  "lon": 106.833255,
+  "eventCount": 1,
+  "events": [
+   {
+    "nama_event": "THE PARTISAN LIVE IN JAKARTA",
+    "periode": "2025"
+   }
+  ],
+  "gold": false,
+  "artists": []
+ },
+ {
+  "venue": "LAVVA BAR, JAKARTA",
+  "address": "LEVEL P4 PLAZA SENAYAN, JL. ASIA AFRIKA NO.8, RT.1/RW.3, GELORA, KECAMATAN TANAH ABANG, KOTA JAKARTA PUSAT, DAERAH KHUSUS IBUKOTA JAKARTA 10270",
+  "wilayah": "Jakarta Barat",
+  "lat": -6.161569,
+  "lon": 106.743891,
+  "eventCount": 1,
+  "events": [
+   {
+    "nama_event": "DJ MARK SIXMA",
+    "periode": "2025"
+   }
+  ],
+  "gold": false,
+  "artists": []
+ },
+ {
+  "venue": "LIL TIGER PIK",
+  "address": "RUKAN GOLF ISLAND BOULEVARD, JL. PANTAI INDAH KAPUK NO.1, RT.000/RW.000, JKT UTARA, DAERAH KHUSUS IBUKOTA JAKARTA 14460",
+  "wilayah": "Jakarta Utara",
+  "lat": -6.092703,
+  "lon": 106.744847,
+  "eventCount": 1,
+  "events": [
+   {
+    "nama_event": "LIVE MUSIC PERFORMANCE KIARA ASHLEY",
+    "periode": "2025"
+   }
+  ],
+  "gold": false,
+  "artists": []
+ },
+ {
+  "venue": "LOTTE ALLEY, LOTTE MALL JAKARTA",
+  "address": "LOTTE MALL, JL. PROF. DR. SATRIO NO.KAV 3-4 LG FLOOR, KUNINGAN, KARET KUNINGAN, KECAMATAN SETIABUDI, KOTA JAKARTA SELATAN, DAERAH KHUSUS IBUKOTA JAKARTA 12940",
+  "wilayah": "Jakarta Selatan",
+  "lat": -6.224316,
+  "lon": 106.822833,
+  "eventCount": 1,
+  "events": [
+   {
+    "nama_event": "ASC2NT THE 2ND FANSIGN IN JAKARTA",
+    "periode": "2025"
+   }
+  ],
+  "gold": false,
+  "artists": []
+ },
+ {
+  "venue": "LOTTE MALL, JAKARTA",
+  "address": "JL. PROF. DR. SATRIO NO.KAV 3, RT.17/RW.4, KUNINGAN, KARET KUNINGAN, KECAMATAN SETIABUDI, KOTA JAKARTA SELATAN, DAERAH KHUSUS IBUKOTA JAKARTA 12940",
+  "wilayah": "Jakarta Selatan",
+  "lat": -6.224347,
+  "lon": 106.823257,
+  "eventCount": 1,
+  "events": [
+   {
+    "nama_event": "KOREA 360 X KANDIS MINI CONCERT",
+    "periode": "2025"
+   }
+  ],
+  "gold": false,
+  "artists": []
+ },
+ {
+  "venue": "LUCY IN THE SKY FAIRGOUND SCBD, JAKARTA",
+  "address": "FAIRGROUNDS BUILDING, JL. JEND. SUDIRMAN KAV 52-53 NO.LOT 14, RT.5/RW.3, SENAYAN, KEBAYORAN BARU, SOUTH JAKARTA CITY, JAKARTA 12190",
+  "wilayah": "Jakarta Selatan",
+  "lat": -6.226771,
+  "lon": 106.806954,
+  "eventCount": 1,
+  "events": [
+   {
+    "nama_event": "SOUNDRENALIN SANA SINI JAKARTA",
+    "periode": "2025"
+   }
+  ],
+  "gold": false,
+  "artists": []
+ },
+ {
+  "venue": "M BLOC, JAKARTA",
+  "address": "JL. PANGLIMA POLIM NO.37, RT.1/RW.1, MELAWAI, KEC. KBY. BARU, KOTA JAKARTA SELATAN, DAERAH KHUSUS IBUKOTA JAKARTA 12160",
+  "wilayah": "Jakarta Selatan",
+  "lat": -6.241689,
+  "lon": 106.798763,
+  "eventCount": 1,
+  "events": [
+   {
+    "nama_event": "TUR BINTANG MUDA LOKANANTA VOL.1",
+    "periode": "2025"
+   }
+  ],
+  "gold": false,
+  "artists": []
+ },
+ {
+  "venue": "M-BLOC SPACE, JAKARTA",
+  "address": "JL. PANGLIMA POLIM NO.37, RT.1/RW.1, MELAWAI, KEC. KBY. BARU, KOTA JAKARTA SELATAN, DAERAH KHUSUS IBUKOTA JAKARTA 12160",
+  "wilayah": "Jakarta Pusat",
+  "lat": -6.21073,
+  "lon": 106.815513,
+  "eventCount": 1,
+  "events": [
+   {
+    "nama_event": "METAL ATTACK FESTIVAL",
+    "periode": "2025"
+   }
+  ],
+  "gold": false,
+  "artists": []
+ },
+ {
+  "venue": "MAHAKA SQUARE KELAPA GADING",
+  "address": "JL. RAYA KELAPA NIAS NO.6, RT.8/RW.6, KLP. GADING BAR., KEC. KLP. GADING, JKT UTARA, DAERAH KHUSUS IBUKOTA JAKARTA 14240",
+  "wilayah": "Jakarta Utara",
+  "lat": -6.149748,
+  "lon": 106.902981,
+  "eventCount": 1,
+  "events": [
+   {
+    "nama_event": "KONSER MUSIK \"ALL HEARTS TOUR\"",
+    "periode": "2025"
+   }
+  ],
+  "gold": false,
+  "artists": []
+ },
+ {
+  "venue": "MAKMUR BAHAGIA, JAKARTA",
+  "address": "JL. KEMANG RAYA NO.8B, BANGKA, KEC. MAMPANG PRPT., JAKARTA, DAERAH KHUSUS IBUKOTA JAKARTA 12730",
+  "wilayah": "Jakarta Barat",
+  "lat": -6.210729,
+  "lon": 106.736209,
+  "eventCount": 1,
+  "events": [
+   {
+    "nama_event": "ORUTAKU X KIYOSH",
+    "periode": "2025"
+   }
+  ],
+  "gold": false,
+  "artists": []
+ },
+ {
+  "venue": "MALL KOTA KASABLANKA, JAKARTA",
+  "address": "JL. RAYA CASABLANCA NO.KAV 88, MENTENG DALAM, KEC. TEBET, KOTA JAKARTA SELATAN, DAERAH KHUSUS IBUKOTA JAKARTA 12870",
+  "wilayah": "Jakarta Selatan",
+  "lat": -6.223255,
+  "lon": 106.842697,
+  "eventCount": 1,
+  "events": [
+   {
+    "nama_event": "2025 NONSAN STRAWBERRY FESTIVAL IN JAKARTA",
+    "periode": "2025"
+   }
+  ],
+  "gold": false,
+  "artists": []
+ },
+ {
+  "venue": "MARGOT BAR, JAKARTA",
+  "address": "JL. PANGLIMA POLIM V NO.6 A, RT.1/RW.6, MELAWAI, KEC. KBY. BARU, KOTA JAKARTA SELATAN, DAERAH KHUSUS IBUKOTA JAKARTA 12160",
+  "wilayah": "Jakarta Barat",
+  "lat": -6.161569,
+  "lon": 106.743891,
+  "eventCount": 1,
+  "events": [
+   {
+    "nama_event": "DJ MISS NINE",
+    "periode": "2025"
+   }
+  ],
+  "gold": false,
+  "artists": []
+ },
+ {
+  "venue": "MINQ, JAKARTA",
+  "address": "JL. SURYO NO.36, RT.10/RW.3, RW. BAR., JAKARTA, KOTA JAKARTA SELATAN, DAERAH KHUSUS IBUKOTA JAKARTA 12180",
+  "wilayah": "Jakarta Pusat",
+  "lat": -6.175405,
+  "lon": 106.827168,
+  "eventCount": 1,
+  "events": [
+   {
+    "nama_event": "DJ TAKAHASHI",
+    "periode": "2025"
+   }
+  ],
+  "gold": false,
+  "artists": []
+ },
+ {
+  "venue": "MOA BAR & LOUNGE, JAKARTA",
+  "address": "JL. PANGERAN ANTASARI NO.9B, RT.6/RW.1, CIPETE SEL., KEC. CILANDAK, KOTA JAKARTA SELATAN, DAERAH KHUSUS IBUKOTA JAKARTA 12410",
+  "wilayah": "Jakarta Selatan",
+  "lat": -6.232968,
+  "lon": 106.811749,
+  "eventCount": 1,
+  "events": [
+   {
+    "nama_event": "ETV HOME",
+    "periode": "2025"
+   }
+  ],
+  "gold": false,
+  "artists": []
+ },
+ {
+  "venue": "NAFIRI CONVENTION HALL CENTRAL PARK, JAKARTA",
+  "address": "JL. LETJEN S. PARMAN NO.28 12, RT.12/RW.6, TJ. DUREN SEL., KEC. GROGOL PETAMBURAN, KOTA JAKARTA BARAT, DAERAH KHUSUS IBUKOTA JAKARTA 11470",
+  "wilayah": "Jakarta Pusat",
+  "lat": -6.215342,
+  "lon": 106.807273,
+  "eventCount": 1,
+  "events": [
+   {
+    "nama_event": "TONY ANN LIVE IN JAKARTA",
+    "periode": "2025"
+   }
+  ],
+  "gold": false,
+  "artists": []
+ },
+ {
+  "venue": "PANTAI CARNAVAL ANCOL, JAKARTA",
+  "address": "VVM4+CWG, JL. PANTAI KARNAVAL ANCOL, ANCOL, KEC. PADEMANGAN, JKT UTARA, DAERAH KHUSUS IBUKOTA JAKARTA 14430",
+  "wilayah": "Jakarta Utara",
+  "lat": -6.117139,
+  "lon": 106.856217,
+  "eventCount": 1,
+  "events": [
+   {
+    "nama_event": "GREEN DAY LIVE IN JAKARTA",
+    "periode": "2025"
+   }
+  ],
+  "gold": false,
+  "artists": []
+ },
+ {
+  "venue": "PANTAI CARNAVAL ANCOL. JAKARTA",
+  "address": "VVM4+CWG, JL. PANTAI KARNAVAL ANCOL, ANCOL, KEC. PADEMANGAN, JKT UTARA, DAERAH KHUSUS IBUKOTA JAKARTA 14430",
+  "wilayah": "Jakarta Utara",
+  "lat": -6.117139,
+  "lon": 106.856217,
+  "eventCount": 1,
+  "events": [
+   {
+    "nama_event": "FOO FIGHTERS : LIVE IN JAKARTA",
+    "periode": "2025"
+   }
+  ],
+  "gold": false,
+  "artists": []
+ },
+ {
+  "venue": "PLAZA PARKIR TIMUR SENAYAN, JAKARTA",
+  "address": "QRJ4+MPV, JL. STADION SENAYAN, RT.1/RW.3, GELORA, KECAMATAN TANAH ABANG, KOTA JAKARTA PUSAT, DAERAH KHUSUS IBUKOTA JAKARTA 10270",
+  "wilayah": "Jakarta Pusat",
+  "lat": -6.21697,
+  "lon": 106.807644,
+  "eventCount": 1,
+  "events": [
+   {
+    "nama_event": "JAK-JAPAN MATSURI 2025 (JJM KE-15)",
+    "periode": "2025"
+   }
+  ],
+  "gold": false,
+  "artists": []
+ },
+ {
+  "venue": "PLAZA SENAYAN, JAKARTA",
+  "address": "JL. ASIA AFRIKA NO.8, RT.1/RW.3, GELORA, KECAMATAN TANAH ABANG, KOTA JAKARTA PUSAT, DAERAH KHUSUS IBUKOTA JAKARTA 10270",
+  "wilayah": "Jakarta Pusat",
+  "lat": -6.225584,
+  "lon": 106.7996,
+  "eventCount": 1,
+  "events": [
+   {
+    "nama_event": "GRAND OPENING TOKO MONTBLANC",
+    "periode": "2025"
+   }
+  ],
+  "gold": false,
+  "artists": []
+ },
+ {
+  "venue": "PONDOK INDAH MALL 2, JAKARTA",
+  "address": "JL. METRO PONDOK INDAH, PD. PINANG, KEC. KEBAYORAN LAMA, KOTA JAKARTA SELATAN, DAERAH KHUSUS IBUKOTA JAKARTA 12310",
+  "wilayah": "Jakarta Selatan",
+  "lat": -6.268681,
+  "lon": 106.771806,
+  "eventCount": 1,
+  "events": [
+   {
+    "nama_event": "FLYING TRAPEZE",
+    "periode": "2025"
+   }
+  ],
+  "gold": false,
+  "artists": []
+ },
+ {
+  "venue": "POS BLOC, JAKARTA",
+  "address": "JL. POS NO.2, PS. BARU, KECAMATAN SAWAH BESAR, KOTA JAKARTA PUSAT, DAERAH KHUSUS IBUKOTA JAKARTA 10710",
+  "wilayah": "Jakarta Pusat",
+  "lat": -6.166904,
+  "lon": 106.833501,
+  "eventCount": 1,
+  "events": [
+   {
+    "nama_event": "WHIB FAN MEET",
+    "periode": "2025"
+   }
+  ],
+  "gold": false,
+  "artists": []
+ },
+ {
+  "venue": "PURI INDAH MALL, JAKARTA",
+  "address": "JL. PURI AGUNG NO.1, KEMBANGAN SEL., KEC. KEMBANGAN, KOTA JAKARTA BARAT, DAERAH KHUSUS IBUKOTA JAKARTA 11610",
+  "wilayah": "Jakarta Barat",
+  "lat": -6.188257,
+  "lon": 106.733889,
+  "eventCount": 1,
+  "events": [
+   {
+    "nama_event": "FLYING TRAPEZE",
+    "periode": "2025"
+   }
+  ],
+  "gold": false,
+  "artists": []
+ },
+ {
+  "venue": "ROSSI MUSIK, JAKARTA",
+  "address": "JL. RS. FATMAWATI RAYA NO.30 1, RT.1/RW.10, CILANDAK BAR., KEC. CILANDAK, KOTA JAKARTA SELATAN, DAERAH KHUSUS IBUKOTA JAKARTA 12430",
+  "wilayah": "Jakarta Pusat",
+  "lat": -6.168774,
+  "lon": 106.857175,
+  "eventCount": 1,
+  "events": [
+   {
+    "nama_event": "SIGN OF THE HORNS FEST",
+    "periode": "2025"
+   }
+  ],
+  "gold": false,
+  "artists": []
+ },
+ {
+  "venue": "RUMAH SARWONO",
+  "address": "JL. RAYA PASAR MINGGU NO.KM 18,2, RT.12/RW.1, PEJATEN TIMUR, PS. MINGGU, KOTA JAKARTA SELATAN, DAERAH KHUSUS IBUKOTA JAKARTA 12510",
+  "wilayah": "Jakarta Utara",
+  "lat": -6.137675,
+  "lon": 106.902761,
+  "eventCount": 1,
+  "events": [
+   {
+    "nama_event": "GIG ON THE GREEN 2025",
+    "periode": "2025"
+   }
+  ],
+  "gold": false,
+  "artists": []
+ },
+ {
+  "venue": "SLITS, JAKARTA",
+  "address": "WIJAYA GRAND CENTER BLOK A-15,16, PULO, KEC. KBY. BARU, KOTA JAKARTA SELATAN, DAERAH KHUSUS IBUKOTA JAKARTA 12160",
+  "wilayah": "Jakarta Pusat",
+  "lat": -6.175405,
+  "lon": 106.827168,
+  "eventCount": 1,
+  "events": [
+   {
+    "nama_event": "DJ MASAYA KOBAYASHI & KEITA YAMADA",
+    "periode": "2025"
+   }
+  ],
+  "gold": false,
+  "artists": []
+ },
+ {
+  "venue": "STADION UTAMA GBK SENAYAN, JAKARTA",
+  "address": "JL. PINTU SATU SENAYAN, GELORA, KECAMATAN TANAH ABANG, KOTA JAKARTA PUSAT, DAERAH KHUSUS IBUKOTA JAKARTA 10270",
+  "wilayah": "Jakarta Pusat",
+  "lat": -6.218612,
+  "lon": 106.802554,
+  "eventCount": 1,
+  "events": [
+   {
+    "nama_event": "DEWA ALLSTARS 2.0 CONCERT",
+    "periode": "2025"
+   }
+  ],
+  "gold": false,
+  "artists": []
+ },
+ {
+  "venue": "SUMMARECON MALL KELAPA GADING, JAKARTA",
+  "address": "JL. BOULEVARD RAYA, KLP. GADING TIM., KEC. KLP. GADING, JKT UTARA, DAERAH KHUSUS IBUKOTA JAKARTA 14240",
+  "wilayah": "Jakarta Utara",
+  "lat": -6.145511,
+  "lon": 106.90212,
+  "eventCount": 1,
+  "events": [
+   {
+    "nama_event": "THE GREAT WORLD CIRCUS AT SUMMARECON MALL",
+    "periode": "2025"
+   }
+  ],
+  "gold": false,
+  "artists": []
+ },
+ {
+  "venue": "TAMAN ISMAIL MARZUKI, JAKARTA",
+  "address": "JL. CIKINI RAYA NO.8, RT.8/RW.2, CIKINI, KEC. MENTENG, KOTA JAKARTA PUSAT, DAERAH KHUSUS IBUKOTA JAKARTA 10330",
+  "wilayah": "Jakarta Pusat",
+  "lat": -6.189155,
+  "lon": 106.839885,
+  "eventCount": 1,
+  "events": [
+   {
+    "nama_event": "DJAKARTA INTERNATIONAL THEATER PLATFORM (DITP)",
+    "periode": "2025"
+   }
+  ],
+  "gold": false,
+  "artists": []
+ },
+ {
+  "venue": "TAMAN KOTA GBK, JAKARTA",
+  "address": "JL. GERBANG PEMUDA NO.1, RT.1/RW.3, GELORA, KECAMATAN TANAH ABANG, KOTA JAKARTA PUSAT, DAERAH KHUSUS IBUKOTA JAKARTA 10270",
+  "wilayah": "Jakarta Barat",
+  "lat": -6.137583,
+  "lon": 106.81462,
+  "eventCount": 1,
+  "events": [
+   {
+    "nama_event": "JOYLAND SESSION 2025",
+    "periode": "2025"
+   }
+  ],
+  "gold": false,
+  "artists": []
+ },
+ {
+  "venue": "TAMAN KOTA PERURI, JAKARTA",
+  "address": "JL. PALATEHAN NO.4, RT.1/RW.1, MELAWAI, KEC. KBY. BARU, KOTA JAKARTA SELATAN, DAERAH KHUSUS IBUKOTA JAKARTA 12160",
+  "wilayah": "Jakarta Selatan",
+  "lat": -6.240538,
+  "lon": 106.799099,
+  "eventCount": 1,
+  "events": [
+   {
+    "nama_event": "SOUNDRENALIN SANA SINI JAKARTA",
+    "periode": "2025"
+   }
+  ],
+  "gold": false,
+  "artists": []
+ },
+ {
+  "venue": "TEATER BESAR, TAMAN ISMAIL MARZUKI, JAKARTA",
+  "address": "RR6R+364, RT.2/RW.2, CIKINI, KEC. MENTENG, KOTA JAKARTA PUSAT, DAERAH KHUSUS IBUKOTA JAKARTA 10330",
+  "wilayah": "Jakarta Pusat",
+  "lat": -6.189155,
+  "lon": 106.839885,
+  "eventCount": 1,
+  "events": [
+   {
+    "nama_event": "INTERNATIONAL BALLET PERFORMANCE",
+    "periode": "2025"
+   }
+  ],
+  "gold": false,
+  "artists": []
+ },
+ {
+  "venue": "THE RITZ CARLTON, JAKARTA",
+  "address": "JL. JEND. SUDIRMAN KAV 52-53, RT.5/RW.3, SENAYAN, KEC. KBY. BARU, KOTA JAKARTA SELATAN, DAERAH KHUSUS IBUKOTA JAKARTA 12190",
+  "wilayah": "Jakarta Selatan",
+  "lat": -6.228528,
+  "lon": 106.827155,
+  "eventCount": 1,
+  "events": [
+   {
+    "nama_event": "PRUDENTIAL INSURANCE AWARDS PERFORMANCE BY BOYZLIFE",
+    "periode": "2025"
+   }
+  ],
+  "gold": false,
+  "artists": []
+ },
+ {
+  "venue": "TRIBECA PARK, CENTRAL PARK MALL, JAKARTA",
+  "address": "LETJEN S. PARMAN NO.KAV. 21, RT.12/RW.6, TJ. DUREN SEL., KEC. GROGOL PETAMBURAN, KOTA JAKARTA BARAT, DAERAH KHUSUS IBUKOTA JAKARTA 11470",
+  "wilayah": "Jakarta Barat",
+  "lat": -6.177047,
+  "lon": 106.790171,
+  "eventCount": 1,
+  "events": [
+   {
+    "nama_event": "MEET & GREET NAYEON IN JAKARTA",
+    "periode": "2025"
+   }
+  ],
+  "gold": false,
+  "artists": []
+ },
+ {
+  "venue": "USMAR ISMAIL HALL, JAKARTA",
+  "address": "JL. HR RASUNA SAID KAV C-22 SETIABUDI SETIABUDI JAKARTA SELATAN DKI JAKARTA GEDUNG PUSAT PERFILMAN H. USMAR ISMAIL RT.2, RW.5, KARET KUNINGAN, KECAMATAN SETIABUDI, KOTA JAKARTA SELATAN, DAERAH KHUSUS IBUKOTA JAKARTA 12920",
+  "wilayah": "Jakarta Selatan",
+  "lat": -6.222088,
+  "lon": 106.833096,
+  "eventCount": 1,
+  "events": [
+   {
+    "nama_event": "HUGE IN INDONESIA BY SAMMY OBEID",
+    "periode": "2025"
+   }
+  ],
+  "gold": false,
+  "artists": []
+ },
+ {
+  "venue": "WHITERABIT, JAKARTA",
+  "address": "JL. GATOT SUBROTO NO.42, RT.3/RW.2, KUNINGAN BAR., KEC. MAMPANG PRPT., KOTA JAKARTA SELATAN, DAERAH KHUSUS IBUKOTA JAKARTA 12710",
+  "wilayah": "Jakarta Pusat",
+  "lat": -6.175405,
+  "lon": 106.827168,
+  "eventCount": 1,
+  "events": [
+   {
+    "nama_event": "DJ SIXMA",
+    "periode": "2025"
+   }
+  ],
+  "gold": false,
+  "artists": []
+ }
+]

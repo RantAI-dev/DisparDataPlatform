@@ -1,0 +1,238 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+  /* Surfaces */
+  --canvas: #ffffff;
+  --paper: #faf6f2;
+  --paper-deep: #f4ede6;
+  --paper-light: #fdfbf9;
+  --parchment: #faf6f2;
+  --pearl: #fdfbf9;
+  /* Inks */
+  --ink: #1c1a17;
+  --ink-muted-80: #33302b;
+  --ink-muted-48: #6b6459;
+  --body-muted: #9c948a;
+  /* Lines */
+  --hairline: #ece6df;
+  --rule: #ece6df;
+  --rule-strong: #d8cec3;
+  --divider: #f3ede6;
+  /* Accent — Dispar oranye (branding enjoy.jakarta.id) */
+  --accent: #ed6b23;
+  --accent-deep: #c9531a;
+  --accent-soft: #f4a06b;
+  --accent-bg: rgba(237, 107, 35, 0.08);
+  --accent-ring: rgba(237, 107, 35, 0.22);
+  /* Secondary warm accent */
+  --gold: #f0a13a;
+  /* Hyperlink biru — standar, agar tautan mudah dikenali */
+  --link: #2563eb;
+  --link-hover: #1d4ed8;
+  /* Hero gelap (charcoal hangat) — orange dipakai hanya sebagai aksen */
+  --hero: radial-gradient(900px 320px at 88% -25%, rgba(237, 107, 35, 0.28), transparent 62%),
+    linear-gradient(160deg, #2a2521 0%, #16130f 100%);
+  /* Fonts (sans di-set layout via next/font; mono fallback stack) */
+  --font-mono: ui-monospace, "JetBrains Mono", SFMono-Regular, Menlo, monospace;
+  --font-wordmark: var(--font-sans), Georgia, serif;
+}
+
+@layer base {
+  html,
+  body {
+    min-height: 100%;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--font-sans), -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+    font-size: 15px;
+    line-height: 1.55;
+    letter-spacing: -0.005em;
+  }
+  * {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  ::selection {
+    background: var(--accent);
+    color: #fff;
+  }
+  a {
+    color: inherit;
+  }
+}
+
+@layer components {
+  .atlas-display,
+  .apple-hero {
+    font-family: var(--font-sans);
+    font-size: clamp(36px, 6vw, 64px);
+    font-weight: 700;
+    line-height: 1.05;
+    letter-spacing: -0.024em;
+  }
+  .atlas-display-lg,
+  .apple-display-lg {
+    font-family: var(--font-sans);
+    font-size: clamp(28px, 3.5vw, 40px);
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: -0.018em;
+  }
+  .atlas-display-md {
+    font-family: var(--font-sans);
+    font-size: clamp(22px, 2.2vw, 28px);
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.014em;
+  }
+  .atlas-tagline,
+  .apple-tagline {
+    font-family: var(--font-sans);
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1.3;
+    letter-spacing: -0.01em;
+  }
+  .atlas-lead,
+  .apple-lead {
+    font-family: var(--font-sans);
+    font-size: clamp(16px, 1.4vw, 18px);
+    font-weight: 400;
+    line-height: 1.55;
+    letter-spacing: -0.005em;
+    color: var(--ink-muted-80);
+  }
+  .atlas-italic {
+    font-family: var(--font-wordmark);
+    font-style: italic;
+    font-weight: 600;
+  }
+  .apple-body-strong {
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 1.4;
+    letter-spacing: -0.01em;
+  }
+  .apple-body {
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.55;
+    letter-spacing: -0.005em;
+  }
+  .apple-caption,
+  .atlas-caption {
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 1.45;
+    letter-spacing: -0.005em;
+    color: var(--ink-muted-80);
+  }
+  .apple-caption-strong {
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 1.3;
+    letter-spacing: -0.005em;
+  }
+  .apple-fine,
+  .atlas-fine {
+    font-size: 11.5px;
+    font-weight: 400;
+    line-height: 1.4;
+    letter-spacing: 0;
+  }
+  .atlas-mono,
+  .apple-nav-link {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 500;
+    line-height: 1;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+  .atlas-coord {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    font-variant-numeric: tabular-nums;
+    color: var(--ink-muted-48);
+  }
+  .press-scale {
+    transition: transform 180ms cubic-bezier(0.4, 0, 0.2, 1), background-color 180ms ease,
+      color 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+  }
+  .press-scale:active {
+    transform: scale(0.97);
+  }
+  .frosted {
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: saturate(180%) blur(14px);
+    -webkit-backdrop-filter: saturate(180%) blur(14px);
+    border-bottom: 1px solid var(--hairline);
+  }
+  .utility-card {
+    background: var(--canvas);
+    border: 1px solid var(--hairline);
+    border-radius: 12px;
+    box-shadow: 0 1px 2px rgba(15, 23, 42, 0.05);
+    transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
+    overflow: hidden;
+  }
+  .utility-card:hover {
+    border-color: rgba(237, 107, 35, 0.3);
+    box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08), 0 2px 4px rgba(15, 23, 42, 0.04);
+  }
+  .hairline-rule {
+    border-color: var(--hairline);
+  }
+}
+
+@layer utilities {
+  .bg-canvas { background: var(--canvas); }
+  .bg-canvas\/95 { background: color-mix(in srgb, var(--canvas) 95%, transparent); }
+  .bg-parchment { background: var(--paper); }
+  .bg-paper { background: var(--paper); }
+  .bg-paper-deep { background: var(--paper-deep); }
+  .bg-pearl { background: var(--pearl); }
+  .bg-hairline { background: var(--hairline); }
+  .bg-ink { background: var(--ink); }
+  .bg-ink-muted-80 { background: var(--ink-muted-80); }
+  .bg-ink-muted-80\/10 { background: color-mix(in srgb, var(--ink-muted-80) 10%, transparent); }
+  .text-ink { color: var(--ink); }
+  .text-ink-muted-80 { color: var(--ink-muted-80); }
+  .text-ink-muted-48 { color: var(--ink-muted-48); }
+  .text-ink-muted-48\/60 { color: color-mix(in srgb, var(--ink-muted-48) 60%, transparent); }
+  .text-body-muted { color: var(--body-muted); }
+  .text-primary { color: var(--accent); }
+  .text-link { color: var(--link); }
+  .bg-hero { background: var(--hero); }
+  .bg-primary { background: var(--accent); }
+  .bg-primary\/10 { background: var(--accent-bg); }
+  .border-hairline { border-color: var(--hairline); }
+  .border-ink-muted-48 { border-color: var(--ink-muted-48); }
+  .border-canvas { border-color: var(--canvas); }
+  .border-primary { border-color: var(--accent); }
+  .border-primary-focus { border-color: var(--accent-soft); }
+  .border-divider { border-color: var(--divider); }
+  .rounded-apple { border-radius: 12px; }
+  .rounded-apple_lg { border-radius: 18px; }
+  .tabular { font-variant-numeric: tabular-nums; }
+}
+
+/* Leaflet overrides */
+.leaflet-popup-content-wrapper {
+  background: var(--canvas) !important;
+  border: 1px solid var(--hairline) !important;
+  border-radius: 10px !important;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.12) !important;
+}
+.leaflet-popup-tip {
+  background: var(--canvas) !important;
+}
+.leaflet-container {
+  background: #f6f1ec !important;
+  font-family: var(--font-sans), system-ui, sans-serif !important;
+}

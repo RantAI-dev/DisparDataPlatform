@@ -1,0 +1,8 @@
+{
+  "kunci": "/v1/dataset/data-jumlah-wisatawan-mancanegara-berdasarkan-kebangsaan/kolom",
+  "status": 200,
+  "headers": {
+    "content-type": "application/json"
+  },
+  "body": "{\"data\":{\"items\":[{\"key\":\"periode_data\",\"desc\":null,\"type\":null},{\"key\":\"kebangsaan\",\"desc\":\"komponen\",\"type\":\"varchar\"},{\"key\":\"jumlah_kunjungan\",\"desc\":\"komponen\",\"type\":\"varchar\"},{\"key\":\"perbandingan_bulan_sebelumnya\",\"desc\":\"komponen\",\"type\":\"varchar\"},{\"key\":\"perbandingan_tahun_sebelumnya\",\"desc\":\"komponen\",\"type\":\"varchar\"}]},\"meta\":{\"generated_at\":\"2026-10-28T21:45:12+07:00\",\"source\":[\"lake.bronze_meta*.dataset_column\",\"silver.<tabel>\"],\"request_id\":\"3872d8e367fd44a387a55dec80f9e019\"}}"
+}
