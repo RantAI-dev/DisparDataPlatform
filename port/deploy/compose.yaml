@@ -1,0 +1,47 @@
+# Contoh deploy portal dengan container (SPEC §9). Oracle TIDAK ada di sini: milik server klien,
+# alamatnya diisi lewat backend.env. Langkah pertama kali ada di deploy/README.md.
+#
+#   cd port/deploy
+#   cp backend.env.example backend.env && cp frontend.env.example frontend.env   # lalu isi
+#   docker compose up -d --build
+name: dispar-portal-prod
+
+x-backend: &backend
+  image: ${PORTAL_BACKEND_IMAGE:-dispar-portal-backend:latest}
+  env_file: ${PORTAL_BACKEND_ENV:-backend.env}
+  restart: unless-stopped
+
+services:
+  backend:
+    <<: *backend
+    build:
+      context: ..
+      dockerfile: deploy/backend.Dockerfile
+    # Hanya untuk operator (rute sistem/* dengan token admin). Nuxt memakai jaringan internal.
+    ports:
+      - "${BACKEND_BIND:-127.0.0.1}:${BACKEND_PORT:-8000}:8080"
+
+  # Image yang sama, hanya perintahnya: menjalankan jadwal di app/Console/Kernel.php tiap menit.
+  scheduler:
+    <<: *backend
+    command: ["php", "artisan", "schedule:work"]
+    # PHP sebagai PID 1 mengabaikan SIGTERM; init (tini) meneruskannya supaya `docker stop` cepat.
+    init: true
+    healthcheck:
+      disable: true
+    depends_on:
+      backend:
+        condition: service_healthy
+
+  frontend:
+    image: ${PORTAL_FRONTEND_IMAGE:-dispar-portal-frontend:latest}
+    build:
+      context: ..
+      dockerfile: deploy/frontend.Dockerfile
+    env_file: ${PORTAL_FRONTEND_ENV:-frontend.env}
+    restart: unless-stopped
+    ports:
+      - "${FRONTEND_BIND:-127.0.0.1}:${FRONTEND_PORT:-3000}:3000"
+    depends_on:
+      backend:
+        condition: service_healthy

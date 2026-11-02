@@ -10,6 +10,7 @@ Browser → Nuxt (frontend/) → Laravel 10 (backend/) → Data API (lakehouse/d
 ```
 
 Rancangan lengkap: `plans/2026-10-21-portal-SPEC.md` dan `plans/2026-10-21-portal-10-kerangka.md`.
+Deploy ke server: `deploy/README.md`. Pindah ke GitLab: `docs/pindah-gitlab.md`.
 
 ## Menjalankan lokal
 

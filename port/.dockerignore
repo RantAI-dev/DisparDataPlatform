@@ -1,0 +1,26 @@
+# Konteks build deploy/*.Dockerfile = folder port/. Hanya sumber yang ikut; dependensi dipasang
+# ulang di dalam image, dan berkas lokal (env, cache, log) tidak boleh terbawa.
+**/.env
+**/.env.*
+!**/.env.example
+**/node_modules
+.git
+.gitlab-ci-local
+fixtures
+tools
+
+backend/vendor
+backend/tests
+backend/storage
+backend/bootstrap/cache/*.php
+backend/.phpunit.cache
+backend/.phpunit.result.cache
+
+frontend/.output
+frontend/.nuxt
+frontend/.nitro
+frontend/.data
+frontend/.cache
+frontend/test-results
+frontend/playwright-report
+frontend/.e2e-token

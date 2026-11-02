@@ -62,6 +62,7 @@ job yang sama; perintahnya ada di `scripts/ci/*.sh` supaya keduanya tidak menyim
 | `migrasi-xe21` | `migrate:fresh --seed`, rollback, migrate di Oracle XE 21 |
 | `frontend` | eslint, typecheck, Vitest, tes perkakas fixture |
 | `e2e` | Nuxt build + Playwright |
+| `paket` | build image deploy `deploy/backend.Dockerfile` dan `deploy/frontend.Dockerfile` (tanpa push) |
 
 Di GitLab, image PHP dibangun sekali per commit (`image-php`) ke registry proyek; cek dump memakai
 image Oracle yang sama sebagai klien sqlplus.
