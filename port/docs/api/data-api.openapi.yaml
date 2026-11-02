@@ -1,4 +1,4 @@
-# SALINAN dari repo DisparDataPlatform `lakehouse/data-api/openapi.yaml` @ c3f536f23b24b01fad608547e0ad6233a588ce1d.
+# SALINAN dari repo DisparDataPlatform `lakehouse/data-api/openapi.yaml` @ ba0ec033e47ac29bb863c7476714ce5b48abd965.
 # Jangan diedit di sini: ubah sumbernya, lalu salin ulang (scripts/salin-openapi.sh).
 # Kontrak Data API — ditulis plan 01 portal; dirawat tangan sesudahnya. Jangan dibangkitkan dari kode FastAPI.
 openapi: 3.1.0
@@ -3543,6 +3543,43 @@ paths:
                     properties:
                       code:
                         type: string
+                      indikator:
+                        type: object
+                        description: Identitas indikator untuk hero halaman (nama, definisi, dimensi).
+                        required: [framework, dimension, name, definition, owner, note]
+                        properties:
+                          framework: {type: string}
+                          dimension: {type: ['string', 'null']}
+                          name: {type: string}
+                          definition: {type: ['string', 'null']}
+                          owner: {type: ['string', 'null']}
+                          note: {type: ['string', 'null']}
+                      konteks:
+                        description: Benchmark indeks (kartu IndexContext), dari `gci_gpci_benchmark`; null bila tidak ada.
+                        oneOf:
+                        - type: 'null'
+                        - type: object
+                          required: [index_metric, index_source, unit, frontier, jakarta, target, data_needed]
+                          properties:
+                            index_metric: {type: string}
+                            index_source: {type: string}
+                            unit: {type: string}
+                            frontier:
+                              type: object
+                              properties: {city: {type: ['string', 'null']}, value: {type: ['string', 'null']}}
+                            jakarta:
+                              type: object
+                              properties: {value: {type: ['string', 'null']}, note: {type: ['string', 'null']}}
+                            target: {type: ['string', 'null']}
+                            data_needed:
+                              type: array
+                              items:
+                                type: object
+                                required: [status, label, owner]
+                                properties:
+                                  status: {type: string, enum: [punya, proksi, belum]}
+                                  label: {type: string}
+                                  owner: {type: string}
                       sources:
                         type: array
                         items:
@@ -3656,6 +3693,8 @@ paths:
                             type: string
                     required:
                     - code
+                    - indikator
+                    - konteks
                     - sources
                     - source_text
                     - kpis
@@ -4768,6 +4807,11 @@ paths:
                                 type: array
                                 items:
                                   type: string
+                            tautan:
+                              description: URL verifikasi per baris tabel artis yang tampil di Jakarta (null = data event Dispar).
+                              type: array
+                              items:
+                                type: ['string', 'null']
                           required:
                           - header
                           - rows
@@ -6490,8 +6534,8 @@ paths:
       - serving.mart_hotel_scraped_booking
       x-catatan:
       - Bentuk dan contoh = golden plan 01 (`tests/golden/`), keluaran logika Next.js yang tayang.
-      - Titik ringkas tanpa alamat; detail popup lewat `/v1/spasial/titik/{id}`. Dedup kunci `kategori|nama|lat|lng`,
-        statis menang.
+      - Titik ringkas membawa alamat (pencarian peta = nama + alamat + wilayah, sama dengan GmtiMapView v2); sertifikat
+        dan detail popup lewat `/v1/spasial/titik/{id}`. Dedup kunci `kategori|nama|lat|lng`, statis menang.
       - 'P6 ditiru: titik di luar Indonesia tetap ikut. Total 4.825 titik (golden live 21 Okt 2026).'
       - '`kepadatan_tanpa_koordinat` (plan 05) = ibadah tanpa koordinat per kecamatan (dulu `density_extra`, dihitung
         di callback fetch GmtiMapView dari `gmti-ibadah.json` 2 MB); klien menambahkannya ke kategori ibadah. Tidak
@@ -6527,6 +6571,8 @@ paths:
                               type: string
                             city:
                               type: string
+                            address:
+                              type: string
                             lat:
                               type: number
                             lng:
@@ -6546,6 +6592,7 @@ paths:
                           - name
                           - category
                           - city
+                          - address
                           - lat
                           - lng
                           - href
@@ -6635,6 +6682,7 @@ paths:
                     name: Canary Coffee Shop
                     category: gci
                     city: Jakarta Selatan
+                    address: "Jl. TB Simatupang No.Kav. 9, RT.2/RW.2, Kebagusan, Ps. Minggu, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12520, Indonesia"
                     lat: -6.30135
                     lng: 106.834854
                     href: /gci/pariwisata/restoran-gci
@@ -6644,6 +6692,7 @@ paths:
                     name: Rustik Bistro & Bar
                     category: gci
                     city: Jakarta Selatan
+                    address: "Jl. Letjen M.T. Haryono No.6-7, RT.12/RW.11, Cawang, Kecamatan Jatinegara, Kota Jakarta Timur, Daerah Khusus Ibukota Jakarta 13340, Indonesia"
                     lat: -6.245315
                     lng: 106.872364
                     href: /gci/pariwisata/restoran-gci

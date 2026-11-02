@@ -20,7 +20,7 @@ dispar-portal/
 ├─ README.md            Bahasa Indonesia: arsitektur singkat, cara jalan, aturan pemisahan
 ├─ CONTRIBUTING.md      alur PR, gaya commit type(scope), gate lokal
 ├─ compose.dev.yaml     oracle (gvenzl/oracle-xe:18-slim), backend (php-fpm+nginx),
-│                       frontend (node 20), fixture-server (lihat "Server fixture")
+│                       frontend (node 22), fixture-server (lihat "Server fixture")
 ├─ backend/             Laravel 10 (SPEC §4.2)
 ├─ frontend/            Nuxt (SPEC §5.2)
 ├─ fixtures/data-api/   rekaman respons Data API (path+query → status, header, body)

@@ -25,7 +25,7 @@ services:
 
   # Pengganti Data API untuk dev/CI: memutar rekaman fixtures/data-api (tools/fixture-server).
   fixture-server:
-    image: node:20-alpine
+    image: node:22-alpine
     working_dir: /portal
     command: ["node", "tools/fixture-server/putar.mjs"]
     environment:
@@ -44,6 +44,8 @@ services:
       DATA_API_TOKEN: ${DATA_API_TOKEN:-token-fixture}
       # Dev: Nuxt dan nginx berada di subnet Docker; produksi memakai alamat server Nuxt.
       PORTAL_PROXY_TEPERCAYA: ${PORTAL_PROXY_TEPERCAYA:-172.16.0.0/12}
+      # e2e memanggil jauh di atas 120/menit dari satu klien; naikkan lewat env saat menjalankannya.
+      PORTAL_BATAS_PER_MENIT: ${PORTAL_BATAS_PER_MENIT:-120}
       DB_CONNECTION: oracle
       DB_HOST: oracle
       DB_PORT: 1521
@@ -72,7 +74,7 @@ services:
 
   frontend:
     # glibc (bukan alpine): node_modules dipasang di host, binary native-nya glibc.
-    image: node:20-bookworm-slim
+    image: node:22-bookworm-slim
     working_dir: /portal/frontend
     command: ["npx", "nuxt", "dev", "--host", "0.0.0.0", "--port", "3000"]
     user: "${UID:-1000}:${GID:-1000}"

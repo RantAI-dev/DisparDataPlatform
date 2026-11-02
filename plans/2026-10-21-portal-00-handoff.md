@@ -163,16 +163,16 @@ di `main` setelah merge.
 | 04 | ini | Data API: indikator + pariwisata | 02 | selesai* | RantAI-dev/DisparDataPlatform#25 | `1c5ce31` |
 | 05 | ini | Data API: atlas, gmti, spasial, hotel-scraped | 02 | selesai* | RantAI-dev/DisparDataPlatform#26 | `1c5ce31` |
 | 06 | ini | OPERASI: A image Dagster (indikator + flush), B container Data API, hostname | 01–05 + "lanjut deploy" | menunggu "lanjut deploy" | | |
-| 10 | portal | Kerangka monorepo, shared backend/frontend, Oracle, CI | 01 + repo ada | menunggu keputusan repo | | |
-| 11 | portal | Fitur dataset + beranda + docs (pola acuan) | 10, 02 | belum | | |
-| 12 | portal | Fitur dashboard | 11, 03 | belum | | |
-| 13 | portal | Fitur indikator | 11, 04 | belum | | |
-| 14 | portal | Fitur atlas (6 subhalaman) | 11, 05 | belum | | |
-| 15 | portal | Fitur gmti, spasial, hotel-scraped | 11, 05 | belum | | |
-| 16 | portal | Sistem: sinkron, snapshot, log admin, bersihkan-log | 12–15 | belum | | |
-| 17 | portal | Paritas penuh vs dispar.rantai.dev | 16 | belum | | |
-| 18 | portal | Dokumen serah terima | 17 | belum | | |
-| 19 | portal | Paket deploy + panduan pindah GitLab | 16 | belum | | |
+| 10 | portal | Kerangka monorepo, shared backend/frontend, Oracle, CI | 01 + repo ada | selesai (folder `port/`) | RantAI-dev/DisparDataPlatform#37 | |
+| 11 | portal | Fitur dataset + beranda + docs (pola acuan) | 10, 02 | selesai | RantAI-dev/DisparDataPlatform#38 | |
+| 12 | portal | Fitur dashboard | 11, 03 | selesai | RantAI-dev/DisparDataPlatform#39 | |
+| 13 | portal | Fitur indikator | 11, 04 | selesai | RantAI-dev/DisparDataPlatform#40 | |
+| 14 | portal | Fitur atlas (6 subhalaman) | 11, 05 | selesai | RantAI-dev/DisparDataPlatform#41 | |
+| 15 | portal | Fitur gmti, spasial, hotel-scraped | 11, 05 | selesai | RantAI-dev/DisparDataPlatform#42 | |
+| 16 | portal | Sistem: sinkron, snapshot, log admin, bersihkan-log | 12–15 | selesai | RantAI-dev/DisparDataPlatform#46 | |
+| 17 | portal | Paritas penuh vs dispar.rantai.dev | 16 | selesai; EK-P14 diterima sebagai pengecualian | RantAI-dev/DisparDataPlatform#47 | |
+| 18 | portal | Dokumen serah terima | 17 | selesai | RantAI-dev/DisparDataPlatform#48 | |
+| 19 | portal | Paket deploy + panduan pindah GitLab | 16 | selesai | RantAI-dev/DisparDataPlatform#49 | |
 
 \* 01–05 (diperbarui 28 Okt 2026):
 
@@ -184,8 +184,12 @@ di `main` setelah merge.
   panggung 469.
 - Perubahan Data API sesudahnya: RantAI-dev/DisparDataPlatform#32 (`/v1/katalog` field dan filter
   `sumber`, filter `tag`) dan RantAI-dev/DisparDataPlatform#33 (urutan kolom tabel numerik).
-- Kode portal plan 10–19: repo `dispar-portal` belum dibuat. Keputusan 21 Okt menaruhnya sementara
-  di folder `port/` repo ini; perlu dikonfirmasi ulang sebelum plan 10 dimulai.
+- Kode portal plan 10–19: repo `dispar-portal` belum dibuat; kode tinggal di folder `port/` repo ini
+  (dikonfirmasi pemilik 28 Okt). Plan 10–15 = PR bertumpuk #37–#42 (belum merge). Plan 16–19
+  (2 Nov) = PR bertumpuk #46–#49 (belum merge), branch `feat/sistem` → `test/paritas-penuh` → `docs/serah-terima` →
+  `feat/paket-deploy`. Penyimpangan disetujui pemilik: Node 22 (bukan 20), katalog sekunder 51
+  entri, sinkron manual sebagai proses CLI, kesehatan tidak dicatat log, snapshot basi disegarkan
+  saat dibaca. Laporan paritas: `port/docs/paritas/`.
 
 ## Di luar batch ini (sudah diketahui, sengaja ditunda)
 

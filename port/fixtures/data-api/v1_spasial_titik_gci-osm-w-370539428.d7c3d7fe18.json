@@ -1,0 +1,8 @@
+{
+  "kunci": "/v1/spasial/titik/gci-osm-w-370539428",
+  "status": 200,
+  "headers": {
+    "content-type": "application/json"
+  },
+  "body": "{\"data\":{\"id\":\"gci-osm-w-370539428\",\"name\":\"Canary Coffee Shop\",\"category\":\"gci\",\"city\":\"Jakarta Selatan\",\"address\":\"Jl. TB Simatupang No.Kav. 9, RT.2/RW.2, Kebagusan, Ps. Minggu, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12520, Indonesia\",\"lat\":-6.30135,\"lng\":106.834854,\"href\":\"/gci/pariwisata/restoran-gci\",\"kind\":null,\"source\":null,\"cert\":null},\"meta\":{\"generated_at\":\"2026-10-30T06:25:09+07:00\",\"source\":[\"sama dengan /v1/spasial\"],\"request_id\":\"78760ef5d99b419b8bf11cf097d84ca2\"}}"
+}

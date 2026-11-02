@@ -58,7 +58,9 @@ jobs:
         if: always()
         with:
           name: pest-junit
-          path: backend/storage/logs/pest-junit.xml
+          path: |
+            backend/storage/logs/pest-junit.xml
+            backend/storage/logs/clover.xml
           if-no-files-found: ignore
 
   migrasi-xe21:
@@ -102,7 +104,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
           cache: npm
           cache-dependency-path: frontend/package-lock.json
       - run: bash scripts/ci/frontend.sh
@@ -110,21 +112,56 @@ jobs:
         if: always()
         with:
           name: vitest-junit
-          path: frontend/test-results/vitest-junit.xml
+          path: |
+            frontend/test-results/vitest-junit.xml
+            frontend/coverage/coverage-summary.json
           if-no-files-found: ignore
 
-  e2e:
-    name: e2e (Playwright)
+  paket:
+    name: paket deploy (build image, tanpa push)
     runs-on: ubuntu-24.04
     timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
+      - run: sh scripts/ci/paket.sh
+
+  e2e:
+    name: e2e (Playwright + Laravel + fixture)
+    runs-on: ubuntu-24.04
+    timeout-minutes: 40
+    services:
+      oracle:
+        image: gvenzl/oracle-xe:18-slim
+        env:
+          ORACLE_PASSWORD: portal_ci
+          APP_USER: portal_test
+          APP_USER_PASSWORD: portal_test
+        ports: ["1521:1521"]
+        options: >-
+          --health-cmd healthcheck.sh --health-interval 10s --health-timeout 5s
+          --health-retries 60 --health-start-period 60s
+    steps:
+      - uses: actions/checkout@v4
+      - uses: docker/setup-buildx-action@v3
+      - uses: docker/build-push-action@v6
+        with:
+          context: backend
+          load: true
+          tags: dispar-portal-php:ci
+          cache-from: type=gha
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
           cache: npm
           cache-dependency-path: frontend/package-lock.json
-      - run: bash scripts/ci/e2e.sh
+      # Laravel berjalan di image PHP (oci8); fixture-server dan Playwright di runner.
+      - run: >-
+          LARAVEL_JALAN="docker run --rm --network host -u $(id -u):$(id -g) -e HOME=/tmp
+          -v $PWD:/portal -w /portal -e TOKEN_BERKAS=/portal/frontend/.e2e-token
+          -e DB_CONNECTION=oracle -e DB_HOST=127.0.0.1 -e DB_PORT=1521 -e DB_SERVICE_NAME=XEPDB1
+          -e DB_SERVER_VERSION=12c -e DATA_API_URL=http://127.0.0.1:18090
+          dispar-portal-php:ci bash scripts/ci/laravel-e2e.sh"
+          bash scripts/ci/e2e.sh
       - uses: actions/upload-artifact@v4
         if: always()
         with:
@@ -132,4 +169,11 @@ jobs:
           path: |
             frontend/test-results
             frontend/playwright-report
+          if-no-files-found: ignore
+      # Laporan JUnit e2e terpisah, supaya mudah diambil untuk docs/unit-testing.md.
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: e2e-junit
+          path: frontend/test-results/e2e-junit.xml
           if-no-files-found: ignore

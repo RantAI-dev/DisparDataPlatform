@@ -120,7 +120,7 @@ Branch `feat/paket-deploy`. Commit `feat(deploy): paket container dan panduan mi
   `php artisan config:cache route:cache`; healthcheck `/api/v1/sistem/kesehatan`.
 - Konfigurasi nginx dan php-fpm dengan timeout ekspor 300 s dan `fastcgi_buffering off` untuk
   rute ekspor.
-- `deploy/frontend.Dockerfile`: node 20, `nuxt build`, `node .output/server/index.mjs`.
+- `deploy/frontend.Dockerfile`: node 22, `nuxt build`, `node .output/server/index.mjs`.
 - `deploy/scheduler`: container yang sama dengan backend dengan perintah `schedule:work`,
   atau entri crontab untuk bare metal. Keduanya didokumentasikan.
 - `deploy/compose.yaml` contoh (tanpa Oracle; Oracle milik server mereka) dan `.env.example`

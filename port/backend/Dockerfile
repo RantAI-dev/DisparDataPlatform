@@ -5,6 +5,9 @@ FROM php:8.2-fpm-bookworm
 ARG IC_VERSI=19.33.0.0.0
 ARG IC_DIR=1933000
 ARG OCI8_VERSI=3.3.0
+# pcov: cakupan Pest di CI (plan 18). Dimuat tetapi mati (pcov.enabled=0); scripts/ci/backend.sh
+# menyalakannya per proses dengan `php -d pcov.enabled=1`, jadi php-fpm tidak terbebani.
+ARG PCOV_VERSI=1.0.12
 ARG COMPOSER_VERSI=2.8.12
 # SHA256 resmi: halaman unduhan Instant Client Oracle dan getcomposer.org/.../composer.phar.sha256sum
 ARG IC_BASIC_SHA256=a2fc1f32b776c1b574c231727d067cca522259c5d8854afdc41caf3ea8f7ef0d
@@ -31,8 +34,11 @@ ENV LD_LIBRARY_PATH=/opt/oracle/instantclient
 RUN set -eux; \
     echo "instantclient,/opt/oracle/instantclient" | pecl install "oci8-${OCI8_VERSI}"; \
     docker-php-ext-enable oci8; \
+    pecl install "pcov-${PCOV_VERSI}"; \
+    docker-php-ext-enable pcov; \
+    echo "pcov.enabled=0" > /usr/local/etc/php/conf.d/zz-pcov.ini; \
     docker-php-ext-install zip intl bcmath opcache pcntl; \
-    php -m | grep -qx oci8
+    php -m | grep -qx oci8; php -m | grep -qx pcov
 
 RUN curl -fsSL "https://getcomposer.org/download/${COMPOSER_VERSI}/composer.phar" -o /usr/local/bin/composer \
  && echo "${COMPOSER_SHA256}  /usr/local/bin/composer" | sha256sum -c - \

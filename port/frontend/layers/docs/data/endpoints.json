@@ -1,0 +1,1397 @@
+[
+  {
+    "id": "atlas-restoran-gci",
+    "method": "GET",
+    "path": "/api/v1/atlas/restoran-gci",
+    "title": "Restoran GCI",
+    "desc": "Seluruh restoran & kafe se-Jakarta untuk Global City Index: gabungan kurasi, OSM, rating, alamat, harga, dan restoran hotel (dedup ≤ 60 m).",
+    "params": [],
+    "contoh": "/api/v1/atlas/restoran-gci",
+    "respons": "json",
+    "errors": [
+      {
+        "code": "401",
+        "when": "Token tidak ada atau tidak valid."
+      }
+    ]
+  },
+  {
+    "id": "atlas-direktori-restoran",
+    "method": "GET",
+    "path": "/api/v1/atlas/direktori-restoran",
+    "title": "Direktori restoran",
+    "desc": "Restoran & kafe pilihan Jakarta dengan sumber sitasi publik (kurasi + OSM, dedup, hanya DKI).",
+    "params": [],
+    "contoh": "/api/v1/atlas/direktori-restoran",
+    "respons": "json",
+    "errors": [
+      {
+        "code": "401",
+        "when": "Token tidak ada atau tidak valid."
+      }
+    ]
+  },
+  {
+    "id": "atlas-golf",
+    "method": "GET",
+    "path": "/api/v1/atlas/golf",
+    "title": "Lapangan golf",
+    "desc": "Lapangan & driving range golf di Jakarta dan sekitarnya.",
+    "params": [],
+    "contoh": "/api/v1/atlas/golf",
+    "respons": "json",
+    "errors": [
+      {
+        "code": "401",
+        "when": "Token tidak ada atau tidak valid."
+      }
+    ]
+  },
+  {
+    "id": "atlas-suvenir",
+    "method": "GET",
+    "path": "/api/v1/atlas/suvenir",
+    "title": "Toko suvenir",
+    "desc": "Toko suvenir, oleh-oleh & kerajinan dari TripAdvisor.",
+    "params": [],
+    "contoh": "/api/v1/atlas/suvenir",
+    "respons": "json",
+    "errors": [
+      {
+        "code": "401",
+        "when": "Token tidak ada atau tidak valid."
+      }
+    ]
+  },
+  {
+    "id": "atlas-hotel",
+    "method": "GET",
+    "path": "/api/v1/atlas/hotel",
+    "title": "Hotel & akomodasi",
+    "desc": "Registri hotel berbintang, tingkat penghunian kamar (TPK), dan lama menginap.",
+    "params": [],
+    "contoh": "/api/v1/atlas/hotel",
+    "respons": "json",
+    "errors": [
+      {
+        "code": "401",
+        "when": "Token tidak ada atau tidak valid."
+      }
+    ]
+  },
+  {
+    "id": "atlas-pertunjukan",
+    "method": "GET",
+    "path": "/api/v1/atlas/pertunjukan",
+    "title": "Pertunjukan budaya",
+    "desc": "Konser, festival, tari, teater, seni rupa, dan film; semua tahun atau satu `tahun`.",
+    "params": [
+      {
+        "name": "tahun",
+        "in": "query",
+        "type": "string",
+        "required": false,
+        "desc": "Tahun pertunjukan, `YYYY`; kosong = semua tahun."
+      }
+    ],
+    "contoh": "/api/v1/atlas/pertunjukan",
+    "respons": "json",
+    "errors": [
+      {
+        "code": "401",
+        "when": "Token tidak ada atau tidak valid."
+      },
+      {
+        "code": "422",
+        "when": "Parameter tidak sesuai aturan (rincian per parameter di errors.fields)."
+      }
+    ]
+  },
+  {
+    "id": "dashboard-ringkasan",
+    "method": "GET",
+    "path": "/api/v1/dashboard/ringkasan",
+    "title": "Ringkasan dashboard",
+    "desc": "Empat KPI beranda dashboard: wisman tahun terakhir lengkap vs target RPJMD dan PDRB ekonomi kreatif.",
+    "params": [],
+    "contoh": "/api/v1/dashboard/ringkasan",
+    "respons": "json",
+    "errors": [
+      {
+        "code": "401",
+        "when": "Token tidak ada atau tidak valid."
+      }
+    ]
+  },
+  {
+    "id": "dashboard-wisman-tahunan",
+    "method": "GET",
+    "path": "/api/v1/dashboard/wisman/tahunan",
+    "title": "Wisman per tahun",
+    "desc": "Capaian kunjungan wisman per tahun vs target RPJMD, pertumbuhan, dan tahun bawaan halaman.",
+    "params": [],
+    "contoh": "/api/v1/dashboard/wisman/tahunan",
+    "respons": "json",
+    "errors": [
+      {
+        "code": "401",
+        "when": "Token tidak ada atau tidak valid."
+      }
+    ]
+  },
+  {
+    "id": "dashboard-wisman-bulanan",
+    "method": "GET",
+    "path": "/api/v1/dashboard/wisman/bulanan",
+    "title": "Wisman per bulan",
+    "desc": "Kunjungan wisman per bulan seluruh periode, deret year-on-year, dan ringkasan bulan terpilih (`periode`).",
+    "params": [
+      {
+        "name": "periode",
+        "in": "query",
+        "type": "string",
+        "required": false,
+        "desc": "Bulan terpilih, `YYYY-MM`."
+      }
+    ],
+    "contoh": "/api/v1/dashboard/wisman/bulanan",
+    "respons": "json",
+    "errors": [
+      {
+        "code": "401",
+        "when": "Token tidak ada atau tidak valid."
+      },
+      {
+        "code": "422",
+        "when": "Parameter tidak sesuai aturan (rincian per parameter di errors.fields)."
+      }
+    ]
+  },
+  {
+    "id": "dashboard-wisman-kebangsaan",
+    "method": "GET",
+    "path": "/api/v1/dashboard/wisman/kebangsaan",
+    "title": "Wisman per kebangsaan",
+    "desc": "Negara terbesar (`top`) + Lainnya untuk satu tahun (`tahun`) atau satu bulan (`periode`).",
+    "params": [
+      {
+        "name": "tahun",
+        "in": "query",
+        "type": "string",
+        "required": false,
+        "desc": "Tahun, `YYYY`."
+      },
+      {
+        "name": "periode",
+        "in": "query",
+        "type": "string",
+        "required": false,
+        "desc": "Bulan, `YYYY-MM` (menggantikan tahun)."
+      },
+      {
+        "name": "top",
+        "in": "query",
+        "type": "integer (1–50)",
+        "required": false,
+        "desc": "Jumlah kategori teratas sebelum Lainnya."
+      }
+    ],
+    "contoh": "/api/v1/dashboard/wisman/kebangsaan",
+    "respons": "json",
+    "errors": [
+      {
+        "code": "401",
+        "when": "Token tidak ada atau tidak valid."
+      },
+      {
+        "code": "422",
+        "when": "Parameter tidak sesuai aturan (rincian per parameter di errors.fields)."
+      }
+    ]
+  },
+  {
+    "id": "dashboard-wisman-pintu-masuk",
+    "method": "GET",
+    "path": "/api/v1/dashboard/wisman/pintu-masuk",
+    "title": "Wisman per pintu masuk",
+    "desc": "Komposisi pintu masuk: bulanan BPS bila ada untuk `periode`, selain itu semesteran SDI.",
+    "params": [
+      {
+        "name": "tahun",
+        "in": "query",
+        "type": "string",
+        "required": false,
+        "desc": "Tahun, `YYYY`."
+      },
+      {
+        "name": "periode",
+        "in": "query",
+        "type": "string",
+        "required": false,
+        "desc": "Bulan, `YYYY-MM` (menggantikan tahun)."
+      }
+    ],
+    "contoh": "/api/v1/dashboard/wisman/pintu-masuk",
+    "respons": "json",
+    "errors": [
+      {
+        "code": "401",
+        "when": "Token tidak ada atau tidak valid."
+      },
+      {
+        "code": "422",
+        "when": "Parameter tidak sesuai aturan (rincian per parameter di errors.fields)."
+      }
+    ]
+  },
+  {
+    "id": "dashboard-lama-menginap-rata-rata",
+    "method": "GET",
+    "path": "/api/v1/dashboard/lama-menginap/rata-rata",
+    "title": "Rata-rata lama menginap",
+    "desc": "Rata-rata lama menginap per bulan (rata-rata sederhana kelas bintang), wisman dan wisnus.",
+    "params": [],
+    "contoh": "/api/v1/dashboard/lama-menginap/rata-rata",
+    "respons": "json",
+    "errors": [
+      {
+        "code": "401",
+        "when": "Token tidak ada atau tidak valid."
+      }
+    ]
+  },
+  {
+    "id": "dashboard-lama-menginap-per-kelas",
+    "method": "GET",
+    "path": "/api/v1/dashboard/lama-menginap/per-kelas",
+    "title": "Lama menginap per kelas hotel",
+    "desc": "Tabel lama menginap per kelas hotel untuk satu bulan (`periode`) dan jenis tamu (`tamu`).",
+    "params": [
+      {
+        "name": "tamu",
+        "in": "query",
+        "type": "wisman | wisnus",
+        "required": true,
+        "desc": "Jenis tamu: wisman atau wisnus."
+      },
+      {
+        "name": "periode",
+        "in": "query",
+        "type": "string",
+        "required": false,
+        "desc": "Bulan, `YYYY-MM`; bawaan bulan terakhir."
+      }
+    ],
+    "contoh": "/api/v1/dashboard/lama-menginap/per-kelas?tamu=",
+    "respons": "json",
+    "errors": [
+      {
+        "code": "401",
+        "when": "Token tidak ada atau tidak valid."
+      },
+      {
+        "code": "422",
+        "when": "Parameter tidak sesuai aturan (rincian per parameter di errors.fields)."
+      }
+    ]
+  },
+  {
+    "id": "dashboard-lama-menginap-seri",
+    "method": "GET",
+    "path": "/api/v1/dashboard/lama-menginap/seri",
+    "title": "Deret lama menginap per kelas",
+    "desc": "Deret bulanan lama menginap per kelas hotel untuk satu jenis tamu.",
+    "params": [
+      {
+        "name": "tamu",
+        "in": "query",
+        "type": "wisman | wisnus",
+        "required": true,
+        "desc": "Jenis tamu: wisman atau wisnus."
+      }
+    ],
+    "contoh": "/api/v1/dashboard/lama-menginap/seri?tamu=",
+    "respons": "json",
+    "errors": [
+      {
+        "code": "401",
+        "when": "Token tidak ada atau tidak valid."
+      },
+      {
+        "code": "422",
+        "when": "Parameter tidak sesuai aturan (rincian per parameter di errors.fields)."
+      }
+    ]
+  },
+  {
+    "id": "dashboard-wisnus-meta",
+    "method": "GET",
+    "path": "/api/v1/dashboard/wisnus/meta",
+    "title": "Pilihan dashboard wisnus",
+    "desc": "Daftar kota, tahun, dan tahun bawaan untuk filter dashboard wisatawan nusantara.",
+    "params": [],
+    "contoh": "/api/v1/dashboard/wisnus/meta",
+    "respons": "json",
+    "errors": [
+      {
+        "code": "401",
+        "when": "Token tidak ada atau tidak valid."
+      }
+    ]
+  },
+  {
+    "id": "dashboard-wisnus-tahunan",
+    "method": "GET",
+    "path": "/api/v1/dashboard/wisnus/tahunan",
+    "title": "Wisnus per tahun",
+    "desc": "Perjalanan wisnus per tahun dan KPI, untuk semua kota atau satu `kota`.",
+    "params": [
+      {
+        "name": "kota",
+        "in": "query",
+        "type": "string",
+        "required": false,
+        "desc": "Kota tujuan; kosong = semua kota."
+      }
+    ],
+    "contoh": "/api/v1/dashboard/wisnus/tahunan",
+    "respons": "json",
+    "errors": [
+      {
+        "code": "401",
+        "when": "Token tidak ada atau tidak valid."
+      },
+      {
+        "code": "422",
+        "when": "Parameter tidak sesuai aturan (rincian per parameter di errors.fields)."
+      }
+    ]
+  },
+  {
+    "id": "dashboard-wisnus-per-kota",
+    "method": "GET",
+    "path": "/api/v1/dashboard/wisnus/per-kota",
+    "title": "Wisnus per kota tujuan",
+    "desc": "Perjalanan wisnus per kota tujuan untuk satu `tahun`.",
+    "params": [
+      {
+        "name": "tahun",
+        "in": "query",
+        "type": "string",
+        "required": false,
+        "desc": "Tahun, `YYYY`; bawaan tahun terakhir."
+      }
+    ],
+    "contoh": "/api/v1/dashboard/wisnus/per-kota",
+    "respons": "json",
+    "errors": [
+      {
+        "code": "401",
+        "when": "Token tidak ada atau tidak valid."
+      },
+      {
+        "code": "422",
+        "when": "Parameter tidak sesuai aturan (rincian per parameter di errors.fields)."
+      }
+    ]
+  },
+  {
+    "id": "dashboard-wisnus-bulanan",
+    "method": "GET",
+    "path": "/api/v1/dashboard/wisnus/bulanan",
+    "title": "Wisnus per bulan",
+    "desc": "Deret bulanan perjalanan wisnus per kota, atau satu `kota`.",
+    "params": [
+      {
+        "name": "kota",
+        "in": "query",
+        "type": "string",
+        "required": false,
+        "desc": "Kota tujuan; kosong = semua kota."
+      }
+    ],
+    "contoh": "/api/v1/dashboard/wisnus/bulanan",
+    "respons": "json",
+    "errors": [
+      {
+        "code": "401",
+        "when": "Token tidak ada atau tidak valid."
+      },
+      {
+        "code": "422",
+        "when": "Parameter tidak sesuai aturan (rincian per parameter di errors.fields)."
+      }
+    ]
+  },
+  {
+    "id": "dashboard-wisnus-yoy",
+    "method": "GET",
+    "path": "/api/v1/dashboard/wisnus/yoy",
+    "title": "Wisnus year-on-year",
+    "desc": "Perjalanan wisnus bulan yang sama lintas tahun, untuk semua kota atau satu `kota`.",
+    "params": [
+      {
+        "name": "kota",
+        "in": "query",
+        "type": "string",
+        "required": false,
+        "desc": "Kota tujuan; kosong = semua kota."
+      }
+    ],
+    "contoh": "/api/v1/dashboard/wisnus/yoy",
+    "respons": "json",
+    "errors": [
+      {
+        "code": "401",
+        "when": "Token tidak ada atau tidak valid."
+      },
+      {
+        "code": "422",
+        "when": "Parameter tidak sesuai aturan (rincian per parameter di errors.fields)."
+      }
+    ]
+  },
+  {
+    "id": "dashboard-destinasi-meta",
+    "method": "GET",
+    "path": "/api/v1/dashboard/destinasi/meta",
+    "title": "Pilihan kunjungan destinasi",
+    "desc": "Tahun dan daftar destinasi wisata untuk jenis pengunjung `jenis`.",
+    "params": [
+      {
+        "name": "jenis",
+        "in": "query",
+        "type": "wisnus | wisman",
+        "required": true,
+        "desc": "Jenis pengunjung: wisnus atau wisman."
+      }
+    ],
+    "contoh": "/api/v1/dashboard/destinasi/meta?jenis=",
+    "respons": "json",
+    "errors": [
+      {
+        "code": "401",
+        "when": "Token tidak ada atau tidak valid."
+      },
+      {
+        "code": "422",
+        "when": "Parameter tidak sesuai aturan (rincian per parameter di errors.fields)."
+      }
+    ]
+  },
+  {
+    "id": "dashboard-destinasi-ringkasan",
+    "method": "GET",
+    "path": "/api/v1/dashboard/destinasi/ringkasan",
+    "title": "Ringkasan kunjungan destinasi",
+    "desc": "KPI dan catatan data kunjungan ke destinasi wisata per `tahun` dan `destinasi`.",
+    "params": [
+      {
+        "name": "jenis",
+        "in": "query",
+        "type": "wisnus | wisman",
+        "required": true,
+        "desc": "Jenis pengunjung: wisnus atau wisman."
+      },
+      {
+        "name": "tahun",
+        "in": "query",
+        "type": "string",
+        "required": false,
+        "desc": "Tahun, `YYYY`."
+      },
+      {
+        "name": "destinasi",
+        "in": "query",
+        "type": "string",
+        "required": false,
+        "desc": "Nama destinasi; kosong = semua."
+      }
+    ],
+    "contoh": "/api/v1/dashboard/destinasi/ringkasan?jenis=",
+    "respons": "json",
+    "errors": [
+      {
+        "code": "401",
+        "when": "Token tidak ada atau tidak valid."
+      },
+      {
+        "code": "422",
+        "when": "Parameter tidak sesuai aturan (rincian per parameter di errors.fields)."
+      }
+    ]
+  },
+  {
+    "id": "dashboard-destinasi-per-destinasi",
+    "method": "GET",
+    "path": "/api/v1/dashboard/destinasi/per-destinasi",
+    "title": "Kunjungan per destinasi",
+    "desc": "Peringkat kunjungan per destinasi wisata untuk satu `tahun`.",
+    "params": [
+      {
+        "name": "jenis",
+        "in": "query",
+        "type": "wisnus | wisman",
+        "required": true,
+        "desc": "Jenis pengunjung: wisnus atau wisman."
+      },
+      {
+        "name": "tahun",
+        "in": "query",
+        "type": "string",
+        "required": false,
+        "desc": "Tahun, `YYYY`."
+      }
+    ],
+    "contoh": "/api/v1/dashboard/destinasi/per-destinasi?jenis=",
+    "respons": "json",
+    "errors": [
+      {
+        "code": "401",
+        "when": "Token tidak ada atau tidak valid."
+      },
+      {
+        "code": "422",
+        "when": "Parameter tidak sesuai aturan (rincian per parameter di errors.fields)."
+      }
+    ]
+  },
+  {
+    "id": "dashboard-destinasi-bulanan",
+    "method": "GET",
+    "path": "/api/v1/dashboard/destinasi/bulanan",
+    "title": "Kunjungan destinasi per bulan",
+    "desc": "Deret bulanan kunjungan ke semua destinasi atau satu `destinasi`.",
+    "params": [
+      {
+        "name": "jenis",
+        "in": "query",
+        "type": "wisnus | wisman",
+        "required": true,
+        "desc": "Jenis pengunjung: wisnus atau wisman."
+      },
+      {
+        "name": "destinasi",
+        "in": "query",
+        "type": "string",
+        "required": false,
+        "desc": "Nama destinasi; kosong = semua."
+      }
+    ],
+    "contoh": "/api/v1/dashboard/destinasi/bulanan?jenis=",
+    "respons": "json",
+    "errors": [
+      {
+        "code": "401",
+        "when": "Token tidak ada atau tidak valid."
+      },
+      {
+        "code": "422",
+        "when": "Parameter tidak sesuai aturan (rincian per parameter di errors.fields)."
+      }
+    ]
+  },
+  {
+    "id": "dashboard-tenaga-kerja-dki",
+    "method": "GET",
+    "path": "/api/v1/dashboard/tenaga-kerja/dki",
+    "title": "Tenaga kerja ekraf DKI",
+    "desc": "Tenaga kerja ekonomi kreatif DKI Jakarta per tahun, porsi nasional, dan jenis kelamin.",
+    "params": [],
+    "contoh": "/api/v1/dashboard/tenaga-kerja/dki",
+    "respons": "json",
+    "errors": [
+      {
+        "code": "401",
+        "when": "Token tidak ada atau tidak valid."
+      }
+    ]
+  },
+  {
+    "id": "dashboard-tenaga-kerja-subsektor",
+    "method": "GET",
+    "path": "/api/v1/dashboard/tenaga-kerja/subsektor",
+    "title": "Tenaga kerja per subsektor",
+    "desc": "Tenaga kerja ekonomi kreatif nasional per subsektor untuk satu `tahun`.",
+    "params": [
+      {
+        "name": "tahun",
+        "in": "query",
+        "type": "string",
+        "required": false,
+        "desc": "Tahun, `YYYY`; bawaan tahun terakhir."
+      }
+    ],
+    "contoh": "/api/v1/dashboard/tenaga-kerja/subsektor",
+    "respons": "json",
+    "errors": [
+      {
+        "code": "401",
+        "when": "Token tidak ada atau tidak valid."
+      },
+      {
+        "code": "422",
+        "when": "Parameter tidak sesuai aturan (rincian per parameter di errors.fields)."
+      }
+    ]
+  },
+  {
+    "id": "dashboard-tenaga-kerja-sertifikasi",
+    "method": "GET",
+    "path": "/api/v1/dashboard/tenaga-kerja/sertifikasi",
+    "title": "Sertifikasi kompetensi",
+    "desc": "Jumlah tenaga kerja tersertifikasi per tahun dan per bidang.",
+    "params": [],
+    "contoh": "/api/v1/dashboard/tenaga-kerja/sertifikasi",
+    "respons": "json",
+    "errors": [
+      {
+        "code": "401",
+        "when": "Token tidak ada atau tidak valid."
+      }
+    ]
+  },
+  {
+    "id": "dashboard-pdrb-ekraf-makro",
+    "method": "GET",
+    "path": "/api/v1/dashboard/pdrb-ekraf/makro",
+    "title": "PDRB ekraf makro",
+    "desc": "PDRB ekonomi kreatif DKI: nilai, kontribusi vs target RPJMD, dan pertumbuhan per periode.",
+    "params": [],
+    "contoh": "/api/v1/dashboard/pdrb-ekraf/makro",
+    "respons": "json",
+    "errors": [
+      {
+        "code": "401",
+        "when": "Token tidak ada atau tidak valid."
+      }
+    ]
+  },
+  {
+    "id": "dashboard-pdrb-ekraf-subsektor-sebaran",
+    "method": "GET",
+    "path": "/api/v1/dashboard/pdrb-ekraf/subsektor/sebaran",
+    "title": "Sebaran PDRB per subsektor",
+    "desc": "Distribusi PDRB ekonomi kreatif per subsektor untuk satu `periode`.",
+    "params": [
+      {
+        "name": "periode",
+        "in": "query",
+        "type": "string",
+        "required": false,
+        "desc": "Periode PDRB, mis. `2024` atau `S1 2025`."
+      }
+    ],
+    "contoh": "/api/v1/dashboard/pdrb-ekraf/subsektor/sebaran",
+    "respons": "json",
+    "errors": [
+      {
+        "code": "401",
+        "when": "Token tidak ada atau tidak valid."
+      },
+      {
+        "code": "422",
+        "when": "Parameter tidak sesuai aturan (rincian per parameter di errors.fields)."
+      }
+    ]
+  },
+  {
+    "id": "dashboard-pdrb-ekraf-subsektor-pertumbuhan",
+    "method": "GET",
+    "path": "/api/v1/dashboard/pdrb-ekraf/subsektor/pertumbuhan",
+    "title": "Pertumbuhan PDRB per subsektor",
+    "desc": "Pertumbuhan PDRB ekonomi kreatif per subsektor untuk satu `periode`.",
+    "params": [
+      {
+        "name": "periode",
+        "in": "query",
+        "type": "string",
+        "required": false,
+        "desc": "Periode PDRB, mis. `2024` atau `S1 2025`."
+      }
+    ],
+    "contoh": "/api/v1/dashboard/pdrb-ekraf/subsektor/pertumbuhan",
+    "respons": "json",
+    "errors": [
+      {
+        "code": "401",
+        "when": "Token tidak ada atau tidak valid."
+      },
+      {
+        "code": "422",
+        "when": "Parameter tidak sesuai aturan (rincian per parameter di errors.fields)."
+      }
+    ]
+  },
+  {
+    "id": "dataset-katalog",
+    "method": "GET",
+    "path": "/api/v1/katalog",
+    "title": "Katalog dataset",
+    "desc": "Dataset primer Satu Data Jakarta dan dataset sekunder Dinas, lengkap dengan lapisan lakehouse (medallion), statistik katalog, dan jumlah per lapisan. Dibaca dari snapshot harian.",
+    "params": [
+      {
+        "name": "tier",
+        "in": "query",
+        "type": "semua | primer | sekunder | ",
+        "required": false,
+        "desc": "Tier dataset: semua (bawaan), primer (Satu Data Jakarta), atau sekunder."
+      },
+      {
+        "name": "sumber",
+        "in": "query",
+        "type": "semua | sdi | internal | instansi | crawling | ",
+        "required": false,
+        "desc": "Sumber data: sdi, internal, instansi, atau crawling; semua = tanpa saringan."
+      },
+      {
+        "name": "tag",
+        "in": "query",
+        "type": "string",
+        "required": false,
+        "desc": "Hanya dataset dengan tag ini."
+      },
+      {
+        "name": "page",
+        "in": "query",
+        "type": "integer (≥ 1)",
+        "required": false,
+        "desc": "Nomor halaman, mulai 1."
+      },
+      {
+        "name": "size",
+        "in": "query",
+        "type": "integer (1–500)",
+        "required": false,
+        "desc": "Jumlah baris per halaman."
+      }
+    ],
+    "contoh": "/api/v1/katalog",
+    "respons": "json",
+    "errors": [
+      {
+        "code": "401",
+        "when": "Token tidak ada atau tidak valid."
+      },
+      {
+        "code": "422",
+        "when": "Parameter tidak sesuai aturan (rincian per parameter di errors.fields)."
+      }
+    ]
+  },
+  {
+    "id": "dataset-detail",
+    "method": "GET",
+    "path": "/api/v1/dataset/{slug}",
+    "title": "Detail dataset",
+    "desc": "Metadata satu dataset: judul, deskripsi, sumber, frekuensi, satuan, periode data, lapisan lakehouse, dan jumlah baris Bronze (`total_bronze`). `meta.total` = jumlah baris Silver.",
+    "params": [
+      {
+        "name": "slug",
+        "in": "path",
+        "type": "string",
+        "required": true,
+        "desc": "Slug dataset, mis. `data-jumlah-wisatawan-mancanegara-berdasarkan-kebangsaan`."
+      }
+    ],
+    "contoh": "/api/v1/dataset/data-jumlah-wisatawan-mancanegara-berdasarkan-kebangsaan",
+    "respons": "json",
+    "errors": [
+      {
+        "code": "401",
+        "when": "Token tidak ada atau tidak valid."
+      }
+    ]
+  },
+  {
+    "id": "dataset-kolom",
+    "method": "GET",
+    "path": "/api/v1/dataset/{slug}/kolom",
+    "title": "Kolom dataset",
+    "desc": "Daftar kolom yang ditampilkan beserta keterangan dan tipe aslinya.",
+    "params": [
+      {
+        "name": "slug",
+        "in": "path",
+        "type": "string",
+        "required": true,
+        "desc": "Slug dataset, mis. `data-jumlah-wisatawan-mancanegara-berdasarkan-kebangsaan`."
+      }
+    ],
+    "contoh": "/api/v1/dataset/data-jumlah-wisatawan-mancanegara-berdasarkan-kebangsaan/kolom",
+    "respons": "json",
+    "errors": [
+      {
+        "code": "401",
+        "when": "Token tidak ada atau tidak valid."
+      }
+    ]
+  },
+  {
+    "id": "dataset-facet",
+    "method": "GET",
+    "path": "/api/v1/dataset/{slug}/facet",
+    "title": "Pilihan filter",
+    "desc": "Pilihan filter per kolom Silver: kategori (≤ 50 nilai beserta jumlahnya), rentang angka, atau rentang tanggal. Dihitung atas seluruh dataset.",
+    "params": [
+      {
+        "name": "slug",
+        "in": "path",
+        "type": "string",
+        "required": true,
+        "desc": "Slug dataset, mis. `data-jumlah-wisatawan-mancanegara-berdasarkan-kebangsaan`."
+      }
+    ],
+    "contoh": "/api/v1/dataset/data-jumlah-wisatawan-mancanegara-berdasarkan-kebangsaan/facet",
+    "respons": "json",
+    "errors": [
+      {
+        "code": "401",
+        "when": "Token tidak ada atau tidak valid."
+      }
+    ]
+  },
+  {
+    "id": "dataset-baris",
+    "method": "GET",
+    "path": "/api/v1/dataset/{slug}/baris",
+    "title": "Baris data",
+    "desc": "Baris dataset dari lapisan Silver, berhalaman. `q` mencari teks di semua kolom; `f[]` memfilter (`kolom:in:nilai`, diulang untuk nilai lain, atau `kolom:range:min..max`); `sort` = `kolom:asc|desc`. `meta.total` = jumlah baris yang cocok.",
+    "params": [
+      {
+        "name": "slug",
+        "in": "path",
+        "type": "string",
+        "required": true,
+        "desc": "Slug dataset, mis. `data-jumlah-wisatawan-mancanegara-berdasarkan-kebangsaan`."
+      },
+      {
+        "name": "page",
+        "in": "query",
+        "type": "integer (≥ 1)",
+        "required": false,
+        "desc": "Nomor halaman, mulai 1."
+      },
+      {
+        "name": "size",
+        "in": "query",
+        "type": "integer (1–200)",
+        "required": false,
+        "desc": "Jumlah baris per halaman."
+      },
+      {
+        "name": "sort",
+        "in": "query",
+        "type": "string",
+        "required": false,
+        "desc": "Urutan satu kolom: `kolom:asc` atau `kolom:desc`."
+      },
+      {
+        "name": "q",
+        "in": "query",
+        "type": "string",
+        "required": false,
+        "desc": "Cari teks di semua kolom."
+      },
+      {
+        "name": "f[]",
+        "in": "query",
+        "type": "string[]",
+        "required": false,
+        "desc": "Filter, diulang: `kolom:in:nilai` (ulangi untuk nilai lain) atau `kolom:range:min..max`."
+      }
+    ],
+    "contoh": "/api/v1/dataset/data-jumlah-wisatawan-mancanegara-berdasarkan-kebangsaan/baris",
+    "respons": "json",
+    "errors": [
+      {
+        "code": "401",
+        "when": "Token tidak ada atau tidak valid."
+      },
+      {
+        "code": "422",
+        "when": "Parameter tidak sesuai aturan (rincian per parameter di errors.fields)."
+      }
+    ]
+  },
+  {
+    "id": "dataset-agregat",
+    "method": "GET",
+    "path": "/api/v1/dataset/{slug}/agregat",
+    "title": "Agregat untuk grafik",
+    "desc": "Ringkasan nilai `y` per kategori `x` (sum, avg, count, max, min) atas seluruh baris yang cocok dengan pencarian dan filter; diurutkan menurun, maksimal 1.000 kelompok.",
+    "params": [
+      {
+        "name": "slug",
+        "in": "path",
+        "type": "string",
+        "required": true,
+        "desc": "Slug dataset, mis. `data-jumlah-wisatawan-mancanegara-berdasarkan-kebangsaan`."
+      },
+      {
+        "name": "x",
+        "in": "query",
+        "type": "string",
+        "required": true,
+        "desc": "Kolom kategori."
+      },
+      {
+        "name": "y",
+        "in": "query",
+        "type": "string",
+        "required": false,
+        "desc": "Kolom nilai; tidak dipakai untuk count."
+      },
+      {
+        "name": "agg",
+        "in": "query",
+        "type": "sum | avg | count | max | min",
+        "required": true,
+        "desc": "Agregasi: sum, avg, count, max, atau min."
+      },
+      {
+        "name": "q",
+        "in": "query",
+        "type": "string",
+        "required": false,
+        "desc": "Cari teks di semua kolom."
+      },
+      {
+        "name": "f[]",
+        "in": "query",
+        "type": "string[]",
+        "required": false,
+        "desc": "Filter, diulang: `kolom:in:nilai` (ulangi untuk nilai lain) atau `kolom:range:min..max`."
+      }
+    ],
+    "contoh": "/api/v1/dataset/data-jumlah-wisatawan-mancanegara-berdasarkan-kebangsaan/agregat?x=kebangsaan&agg=count",
+    "respons": "json",
+    "errors": [
+      {
+        "code": "401",
+        "when": "Token tidak ada atau tidak valid."
+      },
+      {
+        "code": "422",
+        "when": "Parameter tidak sesuai aturan (rincian per parameter di errors.fields)."
+      }
+    ]
+  },
+  {
+    "id": "dataset-halaman",
+    "method": "GET",
+    "path": "/api/v1/dataset/{slug}/halaman",
+    "title": "Halaman pertama dataset",
+    "desc": "Gabungan detail, kolom, dan baris halaman pertama dalam satu permintaan: `data = {dataset, kolom, baris}`.",
+    "params": [
+      {
+        "name": "slug",
+        "in": "path",
+        "type": "string",
+        "required": true,
+        "desc": "Slug dataset, mis. `data-jumlah-wisatawan-mancanegara-berdasarkan-kebangsaan`."
+      },
+      {
+        "name": "page",
+        "in": "query",
+        "type": "integer (≥ 1)",
+        "required": false,
+        "desc": "Nomor halaman, mulai 1."
+      },
+      {
+        "name": "size",
+        "in": "query",
+        "type": "integer (1–200)",
+        "required": false,
+        "desc": "Jumlah baris per halaman."
+      }
+    ],
+    "contoh": "/api/v1/dataset/data-jumlah-wisatawan-mancanegara-berdasarkan-kebangsaan/halaman",
+    "respons": "json",
+    "errors": [
+      {
+        "code": "401",
+        "when": "Token tidak ada atau tidak valid."
+      },
+      {
+        "code": "422",
+        "when": "Parameter tidak sesuai aturan (rincian per parameter di errors.fields)."
+      }
+    ]
+  },
+  {
+    "id": "dataset-ekspor",
+    "method": "GET",
+    "path": "/api/v1/dataset/{slug}/ekspor",
+    "title": "Ekspor CSV / XLSX",
+    "desc": "Mengunduh semua baris yang cocok dengan pencarian, filter, dan urutan. CSV memakai BOM dan CRLF; XLSX berisi sheet `Data`. Nama berkas `{slug}.csv`, atau `{slug}-terfilter.csv` bila ada filter. Jumlah baris ada di header `X-Row-Count`; lebih dari 100.000 baris → 413.",
+    "params": [
+      {
+        "name": "slug",
+        "in": "path",
+        "type": "string",
+        "required": true,
+        "desc": "Slug dataset, mis. `data-jumlah-wisatawan-mancanegara-berdasarkan-kebangsaan`."
+      },
+      {
+        "name": "format",
+        "in": "query",
+        "type": "csv | xlsx | ",
+        "required": false,
+        "desc": "Format berkas: csv (bawaan) atau xlsx."
+      },
+      {
+        "name": "sort",
+        "in": "query",
+        "type": "string",
+        "required": false,
+        "desc": "Urutan satu kolom: `kolom:asc` atau `kolom:desc`."
+      },
+      {
+        "name": "q",
+        "in": "query",
+        "type": "string",
+        "required": false,
+        "desc": "Cari teks di semua kolom."
+      },
+      {
+        "name": "f[]",
+        "in": "query",
+        "type": "string[]",
+        "required": false,
+        "desc": "Filter, diulang: `kolom:in:nilai` (ulangi untuk nilai lain) atau `kolom:range:min..max`."
+      }
+    ],
+    "contoh": "/api/v1/dataset/data-jumlah-wisatawan-mancanegara-berdasarkan-kebangsaan/ekspor",
+    "respons": "berkas",
+    "errors": [
+      {
+        "code": "401",
+        "when": "Token tidak ada atau tidak valid."
+      },
+      {
+        "code": "422",
+        "when": "Parameter tidak sesuai aturan (rincian per parameter di errors.fields)."
+      }
+    ]
+  },
+  {
+    "id": "gmti-ringkasan",
+    "method": "GET",
+    "path": "/api/v1/gmti/ringkasan",
+    "title": "Ringkasan GMTI",
+    "desc": "Jakarta Ramah Muslim: angka per pilar, kepadatan per kecamatan, tipologi, capaian, dan penghargaan.",
+    "params": [],
+    "contoh": "/api/v1/gmti/ringkasan",
+    "respons": "json",
+    "errors": [
+      {
+        "code": "401",
+        "when": "Token tidak ada atau tidak valid."
+      }
+    ]
+  },
+  {
+    "id": "gmti-tempat",
+    "method": "GET",
+    "path": "/api/v1/gmti/tempat",
+    "title": "Daftar tempat GMTI",
+    "desc": "Tempat ramah Muslim berhalaman (200 per halaman) dengan filter pilar, kota, jenis, dan cari.",
+    "params": [
+      {
+        "name": "page",
+        "in": "query",
+        "type": "integer (≥ 1)",
+        "required": false,
+        "desc": "Nomor halaman, mulai 1."
+      },
+      {
+        "name": "size",
+        "in": "query",
+        "type": "integer (1–200)",
+        "required": false,
+        "desc": "Baris per halaman (maks. 200)."
+      },
+      {
+        "name": "pilar",
+        "in": "query",
+        "type": "semua | ibadah | makan | menginap | destinasi | program | ",
+        "required": false,
+        "desc": "Pilar GMTI; `semua` = tanpa filter."
+      },
+      {
+        "name": "kota",
+        "in": "query",
+        "type": "string",
+        "required": false,
+        "desc": "Kota administrasi; kosong = semua kota."
+      },
+      {
+        "name": "jenis",
+        "in": "query",
+        "type": "string",
+        "required": false,
+        "desc": "Jenis tempat dalam pilar; kosong = semua jenis."
+      },
+      {
+        "name": "q",
+        "in": "query",
+        "type": "string",
+        "required": false,
+        "desc": "Cari nama atau alamat."
+      }
+    ],
+    "contoh": "/api/v1/gmti/tempat",
+    "respons": "json",
+    "errors": [
+      {
+        "code": "401",
+        "when": "Token tidak ada atau tidak valid."
+      },
+      {
+        "code": "422",
+        "when": "Parameter tidak sesuai aturan (rincian per parameter di errors.fields)."
+      }
+    ]
+  },
+  {
+    "id": "spasial-index",
+    "method": "GET",
+    "path": "/api/v1/spasial",
+    "title": "Peta Spatial",
+    "desc": "Titik ringkas berkoordinat (atlas, venue seni, GMTI, dataset Silver) beserta kepadatan per kecamatan.",
+    "params": [],
+    "contoh": "/api/v1/spasial",
+    "respons": "json",
+    "errors": [
+      {
+        "code": "401",
+        "when": "Token tidak ada atau tidak valid."
+      }
+    ]
+  },
+  {
+    "id": "spasial-titik",
+    "method": "GET",
+    "path": "/api/v1/spasial/titik/{id}",
+    "title": "Detail titik Spatial",
+    "desc": "Detail satu titik untuk popup peta (mis. sertifikat halal).",
+    "params": [
+      {
+        "name": "id",
+        "in": "path",
+        "type": "string",
+        "required": true,
+        "desc": ""
+      }
+    ],
+    "contoh": "/api/v1/spasial/titik/{id}",
+    "respons": "json",
+    "errors": [
+      {
+        "code": "401",
+        "when": "Token tidak ada atau tidak valid."
+      }
+    ]
+  },
+  {
+    "id": "hotel-scraped",
+    "method": "GET",
+    "path": "/api/v1/hotel-scraped",
+    "title": "Hotel hasil scraping",
+    "desc": "Harga kamar hotel hasil scraping Booking.com (snapshot Bronze).",
+    "params": [
+      {
+        "name": "limit",
+        "in": "query",
+        "type": "integer (1–500)",
+        "required": false,
+        "desc": "Jumlah hotel paling banyak (1–500, bawaan 100)."
+      }
+    ],
+    "contoh": "/api/v1/hotel-scraped",
+    "respons": "json",
+    "errors": [
+      {
+        "code": "401",
+        "when": "Token tidak ada atau tidak valid."
+      },
+      {
+        "code": "422",
+        "when": "Parameter tidak sesuai aturan (rincian per parameter di errors.fields)."
+      }
+    ]
+  },
+  {
+    "id": "indikator-daftar",
+    "method": "GET",
+    "path": "/api/v1/indikator",
+    "title": "Daftar indikator",
+    "desc": "Kesiapan data tiap indikator satu framework: status, dataset pengisi, nilai terbaru, dan ringkasan jumlah per status.",
+    "params": [
+      {
+        "name": "framework",
+        "in": "query",
+        "type": "GCI | GPCI",
+        "required": true,
+        "desc": "Framework indeks: GCI (Kearney) atau GPCI (Mori)."
+      }
+    ],
+    "contoh": "/api/v1/indikator?framework=",
+    "respons": "json",
+    "errors": [
+      {
+        "code": "401",
+        "when": "Token tidak ada atau tidak valid."
+      },
+      {
+        "code": "422",
+        "when": "Parameter tidak sesuai aturan (rincian per parameter di errors.fields)."
+      }
+    ]
+  },
+  {
+    "id": "indikator-detail",
+    "method": "GET",
+    "path": "/api/v1/indikator/{code}",
+    "title": "Detail indikator",
+    "desc": "Identitas, konteks indeks (benchmark), dataset sumber, KPI, dan blok grafik satu indikator; indikator tanpa data memuat `teks_fallback`.",
+    "params": [
+      {
+        "name": "code",
+        "in": "path",
+        "type": "string",
+        "required": true,
+        "desc": "Kode indikator, mis. `CI-MU`."
+      }
+    ],
+    "contoh": "/api/v1/indikator/{code}",
+    "respons": "json",
+    "errors": [
+      {
+        "code": "401",
+        "when": "Token tidak ada atau tidak valid."
+      }
+    ]
+  },
+  {
+    "id": "indikator-gci-resmi",
+    "method": "GET",
+    "path": "/api/v1/gci/resmi",
+    "title": "Peringkat resmi GCI",
+    "desc": "Peringkat Kearney GCI Jakarta (keseluruhan dan Pengalaman Budaya) serta empat kartu indikator pariwisata resmi.",
+    "params": [],
+    "contoh": "/api/v1/gci/resmi",
+    "respons": "json",
+    "errors": [
+      {
+        "code": "401",
+        "when": "Token tidak ada atau tidak valid."
+      }
+    ]
+  },
+  {
+    "id": "indikator-dataset-tematik",
+    "method": "GET",
+    "path": "/api/v1/dataset-tematik",
+    "title": "Dataset tematik",
+    "desc": "Kartu dataset tematik per framework dengan jumlah baris yang dihitung dari tabel sumber.",
+    "params": [
+      {
+        "name": "framework",
+        "in": "query",
+        "type": "GCI | GPCI",
+        "required": true,
+        "desc": "Framework indeks: GCI (Kearney) atau GPCI (Mori)."
+      }
+    ],
+    "contoh": "/api/v1/dataset-tematik?framework=",
+    "respons": "json",
+    "errors": [
+      {
+        "code": "401",
+        "when": "Token tidak ada atau tidak valid."
+      },
+      {
+        "code": "422",
+        "when": "Parameter tidak sesuai aturan (rincian per parameter di errors.fields)."
+      }
+    ]
+  },
+  {
+    "id": "indikator-wisatawan-internasional",
+    "method": "GET",
+    "path": "/api/v1/pariwisata/wisatawan-internasional",
+    "title": "Wisatawan internasional",
+    "desc": "Isi halaman pariwisata wisatawan internasional: shell, KPI, kartu grafik, dan data per tahun.",
+    "params": [],
+    "contoh": "/api/v1/pariwisata/wisatawan-internasional",
+    "respons": "json",
+    "errors": [
+      {
+        "code": "401",
+        "when": "Token tidak ada atau tidak valid."
+      }
+    ]
+  },
+  {
+    "id": "indikator-kuliner-michelin",
+    "method": "GET",
+    "path": "/api/v1/pariwisata/kuliner-michelin",
+    "title": "Kuliner (Michelin)",
+    "desc": "Isi halaman pariwisata penawaran kuliner: Michelin, restoran per wilayah, dan tabel pendukung.",
+    "params": [],
+    "contoh": "/api/v1/pariwisata/kuliner-michelin",
+    "respons": "json",
+    "errors": [
+      {
+        "code": "401",
+        "when": "Token tidak ada atau tidak valid."
+      }
+    ]
+  },
+  {
+    "id": "indikator-seni-pertunjukan",
+    "method": "GET",
+    "path": "/api/v1/pariwisata/seni-pertunjukan",
+    "title": "Seni visual & pertunjukan",
+    "desc": "Isi halaman seni pertunjukan untuk semua tahun atau satu `tahun`: KPI, grafik, venue peta, dan artis Top-10 yang tampil di Jakarta.",
+    "params": [
+      {
+        "name": "tahun",
+        "in": "query",
+        "type": "string",
+        "required": false,
+        "desc": "Tahun, `YYYY`; kosong = semua tahun."
+      }
+    ],
+    "contoh": "/api/v1/pariwisata/seni-pertunjukan",
+    "respons": "json",
+    "errors": [
+      {
+        "code": "401",
+        "when": "Token tidak ada atau tidak valid."
+      },
+      {
+        "code": "422",
+        "when": "Parameter tidak sesuai aturan (rincian per parameter di errors.fields)."
+      }
+    ]
+  },
+  {
+    "id": "beranda-ringkasan",
+    "method": "GET",
+    "path": "/api/v1/beranda/ringkasan",
+    "title": "Ringkasan beranda",
+    "desc": "Angka beranda: jumlah dataset primer dan sekunder, jumlah baris pendataan lapangan, jumlah indikator GCI dan GPCI, dan jumlah indeks global yang dipantau.",
+    "params": [],
+    "contoh": "/api/v1/beranda/ringkasan",
+    "respons": "json",
+    "errors": [
+      {
+        "code": "401",
+        "when": "Token tidak ada atau tidak valid."
+      }
+    ]
+  }
+]

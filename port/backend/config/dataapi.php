@@ -13,6 +13,9 @@ return [
     // Cek kesehatan (rute publik): singkat dan tanpa retry, supaya tidak menahan worker.
     'timeout_kesehatan' => (int) env('DATA_API_TIMEOUT_KESEHATAN', 3),
 
+    // Endpoint yang komputasinya berat di Data API (pemilihan dataset indikator): satu percobaan panjang.
+    'timeout_lambat' => (int) env('DATA_API_TIMEOUT_LAMBAT', 60),
+
     // Klien ekspor (aliran): tanpa retry.
     'timeout_stream' => (int) env('DATA_API_TIMEOUT_STREAM', 300),
 ];

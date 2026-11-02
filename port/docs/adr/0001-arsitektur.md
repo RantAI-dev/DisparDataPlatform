@@ -109,10 +109,9 @@ Nilai default SPEC dipakai kecuali disebut lain. Pemilik boleh membatalkan tiap 
   Esri di pane tile bawaan (meniru TileLayer react-leaflet v2), peta lain di `shadowPane`.
 - **SpatialMap hanya tampilan**: props berbentuk `/v1/spasial` (titik ringkas, `cities`,
   `kepadatan_berkoordinat`, `kepadatan_tanpa_koordinat`); popup tampil dari data ringkas lalu
-  alamat/sertifikat menyusul dari `muatDetail(id)` (`/v1/spasial/titik/{id}`). Pencarian sama
-  dengan v2 (nama + alamat + wilayah) bila titik membawa `address`; titik ringkas KONTRAK §2.5
-  belum membawanya, jadi sampai kontrak spasial (plan 05/plan spasial) menambah alamat, pencarian
-  hanya mengenai nama + wilayah — dicatat untuk pemilik.
+  sertifikat menyusul dari `muatDetail(id)` (`/v1/spasial/titik/{id}`). Pencarian sama dengan v2
+  (nama + alamat + wilayah): titik ringkas `/v1/spasial` membawa `address` sejak plan 11 (keputusan
+  pemilik 29 Okt 2026; payload ±1,26 MB vs 0,85 MB tanpa alamat).
 - **HeroDark** = pola hero gelap yang di v2 ditulis ulang di enam berkas (inventaris A §8);
   padding vertikal per halaman lewat prop `pad`. **PageFooter tidak ada di v2** (SPEC §5.2
   menyebutnya di `components/app`), jadi tidak dibuat.
@@ -124,7 +123,7 @@ Nilai default SPEC dipakai kecuali disebut lain. Pemilik boleh membatalkan tiap 
   **Celah yang diketahui**: komponen/composable auto-import Nuxt dari layer lain tidak memakai
   `import`, jadi tidak tertangkap ESLint; layer fitur (plan 11+) perlu menamai komponennya dengan
   awalan fitur dan review menjaga aturan ini.
-- **Galeri `/_kerangka`** (dihapus di plan 17): `index` (komponen + PDRB Ekraf golden),
+- **Galeri `/_kerangka`** (dihapus di plan 17; halaman fitur dan suite paritas menggantikannya): `index` (komponen + PDRB Ekraf golden),
   `pariwisata` (PariwisataShell + VenueMap), `spasial` (SpatialMap, kepadatan dihitung di galeri
   dari golden), `dashboard` (layout dashboard). RawDataDisclosure/SdiTable memanggil rute dataset
   Laravel plan 11, jadi sampai plan 11 galeri menampilkan keadaan error-nya; e2e mencegat rute itu.
@@ -146,6 +145,127 @@ Nilai default SPEC dipakai kecuali disebut lain. Pemilik boleh membatalkan tiap 
 - **`@playwright/test` 1.64.1** (rilis 14 Okt 2026); job GitLab memakai image Playwright versi
   yang sama.
 
+## Keputusan teknis plan 11 (dataset, beranda, docs)
+
+- **Sumber paritas = versi yang tayang**, bukan hanya `6b858eb`. `dispar.rantai.dev` menjalankan
+  `dispar-v2:464fc15`; sejak `6b858eb` katalog mendapat filter Sumber + Tag (c3f536f), chart builder
+  mendapat pilihan urutan dan `kbli` (a7996d2, 55c45af), dan item asisten AI di nav berganti
+  "Jekate" (464fc15). Portal mengikuti versi tayang (K-10); KONTRAK §2.1 memang sudah memuat
+  `sumber`/`tag`. Item Jekate/AI dan dock-nya tetap tidak di-port (SPEC §1, §5.4).
+- **Kelas P lewat `Shared/Cache/BacaCache`** (body mentah, kunci SHA-256 karena kolom KEY 255 byte,
+  TTL `portal.cache_menit` = 15). Error tidak di-cache. Kunci snapshot/cache dibuat
+  `Shared/Support/KunciQuery` (parameter kosong dibuang, kunci diurutkan); job sinkron plan 16
+  memakai fungsi yang sama dengan `varian` rute (katalog: `tier=semua`, `tier=primer`).
+- **`dataset/{slug}/halaman`** = `{dataset, kolom, baris}` disambung sebagai JSON mentah; `meta`
+  = meta baris (`total` = baris Silver), `source` gabungan ketiganya; `sumber = cache` hanya bila
+  ketiganya dari cache. Detail dipanggil lebih dulu supaya slug tak dikenal langsung 404.
+- **Ekspor** = `StreamedResponse` yang menyalin body Data API per 64 KB; `Content-Type`,
+  `Content-Disposition`, `X-Row-Count` diteruskan, `X-Accel-Buffering: no`. LOG_HISTORY mencatat
+  filter (query) dan jumlah baris dari `X-Row-Count`. Proxy Nuxt ikut meneruskan `X-Row-Count`.
+- **Validasi Laravel → 422 `INVALID_PARAM`** (pola plan 10); nilai filter/sort/kolom tetap
+  divalidasi Data API (400 diteruskan). Draf OpenAPI menulis 400 untuk keduanya.
+- **Halaman detail dimuat di browser** (`onMounted`), sama dengan client component v2: HTML SSR
+  berisi "Memuat data dari Satu Data Jakarta…". Katalog dan beranda dimuat SSR (`useAsyncData`),
+  tanpa seed statis `lib/sdi-data.json` (E §1.1). Teks 404 v2 ("Dataset belum tersedia di
+  lakehouse") ditampilkan untuk 404 apa pun dari Laravel.
+- **Komposabel**: `useDataset()` = satu fungsi per endpoint (pola plan 12–15); keadaan tabel detail
+  di `useDatasetBaris(slug)`. Filter tidak ditulis ke URL halaman (v2 juga tidak); serialisasi
+  filter ↔ query API diuji bolak-balik.
+- **`/docs` (P3)**: isi dari ekspor Scramble yang di-commit (`docs/api/laravel-openapi.json`) →
+  `scripts/docs-dari-openapi.ts` → `layers/docs/data/endpoints.json`. Ringkasan/deskripsi dari
+  docblock controller, keterangan parameter dari komentar aturan FormRequest. CI backend gagal bila
+  ekspor berbeda dengan kode; Vitest gagal bila `endpoints.json` berbeda dengan ekspor. Rute
+  `sistem/*` tidak ditampilkan. Base URL dari `NUXT_PUBLIC_API_BASE_URL`. Pill "Baca publik tanpa
+  autentikasi" diganti "Token layanan (Bearer)" karena API portal memang bertoken (K-5).
+- **Uji paritas** (`tests/parity/`, `playwright.parity.config.ts`, lokal): tangkapan produksi
+  menjadi pembanding `toMatchSnapshot` (ambang 2%) dan himpunan angka `<main>` harus identik.
+  Header di-mask; dock AI dibuang dari halaman produksi. Baris tanpa ORDER BY tidak deterministik
+  (E §4.4), jadi baris halaman pertama produksi disuntikkan ke respons `halaman` portal
+  (`samakanBaris`): yang diuji render atas data yang sama. `/docs` dibandingkan hero layar pertama
+  di desktop saja (di 390 px pill P3 membungkus berbeda).
+- **E2E melawan Laravel + fixture-server** (tanpa memalsukan rute di browser). CI:
+  `scripts/ci/e2e.sh` menyalakan fixture-server dan Laravel (`laravel-e2e.sh`: skema bersih, akun
+  layanan, token ke berkas, `artisan serve`; nilai env ditulis ke `.env` karena `serve` tidak
+  meneruskan env proses). Batas laju dinaikkan untuk e2e (`PORTAL_BATAS_PER_MENIT`). GitHub:
+  Laravel di image PHP lewat `docker run`; GitLab: image PHP sebagai image job + Node 22.23.4
+  (`pasang-node.sh`, SHA256 disematkan) + Chromium Playwright.
+- **Slug acuan** (dipakai plan 17): S1 `data-jumlah-wisatawan-mancanegara-berdasarkan-kebangsaan`,
+  S2 `penerbangan-langsung-internasional-jakarta`, S3
+  `data-pendapatan-asli-daerah-pad-sektor-pariwisata` (`docs/skenario/dataset.md`).
+
+## Keputusan teknis plan 12 (dashboard)
+
+- **Penyimpangan dari pola fitur: satu Source/Service generik** (`DashboardSource::ambil($endpoint,
+  $query)`, `DashboardService::baca`) untuk 23 endpoint passthrough tanpa logika per endpoint.
+  Kelas baca per endpoint ada di `DashboardService::KELAS` (diuji sama dengan daftar KONTRAK).
+  Controller tetap satu metode per endpoint (docblock = isi `/docs`), FormRequest per kelompok
+  parameter. Endpoint T berparameter (`lama-menginap/seri?tamu`, `destinasi/meta?jenis`) punya
+  `varian` untuk sinkron; `wisman/bulanan?periode` kelas T di KONTRAK — tanpa `periode` dibaca dari
+  snapshot, dengan `periode` disimpan sebagai snapshot per bulan (kunci berbeda).
+- **Angka turunan dari Data API**: halaman memakai KPI, label tahun parsial ("2026 (s/d Jul)"),
+  top-8 + Lainnya, YoY, dan catatan data destinasi yang dihitung Data API (K-1, golden plan 01),
+  bukan menghitung ulang dari baris mentah seperti komponen React. Hanya format tampilan
+  (`labelBulan`, `idNum`) dan KPI PDRB (dari `makro`, sama dengan `PdrbEkrafStat`) di frontend.
+- **Muat data SSR** (`useAsyncData`), sama dengan server component v2; filter memanggil ulang
+  endpoint P di browser (`watch`).
+- **LosByClass**: deret batang dibaca dari sel tabel `per-kelas` (string id-ID) supaya tabel dan
+  grafik berasal dari satu respons.
+- Paritas `/dashboard` + 4 sub-halaman lulus di 1440 dan 390 (30 Okt 2026), termasuk quirk Q3
+  ("Rp 411 T" vs "Rp 410,6 T").
+
+## Keputusan teknis plan 13 (indikator)
+
+- **Data API diperluas** (lakehouse/data-api, kontrak + tes): detail `/v1/indikator/{code}` kini
+  membawa `indikator` (nama, definisi, dimensi, owner, catatan — untuk hero) dan `konteks`
+  (benchmark `gci_gpci_benchmark` untuk kartu IndexContext; usulan C §4.4), dan tabel artis
+  seni-pertunjukan membawa `tautan` (URL "Verifikasi ↗"). Tanpa itu halaman tidak bisa meniru v2.
+- **Halaman indikator generik**: 19 view React dipipihkan Data API menjadi `kpis` + `blocks`
+  bertipe; satu `IndikatorDetail` merender semua kode (C: satu komponen per arketipe). Pemetaan
+  tipe → komponen dan warna batang setengah lebar (hijau, kuning) diambil dari view v2; MomNote
+  (CE2, CE3, CI-FV) konstanta. Prefiks silang diterima.
+- **Feature Indikator generik** seperti dashboard; satu percobaan dengan `dataapi.timeout_lambat`
+  (60 s) karena pemilihan dataset (K-12) bisa belasan detik saat cache Data API dingin.
+- **Perbaikan store cache Oracle**: `put()` memakai update lalu insert, bukan `upsert` (MERGE …
+  USING SELECT :bind FROM dual), karena bind > 32 KB gagal dengan ORA-01461 (respons
+  seni-pertunjukan ±64 KB).
+- **Defect D ditiru**: "Nilai terbaru" bergantung urutan baris ClickHouse tanpa ORDER BY, jadi bisa
+  berbeda dengan produksi yang dibekukan ISR (contoh 30 Okt: CI-TA 72,22 vs 291.801). Uji paritas
+  mengecualikan angka kolom itu.
+- **Quirk produksi ditiru**: peta venue seni pertunjukan setinggi 0 px di layar < md.
+- Paritas `/gci`, `/gpci`, 28 detail, dan 3 halaman pariwisata lulus di 1440 dan 390 (30 Okt 2026).
+
+## Keputusan teknis plan 14 (atlas)
+
+- **Data datang utuh, olah di klien**: enam endpoint `atlas/*` kelas T (snapshot), varian
+  pertunjukan per tahun 2025/2026. Filter, cari, urut, paging (Restoran GCI 200 baris), dan ekspor
+  CSV/XLS/XLSX berjalan di browser seperti v2; URL Google Maps (`maps_url`, `embed_url`) dan alamat
+  tampilan (`address_display`) dihitung Data API. Feature Atlas memakai `dataapi.timeout_lambat`.
+- **Halaman client-only**: keenam halaman v2 `ssr:false` dengan "Memuat data…", jadi portal memakai
+  `useLazyAsyncData({ server: false })` + `AtlasMemuat`.
+- **P1**: kicker golf memakai `home.vol2_kicker_short` ("LAPANGAN GOLF"), bukan kunci literal.
+- **P2**: tombol "Verifikasi sumber" dan kolom footer `/api/restaurants` + `/api/refresh` tidak
+  di-port; slot kolom footer dibiarkan kosong agar tata letak sama. `AtlasNav` tanpa tombol bahasa
+  (golf, suvenir) tidak merender bilah apa pun, seperti produksi.
+- **Golf membaca `dpj.lang` tanpa tombol** (seperti v2): bahasa direktori ikut ke golf.
+- **Quirk ditiru**: di layar sempit toolbar sticky Restoran GCI (top 56 px) tertutup nav setelah
+  halaman digulir.
+- Paritas enam halaman lulus di 1440 dan 390 (30 Okt 2026).
+
+## Keputusan teknis plan 15 (gmti, spasial, hotel-scraped)
+
+- **Satu modul Laravel `Gmti`** untuk KONTRAK §2.5 (generik `ambil($jalur)`, `timeout_lambat`);
+  LOG_HISTORY tetap memakai modul `gmti`, `spasial`, `hotel-scraped` per rute.
+- **`/gmti` berhalaman server**: daftar 8.666 tempat dari `gmti/tempat` (200 per halaman, kelas P);
+  "Tampilkan N lagi" meminta halaman berikutnya. Opsi wilayah/jenis = `facets` pool tab. Cari
+  di-debounce 300 ms (v2 menyaring tiap ketikan di browser). Ekspor mengambil semua halaman hasil
+  filter berurutan (≤ 44 request, di bawah batas 120/menit) — sama dengan v2: semua hasil filter.
+- **`/spatial`**: `kecamatan_tanpa_poligon` dibaca dari `gmti/ringkasan` (tidak ada di
+  `/v1/spasial`). Peringatan memakai teks v2: gagal → "Titik lakehouse belum dapat dimuat.",
+  `complete: false` → "Sebagian dataset lakehouse gagal dimuat.".
+- **`/scraped-hotels`** membaca Bronze (P5), jadi berisi sementara produksi kosong; paritas visual
+  dibandingkan dengan menyuntikkan respons produksi ke portal (render atas data sama, lulus 1440/390); isi Bronze-nya diuji e2e. ECharts mendaftarkan `ScatterChart` (dipakai grafik skor vs harga).
+- Paritas `/gmti` dan panel `/spatial` lulus di 1440 dan 390 (30 Okt 2026).
+
 ## Penyimpangan dari teks SPEC (disengaja)
 
 | SPEC | Yang dibuat | Alasan |
@@ -154,6 +274,7 @@ Nilai default SPEC dipakai kecuali disebut lain. Pemilik boleh membatalkan tiap 
 | §4.4 "status HTTP diteruskan dari Data API" | 401/403 Data API → **502 `UPSTREAM_AUTH`** | 401/403 dari Data API berarti token layanan Laravel salah (konfigurasi server); meneruskannya membuat Nuxt mengira tokennya sendiri yang salah |
 | §5.1 font `@fontsource-variable/plus-jakarta-sans` + `@nuxtjs/fontaine` | berkas woff2 + `@font-face` produksi di-host sendiri | metrik fontsource 5.3.0 berbeda 3,5% dari font produksi (lihat "Font" di atas) |
 | §4.4 data di-decode bila perlu dibaca | `data` **diambil mentah** dari body (`JsonMentah::nilaiMentah`), tidak di-decode-encode | decode-encode membulatkan bilangan bulat > 2^63 (UInt64 ClickHouse) menjadi float |
+| §9 frontend Node 20 | **Node 22** (22.23.4 disematkan di image produksi dan job e2e GitLab; `node:22-*` mengambang di dev, job frontend GitLab, dan GitHub) | Nuxt 4.6.3 (K-8) mensyaratkan Node ≥ 22.22.3; Node 20 EOL April 2026. SPEC diperbarui; disetujui pemilik 2 Nov 2026 |
 | KONTRAK §2.7 kesehatan | `GET /api/v1/sistem/kesehatan` selalu **200** dengan `status: ok \| terganggu` dan rincian per komponen; `meta.sumber = null` | pemantau tetap bisa membaca komponen mana yang gagal; cek Data API memakai timeout 3 s tanpa retry supaya rute publik ini tidak menahan worker |
 
 ## Risiko versi (ditetapkan klien, bukan pilihan kita)
@@ -183,6 +304,7 @@ Nilai default SPEC dipakai kecuali disebut lain. Pemilik boleh membatalkan tiap 
   (`app/Features/<Fitur>`) yang tidak saling memakai — dijaga tes arsitektur. Bila klien
   memaksudkan deployment terpisah per fitur, modul-modul ini bisa dipecah tanpa mengubah kontrak.
 - **"Log history di tiap modul"** ditafsirkan sebagai satu tabel `LOG_HISTORY` dengan kolom
-  `MODUL` yang diisi otomatis dari atribut rute, ditulis middleware `LogRequest` untuk setiap
-  request `/api/v1`. Seluruh perilakunya ada di `app/Shared/LogHistory`, jadi menyesuaikan dengan
+  `MODUL` yang diisi otomatis dari atribut rute, ditulis middleware global `LogRequest` untuk setiap
+  request `/api/*` (termasuk 404/405), kecuali rute di `loghistory.rute_dikecualikan`
+  (`sistem.kesehatan`, healthcheck container). Seluruh perilakunya ada di `app/Shared/LogHistory`, jadi menyesuaikan dengan
   standar knowledge base mereka cukup mengubah satu tempat.

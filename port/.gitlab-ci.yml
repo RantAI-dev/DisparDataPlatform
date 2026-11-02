@@ -19,6 +19,17 @@ image-php:
     - docker build -t "$PHP_CI_IMAGE" backend
     - docker push "$PHP_CI_IMAGE"
 
+# Image deploy (deploy/*.Dockerfile) hanya dibangun, tidak di-push: registry/rilis diatur saat
+# cara deploy di server Kominfo sudah jelas.
+paket:
+  stage: image
+  image: docker:27
+  services: [docker:27-dind]
+  variables:
+    DOCKER_TLS_CERTDIR: /certs
+  script:
+    - sh scripts/ci/paket.sh
+
 .oracle-db:
   variables:
     DB_CONNECTION: oracle
@@ -41,6 +52,8 @@ backend:
     - bash scripts/ci/backend.sh
   artifacts:
     when: always
+    # Laporan JUnit + cakupan dibaca scripts/dokumen/bangun.py (docs/unit-testing.md).
+    paths: [backend/storage/logs/pest-junit.xml, backend/storage/logs/clover.xml]
     reports:
       junit: backend/storage/logs/pest-junit.xml
 
@@ -79,22 +92,32 @@ migrasi-xe21:
 frontend:
   stage: uji
   needs: []
-  image: node:20-bookworm
+  image: node:22-bookworm
   script:
     - bash scripts/ci/frontend.sh
   artifacts:
     when: always
+    paths: [frontend/test-results/vitest-junit.xml, frontend/coverage/coverage-summary.json]
     reports:
       junit: frontend/test-results/vitest-junit.xml
 
 e2e:
   stage: uji
-  needs: []
-  # Image Playwright versi yang sama dengan @playwright/test (browser sudah terpasang).
-  image: mcr.microsoft.com/playwright:v1.64.1-noble
+  needs: [image-php]
+  # Image PHP (oci8) sebagai dasar: Laravel + Node 22 (pasang-node.sh) + Chromium Playwright.
+  image: $PHP_CI_IMAGE
+  services:
+    - name: gvenzl/oracle-xe:18-slim
+      alias: oracle
+      variables: { APP_USER: portal_test, APP_USER_PASSWORD: portal_test }
   variables:
-    PLAYWRIGHT_SUDAH_ADA: "1"
+    DB_CONNECTION: oracle
+    DB_HOST: oracle
+    DB_PORT: "1521"
+    DB_SERVICE_NAME: XEPDB1
+    DB_SERVER_VERSION: 12c
   script:
+    - bash scripts/ci/pasang-node.sh
     - bash scripts/ci/e2e.sh
   artifacts:
     when: always

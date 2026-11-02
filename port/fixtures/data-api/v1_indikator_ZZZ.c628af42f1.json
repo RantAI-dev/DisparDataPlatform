@@ -1,0 +1,8 @@
+{
+  "kunci": "/v1/indikator/ZZZ",
+  "status": 404,
+  "headers": {
+    "content-type": "application/json"
+  },
+  "body": "{\"error\":{\"code\":\"NOT_FOUND\",\"message\":\"Indikator tidak dikenal: ZZZ\",\"detail\":null}}"
+}

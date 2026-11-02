@@ -1,0 +1,7 @@
+# Keluaran gitlab-ci-local (uji .gitlab-ci.yml secara lokal); bukan sumber.
+.gitlab-ci-local/
+
+# Keluaran scripts/ekspor-dokumen.sh (PDF/DOCX); bukan sumber.
+docs/_build/
+# Env deploy yang sudah terisi (berisi sandi/token); hanya *.env.example yang di-commit.
+deploy/*.env

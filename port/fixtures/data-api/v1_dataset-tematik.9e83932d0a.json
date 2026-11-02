@@ -1,0 +1,8 @@
+{
+  "kunci": "/v1/dataset-tematik?framework=GPCI",
+  "status": 200,
+  "headers": {
+    "content-type": "application/json"
+  },
+  "body": "{\"data\":{\"items\":[{\"no\":\"05\",\"title\":\"Lapangan Golf\",\"href\":\"/gpci/lapangan-golf\",\"total\":14},{\"no\":\"06\",\"title\":\"Toko Suvenir\",\"href\":\"/gpci/toko-suvenir\",\"total\":67},{\"no\":\"07\",\"title\":\"Hotel & Akomodasi\",\"href\":\"/gpci/hotel\",\"total\":120}]},\"meta\":{\"generated_at\":\"2026-10-30T05:45:51+07:00\",\"source\":[\"shared/hitungan.py (tabel sumber atlas + katalog sekunder)\"],\"request_id\":\"5be3a81df009452898cb6d301bf9418f\"}}"
+}

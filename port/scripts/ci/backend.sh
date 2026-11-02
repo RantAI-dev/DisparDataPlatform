@@ -11,7 +11,12 @@ composer install --no-interaction --no-progress --prefer-dist
 [[ -f .env ]] || cp .env.example .env
 php artisan key:generate --force
 vendor/bin/pint --test
-vendor/bin/pest --log-junit storage/logs/pest-junit.xml
+# Cakupan (plan 18): pcov ada di image tetapi mati bawaan; dinyalakan untuk proses ini saja.
+php -d pcov.enabled=1 vendor/bin/pest --log-junit storage/logs/pest-junit.xml --coverage-clover storage/logs/clover.xml
+# Dokumen API (plan 11): docs/api/laravel-openapi.json = ekspor Scramble terbaru dari kode. Bila
+# berbeda, jalankan ulang ekspor lalu `npm run docs:api` di frontend.
+php artisan scramble:export --path=storage/api.json
+diff -u ../docs/api/laravel-openapi.json storage/api.json
 # Migration naik-turun-naik di XE 18 (plan 10 §Test); job migrasi-xe21 mengulanginya di XE 21.
 php artisan migrate:fresh --force
 php artisan migrate:rollback --force

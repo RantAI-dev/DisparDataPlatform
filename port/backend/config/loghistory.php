@@ -6,6 +6,9 @@ return [
     'retensi_hari' => (int) env('LOG_HISTORY_RETENSI_HARI', 180),
     'param_maks' => 2000,
 
+    // Rute yang tidak dicatat: kesehatan dipanggil healthcheck container tiap 30 detik.
+    'rute_dikecualikan' => ['sistem.kesehatan'],
+
     // Kunci query yang tidak pernah ditulis ke PARAM_RINGKAS.
     'param_rahasia' => ['token', 'api_token', 'access_token', 'password'],
 ];

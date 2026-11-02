@@ -18,6 +18,15 @@ final class DataApiResponse
         return '{"data":'.$this->data.',"meta":'.JsonMentah::encode($this->meta).'}';
     }
 
+    /**
+     * Data API menjawab 200 + `meta.peringatan` bila query sumber gagal dan datanya dikosongkan (Q21).
+     * Jawaban seperti itu diteruskan ke klien, tetapi tidak pernah disimpan ke snapshot atau cache.
+     */
+    public function adaPeringatan(): bool
+    {
+        return ! empty($this->meta->peringatan);
+    }
+
     public static function dariBody(string $body): self
     {
         $o = JsonMentah::decode($body); // validasi + meta

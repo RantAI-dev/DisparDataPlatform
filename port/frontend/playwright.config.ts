@@ -10,16 +10,25 @@ export default defineConfig({
   forbidOnly: !!process.env.CI,
   retries: process.env.CI ? 1 : 0,
   reporter: process.env.CI ? [["list"], ["junit", { outputFile: "test-results/e2e-junit.xml" }]] : "list",
+  // artisan serve (e2e CI) bisa lambat menjawab request pertama.
+  expect: { timeout: 15_000 },
   use: { baseURL: process.env.E2E_BASE_URL ?? `http://127.0.0.1:${PORT}`, trace: "retain-on-failure" },
   projects: [
-    { name: "desktop", use: { ...devices["Desktop Chrome"], viewport: { width: 1440, height: 900 } } },
-    { name: "mobile", use: { ...devices["Pixel 7"] } },
+    { name: "desktop", testIgnore: /sistem\.spec/, use: { ...devices["Desktop Chrome"], viewport: { width: 1440, height: 900 } } },
+    { name: "mobile", testIgnore: /sistem\.spec/, use: { ...devices["Pixel 7"] } },
+    // Mematikan Data API bersama (docs/skenario/sistem.md): jalan terakhir, sesudah project lain.
+    {
+      name: "sistem",
+      testMatch: /sistem\.spec/,
+      dependencies: ["desktop", "mobile"],
+      use: { ...devices["Desktop Chrome"], viewport: { width: 1440, height: 900 } },
+    },
   ],
   webServer: process.env.E2E_BASE_URL
     ? undefined
     : {
         command: "node .output/server/index.mjs",
-        url: `http://127.0.0.1:${PORT}/_kerangka`,
+        url: `http://127.0.0.1:${PORT}/`,
         reuseExistingServer: !process.env.CI,
         env: { PORT: String(PORT), HOST: "127.0.0.1" },
         timeout: 60_000,

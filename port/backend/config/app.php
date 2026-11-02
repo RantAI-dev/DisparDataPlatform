@@ -1,5 +1,11 @@
 <?php
 
+use App\Features\Atlas\AtlasServiceProvider;
+use App\Features\Beranda\BerandaServiceProvider;
+use App\Features\Dashboard\DashboardServiceProvider;
+use App\Features\Dataset\DatasetServiceProvider;
+use App\Features\Gmti\GmtiServiceProvider;
+use App\Features\Indikator\IndikatorServiceProvider;
 use App\Features\Sistem\SistemServiceProvider;
 use App\Providers\AppServiceProvider;
 use App\Providers\AuthServiceProvider;
@@ -178,6 +184,12 @@ return [
         // Portal: bagian bersama lalu satu provider per fitur (SPEC §4.2).
         SharedServiceProvider::class,
         SistemServiceProvider::class,
+        BerandaServiceProvider::class,
+        DatasetServiceProvider::class,
+        DashboardServiceProvider::class,
+        IndikatorServiceProvider::class,
+        AtlasServiceProvider::class,
+        GmtiServiceProvider::class,
     ])->toArray(),
 
     /*
