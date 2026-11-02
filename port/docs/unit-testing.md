@@ -8,7 +8,7 @@ dicari dari isi `backend/tests` dan `frontend/tests`; kolom *Status* dari lapora
 jalankan ulang `scripts/ekspor-dokumen.sh`). Paritas (`*-P*`) hanya dijalankan lokal melawan
 produksi (SPEC §7), jadi statusnya tidak ada di laporan CI.
 
-Asal laporan: run **lokal**, bukan CI: laporan terbaru 2026-11-02 16:42 UTC, checkout `5a60f50`. Pest dan Playwright e2e (desktop, mobile, sistem) dijalankan pada `68b7cb9`, Vitest pada `5a60f50`; kode aplikasi dan tes keduanya sama (beda hanya penulisan ID paritas literal setelah rebase). Pest melawan Oracle XE 18 stack dev (skema `portal_test`); e2e melawan Nuxt dev + Laravel + pemutar fixture.
+Asal laporan: run **lokal**, bukan CI: laporan terbaru 2026-11-02 16:42 UTC, checkout `5bfbcbe`. Pest dan Playwright e2e (desktop, mobile, sistem) dijalankan pada `68b7cb9`, Vitest pada `5a60f50`; sesudahnya hanya tes e2e /spatial (SI-E01, lulus 26/26 di `0be7dbb`), penulisan ID paritas, pengecualian EK-P14, dan log sinkron manual yang berubah. Pest melawan Oracle XE 18 stack dev (skema `portal_test`); e2e melawan Nuxt dev + Laravel + pemutar fixture.
 
 ## Laporan JUnit
 
@@ -210,7 +210,7 @@ Cakupan backend dari Pest (pcov, `app/`); cakupan frontend dari Vitest saja (`ap
 | IX-P12 | `/sdi/{S1}` — sort Jumlah Kunjungan ▲ (DS-E05); baris produksi disuntikkan | `frontend/tests/parity/interaksi.spec.ts` | paritas, lokal |
 | IX-P13 | `/sdi/{S1}` — gulir memuat 50 baris berikutnya (DS-E06); halaman 1 dan 2 produksi disuntikkan | `frontend/tests/parity/interaksi.spec.ts` | paritas, lokal |
 | IX-P14 | `/sdi/{S1}` — chart builder + Tambah grafik (DS-E08) | `frontend/tests/parity/interaksi.spec.ts` | paritas, lokal |
-| EK-P14 | `/sdi/{S1}` — isi CSV terfilter Kebangsaan JEPANG (DS-E07) | `frontend/tests/parity/ekspor.spec.ts` | paritas, lokal |
+| EK-P14 | `/sdi/{S1}` — isi CSV terfilter Kebangsaan JEPANG (DS-E07); pengecualian "Urutan baris" (diterima pemilik 3 Nov 2026) | `frontend/tests/parity/bantu.ts`<br>`frontend/tests/parity/ekspor.spec.ts` | paritas, lokal |
 
 ## Fitur `gmti`
 

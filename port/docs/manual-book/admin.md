@@ -81,6 +81,8 @@ curl -s -X POST -H "Authorization: Bearer $TOKEN_ADMIN" "$LARAVEL/api/v1/sistem/
 - **202**: sinkron dimulai sebagai proses CLI terpisah di server
   (`portal:sinkron --manual`, berjalan di luar worker php-fpm sehingga tidak terpotong batas
   waktu request). Pantau hasilnya di `sistem/job`; `KLIEN` berisi nama akun token yang memicu.
+  Keluaran proses (termasuk error sebelum baris JOB_RUNS tertulis) ada di
+  `backend/storage/logs/sinkron-manual.log`.
 - **409** `JOB_BERJALAN`: sinkron lain masih berjalan (cron atau manual). Tunggu selesai.
 - **500** `INTERNAL`: proses sinkron tidak bisa dimulai di server (mis. `php` CLI tidak ada di
   container). Kunci sudah dilepas, jadi bisa dicoba lagi setelah penyebabnya diperbaiki.
