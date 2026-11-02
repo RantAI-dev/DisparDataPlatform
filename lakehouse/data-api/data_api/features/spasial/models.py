@@ -12,6 +12,7 @@ class TitikRingkas(BaseModel):
     name: str
     category: str
     city: str
+    address: str
     lat: Angka
     lng: Angka
     href: str
@@ -41,5 +42,4 @@ class Spasial(BaseModel):
 
 
 class Titik(TitikRingkas):
-    address: str
     cert: str | None

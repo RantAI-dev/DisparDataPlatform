@@ -50,7 +50,9 @@ def _gabungan(k: Konteks) -> dict[str, Any]:
 
 def spasial(k: Konteks) -> tuple[dict[str, Any], dict[str, int]]:
     g = _gabungan(k)
-    ringkas = ("id", "name", "category", "city", "lat", "lng", "href", "kind", "source")
+    # Alamat ikut di titik ringkas: pencarian peta /spatial mencocokkan nama + alamat + wilayah
+    # seperti GmtiMapView v2. Sertifikat tetap hanya di detail /v1/spasial/titik/{id}.
+    ringkas = ("id", "name", "category", "city", "address", "lat", "lng", "href", "kind", "source")
     per_kategori: dict[str, int] = {}
     for p in g["points"]:
         per_kategori[p["category"]] = per_kategori.get(p["category"], 0) + 1
