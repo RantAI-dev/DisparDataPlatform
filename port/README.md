@@ -1,4 +1,4 @@
-# Portal Disparekraf (Nuxt + Laravel) — kerangka
+# Portal Disparekraf (Nuxt + Laravel)
 
 Kode portal baru untuk server Kominfo, dari batch `plans/2026-10-21-portal-*` (plan 10–19).
 Repo tujuan `dispar-portal` belum dibuat, jadi untuk sementara kode tinggal di folder `port/`
@@ -10,10 +10,11 @@ Browser → Nuxt (frontend/) → Laravel 10 (backend/) → Data API (lakehouse/d
 ```
 
 Rancangan lengkap: `plans/2026-10-21-portal-SPEC.md` dan `plans/2026-10-21-portal-10-kerangka.md`.
+Deploy ke server: `deploy/README.md`. Pindah ke GitLab: `docs/pindah-gitlab.md`.
 
 ## Menjalankan lokal
 
-Kebutuhan: Docker dan Node 20+. PHP dan Composer tidak perlu dipasang di laptop; semua lewat
+Kebutuhan: Docker dan Node `^22.22.3`/`^24.15.0`/`>=26` (syarat Nuxt 4.6.3). PHP dan Composer tidak perlu dipasang di laptop; semua lewat
 image `backend/Dockerfile` (PHP 8.2 + Oracle Instant Client 19 + oci8).
 
 ```bash

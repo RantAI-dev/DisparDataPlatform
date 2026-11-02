@@ -28,8 +28,11 @@ cd frontend && npm ci && npm run lint && npx nuxt typecheck && npx vitest run
 
 # e2e (Laravel + fixture-server; skrip yang sama dengan CI)
 bash scripts/ci/e2e.sh
-# atau melawan compose.dev.yaml yang sudah jalan (backend diarahkan ke fixture-server)
-cd frontend && E2E_BASE_URL=http://127.0.0.1:3000 npx playwright test
+# atau melawan compose.dev.yaml yang sudah jalan (backend diarahkan ke fixture-server, dinaikkan dengan
+# PORTAL_BATAS_PER_MENIT=100000). Project `sistem` (jalan terakhir) butuh token admin dan
+# mematikan fixture-server sementara lewat sakelar /__uji/mati.
+cd frontend && E2E_BASE_URL=http://127.0.0.1:3000 E2E_ADMIN_TOKEN=<token admin> \
+  E2E_FIXTURE_URL=http://127.0.0.1:18090 npx playwright test
 
 # paritas dengan dispar.rantai.dev (lokal saja; portal memakai Data API lokal berdata hidup)
 # sesudah `php artisan portal:sinkron`; menulis docs/paritas/laporan-<tanggal>.md
@@ -50,6 +53,8 @@ Vitest punya tiga project: `unit` (fungsi murni), `nuxt` (composable di runtime 
 error). `npm run lint` menjaga pemisahan layer (SPEC §5.3). Playwright (`tests/e2e`) membuka
 halaman tiap fitur, redirect lama, dan halaman 404; isi `NUXT_LARAVEL_URL`,
 `NUXT_FRONTEND_TOKEN`, dan `E2E_LARAVEL_URL` untuk ikut menguji kesehatan backend.
+`E2E_ADMIN_TOKEN` dan `E2E_FIXTURE_URL` dipakai project `sistem` (perilaku halaman saat Data API
+mati, `docs/skenario/sistem.md`); di CI keduanya diisi `scripts/ci/e2e.sh`.
 
 ## CI
 
@@ -62,6 +67,7 @@ job yang sama; perintahnya ada di `scripts/ci/*.sh` supaya keduanya tidak menyim
 | `migrasi-xe21` | `migrate:fresh --seed`, rollback, migrate di Oracle XE 21 |
 | `frontend` | eslint, typecheck, Vitest, tes perkakas fixture |
 | `e2e` | Nuxt build + Playwright |
+| `paket` | build image deploy `deploy/backend.Dockerfile` dan `deploy/frontend.Dockerfile` (tanpa push) |
 
 Di GitLab, image PHP dibangun sekali per commit (`image-php`) ke registry proyek; cek dump memakai
 image Oracle yang sama sebagai klien sqlplus.

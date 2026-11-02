@@ -620,7 +620,7 @@ bila knowledge base mereka berbeda.
   - `e2e`: Playwright melawan Data API palsu
 - Pesan commit dan dokumen dalam Bahasa Indonesia, bentuk `type(scope): …`, mengikuti repo ini.
 - `deploy/` berisi Dockerfile `backend` (php-fpm + nginx + Instant Client), Dockerfile
-  `frontend` (Node 20, `.output`), `compose.yaml` contoh, dan `.env.example` dengan placeholder
+  `frontend` (Node 22, `.output`; Nuxt 4.6 mensyaratkan Node ≥ 22.22, Node 20 EOL April 2026), `compose.yaml` contoh, dan `.env.example` dengan placeholder
   saja. Cara deploy di server Kominfo belum diketahui; paket ini netral (container atau bare
   metal).
 - **Tidak ada secret di repo mana pun.** Token Data API ada di env server Kominfo dan di Env
