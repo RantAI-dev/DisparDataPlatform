@@ -12,7 +12,8 @@
     "typecheck": "nuxt typecheck",
     "lint": "eslint .",
     "docs:api": "jiti scripts/docs-dari-openapi.ts",
-    "paritas": "playwright test -c playwright.parity.config.ts"
+    "paritas": "playwright test -c playwright.parity.config.ts",
+    "tangkapan": "playwright test -c playwright.tangkapan.config.ts"
   },
   "dependencies": {
     "echarts": "5.6.0",

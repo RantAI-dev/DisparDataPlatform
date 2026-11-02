@@ -1,0 +1,20 @@
+/* Gaya cetak PDF dokumen serah terima (scripts/ekspor-dokumen.sh). */
+@page { size: A4; margin: 18mm 16mm; }
+body { font-family: "Plus Jakarta Sans", "Segoe UI", Arial, sans-serif; font-size: 10.5pt; line-height: 1.45; color: #1c1c1c; max-width: none; margin: 0; padding: 0; }
+h1 { font-size: 20pt; border-bottom: 2px solid #e8641b; padding-bottom: 4px; page-break-before: always; }
+h1:first-of-type, header + h1, nav + h1 { page-break-before: avoid; }
+h2 { font-size: 14pt; margin-top: 1.4em; }
+h3 { font-size: 12pt; }
+h4 { font-size: 11pt; }
+h2, h3, h4 { page-break-after: avoid; }
+code { font-family: "JetBrains Mono", Consolas, monospace; font-size: 0.88em; background: #f4f1ec; padding: 0 2px; }
+pre { background: #f4f1ec; padding: 8px; overflow-wrap: anywhere; white-space: pre-wrap; font-size: 8.5pt; }
+pre code { background: none; }
+table { border-collapse: collapse; width: 100%; margin: 0.6em 0; font-size: 9pt; }
+th, td { border: 1px solid #d6d1c8; padding: 3px 5px; vertical-align: top; overflow-wrap: anywhere; }
+th { background: #f4f1ec; text-align: left; }
+tr { page-break-inside: avoid; }
+img { max-width: 100%; max-height: 240mm; width: auto; height: auto; display: block; margin: 0 auto; page-break-inside: avoid; }
+blockquote { border-left: 3px solid #e8641b; margin: 0.8em 0; padding: 0.2em 0.8em; background: #fbf6f1; }
+header#title-block-header { margin-bottom: 1.5em; }
+nav#TOC { font-size: 9.5pt; page-break-after: always; }
