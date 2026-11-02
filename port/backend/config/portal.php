@@ -16,6 +16,9 @@ return [
     // Snapshot kelas T (SPEC §4.6): lebih tua dari ini → meta.stale = true.
     'snapshot_basi_jam' => (int) env('PORTAL_SNAPSHOT_BASI_JAM', 36),
 
+    // Cache endpoint kelas P (SPEC §4.6: 5–60 menit).
+    'cache_menit' => (int) env('PORTAL_CACHE_MENIT', 15),
+
     // Jam job portal:sinkron (WIB), dipakai plan 16.
     'jam_sinkron' => env('PORTAL_JAM_SINKRON', '11:00'),
 ];

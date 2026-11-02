@@ -1,0 +1,370 @@
+[
+  {
+    "id": "dataset-katalog",
+    "method": "GET",
+    "path": "/api/v1/katalog",
+    "title": "Katalog dataset",
+    "desc": "Dataset primer Satu Data Jakarta dan dataset sekunder Dinas, lengkap dengan lapisan lakehouse (medallion), statistik katalog, dan jumlah per lapisan. Dibaca dari snapshot harian.",
+    "params": [
+      {
+        "name": "tier",
+        "in": "query",
+        "type": "semua | primer | sekunder | ",
+        "required": false,
+        "desc": "Tier dataset: semua (bawaan), primer (Satu Data Jakarta), atau sekunder."
+      },
+      {
+        "name": "sumber",
+        "in": "query",
+        "type": "semua | sdi | internal | instansi | crawling | ",
+        "required": false,
+        "desc": "Sumber data: sdi, internal, instansi, atau crawling; semua = tanpa saringan."
+      },
+      {
+        "name": "tag",
+        "in": "query",
+        "type": "string",
+        "required": false,
+        "desc": "Hanya dataset dengan tag ini."
+      },
+      {
+        "name": "page",
+        "in": "query",
+        "type": "integer (≥ 1)",
+        "required": false,
+        "desc": "Nomor halaman, mulai 1."
+      },
+      {
+        "name": "size",
+        "in": "query",
+        "type": "integer (1–500)",
+        "required": false,
+        "desc": "Jumlah baris per halaman."
+      }
+    ],
+    "contoh": "/api/v1/katalog",
+    "respons": "json",
+    "errors": [
+      {
+        "code": "401",
+        "when": "Token tidak ada atau tidak valid."
+      },
+      {
+        "code": "422",
+        "when": "Parameter tidak sesuai aturan (rincian per parameter di errors.fields)."
+      }
+    ]
+  },
+  {
+    "id": "dataset-detail",
+    "method": "GET",
+    "path": "/api/v1/dataset/{slug}",
+    "title": "Detail dataset",
+    "desc": "Metadata satu dataset: judul, deskripsi, sumber, frekuensi, satuan, periode data, lapisan lakehouse, dan jumlah baris Bronze (`total_bronze`). `meta.total` = jumlah baris Silver.",
+    "params": [
+      {
+        "name": "slug",
+        "in": "path",
+        "type": "string",
+        "required": true,
+        "desc": "Slug dataset, mis. `data-jumlah-wisatawan-mancanegara-berdasarkan-kebangsaan`."
+      }
+    ],
+    "contoh": "/api/v1/dataset/data-jumlah-wisatawan-mancanegara-berdasarkan-kebangsaan",
+    "respons": "json",
+    "errors": [
+      {
+        "code": "401",
+        "when": "Token tidak ada atau tidak valid."
+      }
+    ]
+  },
+  {
+    "id": "dataset-kolom",
+    "method": "GET",
+    "path": "/api/v1/dataset/{slug}/kolom",
+    "title": "Kolom dataset",
+    "desc": "Daftar kolom yang ditampilkan beserta keterangan dan tipe aslinya.",
+    "params": [
+      {
+        "name": "slug",
+        "in": "path",
+        "type": "string",
+        "required": true,
+        "desc": "Slug dataset, mis. `data-jumlah-wisatawan-mancanegara-berdasarkan-kebangsaan`."
+      }
+    ],
+    "contoh": "/api/v1/dataset/data-jumlah-wisatawan-mancanegara-berdasarkan-kebangsaan/kolom",
+    "respons": "json",
+    "errors": [
+      {
+        "code": "401",
+        "when": "Token tidak ada atau tidak valid."
+      }
+    ]
+  },
+  {
+    "id": "dataset-facet",
+    "method": "GET",
+    "path": "/api/v1/dataset/{slug}/facet",
+    "title": "Pilihan filter",
+    "desc": "Pilihan filter per kolom Silver: kategori (≤ 50 nilai beserta jumlahnya), rentang angka, atau rentang tanggal. Dihitung atas seluruh dataset.",
+    "params": [
+      {
+        "name": "slug",
+        "in": "path",
+        "type": "string",
+        "required": true,
+        "desc": "Slug dataset, mis. `data-jumlah-wisatawan-mancanegara-berdasarkan-kebangsaan`."
+      }
+    ],
+    "contoh": "/api/v1/dataset/data-jumlah-wisatawan-mancanegara-berdasarkan-kebangsaan/facet",
+    "respons": "json",
+    "errors": [
+      {
+        "code": "401",
+        "when": "Token tidak ada atau tidak valid."
+      }
+    ]
+  },
+  {
+    "id": "dataset-baris",
+    "method": "GET",
+    "path": "/api/v1/dataset/{slug}/baris",
+    "title": "Baris data",
+    "desc": "Baris dataset dari lapisan Silver, berhalaman. `q` mencari teks di semua kolom; `f[]` memfilter (`kolom:in:nilai`, diulang untuk nilai lain, atau `kolom:range:min..max`); `sort` = `kolom:asc|desc`. `meta.total` = jumlah baris yang cocok.",
+    "params": [
+      {
+        "name": "slug",
+        "in": "path",
+        "type": "string",
+        "required": true,
+        "desc": "Slug dataset, mis. `data-jumlah-wisatawan-mancanegara-berdasarkan-kebangsaan`."
+      },
+      {
+        "name": "page",
+        "in": "query",
+        "type": "integer (≥ 1)",
+        "required": false,
+        "desc": "Nomor halaman, mulai 1."
+      },
+      {
+        "name": "size",
+        "in": "query",
+        "type": "integer (1–200)",
+        "required": false,
+        "desc": "Jumlah baris per halaman."
+      },
+      {
+        "name": "sort",
+        "in": "query",
+        "type": "string",
+        "required": false,
+        "desc": "Urutan satu kolom: `kolom:asc` atau `kolom:desc`."
+      },
+      {
+        "name": "q",
+        "in": "query",
+        "type": "string",
+        "required": false,
+        "desc": "Cari teks di semua kolom."
+      },
+      {
+        "name": "f[]",
+        "in": "query",
+        "type": "string[]",
+        "required": false,
+        "desc": "Filter, diulang: `kolom:in:nilai` (ulangi untuk nilai lain) atau `kolom:range:min..max`."
+      }
+    ],
+    "contoh": "/api/v1/dataset/data-jumlah-wisatawan-mancanegara-berdasarkan-kebangsaan/baris",
+    "respons": "json",
+    "errors": [
+      {
+        "code": "401",
+        "when": "Token tidak ada atau tidak valid."
+      },
+      {
+        "code": "422",
+        "when": "Parameter tidak sesuai aturan (rincian per parameter di errors.fields)."
+      }
+    ]
+  },
+  {
+    "id": "dataset-agregat",
+    "method": "GET",
+    "path": "/api/v1/dataset/{slug}/agregat",
+    "title": "Agregat untuk grafik",
+    "desc": "Ringkasan nilai `y` per kategori `x` (sum, avg, count, max, min) atas seluruh baris yang cocok dengan pencarian dan filter; diurutkan menurun, maksimal 1.000 kelompok.",
+    "params": [
+      {
+        "name": "slug",
+        "in": "path",
+        "type": "string",
+        "required": true,
+        "desc": "Slug dataset, mis. `data-jumlah-wisatawan-mancanegara-berdasarkan-kebangsaan`."
+      },
+      {
+        "name": "x",
+        "in": "query",
+        "type": "string",
+        "required": true,
+        "desc": "Kolom kategori."
+      },
+      {
+        "name": "y",
+        "in": "query",
+        "type": "string",
+        "required": false,
+        "desc": "Kolom nilai; tidak dipakai untuk count."
+      },
+      {
+        "name": "agg",
+        "in": "query",
+        "type": "sum | avg | count | max | min",
+        "required": true,
+        "desc": "Agregasi: sum, avg, count, max, atau min."
+      },
+      {
+        "name": "q",
+        "in": "query",
+        "type": "string",
+        "required": false,
+        "desc": "Cari teks di semua kolom."
+      },
+      {
+        "name": "f[]",
+        "in": "query",
+        "type": "string[]",
+        "required": false,
+        "desc": "Filter, diulang: `kolom:in:nilai` (ulangi untuk nilai lain) atau `kolom:range:min..max`."
+      }
+    ],
+    "contoh": "/api/v1/dataset/data-jumlah-wisatawan-mancanegara-berdasarkan-kebangsaan/agregat?x=kebangsaan&agg=count",
+    "respons": "json",
+    "errors": [
+      {
+        "code": "401",
+        "when": "Token tidak ada atau tidak valid."
+      },
+      {
+        "code": "422",
+        "when": "Parameter tidak sesuai aturan (rincian per parameter di errors.fields)."
+      }
+    ]
+  },
+  {
+    "id": "dataset-halaman",
+    "method": "GET",
+    "path": "/api/v1/dataset/{slug}/halaman",
+    "title": "Halaman pertama dataset",
+    "desc": "Gabungan detail, kolom, dan baris halaman pertama dalam satu permintaan: `data = {dataset, kolom, baris}`.",
+    "params": [
+      {
+        "name": "slug",
+        "in": "path",
+        "type": "string",
+        "required": true,
+        "desc": "Slug dataset, mis. `data-jumlah-wisatawan-mancanegara-berdasarkan-kebangsaan`."
+      },
+      {
+        "name": "page",
+        "in": "query",
+        "type": "integer (≥ 1)",
+        "required": false,
+        "desc": "Nomor halaman, mulai 1."
+      },
+      {
+        "name": "size",
+        "in": "query",
+        "type": "integer (1–200)",
+        "required": false,
+        "desc": "Jumlah baris per halaman."
+      }
+    ],
+    "contoh": "/api/v1/dataset/data-jumlah-wisatawan-mancanegara-berdasarkan-kebangsaan/halaman",
+    "respons": "json",
+    "errors": [
+      {
+        "code": "401",
+        "when": "Token tidak ada atau tidak valid."
+      },
+      {
+        "code": "422",
+        "when": "Parameter tidak sesuai aturan (rincian per parameter di errors.fields)."
+      }
+    ]
+  },
+  {
+    "id": "dataset-ekspor",
+    "method": "GET",
+    "path": "/api/v1/dataset/{slug}/ekspor",
+    "title": "Ekspor CSV / XLSX",
+    "desc": "Mengunduh semua baris yang cocok dengan pencarian, filter, dan urutan. CSV memakai BOM dan CRLF; XLSX berisi sheet `Data`. Nama berkas `{slug}.csv`, atau `{slug}-terfilter.csv` bila ada filter. Jumlah baris ada di header `X-Row-Count`; lebih dari 100.000 baris → 413.",
+    "params": [
+      {
+        "name": "slug",
+        "in": "path",
+        "type": "string",
+        "required": true,
+        "desc": "Slug dataset, mis. `data-jumlah-wisatawan-mancanegara-berdasarkan-kebangsaan`."
+      },
+      {
+        "name": "format",
+        "in": "query",
+        "type": "csv | xlsx | ",
+        "required": false,
+        "desc": "Format berkas: csv (bawaan) atau xlsx."
+      },
+      {
+        "name": "sort",
+        "in": "query",
+        "type": "string",
+        "required": false,
+        "desc": "Urutan satu kolom: `kolom:asc` atau `kolom:desc`."
+      },
+      {
+        "name": "q",
+        "in": "query",
+        "type": "string",
+        "required": false,
+        "desc": "Cari teks di semua kolom."
+      },
+      {
+        "name": "f[]",
+        "in": "query",
+        "type": "string[]",
+        "required": false,
+        "desc": "Filter, diulang: `kolom:in:nilai` (ulangi untuk nilai lain) atau `kolom:range:min..max`."
+      }
+    ],
+    "contoh": "/api/v1/dataset/data-jumlah-wisatawan-mancanegara-berdasarkan-kebangsaan/ekspor",
+    "respons": "berkas",
+    "errors": [
+      {
+        "code": "401",
+        "when": "Token tidak ada atau tidak valid."
+      },
+      {
+        "code": "422",
+        "when": "Parameter tidak sesuai aturan (rincian per parameter di errors.fields)."
+      }
+    ]
+  },
+  {
+    "id": "beranda-ringkasan",
+    "method": "GET",
+    "path": "/api/v1/beranda/ringkasan",
+    "title": "Ringkasan beranda",
+    "desc": "Angka beranda: jumlah dataset primer dan sekunder, jumlah baris pendataan lapangan, jumlah indikator GCI dan GPCI, dan jumlah indeks global yang dipantau.",
+    "params": [],
+    "contoh": "/api/v1/beranda/ringkasan",
+    "respons": "json",
+    "errors": [
+      {
+        "code": "401",
+        "when": "Token tidak ada atau tidak valid."
+      }
+    ]
+  }
+]

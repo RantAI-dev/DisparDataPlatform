@@ -1,4 +1,4 @@
-# SALINAN dari repo DisparDataPlatform `lakehouse/data-api/openapi.yaml` @ c3f536f23b24b01fad608547e0ad6233a588ce1d.
+# SALINAN dari repo DisparDataPlatform `lakehouse/data-api/openapi.yaml` @ 9580275c151f9fadf051ab6687b7f6ae6ab8a80b.
 # Jangan diedit di sini: ubah sumbernya, lalu salin ulang (scripts/salin-openapi.sh).
 # Kontrak Data API — ditulis plan 01 portal; dirawat tangan sesudahnya. Jangan dibangkitkan dari kode FastAPI.
 openapi: 3.1.0
@@ -6490,8 +6490,8 @@ paths:
       - serving.mart_hotel_scraped_booking
       x-catatan:
       - Bentuk dan contoh = golden plan 01 (`tests/golden/`), keluaran logika Next.js yang tayang.
-      - Titik ringkas tanpa alamat; detail popup lewat `/v1/spasial/titik/{id}`. Dedup kunci `kategori|nama|lat|lng`,
-        statis menang.
+      - Titik ringkas membawa alamat (pencarian peta = nama + alamat + wilayah, sama dengan GmtiMapView v2); sertifikat
+        dan detail popup lewat `/v1/spasial/titik/{id}`. Dedup kunci `kategori|nama|lat|lng`, statis menang.
       - 'P6 ditiru: titik di luar Indonesia tetap ikut. Total 4.825 titik (golden live 21 Okt 2026).'
       - '`kepadatan_tanpa_koordinat` (plan 05) = ibadah tanpa koordinat per kecamatan (dulu `density_extra`, dihitung
         di callback fetch GmtiMapView dari `gmti-ibadah.json` 2 MB); klien menambahkannya ke kategori ibadah. Tidak
@@ -6527,6 +6527,8 @@ paths:
                               type: string
                             city:
                               type: string
+                            address:
+                              type: string
                             lat:
                               type: number
                             lng:
@@ -6546,6 +6548,7 @@ paths:
                           - name
                           - category
                           - city
+                          - address
                           - lat
                           - lng
                           - href
@@ -6635,6 +6638,7 @@ paths:
                     name: Canary Coffee Shop
                     category: gci
                     city: Jakarta Selatan
+                    address: "Jl. TB Simatupang No.Kav. 9, RT.2/RW.2, Kebagusan, Ps. Minggu, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12520, Indonesia"
                     lat: -6.30135
                     lng: 106.834854
                     href: /gci/pariwisata/restoran-gci
@@ -6644,6 +6648,7 @@ paths:
                     name: Rustik Bistro & Bar
                     category: gci
                     city: Jakarta Selatan
+                    address: "Jl. Letjen M.T. Haryono No.6-7, RT.12/RW.11, Cawang, Kecamatan Jatinegara, Kota Jakarta Timur, Daerah Khusus Ibukota Jakarta 13340, Indonesia"
                     lat: -6.245315
                     lng: 106.872364
                     href: /gci/pariwisata/restoran-gci

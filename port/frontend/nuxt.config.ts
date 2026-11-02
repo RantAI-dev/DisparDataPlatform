@@ -3,7 +3,7 @@
 export default defineNuxtConfig({
   compatibilityDate: "2025-07-15",
   devtools: { enabled: false },
-  extends: ["./layers/shared"],
+  extends: ["./layers/shared", "./layers/beranda", "./layers/dataset", "./layers/docs"],
   ssr: true,
 
   runtimeConfig: {

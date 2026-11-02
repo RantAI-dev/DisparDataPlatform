@@ -1,0 +1,8 @@
+{
+  "kunci": "/v1/dataset/data-jumlah-wisatawan-mancanegara-berdasarkan-kebangsaan/agregat?agg=sum&x=kebangsaan&y=jumlah_kunjungan",
+  "status": 200,
+  "headers": {
+    "content-type": "application/json"
+  },
+  "body": "{\"data\":{\"items\":[{\"name\":\"LAINNYA\",\"value\":1430933},{\"name\":\"MALAYSIA\",\"value\":1101933},{\"name\":\"TIONGKOK\",\"value\":890453},{\"name\":\"SINGAPURA\",\"value\":535576},{\"name\":\"CHINA\",\"value\":411525},{\"name\":\"JEPANG\",\"value\":348477},{\"name\":\"SAUDI ARABIA\",\"value\":301993},{\"name\":\"KOREA SELATAN\",\"value\":278994},{\"name\":\"AMERIKA\",\"value\":227370},{\"name\":\"AUSTRALIA\",\"value\":197417},{\"name\":\"INDIA\",\"value\":193650},{\"name\":\"BELANDA\",\"value\":179833},{\"name\":\"PERANCIS\",\"value\":143463},{\"name\":\"JERMAN\",\"value\":116214},{\"name\":\"INGGRIS\",\"value\":112300},{\"name\":\"TAIWAN\",\"value\":107696},{\"name\":\"THAILAND\",\"value\":97265},{\"name\":\"PHILIPINA\",\"value\":73481},{\"name\":\"FILIPINA\",\"value\":32962},{\"name\":\"HONGKONG\",\"value\":28824},{\"name\":\"RUSIA\",\"value\":28619},{\"name\":\"MESIR\",\"value\":18347},{\"name\":\"UNI EMIRAT ARAB\",\"value\":8039},{\"name\":\"BAHRAIN\",\"value\":2635}]},\"meta\":{\"generated_at\":\"2026-10-30T04:25:46+07:00\",\"source\":[\"silver.<tabel>\"],\"request_id\":\"6bf2785c39a541b096b1431e155a75e6\"}}"
+}

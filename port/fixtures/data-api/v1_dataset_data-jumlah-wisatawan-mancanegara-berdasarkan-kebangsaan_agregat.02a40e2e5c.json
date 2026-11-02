@@ -1,0 +1,8 @@
+{
+  "kunci": "/v1/dataset/data-jumlah-wisatawan-mancanegara-berdasarkan-kebangsaan/agregat?agg=sum&f=kebangsaan%3Ain%3AJEPANG&x=kebangsaan&y=jumlah_kunjungan",
+  "status": 200,
+  "headers": {
+    "content-type": "application/json"
+  },
+  "body": "{\"data\":{\"items\":[{\"name\":\"JEPANG\",\"value\":348477}]},\"meta\":{\"generated_at\":\"2026-10-30T04:25:47+07:00\",\"source\":[\"silver.<tabel>\"],\"request_id\":\"3408b4ce02ef4edfad26925ebd037b1c\"}}"
+}

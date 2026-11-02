@@ -20,7 +20,7 @@ onMounted(async () => {
   ]);
   const semua = g.points as SpasialDetail[];
   detail = new Map(semua.map((p) => [p.id, p]));
-  titik.value = semua.map(({ address: _a, cert: _c, ...ringkas }) => ringkas);
+  titik.value = semua.map(({ cert: _c, ...ringkas }) => ringkas);
   kepadatan.value = hitungKepadatan(semua, geo.features);
   loading.value = false;
 });

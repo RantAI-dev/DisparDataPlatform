@@ -26,9 +26,21 @@ scripts/oracle-dump.sh --cek && scripts/cek-oracle-terlarang.sh
 # frontend
 cd frontend && npm ci && npm run lint && npx nuxt typecheck && npx vitest run
 
-# e2e (Playwright; build dulu, server .output dijalankan Playwright)
-npx nuxt build && npx playwright test
+# e2e (Laravel + fixture-server; skrip yang sama dengan CI)
+bash scripts/ci/e2e.sh
+# atau melawan compose.dev.yaml yang sudah jalan (backend diarahkan ke fixture-server)
+cd frontend && E2E_BASE_URL=http://127.0.0.1:3000 npx playwright test
+
+# paritas dengan dispar.rantai.dev (lokal saja; portal memakai Data API lokal berdata hidup)
+cd frontend && PORTAL_URL=http://127.0.0.1:3000 npx playwright test -c playwright.parity.config.ts
+
+# dokumen API: setelah mengubah rute/docblock/aturan validasi
+docker compose -f compose.dev.yaml exec backend php artisan scramble:export --path=storage/api.json
+mv backend/storage/api.json docs/api/laravel-openapi.json && cd frontend && npm run docs:api
 ```
+
+Fitur baru mengikuti `docs/pola-fitur.md` (urutan kerja, pola backend/frontend, cara memalsukan
+Data API, skenario, paritas, dan checklist reviewer).
 
 Vitest punya tiga project: `unit` (fungsi murni), `nuxt` (composable di runtime Nuxt), dan
 `nitro` (membangun Nuxt lalu menguji server sungguhan: proxy `/_api`, redirect lama, halaman

@@ -1,5 +1,7 @@
 <?php
 
+use App\Features\Beranda\BerandaServiceProvider;
+use App\Features\Dataset\DatasetServiceProvider;
 use App\Features\Sistem\SistemServiceProvider;
 use App\Providers\AppServiceProvider;
 use App\Providers\AuthServiceProvider;
@@ -178,6 +180,8 @@ return [
         // Portal: bagian bersama lalu satu provider per fitur (SPEC §4.2).
         SharedServiceProvider::class,
         SistemServiceProvider::class,
+        BerandaServiceProvider::class,
+        DatasetServiceProvider::class,
     ])->toArray(),
 
     /*

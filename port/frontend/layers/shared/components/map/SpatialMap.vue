@@ -6,7 +6,8 @@
  *     point-in-polygon per kategori (`kepadatanBerkoordinat`); ibadah tanpa koordinat ditambahkan
  *     lewat `kepadatanTanpaKoordinat` bila kategori ibadah aktif — sama dengan v2.
  *  2. Pin titik berkoordinat dengan ikon kategori, dikelompokkan markercluster, ditambah bertahap.
- * Titik ringkas tidak membawa alamat; popup memanggil `muatDetail(id)` (`/v1/spasial/titik/{id}`).
+ * Titik ringkas membawa alamat (untuk pencarian); sertifikat menyusul lewat `muatDetail(id)`
+ * (`/v1/spasial/titik/{id}`) saat popup dibuka.
  */
 import type * as Leaflet from "leaflet";
 import "leaflet/dist/leaflet.css";
@@ -24,8 +25,8 @@ export type SpasialTitik = {
   href: string;
   kind?: string | null;
   source?: string | null;
-  /** Belum dikirim /v1/spasial (KONTRAK §2.5); dipakai pencarian bila ada. */
-  address?: string | null;
+  /** Alamat (KONTRAK §2.5): dipakai pencarian dan popup. */
+  address: string;
 };
 export type SpasialDetail = SpasialTitik & { cert?: string | null };
 type KecCount = { total: number; byCat: Partial<Record<SpatialCategory, number>> };
@@ -125,13 +126,12 @@ function colorFor(total: number) {
 
 const pins = computed(() => {
   const needle = search.value.trim().toLowerCase();
-  // Sama dengan v2 (nama + alamat + wilayah). Titik ringkas /v1/spasial belum membawa alamat; bila
-  // kosong, pencarian hanya mengenai nama + wilayah (ADR 0001).
+  // Sama dengan v2: nama + alamat + wilayah.
   return props.points.filter(
     (p) =>
       active.value.has(p.category) &&
       (!city.value || p.city === city.value) &&
-      (!needle || `${p.name} ${p.address ?? ""} ${p.city}`.toLowerCase().includes(needle)),
+      (!needle || `${p.name} ${p.address} ${p.city}`.toLowerCase().includes(needle)),
   );
 });
 
@@ -163,7 +163,7 @@ function markerUntuk(p: SpasialTitik): Leaflet.Marker {
   let marker = markerCache.get(p.id);
   if (!marker) {
     const m = L.marker([p.lat, p.lng], { icon: pinIcon(p), title: `${p.name} · ${SPATIAL_CATEGORIES[p.category].label}`, alt: p.name });
-    // Popup langsung tampil dengan data ringkas; alamat/sertifikat menyusul dari muatDetail.
+    // Popup langsung tampil dengan data ringkas; sertifikat menyusul dari muatDetail.
     m.bindPopup(() => popupHTML(p), { maxWidth: 300, autoPan: true });
     m.on("popupopen", () => {
       props

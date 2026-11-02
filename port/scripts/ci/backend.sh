@@ -12,6 +12,10 @@ composer install --no-interaction --no-progress --prefer-dist
 php artisan key:generate --force
 vendor/bin/pint --test
 vendor/bin/pest --log-junit storage/logs/pest-junit.xml
+# Dokumen API (plan 11): docs/api/laravel-openapi.json = ekspor Scramble terbaru dari kode. Bila
+# berbeda, jalankan ulang ekspor lalu `npm run docs:api` di frontend.
+php artisan scramble:export --path=storage/api.json
+diff -u ../docs/api/laravel-openapi.json storage/api.json
 # Migration naik-turun-naik di XE 18 (plan 10 §Test); job migrasi-xe21 mengulanginya di XE 21.
 php artisan migrate:fresh --force
 php artisan migrate:rollback --force

@@ -10,7 +10,8 @@
     "postinstall": "nuxt prepare",
     "test": "vitest run",
     "typecheck": "nuxt typecheck",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "docs:api": "jiti scripts/docs-dari-openapi.ts"
   },
   "dependencies": {
     "echarts": "5.6.0",

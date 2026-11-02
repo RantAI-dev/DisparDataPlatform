@@ -16,6 +16,7 @@ use App\Shared\DataApi\DataApiClient;
 use App\Shared\Http\ApiResponse;
 use App\Shared\Tetap\BacaTetap;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Route;
 
 /** Rute uji di /api/v1/uji/*: meneruskan ke Data API palsu lewat jalur Shared yang sesungguhnya. */
@@ -55,4 +56,50 @@ function tokenAkun(string $akun = 'frontend', string $ability = 'read'): array
     $user = User::firstOrCreate(['name' => $akun]);
 
     return ['Authorization' => 'Bearer '.$user->createToken('uji', [$ability])->plainTextToken];
+}
+
+/**
+ * Kunci rekaman fixture untuk sebuah URL Data API, sama dengan tools/fixture-server/kunci.mjs:
+ * parameter kosong dibuang, diurutkan stabil menurut nama, di-encode seperti encodeURIComponent.
+ */
+function kunciFixture(string $url): string
+{
+    $bagian = parse_url($url);
+    $path = rtrim($bagian['path'] ?? '/', '/') ?: '/';
+    $pasangan = [];
+    foreach (array_filter(explode('&', $bagian['query'] ?? '')) as $p) {
+        [$k, $v] = array_pad(explode('=', $p, 2), 2, '');
+        $v = urldecode($v);
+        if ($v !== '') {
+            $pasangan[] = [urldecode($k), $v];
+        }
+    }
+    usort($pasangan, fn ($a, $b) => strcmp($a[0], $b[0])); // usort PHP 8 stabil
+    $enc = fn (string $s) => strtr(rawurlencode($s), ['%21' => '!', '%27' => "'", '%28' => '(', '%29' => ')', '%2A' => '*']);
+    $query = implode('&', array_map(fn ($p) => $enc($p[0]).'='.$enc($p[1]), $pasangan));
+
+    return $query ? "$path?$query" : $path;
+}
+
+/**
+ * Palsukan Data API dengan rekaman fixtures/data-api (seperti pemutar fixture-server). URL yang
+ * belum direkam dijawab 599. Mengembalikan daftar kunci yang dipanggil, untuk diperiksa tes.
+ */
+function dataApiDariFixture(): ArrayObject
+{
+    $rekaman = [];
+    foreach (glob(dirname(__DIR__, 2).'/fixtures/data-api/*.json') ?: [] as $berkas) {
+        $r = json_decode(file_get_contents($berkas), true);
+        $rekaman[$r['kunci']] = $r;
+    }
+    $dipanggil = new ArrayObject;
+    Http::fake(function ($req) use ($rekaman, $dipanggil) {
+        $kunci = kunciFixture($req->url());
+        $dipanggil[] = $kunci;
+        $r = $rekaman[$kunci] ?? ['status' => 599, 'headers' => [], 'body' => '{"error":{"code":"FIXTURE_TIDAK_ADA","message":"'.$kunci.'"}}'];
+
+        return Http::response($r['body'], $r['status'], $r['headers']);
+    });
+
+    return $dipanggil;
 }

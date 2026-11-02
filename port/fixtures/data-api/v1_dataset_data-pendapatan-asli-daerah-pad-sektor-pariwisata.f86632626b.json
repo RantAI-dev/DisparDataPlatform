@@ -1,0 +1,8 @@
+{
+  "kunci": "/v1/dataset/data-pendapatan-asli-daerah-pad-sektor-pariwisata",
+  "status": 200,
+  "headers": {
+    "content-type": "application/json"
+  },
+  "body": "{\"data\":{\"slug\":\"data-pendapatan-asli-daerah-pad-sektor-pariwisata\",\"title\":\"Data Pendapatan Asli Daerah (PAD) Sektor Pariwisata\",\"description\":\"Data Pendapatan Asli Daerah (PAD) Sektor Pariwisata berisikan Data kontribusi sektor pariwisata pada PAD Provinsi DKI Jakarta\",\"sumber_data\":[\"Badan Pendapatan Daerah\"],\"frekuensi\":\"1 Bulan Sekali\",\"satuan\":\"Rupiah\",\"periode\":{\"min\":\"2024-01-01\",\"max\":\"2026-08-01\"},\"klasifikasi\":null,\"kontak\":\"disparekraf@jakarta.go.id\",\"author\":\"Ruth Magdalena\",\"medallion\":{\"level\":\"silver\",\"table\":\"data_pendapatan_asli_daerah_pad_sektor_pariwisata\"},\"total_bronze\":32},\"meta\":{\"generated_at\":\"2026-10-30T04:25:49+07:00\",\"source\":[\"lake.bronze_meta*.dataset_catalog\",\"lake.bronze_meta*.dataset_sync\",\"silver.<tabel>\"],\"request_id\":\"285a43446bc04fbab95e18aafba8e93d\",\"total\":32}}"
+}

@@ -17,7 +17,7 @@ const DIR = process.env.FIXTURE_DIR ?? join(SINI, "..", "..", "fixtures", "data-
 const BASIS = (process.env.DATA_API_URL ?? "http://localhost:18080").replace(/\/+$/, "");
 const TOKEN = process.env.DATA_API_TOKEN;
 // Header yang ikut direkam dan diputar ulang. X-Request-Id tidak: pemutar memantulkan milik request.
-const HEADER = ["content-type", "content-disposition", "cache-control"];
+const HEADER = ["content-type", "content-disposition", "cache-control", "x-row-count"];
 
 if (!TOKEN) {
   console.error("DATA_API_TOKEN wajib diisi (token mentah untuk Data API lokal).");
@@ -36,7 +36,8 @@ let gagal = 0;
 for (const alamat of daftar) {
   const kunci = normalkan(alamat);
   const res = await fetch(BASIS + kunci, { headers: { Authorization: `Bearer ${TOKEN}`, Accept: "application/json" } });
-  const body = await res.text();
+  // ignoreBOM: BOM ekspor CSV ikut terekam (res.text() membuangnya).
+  const body = new TextDecoder("utf-8", { ignoreBOM: true }).decode(await res.arrayBuffer());
   if (res.status >= 500) {
     console.error(`GAGAL ${res.status} ${kunci}`);
     gagal++;

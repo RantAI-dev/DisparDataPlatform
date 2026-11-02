@@ -89,12 +89,21 @@ frontend:
 
 e2e:
   stage: uji
-  needs: []
-  # Image Playwright versi yang sama dengan @playwright/test (browser sudah terpasang).
-  image: mcr.microsoft.com/playwright:v1.64.1-noble
+  needs: [image-php]
+  # Image PHP (oci8) sebagai dasar: Laravel + Node 20 (pasang-node.sh) + Chromium Playwright.
+  image: $PHP_CI_IMAGE
+  services:
+    - name: gvenzl/oracle-xe:18-slim
+      alias: oracle
+      variables: { APP_USER: portal_test, APP_USER_PASSWORD: portal_test }
   variables:
-    PLAYWRIGHT_SUDAH_ADA: "1"
+    DB_CONNECTION: oracle
+    DB_HOST: oracle
+    DB_PORT: "1521"
+    DB_SERVICE_NAME: XEPDB1
+    DB_SERVER_VERSION: 12c
   script:
+    - bash scripts/ci/pasang-node.sh
     - bash scripts/ci/e2e.sh
   artifacts:
     when: always

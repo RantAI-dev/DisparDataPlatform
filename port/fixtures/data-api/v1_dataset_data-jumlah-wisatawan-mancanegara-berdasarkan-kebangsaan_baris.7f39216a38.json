@@ -1,0 +1,8 @@
+{
+  "kunci": "/v1/dataset/data-jumlah-wisatawan-mancanegara-berdasarkan-kebangsaan/baris?f=kolom_palsu%3Ain%3Ax&page=1&size=50",
+  "status": 400,
+  "headers": {
+    "content-type": "application/json"
+  },
+  "body": "{\"error\":{\"code\":\"INVALID_FILTER\",\"message\":\"Kolom tidak dikenal: kolom_palsu\",\"detail\":null}}"
+}
