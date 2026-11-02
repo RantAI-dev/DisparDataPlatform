@@ -137,11 +137,11 @@ export default class LaporanParitas implements Reporter {
       tabelRedirect.push(`| ${b.id} | \`${h?.path ?? b.judul.split(" ")[1]}\` | ${f(h?.redirect.produksi)} | ${f(h?.redirect.portal)} | ${status(b)} |`);
     }
 
-    const tabelEkspor = ["| ID | Halaman — berkas | Nama (produksi / portal) | BOM | Header | Baris produksi / portal | Sel beda (posisi / tanpa urutan) | Hasil |", "|---|---|---|---|---|---|---|---|"];
+    const tabelEkspor = ["| ID | Halaman — berkas | Nama (produksi / portal) | BOM | Header | Baris produksi / portal | Sel beda (posisi / tanpa urutan) | Hasil | Pengecualian |", "|---|---|---|---|---|---|---|---|---|"];
     for (const b of ekspor) {
       const e = (b.proyek.desktop?.hasil as HasilEkspor | undefined)?.ekspor;
       const sama = (x?: boolean) => (x === undefined ? "—" : x ? "sama" : "**beda**");
-      tabelEkspor.push(`| ${b.id} | ${b.judul.split(" ").slice(1).join(" ")} | ${e ? `\`${e.namaProduksi}\` / \`${e.namaPortal}\`` : "—"} | ${sama(e?.bomSama)} | ${sama(e?.headerSama)} | ${e ? `${e.barisProduksi} / ${e.barisPortal}` : "—"} | ${e ? `${e.selBeda} / ${e.selBedaTanpaUrutan}` : "—"} | ${status(b)} |`);
+      tabelEkspor.push(`| ${b.id} | ${b.judul.split(" ").slice(1).join(" ")} | ${e ? `\`${e.namaProduksi}\` / \`${e.namaPortal}\`` : "—"} | ${sama(e?.bomSama)} | ${sama(e?.headerSama)} | ${e ? `${e.barisProduksi} / ${e.barisPortal}` : "—"} | ${e ? `${e.selBeda} / ${e.selBedaTanpaUrutan}` : "—"} | ${status(b)} | ${(b.proyek.desktop?.hasil as HasilEkspor | undefined)?.pengecualian?.join(", ") || "—"} |`);
     }
 
     const tabelPerf = ["| ID | Rute | Lebar | LCP produksi | LCP portal | Transfer produksi | Transfer portal | > 2× |", "|---|---|---|---|---|---|---|---|"];

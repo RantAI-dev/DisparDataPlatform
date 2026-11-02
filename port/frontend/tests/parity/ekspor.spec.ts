@@ -59,6 +59,8 @@ test(`EK-P14 /sdi/${S1} — CSV terfilter Kebangsaan JEPANG`, async ({ browser, 
     },
     {
       tunggu: "text=lihat di portal ↗",
+      // Urutan baris CSV tidak ditentukan di kedua sisi (tanpa ORDER BY); diterima pemilik 3 Nov 2026.
+      abaikanUrutanBaris: true,
       samakanBaris: {
         produksi: `/api/sdi/${S1}?offset=0`,
         portal: `/_api/dataset/${S1}/halaman`,

@@ -88,4 +88,4 @@ Melawan `dispar.rantai.dev`, SPEC §7. Portal memakai Laravel + Data API lokal (
 | IX-P12 | `/sdi/{S1}` | sort Jumlah Kunjungan ▲ (DS-E05); baris produksi disuntikkan |
 | IX-P13 | `/sdi/{S1}` | gulir memuat 50 baris berikutnya (DS-E06); halaman 1 dan 2 produksi disuntikkan |
 | IX-P14 | `/sdi/{S1}` | chart builder + Tambah grafik (DS-E08) |
-| EK-P14 | `/sdi/{S1}` | isi CSV terfilter Kebangsaan JEPANG (DS-E07) |
+| EK-P14 | `/sdi/{S1}` | isi CSV terfilter Kebangsaan JEPANG (DS-E07); pengecualian "Urutan baris" (diterima pemilik 3 Nov 2026) |

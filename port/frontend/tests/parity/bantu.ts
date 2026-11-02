@@ -48,6 +48,11 @@ export type OpsiParitas = {
    * bentuk JSON-nya.
    */
   samakanBaris?: AturanBaris | AturanBaris[];
+  /**
+   * Ekspor tanpa ORDER BY: isi dibandingkan setelah baris data diurutkan (header tetap di depan).
+   * Hanya untuk kasus yang disetujui pemilik; berlabel "Urutan baris" di laporan.
+   */
+  abaikanUrutanBaris?: boolean;
   /** "viewport" = hanya layar pertama (halaman yang isinya sengaja berbeda, mis. /docs P3). */
   layar?: "penuh" | "viewport";
   /** Aksi sebelum tangkapan (mis. menggulir, membuka panel, atau skenario interaksi). */
@@ -75,6 +80,7 @@ export const PENGECUALIAN = {
   Peta: "peta Leaflet di-mask utuh (marker cluster/canvas dan popup); tile + iframe Google Maps selalu di-mask (SPEC §7.1)",
   "Layar pertama": "hanya layar pertama yang dibandingkan (daftar sangat panjang atau tinggi berubah oleh data tak deterministik; plan 13–15)",
   "Baris produksi": "baris tanpa ORDER BY tak deterministik; baris yang dirender produksi disuntikkan ke respons portal (samakanBaris, plan 11/15)",
+  "Urutan baris": "ekspor tanpa ORDER BY di Next.js maupun Data API: isi berkas dibandingkan setelah baris diurutkan (EK-P14, diterima pemilik 3 Nov 2026)",
 } as const;
 
 /** Label pengecualian yang berlaku untuk opsi ini (otomatis + eksplisit). */
@@ -83,6 +89,7 @@ function labelPengecualian(o: OpsiParitas): string[] {
   if (o.mask?.some((m) => /\.leaflet-(container|overlay-pane|marker-pane|shadow-pane)/.test(m))) l.push("Peta");
   if (o.layar === "viewport") l.push("Layar pertama");
   if (o.samakanBaris) l.push("Baris produksi");
+  if (o.abaikanUrutanBaris) l.push("Urutan baris");
   return [...new Set([...l, ...(o.pengecualian ?? [])])];
 }
 
@@ -296,6 +303,7 @@ export type HasilEkspor = {
     selBedaTanpaUrutan: number;
     contoh: string[];
   };
+  pengecualian: string[];
 };
 
 /** Lembar pertama sebagai array baris sel teks (CSV, XLS/HTML, dan XLSX dibaca pustaka `xlsx`). */
@@ -358,6 +366,7 @@ export async function bandingkanEkspor(
       selBedaTanpaUrutan: selBerbeda(urut(a.baris), urut(b.baris)),
       contoh,
     },
+    pengecualian: labelPengecualian(o),
   };
   await info.attach("paritas-hasil", { body: JSON.stringify(hasil), contentType: "application/json" });
   await prod.close();
@@ -366,5 +375,6 @@ export async function bandingkanEkspor(
   expect.soft(e.bomSama, "BOM sama").toBe(true);
   expect.soft(b.baris[0], "header kolom").toEqual(a.baris[0]);
   expect.soft(e.barisPortal, "jumlah baris").toBe(e.barisProduksi);
-  expect.soft(e.selBeda, `sel berbeda (${contoh.join("; ")})`).toBe(0);
+  if (o.abaikanUrutanBaris) expect.soft(e.selBedaTanpaUrutan, "sel berbeda setelah baris diurutkan").toBe(0);
+  else expect.soft(e.selBeda, `sel berbeda (${contoh.join("; ")})`).toBe(0);
 }
