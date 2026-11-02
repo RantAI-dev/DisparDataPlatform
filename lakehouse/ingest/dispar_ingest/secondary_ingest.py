@@ -45,6 +45,10 @@ OVERRIDE = {
 TAGS = {  # tag per slug (dari secondary.ts) untuk yg tak jelas dari file
     "hotel-per-kota-jakarta": ["hotel", "akomodasi", "kontak", "sekunder"],
     "hiburan-per-kota-jakarta": ["hiburan", "bar", "karaoke", "diskotek", "kontak", "sekunder"],
+    "fasilitasi-hki-ekraf-2026-tw1": ["hki", "kekayaan-intelektual", "ekraf", "sekunder"],
+    "fasilitasi-hki-ekraf-2026-tw2": ["hki", "kekayaan-intelektual", "ekraf", "sekunder"],
+    "fasilitasi-hki-ekraf-2026-tw3": ["hki", "kekayaan-intelektual", "ekraf", "sekunder"],
+    "sebaran-pelaku-ekraf-jakarta": ["ekraf", "pelaku-kreatif", "subsektor", "sekunder"],
     "wisman-jakarta-per-negara": ["wisman", "mancanegara", "negara", "sekunder"],
     "wisman-jakarta-per-bulan": ["wisman", "mancanegara", "bulanan", "sekunder"],
     "wisman-jakarta-per-pintu-masuk": ["wisman", "pintu-masuk", "sekunder"],

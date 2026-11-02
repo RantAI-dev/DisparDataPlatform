@@ -486,6 +486,50 @@ export function secondaryDatasets(): SecondaryDataset[] {
       external: false,
     },
     {
+      id: "sec-fasilitasi-hki-ekraf-2026-tw1",
+      title: "Fasilitasi HKI Pelaku Ekonomi Kreatif 2026 Triwulan I",
+      description:
+        "Pelaku ekonomi kreatif DKI Jakarta yang difasilitasi pendaftaran hak kekayaan intelektual pada triwulan I 2026: nama pemohon, merek/ciptaan, alamat, dan subsektor.",
+      tags: ["hki", "kekayaan-intelektual", "ekraf", "sekunder"],
+      sumber: "internal",
+      rows: 50,
+      href: "/sdi/fasilitasi-hki-ekraf-2026-tw1",
+      external: false,
+    },
+    {
+      id: "sec-fasilitasi-hki-ekraf-2026-tw2",
+      title: "Fasilitasi HKI Pelaku Ekonomi Kreatif 2026 Triwulan II",
+      description:
+        "Pelaku ekonomi kreatif DKI Jakarta yang difasilitasi pendaftaran hak kekayaan intelektual pada triwulan II 2026: nama pemohon, merek/ciptaan, alamat, dan subsektor.",
+      tags: ["hki", "kekayaan-intelektual", "ekraf", "sekunder"],
+      sumber: "internal",
+      rows: 80,
+      href: "/sdi/fasilitasi-hki-ekraf-2026-tw2",
+      external: false,
+    },
+    {
+      id: "sec-fasilitasi-hki-ekraf-2026-tw3",
+      title: "Fasilitasi HKI Pelaku Ekonomi Kreatif 2026 Triwulan III",
+      description:
+        "Pelaku ekonomi kreatif DKI Jakarta yang difasilitasi pendaftaran hak kekayaan intelektual pada triwulan III 2026: nama merek/ciptaan, subsektor, dan jenis HKI (Hak Merek atau Hak Cipta).",
+      tags: ["hki", "kekayaan-intelektual", "ekraf", "sekunder"],
+      sumber: "internal",
+      rows: 100,
+      href: "/sdi/fasilitasi-hki-ekraf-2026-tw3",
+      external: false,
+    },
+    {
+      id: "sec-sebaran-pelaku-ekraf-jakarta",
+      title: "Sebaran Pelaku Ekonomi Kreatif DKI Jakarta (EKRAF Hub)",
+      description:
+        "Pelaku ekonomi kreatif berdomisili DKI Jakarta yang terdaftar di EKRAF Hub Kementerian Ekonomi Kreatif: nama, subsektor, kabupaten/kota, tipe pengguna, usaha atau tempat kerja, dan tahun pembaruan data.",
+      tags: ["ekraf", "pelaku-kreatif", "subsektor", "sekunder"],
+      sumber: "crawling",
+      rows: 2016,
+      href: "/sdi/sebaran-pelaku-ekraf-jakarta",
+      external: false,
+    },
+    {
       id: "sec-gci-resto",
       title: "Restoran & Kafe GCI Jakarta",
       description:
