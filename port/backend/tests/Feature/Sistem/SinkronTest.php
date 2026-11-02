@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Process;
 
-/* Skenario backend sistem: job sinkron (docs/skenario/sistem.md, SI-B01–SI-B06, SI-B10). */
+/* Skenario backend sistem: job sinkron dan snapshot (docs/skenario/sistem.md, SI-B01–B06, SI-B10, SI-B13–B17). */
 
 /** @return list<array{rute: string, uri: string, varian: array<string, string>}> */
 function targetSinkron(): array

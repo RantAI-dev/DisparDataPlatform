@@ -121,9 +121,11 @@ final class SinkronService
         }
 
         $php = (new PhpExecutableFinder)->find(false) ?: 'php';
-        // `nohup … &`: shell langsung kembali, proses sinkron lepas dari request ini.
-        $hasil = Process::path(base_path())->run([
-            'sh', '-c', 'nohup "$@" >/dev/null 2>&1 &', 'sh',
+        // `nohup … &`: shell langsung kembali, proses sinkron lepas dari request ini. Keluarannya
+        // (termasuk error sebelum JOB_RUNS sempat ditulis) disimpan di storage/logs untuk operator.
+        $log = storage_path('logs/sinkron-manual.log');
+        $hasil = Process::path(base_path())->env(['LOG_SINKRON' => $log])->run([
+            'sh', '-c', 'nohup "$@" >>"$LOG_SINKRON" 2>&1 &', 'sh',
             $php, 'artisan', 'portal:sinkron', '--manual', '--klien='.$klien, '--pemilik='.$lock->owner(),
         ]);
         if ($hasil->failed()) {

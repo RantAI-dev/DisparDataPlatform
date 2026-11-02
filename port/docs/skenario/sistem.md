@@ -52,7 +52,7 @@ keadaan gagal yang sama dengan Next.js. Dibuktikan `frontend/tests/e2e/sistem.sp
 | `/gci/pariwisata/pertunjukan-budaya` | utuh | — |
 | `/gpci/hotel`, `/gpci/lapangan-golf`, `/gpci/toko-suvenir` | utuh | — |
 | `/gmti` | sebagian | daftar tempat: "Gagal memuat daftar fasilitas ibadah (ApiError: Sumber data sedang tidak tersedia.). Muat ulang halaman untuk mencoba lagi." |
-| `/spatial` | sebagian | peta dan panel utuh; popup detail titik (`spasial/titik/{id}`, P) tidak terbuka |
+| `/spatial` | sebagian | peta dan panel utuh; detail titik (`spasial/titik/{id}`, P) gagal 503: popup tetap terbuka dengan data ringkas tanpa pesan, sertifikat tidak menyusul |
 | `/scraped-hotels` | utuh | — |
 
 ## E2E — Playwright (`frontend/tests/e2e/sistem.spec.ts`, project `sistem`)

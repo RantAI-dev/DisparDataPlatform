@@ -57,7 +57,7 @@ test.beforeAll(async () => {
   expect(ADMIN, "E2E_ADMIN_TOKEN wajib (token ability admin)").not.toBe("");
   await post(`${FIXTURE}/__uji/hidup`);
   expect((await post(`${LARAVEL}/api/v1/sistem/job/sinkron`, ADMIN)).status).toBe(202);
-  // Sinkron berjalan setelah respons; tunggu baris JOB_RUNS-nya selesai.
+  // Sinkron berjalan sebagai proses terpisah; tunggu baris JOB_RUNS-nya selesai.
   await expect
     .poll(async () => {
       const r = await fetch(`${LARAVEL}/api/v1/sistem/job`, { headers: { Authorization: `Bearer ${ADMIN}`, Accept: "application/json" } });
@@ -87,8 +87,22 @@ for (const b of TABEL) {
       return;
     }
     if (b.rute === "/spatial") {
-      // Peta + panel dari snapshot; yang gagal hanya popup detail titik (P).
+      // Peta + panel dari snapshot. Yang gagal hanya detail titik (P, `spasial/titik/{id}`): popup
+      // tetap terbuka dengan data ringkas, tanpa pesan error (sertifikat tidak menyusul), seperti v2.
       await expect(page.getByText(/Filter peta · [\d.]+ titik/)).toBeVisible();
+      // Strip filter berupa <details> (lihat gmti.spec.ts); buka dulu.
+      const strip = page.locator("details").first();
+      if (!(await strip.evaluate((d: HTMLDetailsElement) => d.open))) await strip.locator("summary").click();
+      await strip.getByRole("textbox", { name: "Cari tempat" }).fill("Canary Coffee Shop");
+      const pin = page.locator(".leaflet-marker-icon").first();
+      await expect(pin).toBeVisible();
+      const detail = page.waitForResponse((r) => r.url().includes("/_api/spasial/titik/"));
+      await expect(async () => {
+        await pin.dispatchEvent("click");
+        await expect(page.locator(".leaflet-popup")).toContainText("Canary Coffee Shop", { timeout: 2000 });
+      }).toPass({ timeout: 15_000 });
+      expect((await detail).status()).toBe(503);
+      await expect(page.locator(".leaflet-popup")).not.toContainText(/gagal|error/i);
       return;
     }
     await expect(page.locator("h1").first()).toBeVisible();
