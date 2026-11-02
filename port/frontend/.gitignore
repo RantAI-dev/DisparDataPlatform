@@ -27,3 +27,6 @@ logs
 test-results
 playwright-report
 /.e2e-token*
+
+# Cakupan Vitest (scripts/ci/frontend.sh)
+coverage

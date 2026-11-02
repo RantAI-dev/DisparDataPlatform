@@ -6,7 +6,9 @@ SPEC §4.5. Seluruh perilaku log ada di `App\Shared\LogHistory`; job dicatat `Ap
 
 `LogRequest` dipasang global (bukan hanya grup `/api/v1`), jadi request ke alamat yang tidak ada
 (404) dan metode yang ditolak (405) ikut tercatat. Penulisan terjadi di `terminate`, sesudah respons
-terkirim: kegagalan menulis log tidak pernah menggagalkan request.
+terkirim: kegagalan menulis log tidak pernah menggagalkan request. Rute di
+`loghistory.rute_dikecualikan` tidak dicatat; isinya `sistem.kesehatan`, karena dipanggil healthcheck
+container tiap 30 detik dan hanya akan memenuhi tabel tanpa nilai audit.
 
 ```mermaid
 flowchart TD
@@ -17,7 +19,9 @@ flowchart TD
     K --> RES["respons terkirim ke klien"]
     RES --> T{"LOG_HISTORY_AKTIF dan path api/*?"}
     T -- tidak --> X["selesai"]
-    T -- ya --> B["susun baris: MODUL (atribut rute), AKSI (nama rute),<br/>METODE, PATH, PARAM_HASH (SHA-256 query dinormalkan),<br/>PARAM_RINGKAS ≤ 2.000 byte tanpa token/password,<br/>KLIEN, IP (TrustProxies), USER_AGENT, STATUS_HTTP,<br/>DURASI_MS, JUMLAH_BARIS, SUMBER, DIBUAT_PADA"]
+    T -- ya --> X2{"nama rute di<br/>loghistory.rute_dikecualikan?<br/>(sistem.kesehatan)"}
+    X2 -- ya --> X
+    X2 -- tidak --> B["susun baris: MODUL (atribut rute), AKSI (nama rute),<br/>METODE, PATH, PARAM_HASH (SHA-256 query dinormalkan),<br/>PARAM_RINGKAS ≤ 2.000 byte tanpa token/password,<br/>KLIEN, IP (TrustProxies), USER_AGENT, STATUS_HTTP,<br/>DURASI_MS, JUMLAH_BARIS, SUMBER, DIBUAT_PADA"]
     B --> W{"insert LOG_HISTORY berhasil?"}
     W -- ya --> X
     W -- tidak --> F["Log::warning ke log berkas<br/>(request tetap sukses)"]

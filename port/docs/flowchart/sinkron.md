@@ -21,21 +21,24 @@ request biasa.
 
 ```mermaid
 flowchart TD
-    CR["cron: schedule:run<br/>dailyAt jam_sinkron WIB"] --> CMD["php artisan portal:sinkron"]
-    CLI["operator: portal:sinkron --manual"] --> CMD
+    CR["cron: schedule:run / schedule:work<br/>dailyAt jam_sinkron WIB"] --> CMD["php artisan portal:sinkron"]
+    CLI["operator di server:<br/>portal:sinkron --manual"] --> CMD
     API["POST sistem.job.sinkron<br/>(token admin)"] --> LK2{"kunci eksklusif<br/>Cache::lock portal:sinkron"}
     LK2 -- dipegang --> E409["409 JOB_BERJALAN"]
-    LK2 -- didapat --> A202["202 {job, pemicu: manual}<br/>sinkron jalan setelah respons terkirim"]
-    A202 --> RUN
+    LK2 -- didapat --> PR["mulai proses CLI terlepas (nohup):<br/>portal:sinkron --manual --klien=… --pemilik=…"]
+    PR -- "gagal dimulai" --> E500["kunci dilepas<br/>500 INTERNAL"]
+    PR -- "dimulai" --> A202["202 {job, pemicu: manual}"]
+    PR -.->|"proses terpisah dari php-fpm"| CMDM["portal:sinkron --pemilik=…"]
+    CMDM --> WARIS["Cache::restoreLock: mewarisi kunci<br/>yang diambil rute"] --> RUN
     CMD --> LK{"kunci eksklusif"}
     LK -- dipegang --> SKIP["'Sinkron lain masih berjalan; dilewati.'"]
     LK -- didapat --> RUN["JOB_RUNS: status = jalan"]
     RUN --> LOOP["untuk setiap target (rute T × varian)"]
     LOOP --> CALL["jalankan controller dengan ModeSinkron:<br/>Data API SELALU dipanggil"]
-    CALL -- sukses --> H{"HASH isi berubah?"}
+    CALL -- "sukses tanpa peringatan" --> H{"HASH isi berubah?"}
     H -- ya --> UP["upsert SNAPSHOT (ISI, HASH, DIAMBIL_PADA)"]
-    H -- tidak --> SAMA["SNAPSHOT tidak ditulis"]
-    CALL -- gagal --> G["catat {rute, varian, error};<br/>snapshot lama TETAP"]
+    H -- tidak --> SAMA["ISI tidak ditulis;<br/>DIAMBIL_PADA diperbarui (tidak basi)"]
+    CALL -- "gagal, atau 200 + meta.peringatan (Q21)" --> G["dihitung gagal: catat {rute, varian, error};<br/>snapshot lama TETAP"]
     UP & SAMA & G --> NEXT{"target lain?"}
     NEXT -- ya --> LOOP
     NEXT -- tidak --> ST{"jumlah gagal"}
@@ -44,6 +47,11 @@ flowchart TD
     ST -- "semua" --> S3["status gagal"]
     S1 & S2 & S3 --> FIN["JOB_RUNS: SELESAI, STATUS,<br/>RINGKASAN {ok, berubah, gagal, rincian_gagal}<br/>lepas kunci"]
 ```
+
+Sinkron manual lewat API tidak dijalankan di worker php-fpm (yang bisa dibunuh
+`request_terminate_timeout`), melainkan sebagai proses CLI terpisah. Rute mengambil kunci lebih dulu
+lalu mewariskannya (`--pemilik`), sehingga pemicu kedua langsung dijawab 409 walau proses pertama
+belum sempat mulai. Bila proses tidak bisa dimulai, kunci dilepas dan rute menjawab 500.
 
 ## Kosongkan cache
 

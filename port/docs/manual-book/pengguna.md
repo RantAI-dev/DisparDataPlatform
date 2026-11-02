@@ -188,7 +188,9 @@ daftar, ganti ke mode tabel, dan unduh XLSX.
 Direktori wisata ramah muslim (rujukan Global Muslim Travel Index): ringkasan jumlah masjid,
 musala, tempat ekosistem halal, dan kecamatan terliput, lalu daftar tempat per pilar (ibadah,
 makan, menginap, destinasi, program). Pilih pilar, kota, atau ketik nama untuk menyaring; daftar
-berhalaman. **Buka Spatial** menampilkan tempat yang sama di peta.
+berhalaman. **Buka Spatial** menampilkan tempat yang sama di peta. Bila sumber data sedang tidak
+tersedia, daftar menampilkan "Gagal memuat daftar fasilitas ibadah (…). Muat ulang halaman untuk
+mencoba lagi."; ringkasan di atasnya tetap tampil.
 
 ## Spatial `/spatial`
 

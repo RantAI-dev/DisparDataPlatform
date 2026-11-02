@@ -1,6 +1,6 @@
 # Flowchart beranda dan /docs
 
-Layer Nuxt `beranda` dan `docs`. Pola baca umum: [README.md](README.md).
+Layer Nuxt `beranda` dan `docs`. Pola baca umum, termasuk penyegaran snapshot basi dan jawaban berperingatan: [README.md](README.md).
 
 | Rute halaman | Rute API (nama) | Laravel | Data API | Kelas |
 |---|---|---|---|---|

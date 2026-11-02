@@ -1,7 +1,7 @@
 # Flowchart hotel scraped
 
 Layer Nuxt `gmti` (halaman berbahasa Inggris, tiruan Next.js), fitur Laravel `Features/Gmti` dengan
-modul log `hotel-scraped`. Pola baca umum: [README.md](README.md).
+modul log `hotel-scraped`. Pola baca umum, termasuk penyegaran snapshot basi dan jawaban berperingatan: [README.md](README.md).
 
 Rute halaman: `/scraped-hotels`.
 

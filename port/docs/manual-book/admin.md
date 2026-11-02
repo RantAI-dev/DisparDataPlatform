@@ -35,8 +35,9 @@ Jawaban selalu HTTP 200: `status` (`ok` | `terganggu`), `versi`, dan `komponen.o
 
 ## 3. Membaca log history
 
-Setiap request ke `/api/v1/*` tercatat di tabel `LOG_HISTORY` (modul, aksi, path, parameter
-ringkas, klien, IP, status, durasi, jumlah baris, sumber data). Retensi 180 hari.
+Setiap request ke `/api/*` tercatat di tabel `LOG_HISTORY` (modul, aksi, path, parameter ringkas,
+klien, IP, status, durasi, jumlah baris, sumber data), kecuali `sistem/kesehatan` yang dipanggil
+healthcheck container tiap 30 detik. Retensi 180 hari.
 
 ```bash
 curl -s -H "Authorization: Bearer $TOKEN_ADMIN" \
@@ -77,9 +78,12 @@ diperbarui di luar jadwal:
 curl -s -X POST -H "Authorization: Bearer $TOKEN_ADMIN" "$LARAVEL/api/v1/sistem/job/sinkron"
 ```
 
-- **202**: sinkron dimulai dan berjalan setelah respons terkirim. Pantau hasilnya di
-  `sistem/job`.
+- **202**: sinkron dimulai sebagai proses CLI terpisah di server
+  (`portal:sinkron --manual`, berjalan di luar worker php-fpm sehingga tidak terpotong batas
+  waktu request). Pantau hasilnya di `sistem/job`; `KLIEN` berisi nama akun token yang memicu.
 - **409** `JOB_BERJALAN`: sinkron lain masih berjalan (cron atau manual). Tunggu selesai.
+- **500** `INTERNAL`: proses sinkron tidak bisa dimulai di server (mis. `php` CLI tidak ada di
+  container). Kunci sudah dilepas, jadi bisa dicoba lagi setelah penyebabnya diperbaiki.
 
 Dari server juga bisa: `php artisan portal:sinkron --manual` (hasil langsung tercetak).
 

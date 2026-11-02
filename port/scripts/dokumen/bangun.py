@@ -15,9 +15,14 @@ Yang ditulis (jalankan dari mana saja; path relatif ke folder port/):
 - docs/api/openapi.json          OpenAPI Laravel beku = docs/api/laravel-openapi.json (ekspor Scramble).
 
 Pemeriksaan (gagal = exit 1, dengan daftar yang jelas):
-- setiap ID skenario punya tes (ID muncul di nama tes Pest/Vitest/Playwright);
+- setiap ID skenario punya tes (ID muncul di berkas tes Pest/Vitest/Playwright), dan sebaliknya
+  setiap ID di awal nama tes tercantum di docs/skenario/*.md;
 - setiap rute API Laravel (nama rute) dan setiap rute halaman Nuxt muncul di docs/flowchart/*.md;
-- tabel di portal-ddl.sql = tabel yang dibuat migration (+ MIGRATIONS milik Laravel).
+- tabel dan kolom (nama, keluarga tipe, panjang VARCHAR2) di portal-ddl.sql = yang dibuat migration
+  (+ MIGRATIONS milik Laravel).
+
+Asal laporan JUnit/cakupan ditulis di unit-testing.md (LAPORAN_CATATAN menambah keterangan): set LAPORAN_ASAL (mis. "CI pipeline #12 @ abc1234")
+bila laporan diambil dari artefak CI; tanpa itu dianggap run lokal.
 
 Butuh Python 3.10+ dan PyYAML.
 """
@@ -25,8 +30,10 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import re
 import shutil
+import subprocess
 import sys
 import xml.etree.ElementTree as ET
 from datetime import datetime, timezone
@@ -115,22 +122,65 @@ def baca_ddl() -> tuple[dict[str, list[dict]], dict[str, list[str]]]:
     return tabel, indeks
 
 
-def tabel_migration() -> set[str]:
-    nama = set()
-    for f in (BACKEND / "database/migrations").glob("*.php"):
-        nama |= {t.upper() for t in re.findall(r"Schema::create\('(\w+)'", f.read_text(encoding="utf-8"))}
-    return nama | {"MIGRATIONS"}
+# Blueprint Laravel → (keluarga tipe Oracle, panjang VARCHAR2). Pemeriksaan kasar: nama kolom,
+# keluarga tipe, dan panjang string; presisi NUMBER dan nullable tidak dibandingkan.
+BLUEPRINT = {
+    "string": "VARCHAR2", "char": "CHAR", "text": "CLOB", "mediumText": "CLOB", "longText": "CLOB",
+    "integer": "NUMBER", "bigInteger": "NUMBER", "unsignedBigInteger": "NUMBER", "unsignedInteger": "NUMBER",
+    "smallInteger": "NUMBER", "tinyInteger": "NUMBER", "boolean": "NUMBER", "decimal": "NUMBER",
+    "timestamp": "TIMESTAMP", "dateTime": "TIMESTAMP", "date": "DATE",
+}
+
+
+def kolom_migration() -> dict[str, dict[str, tuple[str, int | None]]]:
+    """Kolom per tabel dari `Schema::create` di migration: {TABEL: {KOLOM: (keluarga, panjang)}}."""
+    hasil: dict[str, dict[str, tuple[str, int | None]]] = {}
+    for f in sorted((BACKEND / "database/migrations").glob("*.php")):
+        teks = f.read_text(encoding="utf-8")
+        for m in re.finditer(r"Schema::create\('(\w+)', function \(Blueprint \$table\) \{(.*?)\n\s*\}\);", teks, re.S):
+            kolom: dict[str, tuple[str, int | None]] = {}
+            for c in re.finditer(r"\$table->(\w+)\(([^)]*)\)", m.group(2)):
+                metode, arg = c.group(1), c.group(2)
+                nama = re.match(r"\s*'(\w+)'", arg)
+                if metode == "id":
+                    kolom["ID"] = ("NUMBER", None)
+                elif metode == "timestamps":
+                    kolom["CREATED_AT"] = kolom["UPDATED_AT"] = ("TIMESTAMP", None)
+                elif metode in BLUEPRINT and nama:
+                    panjang = re.search(r",\s*(\d+)", arg)
+                    n = int(panjang.group(1)) if panjang else (255 if metode == "string" else None)
+                    kolom[nama.group(1).upper()] = (BLUEPRINT[metode], n)
+            hasil[m.group(1).upper()] = kolom
+    return hasil
+
+
+def cek_ddl_migration(tabel: dict[str, list[dict]]) -> list[str]:
+    mig = kolom_migration()
+    ddl_tabel = set(tabel) - {"MIGRATIONS"}  # MIGRATIONS dibuat Laravel, bukan migration kita.
+    if ddl_tabel != set(mig):
+        return [
+            "portal-ddl.sql tidak sama dengan migration (jalankan scripts/oracle-dump.sh): "
+            f"hanya di DDL {sorted(ddl_tabel - set(mig))}, hanya di migration {sorted(set(mig) - ddl_tabel)}"
+        ]
+    beda = []
+    for t in sorted(mig):
+        ddl = {}
+        for k in tabel[t]:
+            m = re.match(r"([A-Z0-9_]+?)(?:\((\d+)(?:,\d+)?\))?$", k["tipe"])
+            keluarga = "TIMESTAMP" if k["tipe"].startswith("TIMESTAMP") else m.group(1)
+            ddl[k["nama"]] = (keluarga, int(m.group(2)) if keluarga == "VARCHAR2" and m.group(2) else None)
+        for kol in sorted(set(ddl) | set(mig[t])):
+            a, b = mig[t].get(kol), ddl.get(kol)
+            if a is None or b is None:
+                beda.append(f"{t}.{kol} hanya di {'DDL' if a is None else 'migration'}")
+            elif a[0] != b[0] or (a[0] == "VARCHAR2" and a[1] != b[1]):
+                beda.append(f"{t}.{kol} migration {a[0]}({a[1] or ''}) ≠ DDL {b[0]}({b[1] or ''})")
+    return [f"kolom portal-ddl.sql ≠ migration (jalankan scripts/oracle-dump.sh): {'; '.join(beda)}"] if beda else []
 
 
 def blok_erd() -> tuple[str, list[str]]:
     tabel, indeks = baca_ddl()
-    masalah = []
-    mig = tabel_migration()
-    if set(tabel) != mig:
-        masalah.append(
-            "portal-ddl.sql tidak sama dengan migration (jalankan scripts/oracle-dump.sh): "
-            f"hanya di DDL {sorted(set(tabel) - mig)}, hanya di migration {sorted(mig - set(tabel))}"
-        )
+    masalah = cek_ddl_migration(tabel)
 
     def tipe_mermaid(t: str) -> str:
         # Mermaid tidak menerima koma di tipe: NUMBER(19,0) → NUMBER(19).
@@ -289,6 +339,25 @@ def berkas_tes() -> list[Path]:
     return sorted(hasil)
 
 
+# Nama tes yang diawali ID: it('DS-B01 …'), test("AT-E01 …"), test.skip(`IN-E02 …`).
+ID_NAMA_TES = re.compile(r"""\b(?:it|test)(?:\.(?:only|skip|fixme|fail|todo|concurrent))?\(\s*['"`]([A-Z]{2,3}-[A-Z]+\d+)\b""")
+# Tes yang namanya dibangkitkan dari tabel (`test(`${id} ${path}`)`): ID ada sebagai literal di tabel itu.
+NAMA_TES_TEMPLAT = re.compile(r"""\b(?:it|test)\(\s*`\$\{""")
+ID_LITERAL = re.compile(r"""['"`]([A-Z]{2,3}-[A-Z]+\d+)['"`]""")
+
+
+def id_di_tes(tes: dict[Path, str]) -> dict[str, list[str]]:
+    """ID yang menjadi awal nama tes (Pest/Vitest/Playwright), dengan berkasnya."""
+    hasil: dict[str, list[str]] = {}
+    for p, isi in tes.items():
+        ids = set(ID_NAMA_TES.findall(isi))
+        if NAMA_TES_TEMPLAT.search(isi):
+            ids |= set(ID_LITERAL.findall(isi))
+        for i in ids:
+            hasil.setdefault(i, []).append(rel(p))
+    return hasil
+
+
 def baca_skenario() -> list[dict]:
     hasil = []
     for f in sorted((DOCS / "skenario").glob("*.md")):
@@ -306,7 +375,7 @@ def baca_skenario() -> list[dict]:
 
 def baca_junit() -> tuple[dict[str, str], list[str]]:
     sumber = JUNIT
-    if env := __import__("os").environ.get("JUNIT"):
+    if env := os.environ.get("JUNIT"):
         sumber = {Path(p).name: Path(p) for p in env.split(",")}
     status: dict[str, str] = {}
     ringkas = []
@@ -328,24 +397,49 @@ def baca_junit() -> tuple[dict[str, str], list[str]]:
                 # Satu ID bisa jalan di beberapa project (desktop/mobile): gagal menang.
                 if status.get(i) != "gagal":
                     status[i] = s if status.get(i) in (None, s, "dilewati") else status[i]
-        waktu = datetime.fromtimestamp(p.stat().st_mtime, timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
-        ringkas.append(f"| {nama} | `{rel(p)}` | {waktu} | {n['lulus']} | {n['gagal']} | {n['dilewati']} | {sum(n.values())} |")
+        ringkas.append(f"| {nama} | `{rel(p) if p.is_relative_to(PORT) else p}` | {waktu_berkas(p)} | {n['lulus']} | {n['gagal']} | {n['dilewati']} | {sum(n.values())} |")
     return status, ringkas
+
+
+def waktu_berkas(p: Path) -> str:
+    return datetime.fromtimestamp(p.stat().st_mtime, timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
+
+
+def asal_laporan() -> str:
+    """Asal laporan JUnit/cakupan: `LAPORAN_ASAL` (mis. "CI pipeline #123 @ abc1234"), atau run lokal."""
+    if asal := os.environ.get("LAPORAN_ASAL"):
+        return asal
+    ada = [p for p in [*JUNIT.values(), *CAKUPAN.values()] if p.exists()]
+    if not ada:
+        return "belum ada laporan; status dan cakupan kosong."
+    sha = subprocess.run(["git", "-C", str(PORT), "rev-parse", "--short", "HEAD"], capture_output=True, text=True).stdout.strip()
+    kotor = subprocess.run(["git", "-C", str(PORT), "status", "--porcelain", "--", "backend", "frontend"], capture_output=True, text=True).stdout.strip()
+    tanggal = max(waktu_berkas(p) for p in ada)
+    return (
+        f"run **lokal**, bukan CI: laporan terbaru {tanggal}, checkout `{sha}`"
+        + (" ditambah perubahan backend/frontend yang belum di-commit" if kotor else "")
+        + "."
+    )
 
 
 def baca_cakupan() -> list[str]:
     out = []
     for nama, p in CAKUPAN.items():
         if not p.exists():
-            out.append(f"| {nama} | belum ada laporan (`{rel(p)}`) |")
+            out.append(f"| {nama} | belum ada laporan (`{rel(p)}`) | |")
             continue
         if p.suffix == ".xml":
             m = ET.parse(p).getroot().find("project/metrics")
             st, cst = int(m.get("statements", 0)), int(m.get("coveredstatements", 0))
-            out.append(f"| {nama} | {100 * cst / st:.1f}% pernyataan ({cst}/{st}) |" if st else f"| {nama} | 0 pernyataan |")
+            me, cme = int(m.get("methods", 0)), int(m.get("coveredmethods", 0))
+            teks = f"{100 * cst / st:.1f}% baris/pernyataan ({cst}/{st}), {100 * cme / me:.1f}% method ({cme}/{me})" if st and me else "0 pernyataan"
+            out.append(f"| {nama} | {teks} | {waktu_berkas(p)} |")
         else:
             t = json.loads(p.read_text())["total"]
-            out.append(f"| {nama} | {t['statements']['pct']}% pernyataan, {t['branches']['pct']}% cabang |")
+            out.append(
+                f"| {nama} | {t['statements']['pct']}% pernyataan ({t['statements']['covered']}/{t['statements']['total']}), "
+                f"{t['branches']['pct']}% cabang, {t['functions']['pct']}% fungsi | {waktu_berkas(p)} |"
+            )
     return out
 
 
@@ -389,6 +483,8 @@ def bangun_unit_testing() -> tuple[str, list[str]]:
         "jalankan ulang `scripts/ekspor-dokumen.sh`). Paritas (`*-P*`) hanya dijalankan lokal melawan",
         "produksi (SPEC §7), jadi statusnya tidak ada di laporan CI.",
         "",
+        f"Asal laporan: {asal_laporan()}" + (f" {c}" if (c := os.environ.get("LAPORAN_CATATAN")) else ""),
+        "",
         "## Laporan JUnit",
         "",
         "| Suite | Berkas | Waktu | Lulus | Gagal | Dilewati | Total |",
@@ -397,9 +493,12 @@ def bangun_unit_testing() -> tuple[str, list[str]]:
         "",
         "## Cakupan",
         "",
-        "| Bagian | Cakupan |",
-        "|---|---|",
+        "| Bagian | Cakupan | Waktu laporan |",
+        "|---|---|---|",
         *baca_cakupan(),
+        "",
+        "Cakupan backend dari Pest (pcov, `app/`); cakupan frontend dari Vitest saja (`app/`, `layers/`,",
+        "`server/`). E2E Playwright tidak diukur cakupannya.",
         "",
     ]
     fitur = ""
@@ -428,6 +527,13 @@ def bangun_unit_testing() -> tuple[str, list[str]]:
         if nxt == len(skenario) or skenario[nxt]["bagian"] != bagian or skenario[nxt]["fitur"] != fitur:
             out.append("")
     masalah = [f"skenario tanpa tes: {', '.join(tanpa_tes)}"] if tanpa_tes else []
+    di_skenario = {s["id"] for s in skenario}
+    yatim = {i: f for i, f in id_di_tes(tes).items() if i not in di_skenario}
+    if yatim:
+        masalah.append(
+            "ID di nama tes tanpa skenario di docs/skenario/*.md: "
+            + ", ".join(f"{i} ({', '.join(sorted(set(f)))})" for i, f in sorted(yatim.items()))
+        )
     return "\n".join(out) + "\n", masalah
 
 

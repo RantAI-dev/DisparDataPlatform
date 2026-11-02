@@ -63,7 +63,7 @@ cari_chrome() {
     command -v "$c" >/dev/null && { command -v "$c"; return; }
   done
   # Chromium bawaan Playwright (frontend/node_modules/@playwright/test).
-  c="$(ls -d "$HOME"/.cache/ms-playwright/chromium-*/chrome-linux*/chrome 2>/dev/null | sort -V | tail -1)"
+  c="$(find "$HOME/.cache/ms-playwright" -path '*/chromium-*/chrome-linux*/chrome' -type f 2>/dev/null | sort -V | tail -1)"
   [[ -n "$c" ]] && { echo "$c"; return; }
   echo "Chrome/Chromium tidak ditemukan; set CHROME=/path/ke/chrome" >&2
   exit 1
@@ -80,23 +80,26 @@ mmdc() {
     -p "$BUILD/tmp/puppeteer.json" -e png -w 1100 -s 2 -b white -q "$@"
 }
 
-# dokumen <nama> <judul> <berkas.md…>: gabung, render Mermaid, tulis <nama>.pdf
+# dokumen <nama> <judul> <berkas.md…>: render Mermaid per berkas, gabung, tulis <nama>.pdf.
+# Per berkas, bukan sekali untuk gabungan: mermaid-cli merender semua diagram satu berkas di satu
+# halaman Chrome, dan gabungan belasan diagram bisa melewati batas waktu screenshot puppeteer.
 dokumen() {
   local nama="$1" judul="$2"
   shift 2
-  local gabung="$BUILD/tmp/$nama.md" jadi="$BUILD/tmp/$nama.mmd.md"
-  : >"$gabung"
-  local f
+  local jadi="$BUILD/tmp/$nama.mmd.md" i=0 f bagian
+  : >"$jadi"
   for f in "$@"; do
+    i=$((i + 1))
+    bagian="$BUILD/tmp/$nama-$i.md"
     # Komentar HTML (penanda blok hasil) dibuang supaya tidak tampil sebagai teks.
-    sed '/^<!-- .* -->$/d' "$f" >>"$gabung"
-    printf '\n\n' >>"$gabung"
+    sed '/^<!-- .* -->$/d' "$f" >"$bagian"
+    if grep -q '^```mermaid' "$bagian"; then
+      mmdc -i "$bagian" -o "$BUILD/tmp/$nama-$i.mmd.md" >/dev/null
+      bagian="$BUILD/tmp/$nama-$i.mmd.md"
+    fi
+    cat "$bagian" >>"$jadi"
+    printf '\n\n' >>"$jadi"
   done
-  if grep -q '^```mermaid' "$gabung"; then
-    mmdc -i "$gabung" -o "$jadi" >/dev/null
-  else
-    cp "$gabung" "$jadi"
-  fi
   local sumber_gambar
   sumber_gambar="$BUILD/tmp:$(dirname "$1")"
   pandoc "$jadi" -f gfm -s --toc --toc-depth=2 --embed-resources --resource-path="$sumber_gambar" \
@@ -110,7 +113,10 @@ dokumen data-diagram "Data diagram portal" docs/data-diagram.md
 dokumen flowchart "Flowchart portal" docs/flowchart/README.md \
   docs/flowchart/{beranda,dataset,dashboard,indikator,atlas,gmti,spasial,hotel-scraped,autentikasi,sinkron,log-history}.md
 dokumen unit-testing "Unit testing portal" docs/unit-testing.md
-dokumen manual-book "Manual book portal" docs/manual-book/{pengguna,admin,operasi}.md
+# Paket deploy (plan 19) ikut manual book bila ada di checkout ini.
+MANUAL=(docs/manual-book/{pengguna,admin,operasi}.md)
+[[ -f deploy/README.md ]] && MANUAL+=(deploy/README.md)
+dokumen manual-book "Manual book portal" "${MANUAL[@]}"
 dokumen api "Dokumentasi API portal" docs/api/README.md
 dokumen data-api "Data API (pelengkap)" docs/data-api/README.md docs/data-api/skenario-tes.md
 # Laporan paritas terbaru (plan 17, SPEC §7): lampiran wajib serah terima.

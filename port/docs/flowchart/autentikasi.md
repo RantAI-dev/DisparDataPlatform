@@ -34,7 +34,7 @@ flowchart TD
     TK -- ya --> AB{"ability cocok?<br/>read untuk fitur, admin untuk sistem"}
     AB -- tidak --> E403["403 FORBIDDEN"]
     AB -- ya --> H
-    H --> LOG["LogRequest.terminate → LOG_HISTORY<br/>(KLIEN = nama akun layanan)"]
+    H --> LOG["LogRequest.terminate → LOG_HISTORY<br/>(KLIEN = nama akun layanan;<br/>sistem.kesehatan tidak dicatat)"]
     PX -. "Laravel mati" .-> E503["503 UPSTREAM_UNAVAILABLE"]
     PX -. "Laravel > 330 s" .-> E504["504 GATEWAY_TIMEOUT"]
 ```
@@ -55,7 +55,8 @@ Semua error `/api/*` dalam envelope gagal `{success: false, message, errors: {co
 | 422 | `INVALID_PARAM` | parameter di luar kontrak; rincian di `errors.fields` |
 | 429 | `TOO_MANY_REQUESTS` | batas laju terlampaui |
 | 4xx lain | kode dari Data API | mis. 400 `INVALID_FILTER` |
+| 4xx/5xx lain | `HTTP_ERROR` | error HTTP Laravel lain yang tidak punya kode sendiri (mis. 503 saat mode pemeliharaan `php artisan down`) |
 | 502 | `UPSTREAM_AUTH` | token layanan Data API di server portal salah |
 | 502 | `UPSTREAM_UNAVAILABLE` | Data API mengirim JSON yang tidak valid |
 | 503 | `UPSTREAM_UNAVAILABLE` | Data API tidak terjangkau dan tidak ada snapshot |
-| 500 | `INTERNAL` | kesalahan lain di server |
+| 500 | `INTERNAL` | kesalahan lain di server (termasuk proses sinkron manual gagal dimulai) |

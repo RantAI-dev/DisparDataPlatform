@@ -27,24 +27,44 @@ Semua fitur memakai salah satu dari tiga jalur baca (SPEC §4.6). Kelas ditulis 
 flowchart TD
     B["Browser"] -->|"/_api/…"| N["Nuxt: proxy Nitro<br/>(token frontend disisipkan)"]
     S["Nuxt SSR"] -->|"/api/v1/… + Bearer"| L
-    N -->|"/api/v1/… + Bearer"| L["Laravel: middleware<br/>RequestId, auth:sanctum, abilities, throttle, LogRequest"]
+    N -->|"/api/v1/… + Bearer"| L["Laravel: middleware<br/>RequestId, throttle, auth:sanctum, abilities, LogRequest"]
     L --> V{"FormRequest valid?"}
     V -- tidak --> E422["422 INVALID_PARAM"]
     V -- ya --> K{"Kelas rute"}
     K -- "T tetap" --> T{"SNAPSHOT ada?"}
-    T -- ya --> TS["kirim snapshot<br/>meta.sumber = snapshot<br/>meta.stale = umur > 36 jam"]
-    T -- tidak --> TD["panggil Data API"] --> TO{"berhasil?"}
-    TO -- ya --> TW["simpan SNAPSHOT, kirim<br/>meta.sumber = data_api"]
-    TO -- tidak --> E5["error Data API diteruskan<br/>(503 bila tidak terjangkau)"]
+    T -- "ada, segar (≤ 36 jam)" --> TS["kirim snapshot<br/>sumber = snapshot, stale = false"]
+    T -- "ada, basi" --> J{"request pertama dalam<br/>jeda 5 menit?"}
+    J -- tidak --> TL["kirim snapshot lama<br/>stale = true"]
+    J -- ya --> TB["panggil Data API (segarkan)"]
+    TB -- "sukses tanpa peringatan" --> TW["simpan bila HASH berubah<br/>(HASH sama: DIAMBIL_PADA diperbarui)<br/>sumber = data_api"]
+    TB -- "5xx / tak terjangkau,<br/>atau 200 + meta.peringatan" --> TL
+    TB -- "4xx" --> E4["error 4xx diteruskan"]
+    T -- tidak --> TD["panggil Data API"]
+    TD -- "sukses tanpa peringatan" --> TW
+    TD -- "200 + meta.peringatan (Q21)" --> TP["diteruskan, TIDAK disimpan"]
+    TD -- gagal --> E5["error Data API diteruskan<br/>(503 bila tidak terjangkau)"]
     K -- "P berparameter" --> C{"cache Laravel ada?"}
-    C -- ya --> CS["kirim cache<br/>meta.sumber = cache"]
-    C -- tidak --> CD["panggil Data API"] --> CO{"berhasil?"}
-    CO -- ya --> CW["simpan cache TTL 15 menit, kirim"]
-    CO -- tidak --> E5
+    C -- ya --> CS["kirim cache<br/>sumber = cache"]
+    C -- tidak --> CD["panggil Data API"]
+    CD -- "sukses tanpa peringatan" --> CW["simpan cache TTL 15 menit, kirim"]
+    CD -- "200 + meta.peringatan" --> CP["diteruskan, TIDAK di-cache"]
+    CD -- gagal --> E5
     K -- "S aliran" --> SD["buka aliran Data API<br/>timeout 300 s, tanpa ulang"] --> SO{"berhasil?"}
     SO -- ya --> SS["salin body per 64 KiB ke browser"]
     SO -- tidak --> E5
 ```
+
+Jalur T (`App\Shared\Tetap\BacaTetap`) dalam kalimat:
+
+- Snapshot segar dikirim apa adanya. Snapshot dianggap **basi** bila lebih tua dari
+  `PORTAL_SNAPSHOT_BASI_JAM` (36 jam).
+- Snapshot basi **disegarkan saat dibaca**: satu request per kunci per `PORTAL_SEGARKAN_JEDA_MENIT`
+  (5 menit) memanggil Data API. Request lain selama jeda itu, dan request yang penyegarannya gagal
+  (5xx/tak terjangkau, atau jawaban berperingatan), langsung mendapat snapshot lama dengan
+  `meta.stale = true`. Jadi saat Data API mati, pengunjung tidak menunggu timeout berulang kali.
+  Ini juga menyegarkan kunci di luar daftar sinkron (mis. `periode` bebas di dashboard).
+- Jawaban Data API 200 dengan `meta.peringatan` (Q21: query sumber gagal, data dikosongkan) tidak
+  pernah disimpan di snapshot maupun cache.
 
 Catatan umum:
 
@@ -55,4 +75,5 @@ Catatan umum:
   diteruskan dengan kodenya (`NOT_FOUND`, `INVALID_FILTER`, `TOO_LARGE`, …). 401/403 dari Data API
   berarti token layanan portal salah dan dijawab **502** `UPSTREAM_AUTH`.
 - Error tidak pernah di-cache dan tidak pernah menimpa snapshot.
-- Setiap request `/api/*` dicatat ke `LOG_HISTORY` setelah respons terkirim ([log-history.md](log-history.md)).
+- Setiap request `/api/*` dicatat ke `LOG_HISTORY` setelah respons terkirim, kecuali rute di
+  `loghistory.rute_dikecualikan` (`sistem.kesehatan`) ([log-history.md](log-history.md)).

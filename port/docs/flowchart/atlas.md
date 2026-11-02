@@ -1,6 +1,6 @@
 # Flowchart atlas
 
-Layer Nuxt `atlas`, fitur Laravel `Features/Atlas`. Pola baca umum: [README.md](README.md).
+Layer Nuxt `atlas`, fitur Laravel `Features/Atlas`. Pola baca umum, termasuk penyegaran snapshot basi dan jawaban berperingatan: [README.md](README.md).
 
 Rute halaman: `/gci/pariwisata/restoran-gci`, `/gci/pariwisata/direktori-restoran`,
 `/gci/pariwisata/pertunjukan-budaya`, `/gpci/hotel`, `/gpci/lapangan-golf`, `/gpci/toko-suvenir`.

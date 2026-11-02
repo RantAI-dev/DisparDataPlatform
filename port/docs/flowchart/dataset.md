@@ -1,6 +1,6 @@
 # Flowchart dataset
 
-Layer Nuxt `dataset`, fitur Laravel `Features/Dataset`. Pola baca umum: [README.md](README.md).
+Layer Nuxt `dataset`, fitur Laravel `Features/Dataset`. Pola baca umum, termasuk penyegaran snapshot basi dan jawaban berperingatan: [README.md](README.md).
 
 Rute halaman: `/katalog`, `/sdi`, `/sdi/[slug]`.
 

@@ -9,9 +9,26 @@ di repo lakehouse, `lakehouse/data-api/`. Dokumen ini disertakan karena portal b
 | `openapi.yaml` | kontrak Data API, salinan `lakehouse/data-api/openapi.yaml`. SHA sumber tertulis di baris pertama (`scripts/salin-openapi.sh`); dihasilkan ulang oleh `scripts/ekspor-dokumen.sh` dari `docs/api/data-api.openapi.yaml` |
 | `skenario-tes.md` | daftar tes Data API, dihasilkan dari `lakehouse/data-api/tests` |
 
-Kontrak yang dipakai portal harus sama dengan Data API yang **dideploy**. Saat Data API dirilis,
-salin ulang kontraknya (`scripts/salin-openapi.sh`) dan pastikan SHA di baris pertama `openapi.yaml`
-sama dengan SHA image yang jalan.
+Kontrak yang dipakai portal harus sama dengan Data API yang **dideploy**.
+
+**Arti SHA.** SHA di baris pertama `openapi.yaml` adalah commit terakhir yang mengubah
+`lakehouse/data-api/openapi.yaml` (atau draf Laravel) di repo lakehouse, diambil
+`scripts/salin-openapi.sh` dengan `git log -1 -- <berkas kontrak>`. Itu SHA **kontrak**, bukan SHA
+image: commit yang lebih baru tanpa perubahan kontrak tetap cocok dengan salinan ini.
+
+**Mencocokkan dengan Data API yang jalan.**
+
+1. Cari commit sumber image yang dideploy, dari catatan rilis/tag image di registry (mis. tag
+   berisi SHA pendek) atau dari label image (`docker image inspect <image> --format
+   '{{json .Config.Labels}}'`) bila pipeline build menuliskannya.
+2. Di checkout repo lakehouse: `git log -1 --format=%H <sha-image> -- lakehouse/data-api/openapi.yaml`.
+3. Hasilnya harus sama dengan SHA di baris pertama `docs/data-api/openapi.yaml`. Bila berbeda,
+   salin ulang kontrak dari commit itu (`scripts/salin-openapi.sh`), jalankan uji kontrak portal,
+   lalu `scripts/ekspor-dokumen.sh`.
+
+Bila `DATA_API_DOCS=1` dihidupkan sementara, `GET /openapi.json` Data API juga bisa dibandingkan
+dengan kontrak, tetapi skema hasil FastAPI tidak identik dengan kontrak tulisan tangan; pakai
+langkah di atas sebagai acuan.
 
 ## Aturan pokok
 

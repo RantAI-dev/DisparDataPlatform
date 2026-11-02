@@ -1,6 +1,6 @@
 # Flowchart GMTI
 
-Layer Nuxt `gmti`, fitur Laravel `Features/Gmti`. Pola baca umum: [README.md](README.md).
+Layer Nuxt `gmti`, fitur Laravel `Features/Gmti`. Pola baca umum, termasuk penyegaran snapshot basi dan jawaban berperingatan: [README.md](README.md).
 Fitur yang sama melayani [spasial.md](spasial.md) dan [hotel-scraped.md](hotel-scraped.md).
 
 Rute halaman: `/gmti`.
@@ -25,5 +25,5 @@ flowchart TD
     V -- ya --> C{"cache?"}
     C -- ya --> L["daftar tempat<br/>sumber = cache"]
     C -- tidak --> D2["Data API 60 s"] -- sukses --> CW["simpan cache"] --> L
-    D2 -- gagal --> E503
+    D2 -- gagal --> E503P["503 UPSTREAM_UNAVAILABLE<br/>daftar: 'Gagal memuat daftar fasilitas ibadah (…).<br/>Muat ulang halaman untuk mencoba lagi.'"]
 ```

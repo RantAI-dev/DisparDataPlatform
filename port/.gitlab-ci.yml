@@ -41,6 +41,8 @@ backend:
     - bash scripts/ci/backend.sh
   artifacts:
     when: always
+    # Laporan JUnit + cakupan dibaca scripts/dokumen/bangun.py (docs/unit-testing.md).
+    paths: [backend/storage/logs/pest-junit.xml, backend/storage/logs/clover.xml]
     reports:
       junit: backend/storage/logs/pest-junit.xml
 
@@ -84,6 +86,7 @@ frontend:
     - bash scripts/ci/frontend.sh
   artifacts:
     when: always
+    paths: [frontend/test-results/vitest-junit.xml, frontend/coverage/coverage-summary.json]
     reports:
       junit: frontend/test-results/vitest-junit.xml
 

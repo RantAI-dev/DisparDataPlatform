@@ -29,7 +29,7 @@ flowchart TB
     LV <--> OR
     LV -->|"Bearer token read"| NX
     NX --> BRW["Browser"]
-    DAG["token dagster"] -.->|"POST /v1/admin/cache/flush"| DA
+    DAG["Dagster (token dagster)"] -.->|"POST /v1/admin/cache/flush<br/>disediakan, BELUM dipanggil"| DA
     CRON["portal:sinkron 11:00 WIB"] -.->|"isi ulang SNAPSHOT kelas T"| LV
 ```
 
@@ -41,6 +41,9 @@ flowchart TB
 | Data API | `lakehouse/data-api` | satu-satunya pembaca ClickHouse untuk portal; envelope `{data, meta}` |
 | Laravel | `port/backend` | meneruskan `data` tanpa diubah, menambah `meta.sumber/stale/request_id`; snapshot, cache, log |
 | Nuxt | `port/frontend` | render; token tidak pernah ke browser |
+
+Garis putus-putus = jalur terjadwal, bukan jalur request. Flush cache Data API sudah tersedia tetapi
+per 2 Nov 2026 pipeline Dagster belum memanggilnya; cache Data API habis sendiri setelah TTL (300 s).
 
 Kelas endpoint (SPEC §4.6): **T** tetap → `SNAPSHOT`, **P** berparameter → `CACHE` (TTL), **S** aliran
 → tidak disimpan. Alur rinci per fitur ada di `docs/flowchart/`.
@@ -236,6 +239,13 @@ Dibangkitkan dari kontrak Data API (`docs/api/data-api.openapi.yaml`, salinan
 dibaca (`x-sumber`). Laravel meneruskan `data` byte-identik, jadi field-nya sama untuk path Laravel
 yang tercantum. Semua respons sukses juga membawa `meta` (`request_id`, `sumber`, `stale`, dan meta
 Data API seperti `source`, `total`).
+
+**Celah: arti per field belum didokumentasikan.** Kolom *Arti* hanya diisi dari `description` di
+kontrak (Data API atau ekspor Scramble Laravel); tidak ada yang dikarang. Saat ini kontrak belum
+memuat `description` per field, jadi hampir semua *Arti* bertanda "—". Tempat melengkapinya adalah
+`lakehouse/data-api/openapi.yaml` (sumber kebenaran kontrak); setelah disalin ulang
+(`scripts/salin-openapi.sh`), kamus ini terisi otomatis. Kolom *Contoh* diambil dari contoh respons
+di kontrak yang sama.
 
 <!-- MULAI:kamus -->
 ### `GET /v1/katalog`

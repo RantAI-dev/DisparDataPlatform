@@ -1,6 +1,6 @@
 # Flowchart indikator
 
-Layer Nuxt `indikator`, fitur Laravel `Features/Indikator`. Pola baca umum: [README.md](README.md).
+Layer Nuxt `indikator`, fitur Laravel `Features/Indikator`. Pola baca umum, termasuk penyegaran snapshot basi dan jawaban berperingatan: [README.md](README.md).
 
 Rute halaman: `/gci`, `/gpci`, `/gci/[code]`, `/gpci/[code]`, `/gci/pariwisata/wisatawan-internasional`,
 `/gci/pariwisata/kuliner-michelin`, `/gci/pariwisata/seni-pertunjukan`.
@@ -28,7 +28,7 @@ flowchart TD
     B --> T
     C -->|"kelas T"| T
     C -->|"seni-pertunjukan, kelas P"| K{"cache?"}
-    T -- ya --> OK["render<br/>sumber = snapshot, stale bila > 36 jam"]
+    T -- ya --> OK["render<br/>sumber = snapshot; stale bila basi dan penyegaran gagal"]
     T -- tidak --> D["Data API 60 s, tanpa ulang"]
     K -- ya --> OK
     K -- tidak --> D

@@ -1,6 +1,6 @@
 # Flowchart dashboard
 
-Layer Nuxt `dashboard`, fitur Laravel `Features/Dashboard`. Pola baca umum: [README.md](README.md).
+Layer Nuxt `dashboard`, fitur Laravel `Features/Dashboard`. Pola baca umum, termasuk penyegaran snapshot basi dan jawaban berperingatan: [README.md](README.md).
 
 Rute halaman: `/dashboard`, `/dashboard/wisman`, `/dashboard/wisnus`, `/dashboard/tenaga-kerja`,
 `/dashboard/pdrb-ekraf`.
@@ -42,13 +42,14 @@ flowchart TD
     V -- tidak --> E422["422 INVALID_PARAM<br/>Data API tidak dipanggil"]
     V -- ya --> K{"KELAS[jalur]"}
     K -- T --> S{"SNAPSHOT?"}
-    S -- ya --> OK["render chart<br/>sumber = snapshot"]
+    S -- "ya, segar" --> OK["render chart<br/>sumber = snapshot"]
+    S -- "ya, basi" --> SG["segarkan (pola T, README)<br/>gagal → snapshot lama stale = true"]
     S -- tidak --> D["Data API /v1/dashboard/…"]
     K -- P --> C{"cache?"}
     C -- ya --> OK2["render chart<br/>sumber = cache"]
     C -- tidak --> D
     D -- sukses --> W["simpan snapshot / cache"] --> OK
-    D -- "200 + meta.peringatan" --> KOS["data kosong dari Data API<br/>(query ClickHouse gagal, Q21)"]
+    D -- "200 + meta.peringatan (Q21:<br/>query ClickHouse gagal, data kosong)" --> KOS["diteruskan apa adanya, TIDAK disimpan<br/>di snapshot maupun cache; chart 'Tidak ada data.'"]
     D -- gagal --> E503["503 UPSTREAM_UNAVAILABLE<br/>kartu menampilkan pesan gagal"]
     OK -->|"pilih tahun / periode / kota / destinasi"| C
 ```

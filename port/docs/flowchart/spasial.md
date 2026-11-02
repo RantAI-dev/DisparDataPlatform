@@ -1,7 +1,7 @@
 # Flowchart spasial
 
 Layer Nuxt `gmti` (halaman peta), fitur Laravel `Features/Gmti` dengan modul log `spasial`. Pola baca
-umum: [README.md](README.md).
+umum, termasuk penyegaran snapshot basi dan jawaban berperingatan: [README.md](README.md).
 
 Rute halaman: `/spatial` (juga tujuan redirect `/atlas`, `/atlas/*/map`, `/gmti/map`).
 
