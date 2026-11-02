@@ -251,6 +251,21 @@ Nilai default SPEC dipakai kecuali disebut lain. Pemilik boleh membatalkan tiap 
   halaman digulir.
 - Paritas enam halaman lulus di 1440 dan 390 (30 Okt 2026).
 
+## Keputusan teknis plan 15 (gmti, spasial, hotel-scraped)
+
+- **Satu modul Laravel `Gmti`** untuk KONTRAK §2.5 (generik `ambil($jalur)`, `timeout_lambat`);
+  LOG_HISTORY tetap memakai modul `gmti`, `spasial`, `hotel-scraped` per rute.
+- **`/gmti` berhalaman server**: daftar 8.666 tempat dari `gmti/tempat` (200 per halaman, kelas P);
+  "Tampilkan N lagi" meminta halaman berikutnya. Opsi wilayah/jenis = `facets` pool tab. Cari
+  di-debounce 300 ms (v2 menyaring tiap ketikan di browser). Ekspor mengambil semua halaman hasil
+  filter berurutan (≤ 44 request, di bawah batas 120/menit) — sama dengan v2: semua hasil filter.
+- **`/spatial`**: `kecamatan_tanpa_poligon` dibaca dari `gmti/ringkasan` (tidak ada di
+  `/v1/spasial`). Peringatan memakai teks v2: gagal → "Titik lakehouse belum dapat dimuat.",
+  `complete: false` → "Sebagian dataset lakehouse gagal dimuat.".
+- **`/scraped-hotels`** membaca Bronze (P5), jadi berisi sementara produksi kosong; paritas visual
+  dibandingkan dengan menyuntikkan respons produksi ke portal (render atas data sama, lulus 1440/390); isi Bronze-nya diuji e2e. ECharts mendaftarkan `ScatterChart` (dipakai grafik skor vs harga).
+- Paritas `/gmti` dan panel `/spatial` lulus di 1440 dan 390 (30 Okt 2026).
+
 ## Penyimpangan dari teks SPEC (disengaja)
 
 | SPEC | Yang dibuat | Alasan |

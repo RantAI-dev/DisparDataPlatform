@@ -2,11 +2,15 @@
 
 namespace App\Features\Dashboard\Http\Controllers;
 
+use App\Features\Dashboard\Http\Requests\DestinasiBulananRequest;
 use App\Features\Dashboard\Http\Requests\DestinasiRequest;
+use App\Features\Dashboard\Http\Requests\DestinasiTahunRequest;
 use App\Features\Dashboard\Http\Requests\JenisRequest;
 use App\Features\Dashboard\Http\Requests\KotaRequest;
 use App\Features\Dashboard\Http\Requests\PdrbPeriodeRequest;
 use App\Features\Dashboard\Http\Requests\PeriodeRequest;
+use App\Features\Dashboard\Http\Requests\PintuMasukRequest;
+use App\Features\Dashboard\Http\Requests\SeriRequest;
 use App\Features\Dashboard\Http\Requests\TahunPeriodeRequest;
 use App\Features\Dashboard\Http\Requests\TahunRequest;
 use App\Features\Dashboard\Http\Requests\TamuRequest;
@@ -63,7 +67,7 @@ final class DashboardController
      *
      * Komposisi pintu masuk: bulanan BPS bila ada untuk `periode`, selain itu semesteran SDI.
      */
-    public function wismanPintuMasuk(TahunPeriodeRequest $r): DashboardResource
+    public function wismanPintuMasuk(PintuMasukRequest $r): DashboardResource
     {
         return new DashboardResource($this->layanan->baca('wisman/pintu-masuk', $r->untukDataApi()));
     }
@@ -93,7 +97,7 @@ final class DashboardController
      *
      * Deret bulanan lama menginap per kelas hotel untuk satu jenis tamu.
      */
-    public function lamaMenginapSeri(TamuRequest $r): DashboardResource
+    public function lamaMenginapSeri(SeriRequest $r): DashboardResource
     {
         return new DashboardResource($this->layanan->baca('lama-menginap/seri', $r->untukDataApi()));
     }
@@ -173,7 +177,7 @@ final class DashboardController
      *
      * Peringkat kunjungan per destinasi wisata untuk satu `tahun`.
      */
-    public function destinasiPerDestinasi(DestinasiRequest $r): DashboardResource
+    public function destinasiPerDestinasi(DestinasiTahunRequest $r): DashboardResource
     {
         return new DashboardResource($this->layanan->baca('destinasi/per-destinasi', $r->untukDataApi()));
     }
@@ -183,7 +187,7 @@ final class DashboardController
      *
      * Deret bulanan kunjungan ke semua destinasi atau satu `destinasi`.
      */
-    public function destinasiBulanan(DestinasiRequest $r): DashboardResource
+    public function destinasiBulanan(DestinasiBulananRequest $r): DashboardResource
     {
         return new DashboardResource($this->layanan->baca('destinasi/bulanan', $r->untukDataApi()));
     }
