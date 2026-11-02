@@ -213,6 +213,27 @@ Nilai default SPEC dipakai kecuali disebut lain. Pemilik boleh membatalkan tiap 
 - Paritas `/dashboard` + 4 sub-halaman lulus di 1440 dan 390 (30 Okt 2026), termasuk quirk Q3
   ("Rp 411 T" vs "Rp 410,6 T").
 
+## Keputusan teknis plan 13 (indikator)
+
+- **Data API diperluas** (lakehouse/data-api, kontrak + tes): detail `/v1/indikator/{code}` kini
+  membawa `indikator` (nama, definisi, dimensi, owner, catatan — untuk hero) dan `konteks`
+  (benchmark `gci_gpci_benchmark` untuk kartu IndexContext; usulan C §4.4), dan tabel artis
+  seni-pertunjukan membawa `tautan` (URL "Verifikasi ↗"). Tanpa itu halaman tidak bisa meniru v2.
+- **Halaman indikator generik**: 19 view React dipipihkan Data API menjadi `kpis` + `blocks`
+  bertipe; satu `IndikatorDetail` merender semua kode (C: satu komponen per arketipe). Pemetaan
+  tipe → komponen dan warna batang setengah lebar (hijau, kuning) diambil dari view v2; MomNote
+  (CE2, CE3, CI-FV) konstanta. Prefiks silang diterima.
+- **Feature Indikator generik** seperti dashboard; satu percobaan dengan `dataapi.timeout_lambat`
+  (60 s) karena pemilihan dataset (K-12) bisa belasan detik saat cache Data API dingin.
+- **Perbaikan store cache Oracle**: `put()` memakai update lalu insert, bukan `upsert` (MERGE …
+  USING SELECT :bind FROM dual), karena bind > 32 KB gagal dengan ORA-01461 (respons
+  seni-pertunjukan ±64 KB).
+- **Defect D ditiru**: "Nilai terbaru" bergantung urutan baris ClickHouse tanpa ORDER BY, jadi bisa
+  berbeda dengan produksi yang dibekukan ISR (contoh 30 Okt: CI-TA 72,22 vs 291.801). Uji paritas
+  mengecualikan angka kolom itu.
+- **Quirk produksi ditiru**: peta venue seni pertunjukan setinggi 0 px di layar < md.
+- Paritas `/gci`, `/gpci`, 28 detail, dan 3 halaman pariwisata lulus di 1440 dan 390 (30 Okt 2026).
+
 ## Penyimpangan dari teks SPEC (disengaja)
 
 | SPEC | Yang dibuat | Alasan |

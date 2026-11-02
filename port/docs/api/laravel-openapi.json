@@ -1576,6 +1576,245 @@
                 }
             }
         },
+        "/indikator": {
+            "get": {
+                "operationId": "indikator.daftar",
+                "description": "Kesiapan data tiap indikator satu framework: status, dataset pengisi, nilai terbaru, dan\nringkasan jumlah per status.",
+                "summary": "Daftar indikator",
+                "tags": [
+                    "Indikator"
+                ],
+                "parameters": [
+                    {
+                        "name": "framework",
+                        "in": "query",
+                        "required": true,
+                        "description": "Framework indeks: GCI (Kearney) atau GPCI (Mori).",
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "GCI",
+                                "GPCI"
+                            ]
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/AuthenticationException"
+                    },
+                    "422": {
+                        "$ref": "#/components/responses/ValidationException"
+                    }
+                }
+            }
+        },
+        "/indikator/{code}": {
+            "get": {
+                "operationId": "indikator.detail",
+                "description": "Identitas, konteks indeks (benchmark), dataset sumber, KPI, dan blok grafik satu indikator;\nindikator tanpa data memuat `teks_fallback`.",
+                "summary": "Detail indikator",
+                "tags": [
+                    "Indikator"
+                ],
+                "parameters": [
+                    {
+                        "name": "code",
+                        "in": "path",
+                        "required": true,
+                        "description": "Kode indikator, mis. `CI-MU`.",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/AuthenticationException"
+                    }
+                }
+            }
+        },
+        "/gci/resmi": {
+            "get": {
+                "operationId": "indikator.gci-resmi",
+                "description": "Peringkat Kearney GCI Jakarta (keseluruhan dan Pengalaman Budaya) serta empat kartu indikator\npariwisata resmi.",
+                "summary": "Peringkat resmi GCI",
+                "tags": [
+                    "Indikator"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/AuthenticationException"
+                    }
+                }
+            }
+        },
+        "/dataset-tematik": {
+            "get": {
+                "operationId": "indikator.dataset-tematik",
+                "description": "Kartu dataset tematik per framework dengan jumlah baris yang dihitung dari tabel sumber.",
+                "summary": "Dataset tematik",
+                "tags": [
+                    "Indikator"
+                ],
+                "parameters": [
+                    {
+                        "name": "framework",
+                        "in": "query",
+                        "required": true,
+                        "description": "Framework indeks: GCI (Kearney) atau GPCI (Mori).",
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "GCI",
+                                "GPCI"
+                            ]
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/AuthenticationException"
+                    },
+                    "422": {
+                        "$ref": "#/components/responses/ValidationException"
+                    }
+                }
+            }
+        },
+        "/pariwisata/wisatawan-internasional": {
+            "get": {
+                "operationId": "indikator.wisatawan-internasional",
+                "description": "Isi halaman pariwisata wisatawan internasional: shell, KPI, kartu grafik, dan data per tahun.",
+                "summary": "Wisatawan internasional",
+                "tags": [
+                    "Indikator"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/AuthenticationException"
+                    }
+                }
+            }
+        },
+        "/pariwisata/kuliner-michelin": {
+            "get": {
+                "operationId": "indikator.kuliner-michelin",
+                "description": "Isi halaman pariwisata penawaran kuliner: Michelin, restoran per wilayah, dan tabel pendukung.",
+                "summary": "Kuliner (Michelin)",
+                "tags": [
+                    "Indikator"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/AuthenticationException"
+                    }
+                }
+            }
+        },
+        "/pariwisata/seni-pertunjukan": {
+            "get": {
+                "operationId": "indikator.seni-pertunjukan",
+                "description": "Isi halaman seni pertunjukan untuk semua tahun atau satu `tahun`: KPI, grafik, venue peta, dan\nartis Top-10 yang tampil di Jakarta.",
+                "summary": "Seni visual & pertunjukan",
+                "tags": [
+                    "Indikator"
+                ],
+                "parameters": [
+                    {
+                        "name": "tahun",
+                        "in": "query",
+                        "description": "Tahun, `YYYY`; kosong = semua tahun.",
+                        "schema": {
+                            "type": [
+                                "string",
+                                "null"
+                            ],
+                            "pattern": "^\\d{4}$"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/AuthenticationException"
+                    },
+                    "422": {
+                        "$ref": "#/components/responses/ValidationException"
+                    }
+                }
+            }
+        },
         "/sistem/kesehatan": {
             "get": {
                 "operationId": "sistem.kesehatan",

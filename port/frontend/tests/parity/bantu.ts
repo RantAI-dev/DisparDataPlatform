@@ -40,13 +40,11 @@ export type OpsiParitas = {
 };
 
 /**
- * Dock asisten AI v2 ("Jekate", di luar `header`/`main` pada `body`) tidak di-port (SPEC §1), jadi
+ * Dock asisten AI v2 ("Jekate", tombol `.ai-dock-btn` + panelnya) tidak di-port (SPEC §1), jadi
  * dibuang dari halaman produksi sebelum dibandingkan. Portal tidak punya elemen seperti itu.
  */
 async function buangDockAi(page: Page) {
-  await page.evaluate(() =>
-    document.querySelectorAll("body > *:not(header):not(main):not(script):not(style):not(link):not(next-route-announcer)").forEach((e) => e.remove()),
-  );
+  await page.evaluate(() => document.querySelectorAll("[class*='ai-dock']").forEach((e) => e.remove()));
 }
 
 /** Buka halaman dan tunggu font, data, chart, dan peta tenang. */

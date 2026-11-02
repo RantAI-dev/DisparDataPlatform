@@ -15,6 +15,9 @@ use Illuminate\Database\QueryException;
  * - increment()/decrement() memakai `lockForUpdate()->first()`, yang di Oracle menjadi
  *   `FETCH FIRST … FOR UPDATE` (ORA-02014). Kunci adalah primary key, jadi baris dikunci tanpa
  *   batas baris lalu diambil yang pertama.
+ * - put() memakai `upsert` (MERGE … USING (SELECT :bind FROM dual)); nilai > 32 KB di bind itu
+ *   gagal dengan ORA-01461 (respons Data API besar, plan 13). Diganti update lalu insert, yang
+ *   mengikat nilai sebagai CLOB seperti tabel SNAPSHOT.
  */
 final class OracleDatabaseStore extends DatabaseStore
 {
@@ -35,6 +38,26 @@ final class OracleDatabaseStore extends DatabaseStore
                 return false;
             }
             throw $e;
+        }
+    }
+
+    public function put($key, $value, $seconds)
+    {
+        $nilai = ['value' => $this->serialize($value), 'expiration' => $this->getTime() + $seconds];
+        $kunci = $this->prefix.$key;
+        if ($this->table()->where('key', $kunci)->update($nilai) > 0) {
+            return true;
+        }
+
+        try {
+            return $this->table()->insert(['key' => $kunci, ...$nilai]);
+        } catch (QueryException $e) {
+            // Request lain menulis kunci yang sama di antara update dan insert: timpa saja.
+            if (! str_contains($e->getMessage(), 'ORA-00001')) {
+                throw $e;
+            }
+
+            return $this->table()->where('key', $kunci)->update($nilai) > 0;
         }
     }
 
