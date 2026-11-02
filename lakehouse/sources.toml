@@ -1039,6 +1039,17 @@ asal = "Disparekraf DKI Jakarta, lampiran nota dinas monev subkegiatan fasilitas
 pembangun = "scripts/fasilitasi_hki_2026.py"
 
 [[sumber]]
+id = "sebaran-pelaku-ekraf-jakarta"
+jenis = "sekunder"
+path = "data/sekunder/sebaran-pelaku-ekraf-jakarta.json"
+namespace = "bronze_sec"
+tabel = "sebaran_pelaku_ekraf_jakarta"
+kelas_refresh = "snapshot"
+tanggal_ambil = "2026-11-02"
+asal = "EKRAF Hub Kementerian Ekonomi Kreatif, https://hub.ekraf.go.id/sebaran-pelaku-kreatif (filter provinsi DKI Jakarta, endpoint JSON DataTables)"
+pembangun = "scripts/crawl_sebaran_pelaku_ekraf.py"
+
+[[sumber]]
 id = "hutan-kota-jakarta"
 jenis = "sekunder"
 path = "data/sekunder/hutan-kota-jakarta.json"

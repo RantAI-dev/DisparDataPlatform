@@ -519,6 +519,17 @@ export function secondaryDatasets(): SecondaryDataset[] {
       external: false,
     },
     {
+      id: "sec-sebaran-pelaku-ekraf-jakarta",
+      title: "Sebaran Pelaku Ekonomi Kreatif DKI Jakarta (EKRAF Hub)",
+      description:
+        "Pelaku ekonomi kreatif berdomisili DKI Jakarta yang terdaftar di EKRAF Hub Kementerian Ekonomi Kreatif: nama, subsektor, kabupaten/kota, tipe pengguna, usaha atau tempat kerja, dan tahun pembaruan data.",
+      tags: ["ekraf", "pelaku-kreatif", "subsektor", "sekunder"],
+      sumber: "crawling",
+      rows: 2016,
+      href: "/sdi/sebaran-pelaku-ekraf-jakarta",
+      external: false,
+    },
+    {
       id: "sec-gci-resto",
       title: "Restoran & Kafe GCI Jakarta",
       description:
