@@ -115,7 +115,10 @@ Kunci `withoutOverlapping` disimpan di cache Oracle (`CACHE_DRIVER=database`). P
 tetap ada: `POST /api/v1/sistem/job/sinkron` dengan token admin. Rute itu menjawab 202 lalu
 menjalankan `php artisan portal:sinkron --manual` sebagai proses CLI terlepas di container backend
 (bukan di worker php-fpm, jadi tidak terkena `request_terminate_timeout`); hasilnya dibaca di
-`GET /api/v1/sistem/job`. Selagi sinkron berjalan, pemicu berikutnya dijawab 409.
+`GET /api/v1/sistem/job`. Selagi sinkron berjalan, pemicu berikutnya dijawab 409. Keluaran proses
+itu ada di `backend/storage/logs/sinkron-manual.log` di dalam container backend. Proses yang
+terhenti oleh `docker stop` meninggalkan baris JOB_RUNS berstatus `jalan` dan kunci sinkron
+tertahan sampai 1 jam; sinkron berikutnya (cron 11:00 atau manual) menunggu kunci itu habis.
 
 ## Bare metal (singkat)
 
