@@ -8,7 +8,7 @@ Paket untuk server Kominfo (SPEC §9). Cara deploy di sana belum diketahui, jadi
 |---|---|
 | `backend.Dockerfile` | Laravel di php-fpm 8.2 + nginx dalam satu container, Oracle Instant Client 19 (basic) + oci8, port 8080, non-root |
 | `backend/` | konfigurasi nginx, php-fpm, php.ini, dan entrypoint image backend |
-| `frontend.Dockerfile` | Nuxt hasil `nuxt build`, Node 20, `node .output/server/index.mjs`, port 3000, non-root |
+| `frontend.Dockerfile` | Nuxt hasil `nuxt build`, Node 22, `node .output/server/index.mjs`, port 3000, non-root |
 | `compose.yaml` | contoh: `backend`, `scheduler`, `frontend`. **Tanpa Oracle** (milik server klien) |
 | `backend.env.example`, `frontend.env.example` | env berisi placeholder saja; salinan terisi tidak pernah di-commit |
 
@@ -128,7 +128,7 @@ tetap ada: `POST /api/v1/sistem/job/sinkron` dengan token admin.
   `bootstrap/cache` harus bisa ditulis user php-fpm. Konfigurasi nginx dan php-fpm di `backend/`
   bisa dipakai dengan menyesuaikan `root`, `listen`, dan `fastcgi_pass`; pertahankan lokasi ekspor
   (timeout 300 s, `fastcgi_buffering off`), `request_terminate_timeout`, dan `output_buffering = Off`.
-- **Frontend**: Node 20.
+- **Frontend**: Node 22.22 atau lebih baru (syarat Nuxt 4.6).
   ```bash
   cd /srv/portal/frontend
   npm ci && npx nuxt build

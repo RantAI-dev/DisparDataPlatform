@@ -92,7 +92,7 @@ migrasi-xe21:
 frontend:
   stage: uji
   needs: []
-  image: node:20-bookworm
+  image: node:22-bookworm
   script:
     - bash scripts/ci/frontend.sh
   artifacts:
@@ -104,7 +104,7 @@ frontend:
 e2e:
   stage: uji
   needs: [image-php]
-  # Image PHP (oci8) sebagai dasar: Laravel + Node 20 (pasang-node.sh) + Chromium Playwright.
+  # Image PHP (oci8) sebagai dasar: Laravel + Node 22 (pasang-node.sh) + Chromium Playwright.
   image: $PHP_CI_IMAGE
   services:
     - name: gvenzl/oracle-xe:18-slim

@@ -14,7 +14,7 @@ Deploy ke server: `deploy/README.md`. Pindah ke GitLab: `docs/pindah-gitlab.md`.
 
 ## Menjalankan lokal
 
-Kebutuhan: Docker dan Node 20+. PHP dan Composer tidak perlu dipasang di laptop; semua lewat
+Kebutuhan: Docker dan Node 22.22+ (syarat Nuxt 4.6). PHP dan Composer tidak perlu dipasang di laptop; semua lewat
 image `backend/Dockerfile` (PHP 8.2 + Oracle Instant Client 19 + oci8).
 
 ```bash

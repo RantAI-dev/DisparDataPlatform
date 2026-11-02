@@ -25,7 +25,7 @@ services:
 
   # Pengganti Data API untuk dev/CI: memutar rekaman fixtures/data-api (tools/fixture-server).
   fixture-server:
-    image: node:20-alpine
+    image: node:22-alpine
     working_dir: /portal
     command: ["node", "tools/fixture-server/putar.mjs"]
     environment:
@@ -74,7 +74,7 @@ services:
 
   frontend:
     # glibc (bukan alpine): node_modules dipasang di host, binary native-nya glibc.
-    image: node:20-bookworm-slim
+    image: node:22-bookworm-slim
     working_dir: /portal/frontend
     command: ["npx", "nuxt", "dev", "--host", "0.0.0.0", "--port", "3000"]
     user: "${UID:-1000}:${GID:-1000}"

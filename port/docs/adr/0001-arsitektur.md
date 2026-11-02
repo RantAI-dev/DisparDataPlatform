@@ -187,7 +187,7 @@ Nilai default SPEC dipakai kecuali disebut lain. Pemilik boleh membatalkan tiap 
   `scripts/ci/e2e.sh` menyalakan fixture-server dan Laravel (`laravel-e2e.sh`: skema bersih, akun
   layanan, token ke berkas, `artisan serve`; nilai env ditulis ke `.env` karena `serve` tidak
   meneruskan env proses). Batas laju dinaikkan untuk e2e (`PORTAL_BATAS_PER_MENIT`). GitHub:
-  Laravel di image PHP lewat `docker run`; GitLab: image PHP sebagai image job + Node 20.20.2
+  Laravel di image PHP lewat `docker run`; GitLab: image PHP sebagai image job + Node 22.23.4
   (`pasang-node.sh`, SHA256 disematkan) + Chromium Playwright.
 - **Slug acuan** (dipakai plan 17): S1 `data-jumlah-wisatawan-mancanegara-berdasarkan-kebangsaan`,
   S2 `penerbangan-langsung-internasional-jakarta`, S3
@@ -274,6 +274,7 @@ Nilai default SPEC dipakai kecuali disebut lain. Pemilik boleh membatalkan tiap 
 | §4.4 "status HTTP diteruskan dari Data API" | 401/403 Data API → **502 `UPSTREAM_AUTH`** | 401/403 dari Data API berarti token layanan Laravel salah (konfigurasi server); meneruskannya membuat Nuxt mengira tokennya sendiri yang salah |
 | §5.1 font `@fontsource-variable/plus-jakarta-sans` + `@nuxtjs/fontaine` | berkas woff2 + `@font-face` produksi di-host sendiri | metrik fontsource 5.3.0 berbeda 3,5% dari font produksi (lihat "Font" di atas) |
 | §4.4 data di-decode bila perlu dibaca | `data` **diambil mentah** dari body (`JsonMentah::nilaiMentah`), tidak di-decode-encode | decode-encode membulatkan bilangan bulat > 2^63 (UInt64 ClickHouse) menjadi float |
+| §9 frontend Node 20 | **Node 22** (22.23.4 di image produksi dan CI GitLab; `node:22-*` di dev dan GitHub) | Nuxt 4.6.3 (K-8) mensyaratkan Node ≥ 22.22.3; Node 20 EOL April 2026. SPEC diperbarui; disetujui pemilik 2 Nov 2026 |
 | KONTRAK §2.7 kesehatan | `GET /api/v1/sistem/kesehatan` selalu **200** dengan `status: ok \| terganggu` dan rincian per komponen; `meta.sumber = null` | pemantau tetap bisa membaca komponen mana yang gagal; cek Data API memakai timeout 3 s tanpa retry supaya rute publik ini tidak menahan worker |
 
 ## Risiko versi (ditetapkan klien, bukan pilihan kita)
