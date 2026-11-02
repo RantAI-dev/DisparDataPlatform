@@ -62,7 +62,8 @@ terjangkau sebelum langkah 3.
    ```
    `data.status` harus `ok`, dengan `komponen.oracle` dan `komponen.data_api` `ok`. HTTP selalu
    200; `terganggu` berarti salah satu komponen gagal (healthcheck container tetap lulus supaya
-   gangguan Data API tidak membuat backend di-restart).
+   gangguan Data API tidak membuat backend di-restart). Rute kesehatan tidak dicatat di
+   LOG_HISTORY, karena healthcheck memanggilnya tiap 30 detik.
 9. Buka frontend (`http://127.0.0.1:3000`, atau lewat reverse proxy) dan periksa `/` dan
    `/dashboard/wisman`.
 
@@ -88,8 +89,8 @@ Bila DBA tidak mengizinkan app membuat tabel sendiri, terapkan dump yang dibuat
 `scripts/oracle-dump.sh` (CI memeriksa dump bisa diterapkan ke skema kosong):
 
 ```bash
-sqlplus <user>/<sandi>@//<host>:1521/<service> @backend/database/oracle/portal-ddl.sql
-sqlplus <user>/<sandi>@//<host>:1521/<service> @backend/database/oracle/portal-seed.sql
+sqlplus <user>/<sandi>@//<host>:1521/<service> @../backend/database/oracle/portal-ddl.sql
+sqlplus <user>/<sandi>@//<host>:1521/<service> @../backend/database/oracle/portal-seed.sql
 ```
 
 `portal-seed.sql` sudah membuat akun layanan, jadi langkah 4 dan 5 dilewati; lanjut ke langkah 6.
@@ -111,7 +112,10 @@ mingguan (retensi 180 hari). Jalankan **salah satu** saja:
   ```
 
 Kunci `withoutOverlapping` disimpan di cache Oracle (`CACHE_DRIVER=database`). Pemicu manual
-tetap ada: `POST /api/v1/sistem/job/sinkron` dengan token admin.
+tetap ada: `POST /api/v1/sistem/job/sinkron` dengan token admin. Rute itu menjawab 202 lalu
+menjalankan `php artisan portal:sinkron --manual` sebagai proses CLI terlepas di container backend
+(bukan di worker php-fpm, jadi tidak terkena `request_terminate_timeout`); hasilnya dibaca di
+`GET /api/v1/sistem/job`. Selagi sinkron berjalan, pemicu berikutnya dijawab 409.
 
 ## Bare metal (singkat)
 
@@ -128,7 +132,7 @@ tetap ada: `POST /api/v1/sistem/job/sinkron` dengan token admin.
   `bootstrap/cache` harus bisa ditulis user php-fpm. Konfigurasi nginx dan php-fpm di `backend/`
   bisa dipakai dengan menyesuaikan `root`, `listen`, dan `fastcgi_pass`; pertahankan lokasi ekspor
   (timeout 300 s, `fastcgi_buffering off`), `request_terminate_timeout`, dan `output_buffering = Off`.
-- **Frontend**: Node 22.22 atau lebih baru (syarat Nuxt 4.6).
+- **Frontend**: Node `^22.22.3`, `^24.15.0`, atau `>=26` (syarat Nuxt 4.6.3; image memakai 22.23.4).
   ```bash
   cd /srv/portal/frontend
   npm ci && npx nuxt build

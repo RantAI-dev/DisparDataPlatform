@@ -3,6 +3,7 @@
 **/.env
 **/.env.*
 !**/.env.example
+deploy/*.env
 **/node_modules
 .git
 .gitlab-ci-local
