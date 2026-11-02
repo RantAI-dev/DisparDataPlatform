@@ -1,0 +1,389 @@
+{
+ "slug": "fasilitasi-hki-ekraf-2026-tw1",
+ "title": "Fasilitasi HKI Pelaku Ekonomi Kreatif 2026 Triwulan I",
+ "description": "Pelaku ekonomi kreatif DKI Jakarta yang difasilitasi pendaftaran hak kekayaan intelektual pada triwulan I 2026: nama pemohon, merek/ciptaan, alamat, dan subsektor.",
+ "columns": [
+  {
+   "key": "no",
+   "label": "No",
+   "type": "string",
+   "description": "No sesuai lampiran laporan monev."
+  },
+  {
+   "key": "nama",
+   "label": "Nama",
+   "type": "string",
+   "description": "Nama sesuai lampiran laporan monev."
+  },
+  {
+   "key": "merk_cipta",
+   "label": "Merk/Cipta",
+   "type": "string",
+   "description": "Merk/Cipta sesuai lampiran laporan monev."
+  },
+  {
+   "key": "alamat",
+   "label": "Alamat",
+   "type": "string",
+   "description": "Alamat sesuai lampiran laporan monev."
+  },
+  {
+   "key": "subsektor",
+   "label": "Subsektor",
+   "type": "string",
+   "description": "Subsektor sesuai lampiran laporan monev."
+  }
+ ],
+ "rows": [
+  {
+   "no": "1",
+   "nama": "Rochkus Suradi",
+   "merk_cipta": "Mahadaya",
+   "alamat": "Pejaten Timur No. 38 RT.09/RW.10, Kelurahan Pejaten Timur, Kecamatan Pasar Minggu, Kota Administrasi Jakarta Selatan",
+   "subsektor": "Penerbitan"
+  },
+  {
+   "no": "2",
+   "nama": "Sarah Sofia",
+   "merk_cipta": "Patut Elok",
+   "alamat": "Kamp. Jati RT.04/RW.03 Kelurahan Rambutan, Kecamatan Ciracas, Kota Administrasi Jakarta Timur",
+   "subsektor": "Fesyen"
+  },
+  {
+   "no": "3",
+   "nama": "Wahyu Dwi",
+   "merk_cipta": "Beranda Production",
+   "alamat": "Jl. Adhi Karya II RT. 11/RW 02 Kelurahan Kedoya Selatan, Kecamatan Kebon Jeruk, Kota Administrasi Jakarta Barat",
+   "subsektor": "Seni Pertunjukan"
+  },
+  {
+   "no": "4",
+   "nama": "Yunni Mirah Jimma",
+   "merk_cipta": "YMJ Yunni Mirah Jimma",
+   "alamat": "Jl. Karya Utama No. 40 RT. 07/ RW. 05 Kelurahan Gandaria Utara, Kecamatan Kebayoran Baru, Kota Administrasi Jakarta Selatan",
+   "subsektor": "Fesyen"
+  },
+  {
+   "no": "5",
+   "nama": "Umiyati",
+   "merk_cipta": "Sanggar Indira Nanda",
+   "alamat": "Kp. Gaga RT.07 /RW. 03, Kelurahan Semanan, Kecamatan Kalideres, Kota Administrasi Jakarta Barat",
+   "subsektor": "Seni Pertunjukan"
+  },
+  {
+   "no": "6",
+   "nama": "Bibik Patriadi",
+   "merk_cipta": "AM Dance Studio",
+   "alamat": "Jl. Raya Kebon Jeruk No. 41 RT.07/RW. 01, Kelurahan Kebon Jeruk, Kecamatan Kebon Jeruk, Kota Administrasi Jakarta Barat",
+   "subsektor": "Seni Pertunjukan"
+  },
+  {
+   "no": "7",
+   "nama": "Bibik Patriadi",
+   "merk_cipta": "Karya Drama dan Koreografi (Tari Lenggok Neng Cantik)",
+   "alamat": "Jl. Raya Kebon Jeruk No. 41 RT.07/RW. 01, Kelurahan Kebon Jeruk, Kecamatan Kebon Jeruk, Kota Administrasi Jakarta Barat",
+   "subsektor": "Seni Pertunjukan"
+  },
+  {
+   "no": "8",
+   "nama": "Syahroni",
+   "merk_cipta": "Cingkrik Kembang Cagak",
+   "alamat": "Kp. Kramat RT.010/RW. 009 Kelurahan Grogol, Kecamatan Grogol Petamburan, Kota Administrasi Jakarta Barat",
+   "subsektor": "Seni Pertunjukan"
+  },
+  {
+   "no": "9",
+   "nama": "Wiranto Hadi",
+   "merk_cipta": "Campustaka",
+   "alamat": "Jl. Utan Jati RT.05 /RW.011 Kelurahan Pegadungan, Kecamatan Kalideres, Kota Administrasi Jakarta Barat",
+   "subsektor": "Penerbitan"
+  },
+  {
+   "no": "10",
+   "nama": "Rizqa Safira Anardi",
+   "merk_cipta": "HC Happy Creative",
+   "alamat": "Jakarta Garden City La – Seine F8-16 RT/RW 04/14 Kelurahan Cakung Timur, Kecamatan Cakung, Kota Administrasi Jakarta Timur",
+   "subsektor": "Kriya"
+  },
+  {
+   "no": "11",
+   "nama": "Novia Ratna Wulan",
+   "merk_cipta": "Bunana's Kitchen",
+   "alamat": "Bulak Sereh Jl. Masjid Al Gofur RT.04/ RW 04, Kelurahan Cibubur, Kecamatan Ciracas, Kota Administrasi Jakarta Timur",
+   "subsektor": "Kuliner"
+  },
+  {
+   "no": "12",
+   "nama": "Marsellinus Paska Perdana",
+   "merk_cipta": "Color Way",
+   "alamat": "Jl. Adhi Karya II RT.11/RW. 02, Kelurahan Kedoya Selatan, Kecamatan Kebon Jeruk, Kota Administrasi Jakarta Barat",
+   "subsektor": "Aplikasi"
+  },
+  {
+   "no": "13",
+   "nama": "Marsellinus Paska Perdana",
+   "merk_cipta": "Karya Lainnya (Website Aplikasi Propertindo Realty)",
+   "alamat": "Jl. Adhi Karya II RT.11/RW. 02, Kelurahan Kedoya Selatan, Kecamatan Kebon Jeruk, Kota Administrasi Jakarta Barat",
+   "subsektor": "Aplikasi"
+  },
+  {
+   "no": "14",
+   "nama": "Sugianto",
+   "merk_cipta": "Rumah Seni Pusaka Budaya",
+   "alamat": "Kp. Baru No. 8 RT.02/RW. 10, Kelurahan Kembangan Utara, Kecamatan Kembangan, Kota Administrasi Jakarta Barat",
+   "subsektor": "Seni Pertunjukan"
+  },
+  {
+   "no": "15",
+   "nama": "Sugianto",
+   "merk_cipta": "Karya Tulis (Kuda Lumping Antorium)",
+   "alamat": "Kp. Baru No. 8 RT.02/RW. 10, Kelurahan Kembangan Utara, Kecamatan Kembangan, Kota Administrasi Jakarta Barat",
+   "subsektor": "Seni Pertunjukan"
+  },
+  {
+   "no": "16",
+   "nama": "Sugianto",
+   "merk_cipta": "Karya Drama & Koreografi (Lenong Denes Pusaka Budaya)",
+   "alamat": "Kp. Baru No. 8 RT.02/RW. 10, Kelurahan Kembangan Utara, Kecamatan Kembangan, Kota Administrasi Jakarta Barat",
+   "subsektor": "Seni Pertunjukan"
+  },
+  {
+   "no": "17",
+   "nama": "Sugianto",
+   "merk_cipta": "Karya Drama dan Koreografi (Art Camp Festival)",
+   "alamat": "Kp. Baru No. 8 RT.02/RW. 10, Kelurahan Kembangan Utara, Kecamatan Kembangan, Kota Administrasi Jakarta Barat",
+   "subsektor": "Seni Pertunjukan"
+  },
+  {
+   "no": "18",
+   "nama": "Putri Andini",
+   "merk_cipta": "hapt",
+   "alamat": "Jl. Jati Bunder No. 24 RT.17/RW.14, Kelurahan Kebon Melati, Kecamatan Tanah Abang, Kota Administrasi Jakarta Pusat",
+   "subsektor": "Fesyen"
+  },
+  {
+   "no": "19",
+   "nama": "Afud Mahfudin",
+   "merk_cipta": "Sanggar Ar Risalah",
+   "alamat": "Kav. DKI BLK. 35 No. 23 RT.06/RW.01, Kelurahan Meruya Utara, Kecamatan Kembangan, Kota Administrasi Jakarta Barat",
+   "subsektor": "Seni Pertunjukan"
+  },
+  {
+   "no": "20",
+   "nama": "Theresia Lusiana",
+   "merk_cipta": "There Craft",
+   "alamat": "Pedongkelan RT.02/RW.15, Kelurahan Kapuk, Kecamatan Cengkareng, Kota Administrasi Jakarta Barat",
+   "subsektor": "Kriya"
+  },
+  {
+   "no": "21",
+   "nama": "Eni Ekaningsih",
+   "merk_cipta": "Aliskya Denali",
+   "alamat": "Jl. Asia Baru 71 B RT.06/RW.04, Kelurahan Duri Kepa, Kecamatan Kebon Jeruk, Kota Administrasi Jakarta Barat",
+   "subsektor": "Seni Pertunjukan"
+  },
+  {
+   "no": "22",
+   "nama": "Ratih Ayu Larasati",
+   "merk_cipta": "Sanggar Tari Ratih Ayu",
+   "alamat": "PTB.Kavling Blok C6 RT.04/RW. 07, Kelurahan Tegal Alur, Kecamatan Kalideres, Kota Administrasi Jakarta Barat",
+   "subsektor": "Seni Pertunjukan"
+  },
+  {
+   "no": "23",
+   "nama": "Pratiwi Setiawati",
+   "merk_cipta": "Sanggar Tari Pratiwi",
+   "alamat": "Jl. Masjid II No. 8 RT.08/RW.02 Kelurahan Cengkareng Barat, Kecamatan Cengkareng, Kota Administrasi Jakarta Barat",
+   "subsektor": "Seni Pertunjukan"
+  },
+  {
+   "no": "24",
+   "nama": "Alfiana Damayanti",
+   "merk_cipta": "Anganscarf",
+   "alamat": "Lubang Buaya RT.02/RW.03, Kelurahan Lubang Buaya, Kecamatan Cipayung, Kota Administrasi Jakarta Timur",
+   "subsektor": "Fesyen"
+  },
+  {
+   "no": "25",
+   "nama": "M. Syarifuddin Zuhry",
+   "merk_cipta": "Kumite 100",
+   "alamat": "Jl. Kesemek Lorong G No. 4 RT 010 RW 014, Kelurahan Semper Barat, Kecamatan Cilincing, Kota Administrasi Jakarta Utara",
+   "subsektor": "Pengembangan Permainan"
+  },
+  {
+   "no": "26",
+   "nama": "M. Syarifuddin Zuhry",
+   "merk_cipta": "Karya Seni (Alat Peraga) berjudul Board Game",
+   "alamat": "Jl. Kesemek Lorong G No. 4 RT 010 RW 014, Kelurahan Semper Barat, Kecamatan Cilincing, Kota Administrasi Jakarta Utara",
+   "subsektor": "Pengembangan Permainan"
+  },
+  {
+   "no": "27",
+   "nama": "Meivy Jibrilia",
+   "merk_cipta": "Merenda By Mavi",
+   "alamat": "Jl. Kemuning No. 11 RT 003 RW 005, Kelurahan Utan Kayu Utara, Kecamatan Matraman, Kota Administrasi Jakarta Timur",
+   "subsektor": "Kriya"
+  },
+  {
+   "no": "28",
+   "nama": "Fatiyah Rizqiani",
+   "merk_cipta": "Feyra",
+   "alamat": "Jl. Kayu Mas Raya No. 4 RT 013 RW 010, Kelurahan Pulogadung, Kecamatan Pulogadung, Kota Administrasi Jakarta Timur",
+   "subsektor": "Kriya"
+  },
+  {
+   "no": "29",
+   "nama": "Athi Susilowati Rois, SKM,M.K.M",
+   "merk_cipta": "MargaNana Collection",
+   "alamat": "Kp Utan No. 19 RT 009/RW 008, Kelurahan Ragunan, Kecamatan Pasar Minggu, Kota Administrasi Jakarta Selatan",
+   "subsektor": "Fesyen"
+  },
+  {
+   "no": "30",
+   "nama": "Risma Yusdiana",
+   "merk_cipta": "Kopi Ummat",
+   "alamat": "Jl. Ganggeng VI Dlm No. 12 A RT 011 RW 001, Kelurahan Sungai Bambu, Kecamatan Tanjung Priok, Kota Administrasi Jakarta Utara",
+   "subsektor": "Kuliner"
+  },
+  {
+   "no": "31",
+   "nama": "Mariyana",
+   "merk_cipta": "Dapur Muaz",
+   "alamat": "Rusun Rawa bebek Tower B Cluster Dahlia Lt 04/007 RT.002/RW.017, Kelurahan Pulogebang, Kecamatan Cakung, Kota Administrasi Jakarta Timur",
+   "subsektor": "Kuliner"
+  },
+  {
+   "no": "32",
+   "nama": "Prasetyo Aji",
+   "merk_cipta": "Ekspeditrip",
+   "alamat": "Kavling PTB DKI Blok F 8 No. 35 RT.008/RW.011, Kelurahan Pondok Kelapa, Kecamatan Duren Sawit, Kota Administrasi Jakarta Timur",
+   "subsektor": "Industri Pariwisata"
+  },
+  {
+   "no": "33",
+   "nama": "Antony Yulvianda",
+   "merk_cipta": "Antour",
+   "alamat": "Gg. Persatuan RT.007/RW.009, Kelurahan Kelapa Dua Wetan, Kecamatan Ciracas, Kota Administrasi Jakarta Timur",
+   "subsektor": "Industri Pariwisata"
+  },
+  {
+   "no": "34",
+   "nama": "M. Oman sulaiman",
+   "merk_cipta": "Sanggar Betawi Azzam Isni",
+   "alamat": "Jl. Makmur RT.002/RW 007, Kelurahan Lubang Buaya, Kecamatan Cipayung, Kota Administrasi Jakarta Timur",
+   "subsektor": "Seni Pertunjukan"
+  },
+  {
+   "no": "35",
+   "nama": "Tiara Ulfayana",
+   "merk_cipta": "Pulpio Studio",
+   "alamat": "Jl. Cipinang Lontar Indah Blok A3 /8 RT.015/RW.006, Kelurahan Cipinang Muara, Kecamatan Jatinegara, Kota Administrasi Jakarta Timur",
+   "subsektor": "Kriya"
+  },
+  {
+   "no": "36",
+   "nama": "Rani Fahrudin",
+   "merk_cipta": "Warung Si Akang",
+   "alamat": "Pangkalan Jati RT.005/RW. 005, Kelurahan Cipinang Melayu, Kecamatan Makasar, Kota Administrasi Jakarta Timur",
+   "subsektor": "Kuliner"
+  },
+  {
+   "no": "37",
+   "nama": "Rachmat Hidayat, SAG",
+   "merk_cipta": "Agro Wisata Cibugary",
+   "alamat": "Jl. Peternakan 1 RT 001 RW 002, Kelurahan Pondok Ranggon, Kecamatan Cipayung, Kota Administrasi Jakarta Timur",
+   "subsektor": "Industri Pariwisata"
+  },
+  {
+   "no": "38",
+   "nama": "Syafrizal Adi Saktia",
+   "merk_cipta": "Rihlah Kids",
+   "alamat": "Kav. DKI Blok A 4/10 RT.001/RW.004, Kelurahan Pondok Kelapa, Kecamatan Duren Sawit, Kota Administrasi Jakarta Timur",
+   "subsektor": "Penerbitan"
+  },
+  {
+   "no": "39",
+   "nama": "Syafrizal Adi Saktia",
+   "merk_cipta": "Karya tulis (Buku Mewarnai) Berjudul Buku Mewarnai - Ramadhan Penuh Warna",
+   "alamat": "Kav. DKI Blok A 4/10 RT.001/RW.004, Kelurahan Pondok Kelapa, Kecamatan Duren Sawit, Kota Administrasi Jakarta Timur",
+   "subsektor": "Penerbitan"
+  },
+  {
+   "no": "40",
+   "nama": "Sally Vinarianti",
+   "merk_cipta": "Panci Kitchen & Eatery",
+   "alamat": "Jl. Kaca-Kaca No. 6 RT.013/RW.014, Kelurahan Pasar Baru, Kecamatan Sawah Besar, Kota Administrasi Jakarta Pusat",
+   "subsektor": "Kuliner"
+  },
+  {
+   "no": "41",
+   "nama": "Mayissa Anggun Pekerti",
+   "merk_cipta": "Berlibour Studio",
+   "alamat": "Jl. Depsos IV No. 7 RT.002/RW.002,Kelurahan Bintaro, Kecamatan Pesanggrahan, Kota Administrasi Jakarta Selatan",
+   "subsektor": "Desain Grafis"
+  },
+  {
+   "no": "42",
+   "nama": "Mayissa Anggun Pekerti",
+   "merk_cipta": "Karya seni rupa ilustrasi grafis berjudul tracing Home : Suralaya",
+   "alamat": "Jl. Depsos IV No. 7 RT.002/RW.002,Kelurahan Bintaro, Kecamatan Pesanggrahan, Kota Administrasi Jakarta Selatan",
+   "subsektor": "Desain Grafis"
+  },
+  {
+   "no": "43",
+   "nama": "Felia Melinda",
+   "merk_cipta": "Gutdessert",
+   "alamat": "Jl. Kota Bambu Utara RT.002/RW.004, Kelurahan Kota Bambu Utara, Kecamatan Palmerah, Kota Administrasi Jakarta Barat",
+   "subsektor": "Kuliner"
+  },
+  {
+   "no": "44",
+   "nama": "Bagus Pangestu",
+   "merk_cipta": "Miramisu",
+   "alamat": "Komplek Walikota Jl. Kutilang Blok C2 No. 6 RT.005/RW.006, Kelurahan Sukapura, Kecamatan Cilincing, Kota Administrasi Jakarta Utara",
+   "subsektor": "Kuliner"
+  },
+  {
+   "no": "45",
+   "nama": "Iskandar",
+   "merk_cipta": "Zamia Bakery and Cookies",
+   "alamat": "Kp. Jawa Rawasari RT 013 RW 008, Kelurahan Rawasari, Kecamatan Cempaka Putih, Kota Administrasi Jakarta Pusat",
+   "subsektor": "Kuliner"
+  },
+  {
+   "no": "46",
+   "nama": "Taupik Hidayat",
+   "merk_cipta": "Bir Pletok Bang Opiek",
+   "alamat": "Jl. Bambu Hitam No. 5 RT 003 RW 001, Kelurahan Bambu Apus, Kecamatan Cipayung, Kota Administrasi Jakarta Timur",
+   "subsektor": "Kuliner"
+  },
+  {
+   "no": "47",
+   "nama": "Apriansyah",
+   "merk_cipta": "Sanggar Cahaya Marunda Bang Ili",
+   "alamat": "Jl. Kalibaru Barat RT.006/RW.012, Kelurahan Kalibaru, Kecamatan Cilincing, Kota Administrasi Jakarta Utara",
+   "subsektor": "Seni Pertunjukan"
+  },
+  {
+   "no": "48",
+   "nama": "Apriansyah",
+   "merk_cipta": "Karya drama dan koreografi berjudul Pendekar dari Gunung Cialug \"CAMBUK MAUT\"",
+   "alamat": "Jl. Kalibaru Barat RT.006/RW.012, Kelurahan Kalibaru, Kecamatan Cilincing, Kota Administrasi Jakarta Utara",
+   "subsektor": "Seni Pertunjukan"
+  },
+  {
+   "no": "49",
+   "nama": "Widya Mukti",
+   "merk_cipta": "FILOSOFIA SEMESTA",
+   "alamat": "Jalan Tanah Baru V NO.49 RT.002/RW.001, Kelurahan Grogol Utara, Kecamatan Kebayoran Lama, Kota Administrasi Jakarta Selatan",
+   "subsektor": "Fesyen"
+  },
+  {
+   "no": "50",
+   "nama": "Salma Noorfitria Ningrum",
+   "merk_cipta": "dreamity",
+   "alamat": "Anggrek Rosliana Raya NO.16 RT.009/RW.003, Kelurahan Kemanggisan, Kecamatan Palmerah, Kota Administrasi Jakarta Barat",
+   "subsektor": "Kriya"
+  }
+ ]
+}

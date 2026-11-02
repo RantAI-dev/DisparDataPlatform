@@ -1,0 +1,599 @@
+{
+ "slug": "fasilitasi-hki-ekraf-2026-tw2",
+ "title": "Fasilitasi HKI Pelaku Ekonomi Kreatif 2026 Triwulan II",
+ "description": "Pelaku ekonomi kreatif DKI Jakarta yang difasilitasi pendaftaran hak kekayaan intelektual pada triwulan II 2026: nama pemohon, merek/ciptaan, alamat, dan subsektor.",
+ "columns": [
+  {
+   "key": "no",
+   "label": "No",
+   "type": "string",
+   "description": "No sesuai lampiran laporan monev."
+  },
+  {
+   "key": "nama",
+   "label": "Nama",
+   "type": "string",
+   "description": "Nama sesuai lampiran laporan monev."
+  },
+  {
+   "key": "merk_cipta",
+   "label": "Merk/Cipta",
+   "type": "string",
+   "description": "Merk/Cipta sesuai lampiran laporan monev."
+  },
+  {
+   "key": "alamat",
+   "label": "Alamat",
+   "type": "string",
+   "description": "Alamat sesuai lampiran laporan monev."
+  },
+  {
+   "key": "subsektor",
+   "label": "Subsektor",
+   "type": "string",
+   "description": "Subsektor sesuai lampiran laporan monev."
+  }
+ ],
+ "rows": [
+  {
+   "no": "1",
+   "nama": "Abdul Wahab",
+   "merk_cipta": "Betawi Sinar Muda",
+   "alamat": "Jl.Manunggal II, RT003/RW002, Kelurahan Petukangan Selatan, Kecamatan Pesanggrahan, Kota Administrasi Jakarta Selatan",
+   "subsektor": "Musik"
+  },
+  {
+   "no": "2",
+   "nama": "Faustina",
+   "merk_cipta": "Dree",
+   "alamat": "Kond. Taman Anggrek TWR 5-26 D RT.005/RW.007, Kelurahan Tanjung Duren Selatan, Kecamatan Grogol Petamburan, Kota Administrasi Jakarta Barat",
+   "subsektor": "Fesyen"
+  },
+  {
+   "no": "3",
+   "nama": "Imam Aji Bagus P",
+   "merk_cipta": "Program Komputer (Educu)",
+   "alamat": "Jl. Al-Amin RT.012/RW.006, Kelurahan Kramat Jati, Kecamatan Kramat Jati, Jakarta Timur",
+   "subsektor": "Aplikasi"
+  },
+  {
+   "no": "4",
+   "nama": "Karunia Fitriadi",
+   "merk_cipta": "Kafi Law Firm",
+   "alamat": "Jl. Cipinang Jagal, RT004/RW010, Kelurahan Cipinang, Kecamatan Pulogadung, Kota Administrasi Jakarta Timur",
+   "subsektor": "Aplikasi"
+  },
+  {
+   "no": "5",
+   "nama": "Muhammad Ferryannoor",
+   "merk_cipta": "Bin Ghalib Wisata",
+   "alamat": "Jl. Dermaga NO.60 RT.001/RW.003, Kelurahan Balekambang, Kecamatan Kramat Jati, Kota Administrasi Jakarta Timur",
+   "subsektor": "Industri Pariwisata"
+  },
+  {
+   "no": "6",
+   "nama": "Karema Rahayu Soedijanto",
+   "merk_cipta": "Homemade.Karema",
+   "alamat": "Jl. Grinting III NO.27 RT.006/RW.005, Kelurahan Pulo, Kecamatan Kebayoran Baru, Kota Administrasi Jakarta Selatan",
+   "subsektor": "Kuliner"
+  },
+  {
+   "no": "7",
+   "nama": "Mochammad Hanif Fajri",
+   "merk_cipta": "Smoooks",
+   "alamat": "Jl. Tambak II NO.27 Komp. Polri RT.009/RW.005, Kelurahan Pegangsaan, Kecamatan Menteng, Kota Administrasi Jakarta Pusat",
+   "subsektor": "Kuliner"
+  },
+  {
+   "no": "8",
+   "nama": "Erik Klaus Keifas Kalalo",
+   "merk_cipta": "Program Komputer (Redova)",
+   "alamat": "Jl. Pinang Ranti 1 NO.53A RT.002/RW.002, Kelurahan Pinang Ranti, Kecamatan Makasar, Jakarta Timur",
+   "subsektor": "Aplikasi"
+  },
+  {
+   "no": "9",
+   "nama": "Bonar Wilfred",
+   "merk_cipta": "Program Komputer (Connext)",
+   "alamat": "Jalan Mede NO.2A RT.006/RW.009, Kelurahan Rawamangun, Kecamatan Pulogadung, Jakarta Timur",
+   "subsektor": "Aplikasi"
+  },
+  {
+   "no": "10",
+   "nama": "Muhammad Alfin Haq",
+   "merk_cipta": "Program Komputer (Al Haq Connect)",
+   "alamat": "Jalan Remaja Gg IV NO.28, RT.001/RW.010, Kelurahan Kebon Bawang, Kecamatan Tanjung Priok, Jakarta Utara",
+   "subsektor": "Aplikasi"
+  },
+  {
+   "no": "11",
+   "nama": "Teddy Permana",
+   "merk_cipta": "Mdl Bumi Nusantara",
+   "alamat": "Gang Alhidayah No. 8, RT003/RW001, Kelurahan Pondok Kelapa, Kecamatan Duren Sawit, Kota Administrasi Jakarta Timur",
+   "subsektor": "Kuliner"
+  },
+  {
+   "no": "12",
+   "nama": "Martono",
+   "merk_cipta": "Teh Tarik Pakde Tono",
+   "alamat": "Jl. Tambak 2 Komp. Polri NO.9F RT.009/RW.005, Kelurahan Pegangsaan, Kecamatan Menteng, Kota Administrasi Jakarta Pusat",
+   "subsektor": "Kuliner"
+  },
+  {
+   "no": "13",
+   "nama": "Dahlia Tiorina Br Sinaga",
+   "merk_cipta": "Clef Hale",
+   "alamat": "Apartemen Vittoria Residence, Jl. Daan Mogot KM.13.8, , RT012/RW002, Kelurahan Rawa Buaya, Kecamatan Cengkareng, Kota Administrasi Jakarta Barat",
+   "subsektor": "Kuliner"
+  },
+  {
+   "no": "14",
+   "nama": "Arianne Isabelle Kanattaqiya Permadi",
+   "merk_cipta": "Seni Terapan (Wajik Ondel-Ondel)",
+   "alamat": "Perum Metland Jalan Menteng Kencana IV Blok L2 NO.10, Kelurahan Ujung Menteng, Kecamatan Cakung, Jakarta Timur",
+   "subsektor": "Fesyen"
+  },
+  {
+   "no": "15",
+   "nama": "Rafie Aliefa Khana Kotjek",
+   "merk_cipta": "Program Komputer (Rentora)",
+   "alamat": "Jalan Tali I NO.43 RT.003/RW.009, Kelurahan Kota Bambu Selatan, Kecamatan Palmerah, Jakarta Barat",
+   "subsektor": "Aplikasi"
+  },
+  {
+   "no": "16",
+   "nama": "Yudi Reynaldi",
+   "merk_cipta": "Salad Buah Salju Rumah Oma",
+   "alamat": "Pinang Ranti Mansion Elok D 6/12 Jalan Pusdiklat Depnaker RT.008/RW.005, Kelurahan Pinangranti, Kecamatan Makasar, Kota Administrasi Jakarta Timur",
+   "subsektor": "Kuliner"
+  },
+  {
+   "no": "17",
+   "nama": "Daniel Hendrawan",
+   "merk_cipta": "Ing Pawon",
+   "alamat": "Jl. Langgar, RT006/RW010, Kelurahan Kramat Jati, Kecamatan Kramat Jati, Kota Administrasi Jakarta Timur",
+   "subsektor": "Kuliner"
+  },
+  {
+   "no": "18",
+   "nama": "Michelle Arifin Gouw",
+   "merk_cipta": "Simplites",
+   "alamat": "Jl. Kelapa Hibrida RY Blk.C2/12, RT003/RW017, Kelurahan Kelapa Gading Barat, Kecamatan Kelapa Gading, Kota Administrasi Jakarta Utara.",
+   "subsektor": "Aplikasi"
+  },
+  {
+   "no": "19",
+   "nama": "Mohamad Yaser",
+   "merk_cipta": "Jak-Explorer",
+   "alamat": "Jl. Puskesmas I RT.007/RW.007, Kelurahan Duri Kosambi, Kecamatan Cengkareng, Kota Administrasi Jakarta Barat",
+   "subsektor": "Industri Pariwisata"
+  },
+  {
+   "no": "20",
+   "nama": "Drs Luthfi Hasan",
+   "merk_cipta": "Kuestana",
+   "alamat": "Jl. SDN 01 GG. Ilan Jimah 03 NO.159 RT.004/RW.001, Kelurahan Pondok Ranggon, Kecamatan Cipayung, Kota Administrasi Jakarta Timur",
+   "subsektor": "Kuliner"
+  },
+  {
+   "no": "21",
+   "nama": "Siti Aisah",
+   "merk_cipta": "Qurio",
+   "alamat": "Jl. Peninggaran Barat II RT.010/RW.011, Kelurahan Kebayoran Lama Utara, Kecamatan Kebayoran Lama, Kota Administrasi Jakarta Selatan",
+   "subsektor": "Aplikasi"
+  },
+  {
+   "no": "22",
+   "nama": "Hasni Fitriani",
+   "merk_cipta": "Al Has Event Organizer",
+   "alamat": "Jl. Nuri V NO.52 RT.007/RW.008, Kelurahan Cengkareng Barat, Kecamatan Cengkareng, Kota Administrasi Jakarta Barat",
+   "subsektor": "Seni Pertunjukan"
+  },
+  {
+   "no": "23",
+   "nama": "Akhmad Hersapto",
+   "merk_cipta": "Event Safety Indonesia",
+   "alamat": "Jl. Rambutan Kavling 44 No. 3 RT 03 RW 04 Kelurahan Pejaten Barat Kecamatan Pasar Minggu Kota Administrasi Jakarta Selatan",
+   "subsektor": "Industri Pariwisata"
+  },
+  {
+   "no": "24",
+   "nama": "Christiane L J Michiels",
+   "merk_cipta": "Batik Togoe",
+   "alamat": "Jl. Raya Tugu NO.7 RT.001/RW.009, Kelurahan Semper Barat, Kecamatan Cilincing, Kota Administrasi Jakarta Utara",
+   "subsektor": "Fesyen"
+  },
+  {
+   "no": "25",
+   "nama": "Viralea Hediana",
+   "merk_cipta": "Viralea Hediana",
+   "alamat": "Jl. Kelapa Cengkir Timur I blok ED 2 No. 16, RT016/RW009, Kelurahan Kelapa Gading Timur, Kecamatan Kelapa Gading, Kota Administrasi Jakarta Utara",
+   "subsektor": "Kuliner"
+  },
+  {
+   "no": "26",
+   "nama": "Kalvina Kimarem",
+   "merk_cipta": "Serva",
+   "alamat": "Jl. Mangga Besar Raya NO.107 RT.015/RW.001, Kelurahan Tangki, Kecamatan Taman Sari, Kota Administrasi Jakarta Barat",
+   "subsektor": "Aplikasi"
+  },
+  {
+   "no": "27",
+   "nama": "Munadi",
+   "merk_cipta": "Peyek Mpok Esty",
+   "alamat": "Jl. Sodong Utara 2 RT 07 RW 17 Kelurahan Cipinang Kecamatan Pulogadung Kota Administrasi Jakarta Timur",
+   "subsektor": "Kuliner"
+  },
+  {
+   "no": "28",
+   "nama": "Ikhsan Kurniawan",
+   "merk_cipta": "Hiroaki Tako",
+   "alamat": "Jl. Pagelarang RT.008/RW.003, Kelurahan Lubang Buaya, Kecamatan Cipayung, Kota Administrasi Jakarta Timur",
+   "subsektor": "Kuliner"
+  },
+  {
+   "no": "29",
+   "nama": "Tina Septiani Siregar",
+   "merk_cipta": "Logo",
+   "alamat": "Jl. Madya Kebantenan GG. Merpati 2 NO.8 RT.003/RW.002, Kelurahan Semper Timur, Kecamatan Cilincing, Kota Administrasi Jakarta Utara",
+   "subsektor": "Industri Pariwisata"
+  },
+  {
+   "no": "30",
+   "nama": "Ratna Sulistyoningsih",
+   "merk_cipta": "Dapur Gunardi",
+   "alamat": "Jl. Swadaya V NO.11 RT.008/RW.001,Kelurahan Pulo Gebang, Kecamatan Cakung, Kota Administrasi Jakarta Timur",
+   "subsektor": "Kuliner"
+  },
+  {
+   "no": "31",
+   "nama": "Fauziah",
+   "merk_cipta": "Haura Catering",
+   "alamat": "Jl. Otista Raya GG Saleh Abud RT.014/RW.008, Kelurahan Bidara Cina, Kecamatan Jatinegara, Jakarta Timur",
+   "subsektor": "Kuliner"
+  },
+  {
+   "no": "32",
+   "nama": "Raihan Thufail Dzulkifli",
+   "merk_cipta": "Kinikin",
+   "alamat": "Jl. SPG 7 NO.27 RT.005/RW.009, Kelurahan Lubang Buaya, Kecamatan Cipayung, Kota Administrasi Jakarta Timur",
+   "subsektor": "Kuliner"
+  },
+  {
+   "no": "33",
+   "nama": "Siti Zahara Fadlia",
+   "merk_cipta": "Kedai Kopi Ilsogno",
+   "alamat": "Jl. Bintaro Permai III RT.005/RW.009, Kelurahan Bintaro, Kecamatan Pesanggrahan, Kota Administrasi Jakarta Selatan",
+   "subsektor": "Kuliner"
+  },
+  {
+   "no": "34",
+   "nama": "Mochamad Faisal",
+   "merk_cipta": "Orange Chicken",
+   "alamat": "Jln. Kemandoran VIII RT.005/RW.011, Kelurahan Grogol Utara, Kecamatan Kebayoran Lama, Kota Administrasi Jakarta Selatan",
+   "subsektor": "Kuliner"
+  },
+  {
+   "no": "35",
+   "nama": "Selpiana Barkah",
+   "merk_cipta": "Syilwa Dimsum",
+   "alamat": "Jl. Kramat Pulo GG.19/C.38 RT.002/RW.008, Kelurahan Kramat, Kecamatan Senen, Kota Administrasi Jakarta Pusat",
+   "subsektor": "Kuliner"
+  },
+  {
+   "no": "36",
+   "nama": "Anton Tri Sukendra",
+   "merk_cipta": "Jayakarta Tour Travel",
+   "alamat": "Jl. Adhi Karya No. 39A, RT009/RW005, Kelurahan Kedoya Selatan, Kecamatan Kebon Jeruk, Kota Administrasi Jakarta Barat",
+   "subsektor": "Industri Pariwisata"
+  },
+  {
+   "no": "37",
+   "nama": "Septianie Hapsari",
+   "merk_cipta": "Sefa Kitchen",
+   "alamat": "Jl. Kartika No. 23A, RT003/RW004, Kelurahan Meruya Utara, Kecamatan Kembangan, Kota Administrasi Jakarta Barat",
+   "subsektor": "Kuliner"
+  },
+  {
+   "no": "38",
+   "nama": "Nabilah Lakeisha Syifa",
+   "merk_cipta": "Program Komputer (Nafie Shop)",
+   "alamat": "Jalan Serdang Raya GG. F2 NO.52 RT.002/RW.009, Kelurahan Cempaka Baru, Kecamatan Kemayoran, Jakarta Pusat",
+   "subsektor": "Aplikasi"
+  },
+  {
+   "no": "39",
+   "nama": "Bening Restu Adiningsih",
+   "merk_cipta": "Program Komputer (Find My Zawj)",
+   "alamat": "Jl. H. Mawar NO.56 RT.003/RW.003, Kelurahan Sunter Jaya, Kecamatan Tanjung Priok, Jakarta Utara",
+   "subsektor": "Aplikasi"
+  },
+  {
+   "no": "40",
+   "nama": "Muhamad Wahyu",
+   "merk_cipta": "Program Komputer (Agrova)",
+   "alamat": "Jl. Tebet Dalam II NO.29 RT.008/RW.001, Kelurahan Tebet Barat, Kecamatan Tebet, Jakarta Selatan",
+   "subsektor": "Aplikasi"
+  },
+  {
+   "no": "41",
+   "nama": "Muhammad Fachri Fahrezy",
+   "merk_cipta": "Program Komputer (Tpq L-Hafizh)",
+   "alamat": "Jalan Delta Serdang 2 NO.26 RT.002/RW.007, Kelurahan Serdang, Kecamatan Kemayoran, Jakarta Pusat",
+   "subsektor": "Aplikasi"
+  },
+  {
+   "no": "42",
+   "nama": "Muhammad Harits",
+   "merk_cipta": "Program Komputer (Salutis - Aplikasi Deteksi Penyakit Dan Edukasi Kesehatan)",
+   "alamat": "Jalan R.M. Kahfi 1 NO.23, Jambu 2 RT.007/RW.002,Kelurahan Cipedak, Kecamatan Jagakarsa, Jakarta Selatan",
+   "subsektor": "Aplikasi"
+  },
+  {
+   "no": "43",
+   "nama": "Radithya Refian",
+   "merk_cipta": "Program Komputer (Aplikasi Serbaneka)",
+   "alamat": "Jalan Bulak Raya NO.48A RT.010/RW.007, Kelurahan Klender, Kecamatan Duren Sawit, Jakarta Timur",
+   "subsektor": "Aplikasi"
+  },
+  {
+   "no": "44",
+   "nama": "Ema Istiqomah Muhidin Sp",
+   "merk_cipta": "Kedai Simsim",
+   "alamat": "Jl. H. Bakri No. 19 RT 08 RW 04 Kelurahan Pondok Bambu Kecamatan Duren Sawit Kota Administrasi Jakarta Timur",
+   "subsektor": "Kuliner"
+  },
+  {
+   "no": "45",
+   "nama": "Dimas Arya Pratama",
+   "merk_cipta": "Plus Kopi Industri",
+   "alamat": "Jl. Mirinda kav. PTB Blok i1 No. 06 RT 11 RW 06 Kelurahan Tegal Alur Kecamatan Kalideres Kota Administrasi Jakarta Barat",
+   "subsektor": "Kuliner"
+  },
+  {
+   "no": "46",
+   "nama": "Endang Suprihatin S",
+   "merk_cipta": "Mychoice",
+   "alamat": "Komplek BPK III No. B6 RT 02 RW 11 kelurahan Kebon Jeruk Kecamatan Kebon Jeruk Kota Administrasi Jakarta Barat",
+   "subsektor": "Fesyen"
+  },
+  {
+   "no": "47",
+   "nama": "Faezal N Kurniawan",
+   "merk_cipta": "Ross Bake Shop",
+   "alamat": "Komplek walikota Jl. Kakatua Blok C2 No. 12 RT 11 RW 06 Kelurahan Sukapura Kecamatan Cilincing Kota Administrasi Jakarta Utara",
+   "subsektor": "Kuliner"
+  },
+  {
+   "no": "48",
+   "nama": "Wiwiet Daramukti",
+   "merk_cipta": "Kangka's Catering",
+   "alamat": "Jl. Arus dalam No. 18 RT 08 RW 02 Kelurahan Cawang Kecamatan Kramat Jati Kota Administrasi Jakarta Timur",
+   "subsektor": "Kuliner"
+  },
+  {
+   "no": "49",
+   "nama": "Rachmat Setia",
+   "merk_cipta": "Kinaz Bites",
+   "alamat": "Komplek Bea Cukai Blok R7 No. 14 RT 07 RW 07 Kelurahan Sukapura Kecamatan Cilincing Kota Administrasi Jakarta Utara",
+   "subsektor": "Kuliner"
+  },
+  {
+   "no": "50",
+   "nama": "Erlando Tasim",
+   "merk_cipta": "Hrmi",
+   "alamat": "Jl. Swadana No. 10 RT 14 RW 01 Kelurahan Duri Kosambi Kecamatan Cengkareng Kota Administrasi Jakarta Barat",
+   "subsektor": "Fesyen"
+  },
+  {
+   "no": "51",
+   "nama": "Annisa Fitria Devi Panim",
+   "merk_cipta": "Olikan",
+   "alamat": "Asrama Polri Blok L No. 5 RT 08 RW 02 Kelurahan kalideres Kecamatan Kalideres Kota Administrasi Jakarta Barat",
+   "subsektor": "Kuliner"
+  },
+  {
+   "no": "52",
+   "nama": "Thio Siujinata",
+   "merk_cipta": "Iku Ini Untuk Kamu",
+   "alamat": "Jl. Rawa kepa IX/ 62 RT 01 RW 13 kelurahan Tomang Kecamatan Grogol Petamburan Kota Administrasi Jakarta Barat",
+   "subsektor": "Fesyen"
+  },
+  {
+   "no": "53",
+   "nama": "Elok Zulfiah Hanum",
+   "merk_cipta": "Buatan Elok",
+   "alamat": "Jl. Daksa 1 No. 11 RT 04 RW 02 Kelurahan Selong Kecamatan Kebayoran Baru Kota Administrasi Jakarta Selatan",
+   "subsektor": "Kuliner"
+  },
+  {
+   "no": "54",
+   "nama": "Monika Damayanti",
+   "merk_cipta": "Kanusan Catering",
+   "alamat": "Jl. H. Joko VI RT 12 RW 04 Kelurahan lenteng Agung Kecamatan Jagakarsa Kota Administrasi Jakarta Selatan",
+   "subsektor": "Kuliner"
+  },
+  {
+   "no": "55",
+   "nama": "Peeta Marisa Pancarini",
+   "merk_cipta": "Dapoer Pmcsu",
+   "alamat": "Jl. Tanjung barat raya RT 12 RW 08 Kelurahan Pejaten Timur Kecamatan Pasar minggu Kota Administrasi Jakarta Selatan",
+   "subsektor": "Kuliner"
+  },
+  {
+   "no": "56",
+   "nama": "Kiki Maria",
+   "merk_cipta": "A Conceptual Framework For Technology Integration In Residential Architecture",
+   "alamat": "Jalan Otista 82 RT.006/RW.006, Kelurahan Bidara Cina, Kecamatan Jatinegara, Kota Administrasi Jakarta Timur",
+   "subsektor": "Kuliner"
+  },
+  {
+   "no": "57",
+   "nama": "Nabil Gibran Faiz",
+   "merk_cipta": "Moonfin Space",
+   "alamat": "Jalan Swasembada Barat VII NO.39 RT.012/RW.009, Kelurahan Kebon Bawang, Kecamatan Tanjung Priok, Jakarta Utara",
+   "subsektor": "Kuliner"
+  },
+  {
+   "no": "58",
+   "nama": "Rina Fitrianti",
+   "merk_cipta": "Zenreen",
+   "alamat": "Jl. Pendidikan III RT 06 RW 06 Kelurahan Cijantung Kecamatan Pasar Rebo Kota Administrasi Jakarta Timur",
+   "subsektor": "Industri Pariwisata"
+  },
+  {
+   "no": "59",
+   "nama": "Vicky Chandra",
+   "merk_cipta": "Program Komputer (Sievra)",
+   "alamat": "Jl. Budi Mulia NO.51 RT.008/RW.011, Kelurahan Pademangan Barat, Kecamatan Pademangan, Jakarta Utara",
+   "subsektor": "Aplikas"
+  },
+  {
+   "no": "60",
+   "nama": "Faisal Ali Firdaus",
+   "merk_cipta": "Program Komputer (Al-Falah)",
+   "alamat": "Jl. Sindang Rusun Koja, Bawal I Lt.3 NO.2 RT.005/RW.009, Kelurahan Koja, Jakarta Utara",
+   "subsektor": "Aplikasi"
+  },
+  {
+   "no": "61",
+   "nama": "Maulidina Rahmawati",
+   "merk_cipta": "Program Komputer (Weave Words)",
+   "alamat": "Jalan Cipinang Muara Ilir 3 NO.12 RT.003/RW.011, Kelurahan Cipinang Muara, Kecamatan Jatinegara, Jakarta Timur",
+   "subsektor": "Aplikasi"
+  },
+  {
+   "no": "62",
+   "nama": "Nur Azizah",
+   "merk_cipta": "Social Media And Elections: Reviewing The Use Of Social Media In Election Contests During 2016-2022 - A Systematic Review And Bibliometric Analysis",
+   "alamat": "",
+   "subsektor": "Penerbitan"
+  },
+  {
+   "no": "63",
+   "nama": "Citra Cahyaningtias",
+   "merk_cipta": "Program Komputer (Herspace: Curhat Anonim Wanita)",
+   "alamat": "Jl. Rancho Indah Tanjung Barat RT.005/RW.006, Kelurahan Tanjung Barat, Kecamatan Jagakarsa, Jakarta Selatan",
+   "subsektor": "Aplikasi"
+  },
+  {
+   "no": "64",
+   "nama": "Hikmiyyah Salsabiilaa El-Rahma Rosdyady",
+   "merk_cipta": "Logo Historia Batavia",
+   "alamat": "Jl. Keramat 3 No. 29 B RT 07 RW 10 Kelurahan Lubang Buaya kecamatan Cipayung Kota Administrasi Jakarta Timur",
+   "subsektor": "Industri Pariwisata"
+  },
+  {
+   "no": "65",
+   "nama": "Ratna Nuri Wulandari",
+   "merk_cipta": "Memayu's",
+   "alamat": "Kp. Bendungan Melayu No. 18 RT 10 RW 02 Kelurahan Rawa Badak Selatan kecamatan Koja Kota Administrasi Jakarta Utara",
+   "subsektor": "Kuliner"
+  },
+  {
+   "no": "66",
+   "nama": "Tresnawati",
+   "merk_cipta": "Rasa Desa",
+   "alamat": "Jl. Kp. Janis No. 5 RT 03 RW 08 Kelurahan Pekojan Kecamatan Tambora Kota Administrasi Jakarta Barat",
+   "subsektor": "Kuliner"
+  },
+  {
+   "no": "67",
+   "nama": "Natallia Sumihar Mutiara",
+   "merk_cipta": "Theraman",
+   "alamat": "Jalan Belimbing NO.55B RT.011/RW.001, Kelurahan Jagakarsa, Kecamatan Jagakarsa, Jakarta Selatan",
+   "subsektor": "Kuliner"
+  },
+  {
+   "no": "68",
+   "nama": "Dasril Arif",
+   "merk_cipta": "Kedai Eyang",
+   "alamat": "Jl. P. Antasari Gg. Cempaka III RT 07 Rw 06 Kelurahan Cipete Utara Kecamatan Kebayoran Baru Kota Administrasi Jakarta Selatan",
+   "subsektor": "Kuliner"
+  },
+  {
+   "no": "69",
+   "nama": "Arip Wahyudi",
+   "merk_cipta": "Hachiloops",
+   "alamat": "Kamp. Pisangan RT 08 RW 04 Kelurahan Ragunan Kecamatan Pasar Minggu Kota Administrasi Jakarta Selatan",
+   "subsektor": "Kuliner"
+  },
+  {
+   "no": "70",
+   "nama": "Nany Nurhaini",
+   "merk_cipta": "Kurnia Utama Catering",
+   "alamat": "Jl. Balai Rakyat I No. 23 RT 05 RW 01 Kelurahan pondok Bambu Kecamatan Duren Sawit Kota Administrasi Jakarta Timur",
+   "subsektor": "Kuliner"
+  },
+  {
+   "no": "71",
+   "nama": "Indah Erniawati",
+   "merk_cipta": "Rhind Catering",
+   "alamat": "Apartemen Kalibata City Unit K/18/BB RT 05 RW 10 Kelurahan Rawajati Kecamatan Pancoran Kota Administrasi Jakarta Selatan",
+   "subsektor": "Kuliner"
+  },
+  {
+   "no": "72",
+   "nama": "Moh Reza Adhari",
+   "merk_cipta": "Adharez",
+   "alamat": "Jl. Seha RT 08 RW 10 Kelurahan Grogol Selatan Kecamatan Kebayoran Lama Kota Administrasi Jakarta Selatan",
+   "subsektor": "Kriya"
+  },
+  {
+   "no": "73",
+   "nama": "Fitri Astuti",
+   "merk_cipta": "Hanifa Cookies",
+   "alamat": "Jl. P. Antasari gg. Cempaka III RT 07 RW 06 Kelurahan Cipete Utara Kecamatan Kebayoran Baru Kota Administrasi Jakarta Selatan",
+   "subsektor": "Kuliner"
+  },
+  {
+   "no": "74",
+   "nama": "Dian Rochmatus Sha^Diah",
+   "merk_cipta": "See Traveller",
+   "alamat": "Komp. AD Bulak Rantai G-32 RT.001/RW.005, Kelurahan Tengah, Kecamatan Kramat Jati, Jakarta Timur",
+   "subsektor": "Industri Pariwisata"
+  },
+  {
+   "no": "75",
+   "nama": "Jasmine Nabila Widyaningrum",
+   "merk_cipta": "Lorie's Kitchen",
+   "alamat": "Gg. Sukarma RT 01 RW 05 Kelurahan Cipedak Kecamatan Jagakarsa Kota Administrasi Jakarta Selatan",
+   "subsektor": "Kuliner"
+  },
+  {
+   "no": "76",
+   "nama": "Darmendra Sarja",
+   "merk_cipta": "Tha Khana",
+   "alamat": "Jl. Baserin RT 13 RW 05 Kelurahan Ulujami Kecamatan pesanggrahan Kota Administrasi Jakarta Selatan",
+   "subsektor": "Kuliner"
+  },
+  {
+   "no": "77",
+   "nama": "Muhammad Hadi Widianto",
+   "merk_cipta": "Aerostem Edukit: Modul Pembelajaran Praktik Stem Dan Kedirgantaraan Untuk Siswa Sma/Ma",
+   "alamat": "Jalan Langgar NO.30 RT.008/RW.008, Kelurahan Lubang Buaya, Kecamatan Cipayung, Jakarta Timur",
+   "subsektor": "Penerbitan"
+  },
+  {
+   "no": "78",
+   "nama": "Fitri Anggraeni",
+   "merk_cipta": "Banner Optimalisasi Stimulasi Kognitif Anak Usia Dini Melalui Pendampingan Mewarnai",
+   "alamat": "Jalan Jaya Kusuma NO.3 RT.008/RW.001, Kelurahan Makasar, Kecamatan Makasar, Jakarta Timur",
+   "subsektor": "Seni Rupa"
+  },
+  {
+   "no": "79",
+   "nama": "Yoke Lucia Renica Rehatalanit",
+   "merk_cipta": "Modul Pembelajaran Interaktif Menggunakan Canva Dan Kahoot",
+   "alamat": "Jalan Otista 82 Per Polonia NO.82 RT.003/RW.006, Kelurahan Bidara Cina, Kecamatan Jatinegara, Jakarta Timur",
+   "subsektor": "Penerbitan"
+  },
+  {
+   "no": "80",
+   "nama": "Lincha",
+   "merk_cipta": "Flohra",
+   "alamat": "Jalan Ciledug Raya NO.99 RT.002/RW.005, Kelurahan Cipulir, Kecamatan Kebayoran Lama, Jakarta Selatan",
+   "subsektor": "Industri Pariwisata"
+  }
+ ]
+}

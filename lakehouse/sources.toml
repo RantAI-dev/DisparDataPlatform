@@ -1006,6 +1006,39 @@ asal = "Disparekraf DKI Jakarta (data/sumber/disparekraf/hiburan-per-kota.tsv) s
 pembangun = "scripts/pisah_hotel_hiburan.py"
 
 [[sumber]]
+id = "fasilitasi-hki-ekraf-2026-tw1"
+jenis = "sekunder"
+path = "data/sekunder/fasilitasi-hki-ekraf-2026-tw1.json"
+namespace = "bronze_sec"
+tabel = "fasilitasi_hki_ekraf_2026_tw1"
+kelas_refresh = "saat_berubah"
+tanggal_ambil = "2026-11-02"
+asal = "Disparekraf DKI Jakarta, lampiran nota dinas monev subkegiatan fasilitasi HKI nomor 1967/PW.04.02 (30 Maret 2026); ditranskripsi dari pindaian ke data/sumber/disparekraf/fasilitasi-hki-2026-tw1.tsv"
+pembangun = "scripts/fasilitasi_hki_2026.py"
+
+[[sumber]]
+id = "fasilitasi-hki-ekraf-2026-tw2"
+jenis = "sekunder"
+path = "data/sekunder/fasilitasi-hki-ekraf-2026-tw2.json"
+namespace = "bronze_sec"
+tabel = "fasilitasi_hki_ekraf_2026_tw2"
+kelas_refresh = "saat_berubah"
+tanggal_ambil = "2026-11-02"
+asal = "Disparekraf DKI Jakarta, lampiran nota dinas monev subkegiatan fasilitasi HKI nomor 3870/PW.04.02 (23 Juni 2026); ditranskripsi dari pindaian ke data/sumber/disparekraf/fasilitasi-hki-2026-tw2.tsv"
+pembangun = "scripts/fasilitasi_hki_2026.py"
+
+[[sumber]]
+id = "fasilitasi-hki-ekraf-2026-tw3"
+jenis = "sekunder"
+path = "data/sekunder/fasilitasi-hki-ekraf-2026-tw3.json"
+namespace = "bronze_sec"
+tabel = "fasilitasi_hki_ekraf_2026_tw3"
+kelas_refresh = "saat_berubah"
+tanggal_ambil = "2026-11-02"
+asal = "Disparekraf DKI Jakarta, lampiran nota dinas monev subkegiatan fasilitasi HKI nomor 6234/PW.04.02 (29 September 2026); ditranskripsi dari pindaian ke data/sumber/disparekraf/fasilitasi-hki-2026-tw3.tsv"
+pembangun = "scripts/fasilitasi_hki_2026.py"
+
+[[sumber]]
 id = "hutan-kota-jakarta"
 jenis = "sekunder"
 path = "data/sekunder/hutan-kota-jakarta.json"
@@ -1340,3 +1373,15 @@ alasan = "duplikat dari atlas-souvenir"
 [[abaikan]]
 path = "data/sumber/disparekraf/Data Hotel dan Hiburan (per kota).xlsx"
 alasan = "berkas asli 10 sheet (pembaca xlsx Bronze hanya membaca sheet pertama); dipecah scripts/pisah_hotel_hiburan.py menjadi hotel-per-kota.tsv dan hiburan-per-kota.tsv"
+
+[[abaikan]]
+path = "data/sumber/disparekraf/fasilitasi-hki-2026-tw1.tsv"
+alasan = "transkripsi lampiran nota monev HKI TW 1; masuk Bronze lewat dataset sekunder fasilitasi-hki-ekraf-2026-tw1 (scripts/fasilitasi_hki_2026.py)"
+
+[[abaikan]]
+path = "data/sumber/disparekraf/fasilitasi-hki-2026-tw2.tsv"
+alasan = "transkripsi lampiran nota monev HKI TW 2; masuk Bronze lewat dataset sekunder fasilitasi-hki-ekraf-2026-tw2 (scripts/fasilitasi_hki_2026.py)"
+
+[[abaikan]]
+path = "data/sumber/disparekraf/fasilitasi-hki-2026-tw3.tsv"
+alasan = "transkripsi lampiran nota monev HKI TW 3; masuk Bronze lewat dataset sekunder fasilitasi-hki-ekraf-2026-tw3 (scripts/fasilitasi_hki_2026.py)"
