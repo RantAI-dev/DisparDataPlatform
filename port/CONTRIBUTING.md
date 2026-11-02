@@ -33,7 +33,9 @@ cd frontend && E2E_BASE_URL=http://127.0.0.1:3000 npx playwright test
 
 # paritas dengan dispar.rantai.dev (lokal saja; portal memakai Data API lokal berdata hidup)
 # sesudah `php artisan portal:sinkron`; menulis docs/paritas/laporan-<tanggal>.md
-cd frontend && PORTAL_URL=http://127.0.0.1:3000 npm run paritas
+# PARITAS_LARAVEL_URL + PARITAS_ADMIN_TOKEN (opsional) membuat laporan mencatat waktu sinkron terakhir.
+cd frontend && PORTAL_URL=http://127.0.0.1:3000 PARITAS_LARAVEL_URL=http://127.0.0.1:18000 \
+  PARITAS_ADMIN_TOKEN=<token admin> npm run paritas
 
 # dokumen API: setelah mengubah rute/docblock/aturan validasi
 docker compose -f compose.dev.yaml exec backend php artisan scramble:export --path=storage/api.json

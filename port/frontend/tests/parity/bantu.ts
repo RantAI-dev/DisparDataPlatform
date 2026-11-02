@@ -80,7 +80,7 @@ export const PENGECUALIAN = {
 /** Label pengecualian yang berlaku untuk opsi ini (otomatis + eksplisit). */
 function labelPengecualian(o: OpsiParitas): string[] {
   const l: string[] = ["Nav AI"];
-  if (o.mask?.some((m) => m.includes(".leaflet-container"))) l.push("Peta");
+  if (o.mask?.some((m) => /\.leaflet-(container|overlay-pane|marker-pane|shadow-pane)/.test(m))) l.push("Peta");
   if (o.layar === "viewport") l.push("Layar pertama");
   if (o.samakanBaris) l.push("Baris produksi");
   return [...new Set([...l, ...(o.pengecualian ?? [])])];

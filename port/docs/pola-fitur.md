@@ -136,6 +136,8 @@ Jalankan sesudah `php artisan portal:sinkron` hari itu (SPEC §7), dengan backen
 lokal (data hidup): `PORTAL_URL=http://127.0.0.1:3000 npm run paritas` (satu fitur: tambahkan
 `-- tests/parity/<fitur>.spec.ts`). Hasil: `docs/paritas/laporan-<tanggal>.md` (reporter
 `tests/parity/laporan.ts`) dan HTML `frontend/playwright-report/parity/` (artefak, tidak di-commit).
+Isi `PARITAS_LARAVEL_URL` dan `PARITAS_ADMIN_TOKEN` supaya laporan mencatat waktu `portal:sinkron`
+terakhir (dibaca dari `sistem/job`).
 
 ## 6. Gate sebelum commit
 
