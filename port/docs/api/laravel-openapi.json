@@ -10,6 +10,173 @@
         }
     ],
     "paths": {
+        "/atlas/restoran-gci": {
+            "get": {
+                "operationId": "atlas.restoran-gci",
+                "description": "Seluruh restoran & kafe se-Jakarta untuk Global City Index: gabungan kurasi, OSM, rating, alamat, harga, dan restoran hotel (dedup \u2264 60 m).",
+                "summary": "Restoran GCI",
+                "tags": [
+                    "Atlas"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/AuthenticationException"
+                    }
+                }
+            }
+        },
+        "/atlas/direktori-restoran": {
+            "get": {
+                "operationId": "atlas.direktori-restoran",
+                "description": "Restoran & kafe pilihan Jakarta dengan sumber sitasi publik (kurasi + OSM, dedup, hanya DKI).",
+                "summary": "Direktori restoran",
+                "tags": [
+                    "Atlas"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/AuthenticationException"
+                    }
+                }
+            }
+        },
+        "/atlas/golf": {
+            "get": {
+                "operationId": "atlas.golf",
+                "description": "Lapangan & driving range golf di Jakarta dan sekitarnya.",
+                "summary": "Lapangan golf",
+                "tags": [
+                    "Atlas"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/AuthenticationException"
+                    }
+                }
+            }
+        },
+        "/atlas/suvenir": {
+            "get": {
+                "operationId": "atlas.suvenir",
+                "description": "Toko suvenir, oleh-oleh & kerajinan dari TripAdvisor.",
+                "summary": "Toko suvenir",
+                "tags": [
+                    "Atlas"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/AuthenticationException"
+                    }
+                }
+            }
+        },
+        "/atlas/hotel": {
+            "get": {
+                "operationId": "atlas.hotel",
+                "description": "Registri hotel berbintang, tingkat penghunian kamar (TPK), dan lama menginap.",
+                "summary": "Hotel & akomodasi",
+                "tags": [
+                    "Atlas"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/AuthenticationException"
+                    }
+                }
+            }
+        },
+        "/atlas/pertunjukan": {
+            "get": {
+                "operationId": "atlas.pertunjukan",
+                "description": "Konser, festival, tari, teater, seni rupa, dan film; semua tahun atau satu `tahun`.",
+                "summary": "Pertunjukan budaya",
+                "tags": [
+                    "Atlas"
+                ],
+                "parameters": [
+                    {
+                        "name": "tahun",
+                        "in": "query",
+                        "description": "Tahun pertunjukan, `YYYY`; kosong = semua tahun.",
+                        "schema": {
+                            "type": [
+                                "string",
+                                "null"
+                            ],
+                            "pattern": "^\\d{4}$"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/AuthenticationException"
+                    },
+                    "422": {
+                        "$ref": "#/components/responses/ValidationException"
+                    }
+                }
+            }
+        },
         "/dashboard/ringkasan": {
             "get": {
                 "operationId": "dashboard.ringkasan",

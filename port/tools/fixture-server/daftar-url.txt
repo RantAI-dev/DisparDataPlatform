@@ -126,3 +126,12 @@
 /v1/indikator/AC-AP
 /v1/indikator/AC-AR
 /v1/indikator/AC-TT
+
+# plan 14 — atlas (docs/skenario/atlas.md)
+/v1/atlas/restoran-gci
+/v1/atlas/direktori-restoran
+/v1/atlas/suvenir
+/v1/atlas/hotel
+/v1/atlas/pertunjukan
+/v1/atlas/pertunjukan?tahun=2025
+/v1/atlas/pertunjukan?tahun=2026
