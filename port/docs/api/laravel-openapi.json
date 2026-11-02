@@ -177,6 +177,29 @@
                 }
             }
         },
+        "/sistem/cache/kosongkan": {
+            "post": {
+                "operationId": "sistem.cache.kosongkan",
+                "tags": [
+                    "Cache"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/AuthenticationException"
+                    }
+                }
+            }
+        },
         "/dashboard/ringkasan": {
             "get": {
                 "operationId": "dashboard.ringkasan",
@@ -2172,6 +2195,69 @@
                 }
             }
         },
+        "/sistem/job": {
+            "get": {
+                "operationId": "sistem.job",
+                "tags": [
+                    "Job"
+                ],
+                "parameters": [
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Nomor halaman, mulai 1; 50 baris per halaman, terbaru lebih dulu.",
+                        "schema": {
+                            "type": [
+                                "integer",
+                                "null"
+                            ],
+                            "minimum": 1
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/AuthenticationException"
+                    },
+                    "422": {
+                        "$ref": "#/components/responses/ValidationException"
+                    }
+                }
+            }
+        },
+        "/sistem/job/sinkron": {
+            "post": {
+                "operationId": "sistem.job.sinkron",
+                "tags": [
+                    "Job"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/AuthenticationException"
+                    }
+                }
+            }
+        },
         "/sistem/kesehatan": {
             "get": {
                 "operationId": "sistem.kesehatan",
@@ -2188,6 +2274,82 @@
                                 }
                             }
                         }
+                    }
+                }
+            }
+        },
+        "/sistem/log": {
+            "get": {
+                "operationId": "sistem.log",
+                "tags": [
+                    "Log"
+                ],
+                "parameters": [
+                    {
+                        "name": "modul",
+                        "in": "query",
+                        "description": "Nama modul (atribut rute), mis. `dataset`, `dashboard`, `sistem`.",
+                        "schema": {
+                            "type": [
+                                "string",
+                                "null"
+                            ],
+                            "maxLength": 50
+                        }
+                    },
+                    {
+                        "name": "dari",
+                        "in": "query",
+                        "description": "Hari pertama (WIB), YYYY-MM-DD, inklusif.",
+                        "schema": {
+                            "type": [
+                                "string",
+                                "null"
+                            ],
+                            "format": "date"
+                        }
+                    },
+                    {
+                        "name": "sampai",
+                        "in": "query",
+                        "description": "Hari terakhir (WIB), YYYY-MM-DD, inklusif.",
+                        "schema": {
+                            "type": [
+                                "string",
+                                "null"
+                            ],
+                            "format": "date"
+                        }
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Nomor halaman, mulai 1; 50 baris per halaman, terbaru lebih dulu.",
+                        "schema": {
+                            "type": [
+                                "integer",
+                                "null"
+                            ],
+                            "minimum": 1
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/AuthenticationException"
+                    },
+                    "422": {
+                        "$ref": "#/components/responses/ValidationException"
                     }
                 }
             }

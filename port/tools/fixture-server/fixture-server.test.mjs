@@ -74,3 +74,12 @@ test("pemutar mengirim ulang header terekam (mis. Content-Disposition ekspor)", 
     assert.equal(await res.text(), "a,b\n1,2\n");
   });
 });
+
+test("sakelar uji: /__uji/mati memutus koneksi GET, /__uji/hidup memulihkannya", async () => {
+  await denganServer([{ kunci: "/v1/x", status: 200, headers: {}, body: "{}" }], async (url) => {
+    assert.deepEqual(await (await fetch(`${url}/__uji/mati`, { method: "POST" })).json(), { mati: true });
+    await assert.rejects(fetch(`${url}/v1/x`));
+    assert.deepEqual(await (await fetch(`${url}/__uji/hidup`, { method: "POST" })).json(), { mati: false });
+    assert.equal((await fetch(`${url}/v1/x`)).status, 200);
+  });
+});

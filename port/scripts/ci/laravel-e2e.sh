@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Laravel untuk job e2e (plan 11): skema bersih + akun layanan, token frontend ditulis ke berkas,
 # lalu `artisan serve` di 127.0.0.1:18000. Data API = fixture-server (DATA_API_URL).
-# Env: DB_* (Oracle service), DATA_API_URL, TOKEN_BERKAS, LARAVEL_HOST (bawaan 127.0.0.1).
+# Env: DB_* (Oracle service), DATA_API_URL, TOKEN_BERKAS (+ `.admin` untuk e2e sistem), LARAVEL_HOST (bawaan 127.0.0.1).
 set -euo pipefail
 CI_DIR="$(cd "$(dirname "$0")" && pwd)"
 cd "$CI_DIR/../../backend"
@@ -20,5 +20,6 @@ printf 'PORTAL_BATAS_PER_MENIT=100000\nDATA_API_TOKEN=token-fixture\n' >> .env
 php artisan key:generate --force
 php artisan migrate:fresh --force
 php artisan db:seed --force --class='App\Shared\Auth\ServiceAccountSeeder'
+php artisan portal:token admin admin | grep -E '^[0-9]+\|' > "$TOKEN_BERKAS.admin"
 php artisan portal:token frontend read | grep -E '^[0-9]+\|' > "$TOKEN_BERKAS"
 exec env PHP_CLI_SERVER_WORKERS=4 php artisan serve --host="${LARAVEL_HOST:-127.0.0.1}" --port=18000

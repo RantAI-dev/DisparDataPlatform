@@ -28,7 +28,17 @@ function json(res, status, isi) {
 }
 
 export function buatServer(rekaman) {
+  // Sakelar uji "Data API mati" (e2e sistem, plan 16): POST /__uji/mati | /__uji/hidup. Selama mati,
+  // setiap GET diputus tanpa jawaban, seperti Data API yang tidak bisa dihubungi.
+  let mati = false;
   return createServer((req, res) => {
+    if (req.method === "POST" && (req.url === "/__uji/mati" || req.url === "/__uji/hidup")) {
+      mati = req.url === "/__uji/mati";
+      return json(res, 200, { mati });
+    }
+    if (mati) {
+      return req.socket.destroy();
+    }
     if (req.method !== "GET" && req.method !== "HEAD") {
       return json(res, 405, { error: { code: "METHOD_NOT_ALLOWED", message: "Pemutar fixture hanya melayani GET." } });
     }
