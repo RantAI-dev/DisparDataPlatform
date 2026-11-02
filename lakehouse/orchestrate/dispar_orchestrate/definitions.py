@@ -149,6 +149,14 @@ def gold_iceberg(context) -> None:
     context.log.info(str(publish_marts()))
 
 
+@asset(group_name="serving", deps=[konform, gold_iceberg],
+       description="Kosongkan cache Data API setelah data baru masuk (tidak pernah menggagalkan job)")
+def flush_data_api(context) -> None:
+    from dispar_ingest.flush_data_api import flush_cache
+    hasil = flush_cache()
+    (context.log.warning if hasil.startswith("gagal") else context.log.info)(f"flush Data API {hasil}")
+
+
 # ── Aset operasional base lakehouse (backup, maintenance) ──────────────────
 @asset(group_name="ops", description="Backup inkremental bucket Iceberg ke storage backup (S3→S3)")
 def backup_lake(context) -> None:
@@ -189,6 +197,7 @@ refresh_job = define_asset_job(
         konform,
         curated_gold,
         gold_iceberg,
+        flush_data_api,
     ],
 )
 ops_job = define_asset_job("ops_backup_maintenance", selection=[backup_lake, iceberg_maintenance])
@@ -231,6 +240,7 @@ defs = Definitions(
         konform,
         curated_gold,
         gold_iceberg,
+        flush_data_api,
         backup_lake,
         iceberg_maintenance,
     ],
