@@ -56,7 +56,7 @@ async function muat(lanjut: boolean) {
     total.value = r.total;
     facets.value = r.facets;
   } catch (err) {
-    if (ini === nomor) loadError.value = `Gagal memuat daftar tempat (${String(err)}). Muat ulang halaman untuk mencoba lagi.`;
+    if (ini === nomor) loadError.value = `Gagal memuat daftar fasilitas ibadah (${String(err)}). Muat ulang halaman untuk mencoba lagi.`;
   } finally {
     if (ini === nomor) loading.value = false;
   }

@@ -61,6 +61,7 @@
 /v1/dashboard/lama-menginap/rata-rata
 /v1/dashboard/lama-menginap/per-kelas?tamu=wisman
 /v1/dashboard/lama-menginap/per-kelas?tamu=wisnus
+/v1/dashboard/lama-menginap/seri?tamu=wisman
 /v1/dashboard/lama-menginap/seri?tamu=wisnus
 /v1/dashboard/wisnus/meta
 /v1/dashboard/wisnus/tahunan

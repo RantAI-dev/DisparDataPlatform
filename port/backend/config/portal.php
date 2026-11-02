@@ -16,6 +16,9 @@ return [
     // Snapshot kelas T (SPEC §4.6): lebih tua dari ini → meta.stale = true.
     'snapshot_basi_jam' => (int) env('PORTAL_SNAPSHOT_BASI_JAM', 36),
 
+    // Snapshot basi: setelah percobaan penyegaran gagal, request lain memakai snapshot lama selama ini.
+    'segarkan_jeda_menit' => (int) env('PORTAL_SEGARKAN_JEDA_MENIT', 5),
+
     // Cache endpoint kelas P (SPEC §4.6: 5–60 menit).
     'cache_menit' => (int) env('PORTAL_CACHE_MENIT', 15),
 

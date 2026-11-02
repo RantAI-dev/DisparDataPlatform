@@ -28,7 +28,7 @@ final class LogRequest
 
     public function terminate(Request $request, Response $response): void
     {
-        if (! config('loghistory.aktif') || ! $request->is('api/*')) {
+        if (! config('loghistory.aktif') || ! $request->is('api/*') || self::dikecualikan($request)) {
             return;
         }
 
@@ -37,6 +37,17 @@ final class LogRequest
         } catch (Throwable $e) {
             Log::warning('log_history gagal ditulis', ['request_id' => $this->konteks->requestId(), 'error' => $e->getMessage()]);
         }
+    }
+
+    /**
+     * Rute yang tidak dicatat (`loghistory.rute_dikecualikan`): kesehatan dipanggil healthcheck
+     * container tiap 30 detik, sehingga akan memenuhi LOG_HISTORY tanpa nilai audit.
+     */
+    private static function dikecualikan(Request $request): bool
+    {
+        $rute = $request->route();
+
+        return is_object($rute) && in_array($rute->getName(), config('loghistory.rute_dikecualikan'), true);
     }
 
     /** @return array<string, mixed> */

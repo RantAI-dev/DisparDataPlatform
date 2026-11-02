@@ -7,7 +7,10 @@ use Throwable;
 
 /**
  * Membungkus satu eksekusi job: baris JOB_RUNS dibuat saat mulai (status `jalan`), lalu ditutup
- * `sukses` dengan ringkasan dari job, atau `gagal` dengan pesan error (error tetap dilempar ulang).
+ * dengan ringkasan dari job, atau `gagal` dengan pesan error (error tetap dilempar ulang).
+ *
+ * Status penutup bawaan `sukses`; job yang sebagian gagal mengembalikan kunci `status`
+ * (`sebagian`/`gagal`) di ringkasannya. Kunci itu dipindah ke kolom STATUS, tidak ikut RINGKASAN.
  */
 class JobRunRecorder
 {
@@ -33,7 +36,9 @@ class JobRunRecorder
             throw $e;
         }
 
-        $run->update(['selesai' => CarbonImmutable::now(), 'status' => 'sukses', 'ringkasan' => $ringkasan]);
+        $status = in_array($ringkasan['status'] ?? null, ['sebagian', 'gagal'], true) ? $ringkasan['status'] : 'sukses';
+        unset($ringkasan['status']);
+        $run->update(['selesai' => CarbonImmutable::now(), 'status' => $status, 'ringkasan' => $ringkasan]);
 
         return $ringkasan;
     }

@@ -6,6 +6,7 @@ use App\Shared\Auth\BuatTokenCommand;
 use App\Shared\Cache\OracleDatabaseStore;
 use App\Shared\LogHistory\LogContext;
 use App\Shared\Support\Routing;
+use App\Shared\Tetap\ModeSinkron;
 use Illuminate\Support\ServiceProvider;
 
 /** Bagian bersama portal: konteks request, makro rute, perintah artisan. */
@@ -15,6 +16,7 @@ final class SharedServiceProvider extends ServiceProvider
     {
         // Satu konteks per request (dan per job).
         $this->app->scoped(LogContext::class);
+        $this->app->singleton(ModeSinkron::class);
 
         // Driver `database` (cache Laravel di Oracle, SPEC §4.6) memakai store yang kompatibel Oracle.
         // Dipasang saat cache manager pertama kali dibuat, bukan di boot(): RouteServiceProvider

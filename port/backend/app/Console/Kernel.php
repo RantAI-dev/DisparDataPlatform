@@ -12,7 +12,18 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule): void
     {
-        // $schedule->command('inspire')->hourly();
+        // SPEC §4.6 [K-7]: setelah refresh Dagster 02:00 UTC (09:00 WIB). Sinkron manual berbagi kunci
+        // eksklusif yang sama (SinkronService), withoutOverlapping menjaga sisi jadwal.
+        $schedule->command('portal:sinkron')
+            ->dailyAt((string) config('portal.jam_sinkron'))
+            ->timezone('Asia/Jakarta')
+            ->withoutOverlapping();
+
+        // SPEC §4.5 [K-6]: retensi LOG_HISTORY dan JOB_RUNS.
+        $schedule->command('portal:bersihkan-log')
+            ->weeklyOn(0, '01:00')
+            ->timezone('Asia/Jakarta')
+            ->withoutOverlapping();
     }
 
     /**
