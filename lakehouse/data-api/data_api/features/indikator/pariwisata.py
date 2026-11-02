@@ -582,6 +582,8 @@ def seni_pertunjukan(k: Konteks, tahun_param: str | None) -> tuple[dict[str, Any
                         ]
                         for a in tampil_list
                     ],
+                    # URL sumber verifikasi untuk tautan "Verifikasi ↗" (null = data event Dispar).
+                    "tautan": [(ap(a) or {}).get("source") for a in tampil_list],
                 }
             )
         for c in CHARTS:
