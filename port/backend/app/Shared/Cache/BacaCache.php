@@ -8,8 +8,8 @@ use Illuminate\Support\Facades\DB;
 
 /**
  * Baca endpoint kelas P (berparameter) lewat cache Laravel (SPEC §4.6): store `database` di Oracle,
- * TTL `portal.cache_menit`. Yang disimpan body Data API mentah; error tidak pernah di-cache, dan
- * Data API gagal → DataApiException diteruskan (503).
+ * TTL `portal.cache_menit`. Yang disimpan body Data API mentah; error dan jawaban berperingatan (Q21)
+ * tidak pernah di-cache, dan Data API gagal → DataApiException diteruskan (503).
  */
 class BacaCache
 {
@@ -29,6 +29,9 @@ class BacaCache
         }
 
         $respons = $ambil();
+        if ($respons->adaPeringatan()) {
+            return ['respons' => $respons, 'sumber' => 'data_api', 'stale' => false];
+        }
         Cache::put($kunciCache, $respons->body(), now()->addMinutes((int) config('portal.cache_menit')));
 
         return ['respons' => $respons, 'sumber' => 'data_api', 'stale' => false];

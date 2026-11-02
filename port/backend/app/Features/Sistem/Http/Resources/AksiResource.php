@@ -13,7 +13,7 @@ final class AksiResource implements Responsable
     /** @param array<string, mixed> $data */
     private function __construct(private readonly ?array $data, private readonly int $status) {}
 
-    /** 202: sinkron dijalankan setelah respons; 409: sinkron lain masih berjalan. */
+    /** 202: sinkron dimulai sebagai proses terpisah; 409: sinkron lain masih berjalan. */
     public static function sinkron(bool $dimulai): self
     {
         return new self($dimulai ? ['job' => 'portal:sinkron', 'pemicu' => 'manual'] : null, $dimulai ? 202 : 409);

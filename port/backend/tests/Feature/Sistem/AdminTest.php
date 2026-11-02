@@ -6,6 +6,7 @@ use App\Shared\LogHistory\LogHistory;
 use Carbon\CarbonImmutable;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Http;
 
 /* Skenario backend sistem: rute admin dan retensi log (docs/skenario/sistem.md, SI-B07–SI-B09, SI-B11). */
 
@@ -93,8 +94,11 @@ it('SI-B11 kosongkan cache menghapus cache Data API, snapshot tetap', function (
         ->and(DB::table('snapshot')->count())->toBe(1);
 });
 
-it('SI-B12 rute admin tercatat di LOG_HISTORY modul sistem', function () {
+it('SI-B12 rute admin tercatat di LOG_HISTORY modul sistem; kesehatan (healthcheck) tidak', function () {
+    Http::fake(['data-api.test/v1/health' => Http::response('{"data":{"status":"ok"},"meta":{}}')]);
     $this->getJson('/api/v1/sistem/job', tokenAkun('admin', 'admin'))->assertOk();
+    $this->getJson('/api/v1/sistem/kesehatan')->assertOk();
 
-    expect(LogHistory::where('modul', 'sistem')->where('aksi', 'sistem.job')->sole()->klien)->toBe('admin');
+    expect(LogHistory::where('modul', 'sistem')->where('aksi', 'sistem.job')->sole()->klien)->toBe('admin')
+        ->and(LogHistory::where('aksi', 'sistem.kesehatan')->count())->toBe(0);
 });

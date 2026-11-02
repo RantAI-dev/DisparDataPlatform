@@ -10,7 +10,7 @@ const ADMIN = process.env.E2E_ADMIN_TOKEN ?? "";
 const TIDAK_ADA = "Tidak ada data.";
 const LOS = "Data lama menginap belum tersedia.";
 const SDI = "Sumber data sedang tidak tersedia. Coba buka di portal SDI ↗.";
-const GMTI = "Gagal memuat daftar tempat (ApiError: Sumber data sedang tidak tersedia.). Muat ulang halaman untuk mencoba lagi.";
+const GMTI = "Gagal memuat daftar fasilitas ibadah (ApiError: Sumber data sedang tidak tersedia.). Muat ulang halaman untuk mencoba lagi.";
 const SEMUA_GAGAL = [TIDAK_ADA, LOS, SDI, "Gagal memuat"];
 
 type Baris = { rute: string; perilaku: "utuh" | "sebagian" | "tidak tersedia"; teks?: Record<string, number> };

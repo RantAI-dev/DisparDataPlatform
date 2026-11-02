@@ -8,16 +8,21 @@ Satu tes per ID. Nama tes diawali ID-nya. Pola penulisan: `docs/pola-fitur.md`.
 |---|---|
 | SI-B01 | `portal:sinkron` semua sukses: satu snapshot per rute kelas T × varian (28 kode indikator, tier katalog, tahun pertunjukan); endpoint P tidak dipanggil |
 | SI-B02 | Sebagian gagal: snapshot lama tetap, JOB_RUNS `sebagian`, kegagalan dirinci per rute + varian |
-| SI-B03 | HASH sama → snapshot tidak ditulis ulang (`berubah` 0) |
+| SI-B03 | HASH sama → isi tidak ditulis ulang (`berubah` 0), DIAMBIL_PADA diperbarui sehingga tidak tertandai basi |
 | SI-B04 | Tidak tumpang tindih: jadwal 11:00 Asia/Jakarta `withoutOverlapping`; kunci dipegang → cron dilewati, pemicu manual 409 |
 | SI-B05 | Snapshot lebih tua dari 36 jam → `meta.stale = true` |
 | SI-B06 | Snapshot hilang dan Data API mati → 503 `UPSTREAM_UNAVAILABLE` |
 | SI-B07 | `portal:bersihkan-log` menghapus tepat yang lebih tua dari 180 hari (LOG_HISTORY + JOB_RUNS) |
 | SI-B08 | `sistem/log`: filter modul dan tanggal (hari WIB), 50 per halaman terbaru dulu; `sistem/job` berhalaman |
 | SI-B09 | Rute admin menolak token `read` (403) dan tanpa token (401) |
-| SI-B10 | `POST sistem/job/sinkron` → 202, sinkron berjalan setelah respons, `PEMICU=manual` |
+| SI-B10 | `POST sistem/job/sinkron` → 202, sinkron dijalankan sebagai proses CLI terlepas yang mewarisi kunci (`portal:sinkron --manual --klien=… --pemilik=…`); pemicu kedua 409; `PEMICU=manual` |
 | SI-B11 | `POST sistem/cache/kosongkan` menghapus cache Data API, snapshot tetap |
-| SI-B12 | Rute admin tercatat di LOG_HISTORY modul `sistem` |
+| SI-B12 | Rute admin tercatat di LOG_HISTORY modul `sistem`; `sistem/kesehatan` (healthcheck container) tidak |
+| SI-B13 | Snapshot basi dan Data API hidup → disegarkan saat dibaca (kunci berparameter bebas di luar varian sinkron) |
+| SI-B14 | Jawaban Data API berperingatan (Q21, data dikosongkan) tidak menimpa snapshot: sinkron menghitungnya gagal; baca memakai snapshot lama ber-`stale` |
+| SI-B16 | Proses sinkron gagal dimulai → 500 dan kunci dilepas |
+| SI-B17 | Snapshot basi dan Data API mati → satu percobaan penyegaran, request berikutnya selama jeda langsung mendapat snapshot lama ber-`stale` |
+| SI-B15 | Jawaban berperingatan tanpa snapshot diteruskan, tidak disimpan (T) dan tidak di-cache (P) |
 
 ## Perilaku halaman saat Data API mati
 
@@ -46,7 +51,7 @@ keadaan gagal yang sama dengan Next.js. Dibuktikan `frontend/tests/e2e/sistem.sp
 | `/gci/pariwisata/direktori-restoran` | utuh | — |
 | `/gci/pariwisata/pertunjukan-budaya` | utuh | — |
 | `/gpci/hotel`, `/gpci/lapangan-golf`, `/gpci/toko-suvenir` | utuh | — |
-| `/gmti` | sebagian | daftar tempat: "Gagal memuat daftar tempat (ApiError: Sumber data sedang tidak tersedia.). Muat ulang halaman untuk mencoba lagi." |
+| `/gmti` | sebagian | daftar tempat: "Gagal memuat daftar fasilitas ibadah (ApiError: Sumber data sedang tidak tersedia.). Muat ulang halaman untuk mencoba lagi." |
 | `/spatial` | sebagian | peta dan panel utuh; popup detail titik (`spasial/titik/{id}`, P) tidak terbuka |
 | `/scraped-hotels` | utuh | — |
 

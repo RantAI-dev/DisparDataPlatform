@@ -18,6 +18,6 @@ final class JobController
 
     public function sinkron(Request $r, SinkronService $layanan): AksiResource
     {
-        return AksiResource::sinkron($layanan->mulaiSetelahRespons($r->user()?->name));
+        return AksiResource::sinkron($layanan->mulaiDiLatar((string) $r->user()?->name));
     }
 }

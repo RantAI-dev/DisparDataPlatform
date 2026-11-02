@@ -5,11 +5,13 @@ namespace App\Features\Sistem\Services;
 use App\Shared\Jobs\JobRunRecorder;
 use App\Shared\Tetap\ModeSinkron;
 use Illuminate\Contracts\Cache\Lock;
-use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\Container\Container;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Router;
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Process;
 use RuntimeException;
+use Symfony\Component\Process\PhpExecutableFinder;
 use Throwable;
 
 /**
@@ -31,14 +33,20 @@ final class SinkronService
 
     public function __construct(
         private readonly Router $router,
-        private readonly Application $app,
+        private readonly Container $app,
         private readonly ModeSinkron $mode,
         private readonly JobRunRecorder $rekam,
     ) {}
 
-    /** Kunci eksklusif sinkron (cron dan manual berbagi kunci ini); null = sinkron lain berjalan. */
-    public function kunci(): ?Lock
+    /**
+     * Kunci eksklusif sinkron (cron dan manual berbagi kunci ini); null = sinkron lain berjalan.
+     * `$pemilik`: kunci yang sudah diambil pemicu manual lalu diwariskan ke proses CLI.
+     */
+    public function kunci(?string $pemilik = null): ?Lock
     {
+        if ($pemilik !== null) {
+            return Cache::restoreLock(self::JOB, $pemilik);
+        }
         $lock = Cache::lock(self::JOB, self::LOCK_DETIK);
 
         return $lock->get() ? $lock : null;
@@ -100,22 +108,28 @@ final class SinkronService
     }
 
     /**
-     * Pemicu manual (POST sistem/job/sinkron): kunci diambil sekarang supaya bentrok langsung
-     * terjawab, sinkron dijalankan setelah respons terkirim. false = sinkron lain sedang berjalan.
+     * Pemicu manual (POST sistem/job/sinkron): sinkron dijalankan sebagai proses CLI terlepas
+     * (`portal:sinkron --manual`), bukan di worker php-fpm yang bisa dibunuh
+     * `request_terminate_timeout`. Kunci diambil di sini dan diwariskan ke proses itu (`--pemilik`),
+     * jadi pemicu kedua langsung 409. false = sinkron lain sedang berjalan.
      */
-    public function mulaiSetelahRespons(?string $klien): bool
+    public function mulaiDiLatar(string $klien): bool
     {
         $lock = $this->kunci();
         if ($lock === null) {
             return false;
         }
-        $this->app->terminating(function () use ($lock, $klien) {
-            // php-fpm: respons sudah dikirim (fastcgi_finish_request); sinkron bisa lebih lama dari
-            // max_execution_time bawaan.
-            set_time_limit(0);
-            ignore_user_abort(true);
-            $this->jalankan($lock, 'manual', $klien);
-        });
+
+        $php = (new PhpExecutableFinder)->find(false) ?: 'php';
+        // `nohup … &`: shell langsung kembali, proses sinkron lepas dari request ini.
+        $hasil = Process::path(base_path())->run([
+            'sh', '-c', 'nohup "$@" >/dev/null 2>&1 &', 'sh',
+            $php, 'artisan', 'portal:sinkron', '--manual', '--klien='.$klien, '--pemilik='.$lock->owner(),
+        ]);
+        if ($hasil->failed()) {
+            $lock->release();
+            throw new RuntimeException('Proses portal:sinkron gagal dimulai: '.$hasil->errorOutput());
+        }
 
         return true;
     }
