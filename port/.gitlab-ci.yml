@@ -1,0 +1,103 @@
+# CI portal di GitLab Disparekraf (target akhir, SPEC §9). Isi job identik dengan
+# .github/workflows/ci.yml: perintahnya ada di scripts/ci/*.sh. Image PHP + oci8 dibangun sekali
+# per commit dan disimpan di registry proyek, lalu dipakai job backend dan migrasi.
+stages: [image, uji]
+
+variables:
+  PHP_CI_IMAGE: $CI_REGISTRY_IMAGE/php-ci:$CI_COMMIT_SHORT_SHA
+  # Sandi khusus CI (service Oracle sekali pakai).
+  ORACLE_PASSWORD: portal_ci
+
+image-php:
+  stage: image
+  image: docker:27
+  services: [docker:27-dind]
+  variables:
+    DOCKER_TLS_CERTDIR: /certs
+  script:
+    - echo "$CI_REGISTRY_PASSWORD" | docker login -u "$CI_REGISTRY_USER" --password-stdin "$CI_REGISTRY"
+    - docker build -t "$PHP_CI_IMAGE" backend
+    - docker push "$PHP_CI_IMAGE"
+
+.oracle-db:
+  variables:
+    DB_CONNECTION: oracle
+    DB_HOST: oracle
+    DB_PORT: "1521"
+    DB_SERVICE_NAME: XEPDB1
+    DB_SERVER_VERSION: 12c
+
+backend:
+  stage: uji
+  extends: .oracle-db
+  needs: [image-php]
+  image: $PHP_CI_IMAGE
+  services:
+    - name: gvenzl/oracle-xe:18-slim
+      alias: oracle
+      # Tes memaksa skema portal_test (phpunit.xml).
+      variables: { APP_USER: portal_test, APP_USER_PASSWORD: portal_test }
+  script:
+    - bash scripts/ci/backend.sh
+  artifacts:
+    when: always
+    reports:
+      junit: backend/storage/logs/pest-junit.xml
+
+dump-oracle:
+  stage: uji
+  # Image Oracle yang sama dipakai sebagai klien: sudah membawa sqlplus.
+  image:
+    name: gvenzl/oracle-xe:18-slim
+    entrypoint: [""]
+  services:
+    - name: gvenzl/oracle-xe:18-slim
+      alias: oracle
+  variables:
+    ORACLE_SQLPLUS: sqlplus -s -L
+    ORACLE_DSN: //oracle:1521/XEPDB1
+  script:
+    - timeout 600 bash -c 'until echo "select 1 from dual;" | sqlplus -s -L "system/${ORACLE_PASSWORD}@${ORACLE_DSN}" >/dev/null; do sleep 10; done'
+    - scripts/oracle-dump.sh --cek
+    - scripts/cek-oracle-terlarang.sh
+
+migrasi-xe21:
+  stage: uji
+  extends: .oracle-db
+  needs: [image-php]
+  image: $PHP_CI_IMAGE
+  services:
+    - name: gvenzl/oracle-xe:21-slim
+      alias: oracle
+      variables: { APP_USER: portal_ci, APP_USER_PASSWORD: portal_ci }
+  variables:
+    DB_USERNAME: portal_ci
+    DB_PASSWORD: portal_ci
+  script:
+    - bash scripts/ci/migrasi.sh
+
+frontend:
+  stage: uji
+  needs: []
+  image: node:20-bookworm
+  script:
+    - bash scripts/ci/frontend.sh
+  artifacts:
+    when: always
+    reports:
+      junit: frontend/test-results/vitest-junit.xml
+
+e2e:
+  stage: uji
+  needs: []
+  # Image Playwright versi yang sama dengan @playwright/test (browser sudah terpasang).
+  image: mcr.microsoft.com/playwright:v1.64.1-noble
+  variables:
+    PLAYWRIGHT_SUDAH_ADA: "1"
+  script:
+    - bash scripts/ci/e2e.sh
+  artifacts:
+    when: always
+    paths: [frontend/test-results, frontend/playwright-report]
+    reports:
+      junit: frontend/test-results/e2e-junit.xml

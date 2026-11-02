@@ -1,0 +1,3470 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`builder opsi chart > BarBreakdown banyak baris + colors — diperbesar 1`] = `
+{
+  "dataZoom": [
+    {
+      "end": 70,
+      "filterMode": "none",
+      "start": 0,
+      "type": "inside",
+      "yAxisIndex": 0,
+    },
+    {
+      "borderColor": "#e2e8f0",
+      "end": 70,
+      "fillerColor": "rgba(237, 107, 35, 0.15)",
+      "filterMode": "none",
+      "handleStyle": {
+        "borderColor": "#ed6b23",
+        "color": "#ed6b23",
+      },
+      "orient": "vertical",
+      "right": 4,
+      "start": 0,
+      "textStyle": {
+        "color": "#64748b",
+        "fontSize": 10,
+      },
+      "type": "slider",
+      "width": 16,
+      "yAxisIndex": 0,
+    },
+  ],
+  "grid": {
+    "bottom": 6,
+    "containLabel": true,
+    "left": 6,
+    "right": 92,
+    "top": 6,
+  },
+  "series": [
+    {
+      "barMaxWidth": 22,
+      "data": [
+        {
+          "itemStyle": {
+            "color": "#111",
+          },
+          "value": 1000,
+        },
+        {
+          "itemStyle": {
+            "color": "#222",
+          },
+          "value": 1137.25,
+        },
+        {
+          "itemStyle": {
+            "color": "#ed6b23",
+          },
+          "value": 1274.5,
+        },
+        {
+          "itemStyle": {
+            "color": "#ed6b23",
+          },
+          "value": 1411.75,
+        },
+        {
+          "itemStyle": {
+            "color": "#ed6b23",
+          },
+          "value": 1549,
+        },
+        {
+          "itemStyle": {
+            "color": "#ed6b23",
+          },
+          "value": 1686.25,
+        },
+        {
+          "itemStyle": {
+            "color": "#ed6b23",
+          },
+          "value": 1823.5,
+        },
+        {
+          "itemStyle": {
+            "color": "#ed6b23",
+          },
+          "value": 1960.75,
+        },
+        {
+          "itemStyle": {
+            "color": "#ed6b23",
+          },
+          "value": 2098,
+        },
+        {
+          "itemStyle": {
+            "color": "#ed6b23",
+          },
+          "value": 2235.25,
+        },
+        {
+          "itemStyle": {
+            "color": "#ed6b23",
+          },
+          "value": 2372.5,
+        },
+        {
+          "itemStyle": {
+            "color": "#ed6b23",
+          },
+          "value": 2509.75,
+        },
+        {
+          "itemStyle": {
+            "color": "#ed6b23",
+          },
+          "value": 2647,
+        },
+        {
+          "itemStyle": {
+            "color": "#ed6b23",
+          },
+          "value": 2784.25,
+        },
+        {
+          "itemStyle": {
+            "color": "#ed6b23",
+          },
+          "value": 2921.5,
+        },
+        {
+          "itemStyle": {
+            "color": "#ed6b23",
+          },
+          "value": 3058.75,
+        },
+        {
+          "itemStyle": {
+            "color": "#ed6b23",
+          },
+          "value": 3196,
+        },
+        {
+          "itemStyle": {
+            "color": "#ed6b23",
+          },
+          "value": 3333.25,
+        },
+        {
+          "itemStyle": {
+            "color": "#ed6b23",
+          },
+          "value": 3470.5,
+        },
+        {
+          "itemStyle": {
+            "color": "#ed6b23",
+          },
+          "value": 3607.75,
+        },
+      ],
+      "itemStyle": {
+        "borderRadius": [
+          0,
+          4,
+          4,
+          0,
+        ],
+        "color": "#ed6b23",
+      },
+      "label": {
+        "color": "#334155",
+        "fontSize": 12,
+        "formatter": "fn:ERR|1.234,5|ERR|ERR|ERR",
+        "position": "right",
+        "show": true,
+      },
+      "type": "bar",
+    },
+  ],
+  "tooltip": {
+    "axisPointer": {
+      "type": "shadow",
+    },
+    "trigger": "axis",
+    "valueFormatter": "fn:1.234,5|[object Object]|[object Object]|202401|ERR",
+  },
+  "xAxis": {
+    "axisLabel": {
+      "color": "#94a3b8",
+      "formatter": "fn:1.234,5|[object Object]|[object Object]|202401|ERR",
+    },
+    "axisLine": {
+      "show": false,
+    },
+    "axisTick": {
+      "show": false,
+    },
+    "splitLine": {
+      "lineStyle": {
+        "color": "#eef2f7",
+      },
+    },
+    "type": "value",
+  },
+  "yAxis": {
+    "axisLabel": {
+      "color": "#475569",
+      "overflow": "truncate",
+      "width": 150,
+    },
+    "axisLine": {
+      "show": false,
+    },
+    "axisTick": {
+      "show": false,
+    },
+    "data": [
+      "L00",
+      "L01",
+      "L02",
+      "L03",
+      "L04",
+      "L05",
+      "L06",
+      "L07",
+      "L08",
+      "L09",
+      "L10",
+      "L11",
+      "L12",
+      "L13",
+      "L14",
+      "L15",
+      "L16",
+      "L17",
+      "L18",
+      "L19",
+    ],
+    "inverse": true,
+    "type": "category",
+  },
+}
+`;
+
+exports[`builder opsi chart > BarBreakdown banyak baris + colors — normal 1`] = `
+{
+  "grid": {
+    "bottom": 6,
+    "containLabel": true,
+    "left": 6,
+    "right": 56,
+    "top": 6,
+  },
+  "series": [
+    {
+      "barMaxWidth": 22,
+      "data": [
+        {
+          "itemStyle": {
+            "color": "#111",
+          },
+          "value": 1000,
+        },
+        {
+          "itemStyle": {
+            "color": "#222",
+          },
+          "value": 1137.25,
+        },
+        {
+          "itemStyle": {
+            "color": "#ed6b23",
+          },
+          "value": 1274.5,
+        },
+        {
+          "itemStyle": {
+            "color": "#ed6b23",
+          },
+          "value": 1411.75,
+        },
+        {
+          "itemStyle": {
+            "color": "#ed6b23",
+          },
+          "value": 1549,
+        },
+        {
+          "itemStyle": {
+            "color": "#ed6b23",
+          },
+          "value": 1686.25,
+        },
+        {
+          "itemStyle": {
+            "color": "#ed6b23",
+          },
+          "value": 1823.5,
+        },
+        {
+          "itemStyle": {
+            "color": "#ed6b23",
+          },
+          "value": 1960.75,
+        },
+        {
+          "itemStyle": {
+            "color": "#ed6b23",
+          },
+          "value": 2098,
+        },
+        {
+          "itemStyle": {
+            "color": "#ed6b23",
+          },
+          "value": 2235.25,
+        },
+        {
+          "itemStyle": {
+            "color": "#ed6b23",
+          },
+          "value": 2372.5,
+        },
+        {
+          "itemStyle": {
+            "color": "#ed6b23",
+          },
+          "value": 2509.75,
+        },
+        {
+          "itemStyle": {
+            "color": "#ed6b23",
+          },
+          "value": 2647,
+        },
+        {
+          "itemStyle": {
+            "color": "#ed6b23",
+          },
+          "value": 2784.25,
+        },
+        {
+          "itemStyle": {
+            "color": "#ed6b23",
+          },
+          "value": 2921.5,
+        },
+        {
+          "itemStyle": {
+            "color": "#ed6b23",
+          },
+          "value": 3058.75,
+        },
+        {
+          "itemStyle": {
+            "color": "#ed6b23",
+          },
+          "value": 3196,
+        },
+        {
+          "itemStyle": {
+            "color": "#ed6b23",
+          },
+          "value": 3333.25,
+        },
+        {
+          "itemStyle": {
+            "color": "#ed6b23",
+          },
+          "value": 3470.5,
+        },
+        {
+          "itemStyle": {
+            "color": "#ed6b23",
+          },
+          "value": 3607.75,
+        },
+      ],
+      "itemStyle": {
+        "borderRadius": [
+          0,
+          4,
+          4,
+          0,
+        ],
+        "color": "#ed6b23",
+      },
+      "label": {
+        "color": "#334155",
+        "fontSize": 12,
+        "formatter": "fn:ERR|1.234,5|ERR|ERR|ERR",
+        "position": "right",
+        "show": true,
+      },
+      "type": "bar",
+    },
+  ],
+  "tooltip": {
+    "axisPointer": {
+      "type": "shadow",
+    },
+    "trigger": "axis",
+    "valueFormatter": "fn:1.234,5|[object Object]|[object Object]|202401|ERR",
+  },
+  "xAxis": {
+    "axisLabel": {
+      "color": "#94a3b8",
+      "formatter": "fn:1.234,5|[object Object]|[object Object]|202401|ERR",
+    },
+    "axisLine": {
+      "show": false,
+    },
+    "axisTick": {
+      "show": false,
+    },
+    "splitLine": {
+      "lineStyle": {
+        "color": "#eef2f7",
+      },
+    },
+    "type": "value",
+  },
+  "yAxis": {
+    "axisLabel": {
+      "color": "#475569",
+      "overflow": "truncate",
+      "width": 150,
+    },
+    "axisLine": {
+      "show": false,
+    },
+    "axisTick": {
+      "show": false,
+    },
+    "data": [
+      "L00",
+      "L01",
+      "L02",
+      "L03",
+      "L04",
+      "L05",
+      "L06",
+      "L07",
+      "L08",
+      "L09",
+      "L10",
+      "L11",
+      "L12",
+      "L13",
+      "L14",
+      "L15",
+      "L16",
+      "L17",
+      "L18",
+      "L19",
+    ],
+    "inverse": true,
+    "type": "category",
+  },
+}
+`;
+
+exports[`builder opsi chart > BarBreakdown — diperbesar 1`] = `
+{
+  "grid": {
+    "bottom": 6,
+    "containLabel": true,
+    "left": 6,
+    "right": 56,
+    "top": 6,
+  },
+  "series": [
+    {
+      "barMaxWidth": 22,
+      "data": [
+        1000,
+        1137.25,
+        1274.5,
+        1411.75,
+        1549,
+      ],
+      "itemStyle": {
+        "borderRadius": [
+          0,
+          4,
+          4,
+          0,
+        ],
+        "color": "#ed6b23",
+      },
+      "label": {
+        "color": "#334155",
+        "fontSize": 12,
+        "formatter": "fn:ERR|1.234,5 org|ERR|ERR|ERR",
+        "position": "right",
+        "show": true,
+      },
+      "type": "bar",
+    },
+  ],
+  "tooltip": {
+    "axisPointer": {
+      "type": "shadow",
+    },
+    "trigger": "axis",
+    "valueFormatter": "fn:1.234,5 org|[object Object] org|[object Object] org|202401 org|ERR",
+  },
+  "xAxis": {
+    "axisLabel": {
+      "color": "#94a3b8",
+      "formatter": "fn:1.234,5|[object Object]|[object Object]|202401|ERR",
+    },
+    "axisLine": {
+      "show": false,
+    },
+    "axisTick": {
+      "show": false,
+    },
+    "splitLine": {
+      "lineStyle": {
+        "color": "#eef2f7",
+      },
+    },
+    "type": "value",
+  },
+  "yAxis": {
+    "axisLabel": {
+      "color": "#475569",
+      "overflow": "truncate",
+      "width": 150,
+    },
+    "axisLine": {
+      "show": false,
+    },
+    "axisTick": {
+      "show": false,
+    },
+    "data": [
+      "L00",
+      "L01",
+      "L02",
+      "L03",
+      "L04",
+    ],
+    "inverse": true,
+    "type": "category",
+  },
+}
+`;
+
+exports[`builder opsi chart > BarBreakdown — normal 1`] = `
+{
+  "grid": {
+    "bottom": 6,
+    "containLabel": true,
+    "left": 6,
+    "right": 56,
+    "top": 6,
+  },
+  "series": [
+    {
+      "barMaxWidth": 22,
+      "data": [
+        1000,
+        1137.25,
+        1274.5,
+        1411.75,
+        1549,
+      ],
+      "itemStyle": {
+        "borderRadius": [
+          0,
+          4,
+          4,
+          0,
+        ],
+        "color": "#ed6b23",
+      },
+      "label": {
+        "color": "#334155",
+        "fontSize": 12,
+        "formatter": "fn:ERR|1.234,5 org|ERR|ERR|ERR",
+        "position": "right",
+        "show": true,
+      },
+      "type": "bar",
+    },
+  ],
+  "tooltip": {
+    "axisPointer": {
+      "type": "shadow",
+    },
+    "trigger": "axis",
+    "valueFormatter": "fn:1.234,5 org|[object Object] org|[object Object] org|202401 org|ERR",
+  },
+  "xAxis": {
+    "axisLabel": {
+      "color": "#94a3b8",
+      "formatter": "fn:1.234,5|[object Object]|[object Object]|202401|ERR",
+    },
+    "axisLine": {
+      "show": false,
+    },
+    "axisTick": {
+      "show": false,
+    },
+    "splitLine": {
+      "lineStyle": {
+        "color": "#eef2f7",
+      },
+    },
+    "type": "value",
+  },
+  "yAxis": {
+    "axisLabel": {
+      "color": "#475569",
+      "overflow": "truncate",
+      "width": 150,
+    },
+    "axisLine": {
+      "show": false,
+    },
+    "axisTick": {
+      "show": false,
+    },
+    "data": [
+      "L00",
+      "L01",
+      "L02",
+      "L03",
+      "L04",
+    ],
+    "inverse": true,
+    "type": "category",
+  },
+}
+`;
+
+exports[`builder opsi chart > BarChart — diperbesar 1`] = `
+{
+  "grid": {
+    "bottom": 6,
+    "containLabel": true,
+    "left": 6,
+    "right": 24,
+    "top": 16,
+  },
+  "series": [
+    {
+      "barMaxWidth": 28,
+      "data": [
+        1200,
+        1530.5,
+        980,
+      ],
+      "itemStyle": {
+        "borderRadius": [
+          4,
+          4,
+          0,
+          0,
+        ],
+        "color": {
+          "colorStops": [
+            {
+              "color": "#1b5aa8",
+              "offset": 0,
+            },
+            {
+              "color": "#ed6b23",
+              "offset": 1,
+            },
+          ],
+          "global": false,
+          "type": "linear",
+          "x": 0,
+          "x2": 0,
+          "y": 0,
+          "y2": 1,
+        },
+      },
+      "type": "bar",
+    },
+  ],
+  "tooltip": {
+    "trigger": "axis",
+    "valueFormatter": "fn:1.234,5|[object Object]|[object Object]|202401|ERR",
+  },
+  "xAxis": {
+    "axisLabel": {
+      "color": "#94a3b8",
+      "fontSize": 11,
+      "formatter": "fn:1234.5|[object Object]|[object Object]|Jan 2024|",
+      "hideOverlap": true,
+      "showMaxLabel": true,
+    },
+    "axisLine": {
+      "lineStyle": {
+        "color": "#e2e8f0",
+      },
+    },
+    "axisTick": {
+      "show": false,
+    },
+    "data": [
+      "202401",
+      "202402",
+      "202403",
+    ],
+    "type": "category",
+  },
+  "yAxis": {
+    "axisLabel": {
+      "color": "#94a3b8",
+      "formatter": "fn:1.234,5|[object Object]|[object Object]|202401|ERR",
+    },
+    "splitLine": {
+      "lineStyle": {
+        "color": "#eef2f7",
+      },
+    },
+    "type": "value",
+  },
+}
+`;
+
+exports[`builder opsi chart > BarChart — normal 1`] = `
+{
+  "grid": {
+    "bottom": 6,
+    "containLabel": true,
+    "left": 6,
+    "right": 24,
+    "top": 16,
+  },
+  "series": [
+    {
+      "barMaxWidth": 28,
+      "data": [
+        1200,
+        1530.5,
+        980,
+      ],
+      "itemStyle": {
+        "borderRadius": [
+          4,
+          4,
+          0,
+          0,
+        ],
+        "color": {
+          "colorStops": [
+            {
+              "color": "#1b5aa8",
+              "offset": 0,
+            },
+            {
+              "color": "#ed6b23",
+              "offset": 1,
+            },
+          ],
+          "global": false,
+          "type": "linear",
+          "x": 0,
+          "x2": 0,
+          "y": 0,
+          "y2": 1,
+        },
+      },
+      "type": "bar",
+    },
+  ],
+  "tooltip": {
+    "trigger": "axis",
+    "valueFormatter": "fn:1.234,5|[object Object]|[object Object]|202401|ERR",
+  },
+  "xAxis": {
+    "axisLabel": {
+      "color": "#94a3b8",
+      "fontSize": 11,
+      "formatter": "fn:1234.5|[object Object]|[object Object]|Jan 2024|",
+      "hideOverlap": true,
+      "showMaxLabel": true,
+    },
+    "axisLine": {
+      "lineStyle": {
+        "color": "#e2e8f0",
+      },
+    },
+    "axisTick": {
+      "show": false,
+    },
+    "data": [
+      "202401",
+      "202402",
+      "202403",
+    ],
+    "type": "category",
+  },
+  "yAxis": {
+    "axisLabel": {
+      "color": "#94a3b8",
+      "formatter": "fn:1.234,5|[object Object]|[object Object]|202401|ERR",
+    },
+    "splitLine": {
+      "lineStyle": {
+        "color": "#eef2f7",
+      },
+    },
+    "type": "value",
+  },
+}
+`;
+
+exports[`builder opsi chart > ComboBarLine satu sumbu — diperbesar 1`] = `
+{
+  "dataZoom": [
+    {
+      "end": 100,
+      "filterMode": "none",
+      "start": 0,
+      "type": "inside",
+      "xAxisIndex": 0,
+    },
+    {
+      "borderColor": "#e2e8f0",
+      "bottom": 4,
+      "end": 100,
+      "fillerColor": "rgba(237, 107, 35, 0.15)",
+      "filterMode": "none",
+      "handleStyle": {
+        "borderColor": "#ed6b23",
+        "color": "#ed6b23",
+      },
+      "height": 20,
+      "start": 0,
+      "textStyle": {
+        "color": "#64748b",
+        "fontSize": 10,
+      },
+      "type": "slider",
+      "xAxisIndex": 0,
+    },
+  ],
+  "grid": {
+    "bottom": 42,
+    "containLabel": true,
+    "left": 6,
+    "right": 16,
+    "top": 36,
+  },
+  "legend": {
+    "icon": "circle",
+    "textStyle": {
+      "color": "#475569",
+      "fontSize": 11,
+    },
+    "top": 0,
+  },
+  "series": [
+    {
+      "barMaxWidth": 40,
+      "data": [
+        1,
+        2,
+      ],
+      "itemStyle": {
+        "borderRadius": [
+          4,
+          4,
+          0,
+          0,
+        ],
+        "color": "#ed6b23",
+      },
+      "label": {
+        "color": "#ffffff",
+        "fontSize": 10,
+        "formatter": "fn:|1.234,5|||ERR",
+        "position": "insideTop",
+        "show": true,
+      },
+      "labelLayout": {
+        "hideOverlap": true,
+      },
+      "name": "A",
+      "type": "bar",
+    },
+    {
+      "connectNulls": true,
+      "data": [
+        null,
+        3,
+      ],
+      "itemStyle": {
+        "color": "#0e7c42",
+      },
+      "label": {
+        "color": "#0e7c42",
+        "fontSize": 10,
+        "formatter": "fn:|1.234,5|||ERR",
+        "position": "top",
+        "show": true,
+      },
+      "labelLayout": {
+        "hideOverlap": true,
+      },
+      "lineStyle": {
+        "color": "#0e7c42",
+        "type": "dashed",
+        "width": 2.5,
+      },
+      "name": "B",
+      "smooth": true,
+      "symbolSize": 7,
+      "type": "line",
+      "yAxisIndex": 0,
+    },
+  ],
+  "tooltip": {
+    "axisPointer": {
+      "type": "cross",
+    },
+    "trigger": "axis",
+    "valueFormatter": "fn:1.234,5|[object Object]|[object Object]|202401|—",
+  },
+  "xAxis": {
+    "axisLabel": {
+      "color": "#94a3b8",
+      "fontSize": 11,
+    },
+    "axisLine": {
+      "lineStyle": {
+        "color": "#e2e8f0",
+      },
+    },
+    "axisTick": {
+      "show": false,
+    },
+    "data": [
+      "2022",
+      "2023",
+    ],
+    "type": "category",
+  },
+  "yAxis": [
+    {
+      "axisLabel": {
+        "color": "#94a3b8",
+        "formatter": "fn:1.234,5|[object Object]|[object Object]|202401|ERR",
+      },
+      "splitLine": {
+        "lineStyle": {
+          "color": "#eef2f7",
+        },
+      },
+      "type": "value",
+    },
+  ],
+}
+`;
+
+exports[`builder opsi chart > ComboBarLine satu sumbu — normal 1`] = `
+{
+  "grid": {
+    "bottom": 6,
+    "containLabel": true,
+    "left": 6,
+    "right": 16,
+    "top": 36,
+  },
+  "legend": {
+    "icon": "circle",
+    "textStyle": {
+      "color": "#475569",
+      "fontSize": 11,
+    },
+    "top": 0,
+  },
+  "series": [
+    {
+      "barMaxWidth": 40,
+      "data": [
+        1,
+        2,
+      ],
+      "itemStyle": {
+        "borderRadius": [
+          4,
+          4,
+          0,
+          0,
+        ],
+        "color": "#ed6b23",
+      },
+      "name": "A",
+      "type": "bar",
+    },
+    {
+      "connectNulls": true,
+      "data": [
+        null,
+        3,
+      ],
+      "itemStyle": {
+        "color": "#0e7c42",
+      },
+      "lineStyle": {
+        "color": "#0e7c42",
+        "type": "dashed",
+        "width": 2.5,
+      },
+      "name": "B",
+      "smooth": true,
+      "symbolSize": 7,
+      "type": "line",
+      "yAxisIndex": 0,
+    },
+  ],
+  "tooltip": {
+    "axisPointer": {
+      "type": "cross",
+    },
+    "trigger": "axis",
+    "valueFormatter": "fn:1.234,5|[object Object]|[object Object]|202401|—",
+  },
+  "xAxis": {
+    "axisLabel": {
+      "color": "#94a3b8",
+      "fontSize": 11,
+    },
+    "axisLine": {
+      "lineStyle": {
+        "color": "#e2e8f0",
+      },
+    },
+    "axisTick": {
+      "show": false,
+    },
+    "data": [
+      "2022",
+      "2023",
+    ],
+    "type": "category",
+  },
+  "yAxis": [
+    {
+      "axisLabel": {
+        "color": "#94a3b8",
+        "formatter": "fn:1.234,5|[object Object]|[object Object]|202401|ERR",
+      },
+      "splitLine": {
+        "lineStyle": {
+          "color": "#eef2f7",
+        },
+      },
+      "type": "value",
+    },
+  ],
+}
+`;
+
+exports[`builder opsi chart > ComboBarLine — diperbesar 1`] = `
+{
+  "dataZoom": [
+    {
+      "end": 100,
+      "filterMode": "none",
+      "start": 0,
+      "type": "inside",
+      "xAxisIndex": 0,
+    },
+    {
+      "borderColor": "#e2e8f0",
+      "bottom": 4,
+      "end": 100,
+      "fillerColor": "rgba(237, 107, 35, 0.15)",
+      "filterMode": "none",
+      "handleStyle": {
+        "borderColor": "#ed6b23",
+        "color": "#ed6b23",
+      },
+      "height": 20,
+      "start": 0,
+      "textStyle": {
+        "color": "#64748b",
+        "fontSize": 10,
+      },
+      "type": "slider",
+      "xAxisIndex": 0,
+    },
+  ],
+  "grid": {
+    "bottom": 42,
+    "containLabel": true,
+    "left": 6,
+    "right": 12,
+    "top": 36,
+  },
+  "legend": {
+    "icon": "circle",
+    "textStyle": {
+      "color": "#475569",
+      "fontSize": 11,
+    },
+    "top": 0,
+  },
+  "series": [
+    {
+      "barMaxWidth": 40,
+      "data": [
+        100,
+        null,
+      ],
+      "itemStyle": {
+        "borderRadius": [
+          4,
+          4,
+          0,
+          0,
+        ],
+        "color": "#ed6b23",
+      },
+      "label": {
+        "color": "#334155",
+        "fontSize": 10,
+        "formatter": "fn:|1.234,5 org|||ERR",
+        "position": "top",
+        "show": true,
+      },
+      "labelLayout": {
+        "hideOverlap": true,
+      },
+      "name": "Tamu",
+      "type": "bar",
+    },
+    {
+      "connectNulls": true,
+      "data": [
+        1.5,
+        2,
+      ],
+      "itemStyle": {
+        "color": "#0e7c42",
+      },
+      "label": {
+        "color": "#0e7c42",
+        "fontSize": 10,
+        "formatter": "fn:|1.234,5%|||ERR",
+        "position": "top",
+        "show": true,
+      },
+      "labelLayout": {
+        "hideOverlap": true,
+      },
+      "lineStyle": {
+        "color": "#0e7c42",
+        "type": "dashed",
+        "width": 2.5,
+      },
+      "name": "PDRB",
+      "smooth": true,
+      "symbolSize": 7,
+      "type": "line",
+      "yAxisIndex": 1,
+    },
+  ],
+  "tooltip": {
+    "axisPointer": {
+      "type": "cross",
+    },
+    "trigger": "axis",
+    "valueFormatter": "fn:1.234,5|[object Object]|[object Object]|202401|—",
+  },
+  "xAxis": {
+    "axisLabel": {
+      "color": "#94a3b8",
+      "fontSize": 11,
+    },
+    "axisLine": {
+      "lineStyle": {
+        "color": "#e2e8f0",
+      },
+    },
+    "axisTick": {
+      "show": false,
+    },
+    "data": [
+      "2022",
+      "2023",
+    ],
+    "type": "category",
+  },
+  "yAxis": [
+    {
+      "alignTicks": false,
+      "axisLabel": {
+        "color": "#94a3b8",
+        "formatter": "fn:1.234,5|[object Object]|[object Object]|202401|ERR",
+      },
+      "name": "Tamu",
+      "nameTextStyle": {
+        "color": "#94a3b8",
+        "fontSize": 10,
+      },
+      "splitLine": {
+        "lineStyle": {
+          "color": "#eef2f7",
+        },
+      },
+      "type": "value",
+    },
+    {
+      "alignTicks": false,
+      "axisLabel": {
+        "color": "#94a3b8",
+        "formatter": "fn:1234.5%|[object Object]%|[object Object]%|202401%|null%",
+      },
+      "name": "PDRB",
+      "nameTextStyle": {
+        "color": "#94a3b8",
+        "fontSize": 10,
+      },
+      "position": "right",
+      "splitLine": {
+        "show": false,
+      },
+      "type": "value",
+    },
+  ],
+}
+`;
+
+exports[`builder opsi chart > ComboBarLine — normal 1`] = `
+{
+  "grid": {
+    "bottom": 6,
+    "containLabel": true,
+    "left": 6,
+    "right": 12,
+    "top": 36,
+  },
+  "legend": {
+    "icon": "circle",
+    "textStyle": {
+      "color": "#475569",
+      "fontSize": 11,
+    },
+    "top": 0,
+  },
+  "series": [
+    {
+      "barMaxWidth": 40,
+      "data": [
+        100,
+        null,
+      ],
+      "itemStyle": {
+        "borderRadius": [
+          4,
+          4,
+          0,
+          0,
+        ],
+        "color": "#ed6b23",
+      },
+      "name": "Tamu",
+      "type": "bar",
+    },
+    {
+      "connectNulls": true,
+      "data": [
+        1.5,
+        2,
+      ],
+      "itemStyle": {
+        "color": "#0e7c42",
+      },
+      "lineStyle": {
+        "color": "#0e7c42",
+        "type": "dashed",
+        "width": 2.5,
+      },
+      "name": "PDRB",
+      "smooth": true,
+      "symbolSize": 7,
+      "type": "line",
+      "yAxisIndex": 1,
+    },
+  ],
+  "tooltip": {
+    "axisPointer": {
+      "type": "cross",
+    },
+    "trigger": "axis",
+    "valueFormatter": "fn:1.234,5|[object Object]|[object Object]|202401|—",
+  },
+  "xAxis": {
+    "axisLabel": {
+      "color": "#94a3b8",
+      "fontSize": 11,
+    },
+    "axisLine": {
+      "lineStyle": {
+        "color": "#e2e8f0",
+      },
+    },
+    "axisTick": {
+      "show": false,
+    },
+    "data": [
+      "2022",
+      "2023",
+    ],
+    "type": "category",
+  },
+  "yAxis": [
+    {
+      "alignTicks": false,
+      "axisLabel": {
+        "color": "#94a3b8",
+        "formatter": "fn:1.234,5|[object Object]|[object Object]|202401|ERR",
+      },
+      "name": "Tamu",
+      "nameTextStyle": {
+        "color": "#94a3b8",
+        "fontSize": 10,
+      },
+      "splitLine": {
+        "lineStyle": {
+          "color": "#eef2f7",
+        },
+      },
+      "type": "value",
+    },
+    {
+      "alignTicks": false,
+      "axisLabel": {
+        "color": "#94a3b8",
+        "formatter": "fn:1234.5%|[object Object]%|[object Object]%|202401%|null%",
+      },
+      "name": "PDRB",
+      "nameTextStyle": {
+        "color": "#94a3b8",
+        "fontSize": 10,
+      },
+      "position": "right",
+      "splitLine": {
+        "show": false,
+      },
+      "type": "value",
+    },
+  ],
+}
+`;
+
+exports[`builder opsi chart > Donut showPercent + colorMap — diperbesar 1`] = `
+{
+  "color": [
+    "#ed6b23",
+    "#f0a13a",
+    "#0e7c42",
+    "#2563eb",
+    "#7c3aed",
+    "#0891b2",
+    "#e11d48",
+    "#65a30d",
+    "#db2777",
+    "#0d9488",
+  ],
+  "legend": {
+    "bottom": 0,
+    "icon": "circle",
+    "itemGap": 12,
+    "itemHeight": 9,
+    "itemWidth": 9,
+    "left": "center",
+    "orient": "horizontal",
+    "pageIconSize": 9,
+    "pageTextStyle": {
+      "color": "#94a3b8",
+    },
+    "textStyle": {
+      "color": "#475569",
+      "fontSize": 11,
+    },
+    "type": "scroll",
+  },
+  "series": [
+    {
+      "avoidLabelOverlap": true,
+      "center": [
+        "50%",
+        "44%",
+      ],
+      "data": [
+        {
+          "name": "L00",
+          "value": 1000,
+        },
+        {
+          "itemStyle": {
+            "color": "#123456",
+          },
+          "name": "L01",
+          "value": 1137.25,
+        },
+        {
+          "name": "L02",
+          "value": 1274.5,
+        },
+        {
+          "name": "L03",
+          "value": 1411.75,
+        },
+      ],
+      "itemStyle": {
+        "borderColor": "#fff",
+        "borderWidth": 2,
+      },
+      "label": {
+        "color": "#33302b",
+        "fontSize": 12,
+        "fontWeight": 600,
+        "formatter": "fn:ERR|A
+12,3%|B
+0,5%|ERR|ERR",
+        "position": "outside",
+        "show": true,
+      },
+      "labelLine": {
+        "length": 6,
+        "length2": 6,
+        "show": true,
+      },
+      "minShowLabelAngle": 0,
+      "radius": [
+        "44%",
+        "64%",
+      ],
+      "type": "pie",
+    },
+  ],
+  "tooltip": {
+    "formatter": "fn:ERR|A: 1.234,5 (12.345%)|ERR|ERR|ERR",
+    "trigger": "item",
+  },
+}
+`;
+
+exports[`builder opsi chart > Donut showPercent + colorMap — normal 1`] = `
+{
+  "color": [
+    "#ed6b23",
+    "#f0a13a",
+    "#0e7c42",
+    "#2563eb",
+    "#7c3aed",
+    "#0891b2",
+    "#e11d48",
+    "#65a30d",
+    "#db2777",
+    "#0d9488",
+  ],
+  "legend": {
+    "bottom": 0,
+    "icon": "circle",
+    "itemGap": 12,
+    "itemHeight": 9,
+    "itemWidth": 9,
+    "left": "center",
+    "orient": "horizontal",
+    "pageIconSize": 9,
+    "pageTextStyle": {
+      "color": "#94a3b8",
+    },
+    "textStyle": {
+      "color": "#475569",
+      "fontSize": 11,
+    },
+    "type": "scroll",
+  },
+  "series": [
+    {
+      "avoidLabelOverlap": true,
+      "center": [
+        "50%",
+        "44%",
+      ],
+      "data": [
+        {
+          "name": "L00",
+          "value": 1000,
+        },
+        {
+          "itemStyle": {
+            "color": "#123456",
+          },
+          "name": "L01",
+          "value": 1137.25,
+        },
+        {
+          "name": "L02",
+          "value": 1274.5,
+        },
+        {
+          "name": "L03",
+          "value": 1411.75,
+        },
+      ],
+      "itemStyle": {
+        "borderColor": "#fff",
+        "borderWidth": 2,
+      },
+      "label": {
+        "color": "#33302b",
+        "fontSize": 11,
+        "fontWeight": 600,
+        "formatter": "fn:ERR|12,3%|0,5%|ERR|ERR",
+        "position": "outside",
+        "show": true,
+      },
+      "labelLine": {
+        "length": 6,
+        "length2": 6,
+        "show": true,
+      },
+      "minShowLabelAngle": 7,
+      "radius": [
+        "44%",
+        "64%",
+      ],
+      "type": "pie",
+    },
+  ],
+  "tooltip": {
+    "formatter": "fn:ERR|A: 1.234,5 (12.345%)|ERR|ERR|ERR",
+    "trigger": "item",
+  },
+}
+`;
+
+exports[`builder opsi chart > Donut — diperbesar 1`] = `
+{
+  "color": [
+    "#ed6b23",
+    "#f0a13a",
+    "#0e7c42",
+    "#2563eb",
+    "#7c3aed",
+    "#0891b2",
+    "#e11d48",
+    "#65a30d",
+    "#db2777",
+    "#0d9488",
+  ],
+  "legend": {
+    "bottom": 0,
+    "icon": "circle",
+    "itemGap": 12,
+    "itemHeight": 9,
+    "itemWidth": 9,
+    "left": "center",
+    "orient": "horizontal",
+    "pageIconSize": 9,
+    "pageTextStyle": {
+      "color": "#94a3b8",
+    },
+    "textStyle": {
+      "color": "#475569",
+      "fontSize": 11,
+    },
+    "type": "scroll",
+  },
+  "series": [
+    {
+      "avoidLabelOverlap": true,
+      "center": [
+        "50%",
+        "44%",
+      ],
+      "data": [
+        {
+          "name": "L00",
+          "value": 1000,
+        },
+        {
+          "name": "L01",
+          "value": 1137.25,
+        },
+        {
+          "name": "L02",
+          "value": 1274.5,
+        },
+        {
+          "name": "L03",
+          "value": 1411.75,
+        },
+        {
+          "itemStyle": {
+            "color": "#cbd5e1",
+          },
+          "name": "Lainnya",
+          "value": 50,
+        },
+      ],
+      "itemStyle": {
+        "borderColor": "#fff",
+        "borderWidth": 2,
+      },
+      "label": {
+        "color": "#33302b",
+        "fontSize": 12,
+        "fontWeight": 600,
+        "formatter": "fn:ERR|A
+1.234,5 (12,3%)|ERR|ERR|ERR",
+        "position": "outside",
+        "show": true,
+      },
+      "labelLine": {
+        "length": 6,
+        "length2": 6,
+        "show": true,
+      },
+      "minShowLabelAngle": 0,
+      "radius": [
+        "52%",
+        "74%",
+      ],
+      "type": "pie",
+    },
+  ],
+  "tooltip": {
+    "formatter": "fn:ERR|A: 1.234,5 (12.345%)|ERR|ERR|ERR",
+    "trigger": "item",
+  },
+}
+`;
+
+exports[`builder opsi chart > Donut — normal 1`] = `
+{
+  "color": [
+    "#ed6b23",
+    "#f0a13a",
+    "#0e7c42",
+    "#2563eb",
+    "#7c3aed",
+    "#0891b2",
+    "#e11d48",
+    "#65a30d",
+    "#db2777",
+    "#0d9488",
+  ],
+  "legend": {
+    "bottom": 0,
+    "icon": "circle",
+    "itemGap": 12,
+    "itemHeight": 9,
+    "itemWidth": 9,
+    "left": "center",
+    "orient": "horizontal",
+    "pageIconSize": 9,
+    "pageTextStyle": {
+      "color": "#94a3b8",
+    },
+    "textStyle": {
+      "color": "#475569",
+      "fontSize": 11,
+    },
+    "type": "scroll",
+  },
+  "series": [
+    {
+      "avoidLabelOverlap": true,
+      "center": [
+        "50%",
+        "44%",
+      ],
+      "data": [
+        {
+          "name": "L00",
+          "value": 1000,
+        },
+        {
+          "name": "L01",
+          "value": 1137.25,
+        },
+        {
+          "name": "L02",
+          "value": 1274.5,
+        },
+        {
+          "name": "L03",
+          "value": 1411.75,
+        },
+        {
+          "itemStyle": {
+            "color": "#cbd5e1",
+          },
+          "name": "Lainnya",
+          "value": 50,
+        },
+      ],
+      "itemStyle": {
+        "borderColor": "#fff",
+        "borderWidth": 2,
+      },
+      "label": {
+        "show": false,
+      },
+      "labelLine": {
+        "length": 6,
+        "length2": 6,
+        "show": false,
+      },
+      "minShowLabelAngle": 7,
+      "radius": [
+        "52%",
+        "74%",
+      ],
+      "type": "pie",
+    },
+  ],
+  "tooltip": {
+    "formatter": "fn:ERR|A: 1.234,5 (12.345%)|ERR|ERR|ERR",
+    "trigger": "item",
+  },
+}
+`;
+
+exports[`builder opsi chart > GroupedBars missingValue null — diperbesar 1`] = `
+{
+  "color": [
+    "#000",
+  ],
+  "dataZoom": [
+    {
+      "end": 100,
+      "filterMode": "none",
+      "start": 0,
+      "type": "inside",
+      "xAxisIndex": 0,
+    },
+    {
+      "borderColor": "#e2e8f0",
+      "bottom": 4,
+      "end": 100,
+      "fillerColor": "rgba(237, 107, 35, 0.15)",
+      "filterMode": "none",
+      "handleStyle": {
+        "borderColor": "#ed6b23",
+        "color": "#ed6b23",
+      },
+      "height": 20,
+      "start": 0,
+      "textStyle": {
+        "color": "#64748b",
+        "fontSize": 10,
+      },
+      "type": "slider",
+      "xAxisIndex": 0,
+    },
+  ],
+  "grid": {
+    "bottom": 42,
+    "containLabel": true,
+    "left": 6,
+    "right": 16,
+    "top": 30,
+  },
+  "legend": {
+    "icon": "circle",
+    "textStyle": {
+      "color": "#475569",
+      "fontSize": 11,
+    },
+    "top": 0,
+  },
+  "series": [
+    {
+      "barMaxWidth": 22,
+      "data": [
+        1000,
+        1137.25,
+        null,
+      ],
+      "itemStyle": {
+        "borderRadius": [
+          3,
+          3,
+          0,
+          0,
+        ],
+      },
+      "label": {
+        "color": "#334155",
+        "fontSize": 10,
+        "formatter": "fn:|1.234,5|||ERR",
+        "position": "top",
+        "show": true,
+      },
+      "labelLayout": {
+        "hideOverlap": true,
+      },
+      "name": "2024",
+      "type": "bar",
+    },
+  ],
+  "tooltip": {
+    "axisPointer": {
+      "type": "shadow",
+    },
+    "trigger": "axis",
+    "valueFormatter": "fn:1.234,5|[object Object]|[object Object]|202401|—",
+  },
+  "xAxis": {
+    "axisLabel": {
+      "color": "#94a3b8",
+      "fontSize": 11,
+    },
+    "axisLine": {
+      "lineStyle": {
+        "color": "#e2e8f0",
+      },
+    },
+    "axisTick": {
+      "show": false,
+    },
+    "data": [
+      "L00",
+      "L01",
+      "L02",
+    ],
+    "type": "category",
+  },
+  "yAxis": {
+    "axisLabel": {
+      "color": "#94a3b8",
+      "formatter": "fn:1.234,5|[object Object]|[object Object]|202401|ERR",
+    },
+    "splitLine": {
+      "lineStyle": {
+        "color": "#eef2f7",
+      },
+    },
+    "type": "value",
+  },
+}
+`;
+
+exports[`builder opsi chart > GroupedBars missingValue null — normal 1`] = `
+{
+  "color": [
+    "#000",
+  ],
+  "grid": {
+    "bottom": 6,
+    "containLabel": true,
+    "left": 6,
+    "right": 16,
+    "top": 30,
+  },
+  "legend": {
+    "icon": "circle",
+    "textStyle": {
+      "color": "#475569",
+      "fontSize": 11,
+    },
+    "top": 0,
+  },
+  "series": [
+    {
+      "barMaxWidth": 22,
+      "data": [
+        1000,
+        1137.25,
+        null,
+      ],
+      "itemStyle": {
+        "borderRadius": [
+          3,
+          3,
+          0,
+          0,
+        ],
+      },
+      "name": "2024",
+      "type": "bar",
+    },
+  ],
+  "tooltip": {
+    "axisPointer": {
+      "type": "shadow",
+    },
+    "trigger": "axis",
+    "valueFormatter": "fn:1.234,5|[object Object]|[object Object]|202401|—",
+  },
+  "xAxis": {
+    "axisLabel": {
+      "color": "#94a3b8",
+      "fontSize": 11,
+    },
+    "axisLine": {
+      "lineStyle": {
+        "color": "#e2e8f0",
+      },
+    },
+    "axisTick": {
+      "show": false,
+    },
+    "data": [
+      "L00",
+      "L01",
+      "L02",
+    ],
+    "type": "category",
+  },
+  "yAxis": {
+    "axisLabel": {
+      "color": "#94a3b8",
+      "formatter": "fn:1.234,5|[object Object]|[object Object]|202401|ERR",
+    },
+    "splitLine": {
+      "lineStyle": {
+        "color": "#eef2f7",
+      },
+    },
+    "type": "value",
+  },
+}
+`;
+
+exports[`builder opsi chart > GroupedBars — diperbesar 1`] = `
+{
+  "color": [
+    "#ed6b23",
+    "#f0a13a",
+    "#c2410c",
+    "#9a3412",
+    "#fb923c",
+    "#7c2d12",
+  ],
+  "dataZoom": [
+    {
+      "end": 100,
+      "filterMode": "none",
+      "start": 0,
+      "type": "inside",
+      "xAxisIndex": 0,
+    },
+    {
+      "borderColor": "#e2e8f0",
+      "bottom": 4,
+      "end": 100,
+      "fillerColor": "rgba(237, 107, 35, 0.15)",
+      "filterMode": "none",
+      "handleStyle": {
+        "borderColor": "#ed6b23",
+        "color": "#ed6b23",
+      },
+      "height": 20,
+      "start": 0,
+      "textStyle": {
+        "color": "#64748b",
+        "fontSize": 10,
+      },
+      "type": "slider",
+      "xAxisIndex": 0,
+    },
+  ],
+  "grid": {
+    "bottom": 42,
+    "containLabel": true,
+    "left": 6,
+    "right": 16,
+    "top": 30,
+  },
+  "legend": {
+    "icon": "circle",
+    "textStyle": {
+      "color": "#475569",
+      "fontSize": 11,
+    },
+    "top": 0,
+  },
+  "series": [
+    {
+      "barMaxWidth": 22,
+      "data": [
+        1000,
+        1137.25,
+        1274.5,
+      ],
+      "itemStyle": {
+        "borderRadius": [
+          3,
+          3,
+          0,
+          0,
+        ],
+      },
+      "label": {
+        "color": "#334155",
+        "fontSize": 10,
+        "formatter": "fn:|1.234,5 k|||ERR",
+        "position": "top",
+        "show": true,
+      },
+      "labelLayout": {
+        "hideOverlap": true,
+      },
+      "name": "2023",
+      "type": "bar",
+    },
+    {
+      "barMaxWidth": 22,
+      "data": [
+        1000,
+        1137.25,
+        0,
+      ],
+      "itemStyle": {
+        "borderRadius": [
+          3,
+          3,
+          0,
+          0,
+        ],
+      },
+      "label": {
+        "color": "#334155",
+        "fontSize": 10,
+        "formatter": "fn:|1.234,5 k|||ERR",
+        "position": "top",
+        "show": true,
+      },
+      "labelLayout": {
+        "hideOverlap": true,
+      },
+      "name": "2024",
+      "type": "bar",
+    },
+  ],
+  "tooltip": {
+    "axisPointer": {
+      "type": "shadow",
+    },
+    "trigger": "axis",
+    "valueFormatter": "fn:1.234,5 k|[object Object] k|[object Object] k|202401 k|—",
+  },
+  "xAxis": {
+    "axisLabel": {
+      "color": "#94a3b8",
+      "fontSize": 11,
+    },
+    "axisLine": {
+      "lineStyle": {
+        "color": "#e2e8f0",
+      },
+    },
+    "axisTick": {
+      "show": false,
+    },
+    "data": [
+      "L00",
+      "L01",
+      "L02",
+    ],
+    "type": "category",
+  },
+  "yAxis": {
+    "axisLabel": {
+      "color": "#94a3b8",
+      "formatter": "fn:1.234,5|[object Object]|[object Object]|202401|ERR",
+    },
+    "splitLine": {
+      "lineStyle": {
+        "color": "#eef2f7",
+      },
+    },
+    "type": "value",
+  },
+}
+`;
+
+exports[`builder opsi chart > GroupedBars — normal 1`] = `
+{
+  "color": [
+    "#ed6b23",
+    "#f0a13a",
+    "#c2410c",
+    "#9a3412",
+    "#fb923c",
+    "#7c2d12",
+  ],
+  "grid": {
+    "bottom": 6,
+    "containLabel": true,
+    "left": 6,
+    "right": 16,
+    "top": 30,
+  },
+  "legend": {
+    "icon": "circle",
+    "textStyle": {
+      "color": "#475569",
+      "fontSize": 11,
+    },
+    "top": 0,
+  },
+  "series": [
+    {
+      "barMaxWidth": 22,
+      "data": [
+        1000,
+        1137.25,
+        1274.5,
+      ],
+      "itemStyle": {
+        "borderRadius": [
+          3,
+          3,
+          0,
+          0,
+        ],
+      },
+      "name": "2023",
+      "type": "bar",
+    },
+    {
+      "barMaxWidth": 22,
+      "data": [
+        1000,
+        1137.25,
+        0,
+      ],
+      "itemStyle": {
+        "borderRadius": [
+          3,
+          3,
+          0,
+          0,
+        ],
+      },
+      "name": "2024",
+      "type": "bar",
+    },
+  ],
+  "tooltip": {
+    "axisPointer": {
+      "type": "shadow",
+    },
+    "trigger": "axis",
+    "valueFormatter": "fn:1.234,5 k|[object Object] k|[object Object] k|202401 k|—",
+  },
+  "xAxis": {
+    "axisLabel": {
+      "color": "#94a3b8",
+      "fontSize": 11,
+    },
+    "axisLine": {
+      "lineStyle": {
+        "color": "#e2e8f0",
+      },
+    },
+    "axisTick": {
+      "show": false,
+    },
+    "data": [
+      "L00",
+      "L01",
+      "L02",
+    ],
+    "type": "category",
+  },
+  "yAxis": {
+    "axisLabel": {
+      "color": "#94a3b8",
+      "formatter": "fn:1.234,5|[object Object]|[object Object]|202401|ERR",
+    },
+    "splitLine": {
+      "lineStyle": {
+        "color": "#eef2f7",
+      },
+    },
+    "type": "value",
+  },
+}
+`;
+
+exports[`builder opsi chart > GroupedLines — diperbesar 1`] = `
+{
+  "color": [
+    "#ed6b23",
+    "#f0a13a",
+    "#0e7c42",
+    "#b3261e",
+    "#7c3aed",
+    "#0891b2",
+  ],
+  "dataZoom": [
+    {
+      "end": 100,
+      "filterMode": "none",
+      "start": 0,
+      "type": "inside",
+      "xAxisIndex": 0,
+    },
+    {
+      "borderColor": "#e2e8f0",
+      "bottom": 4,
+      "end": 100,
+      "fillerColor": "rgba(237, 107, 35, 0.15)",
+      "filterMode": "none",
+      "handleStyle": {
+        "borderColor": "#ed6b23",
+        "color": "#ed6b23",
+      },
+      "height": 20,
+      "start": 0,
+      "textStyle": {
+        "color": "#64748b",
+        "fontSize": 10,
+      },
+      "type": "slider",
+      "xAxisIndex": 0,
+    },
+  ],
+  "grid": {
+    "bottom": 42,
+    "containLabel": true,
+    "left": 6,
+    "right": 16,
+    "top": 30,
+  },
+  "legend": {
+    "textStyle": {
+      "color": "#475569",
+      "fontSize": 12,
+    },
+    "top": 0,
+  },
+  "series": [
+    {
+      "connectNulls": true,
+      "data": [
+        null,
+        1200,
+        1530.5,
+        980,
+      ],
+      "label": {
+        "color": "#334155",
+        "fontSize": 10,
+        "formatter": "fn:|1.234,5|||ERR",
+        "position": "top",
+        "show": true,
+      },
+      "labelLayout": {
+        "hideOverlap": true,
+      },
+      "name": "B3",
+      "smooth": true,
+      "symbol": "circle",
+      "symbolSize": 5,
+      "type": "line",
+    },
+    {
+      "connectNulls": true,
+      "data": [
+        5,
+        null,
+        1530.5,
+        980,
+      ],
+      "label": {
+        "color": "#334155",
+        "fontSize": 10,
+        "formatter": "fn:|1.234,5|||ERR",
+        "position": "top",
+        "show": true,
+      },
+      "labelLayout": {
+        "hideOverlap": true,
+      },
+      "name": "B4",
+      "smooth": true,
+      "symbol": "circle",
+      "symbolSize": 5,
+      "type": "line",
+    },
+  ],
+  "tooltip": {
+    "trigger": "axis",
+    "valueFormatter": "fn:1.234,5|[object Object]|[object Object]|202401|ERR",
+  },
+  "xAxis": {
+    "axisLabel": {
+      "color": "#94a3b8",
+      "fontSize": 11,
+    },
+    "axisLine": {
+      "lineStyle": {
+        "color": "#e2e8f0",
+      },
+    },
+    "axisTick": {
+      "show": false,
+    },
+    "data": [
+      "202312",
+      "202401",
+      "202402",
+      "202403",
+    ],
+    "type": "category",
+  },
+  "yAxis": {
+    "axisLabel": {
+      "color": "#94a3b8",
+      "formatter": "fn:1.234,5|[object Object]|[object Object]|202401|ERR",
+    },
+    "splitLine": {
+      "lineStyle": {
+        "color": "#eef2f7",
+      },
+    },
+    "type": "value",
+  },
+}
+`;
+
+exports[`builder opsi chart > GroupedLines — normal 1`] = `
+{
+  "color": [
+    "#ed6b23",
+    "#f0a13a",
+    "#0e7c42",
+    "#b3261e",
+    "#7c3aed",
+    "#0891b2",
+  ],
+  "grid": {
+    "bottom": 6,
+    "containLabel": true,
+    "left": 6,
+    "right": 16,
+    "top": 30,
+  },
+  "legend": {
+    "textStyle": {
+      "color": "#475569",
+      "fontSize": 12,
+    },
+    "top": 0,
+  },
+  "series": [
+    {
+      "connectNulls": true,
+      "data": [
+        null,
+        1200,
+        1530.5,
+        980,
+      ],
+      "name": "B3",
+      "smooth": true,
+      "symbol": "circle",
+      "symbolSize": 5,
+      "type": "line",
+    },
+    {
+      "connectNulls": true,
+      "data": [
+        5,
+        null,
+        1530.5,
+        980,
+      ],
+      "name": "B4",
+      "smooth": true,
+      "symbol": "circle",
+      "symbolSize": 5,
+      "type": "line",
+    },
+  ],
+  "tooltip": {
+    "trigger": "axis",
+    "valueFormatter": "fn:1.234,5|[object Object]|[object Object]|202401|ERR",
+  },
+  "xAxis": {
+    "axisLabel": {
+      "color": "#94a3b8",
+      "fontSize": 11,
+    },
+    "axisLine": {
+      "lineStyle": {
+        "color": "#e2e8f0",
+      },
+    },
+    "axisTick": {
+      "show": false,
+    },
+    "data": [
+      "202312",
+      "202401",
+      "202402",
+      "202403",
+    ],
+    "type": "category",
+  },
+  "yAxis": {
+    "axisLabel": {
+      "color": "#94a3b8",
+      "formatter": "fn:1.234,5|[object Object]|[object Object]|202401|ERR",
+    },
+    "splitLine": {
+      "lineStyle": {
+        "color": "#eef2f7",
+      },
+    },
+    "type": "value",
+  },
+}
+`;
+
+exports[`builder opsi chart > LineTrend unit — diperbesar 1`] = `
+{
+  "dataZoom": [
+    {
+      "end": 60,
+      "filterMode": "none",
+      "start": 0,
+      "type": "inside",
+      "xAxisIndex": 0,
+    },
+    {
+      "borderColor": "#e2e8f0",
+      "bottom": 4,
+      "end": 60,
+      "fillerColor": "rgba(237, 107, 35, 0.15)",
+      "filterMode": "none",
+      "handleStyle": {
+        "borderColor": "#ed6b23",
+        "color": "#ed6b23",
+      },
+      "height": 20,
+      "start": 0,
+      "textStyle": {
+        "color": "#64748b",
+        "fontSize": 10,
+      },
+      "type": "slider",
+      "xAxisIndex": 0,
+    },
+  ],
+  "grid": {
+    "bottom": 60,
+    "containLabel": true,
+    "left": 6,
+    "right": 30,
+    "top": 28,
+  },
+  "series": [
+    {
+      "areaStyle": {
+        "color": {
+          "colorStops": [
+            {
+              "color": "rgba(237, 107, 35,0.28)",
+              "offset": 0,
+            },
+            {
+              "color": "rgba(237, 107, 35,0.02)",
+              "offset": 1,
+            },
+          ],
+          "global": false,
+          "type": "linear",
+          "x": 0,
+          "x2": 0,
+          "y": 0,
+          "y2": 1,
+        },
+      },
+      "data": [
+        1000,
+        1137.25,
+        1274.5,
+        1411.75,
+        1549,
+        1686.25,
+        1823.5,
+        1960.75,
+        2098,
+        2235.25,
+        2372.5,
+        2509.75,
+        2647,
+        2784.25,
+        2921.5,
+        3058.75,
+        3196,
+        3333.25,
+        3470.5,
+        3607.75,
+        3745,
+        3882.25,
+        4019.5,
+        4156.75,
+        4294,
+        4431.25,
+        4568.5,
+        4705.75,
+        4843,
+        4980.25,
+      ],
+      "itemStyle": {
+        "color": "#ed6b23",
+      },
+      "label": {
+        "color": "#334155",
+        "fontSize": 11,
+        "formatter": "fn:ERR|1.234,5|ERR|ERR|ERR",
+        "position": "top",
+        "show": true,
+      },
+      "lineStyle": {
+        "color": "#ed6b23",
+        "width": 2.5,
+      },
+      "smooth": true,
+      "symbol": "circle",
+      "symbolSize": 6,
+      "type": "line",
+    },
+  ],
+  "tooltip": {
+    "trigger": "axis",
+    "valueFormatter": "fn:1.234,5 tamu|[object Object] tamu|[object Object] tamu|202401 tamu|ERR",
+  },
+  "xAxis": {
+    "axisLabel": {
+      "color": "#94a3b8",
+      "fontSize": 11,
+      "formatter": "fn:1234.5|[object Object]|[object Object]|Jan 2024|",
+      "hideOverlap": true,
+      "showMaxLabel": true,
+    },
+    "axisLine": {
+      "lineStyle": {
+        "color": "#e2e8f0",
+      },
+    },
+    "axisTick": {
+      "show": false,
+    },
+    "boundaryGap": false,
+    "data": [
+      "L00",
+      "L01",
+      "L02",
+      "L03",
+      "L04",
+      "L05",
+      "L06",
+      "L07",
+      "L08",
+      "L09",
+      "L10",
+      "L11",
+      "L12",
+      "L13",
+      "L14",
+      "L15",
+      "L16",
+      "L17",
+      "L18",
+      "L19",
+      "L20",
+      "L21",
+      "L22",
+      "L23",
+      "L24",
+      "L25",
+      "L26",
+      "L27",
+      "L28",
+      "L29",
+    ],
+    "name": "Periode",
+    "nameGap": 34,
+    "nameLocation": "middle",
+    "nameTextStyle": {
+      "color": "#94a3b8",
+      "fontSize": 11,
+    },
+    "type": "category",
+  },
+  "yAxis": {
+    "axisLabel": {
+      "color": "#94a3b8",
+      "formatter": "fn:1.234,5|[object Object]|[object Object]|202401|ERR",
+    },
+    "name": "Tamu",
+    "nameTextStyle": {
+      "align": "left",
+      "color": "#94a3b8",
+      "fontSize": 11,
+    },
+    "splitLine": {
+      "lineStyle": {
+        "color": "#eef2f7",
+      },
+    },
+    "type": "value",
+  },
+}
+`;
+
+exports[`builder opsi chart > LineTrend unit — normal 1`] = `
+{
+  "grid": {
+    "bottom": 24,
+    "containLabel": true,
+    "left": 6,
+    "right": 30,
+    "top": 16,
+  },
+  "series": [
+    {
+      "areaStyle": {
+        "color": {
+          "colorStops": [
+            {
+              "color": "rgba(237, 107, 35,0.28)",
+              "offset": 0,
+            },
+            {
+              "color": "rgba(237, 107, 35,0.02)",
+              "offset": 1,
+            },
+          ],
+          "global": false,
+          "type": "linear",
+          "x": 0,
+          "x2": 0,
+          "y": 0,
+          "y2": 1,
+        },
+      },
+      "data": [
+        1000,
+        1137.25,
+        1274.5,
+        1411.75,
+        1549,
+        1686.25,
+        1823.5,
+        1960.75,
+        2098,
+        2235.25,
+        2372.5,
+        2509.75,
+        2647,
+        2784.25,
+        2921.5,
+        3058.75,
+        3196,
+        3333.25,
+        3470.5,
+        3607.75,
+        3745,
+        3882.25,
+        4019.5,
+        4156.75,
+        4294,
+        4431.25,
+        4568.5,
+        4705.75,
+        4843,
+        4980.25,
+      ],
+      "itemStyle": {
+        "color": "#ed6b23",
+      },
+      "lineStyle": {
+        "color": "#ed6b23",
+        "width": 2.5,
+      },
+      "smooth": true,
+      "symbol": "circle",
+      "symbolSize": 6,
+      "type": "line",
+    },
+  ],
+  "tooltip": {
+    "trigger": "axis",
+    "valueFormatter": "fn:1.234,5 tamu|[object Object] tamu|[object Object] tamu|202401 tamu|ERR",
+  },
+  "xAxis": {
+    "axisLabel": {
+      "color": "#94a3b8",
+      "fontSize": 11,
+      "formatter": "fn:1234.5|[object Object]|[object Object]|Jan 2024|",
+      "hideOverlap": true,
+      "showMaxLabel": true,
+    },
+    "axisLine": {
+      "lineStyle": {
+        "color": "#e2e8f0",
+      },
+    },
+    "axisTick": {
+      "show": false,
+    },
+    "boundaryGap": false,
+    "data": [
+      "L00",
+      "L01",
+      "L02",
+      "L03",
+      "L04",
+      "L05",
+      "L06",
+      "L07",
+      "L08",
+      "L09",
+      "L10",
+      "L11",
+      "L12",
+      "L13",
+      "L14",
+      "L15",
+      "L16",
+      "L17",
+      "L18",
+      "L19",
+      "L20",
+      "L21",
+      "L22",
+      "L23",
+      "L24",
+      "L25",
+      "L26",
+      "L27",
+      "L28",
+      "L29",
+    ],
+    "name": "Periode",
+    "nameGap": 34,
+    "nameLocation": "middle",
+    "nameTextStyle": {
+      "color": "#94a3b8",
+      "fontSize": 11,
+    },
+    "type": "category",
+  },
+  "yAxis": {
+    "axisLabel": {
+      "color": "#94a3b8",
+      "formatter": "fn:1.234,5|[object Object]|[object Object]|202401|ERR",
+    },
+    "name": "Tamu",
+    "nameTextStyle": {
+      "align": "left",
+      "color": "#94a3b8",
+      "fontSize": 11,
+    },
+    "splitLine": {
+      "lineStyle": {
+        "color": "#eef2f7",
+      },
+    },
+    "type": "value",
+  },
+}
+`;
+
+exports[`builder opsi chart > LineTrend — diperbesar 1`] = `
+{
+  "dataZoom": [
+    {
+      "end": 100,
+      "filterMode": "none",
+      "start": 0,
+      "type": "inside",
+      "xAxisIndex": 0,
+    },
+    {
+      "borderColor": "#e2e8f0",
+      "bottom": 4,
+      "end": 100,
+      "fillerColor": "rgba(237, 107, 35, 0.15)",
+      "filterMode": "none",
+      "handleStyle": {
+        "borderColor": "#ed6b23",
+        "color": "#ed6b23",
+      },
+      "height": 20,
+      "start": 0,
+      "textStyle": {
+        "color": "#64748b",
+        "fontSize": 10,
+      },
+      "type": "slider",
+      "xAxisIndex": 0,
+    },
+  ],
+  "grid": {
+    "bottom": 60,
+    "containLabel": true,
+    "left": 6,
+    "right": 30,
+    "top": 28,
+  },
+  "series": [
+    {
+      "areaStyle": {
+        "color": {
+          "colorStops": [
+            {
+              "color": "rgba(237, 107, 35,0.28)",
+              "offset": 0,
+            },
+            {
+              "color": "rgba(237, 107, 35,0.02)",
+              "offset": 1,
+            },
+          ],
+          "global": false,
+          "type": "linear",
+          "x": 0,
+          "x2": 0,
+          "y": 0,
+          "y2": 1,
+        },
+      },
+      "data": [
+        1200,
+        1530.5,
+        980,
+      ],
+      "itemStyle": {
+        "color": "#ed6b23",
+      },
+      "label": {
+        "color": "#334155",
+        "fontSize": 11,
+        "formatter": "fn:ERR|1.234,5|ERR|ERR|ERR",
+        "position": "top",
+        "show": true,
+      },
+      "lineStyle": {
+        "color": "#ed6b23",
+        "width": 2.5,
+      },
+      "smooth": true,
+      "symbol": "circle",
+      "symbolSize": 6,
+      "type": "line",
+    },
+  ],
+  "tooltip": {
+    "trigger": "axis",
+    "valueFormatter": "fn:1.234,5 kunjungan|[object Object] kunjungan|[object Object] kunjungan|202401 kunjungan|ERR",
+  },
+  "xAxis": {
+    "axisLabel": {
+      "color": "#94a3b8",
+      "fontSize": 11,
+      "formatter": "fn:1234.5|[object Object]|[object Object]|Jan 2024|",
+      "hideOverlap": true,
+      "showMaxLabel": true,
+    },
+    "axisLine": {
+      "lineStyle": {
+        "color": "#e2e8f0",
+      },
+    },
+    "axisTick": {
+      "show": false,
+    },
+    "boundaryGap": false,
+    "data": [
+      "202401",
+      "202402",
+      "202403",
+    ],
+    "name": "Periode",
+    "nameGap": 34,
+    "nameLocation": "middle",
+    "nameTextStyle": {
+      "color": "#94a3b8",
+      "fontSize": 11,
+    },
+    "type": "category",
+  },
+  "yAxis": {
+    "axisLabel": {
+      "color": "#94a3b8",
+      "formatter": "fn:1.234,5|[object Object]|[object Object]|202401|ERR",
+    },
+    "name": "Kunjungan",
+    "nameTextStyle": {
+      "align": "left",
+      "color": "#94a3b8",
+      "fontSize": 11,
+    },
+    "splitLine": {
+      "lineStyle": {
+        "color": "#eef2f7",
+      },
+    },
+    "type": "value",
+  },
+}
+`;
+
+exports[`builder opsi chart > LineTrend — normal 1`] = `
+{
+  "grid": {
+    "bottom": 24,
+    "containLabel": true,
+    "left": 6,
+    "right": 30,
+    "top": 16,
+  },
+  "series": [
+    {
+      "areaStyle": {
+        "color": {
+          "colorStops": [
+            {
+              "color": "rgba(237, 107, 35,0.28)",
+              "offset": 0,
+            },
+            {
+              "color": "rgba(237, 107, 35,0.02)",
+              "offset": 1,
+            },
+          ],
+          "global": false,
+          "type": "linear",
+          "x": 0,
+          "x2": 0,
+          "y": 0,
+          "y2": 1,
+        },
+      },
+      "data": [
+        1200,
+        1530.5,
+        980,
+      ],
+      "itemStyle": {
+        "color": "#ed6b23",
+      },
+      "lineStyle": {
+        "color": "#ed6b23",
+        "width": 2.5,
+      },
+      "smooth": true,
+      "symbol": "circle",
+      "symbolSize": 6,
+      "type": "line",
+    },
+  ],
+  "tooltip": {
+    "trigger": "axis",
+    "valueFormatter": "fn:1.234,5 kunjungan|[object Object] kunjungan|[object Object] kunjungan|202401 kunjungan|ERR",
+  },
+  "xAxis": {
+    "axisLabel": {
+      "color": "#94a3b8",
+      "fontSize": 11,
+      "formatter": "fn:1234.5|[object Object]|[object Object]|Jan 2024|",
+      "hideOverlap": true,
+      "showMaxLabel": true,
+    },
+    "axisLine": {
+      "lineStyle": {
+        "color": "#e2e8f0",
+      },
+    },
+    "axisTick": {
+      "show": false,
+    },
+    "boundaryGap": false,
+    "data": [
+      "202401",
+      "202402",
+      "202403",
+    ],
+    "name": "Periode",
+    "nameGap": 34,
+    "nameLocation": "middle",
+    "nameTextStyle": {
+      "color": "#94a3b8",
+      "fontSize": 11,
+    },
+    "type": "category",
+  },
+  "yAxis": {
+    "axisLabel": {
+      "color": "#94a3b8",
+      "formatter": "fn:1.234,5|[object Object]|[object Object]|202401|ERR",
+    },
+    "name": "Kunjungan",
+    "nameTextStyle": {
+      "align": "left",
+      "color": "#94a3b8",
+      "fontSize": 11,
+    },
+    "splitLine": {
+      "lineStyle": {
+        "color": "#eef2f7",
+      },
+    },
+    "type": "value",
+  },
+}
+`;
+
+exports[`builder opsi chart > Treemap — diperbesar 1`] = `
+{
+  "series": [
+    {
+      "bottom": 2,
+      "breadcrumb": {
+        "show": false,
+      },
+      "data": [
+        {
+          "itemStyle": {
+            "color": "#ed6b23",
+          },
+          "name": "L00",
+          "value": 1000,
+        },
+        {
+          "itemStyle": {
+            "color": "#f0a13a",
+          },
+          "name": "L01",
+          "value": 1137.25,
+        },
+        {
+          "itemStyle": {
+            "color": "#c2410c",
+          },
+          "name": "L02",
+          "value": 1274.5,
+        },
+        {
+          "itemStyle": {
+            "color": "#f4a672",
+          },
+          "name": "L03",
+          "value": 1411.75,
+        },
+        {
+          "itemStyle": {
+            "color": "#9a3412",
+          },
+          "name": "L04",
+          "value": 1549,
+        },
+        {
+          "itemStyle": {
+            "color": "#fb923c",
+          },
+          "name": "L05",
+          "value": 1686.25,
+        },
+        {
+          "itemStyle": {
+            "color": "#b45309",
+          },
+          "name": "L06",
+          "value": 1823.5,
+        },
+        {
+          "itemStyle": {
+            "color": "#ea580c",
+          },
+          "name": "L07",
+          "value": 1960.75,
+        },
+        {
+          "itemStyle": {
+            "color": "#fdba74",
+          },
+          "name": "L08",
+          "value": 2098,
+        },
+        {
+          "itemStyle": {
+            "color": "#7c2d12",
+          },
+          "name": "L09",
+          "value": 2235.25,
+        },
+        {
+          "itemStyle": {
+            "color": "#ed6b23",
+          },
+          "name": "L10",
+          "value": 2372.5,
+        },
+        {
+          "itemStyle": {
+            "color": "#f0a13a",
+          },
+          "name": "L11",
+          "value": 2509.75,
+        },
+      ],
+      "height": "100%",
+      "itemStyle": {
+        "borderColor": "#fff",
+        "borderWidth": 2,
+        "gapWidth": 2,
+      },
+      "label": {
+        "color": "#fff",
+        "fontSize": 13,
+        "formatter": "fn:ERR|A
+1.234,5 (5.9%)|ERR|ERR|ERR",
+        "show": true,
+      },
+      "left": 2,
+      "nodeClick": false,
+      "right": 2,
+      "roam": false,
+      "top": 2,
+      "type": "treemap",
+      "width": "100%",
+    },
+  ],
+  "tooltip": {
+    "formatter": "fn:ERR|A<br/><b>1.234,5</b> (5.9%)|ERR|ERR|ERR",
+  },
+}
+`;
+
+exports[`builder opsi chart > Treemap — normal 1`] = `
+{
+  "series": [
+    {
+      "bottom": 2,
+      "breadcrumb": {
+        "show": false,
+      },
+      "data": [
+        {
+          "itemStyle": {
+            "color": "#ed6b23",
+          },
+          "name": "L00",
+          "value": 1000,
+        },
+        {
+          "itemStyle": {
+            "color": "#f0a13a",
+          },
+          "name": "L01",
+          "value": 1137.25,
+        },
+        {
+          "itemStyle": {
+            "color": "#c2410c",
+          },
+          "name": "L02",
+          "value": 1274.5,
+        },
+        {
+          "itemStyle": {
+            "color": "#f4a672",
+          },
+          "name": "L03",
+          "value": 1411.75,
+        },
+        {
+          "itemStyle": {
+            "color": "#9a3412",
+          },
+          "name": "L04",
+          "value": 1549,
+        },
+        {
+          "itemStyle": {
+            "color": "#fb923c",
+          },
+          "name": "L05",
+          "value": 1686.25,
+        },
+        {
+          "itemStyle": {
+            "color": "#b45309",
+          },
+          "name": "L06",
+          "value": 1823.5,
+        },
+        {
+          "itemStyle": {
+            "color": "#ea580c",
+          },
+          "name": "L07",
+          "value": 1960.75,
+        },
+        {
+          "itemStyle": {
+            "color": "#fdba74",
+          },
+          "name": "L08",
+          "value": 2098,
+        },
+        {
+          "itemStyle": {
+            "color": "#7c2d12",
+          },
+          "name": "L09",
+          "value": 2235.25,
+        },
+        {
+          "itemStyle": {
+            "color": "#ed6b23",
+          },
+          "name": "L10",
+          "value": 2372.5,
+        },
+        {
+          "itemStyle": {
+            "color": "#f0a13a",
+          },
+          "name": "L11",
+          "value": 2509.75,
+        },
+      ],
+      "height": "100%",
+      "itemStyle": {
+        "borderColor": "#fff",
+        "borderWidth": 2,
+        "gapWidth": 2,
+      },
+      "label": {
+        "color": "#fff",
+        "fontSize": 11,
+        "formatter": "{b}",
+        "show": true,
+      },
+      "left": 2,
+      "nodeClick": false,
+      "right": 2,
+      "roam": false,
+      "top": 2,
+      "type": "treemap",
+      "width": "100%",
+    },
+  ],
+  "tooltip": {
+    "formatter": "fn:ERR|A<br/><b>1.234,5</b> (5.9%)|ERR|ERR|ERR",
+  },
+}
+`;
+
+exports[`builder opsi chart > VerticalBars — diperbesar 1`] = `
+{
+  "dataZoom": [
+    {
+      "end": 100,
+      "filterMode": "none",
+      "start": 0,
+      "type": "inside",
+      "xAxisIndex": 0,
+    },
+    {
+      "borderColor": "#e2e8f0",
+      "bottom": 4,
+      "end": 100,
+      "fillerColor": "rgba(237, 107, 35, 0.15)",
+      "filterMode": "none",
+      "handleStyle": {
+        "borderColor": "#ed6b23",
+        "color": "#ed6b23",
+      },
+      "height": 20,
+      "start": 0,
+      "textStyle": {
+        "color": "#64748b",
+        "fontSize": 10,
+      },
+      "type": "slider",
+      "xAxisIndex": 0,
+    },
+  ],
+  "grid": {
+    "bottom": 60,
+    "containLabel": true,
+    "left": 6,
+    "right": 16,
+    "top": 28,
+  },
+  "series": [
+    {
+      "barMaxWidth": 34,
+      "data": [
+        1000,
+        1137.25,
+        1274.5,
+        1411.75,
+        1549,
+        1686.25,
+        1823.5,
+        1960.75,
+      ],
+      "itemStyle": {
+        "borderRadius": [
+          4,
+          4,
+          0,
+          0,
+        ],
+        "color": "#0e7c42",
+      },
+      "label": {
+        "color": "#334155",
+        "fontSize": 11,
+        "formatter": "fn:ERR|1.234,5%|ERR|ERR|ERR",
+        "position": "top",
+        "show": true,
+      },
+      "type": "bar",
+    },
+  ],
+  "tooltip": {
+    "axisPointer": {
+      "type": "shadow",
+    },
+    "trigger": "axis",
+    "valueFormatter": "fn:1.234,5%|[object Object]%|[object Object]%|202401%|ERR",
+  },
+  "xAxis": {
+    "axisLabel": {
+      "color": "#94a3b8",
+      "fontSize": 11,
+      "hideOverlap": true,
+    },
+    "axisLine": {
+      "lineStyle": {
+        "color": "#e2e8f0",
+      },
+    },
+    "axisTick": {
+      "show": false,
+    },
+    "data": [
+      "L00!",
+      "L01!",
+      "L02!",
+      "L03!",
+      "L04!",
+      "L05!",
+      "L06!",
+      "L07!",
+    ],
+    "type": "category",
+  },
+  "yAxis": {
+    "axisLabel": {
+      "color": "#94a3b8",
+      "formatter": "fn:1.234,5|[object Object]|[object Object]|202401|ERR",
+    },
+    "splitLine": {
+      "lineStyle": {
+        "color": "#eef2f7",
+      },
+    },
+    "type": "value",
+  },
+}
+`;
+
+exports[`builder opsi chart > VerticalBars — normal 1`] = `
+{
+  "grid": {
+    "bottom": 24,
+    "containLabel": true,
+    "left": 6,
+    "right": 16,
+    "top": 16,
+  },
+  "series": [
+    {
+      "barMaxWidth": 34,
+      "data": [
+        1000,
+        1137.25,
+        1274.5,
+        1411.75,
+        1549,
+        1686.25,
+        1823.5,
+        1960.75,
+      ],
+      "itemStyle": {
+        "borderRadius": [
+          4,
+          4,
+          0,
+          0,
+        ],
+        "color": "#0e7c42",
+      },
+      "type": "bar",
+    },
+  ],
+  "tooltip": {
+    "axisPointer": {
+      "type": "shadow",
+    },
+    "trigger": "axis",
+    "valueFormatter": "fn:1.234,5%|[object Object]%|[object Object]%|202401%|ERR",
+  },
+  "xAxis": {
+    "axisLabel": {
+      "color": "#94a3b8",
+      "fontSize": 11,
+      "hideOverlap": true,
+    },
+    "axisLine": {
+      "lineStyle": {
+        "color": "#e2e8f0",
+      },
+    },
+    "axisTick": {
+      "show": false,
+    },
+    "data": [
+      "L00!",
+      "L01!",
+      "L02!",
+      "L03!",
+      "L04!",
+      "L05!",
+      "L06!",
+      "L07!",
+    ],
+    "type": "category",
+  },
+  "yAxis": {
+    "axisLabel": {
+      "color": "#94a3b8",
+      "formatter": "fn:1.234,5|[object Object]|[object Object]|202401|ERR",
+    },
+    "splitLine": {
+      "lineStyle": {
+        "color": "#eef2f7",
+      },
+    },
+    "type": "value",
+  },
+}
+`;

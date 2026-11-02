@@ -1,0 +1,8 @@
+{
+  "kunci": "/v1/health",
+  "status": 200,
+  "headers": {
+    "content-type": "application/json"
+  },
+  "body": "{\"status\":\"ok\",\"clickhouse\":\"ok\",\"versi\":\"0.1.0\"}"
+}

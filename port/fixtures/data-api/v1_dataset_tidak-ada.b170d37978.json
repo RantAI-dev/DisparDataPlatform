@@ -1,0 +1,8 @@
+{
+  "kunci": "/v1/dataset/tidak-ada",
+  "status": 404,
+  "headers": {
+    "content-type": "application/json"
+  },
+  "body": "{\"error\":{\"code\":\"NOT_FOUND\",\"message\":\"Dataset belum tersedia di lakehouse\",\"detail\":null}}"
+}

@@ -1,0 +1,8 @@
+{
+  "kunci": "/v1/dashboard/ringkasan",
+  "status": 200,
+  "headers": {
+    "content-type": "application/json"
+  },
+  "body": "{\"data\":{\"wisman\":{\"tahun\":\"2025\",\"jumlah\":2754220,\"target\":1286092},\"pdrb\":{\"tahun\":\"2024\",\"kontribusi_pct\":11.16,\"target_tahun\":\"2025\",\"target_pct\":10.51,\"adhb_ekraf_miliar\":410568.43,\"tumbuh_ekraf_pct\":8.13,\"tumbuh_dki_pct\":4.91},\"kpi\":[{\"label\":\"Wisman 2025\",\"value\":2754220,\"sub\":\"target RPJMD 1.286.092\"},{\"label\":\"Kontribusi PDRB Ekraf 2024\",\"value\":\"11,16%\",\"sub\":\"target 2025 10,51%\"},{\"label\":\"Nilai PDRB Ekraf 2024\",\"value\":\"Rp 411 T\",\"sub\":\"ADHB\"},{\"label\":\"Pertumbuhan Ekraf 2024\",\"value\":\"8,13%\",\"sub\":\"DKI 4,91%\"}]},\"meta\":{\"generated_at\":\"2026-10-28T21:45:15+07:00\",\"source\":[\"serving.mart_wisman\",\"lake.bronze_file.target_wisman\",\"lake.bronze_file.pdrb_ekraf_makro\",\"lake.bronze_file.target_kontribusi_ekraf_rpjmd\"],\"request_id\":\"6d177376887c48cd81f92e8947185f20\"}}"
+}

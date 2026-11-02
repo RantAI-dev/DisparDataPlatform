@@ -1,0 +1,8 @@
+{
+  "kunci": "/v1/dashboard/wisman/kebangsaan?tahun=2025&top=10",
+  "status": 200,
+  "headers": {
+    "content-type": "application/json"
+  },
+  "body": "{\"data\":{\"periode\":\"2025\",\"label\":\"2025\",\"items\":[{\"label\":\"Tiongkok\",\"value\":504574},{\"label\":\"Malaysia\",\"value\":469695},{\"label\":\"Singapura\",\"value\":221748},{\"label\":\"Jepang\",\"value\":139700},{\"label\":\"Arab Saudi\",\"value\":127167},{\"label\":\"Korea Selatan\",\"value\":109622},{\"label\":\"Amerika Serikat\",\"value\":88976},{\"label\":\"Australia\",\"value\":77605},{\"label\":\"India\",\"value\":74889},{\"label\":\"Belanda\",\"value\":72633},{\"label\":\"Lainnya\",\"value\":867611}]},\"meta\":{\"generated_at\":\"2026-10-28T21:45:15+07:00\",\"source\":[\"serving.mart_wisman\"],\"request_id\":\"8f9dca51fb044e5fb2d49d3171194c61\"}}"
+}

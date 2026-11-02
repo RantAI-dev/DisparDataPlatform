@@ -1,0 +1,91 @@
+# Lingkungan pengembangan lokal portal (plan 10). Bukan untuk produksi: deploy ada di deploy/ (plan 19).
+# Sandi di sini hanya untuk Oracle XE lokal; timpa lewat port/.env bila perlu.
+name: dispar-portal
+
+services:
+  oracle:
+    image: gvenzl/oracle-xe:18-slim
+    environment:
+      ORACLE_PASSWORD: ${ORACLE_PASSWORD:-portal_dev}
+      APP_USER: ${DB_USERNAME:-portal}
+      APP_USER_PASSWORD: ${DB_PASSWORD:-portal_dev}
+    ports:
+      # Hanya localhost: sandi dev ada di repo publik.
+      - "127.0.0.1:${ORACLE_PORT:-15210}:1521"
+    volumes:
+      - oracle-data:/opt/oracle/oradata
+      # Membuat skema tes `portal_test` (terpisah dari skema dev) tiap container start.
+      - ./backend/docker/oracle-startdb:/container-entrypoint-startdb.d:ro
+    healthcheck:
+      test: ["CMD", "healthcheck.sh"]
+      interval: 10s
+      timeout: 5s
+      retries: 60
+      start_period: 60s
+
+  # Pengganti Data API untuk dev/CI: memutar rekaman fixtures/data-api (tools/fixture-server).
+  fixture-server:
+    image: node:20-alpine
+    working_dir: /portal
+    command: ["node", "tools/fixture-server/putar.mjs"]
+    environment:
+      PORT: 8080
+    ports:
+      - "127.0.0.1:${FIXTURE_PORT:-18090}:8080"
+    volumes:
+      - ./tools:/portal/tools:ro
+      - ./fixtures:/portal/fixtures:ro
+
+  backend:
+    build: ./backend
+    image: dispar-portal-php:dev
+    environment:
+      DATA_API_URL: ${DATA_API_URL:-http://fixture-server:8080}
+      DATA_API_TOKEN: ${DATA_API_TOKEN:-token-fixture}
+      # Dev: Nuxt dan nginx berada di subnet Docker; produksi memakai alamat server Nuxt.
+      PORTAL_PROXY_TEPERCAYA: ${PORTAL_PROXY_TEPERCAYA:-172.16.0.0/12}
+      DB_CONNECTION: oracle
+      DB_HOST: oracle
+      DB_PORT: 1521
+      DB_SERVICE_NAME: XEPDB1
+      DB_SERVER_VERSION: 12c
+      DB_USERNAME: ${DB_USERNAME:-portal}
+      DB_PASSWORD: ${DB_PASSWORD:-portal_dev}
+    volumes:
+      - ./backend:/var/www/backend
+      - ./fixtures:/var/www/fixtures:ro
+    # php-fpm berjalan sebagai pemilik berkas di host supaya storage/ bisa ditulis.
+    user: "${UID:-1000}:${GID:-1000}"
+    depends_on:
+      oracle:
+        condition: service_healthy
+
+  nginx:
+    image: nginx:1.27-alpine
+    ports:
+      - "127.0.0.1:${BACKEND_PORT:-18000}:80"
+    volumes:
+      - ./backend/public:/var/www/backend/public:ro
+      - ./backend/docker/nginx.dev.conf:/etc/nginx/conf.d/default.conf:ro
+    depends_on:
+      - backend
+
+  frontend:
+    # glibc (bukan alpine): node_modules dipasang di host, binary native-nya glibc.
+    image: node:20-bookworm-slim
+    working_dir: /portal/frontend
+    command: ["npx", "nuxt", "dev", "--host", "0.0.0.0", "--port", "3000"]
+    user: "${UID:-1000}:${GID:-1000}"
+    environment:
+      HOME: /tmp
+      NUXT_LARAVEL_URL: http://nginx
+      NUXT_FRONTEND_TOKEN: ${NUXT_FRONTEND_TOKEN:-}
+    ports:
+      - "127.0.0.1:${FRONTEND_PORT:-3000}:3000"
+    volumes:
+      - ./frontend:/portal/frontend
+    depends_on:
+      - nginx
+
+volumes:
+  oracle-data:
