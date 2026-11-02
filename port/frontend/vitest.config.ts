@@ -3,6 +3,12 @@ import { defineVitestProject } from "@nuxt/test-utils/config";
 
 export default defineConfig({
   test: {
+    // Cakupan hanya saat `--coverage` (scripts/ci/frontend.sh); ringkasan dibaca docs/unit-testing.md.
+    coverage: {
+      provider: "v8",
+      include: ["app/**/*.{ts,vue}", "layers/**/*.{ts,vue}", "server/**/*.ts"],
+      reporter: ["json-summary", "text-summary"],
+    },
     projects: [
       { test: { name: "unit", include: ["tests/unit/**/*.spec.ts"], environment: "node" } },
       // Composable dan komponen di runtime Nuxt (happy-dom).

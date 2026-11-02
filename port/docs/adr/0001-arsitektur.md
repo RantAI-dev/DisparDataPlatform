@@ -303,6 +303,7 @@ Nilai default SPEC dipakai kecuali disebut lain. Pemilik boleh membatalkan tiap 
   (`app/Features/<Fitur>`) yang tidak saling memakai — dijaga tes arsitektur. Bila klien
   memaksudkan deployment terpisah per fitur, modul-modul ini bisa dipecah tanpa mengubah kontrak.
 - **"Log history di tiap modul"** ditafsirkan sebagai satu tabel `LOG_HISTORY` dengan kolom
-  `MODUL` yang diisi otomatis dari atribut rute, ditulis middleware `LogRequest` untuk setiap
-  request `/api/v1`. Seluruh perilakunya ada di `app/Shared/LogHistory`, jadi menyesuaikan dengan
+  `MODUL` yang diisi otomatis dari atribut rute, ditulis middleware global `LogRequest` untuk setiap
+  request `/api/*` (termasuk 404/405), kecuali rute di `loghistory.rute_dikecualikan`
+  (`sistem.kesehatan`, healthcheck container). Seluruh perilakunya ada di `app/Shared/LogHistory`, jadi menyesuaikan dengan
   standar knowledge base mereka cukup mengubah satu tempat.

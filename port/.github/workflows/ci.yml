@@ -58,7 +58,9 @@ jobs:
         if: always()
         with:
           name: pest-junit
-          path: backend/storage/logs/pest-junit.xml
+          path: |
+            backend/storage/logs/pest-junit.xml
+            backend/storage/logs/clover.xml
           if-no-files-found: ignore
 
   migrasi-xe21:
@@ -110,7 +112,9 @@ jobs:
         if: always()
         with:
           name: vitest-junit
-          path: frontend/test-results/vitest-junit.xml
+          path: |
+            frontend/test-results/vitest-junit.xml
+            frontend/coverage/coverage-summary.json
           if-no-files-found: ignore
 
   e2e:
@@ -157,4 +161,11 @@ jobs:
           path: |
             frontend/test-results
             frontend/playwright-report
+          if-no-files-found: ignore
+      # Laporan JUnit e2e terpisah, supaya mudah diambil untuk docs/unit-testing.md.
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: e2e-junit
+          path: frontend/test-results/e2e-junit.xml
           if-no-files-found: ignore
