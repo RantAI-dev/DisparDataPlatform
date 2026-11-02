@@ -40,7 +40,9 @@ for (const [id, path, opsi] of [
   ["IN-P04", "/gci/pariwisata/wisatawan-internasional", {}],
   ["IN-P05", "/gci/pariwisata/kuliner-michelin", {}],
   ["IN-P06", "/gci/pariwisata/seni-pertunjukan", { mask: PETA_VENUE }],
+  // Semua tahun event yang tersedia (TahunFilter: 2024, 2025 per 2 Nov 2026).
   ["IN-P07", "/gci/pariwisata/seni-pertunjukan?tahun=2025", { mask: PETA_VENUE }],
+  ["IN-P08", "/gci/pariwisata/seni-pertunjukan?tahun=2024", { mask: PETA_VENUE }],
 ] as const) {
   test(`${id} ${path}`, async ({ browser, page }, info) => {
     await bandingkanHalaman(browser, page, path, info, opsi);

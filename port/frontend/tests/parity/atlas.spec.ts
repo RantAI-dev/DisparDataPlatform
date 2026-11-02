@@ -18,13 +18,14 @@ const HALAMAN: [string, string, OpsiParitas][] = [
       // di footer tidak di-port. 604 kartu: cukup layar pertama.
       mask: [...PETA, "main > div:first-child", "#sources > div:first-child > div:nth-child(2)"],
       layar: "viewport",
+      pengecualian: ["P2"],
     },
   ],
   // [P1] kicker golf: produksi menampilkan kunci literal `home.vol2_kicker` (angka "2"-nya ikut diabaikan).
   [
     "AT-P03",
     "/gpci/lapangan-golf",
-    { tunggu: ".leaflet-marker-icon", mask: [...PETA, KICKER_GOLF], abaikanAngka: [KICKER_GOLF] },
+    { tunggu: ".leaflet-marker-icon", mask: [...PETA, KICKER_GOLF], abaikanAngka: [KICKER_GOLF], pengecualian: ["P1"] },
   ],
   ["AT-P04", "/gpci/toko-suvenir", { tunggu: "#directory li", mask: PETA }],
   ["AT-P05", "/gpci/hotel", { tunggu: "canvas", mask: PETA }],

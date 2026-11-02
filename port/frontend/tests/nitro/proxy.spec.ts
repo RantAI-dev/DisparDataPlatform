@@ -99,8 +99,8 @@ describe("halaman", () => {
   });
 
   it("head sama dengan platform-v2", async () => {
-    // Halaman sungguhan pertama = galeri /_kerangka (beranda menyusul di plan 11).
-    const html = await $fetch<string>("/_kerangka");
+    // /docs dirender dari OpenAPI yang di-bundle (tanpa panggilan Laravel), jadi aman untuk Laravel palsu.
+    const html = await $fetch<string>("/docs");
     expect(html).toMatch(/<html\s+lang="id"/);
     expect(html).toContain('<link rel="manifest" href="/site.webmanifest">');
   });

@@ -28,7 +28,7 @@ export default defineConfig({
     ? undefined
     : {
         command: "node .output/server/index.mjs",
-        url: `http://127.0.0.1:${PORT}/_kerangka`,
+        url: `http://127.0.0.1:${PORT}/`,
         reuseExistingServer: !process.env.CI,
         env: { PORT: String(PORT), HOST: "127.0.0.1" },
         timeout: 60_000,

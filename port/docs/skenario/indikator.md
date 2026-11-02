@@ -48,3 +48,4 @@ Data API (`lakehouse/data-api/tests/unit/indikator`): detail membawa `indikator`
 | IN-P05 | `/gci/pariwisata/kuliner-michelin` | |
 | IN-P06 | `/gci/pariwisata/seni-pertunjukan` | peta + iframe di-mask |
 | IN-P07 | `/gci/pariwisata/seni-pertunjukan?tahun=2025` | idem |
+| IN-P08 | `/gci/pariwisata/seni-pertunjukan?tahun=2024` | idem (semua tahun event tersedia) |

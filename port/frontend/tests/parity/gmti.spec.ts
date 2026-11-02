@@ -27,6 +27,7 @@ test("GM-P02 /spatial (panel; tile, pin, dan choropleth di-mask)", async ({ brow
 // yang sama (keadaan produksi saat ini).
 test("GM-P03 /scraped-hotels", async ({ browser, page }, info) => {
   await bandingkanHalaman(browser, page, "/scraped-hotels", info, {
+    pengecualian: ["P5"],
     tunggu: "text=/Hotels \\(\\d+\\)/",
     samakanBaris: {
       produksi: "/api/hotels/scraped",

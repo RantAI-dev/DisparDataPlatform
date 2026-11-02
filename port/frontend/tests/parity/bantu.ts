@@ -5,14 +5,25 @@
 import { writeFileSync, mkdirSync } from "node:fs";
 import { dirname } from "node:path";
 import { expect, type Browser, type Page, type TestInfo } from "@playwright/test";
+// Pembanding PNG bawaan Playwright (yang dipakai toMatchSnapshot). Diambil dari bundel internal
+// supaya rasio piksel bisa dicatat di laporan; versi Playwright dipatok (1.64.1), jadi jalurnya stabil.
+import { utils } from "playwright-core/lib/coreBundle";
+
+/** Ambang SPEC §7: beda piksel ≤ 2% per halaman. */
+export const AMBANG_PIKSEL = 0.02;
 
 export const PRODUKSI = process.env.PRODUKSI_URL ?? "https://dispar.rantai.dev";
 
 /**
- * Selalu di-mask: header nav. Item asisten AI v2 (kini "Jekate", 464fc15) sengaja tidak di-port
- * (SPEC §5.4), sehingga posisi item nav lain bergeser; nav sendiri diuji plan 10.
+ * Selalu di-mask (SPEC §7):
+ * - header nav: item asisten AI v2 (kini "Jekate", 464fc15) sengaja tidak di-port (SPEC §5.4),
+ *   sehingga posisi item nav lain bergeser; nav sendiri diuji plan 10. Dicatat sebagai "Nav AI".
+ * - tile peta Leaflet dan iframe Google Maps: isi pihak ketiga, dimuat tak serempak.
+ * Cap waktu "data per …": tidak ada elemen seperti itu di rute v2 maupun portal (diperiksa plan
+ * 17); tanggal yang tampil (snapshot GMTI, check-in hotel) berasal dari data yang sama, jadi ikut
+ * dibandingkan.
  */
-const MASK_SELALU = ["header"];
+const MASK_SELALU = ["header", ".leaflet-tile-pane", "iframe"];
 
 export type OpsiParitas = {
   /** Selektor yang di-mask di kedua sisi (angka hidup P4, tile peta, iframe). */
@@ -35,9 +46,53 @@ export type OpsiParitas = {
   };
   /** "viewport" = hanya layar pertama (halaman yang isinya sengaja berbeda, mis. /docs P3). */
   layar?: "penuh" | "viewport";
-  /** Aksi sebelum tangkapan (mis. menggulir, membuka panel). */
+  /** Aksi sebelum tangkapan (mis. menggulir, membuka panel, atau skenario interaksi). */
   siapkan?: (page: Page) => Promise<void>;
+  /** Pengecualian paritas yang dipakai (P1–P5, "Nav AI"), dicatat di laporan. */
+  pengecualian?: string[];
 };
+
+/** Hasil satu perbandingan; dilampirkan ke tes sebagai JSON lalu dibaca reporter `laporan.ts`. */
+export type HasilParitas = {
+  path: string;
+  rasioPiksel: number;
+  angkaSama: boolean;
+  /** Token angka yang hanya ada di salah satu sisi (maks. 10 per sisi). */
+  angkaHanyaProduksi: string[];
+  angkaHanyaPortal: string[];
+  pengecualian: string[];
+  perf: { produksi: Perf; portal: Perf };
+};
+export type Perf = { lcpMs: number; transferByte: number };
+
+/** Mulai mengukur LCP (PerformanceObserver) dan total transfer (header + body ter-encode). */
+async function mulaiUkur(page: Page): Promise<() => Promise<Perf>> {
+  await page.addInitScript(() => {
+    const w = window as unknown as { __lcp: number };
+    w.__lcp = 0;
+    new PerformanceObserver((l) => {
+      for (const e of l.getEntries()) w.__lcp = e.startTime;
+    }).observe({ type: "largest-contentful-paint", buffered: true });
+  });
+  const ukuran: Promise<number>[] = [];
+  page.on("requestfinished", (r) =>
+    ukuran.push(r.sizes().then((s) => s.responseBodySize + s.responseHeadersSize, () => 0)),
+  );
+  return async () => ({
+    lcpMs: Math.round(await page.evaluate(() => (window as unknown as { __lcp: number }).__lcp)),
+    transferByte: (await Promise.all(ukuran)).reduce((a, b) => a + b, 0),
+  });
+}
+
+/** Rasio piksel berbeda (0–1); ukuran gambar berbeda = 1. */
+function rasioBeda(a: Buffer, b: Buffer): { rasio: number; diff?: Buffer } {
+  const hasil = utils.getComparator("image/png")(a, b, { maxDiffPixelRatio: 0 });
+  if (!hasil) return { rasio: 0 };
+  const m = hasil.errorMessage?.match(/^(\d+) pixels/);
+  if (!m) return { rasio: 1, diff: hasil.diff };
+  const { width, height } = { width: a.readUInt32BE(16), height: a.readUInt32BE(20) };
+  return { rasio: Number(m[1]) / (width * height), diff: hasil.diff };
+}
 
 /**
  * Dock asisten AI v2 ("Jekate", tombol `.ai-dock-btn` + panelnya) tidak di-port (SPEC §1), jadi
@@ -94,6 +149,7 @@ export async function bandingkanHalaman(browser: Browser, page: Page, path: stri
     hasTouch: info.project.use.hasTouch,
     deviceScaleFactor: info.project.use.deviceScaleFactor,
   });
+  const [ukurProd, ukurPortal] = await Promise.all([mulaiUkur(prod), mulaiUkur(page)]);
   if (o.samakanBaris) {
     const sb = o.samakanBaris;
     const respons = prod.waitForResponse((r) => r.url().includes(sb.produksi) && r.ok());
@@ -108,16 +164,33 @@ export async function bandingkanHalaman(browser: Browser, page: Page, path: stri
     await Promise.all([buka(prod, PRODUKSI + path, o, true), buka(page, path, o, false)]);
   }
 
+  const perf = { produksi: await ukurProd(), portal: await ukurPortal() };
   const angkaProd = await angka(prod, o.abaikanAngka ?? []);
   const angkaPortal = await angka(page, o.abaikanAngka ?? []);
   expect.soft(angkaPortal, `himpunan angka ${path}`).toEqual(angkaProd);
 
-  const nama = `${path.replace(/[^a-z0-9]+/gi, "_").replace(/^_|_$/g, "") || "beranda"}.png`;
+  const nama = `${info.title.split(" ")[0]}-${path.replace(/[^a-z0-9]+/gi, "_").replace(/^_|_$/g, "") || "beranda"}.png`;
   const berkas = info.snapshotPath(nama);
   mkdirSync(dirname(berkas), { recursive: true });
-  writeFileSync(berkas, await tangkap(prod, o));
+  const produksi = await tangkap(prod, o);
+  writeFileSync(berkas, produksi);
   const portal = await tangkap(page, o);
+  const { rasio, diff } = rasioBeda(produksi, portal);
+  await info.attach(`produksi-${nama}`, { body: produksi, contentType: "image/png" });
   await info.attach(`portal-${nama}`, { body: portal, contentType: "image/png" });
-  expect.soft(portal).toMatchSnapshot(nama, { maxDiffPixelRatio: 0.02 });
+  if (diff) await info.attach(`beda-${nama}`, { body: diff, contentType: "image/png" });
+
+  const hanya = (a: string[], b: string[]) => a.filter((x) => !b.includes(x)).slice(0, 10);
+  const hasil: HasilParitas = {
+    path,
+    rasioPiksel: rasio,
+    angkaSama: JSON.stringify(angkaProd) === JSON.stringify(angkaPortal),
+    angkaHanyaProduksi: hanya(angkaProd, angkaPortal),
+    angkaHanyaPortal: hanya(angkaPortal, angkaProd),
+    pengecualian: ["Nav AI", ...(o.pengecualian ?? [])],
+    perf,
+  };
+  await info.attach("paritas-hasil", { body: JSON.stringify(hasil), contentType: "application/json" });
+  expect.soft(rasio, `beda piksel ${path} (ambang ${AMBANG_PIKSEL * 100}%)`).toBeLessThanOrEqual(AMBANG_PIKSEL);
   await prod.close();
 }
