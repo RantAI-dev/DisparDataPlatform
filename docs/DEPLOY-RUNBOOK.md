@@ -156,6 +156,13 @@ Butuh `PORTAINER_KEY` di `.env` root (gitignored), docker lokal, python3, curl.
 Rollback manual: stop `dispar-v2`, rename ke `dispar-v2-gagal-<sha>`, rename
 `dispar-v2-rollback-<sha>` → `dispar-v2`, start.
 
+Container mandiri lain memakai pola yang sama (rincian di kepala tiap skrip; `--cek` =
+build + smoke test + cek server hanya baca, tanpa mengubah server):
+
+- `scripts/deploy-dagster.sh` — `lake-dagster` (image dibangun `build-dagster-image.sh`,
+  env + volume `/opt/dagster` dibawa; menolak bila ada run Dagster aktif).
+- `scripts/deploy-data-api.sh` — `dispar-data-api` (Data API portal, port 13040; plan 06).
+
 ### (Lama, tidak berlaku lagi) Cara git redeploy
 
 ### Cara termudah: Portainer UI
