@@ -13,11 +13,16 @@ use Carbon\CarbonImmutable;
  * - snapshot kosong → panggil Data API, simpan, lalu kirim (`sumber = data_api`);
  * - snapshot kosong dan Data API gagal → DataApiException diteruskan (503).
  *
- * Snapshot diperbarui job `portal:sinkron` (plan 16), bukan oleh request.
+ * Snapshot diperbarui job `portal:sinkron`, bukan oleh request: selama job itu (ModeSinkron aktif)
+ * Data API selalu dipanggil dan snapshot ditulis hanya bila HASH berubah; bila gagal, snapshot lama
+ * tetap.
  */
 class BacaTetap
 {
-    public function __construct(private readonly SnapshotStore $snapshot) {}
+    public function __construct(
+        private readonly SnapshotStore $snapshot,
+        private readonly ModeSinkron $sinkron,
+    ) {}
 
     /**
      * @param  callable(): DataApiResponse  $ambil
@@ -25,6 +30,13 @@ class BacaTetap
      */
     public function baca(string $kunci, callable $ambil): array
     {
+        if ($this->sinkron->aktif()) {
+            $respons = $ambil();
+            $this->sinkron->catat($kunci, $this->snapshot->simpanBilaBerubah($kunci, $respons->body()));
+
+            return ['respons' => $respons, 'sumber' => 'data_api', 'stale' => false];
+        }
+
         $ada = $this->snapshot->ambil($kunci);
         if ($ada !== null) {
             $basi = $ada['diambil_pada']->lt(CarbonImmutable::now()->subHours((int) config('portal.snapshot_basi_jam')));

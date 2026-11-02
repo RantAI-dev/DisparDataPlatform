@@ -17,6 +17,17 @@ class SnapshotStore
         return $baris ? ['isi' => (string) $baris->isi, 'diambil_pada' => CarbonImmutable::parse($baris->diambil_pada)] : null;
     }
 
+    /** Tulis hanya bila HASH berbeda dari snapshot yang ada. @return bool true = ditulis */
+    public function simpanBilaBerubah(string $kunci, string $isi): bool
+    {
+        if (DB::table('snapshot')->where('kunci', $kunci)->value('hash') === hash('sha256', $isi)) {
+            return false;
+        }
+        $this->simpan($kunci, $isi);
+
+        return true;
+    }
+
     public function simpan(string $kunci, string $isi): void
     {
         $nilai = ['isi' => $isi, 'diambil_pada' => CarbonImmutable::now(), 'hash' => hash('sha256', $isi)];
