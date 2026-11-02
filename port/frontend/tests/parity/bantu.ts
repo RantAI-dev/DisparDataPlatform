@@ -2,9 +2,10 @@
  * Pembantu uji paritas (SPEC §7): visual ≤ 2% dan himpunan angka DOM identik, portal vs produksi.
  * Pola dipakai semua fitur (docs/pola-fitur.md §Paritas).
  */
-import { writeFileSync, mkdirSync } from "node:fs";
+import { readFileSync, writeFileSync, mkdirSync } from "node:fs";
 import { dirname } from "node:path";
-import { expect, type Browser, type Page, type TestInfo } from "@playwright/test";
+import { expect, type Browser, type Download, type Page, type TestInfo } from "@playwright/test";
+import * as XLSX from "xlsx";
 // Pembanding PNG bawaan Playwright (yang dipakai toMatchSnapshot). Diambil dari bundel internal
 // supaya rasio piksel bisa dicatat di laporan; versi Playwright dipatok (1.64.1), jadi jalurnya stabil.
 import { utils } from "playwright-core/lib/coreBundle";
@@ -25,6 +26,14 @@ export const PRODUKSI = process.env.PRODUKSI_URL ?? "https://dispar.rantai.dev";
  */
 const MASK_SELALU = ["header", ".leaflet-tile-pane", "iframe"];
 
+/** Satu aturan injeksi baris: respons produksi pertama yang URL-nya memuat `produksi` → respons portal yang URL-nya memuat `portal`. */
+export type AturanBaris = {
+  produksi: string;
+  portal: string;
+  ambil: (json: any) => unknown[];
+  pasang: (json: any, baris: unknown[]) => unknown;
+};
+
 export type OpsiParitas = {
   /** Selektor yang di-mask di kedua sisi (angka hidup P4, tile peta, iframe). */
   mask?: string[];
@@ -38,19 +47,44 @@ export type OpsiParitas = {
    * atas data yang sama. `produksi`/`portal` = penggalan URL respons; `ambil`/`pasang` memetakan
    * bentuk JSON-nya.
    */
-  samakanBaris?: {
-    produksi: string;
-    portal: string;
-    ambil: (json: any) => unknown[];
-    pasang: (json: any, baris: unknown[]) => unknown;
-  };
+  samakanBaris?: AturanBaris | AturanBaris[];
   /** "viewport" = hanya layar pertama (halaman yang isinya sengaja berbeda, mis. /docs P3). */
   layar?: "penuh" | "viewport";
   /** Aksi sebelum tangkapan (mis. menggulir, membuka panel, atau skenario interaksi). */
   siapkan?: (page: Page) => Promise<void>;
-  /** Pengecualian paritas yang dipakai (P1–P5, "Nav AI"), dicatat di laporan. */
-  pengecualian?: string[];
+  /**
+   * Pengecualian paritas yang dipakai, dicatat di laporan (kode di `PENGECUALIAN`). "Nav AI",
+   * "Peta", "Layar pertama", dan "Baris produksi" ditambahkan otomatis dari opsi di atas.
+   */
+  pengecualian?: (keyof typeof PENGECUALIAN)[];
 };
+
+/**
+ * Daftar pengecualian/penyesuaian paritas beserta alasan dan rujukannya; dicetak sebagai legenda di
+ * laporan. Pengecualian SPEC hanya P1–P5 + Nav AI; sisanya penyesuaian cara banding yang sudah
+ * diputuskan di plan sebelumnya, dicantumkan supaya terlihat di tiap baris laporan.
+ */
+export const PENGECUALIAN = {
+  "Nav AI": "header di-mask: item asisten AI/Jekate tidak di-port, posisi item lain bergeser (SPEC §5.4; nav diuji plan 10)",
+  P1: "kicker golf: produksi menampilkan kunci literal `home.vol2_kicker` (SPEC §5.5)",
+  P2: "tombol Verifikasi sumber + tautan /api/restaurants dan /api/refresh tidak di-port (SPEC §5.5)",
+  P3: "isi /docs dari OpenAPI Laravel; hanya kerangka hero dibandingkan, 390 dilewati (SPEC §5.5)",
+  P4: "angka beranda hidup vs beku di produksi (SPEC §5.5)",
+  P5: "/scraped-hotels membaca Bronze; respons produksi disuntikkan (SPEC §5.5)",
+  D: "kolom \"Nilai terbaru\" tidak dibandingkan angkanya: diambil dari baris pertama tanpa ORDER BY (defect D, K-12; ADR 0001 plan 13)",
+  Peta: "peta Leaflet di-mask utuh (marker cluster/canvas dan popup); tile + iframe Google Maps selalu di-mask (SPEC §7.1)",
+  "Layar pertama": "hanya layar pertama yang dibandingkan (daftar sangat panjang atau tinggi berubah oleh data tak deterministik; plan 13–15)",
+  "Baris produksi": "baris tanpa ORDER BY tak deterministik; baris yang dirender produksi disuntikkan ke respons portal (samakanBaris, plan 11/15)",
+} as const;
+
+/** Label pengecualian yang berlaku untuk opsi ini (otomatis + eksplisit). */
+function labelPengecualian(o: OpsiParitas): string[] {
+  const l: string[] = ["Nav AI"];
+  if (o.mask?.some((m) => m.includes(".leaflet-container"))) l.push("Peta");
+  if (o.layar === "viewport") l.push("Layar pertama");
+  if (o.samakanBaris) l.push("Baris produksi");
+  return [...new Set([...l, ...(o.pengecualian ?? [])])];
+}
 
 /** Hasil satu perbandingan; dilampirkan ke tes sebagai JSON lalu dibaca reporter `laporan.ts`. */
 export type HasilParitas = {
@@ -102,6 +136,41 @@ async function buangDockAi(page: Page) {
   await page.evaluate(() => document.querySelectorAll("[class*='ai-dock']").forEach((e) => e.remove()));
 }
 
+/**
+ * Tunggu render selesai (SPEC §7.1):
+ * - tile Leaflet `load`: semua `img.leaflet-tile` sudah `complete` (dimuat atau gagal);
+ * - ECharts `finished`: instance ECharts tidak terjangkau dari luar bundel produksi (Next.js), jadi
+ *   padanannya dipakai di kedua sisi: isi semua canvas tidak berubah di dua cuplikan berturut-turut
+ *   (animasi selesai).
+ */
+export async function tungguRender(page: Page) {
+  await page
+    .waitForFunction(() => [...document.querySelectorAll<HTMLImageElement>("img.leaflet-tile")].every((i) => i.complete), null, { timeout: 20_000 })
+    .catch(() => undefined); // tile pihak ketiga yang macet tetap di-mask; jangan gagalkan tes karenanya
+  let sebelum = "";
+  for (let i = 0; i < 30; i++) {
+    const sekarang = await page.evaluate(() =>
+      [...document.querySelectorAll("canvas")]
+        .map((c) => {
+          try {
+            const d = c.toDataURL();
+            let h = 0;
+            for (let j = 0; j < d.length; j += 7) h = (h * 31 + d.charCodeAt(j)) | 0;
+            return `${c.width}x${c.height}:${h}`;
+          } catch {
+            return "x";
+          }
+        })
+        .join("|"),
+    );
+    if (i > 0 && sekarang === sebelum) break;
+    sebelum = sekarang;
+    await page.waitForTimeout(300);
+  }
+  // Transisi CSS (≤ 300 ms).
+  await page.waitForTimeout(300);
+}
+
 /** Buka halaman dan tunggu font, data, chart, dan peta tenang. */
 async function buka(page: Page, url: string, o: OpsiParitas, produksi: boolean) {
   await page.goto(url, { waitUntil: "networkidle" });
@@ -110,8 +179,7 @@ async function buka(page: Page, url: string, o: OpsiParitas, produksi: boolean) 
   await o.siapkan?.(page);
   await page.evaluate(() => document.fonts.ready);
   await page.waitForLoadState("networkidle");
-  // Animasi ECharts (±1 s) dan transisi CSS selesai.
-  await page.waitForTimeout(1500);
+  await tungguRender(page);
 }
 
 /**
@@ -127,7 +195,7 @@ async function tangkap(page: Page, o: OpsiParitas): Promise<Buffer> {
   const lebar = page.viewportSize()!.width;
   const tinggi = await page.evaluate(() => document.documentElement.scrollHeight);
   await page.setViewportSize({ width: lebar, height: Math.min(tinggi, 16_000) });
-  await page.waitForTimeout(800);
+  await tungguRender(page);
   return page.screenshot(opsi);
 }
 
@@ -142,7 +210,11 @@ async function angka(page: Page, abaikan: string[]): Promise<string[]> {
   return [...new Set(teks.match(/\d[\d.,]*/g) ?? [])].sort();
 }
 
-export async function bandingkanHalaman(browser: Browser, page: Page, path: string, info: TestInfo, o: OpsiParitas = {}) {
+/**
+ * Buka `path` di produksi (tab baru, viewport sama) dan di portal (`page`) dalam keadaan yang sama,
+ * termasuk `samakanBaris` dan `siapkan`. Mengembalikan tab produksi + pengukur performa.
+ */
+export async function bukaKedua(browser: Browser, page: Page, path: string, info: TestInfo, o: OpsiParitas = {}) {
   const prod = await browser.newPage({
     viewport: page.viewportSize()!,
     isMobile: info.project.use.isMobile,
@@ -150,21 +222,33 @@ export async function bandingkanHalaman(browser: Browser, page: Page, path: stri
     deviceScaleFactor: info.project.use.deviceScaleFactor,
   });
   const [ukurProd, ukurPortal] = await Promise.all([mulaiUkur(prod), mulaiUkur(page)]);
-  if (o.samakanBaris) {
-    const sb = o.samakanBaris;
-    const respons = prod.waitForResponse((r) => r.url().includes(sb.produksi) && r.ok());
-    await buka(prod, PRODUKSI + path, o, true);
-    const baris = sb.ambil(await (await respons).json());
-    await page.route(`**/*${sb.portal}*`, async (route) => {
-      const res = await route.fetch();
-      await route.fulfill({ response: res, json: sb.pasang(await res.json(), baris) });
+  const aturan = o.samakanBaris ? [o.samakanBaris].flat() : [];
+  if (aturan.length) {
+    // Produksi dibuka dulu (termasuk `siapkan`), respons yang cocok ditangkap, lalu disuntikkan ke portal.
+    const tangkapan = new Map<AturanBaris, Promise<unknown>>();
+    prod.on("response", (r) => {
+      for (const a of aturan) if (!tangkapan.has(a) && r.url().includes(a.produksi) && r.ok()) tangkapan.set(a, r.json());
     });
+    await buka(prod, PRODUKSI + path, o, true);
+    for (const a of aturan) {
+      const json = tangkapan.get(a);
+      if (!json) throw new Error(`respons produksi ${a.produksi} tidak tertangkap`);
+      const baris = a.ambil(await json);
+      await page.route((u) => u.href.includes(a.portal), async (route) => {
+        const res = await route.fetch();
+        await route.fulfill({ response: res, json: a.pasang(await res.json(), baris) });
+      });
+    }
     await buka(page, path, o, false);
   } else {
     await Promise.all([buka(prod, PRODUKSI + path, o, true), buka(page, path, o, false)]);
   }
+  return { prod, ukur: async () => ({ produksi: await ukurProd(), portal: await ukurPortal() }) };
+}
 
-  const perf = { produksi: await ukurProd(), portal: await ukurPortal() };
+export async function bandingkanHalaman(browser: Browser, page: Page, path: string, info: TestInfo, o: OpsiParitas = {}) {
+  const { prod, ukur } = await bukaKedua(browser, page, path, info, o);
+  const perf = await ukur();
   const angkaProd = await angka(prod, o.abaikanAngka ?? []);
   const angkaPortal = await angka(page, o.abaikanAngka ?? []);
   expect.soft(angkaPortal, `himpunan angka ${path}`).toEqual(angkaProd);
@@ -187,10 +271,100 @@ export async function bandingkanHalaman(browser: Browser, page: Page, path: stri
     angkaSama: JSON.stringify(angkaProd) === JSON.stringify(angkaPortal),
     angkaHanyaProduksi: hanya(angkaProd, angkaPortal),
     angkaHanyaPortal: hanya(angkaPortal, angkaProd),
-    pengecualian: ["Nav AI", ...(o.pengecualian ?? [])],
+    pengecualian: labelPengecualian(o),
     perf,
   };
   await info.attach("paritas-hasil", { body: JSON.stringify(hasil), contentType: "application/json" });
   expect.soft(rasio, `beda piksel ${path} (ambang ${AMBANG_PIKSEL * 100}%)`).toBeLessThanOrEqual(AMBANG_PIKSEL);
   await prod.close();
+}
+
+/** Hasil banding isi berkas ekspor; dilampirkan sebagai `paritas-hasil` (reporter: bagian Ekspor). */
+export type HasilEkspor = {
+  path: string;
+  ekspor: {
+    namaProduksi: string;
+    namaPortal: string;
+    namaSama: boolean;
+    bomSama: boolean;
+    headerSama: boolean;
+    barisProduksi: number;
+    barisPortal: number;
+    /** Sel berbeda pada posisi yang sama (baris × kolom). */
+    selBeda: number;
+    /** Sel berbeda setelah baris diurutkan (0 = isi sama, hanya urutan yang berbeda). */
+    selBedaTanpaUrutan: number;
+    contoh: string[];
+  };
+};
+
+/** Lembar pertama sebagai array baris sel teks (CSV, XLS/HTML, dan XLSX dibaca pustaka `xlsx`). */
+function lembar(isi: Buffer): string[][] {
+  const wb = XLSX.read(isi, { type: "buffer", raw: true });
+  return XLSX.utils.sheet_to_json<string[]>(wb.Sheets[wb.SheetNames[0]!]!, { header: 1, raw: false, defval: "" });
+}
+
+/** Tanggal di nama berkas (cap hari unduh) disamakan supaya polanya yang dibandingkan. */
+const polaNama = (n: string) => n.replace(/\d{4}-\d{2}-\d{2}/g, "YYYY-MM-DD");
+
+function selBerbeda(a: string[][], b: string[][], contoh: string[] = []): number {
+  let n = 0;
+  for (let i = 0; i < Math.max(a.length, b.length); i++)
+    for (let j = 0; j < Math.max(a[i]?.length ?? 0, b[i]?.length ?? 0); j++)
+      if (String(a[i]?.[j] ?? "") !== String(b[i]?.[j] ?? "")) {
+        n++;
+        if (contoh.length < 5) contoh.push(`baris ${i + 1} kolom ${j + 1}: produksi "${a[i]?.[j] ?? ""}" vs portal "${b[i]?.[j] ?? ""}"`);
+      }
+  return n;
+}
+
+/**
+ * Paritas ekspor (SPEC §7.3): buka halaman di kedua sisi dalam keadaan yang sama, unduh berkas lewat
+ * `unduh`, lalu bandingkan pola nama, BOM, header, jumlah baris, dan isi tiap sel. Tidak dilonggarkan:
+ * beda karena data hidup dicatat sebagai beda.
+ */
+export async function bandingkanEkspor(
+  browser: Browser,
+  page: Page,
+  path: string,
+  info: TestInfo,
+  unduh: (p: Page) => Promise<Download>,
+  o: OpsiParitas = {},
+) {
+  const { prod } = await bukaKedua(browser, page, path, info, o);
+  const ambil = async (p: Page) => {
+    const d = await unduh(p);
+    const isi = readFileSync((await d.path())!);
+    return { nama: d.suggestedFilename(), isi, baris: lembar(isi) };
+  };
+  const a = await ambil(prod);
+  const b = await ambil(page);
+  await info.attach(`produksi-${a.nama}`, { body: a.isi });
+  await info.attach(`portal-${b.nama}`, { body: b.isi });
+  const urut = (x: string[][]) => [x[0] ?? [], ...x.slice(1).map((r) => r.map(String)).sort((p, q) => JSON.stringify(p).localeCompare(JSON.stringify(q)))];
+  const contoh: string[] = [];
+  const bom = (x: Buffer) => x.subarray(0, 3).equals(Buffer.from([0xef, 0xbb, 0xbf]));
+  const hasil: HasilEkspor = {
+    path,
+    ekspor: {
+      namaProduksi: a.nama,
+      namaPortal: b.nama,
+      namaSama: polaNama(a.nama) === polaNama(b.nama),
+      bomSama: bom(a.isi) === bom(b.isi),
+      headerSama: JSON.stringify(a.baris[0]) === JSON.stringify(b.baris[0]),
+      barisProduksi: a.baris.length,
+      barisPortal: b.baris.length,
+      selBeda: selBerbeda(a.baris, b.baris, contoh),
+      selBedaTanpaUrutan: selBerbeda(urut(a.baris), urut(b.baris)),
+      contoh,
+    },
+  };
+  await info.attach("paritas-hasil", { body: JSON.stringify(hasil), contentType: "application/json" });
+  await prod.close();
+  const e = hasil.ekspor;
+  expect.soft(polaNama(e.namaPortal), "pola nama berkas").toBe(polaNama(e.namaProduksi));
+  expect.soft(e.bomSama, "BOM sama").toBe(true);
+  expect.soft(b.baris[0], "header kolom").toEqual(a.baris[0]);
+  expect.soft(e.barisPortal, "jumlah baris").toBe(e.barisProduksi);
+  expect.soft(e.selBeda, `sel berbeda (${contoh.join("; ")})`).toBe(0);
 }

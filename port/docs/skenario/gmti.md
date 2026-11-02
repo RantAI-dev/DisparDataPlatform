@@ -31,3 +31,24 @@ Satu tes per ID. Nama tes diawali ID-nya. Pola penulisan: `docs/pola-fitur.md`.
 | GM-P01 | `/gmti` | — |
 | GM-P02 | `/spatial` | panel saja; tile/pin/choropleth di-mask; tinggi dihitung ulang setelah dock AI dibuang |
 | GM-P03 | `/scraped-hotels` | respons produksi (kosong) disuntikkan ke portal; render atas data sama |
+
+### Paritas interaksi dan ekspor (`frontend/tests/parity/{interaksi,ekspor}.spec.ts`)
+
+| ID | Halaman | Langkah |
+|---|---|---|
+| IX-P08 | `/gmti` | pilar Makan & minum + wilayah Jakarta Selatan (GM-E01) |
+| IX-P25 | `/gmti` | Tampilkan 200 lagi (GM-E01) |
+| IX-P26 | `/gmti` | cari istiqlal (GM-E01) |
+| IX-P27 | `/gmti` | mode tabel (GM-E01) |
+| IX-P28 | `/spatial` | toggle Kepadatan kecamatan (GM-E03); peta di-mask |
+| IX-P29 | `/spatial` | chip Hotel (GM-E03); peta di-mask |
+| IX-P30 | `/spatial` | chip Hotel lalu Reset filter (GM-E03); peta di-mask |
+| IX-P31 | `/spatial` | wilayah Jakarta Selatan (GM-E03); peta di-mask |
+| IX-P32 | `/spatial` | cari Canary Coffee Shop + popup titik (GM-E03); popup ikut dibandingkan |
+| IX-P42 | `/scraped-hotels` | buka baris hotel (GM-E05): dilewati, P5 (produksi kosong) |
+| EK-P08 | `/gmti` | isi ekspor XLSX pilar Semua (GM-E02) |
+| EK-P09 | `/gmti` | isi ekspor XLSX pilar Ibadah (GM-E02) |
+| EK-P10 | `/gmti` | isi ekspor XLSX pilar Makan & minum (GM-E02) |
+| EK-P11 | `/gmti` | isi ekspor XLSX pilar Menginap (GM-E02) |
+| EK-P12 | `/gmti` | isi ekspor XLSX pilar Destinasi & fasilitas (GM-E02) |
+| EK-P13 | `/gmti` | isi ekspor XLSX pilar Program dan Event (GM-E02) |

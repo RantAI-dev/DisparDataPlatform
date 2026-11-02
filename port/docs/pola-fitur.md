@@ -128,7 +128,9 @@ Selalu: header di-mask (item asisten AI/Jekate tidak di-port), tile peta dan ifr
 di-mask, dock AI dibuang dari produksi. Data yang tidak deterministik (baris tanpa ORDER BY)
 disamakan dengan `samakanBaris`, bukan di-mask. Pengecualian lain (P1–P5) ditulis sebagai `mask` +
 komentar alasannya di spec, dan dicatat lewat `pengecualian: ["P…"]` supaya muncul di laporan.
-Skenario interaksi (`interaksi.spec.ts`) memakai `siapkan` untuk menjalankan langkah e2e di kedua sisi.
+Skenario interaksi (`interaksi.spec.ts`) memakai `siapkan` untuk menjalankan langkah e2e di kedua sisi;
+ekspor (`ekspor.spec.ts`) memakai `bandingkanEkspor` (pola nama, BOM, header, jumlah baris, isi sel).
+Render ditunggu dengan `tungguRender` (tile Leaflet selesai dimuat + canvas ECharts stabil).
 
 Jalankan sesudah `php artisan portal:sinkron` hari itu (SPEC §7), dengan backend diarahkan ke Data API
 lokal (data hidup): `PORTAL_URL=http://127.0.0.1:3000 npm run paritas` (satu fitur: tambahkan

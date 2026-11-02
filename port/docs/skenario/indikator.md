@@ -49,3 +49,13 @@ Data API (`lakehouse/data-api/tests/unit/indikator`): detail membawa `indikator`
 | IN-P06 | `/gci/pariwisata/seni-pertunjukan` | peta + iframe di-mask |
 | IN-P07 | `/gci/pariwisata/seni-pertunjukan?tahun=2025` | idem |
 | IN-P08 | `/gci/pariwisata/seni-pertunjukan?tahun=2024` | idem (semua tahun event tersedia) |
+
+### Paritas interaksi dan ekspor (`frontend/tests/parity/{interaksi,ekspor}.spec.ts`)
+
+| ID | Halaman | Langkah |
+|---|---|---|
+| IX-P09 | `/gci/pariwisata/seni-pertunjukan` | pilih tahun 2024 lewat combobox (IN-E06) |
+| IX-P33 | `/gci/pariwisata/seni-pertunjukan` | pilih venue di peta (IN-E06); desktop saja (peta 0 px di layar sempit, K-10) |
+| IX-P39 | `/gci/pariwisata/kuliner-michelin` | modal Perbesar grafik |
+| IX-P40 | `/gci/pariwisata/seni-pertunjukan` | modal Perbesar grafik |
+| IX-P41 | `/gci/pariwisata/wisatawan-internasional` | modal Perbesar grafik (IndikatorWismanDashboard) |

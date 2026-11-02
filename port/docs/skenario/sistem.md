@@ -63,9 +63,15 @@ keadaan gagal yang sama dengan Next.js. Dibuktikan `frontend/tests/e2e/sistem.sp
 
 Project `sistem` berjalan sesudah project lain (`dependencies`), karena mematikan Data API bersama.
 
-## Paritas lintas fitur (`frontend/tests/parity/{redirect,interaksi}.spec.ts`)
+## Paritas redirect (`frontend/tests/parity/redirect.spec.ts`)
 
-| ID | Isi |
+Status + Location sama dengan produksi (KONTRAK §1).
+
+| ID | Dari |
 |---|---|
-| RD-P01–RD-P06 | 6 redirect lama (KONTRAK §1): status + Location sama dengan produksi, termasuk cabang 404 |
-| IX-P01–IX-P09 | langkah interaksi e2e (DS-E01, DB-E02–E04, DB-E06, AT-E01, AT-E03, GM-E01, IN-E06) dijalankan di produksi dan portal, lalu dibandingkan seperti halaman |
+| RD-P01 | `/atlas` |
+| RD-P02 | `/atlas/golf`, `/atlas/tidak-ada` (404) |
+| RD-P03 | `/atlas/restaurants/map`, `/atlas/hotel/map` (404) |
+| RD-P04 | `/gmti/map` |
+| RD-P05 | `/katalog/hotel` |
+| RD-P06 | `/readiness` |
