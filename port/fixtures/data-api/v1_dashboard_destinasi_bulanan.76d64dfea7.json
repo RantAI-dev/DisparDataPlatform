@@ -1,0 +1,8 @@
+{
+  "kunci": "/v1/dashboard/destinasi/bulanan?jenis=wisman",
+  "status": 200,
+  "headers": {
+    "content-type": "application/json"
+  },
+  "body": "{\"data\":{\"items\":[{\"label\":\"2025-01\",\"value\":373169},{\"label\":\"2025-02\",\"value\":19449},{\"label\":\"2025-03\",\"value\":15000},{\"label\":\"2025-04\",\"value\":35605},{\"label\":\"2025-05\",\"value\":16114},{\"label\":\"2025-06\",\"value\":20450},{\"label\":\"2025-07\",\"value\":27103},{\"label\":\"2025-08\",\"value\":29880},{\"label\":\"2025-09\",\"value\":21542},{\"label\":\"2025-10\",\"value\":38457},{\"label\":\"2025-11\",\"value\":21381},{\"label\":\"2025-12\",\"value\":18085},{\"label\":\"2026-01\",\"value\":18031},{\"label\":\"2026-02\",\"value\":19606},{\"label\":\"2026-03\",\"value\":68313},{\"label\":\"2026-04\",\"value\":18827},{\"label\":\"2026-05\",\"value\":24450},{\"label\":\"2026-06\",\"value\":26637},{\"label\":\"2026-07\",\"value\":27444},{\"label\":\"2026-08\",\"value\":29638}]},\"meta\":{\"generated_at\":\"2026-10-30T05:21:46+07:00\",\"source\":[\"silver.jumlah_kunjungan_wisatawan_ke_obyek_wisata_menurut_lokasi_di_provinsi_dki_jakarta\"],\"request_id\":\"eddf5f61e77b4cb791ef3789948939a0\"}}"
+}

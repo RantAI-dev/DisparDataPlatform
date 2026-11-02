@@ -1,5 +1,649 @@
 [
   {
+    "id": "dashboard-ringkasan",
+    "method": "GET",
+    "path": "/api/v1/dashboard/ringkasan",
+    "title": "Ringkasan dashboard",
+    "desc": "Empat KPI beranda dashboard: wisman tahun terakhir lengkap vs target RPJMD dan PDRB ekonomi kreatif.",
+    "params": [],
+    "contoh": "/api/v1/dashboard/ringkasan",
+    "respons": "json",
+    "errors": [
+      {
+        "code": "401",
+        "when": "Token tidak ada atau tidak valid."
+      }
+    ]
+  },
+  {
+    "id": "dashboard-wisman-tahunan",
+    "method": "GET",
+    "path": "/api/v1/dashboard/wisman/tahunan",
+    "title": "Wisman per tahun",
+    "desc": "Capaian kunjungan wisman per tahun vs target RPJMD, pertumbuhan, dan tahun bawaan halaman.",
+    "params": [],
+    "contoh": "/api/v1/dashboard/wisman/tahunan",
+    "respons": "json",
+    "errors": [
+      {
+        "code": "401",
+        "when": "Token tidak ada atau tidak valid."
+      }
+    ]
+  },
+  {
+    "id": "dashboard-wisman-bulanan",
+    "method": "GET",
+    "path": "/api/v1/dashboard/wisman/bulanan",
+    "title": "Wisman per bulan",
+    "desc": "Kunjungan wisman per bulan seluruh periode, deret year-on-year, dan ringkasan bulan terpilih (`periode`).",
+    "params": [
+      {
+        "name": "periode",
+        "in": "query",
+        "type": "string",
+        "required": false,
+        "desc": "Bulan terpilih, `YYYY-MM`."
+      }
+    ],
+    "contoh": "/api/v1/dashboard/wisman/bulanan",
+    "respons": "json",
+    "errors": [
+      {
+        "code": "401",
+        "when": "Token tidak ada atau tidak valid."
+      },
+      {
+        "code": "422",
+        "when": "Parameter tidak sesuai aturan (rincian per parameter di errors.fields)."
+      }
+    ]
+  },
+  {
+    "id": "dashboard-wisman-kebangsaan",
+    "method": "GET",
+    "path": "/api/v1/dashboard/wisman/kebangsaan",
+    "title": "Wisman per kebangsaan",
+    "desc": "Negara terbesar (`top`) + Lainnya untuk satu tahun (`tahun`) atau satu bulan (`periode`).",
+    "params": [
+      {
+        "name": "tahun",
+        "in": "query",
+        "type": "string",
+        "required": false,
+        "desc": "Tahun, `YYYY`."
+      },
+      {
+        "name": "periode",
+        "in": "query",
+        "type": "string",
+        "required": false,
+        "desc": "Bulan, `YYYY-MM` (menggantikan tahun)."
+      },
+      {
+        "name": "top",
+        "in": "query",
+        "type": "integer (1–50)",
+        "required": false,
+        "desc": "Jumlah kategori teratas sebelum Lainnya."
+      }
+    ],
+    "contoh": "/api/v1/dashboard/wisman/kebangsaan",
+    "respons": "json",
+    "errors": [
+      {
+        "code": "401",
+        "when": "Token tidak ada atau tidak valid."
+      },
+      {
+        "code": "422",
+        "when": "Parameter tidak sesuai aturan (rincian per parameter di errors.fields)."
+      }
+    ]
+  },
+  {
+    "id": "dashboard-wisman-pintu-masuk",
+    "method": "GET",
+    "path": "/api/v1/dashboard/wisman/pintu-masuk",
+    "title": "Wisman per pintu masuk",
+    "desc": "Komposisi pintu masuk: bulanan BPS bila ada untuk `periode`, selain itu semesteran SDI.",
+    "params": [
+      {
+        "name": "tahun",
+        "in": "query",
+        "type": "string",
+        "required": false,
+        "desc": "Tahun, `YYYY`."
+      },
+      {
+        "name": "periode",
+        "in": "query",
+        "type": "string",
+        "required": false,
+        "desc": "Bulan, `YYYY-MM` (menggantikan tahun)."
+      },
+      {
+        "name": "top",
+        "in": "query",
+        "type": "integer (1–50)",
+        "required": false,
+        "desc": "Jumlah kategori teratas sebelum Lainnya."
+      }
+    ],
+    "contoh": "/api/v1/dashboard/wisman/pintu-masuk",
+    "respons": "json",
+    "errors": [
+      {
+        "code": "401",
+        "when": "Token tidak ada atau tidak valid."
+      },
+      {
+        "code": "422",
+        "when": "Parameter tidak sesuai aturan (rincian per parameter di errors.fields)."
+      }
+    ]
+  },
+  {
+    "id": "dashboard-lama-menginap-rata-rata",
+    "method": "GET",
+    "path": "/api/v1/dashboard/lama-menginap/rata-rata",
+    "title": "Rata-rata lama menginap",
+    "desc": "Rata-rata lama menginap per bulan (rata-rata sederhana kelas bintang), wisman dan wisnus.",
+    "params": [],
+    "contoh": "/api/v1/dashboard/lama-menginap/rata-rata",
+    "respons": "json",
+    "errors": [
+      {
+        "code": "401",
+        "when": "Token tidak ada atau tidak valid."
+      }
+    ]
+  },
+  {
+    "id": "dashboard-lama-menginap-per-kelas",
+    "method": "GET",
+    "path": "/api/v1/dashboard/lama-menginap/per-kelas",
+    "title": "Lama menginap per kelas hotel",
+    "desc": "Tabel lama menginap per kelas hotel untuk satu bulan (`periode`) dan jenis tamu (`tamu`).",
+    "params": [
+      {
+        "name": "tamu",
+        "in": "query",
+        "type": "wisman | wisnus",
+        "required": true,
+        "desc": "Jenis tamu: wisman atau wisnus."
+      },
+      {
+        "name": "periode",
+        "in": "query",
+        "type": "string",
+        "required": false,
+        "desc": "Bulan, `YYYY-MM`; bawaan bulan terakhir."
+      }
+    ],
+    "contoh": "/api/v1/dashboard/lama-menginap/per-kelas?tamu=",
+    "respons": "json",
+    "errors": [
+      {
+        "code": "401",
+        "when": "Token tidak ada atau tidak valid."
+      },
+      {
+        "code": "422",
+        "when": "Parameter tidak sesuai aturan (rincian per parameter di errors.fields)."
+      }
+    ]
+  },
+  {
+    "id": "dashboard-lama-menginap-seri",
+    "method": "GET",
+    "path": "/api/v1/dashboard/lama-menginap/seri",
+    "title": "Deret lama menginap per kelas",
+    "desc": "Deret bulanan lama menginap per kelas hotel untuk satu jenis tamu.",
+    "params": [
+      {
+        "name": "tamu",
+        "in": "query",
+        "type": "wisman | wisnus",
+        "required": true,
+        "desc": "Jenis tamu: wisman atau wisnus."
+      },
+      {
+        "name": "periode",
+        "in": "query",
+        "type": "string",
+        "required": false,
+        "desc": "Bulan, `YYYY-MM`; bawaan bulan terakhir."
+      }
+    ],
+    "contoh": "/api/v1/dashboard/lama-menginap/seri?tamu=",
+    "respons": "json",
+    "errors": [
+      {
+        "code": "401",
+        "when": "Token tidak ada atau tidak valid."
+      },
+      {
+        "code": "422",
+        "when": "Parameter tidak sesuai aturan (rincian per parameter di errors.fields)."
+      }
+    ]
+  },
+  {
+    "id": "dashboard-wisnus-meta",
+    "method": "GET",
+    "path": "/api/v1/dashboard/wisnus/meta",
+    "title": "Pilihan dashboard wisnus",
+    "desc": "Daftar kota, tahun, dan tahun bawaan untuk filter dashboard wisatawan nusantara.",
+    "params": [],
+    "contoh": "/api/v1/dashboard/wisnus/meta",
+    "respons": "json",
+    "errors": [
+      {
+        "code": "401",
+        "when": "Token tidak ada atau tidak valid."
+      }
+    ]
+  },
+  {
+    "id": "dashboard-wisnus-tahunan",
+    "method": "GET",
+    "path": "/api/v1/dashboard/wisnus/tahunan",
+    "title": "Wisnus per tahun",
+    "desc": "Perjalanan wisnus per tahun dan KPI, untuk semua kota atau satu `kota`.",
+    "params": [
+      {
+        "name": "kota",
+        "in": "query",
+        "type": "string",
+        "required": false,
+        "desc": "Kota tujuan; kosong = semua kota."
+      }
+    ],
+    "contoh": "/api/v1/dashboard/wisnus/tahunan",
+    "respons": "json",
+    "errors": [
+      {
+        "code": "401",
+        "when": "Token tidak ada atau tidak valid."
+      },
+      {
+        "code": "422",
+        "when": "Parameter tidak sesuai aturan (rincian per parameter di errors.fields)."
+      }
+    ]
+  },
+  {
+    "id": "dashboard-wisnus-per-kota",
+    "method": "GET",
+    "path": "/api/v1/dashboard/wisnus/per-kota",
+    "title": "Wisnus per kota tujuan",
+    "desc": "Perjalanan wisnus per kota tujuan untuk satu `tahun`.",
+    "params": [
+      {
+        "name": "tahun",
+        "in": "query",
+        "type": "string",
+        "required": false,
+        "desc": "Tahun, `YYYY`; bawaan tahun terakhir."
+      }
+    ],
+    "contoh": "/api/v1/dashboard/wisnus/per-kota",
+    "respons": "json",
+    "errors": [
+      {
+        "code": "401",
+        "when": "Token tidak ada atau tidak valid."
+      },
+      {
+        "code": "422",
+        "when": "Parameter tidak sesuai aturan (rincian per parameter di errors.fields)."
+      }
+    ]
+  },
+  {
+    "id": "dashboard-wisnus-bulanan",
+    "method": "GET",
+    "path": "/api/v1/dashboard/wisnus/bulanan",
+    "title": "Wisnus per bulan",
+    "desc": "Deret bulanan perjalanan wisnus per kota, atau satu `kota`.",
+    "params": [
+      {
+        "name": "kota",
+        "in": "query",
+        "type": "string",
+        "required": false,
+        "desc": "Kota tujuan; kosong = semua kota."
+      }
+    ],
+    "contoh": "/api/v1/dashboard/wisnus/bulanan",
+    "respons": "json",
+    "errors": [
+      {
+        "code": "401",
+        "when": "Token tidak ada atau tidak valid."
+      },
+      {
+        "code": "422",
+        "when": "Parameter tidak sesuai aturan (rincian per parameter di errors.fields)."
+      }
+    ]
+  },
+  {
+    "id": "dashboard-wisnus-yoy",
+    "method": "GET",
+    "path": "/api/v1/dashboard/wisnus/yoy",
+    "title": "Wisnus year-on-year",
+    "desc": "Perjalanan wisnus bulan yang sama lintas tahun, untuk semua kota atau satu `kota`.",
+    "params": [
+      {
+        "name": "kota",
+        "in": "query",
+        "type": "string",
+        "required": false,
+        "desc": "Kota tujuan; kosong = semua kota."
+      }
+    ],
+    "contoh": "/api/v1/dashboard/wisnus/yoy",
+    "respons": "json",
+    "errors": [
+      {
+        "code": "401",
+        "when": "Token tidak ada atau tidak valid."
+      },
+      {
+        "code": "422",
+        "when": "Parameter tidak sesuai aturan (rincian per parameter di errors.fields)."
+      }
+    ]
+  },
+  {
+    "id": "dashboard-destinasi-meta",
+    "method": "GET",
+    "path": "/api/v1/dashboard/destinasi/meta",
+    "title": "Pilihan kunjungan destinasi",
+    "desc": "Tahun dan daftar destinasi wisata untuk jenis pengunjung `jenis`.",
+    "params": [
+      {
+        "name": "jenis",
+        "in": "query",
+        "type": "wisnus | wisman",
+        "required": true,
+        "desc": "Jenis pengunjung: wisnus atau wisman."
+      }
+    ],
+    "contoh": "/api/v1/dashboard/destinasi/meta?jenis=",
+    "respons": "json",
+    "errors": [
+      {
+        "code": "401",
+        "when": "Token tidak ada atau tidak valid."
+      },
+      {
+        "code": "422",
+        "when": "Parameter tidak sesuai aturan (rincian per parameter di errors.fields)."
+      }
+    ]
+  },
+  {
+    "id": "dashboard-destinasi-ringkasan",
+    "method": "GET",
+    "path": "/api/v1/dashboard/destinasi/ringkasan",
+    "title": "Ringkasan kunjungan destinasi",
+    "desc": "KPI dan catatan data kunjungan ke destinasi wisata per `tahun` dan `destinasi`.",
+    "params": [
+      {
+        "name": "jenis",
+        "in": "query",
+        "type": "wisnus | wisman",
+        "required": true,
+        "desc": "Jenis pengunjung: wisnus atau wisman."
+      },
+      {
+        "name": "tahun",
+        "in": "query",
+        "type": "string",
+        "required": false,
+        "desc": "Tahun, `YYYY`."
+      },
+      {
+        "name": "destinasi",
+        "in": "query",
+        "type": "string",
+        "required": false,
+        "desc": "Nama destinasi; kosong = semua."
+      }
+    ],
+    "contoh": "/api/v1/dashboard/destinasi/ringkasan?jenis=",
+    "respons": "json",
+    "errors": [
+      {
+        "code": "401",
+        "when": "Token tidak ada atau tidak valid."
+      },
+      {
+        "code": "422",
+        "when": "Parameter tidak sesuai aturan (rincian per parameter di errors.fields)."
+      }
+    ]
+  },
+  {
+    "id": "dashboard-destinasi-per-destinasi",
+    "method": "GET",
+    "path": "/api/v1/dashboard/destinasi/per-destinasi",
+    "title": "Kunjungan per destinasi",
+    "desc": "Peringkat kunjungan per destinasi wisata untuk satu `tahun`.",
+    "params": [
+      {
+        "name": "jenis",
+        "in": "query",
+        "type": "wisnus | wisman",
+        "required": true,
+        "desc": "Jenis pengunjung: wisnus atau wisman."
+      },
+      {
+        "name": "tahun",
+        "in": "query",
+        "type": "string",
+        "required": false,
+        "desc": "Tahun, `YYYY`."
+      },
+      {
+        "name": "destinasi",
+        "in": "query",
+        "type": "string",
+        "required": false,
+        "desc": "Nama destinasi; kosong = semua."
+      }
+    ],
+    "contoh": "/api/v1/dashboard/destinasi/per-destinasi?jenis=",
+    "respons": "json",
+    "errors": [
+      {
+        "code": "401",
+        "when": "Token tidak ada atau tidak valid."
+      },
+      {
+        "code": "422",
+        "when": "Parameter tidak sesuai aturan (rincian per parameter di errors.fields)."
+      }
+    ]
+  },
+  {
+    "id": "dashboard-destinasi-bulanan",
+    "method": "GET",
+    "path": "/api/v1/dashboard/destinasi/bulanan",
+    "title": "Kunjungan destinasi per bulan",
+    "desc": "Deret bulanan kunjungan ke semua destinasi atau satu `destinasi`.",
+    "params": [
+      {
+        "name": "jenis",
+        "in": "query",
+        "type": "wisnus | wisman",
+        "required": true,
+        "desc": "Jenis pengunjung: wisnus atau wisman."
+      },
+      {
+        "name": "tahun",
+        "in": "query",
+        "type": "string",
+        "required": false,
+        "desc": "Tahun, `YYYY`."
+      },
+      {
+        "name": "destinasi",
+        "in": "query",
+        "type": "string",
+        "required": false,
+        "desc": "Nama destinasi; kosong = semua."
+      }
+    ],
+    "contoh": "/api/v1/dashboard/destinasi/bulanan?jenis=",
+    "respons": "json",
+    "errors": [
+      {
+        "code": "401",
+        "when": "Token tidak ada atau tidak valid."
+      },
+      {
+        "code": "422",
+        "when": "Parameter tidak sesuai aturan (rincian per parameter di errors.fields)."
+      }
+    ]
+  },
+  {
+    "id": "dashboard-tenaga-kerja-dki",
+    "method": "GET",
+    "path": "/api/v1/dashboard/tenaga-kerja/dki",
+    "title": "Tenaga kerja ekraf DKI",
+    "desc": "Tenaga kerja ekonomi kreatif DKI Jakarta per tahun, porsi nasional, dan jenis kelamin.",
+    "params": [],
+    "contoh": "/api/v1/dashboard/tenaga-kerja/dki",
+    "respons": "json",
+    "errors": [
+      {
+        "code": "401",
+        "when": "Token tidak ada atau tidak valid."
+      }
+    ]
+  },
+  {
+    "id": "dashboard-tenaga-kerja-subsektor",
+    "method": "GET",
+    "path": "/api/v1/dashboard/tenaga-kerja/subsektor",
+    "title": "Tenaga kerja per subsektor",
+    "desc": "Tenaga kerja ekonomi kreatif nasional per subsektor untuk satu `tahun`.",
+    "params": [
+      {
+        "name": "tahun",
+        "in": "query",
+        "type": "string",
+        "required": false,
+        "desc": "Tahun, `YYYY`; bawaan tahun terakhir."
+      }
+    ],
+    "contoh": "/api/v1/dashboard/tenaga-kerja/subsektor",
+    "respons": "json",
+    "errors": [
+      {
+        "code": "401",
+        "when": "Token tidak ada atau tidak valid."
+      },
+      {
+        "code": "422",
+        "when": "Parameter tidak sesuai aturan (rincian per parameter di errors.fields)."
+      }
+    ]
+  },
+  {
+    "id": "dashboard-tenaga-kerja-sertifikasi",
+    "method": "GET",
+    "path": "/api/v1/dashboard/tenaga-kerja/sertifikasi",
+    "title": "Sertifikasi kompetensi",
+    "desc": "Jumlah tenaga kerja tersertifikasi per tahun dan per bidang.",
+    "params": [],
+    "contoh": "/api/v1/dashboard/tenaga-kerja/sertifikasi",
+    "respons": "json",
+    "errors": [
+      {
+        "code": "401",
+        "when": "Token tidak ada atau tidak valid."
+      }
+    ]
+  },
+  {
+    "id": "dashboard-pdrb-ekraf-makro",
+    "method": "GET",
+    "path": "/api/v1/dashboard/pdrb-ekraf/makro",
+    "title": "PDRB ekraf makro",
+    "desc": "PDRB ekonomi kreatif DKI: nilai, kontribusi vs target RPJMD, dan pertumbuhan per periode.",
+    "params": [],
+    "contoh": "/api/v1/dashboard/pdrb-ekraf/makro",
+    "respons": "json",
+    "errors": [
+      {
+        "code": "401",
+        "when": "Token tidak ada atau tidak valid."
+      }
+    ]
+  },
+  {
+    "id": "dashboard-pdrb-ekraf-subsektor-sebaran",
+    "method": "GET",
+    "path": "/api/v1/dashboard/pdrb-ekraf/subsektor/sebaran",
+    "title": "Sebaran PDRB per subsektor",
+    "desc": "Distribusi PDRB ekonomi kreatif per subsektor untuk satu `periode`.",
+    "params": [
+      {
+        "name": "periode",
+        "in": "query",
+        "type": "string",
+        "required": false,
+        "desc": "Periode PDRB, mis. `2024` atau `S1 2025`."
+      }
+    ],
+    "contoh": "/api/v1/dashboard/pdrb-ekraf/subsektor/sebaran",
+    "respons": "json",
+    "errors": [
+      {
+        "code": "401",
+        "when": "Token tidak ada atau tidak valid."
+      },
+      {
+        "code": "422",
+        "when": "Parameter tidak sesuai aturan (rincian per parameter di errors.fields)."
+      }
+    ]
+  },
+  {
+    "id": "dashboard-pdrb-ekraf-subsektor-pertumbuhan",
+    "method": "GET",
+    "path": "/api/v1/dashboard/pdrb-ekraf/subsektor/pertumbuhan",
+    "title": "Pertumbuhan PDRB per subsektor",
+    "desc": "Pertumbuhan PDRB ekonomi kreatif per subsektor untuk satu `periode`.",
+    "params": [
+      {
+        "name": "periode",
+        "in": "query",
+        "type": "string",
+        "required": false,
+        "desc": "Periode PDRB, mis. `2024` atau `S1 2025`."
+      }
+    ],
+    "contoh": "/api/v1/dashboard/pdrb-ekraf/subsektor/pertumbuhan",
+    "respons": "json",
+    "errors": [
+      {
+        "code": "401",
+        "when": "Token tidak ada atau tidak valid."
+      },
+      {
+        "code": "422",
+        "when": "Parameter tidak sesuai aturan (rincian per parameter di errors.fields)."
+      }
+    ]
+  },
+  {
     "id": "dataset-katalog",
     "method": "GET",
     "path": "/api/v1/katalog",

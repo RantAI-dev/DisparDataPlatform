@@ -10,6 +10,1005 @@
         }
     ],
     "paths": {
+        "/dashboard/ringkasan": {
+            "get": {
+                "operationId": "dashboard.ringkasan",
+                "description": "Empat KPI beranda dashboard: wisman tahun terakhir lengkap vs target RPJMD dan PDRB ekonomi kreatif.",
+                "summary": "Ringkasan dashboard",
+                "tags": [
+                    "Dashboard"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/AuthenticationException"
+                    }
+                }
+            }
+        },
+        "/dashboard/wisman/tahunan": {
+            "get": {
+                "operationId": "dashboard.wisman.tahunan",
+                "description": "Capaian kunjungan wisman per tahun vs target RPJMD, pertumbuhan, dan tahun bawaan halaman.",
+                "summary": "Wisman per tahun",
+                "tags": [
+                    "Dashboard"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/AuthenticationException"
+                    }
+                }
+            }
+        },
+        "/dashboard/wisman/bulanan": {
+            "get": {
+                "operationId": "dashboard.wisman.bulanan",
+                "description": "Kunjungan wisman per bulan seluruh periode, deret year-on-year, dan ringkasan bulan terpilih (`periode`).",
+                "summary": "Wisman per bulan",
+                "tags": [
+                    "Dashboard"
+                ],
+                "parameters": [
+                    {
+                        "name": "periode",
+                        "in": "query",
+                        "description": "Bulan terpilih, `YYYY-MM`.",
+                        "schema": {
+                            "type": [
+                                "string",
+                                "null"
+                            ],
+                            "pattern": "^\\d{4}-\\d{2}$"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/AuthenticationException"
+                    },
+                    "422": {
+                        "$ref": "#/components/responses/ValidationException"
+                    }
+                }
+            }
+        },
+        "/dashboard/wisman/kebangsaan": {
+            "get": {
+                "operationId": "dashboard.wisman.kebangsaan",
+                "description": "Negara terbesar (`top`) + Lainnya untuk satu tahun (`tahun`) atau satu bulan (`periode`).",
+                "summary": "Wisman per kebangsaan",
+                "tags": [
+                    "Dashboard"
+                ],
+                "parameters": [
+                    {
+                        "name": "tahun",
+                        "in": "query",
+                        "description": "Tahun, `YYYY`.",
+                        "schema": {
+                            "type": [
+                                "string",
+                                "null"
+                            ],
+                            "pattern": "^\\d{4}$"
+                        }
+                    },
+                    {
+                        "name": "periode",
+                        "in": "query",
+                        "description": "Bulan, `YYYY-MM` (menggantikan tahun).",
+                        "schema": {
+                            "type": [
+                                "string",
+                                "null"
+                            ],
+                            "pattern": "^\\d{4}-\\d{2}$"
+                        }
+                    },
+                    {
+                        "name": "top",
+                        "in": "query",
+                        "description": "Jumlah kategori teratas sebelum Lainnya.",
+                        "schema": {
+                            "type": [
+                                "integer",
+                                "null"
+                            ],
+                            "minimum": 1,
+                            "maximum": 50
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/AuthenticationException"
+                    },
+                    "422": {
+                        "$ref": "#/components/responses/ValidationException"
+                    }
+                }
+            }
+        },
+        "/dashboard/wisman/pintu-masuk": {
+            "get": {
+                "operationId": "dashboard.wisman.pintu-masuk",
+                "description": "Komposisi pintu masuk: bulanan BPS bila ada untuk `periode`, selain itu semesteran SDI.",
+                "summary": "Wisman per pintu masuk",
+                "tags": [
+                    "Dashboard"
+                ],
+                "parameters": [
+                    {
+                        "name": "tahun",
+                        "in": "query",
+                        "description": "Tahun, `YYYY`.",
+                        "schema": {
+                            "type": [
+                                "string",
+                                "null"
+                            ],
+                            "pattern": "^\\d{4}$"
+                        }
+                    },
+                    {
+                        "name": "periode",
+                        "in": "query",
+                        "description": "Bulan, `YYYY-MM` (menggantikan tahun).",
+                        "schema": {
+                            "type": [
+                                "string",
+                                "null"
+                            ],
+                            "pattern": "^\\d{4}-\\d{2}$"
+                        }
+                    },
+                    {
+                        "name": "top",
+                        "in": "query",
+                        "description": "Jumlah kategori teratas sebelum Lainnya.",
+                        "schema": {
+                            "type": [
+                                "integer",
+                                "null"
+                            ],
+                            "minimum": 1,
+                            "maximum": 50
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/AuthenticationException"
+                    },
+                    "422": {
+                        "$ref": "#/components/responses/ValidationException"
+                    }
+                }
+            }
+        },
+        "/dashboard/lama-menginap/rata-rata": {
+            "get": {
+                "operationId": "dashboard.lama-menginap.rata-rata",
+                "description": "Rata-rata lama menginap per bulan (rata-rata sederhana kelas bintang), wisman dan wisnus.",
+                "summary": "Rata-rata lama menginap",
+                "tags": [
+                    "Dashboard"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/AuthenticationException"
+                    }
+                }
+            }
+        },
+        "/dashboard/lama-menginap/per-kelas": {
+            "get": {
+                "operationId": "dashboard.lama-menginap.per-kelas",
+                "description": "Tabel lama menginap per kelas hotel untuk satu bulan (`periode`) dan jenis tamu (`tamu`).",
+                "summary": "Lama menginap per kelas hotel",
+                "tags": [
+                    "Dashboard"
+                ],
+                "parameters": [
+                    {
+                        "name": "tamu",
+                        "in": "query",
+                        "required": true,
+                        "description": "Jenis tamu: wisman atau wisnus.",
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "wisman",
+                                "wisnus"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "periode",
+                        "in": "query",
+                        "description": "Bulan, `YYYY-MM`; bawaan bulan terakhir.",
+                        "schema": {
+                            "type": [
+                                "string",
+                                "null"
+                            ],
+                            "pattern": "^\\d{4}-\\d{2}$"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/AuthenticationException"
+                    },
+                    "422": {
+                        "$ref": "#/components/responses/ValidationException"
+                    }
+                }
+            }
+        },
+        "/dashboard/lama-menginap/seri": {
+            "get": {
+                "operationId": "dashboard.lama-menginap.seri",
+                "description": "Deret bulanan lama menginap per kelas hotel untuk satu jenis tamu.",
+                "summary": "Deret lama menginap per kelas",
+                "tags": [
+                    "Dashboard"
+                ],
+                "parameters": [
+                    {
+                        "name": "tamu",
+                        "in": "query",
+                        "required": true,
+                        "description": "Jenis tamu: wisman atau wisnus.",
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "wisman",
+                                "wisnus"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "periode",
+                        "in": "query",
+                        "description": "Bulan, `YYYY-MM`; bawaan bulan terakhir.",
+                        "schema": {
+                            "type": [
+                                "string",
+                                "null"
+                            ],
+                            "pattern": "^\\d{4}-\\d{2}$"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/AuthenticationException"
+                    },
+                    "422": {
+                        "$ref": "#/components/responses/ValidationException"
+                    }
+                }
+            }
+        },
+        "/dashboard/wisnus/meta": {
+            "get": {
+                "operationId": "dashboard.wisnus.meta",
+                "description": "Daftar kota, tahun, dan tahun bawaan untuk filter dashboard wisatawan nusantara.",
+                "summary": "Pilihan dashboard wisnus",
+                "tags": [
+                    "Dashboard"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/AuthenticationException"
+                    }
+                }
+            }
+        },
+        "/dashboard/wisnus/tahunan": {
+            "get": {
+                "operationId": "dashboard.wisnus.tahunan",
+                "description": "Perjalanan wisnus per tahun dan KPI, untuk semua kota atau satu `kota`.",
+                "summary": "Wisnus per tahun",
+                "tags": [
+                    "Dashboard"
+                ],
+                "parameters": [
+                    {
+                        "name": "kota",
+                        "in": "query",
+                        "description": "Kota tujuan; kosong = semua kota.",
+                        "schema": {
+                            "type": [
+                                "string",
+                                "null"
+                            ],
+                            "maxLength": 100
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/AuthenticationException"
+                    },
+                    "422": {
+                        "$ref": "#/components/responses/ValidationException"
+                    }
+                }
+            }
+        },
+        "/dashboard/wisnus/per-kota": {
+            "get": {
+                "operationId": "dashboard.wisnus.per-kota",
+                "description": "Perjalanan wisnus per kota tujuan untuk satu `tahun`.",
+                "summary": "Wisnus per kota tujuan",
+                "tags": [
+                    "Dashboard"
+                ],
+                "parameters": [
+                    {
+                        "name": "tahun",
+                        "in": "query",
+                        "description": "Tahun, `YYYY`; bawaan tahun terakhir.",
+                        "schema": {
+                            "type": [
+                                "string",
+                                "null"
+                            ],
+                            "pattern": "^\\d{4}$"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/AuthenticationException"
+                    },
+                    "422": {
+                        "$ref": "#/components/responses/ValidationException"
+                    }
+                }
+            }
+        },
+        "/dashboard/wisnus/bulanan": {
+            "get": {
+                "operationId": "dashboard.wisnus.bulanan",
+                "description": "Deret bulanan perjalanan wisnus per kota, atau satu `kota`.",
+                "summary": "Wisnus per bulan",
+                "tags": [
+                    "Dashboard"
+                ],
+                "parameters": [
+                    {
+                        "name": "kota",
+                        "in": "query",
+                        "description": "Kota tujuan; kosong = semua kota.",
+                        "schema": {
+                            "type": [
+                                "string",
+                                "null"
+                            ],
+                            "maxLength": 100
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/AuthenticationException"
+                    },
+                    "422": {
+                        "$ref": "#/components/responses/ValidationException"
+                    }
+                }
+            }
+        },
+        "/dashboard/wisnus/yoy": {
+            "get": {
+                "operationId": "dashboard.wisnus.yoy",
+                "description": "Perjalanan wisnus bulan yang sama lintas tahun, untuk semua kota atau satu `kota`.",
+                "summary": "Wisnus year-on-year",
+                "tags": [
+                    "Dashboard"
+                ],
+                "parameters": [
+                    {
+                        "name": "kota",
+                        "in": "query",
+                        "description": "Kota tujuan; kosong = semua kota.",
+                        "schema": {
+                            "type": [
+                                "string",
+                                "null"
+                            ],
+                            "maxLength": 100
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/AuthenticationException"
+                    },
+                    "422": {
+                        "$ref": "#/components/responses/ValidationException"
+                    }
+                }
+            }
+        },
+        "/dashboard/destinasi/meta": {
+            "get": {
+                "operationId": "dashboard.destinasi.meta",
+                "description": "Tahun dan daftar destinasi wisata untuk jenis pengunjung `jenis`.",
+                "summary": "Pilihan kunjungan destinasi",
+                "tags": [
+                    "Dashboard"
+                ],
+                "parameters": [
+                    {
+                        "name": "jenis",
+                        "in": "query",
+                        "required": true,
+                        "description": "Jenis pengunjung: wisnus atau wisman.",
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "wisnus",
+                                "wisman"
+                            ]
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/AuthenticationException"
+                    },
+                    "422": {
+                        "$ref": "#/components/responses/ValidationException"
+                    }
+                }
+            }
+        },
+        "/dashboard/destinasi/ringkasan": {
+            "get": {
+                "operationId": "dashboard.destinasi.ringkasan",
+                "description": "KPI dan catatan data kunjungan ke destinasi wisata per `tahun` dan `destinasi`.",
+                "summary": "Ringkasan kunjungan destinasi",
+                "tags": [
+                    "Dashboard"
+                ],
+                "parameters": [
+                    {
+                        "name": "jenis",
+                        "in": "query",
+                        "required": true,
+                        "description": "Jenis pengunjung: wisnus atau wisman.",
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "wisnus",
+                                "wisman"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "tahun",
+                        "in": "query",
+                        "description": "Tahun, `YYYY`.",
+                        "schema": {
+                            "type": [
+                                "string",
+                                "null"
+                            ],
+                            "pattern": "^\\d{4}$"
+                        }
+                    },
+                    {
+                        "name": "destinasi",
+                        "in": "query",
+                        "description": "Nama destinasi; kosong = semua.",
+                        "schema": {
+                            "type": [
+                                "string",
+                                "null"
+                            ],
+                            "maxLength": 200
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/AuthenticationException"
+                    },
+                    "422": {
+                        "$ref": "#/components/responses/ValidationException"
+                    }
+                }
+            }
+        },
+        "/dashboard/destinasi/per-destinasi": {
+            "get": {
+                "operationId": "dashboard.destinasi.per-destinasi",
+                "description": "Peringkat kunjungan per destinasi wisata untuk satu `tahun`.",
+                "summary": "Kunjungan per destinasi",
+                "tags": [
+                    "Dashboard"
+                ],
+                "parameters": [
+                    {
+                        "name": "jenis",
+                        "in": "query",
+                        "required": true,
+                        "description": "Jenis pengunjung: wisnus atau wisman.",
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "wisnus",
+                                "wisman"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "tahun",
+                        "in": "query",
+                        "description": "Tahun, `YYYY`.",
+                        "schema": {
+                            "type": [
+                                "string",
+                                "null"
+                            ],
+                            "pattern": "^\\d{4}$"
+                        }
+                    },
+                    {
+                        "name": "destinasi",
+                        "in": "query",
+                        "description": "Nama destinasi; kosong = semua.",
+                        "schema": {
+                            "type": [
+                                "string",
+                                "null"
+                            ],
+                            "maxLength": 200
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/AuthenticationException"
+                    },
+                    "422": {
+                        "$ref": "#/components/responses/ValidationException"
+                    }
+                }
+            }
+        },
+        "/dashboard/destinasi/bulanan": {
+            "get": {
+                "operationId": "dashboard.destinasi.bulanan",
+                "description": "Deret bulanan kunjungan ke semua destinasi atau satu `destinasi`.",
+                "summary": "Kunjungan destinasi per bulan",
+                "tags": [
+                    "Dashboard"
+                ],
+                "parameters": [
+                    {
+                        "name": "jenis",
+                        "in": "query",
+                        "required": true,
+                        "description": "Jenis pengunjung: wisnus atau wisman.",
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "wisnus",
+                                "wisman"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "tahun",
+                        "in": "query",
+                        "description": "Tahun, `YYYY`.",
+                        "schema": {
+                            "type": [
+                                "string",
+                                "null"
+                            ],
+                            "pattern": "^\\d{4}$"
+                        }
+                    },
+                    {
+                        "name": "destinasi",
+                        "in": "query",
+                        "description": "Nama destinasi; kosong = semua.",
+                        "schema": {
+                            "type": [
+                                "string",
+                                "null"
+                            ],
+                            "maxLength": 200
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/AuthenticationException"
+                    },
+                    "422": {
+                        "$ref": "#/components/responses/ValidationException"
+                    }
+                }
+            }
+        },
+        "/dashboard/tenaga-kerja/dki": {
+            "get": {
+                "operationId": "dashboard.tenaga-kerja.dki",
+                "description": "Tenaga kerja ekonomi kreatif DKI Jakarta per tahun, porsi nasional, dan jenis kelamin.",
+                "summary": "Tenaga kerja ekraf DKI",
+                "tags": [
+                    "Dashboard"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/AuthenticationException"
+                    }
+                }
+            }
+        },
+        "/dashboard/tenaga-kerja/subsektor": {
+            "get": {
+                "operationId": "dashboard.tenaga-kerja.subsektor",
+                "description": "Tenaga kerja ekonomi kreatif nasional per subsektor untuk satu `tahun`.",
+                "summary": "Tenaga kerja per subsektor",
+                "tags": [
+                    "Dashboard"
+                ],
+                "parameters": [
+                    {
+                        "name": "tahun",
+                        "in": "query",
+                        "description": "Tahun, `YYYY`; bawaan tahun terakhir.",
+                        "schema": {
+                            "type": [
+                                "string",
+                                "null"
+                            ],
+                            "pattern": "^\\d{4}$"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/AuthenticationException"
+                    },
+                    "422": {
+                        "$ref": "#/components/responses/ValidationException"
+                    }
+                }
+            }
+        },
+        "/dashboard/tenaga-kerja/sertifikasi": {
+            "get": {
+                "operationId": "dashboard.tenaga-kerja.sertifikasi",
+                "description": "Jumlah tenaga kerja tersertifikasi per tahun dan per bidang.",
+                "summary": "Sertifikasi kompetensi",
+                "tags": [
+                    "Dashboard"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/AuthenticationException"
+                    }
+                }
+            }
+        },
+        "/dashboard/pdrb-ekraf/makro": {
+            "get": {
+                "operationId": "dashboard.pdrb-ekraf.makro",
+                "description": "PDRB ekonomi kreatif DKI: nilai, kontribusi vs target RPJMD, dan pertumbuhan per periode.",
+                "summary": "PDRB ekraf makro",
+                "tags": [
+                    "Dashboard"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/AuthenticationException"
+                    }
+                }
+            }
+        },
+        "/dashboard/pdrb-ekraf/subsektor/sebaran": {
+            "get": {
+                "operationId": "dashboard.pdrb-ekraf.subsektor.sebaran",
+                "description": "Distribusi PDRB ekonomi kreatif per subsektor untuk satu `periode`.",
+                "summary": "Sebaran PDRB per subsektor",
+                "tags": [
+                    "Dashboard"
+                ],
+                "parameters": [
+                    {
+                        "name": "periode",
+                        "in": "query",
+                        "description": "Periode PDRB, mis. `2024` atau `S1 2025`.",
+                        "schema": {
+                            "type": [
+                                "string",
+                                "null"
+                            ],
+                            "maxLength": 20
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/AuthenticationException"
+                    },
+                    "422": {
+                        "$ref": "#/components/responses/ValidationException"
+                    }
+                }
+            }
+        },
+        "/dashboard/pdrb-ekraf/subsektor/pertumbuhan": {
+            "get": {
+                "operationId": "dashboard.pdrb-ekraf.subsektor.pertumbuhan",
+                "description": "Pertumbuhan PDRB ekonomi kreatif per subsektor untuk satu `periode`.",
+                "summary": "Pertumbuhan PDRB per subsektor",
+                "tags": [
+                    "Dashboard"
+                ],
+                "parameters": [
+                    {
+                        "name": "periode",
+                        "in": "query",
+                        "description": "Periode PDRB, mis. `2024` atau `S1 2025`.",
+                        "schema": {
+                            "type": [
+                                "string",
+                                "null"
+                            ],
+                            "maxLength": 20
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/AuthenticationException"
+                    },
+                    "422": {
+                        "$ref": "#/components/responses/ValidationException"
+                    }
+                }
+            }
+        },
         "/katalog": {
             "get": {
                 "operationId": "dataset.katalog",

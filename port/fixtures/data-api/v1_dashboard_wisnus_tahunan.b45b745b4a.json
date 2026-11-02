@@ -1,0 +1,8 @@
+{
+  "kunci": "/v1/dashboard/wisnus/tahunan?kota=Jakarta%20Pusat",
+  "status": 200,
+  "headers": {
+    "content-type": "application/json"
+  },
+  "body": "{\"data\":{\"tahun\":[{\"label\":\"2019\",\"value\":13740806},{\"label\":\"2020\",\"value\":6744860},{\"label\":\"2021\",\"value\":8382411},{\"label\":\"2022\",\"value\":12594024},{\"label\":\"2023\",\"value\":14911741},{\"label\":\"2024\",\"value\":19048236},{\"label\":\"2025\",\"value\":20739990},{\"label\":\"2026 (s/d Mei)\",\"value\":8802598}],\"kpi\":[{\"label\":\"Capaian 2025\",\"value\":20739990,\"sub\":\"perjalanan\"},{\"label\":\"Pertumbuhan 2025\",\"value\":\"8,9%\",\"sub\":\"vs 2024\",\"delta\":8.881420830779291},{\"label\":\"2026 (s/d Mei)\",\"value\":8802598,\"sub\":\"Jan–Mei 2025: 8.067.016\"},{\"label\":\"Tujuan terbanyak 2025\",\"value\":\"Jakarta Selatan\",\"sub\":\"27.032.572 perjalanan\"}]},\"meta\":{\"generated_at\":\"2026-10-30T05:21:46+07:00\",\"source\":[\"silver.wisnus_perjalanan_per_kota_tujuan\"],\"request_id\":\"164b45868b4943bc94299e1a5e836da5\"}}"
+}
