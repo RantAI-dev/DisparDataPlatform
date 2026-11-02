@@ -77,3 +77,15 @@ Melawan `dispar.rantai.dev`, SPEC §7. Portal memakai Laravel + Data API lokal (
 | DS-P03 | `/sdi` | — |
 | DS-P04 | `/sdi/{S1}`, `/sdi/{S2}`, `/sdi/{S3}` | — |
 | DC-P01 | `/docs` | P3: isi endpoint (dihasilkan dari OpenAPI); hanya kerangka dibandingkan |
+
+### Paritas interaksi dan ekspor (`frontend/tests/parity/{interaksi,ekspor}.spec.ts`)
+
+| ID | Halaman | Langkah |
+|---|---|---|
+| IX-P01 | `/katalog` | cari dataset (DS-E01) |
+| IX-P10 | `/katalog` | tier Sekunder + lapisan Gold (DS-E02) |
+| IX-P11 | `/sdi/{S1}` | chip filter Kebangsaan JEPANG (DS-E04); baris produksi disuntikkan |
+| IX-P12 | `/sdi/{S1}` | sort Jumlah Kunjungan ▲ (DS-E05); baris produksi disuntikkan |
+| IX-P13 | `/sdi/{S1}` | gulir memuat 50 baris berikutnya (DS-E06); halaman 1 dan 2 produksi disuntikkan |
+| IX-P14 | `/sdi/{S1}` | chart builder + Tambah grafik (DS-E08) |
+| EK-P14 | `/sdi/{S1}` | isi CSV terfilter Kebangsaan JEPANG (DS-E07); pengecualian "Urutan baris" (diterima pemilik 3 Nov 2026) |

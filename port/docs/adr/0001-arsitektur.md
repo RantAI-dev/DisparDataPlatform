@@ -123,7 +123,7 @@ Nilai default SPEC dipakai kecuali disebut lain. Pemilik boleh membatalkan tiap 
   **Celah yang diketahui**: komponen/composable auto-import Nuxt dari layer lain tidak memakai
   `import`, jadi tidak tertangkap ESLint; layer fitur (plan 11+) perlu menamai komponennya dengan
   awalan fitur dan review menjaga aturan ini.
-- **Galeri `/_kerangka`** (dihapus di plan 17): `index` (komponen + PDRB Ekraf golden),
+- **Galeri `/_kerangka`** (dihapus di plan 17; halaman fitur dan suite paritas menggantikannya): `index` (komponen + PDRB Ekraf golden),
   `pariwisata` (PariwisataShell + VenueMap), `spasial` (SpatialMap, kepadatan dihitung di galeri
   dari golden), `dashboard` (layout dashboard). RawDataDisclosure/SdiTable memanggil rute dataset
   Laravel plan 11, jadi sampai plan 11 galeri menampilkan keadaan error-nya; e2e mencegat rute itu.

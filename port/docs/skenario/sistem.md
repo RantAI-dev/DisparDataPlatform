@@ -62,3 +62,16 @@ keadaan gagal yang sama dengan Next.js. Dibuktikan `frontend/tests/e2e/sistem.sp
 | SI-E01 | Tabel di atas, satu tes per baris: sinkron manual (token admin), kosongkan cache, Data API dimatikan lewat sakelar pemutar fixture (`POST /__uji/mati`) |
 
 Project `sistem` berjalan sesudah project lain (`dependencies`), karena mematikan Data API bersama.
+
+## Paritas redirect (`frontend/tests/parity/redirect.spec.ts`)
+
+Status + Location sama dengan produksi (KONTRAK §1).
+
+| ID | Dari |
+|---|---|
+| RD-P01 | `/atlas` |
+| RD-P02 | `/atlas/golf`, `/atlas/tidak-ada` (404) |
+| RD-P03 | `/atlas/restaurants/map`, `/atlas/hotel/map` (404) |
+| RD-P04 | `/gmti/map` |
+| RD-P05 | `/katalog/hotel` |
+| RD-P06 | `/readiness` |

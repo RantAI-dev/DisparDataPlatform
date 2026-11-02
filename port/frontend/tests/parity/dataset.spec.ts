@@ -10,7 +10,7 @@ const S3 = "data-pendapatan-asli-daerah-pad-sektor-pariwisata";
 const ANGKA_BERANDA = [".rounded-2xl.grid > div > div:first-child", ".apple-caption-strong"];
 
 test("DS-P01 /", async ({ browser, page }, info) => {
-  await bandingkanHalaman(browser, page, "/", info, { mask: ANGKA_BERANDA, abaikanAngka: ANGKA_BERANDA });
+  await bandingkanHalaman(browser, page, "/", info, { mask: ANGKA_BERANDA, abaikanAngka: ANGKA_BERANDA, pengecualian: ["P4"] });
 });
 
 test("DS-P02 /katalog", async ({ browser, page }, info) => {
@@ -42,5 +42,5 @@ test("DC-P01 /docs", async ({ browser, page }, info) => {
   // berubah; perbedaan isi itu diizinkan P3, jadi kerangka dibandingkan di desktop saja.
   test.skip(info.project.name === "mobile", "P3: isi pill hero berbeda");
   const isi = ["main > div", "code.text-\\[13\\.5px\\]", ".rounded-full.px-3\\.5"];
-  await bandingkanHalaman(browser, page, "/docs", info, { layar: "viewport", mask: isi, abaikanAngka: isi });
+  await bandingkanHalaman(browser, page, "/docs", info, { layar: "viewport", mask: isi, abaikanAngka: isi, pengecualian: ["P3"] });
 });

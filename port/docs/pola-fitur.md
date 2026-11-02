@@ -120,16 +120,24 @@ test("DS-P04 /sdi/S1", async ({ browser, page }, info) => {
 menyamakan keadaan (font, `networkidle`, animasi), lalu:
 
 1. **Angka**: himpunan token angka di `<main>` harus identik (`abaikanAngka` = whitelist P4).
-2. **Visual**: tangkapan produksi menjadi pembanding `toMatchSnapshot` dengan
-   `maxDiffPixelRatio: 0.02`. Halaman ber-canvas memakai viewport setinggi dokumen.
+2. **Visual**: rasio piksel berbeda antara tangkapan produksi dan portal (pembanding PNG
+   Playwright) harus ≤ 2%. Halaman ber-canvas memakai viewport setinggi dokumen.
+3. **Performa** (dicatat, bukan gate): LCP dan total transfer kedua sisi.
 
-Selalu: header di-mask (item asisten AI/Jekate tidak di-port), dock AI dibuang dari produksi.
-Data yang tidak deterministik (baris tanpa ORDER BY) disamakan dengan `samakanBaris`, bukan di-mask.
-Pengecualian lain (P1–P5) ditulis sebagai `mask` + komentar alasannya di spec.
+Selalu: header di-mask (item asisten AI/Jekate tidak di-port), tile peta dan iframe Google Maps
+di-mask, dock AI dibuang dari produksi. Data yang tidak deterministik (baris tanpa ORDER BY)
+disamakan dengan `samakanBaris`, bukan di-mask. Pengecualian lain (P1–P5) ditulis sebagai `mask` +
+komentar alasannya di spec, dan dicatat lewat `pengecualian: ["P…"]` supaya muncul di laporan.
+Skenario interaksi (`interaksi.spec.ts`) memakai `siapkan` untuk menjalankan langkah e2e di kedua sisi;
+ekspor (`ekspor.spec.ts`) memakai `bandingkanEkspor` (pola nama, BOM, header, jumlah baris, isi sel).
+Render ditunggu dengan `tungguRender` (tile Leaflet selesai dimuat + canvas ECharts stabil).
 
-Jalankan: portal dev diarahkan ke Data API lokal (data hidup), lalu
-`PORTAL_URL=http://127.0.0.1:3000 npx playwright test -c playwright.parity.config.ts tests/parity/<fitur>.spec.ts`.
-Laporan HTML: `frontend/playwright-report/parity/`.
+Jalankan sesudah `php artisan portal:sinkron` hari itu (SPEC §7), dengan backend diarahkan ke Data API
+lokal (data hidup): `PORTAL_URL=http://127.0.0.1:3000 npm run paritas` (satu fitur: tambahkan
+`-- tests/parity/<fitur>.spec.ts`). Hasil: `docs/paritas/laporan-<tanggal>.md` (reporter
+`tests/parity/laporan.ts`) dan HTML `frontend/playwright-report/parity/` (artefak, tidak di-commit).
+Isi `PARITAS_LARAVEL_URL` dan `PARITAS_ADMIN_TOKEN` supaya laporan mencatat waktu `portal:sinkron`
+terakhir (dibaca dari `sistem/job`).
 
 ## 6. Gate sebelum commit
 

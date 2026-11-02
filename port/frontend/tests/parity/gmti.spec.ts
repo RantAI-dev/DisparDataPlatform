@@ -15,7 +15,10 @@ const hitungUlangTinggi = async (page: Page) => {
 
 test("GM-P02 /spatial (panel; tile, pin, dan choropleth di-mask)", async ({ browser, page }, info) => {
   await bandingkanHalaman(browser, page, "/spatial", info, {
-    tunggu: "text=/4\\.920 titik/",
+    // Jumlah titik tidak di-hardcode: cukup tunggu angka titik terisi (>0) di kedua sisi.
+    tunggu: "text=/[1-9][\\d.]* titik/",
+    // Peta di-mask utuh: pin/choropleth bergerak (pan/zoom beranimasi) sehingga tidak stabil antar
+    // tangkapan; percobaan menyempitkan ke tile saja gagal tak menentu (plan 17, IX-P31).
     mask: [".leaflet-container"],
     layar: "viewport",
     siapkan: hitungUlangTinggi,
@@ -27,6 +30,7 @@ test("GM-P02 /spatial (panel; tile, pin, dan choropleth di-mask)", async ({ brow
 // yang sama (keadaan produksi saat ini).
 test("GM-P03 /scraped-hotels", async ({ browser, page }, info) => {
   await bandingkanHalaman(browser, page, "/scraped-hotels", info, {
+    pengecualian: ["P5"],
     tunggu: "text=/Hotels \\(\\d+\\)/",
     samakanBaris: {
       produksi: "/api/hotels/scraped",

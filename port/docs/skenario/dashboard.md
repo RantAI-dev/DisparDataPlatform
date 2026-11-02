@@ -41,3 +41,19 @@ Satu tes per ID, nama tes diawali ID-nya. Pola: `docs/pola-fitur.md`. Sumber tam
 | DB-P03 | `/dashboard/wisnus` |
 | DB-P04 | `/dashboard/tenaga-kerja` |
 | DB-P05 | `/dashboard/pdrb-ekraf` |
+
+### Paritas interaksi dan ekspor (`frontend/tests/parity/{interaksi,ekspor}.spec.ts`)
+
+| ID | Halaman | Langkah |
+|---|---|---|
+| IX-P02 | `/dashboard/wisman` | tahun 2024 lalu bulan Mei (DB-E02) |
+| IX-P03 | `/dashboard/wisnus` | filter kota tujuan (DB-E03) |
+| IX-P04 | `/dashboard/tenaga-kerja` | tahun subsektor 2022 (DB-E04) |
+| IX-P05 | `/dashboard/pdrb-ekraf` | modal Perbesar grafik (DB-E06) |
+| IX-P15 | `/dashboard/pdrb-ekraf` | sebaran subsektor 2022 (DB-E05) |
+| IX-P16 | `/dashboard/wisman` | bulan 2025-03: pintu masuk semesteran (DB-E02) |
+| IX-P34 | `/dashboard/wisman` | modal Perbesar grafik pertama (WismanStat) |
+| IX-P35 | `/dashboard/wisman` | modal Perbesar "Per kelas hotel" (LosByClass; wisnus memakai komponen sama) |
+| IX-P36 | `/dashboard/wisman` | modal Perbesar "per destinasi" (DestinasiStat; wisnus memakai komponen sama) |
+| IX-P37 | `/dashboard/wisnus` | modal Perbesar grafik pertama (WisnusStat) |
+| IX-P38 | `/dashboard/tenaga-kerja` | modal Perbesar grafik pertama |
