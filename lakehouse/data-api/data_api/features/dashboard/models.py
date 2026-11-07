@@ -214,6 +214,10 @@ class TenagaKerjaSubsektor(BaseModel):
     items: list[Titik]
 
 
+class SebaranDki(BaseModel):
+    items: list[Titik]
+
+
 class Sertifikasi(BaseModel):
     per_tahun: list[Titik]
     bidang: list[str]

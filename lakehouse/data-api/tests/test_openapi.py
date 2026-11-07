@@ -39,6 +39,7 @@ PATH_KONTRAK = [
     "/v1/dashboard/destinasi/bulanan",
     "/v1/dashboard/tenaga-kerja/dki",
     "/v1/dashboard/tenaga-kerja/subsektor",
+    "/v1/dashboard/tenaga-kerja/sebaran-dki",
     "/v1/dashboard/tenaga-kerja/sertifikasi",
     "/v1/dashboard/pdrb-ekraf/makro",
     "/v1/dashboard/pdrb-ekraf/subsektor/sebaran",

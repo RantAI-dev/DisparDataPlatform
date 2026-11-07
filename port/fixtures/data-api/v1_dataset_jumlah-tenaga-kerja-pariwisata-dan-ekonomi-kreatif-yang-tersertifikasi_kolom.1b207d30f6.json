@@ -1,0 +1,8 @@
+{
+  "kunci": "/v1/dataset/jumlah-tenaga-kerja-pariwisata-dan-ekonomi-kreatif-yang-tersertifikasi/kolom",
+  "status": 200,
+  "headers": {
+    "content-type": "application/json"
+  },
+  "body": "{\"data\":{\"items\":[{\"key\":\"periode_data\",\"desc\":null,\"type\":null},{\"key\":\"wilayah\",\"desc\":\"komponen\",\"type\":\"varchar\"},{\"key\":\"tempat_sertifikasi\",\"desc\":\"komponen\",\"type\":\"varchar\"},{\"key\":\"bidang\",\"desc\":\"komponen\",\"type\":\"varchar\"},{\"key\":\"jumlah_peserta\",\"desc\":\"komponen\",\"type\":\"varchar\"}]},\"meta\":{\"generated_at\":\"2026-11-07T23:12:49+07:00\",\"source\":[\"lake.bronze_meta*.dataset_column\",\"silver.<tabel>\"],\"request_id\":\"53ff58d84af94c3d8ede970689918d02\"}}"
+}

@@ -1,4 +1,4 @@
-"""Katalog (E §4.2 butir 1): gabungan primer lake + 51 entri sekunder, medallion, urutan."""
+"""Katalog (E §4.2 butir 1): gabungan primer lake + 49 entri sekunder, medallion, urutan."""
 
 
 def test_katalog_semua(klien):
@@ -6,7 +6,7 @@ def test_katalog_semua(klien):
     assert r.status_code == 200
     d, meta = r.json()["data"], r.json()["meta"]
     items = d["items"]
-    assert meta["total"] == len(items) == 3 + 51
+    assert meta["total"] == len(items) == 3 + 49
     # primer diurut updated_at menurun, yang kosong paling akhir
     assert [i["id"] for i in items[:3]] == ["sdi-wisman", "sdi-event", "sdi-mentah"]
     w = items[0]
@@ -30,7 +30,7 @@ def test_katalog_semua(klien):
 
 def test_entri_sekunder_teks_app_baris_lake(klien):
     items = klien.get("/v1/katalog", params={"tier": "sekunder"}).json()["data"]["items"]
-    assert len(items) == 51 and all(i["tier"] == "sekunder" for i in items)
+    assert len(items) == 49 and all(i["tier"] == "sekunder" for i in items)
     neg = items[0]
     # teks dari katalog_sekunder.toml (salinan lib/secondary.ts), bukan teks lake
     assert neg["title"] == "Wisman DKI Jakarta per Negara (BPS dibersihkan)"
@@ -55,8 +55,8 @@ def test_filter_sumber(klien):
         s: klien.get("/v1/katalog", params={"sumber": s}).json()["meta"]["total"]
         for s in ("sdi", "internal", "instansi", "crawling")
     }
-    # 3 primer palsu + 11 sekunder olahan SDI; total tetap 3 + 51
-    assert jumlah == {"sdi": 14, "internal": 7, "instansi": 6, "crawling": 27}
+    # 3 primer palsu + 11 sekunder olahan SDI; total tetap 3 + 49
+    assert jumlah == {"sdi": 14, "internal": 5, "instansi": 6, "crawling": 27}
     items = klien.get("/v1/katalog", params={"sumber": "crawling", "tier": "sekunder"}).json()["data"]["items"]
     assert len(items) == 27 and {i["source"] for i in items} == {"Crawling"}
 
@@ -97,7 +97,7 @@ def test_stats_dan_layer(klien):
 def test_halaman_dan_tier_salah(klien):
     r = klien.get("/v1/katalog", params={"page": 2, "size": 10}).json()
     assert [i["id"] for i in r["data"]["items"]][0] == "sec-tk-ekraf-provinsi" or len(r["data"]["items"]) == 10
-    assert r["meta"]["total"] == 3 + 51
+    assert r["meta"]["total"] == 3 + 49
     e = klien.get("/v1/katalog", params={"tier": "lain"})
     assert e.status_code == 400 and e.json()["error"]["code"] == "INVALID_PARAM"
 

@@ -291,6 +291,8 @@ di kontrak yang sama.
 | `data.title` | string | — | `"Data Event Pariwisata dan Kebudayaan…` |
 | `data.description` | string | — | `"Data ini Berisi Mengenai Data Event …` |
 | `data.sumber_data` | array<string> | — |  |
+| `data.sumber_label` | string | — | `"Satu Data Jakarta · Data Event Pariw…` |
+| `data.portal_url` | null \| string | — | `"https://satudata.jakarta.go.id/open-…` |
 | `data.frekuensi` | null \| string | — | `"1 Tahun Sekali"` |
 | `data.satuan` | null \| string | — |  |
 | `data.periode` | null \| object | — |  |
@@ -726,6 +728,20 @@ Respons berkas/aliran (text/csv, application/vnd.openxmlformats-officedocument.s
 | `data.items` | array<object> | — |  |
 | `data.items[].label` | string | — | `"Kuliner"` |
 | `data.items[].value` | integer | — | `10670832` |
+
+### `GET /v1/dashboard/tenaga-kerja/sebaran-dki`
+
+- Laravel: `GET /api/v1/dashboard/tenaga-kerja/sebaran-dki`
+- Kelas: P
+- Sumber lake: `silver.sebaran_pelaku_ekraf_jakarta`
+- Ringkas: Pelaku ekraf DKI terdaftar di EKRAF Hub per subsektor
+
+| Field | Tipe | Arti | Contoh |
+|---|---|---|---|
+| `data` | object | — |  |
+| `data.items` | array<object> | — |  |
+| `data.items[].label` | string | — | `"Kuliner"` |
+| `data.items[].value` | integer | — | `520` |
 
 ### `GET /v1/dashboard/tenaga-kerja/sertifikasi`
 

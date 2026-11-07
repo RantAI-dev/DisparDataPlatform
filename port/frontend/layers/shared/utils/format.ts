@@ -77,3 +77,6 @@ export function topN(arr: Point[], n = 10): Point[] {
 export function total(arr: Point[]): number {
   return arr.reduce((s, x) => s + x.value, 0);
 }
+
+/** Nilai kolom `sumber` yang berupa label teks (bukan tautan) → ditampilkan sebagai tag sumber. */
+export const labelSumber = (key: string, v: unknown) => key === "sumber" && !!v && !/^https?:\/\//i.test(String(v));

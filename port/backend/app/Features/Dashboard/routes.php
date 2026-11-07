@@ -24,6 +24,7 @@ Route::portal(function () {
     Route::apiGet('dashboard/destinasi/bulanan', [DashboardController::class, 'destinasiBulanan'], modul: 'dashboard', kelas: 'P')->name('dashboard.destinasi.bulanan');
     Route::apiGet('dashboard/tenaga-kerja/dki', [DashboardController::class, 'tenagaKerjaDki'], modul: 'dashboard', kelas: 'T')->name('dashboard.tenaga-kerja.dki');
     Route::apiGet('dashboard/tenaga-kerja/subsektor', [DashboardController::class, 'tenagaKerjaSubsektor'], modul: 'dashboard', kelas: 'P')->name('dashboard.tenaga-kerja.subsektor');
+    Route::apiGet('dashboard/tenaga-kerja/sebaran-dki', [DashboardController::class, 'tenagaKerjaSebaranDki'], modul: 'dashboard', kelas: 'T')->name('dashboard.tenaga-kerja.sebaran-dki');
     Route::apiGet('dashboard/tenaga-kerja/sertifikasi', [DashboardController::class, 'tenagaKerjaSertifikasi'], modul: 'dashboard', kelas: 'T')->name('dashboard.tenaga-kerja.sertifikasi');
     Route::apiGet('dashboard/pdrb-ekraf/makro', [DashboardController::class, 'pdrbMakro'], modul: 'dashboard', kelas: 'T')->name('dashboard.pdrb-ekraf.makro');
     Route::apiGet('dashboard/pdrb-ekraf/subsektor/sebaran', [DashboardController::class, 'pdrbSebaran'], modul: 'dashboard', kelas: 'P')->name('dashboard.pdrb-ekraf.subsektor.sebaran');

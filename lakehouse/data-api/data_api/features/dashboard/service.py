@@ -161,6 +161,7 @@ _UBAH: dict[str, Callable[[dict[str, Any]], dict[str, Any]]] = {
         kk: (r[kk] if kk == "tahun" else _angka(r[kk])) for kk in ("tahun", "total", "laki", "perempuan", "nasional")
     },
     "tk_subsektor": lambda r: {"tahun": r["tahun"], "subsektor": r["subsektor"], "jumlah": _angka(r["jumlah"])},
+    "sebaran_pelaku_dki": lambda r: {"subsektor": r["subsektor"], "jumlah": _angka(r["jumlah"])},
 }
 
 
@@ -933,6 +934,12 @@ def tenaga_kerja_subsektor(m: Muat, tahun: str | None) -> dict[str, Any]:
         ({"label": r["subsektor"], "value": r["jumlah"]} for r in rows if r["tahun"] == t), key=lambda p: -p["value"]
     )
     return {"tahun_list": tahun_list, "tahun": t, "items": items}
+
+
+def tenaga_kerja_sebaran_dki(m: Muat) -> dict[str, Any]:
+    """Pelaku ekraf DKI terdaftar di EKRAF Hub per subsektor (bukan jumlah tenaga kerja)."""
+    (rows,) = m.ambil("sebaran_pelaku_dki")
+    return {"items": [{"label": r["subsektor"], "value": r["jumlah"]} for r in rows]}
 
 
 def _urut_bidang(rows: list[dict[str, Any]]) -> list[str]:

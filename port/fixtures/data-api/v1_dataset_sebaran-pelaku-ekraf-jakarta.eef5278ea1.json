@@ -1,0 +1,8 @@
+{
+  "kunci": "/v1/dataset/sebaran-pelaku-ekraf-jakarta",
+  "status": 200,
+  "headers": {
+    "content-type": "application/json"
+  },
+  "body": "{\"data\":{\"slug\":\"sebaran-pelaku-ekraf-jakarta\",\"title\":\"Sebaran Pelaku Ekonomi Kreatif DKI Jakarta (EKRAF Hub)\",\"description\":\"Pelaku ekonomi kreatif berdomisili DKI Jakarta yang terdaftar di EKRAF Hub Kementerian Ekonomi Kreatif: nama, subsektor, kabupaten/kota, tipe pengguna, usaha atau tempat kerja, dan tahun pembaruan data. Snapshot dari hub.ekraf.go.id/sebaran-pelaku-kreatif.\",\"sumber_data\":[],\"sumber_label\":\"EKRAF Hub Kemenekraf (hub.ekraf.go.id), diambil Nov 2026\",\"portal_url\":null,\"frekuensi\":null,\"satuan\":null,\"periode\":null,\"klasifikasi\":null,\"kontak\":null,\"author\":\"Dinas Pariwisata & Ekonomi Kreatif DKI Jakarta\",\"medallion\":{\"level\":\"silver\",\"table\":\"sebaran_pelaku_ekraf_jakarta\"},\"total_bronze\":2016},\"meta\":{\"generated_at\":\"2026-11-08T00:04:01+07:00\",\"source\":[\"lake.bronze_meta*.dataset_catalog\",\"lake.bronze_meta*.dataset_sync\",\"silver.<tabel>\"],\"request_id\":\"9847cf7a323a4569b48ea12c38d32dc9\",\"total\":2016}}"
+}

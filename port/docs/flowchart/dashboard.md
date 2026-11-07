@@ -29,6 +29,7 @@ klien biasa (10 s, ulang 2×). Kelas di rute sama dengan `DashboardService::KELA
 | `dashboard.destinasi.bulanan` | `destinasi/bulanan` | P | `jenis`, `destinasi` |
 | `dashboard.tenaga-kerja.dki` | `tenaga-kerja/dki` | T | — |
 | `dashboard.tenaga-kerja.subsektor` | `tenaga-kerja/subsektor` | P | `tahun` |
+| `dashboard.tenaga-kerja.sebaran-dki` | `tenaga-kerja/sebaran-dki` | T | — |
 | `dashboard.tenaga-kerja.sertifikasi` | `tenaga-kerja/sertifikasi` | T | — |
 | `dashboard.pdrb-ekraf.makro` | `pdrb-ekraf/makro` | T | — |
 | `dashboard.pdrb-ekraf.subsektor.sebaran` | `pdrb-ekraf/subsektor/sebaran` | P | `periode` |

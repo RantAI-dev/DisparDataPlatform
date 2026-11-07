@@ -40,6 +40,19 @@ test("DB-E04 tenaga kerja: pilih tahun subsektor", async ({ page }) => {
   await expect(page.getByText("Tenaga Kerja Ekonomi Kreatif per Subsektor di Tingkat Nasional - Tahun 2022")).toBeVisible();
 });
 
+test("DB-E07 tenaga kerja: sebaran pelaku DKI dan tabel data sumber berkolom Sumber", async ({ page }) => {
+  await buka(page, "/dashboard/tenaga-kerja");
+  await expect(page.getByText("Sebaran Pelaku Ekonomi Kreatif per Subsektor di DKI Jakarta")).toBeVisible();
+  await expect(page.getByText(/bukan jumlah tenaga kerja/)).toBeVisible();
+  const ringkas = page.locator("details summary");
+  await expect(ringkas).toHaveCount(5);
+  await expect(ringkas.first()).toContainText("Tenaga kerja ekraf per provinsi (Kemenekraf) (522 baris)");
+  await ringkas.first().click();
+  const tabel = page.locator("details").first().locator("table");
+  await expect(tabel.locator("thead th").last()).toHaveText("Sumber Data");
+  await expect(tabel.locator("tbody tr").first().locator("td").last()).toHaveText("Satu Data Ekraf (Kemenekraf) · olahan Sakernas BPS");
+});
+
 test("DB-E05 PDRB: sebaran dan pertumbuhan dengan periode berbeda", async ({ page }) => {
   await buka(page, "/dashboard/pdrb-ekraf");
   await page.getByRole("button", { name: "2022", exact: true }).first().click();

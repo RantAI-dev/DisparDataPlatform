@@ -63,6 +63,7 @@ Nuxt hasil build + Laravel + fixture-server (rekaman `fixtures/data-api`).
 | DS-E07 | Detail: unduh CSV terfilter → nama `…-terfilter.csv`, diawali BOM |
 | DS-E08 | Detail: chart builder "+ Tambah grafik" → kartu chart dengan canvas, bertahan setelah reload |
 | DS-E09 | `/sdi/tidak-ada` → "Dataset belum tersedia di lakehouse. Coba buka di portal SDI ↗." |
+| DS-E10 | Detail: kolom Sumber Data paling kanan berisi asal data spesifik (S1 "Satu Data Jakarta · <judul dataset SDI>" + tautan portal); S2 yang punya label sumber per baris: kolom `sumber` dipindah ke paling kanan, footer menyebut asal spesifiknya (Wikipedia + OpenFlights + …) tanpa tautan portal |
 | BR-E01 | `/` merender hero dengan angka dari API dan tautan kartu |
 | DC-E01 | `/docs` merender daftar endpoint dari OpenAPI; tanpa `sistem/*` |
 

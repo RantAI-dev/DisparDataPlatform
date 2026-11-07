@@ -1,0 +1,8 @@
+{
+  "kunci": "/v1/dataset/tenaga-kerja-ekraf-per-provinsi/kolom",
+  "status": 200,
+  "headers": {
+    "content-type": "application/json"
+  },
+  "body": "{\"data\":{\"items\":[{\"key\":\"tahun\",\"desc\":\"Tahun\",\"type\":\"string\"},{\"key\":\"kode_wilayah\",\"desc\":\"Kode Wilayah\",\"type\":\"string\"},{\"key\":\"provinsi\",\"desc\":\"Provinsi\",\"type\":\"string\"},{\"key\":\"jenis_kelamin\",\"desc\":\"Jenis Kelamin\",\"type\":\"string\"},{\"key\":\"jumlah_tenaga_kerja\",\"desc\":\"orang\",\"type\":\"number\"}]},\"meta\":{\"generated_at\":\"2026-11-07T23:12:46+07:00\",\"source\":[\"lake.bronze_meta*.dataset_column\",\"silver.<tabel>\"],\"request_id\":\"1c3a52415fe24e1988be45c6482a2694\"}}"
+}

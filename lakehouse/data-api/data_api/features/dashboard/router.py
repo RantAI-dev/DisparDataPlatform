@@ -161,6 +161,12 @@ def tenaga_kerja_subsektor(k: KonteksDep, tahun: str | None = None):
     return _jawab(k, m, service.tenaga_kerja_subsektor(m, tahun), sumber)
 
 
+@router.get("/tenaga-kerja/sebaran-dki", response_model=Amplop[models.SebaranDki], response_model_exclude_unset=True)
+def tenaga_kerja_sebaran_dki(k: KonteksDep):
+    m = Muat(k)
+    return _jawab(k, m, service.tenaga_kerja_sebaran_dki(m), ["silver.sebaran_pelaku_ekraf_jakarta"])
+
+
 @router.get("/tenaga-kerja/sertifikasi", response_model=Amplop[models.Sertifikasi], response_model_exclude_unset=True)
 def tenaga_kerja_sertifikasi(k: KonteksDep):
     m = Muat(k)

@@ -32,6 +32,7 @@ KASUS = [
     ("/v1/dashboard/destinasi/bulanan", {"jenis": "wisnus", "destinasi": "Museum Joang '45"}),
     ("/v1/dashboard/tenaga-kerja/dki", {}),
     ("/v1/dashboard/tenaga-kerja/subsektor", {"tahun": "2024"}),
+    ("/v1/dashboard/tenaga-kerja/sebaran-dki", {}),
     ("/v1/dashboard/tenaga-kerja/sertifikasi", {}),
     ("/v1/dashboard/pdrb-ekraf/makro", {}),
     ("/v1/dashboard/pdrb-ekraf/subsektor/sebaran", {"periode": "S1 2025"}),

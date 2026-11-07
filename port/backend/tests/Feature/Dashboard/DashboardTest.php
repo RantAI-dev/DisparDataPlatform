@@ -24,7 +24,8 @@ function contohDashboard(): array
         'wisnus/bulanan' => '?kota=Jakarta%20Pusat', 'wisnus/yoy' => '',
         'destinasi/meta' => '?jenis=wisman', 'destinasi/ringkasan' => '?jenis=wisnus&tahun=2025',
         'destinasi/per-destinasi' => '?jenis=wisman&tahun=2025', 'destinasi/bulanan' => '?jenis=wisnus',
-        'tenaga-kerja/dki' => '', 'tenaga-kerja/subsektor' => '?tahun=2022', 'tenaga-kerja/sertifikasi' => '',
+        'tenaga-kerja/dki' => '', 'tenaga-kerja/subsektor' => '?tahun=2022',
+        'tenaga-kerja/sebaran-dki' => '', 'tenaga-kerja/sertifikasi' => '',
         'pdrb-ekraf/makro' => '', 'pdrb-ekraf/subsektor/sebaran' => '?periode=2022',
         'pdrb-ekraf/subsektor/pertumbuhan' => '?periode=S1%202025',
     ];

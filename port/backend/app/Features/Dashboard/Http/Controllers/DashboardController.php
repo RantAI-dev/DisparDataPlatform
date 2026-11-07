@@ -213,6 +213,17 @@ final class DashboardController
     }
 
     /**
+     * Sebaran pelaku ekraf DKI
+     *
+     * Pelaku ekonomi kreatif berdomisili DKI Jakarta yang terdaftar di EKRAF Hub, per subsektor.
+     * Jumlah pelaku terdaftar, bukan jumlah tenaga kerja.
+     */
+    public function tenagaKerjaSebaranDki(): DashboardResource
+    {
+        return new DashboardResource($this->layanan->baca('tenaga-kerja/sebaran-dki', []));
+    }
+
+    /**
      * Sertifikasi kompetensi
      *
      * Jumlah tenaga kerja tersertifikasi per tahun dan per bidang.

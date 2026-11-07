@@ -1,0 +1,8 @@
+{
+  "kunci": "/v1/dataset/tenaga-kerja-ekraf-per-subsektor-nasional/kolom",
+  "status": 200,
+  "headers": {
+    "content-type": "application/json"
+  },
+  "body": "{\"data\":{\"items\":[{\"key\":\"tahun\",\"desc\":\"Tahun\",\"type\":\"string\"},{\"key\":\"subsektor\",\"desc\":\"Subsektor\",\"type\":\"string\"},{\"key\":\"jumlah_tenaga_kerja\",\"desc\":\"orang\",\"type\":\"number\"}]},\"meta\":{\"generated_at\":\"2026-11-07T23:12:47+07:00\",\"source\":[\"lake.bronze_meta*.dataset_column\",\"silver.<tabel>\"],\"request_id\":\"aed469fdea7743b287ec7f997b8d82c1\"}}"
+}
