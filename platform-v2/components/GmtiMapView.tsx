@@ -82,6 +82,41 @@ function inPoly(x: number, y: number, p: Poly): boolean {
   return true;
 }
 
+/**
+ * Toleransi jarak ke poligon daratan: GeoJSON belum memuat lahan reklamasi
+ * (PIK, Ancol) dan punya celah tipis di batas kota. Bandara Soekarno-Hatta
+ * (±3 km dari batas) sudah di luar toleransi ini.
+ */
+const TOLERANSI_KM = 2.5;
+/** Gugusan Kepulauan Seribu; GeoJSON hanya memuat daratan Jakarta. */
+const SERIBU = { latMin: -6.07, latMax: -5.1, lngMin: 106.3, lngMax: 106.85 };
+
+/** Jarak (km, proyeksi ekuirektangular) dari titik ke tepi ring terdekat. */
+function jarakKeRingKm(x: number, y: number, ring: Ring): number {
+  const k = Math.cos((y * Math.PI) / 180);
+  let min = Infinity;
+  for (let i = 0; i < ring.length - 1; i++) {
+    const ax = ring[i][0] * k, ay = ring[i][1], bx = ring[i + 1][0] * k, by = ring[i + 1][1];
+    const dx = bx - ax, dy = by - ay, px = x * k;
+    const t = dx === 0 && dy === 0 ? 0 : Math.max(0, Math.min(1, ((px - ax) * dx + (y - ay) * dy) / (dx * dx + dy * dy)));
+    min = Math.min(min, Math.hypot(px - (ax + t * dx), y - (ay + t * dy)));
+  }
+  return min * 111.32;
+}
+
+/** Kota administrasi DKI tempat titik berada, atau null bila di luar DKI. */
+function wilayahDki(x: number, y: number, kec: { kota: string; polys: Poly[] }[]): string | null {
+  const hit = kec.find((f) => f.polys.some((p) => inPoly(x, y, p)));
+  if (hit) return hit.kota;
+  if (y > SERIBU.latMin && y < SERIBU.latMax && x > SERIBU.lngMin && x < SERIBU.lngMax) return "Kepulauan Seribu";
+  let terdekat: { kota: string; km: number } | null = null;
+  for (const f of kec) for (const p of f.polys) {
+    const km = jarakKeRingKm(x, y, p.rings[0]);
+    if (!terdekat || km < terdekat.km) terdekat = { kota: f.kota, km };
+  }
+  return terdekat && terdekat.km <= TOLERANSI_KM ? terdekat.kota : null;
+}
+
 type KecCount = { total: number; byCat: Partial<Record<SpatialCategory, number>> };
 
 function esc(v: string): string {
@@ -138,7 +173,7 @@ export function GmtiMapView() {
   /** Fasilitas ibadah SIMAS tanpa koordinat: geoKey kecamatan → jumlah. */
   const [ibadahNoCoord, setIbadahNoCoord] = useState<Map<string, number>>(new Map());
 
-  const points = useMemo(() => {
+  const allPoints = useMemo(() => {
     const seen = new Set(POINTS.map((p) => `${p.category}|${p.name.toLowerCase().trim()}|${p.lat}|${p.lng}`));
     return [...POINTS, ...extraPoints.filter(hasSpatialCoordinates).filter((p) => {
       const key = `${p.category}|${p.name.toLowerCase().trim()}|${p.lat}|${p.lng}`;
@@ -147,7 +182,6 @@ export function GmtiMapView() {
       return true;
     })];
   }, [extraPoints]);
-  const cities = useMemo(() => [...new Set(points.map((p) => p.city).filter(Boolean))].sort(), [points]);
 
   useEffect(() => {
     const timer = window.setTimeout(() => setSearch(query), 180);
@@ -212,13 +246,31 @@ export function GmtiMapView() {
     };
   }, []);
 
-  useEffect(() => { markerCache.current.clear(); }, [points]);
-
   /** Poligon per kecamatan (geoKey), dihitung sekali per GeoJSON. */
   const polys = useMemo(() => {
     if (!geo) return [];
-    return geo.features.map((f) => ({ key: geoKey(f.properties.kecamatan), polys: toPolys(f.geometry) }));
+    return geo.features.map((f) => ({ key: geoKey(f.properties.kecamatan), kota: f.properties.name, polys: toPolys(f.geometry) }));
   }, [geo]);
+
+  /**
+   * Wilayah tiap titik ditentukan dari koordinatnya, bukan teks kolom kota sumber
+   * (ejaannya beragam, sebagian kosong atau keliru). Titik di luar DKI tidak
+   * ditampilkan; datanya tetap utuh di tabel dataset. Sebelum GeoJSON termuat
+   * (atau bila gagal dimuat) titik tampil apa adanya.
+   */
+  const points = useMemo(() => {
+    if (!polys.length) return allPoints;
+    const hasil: typeof allPoints = [];
+    for (const p of allPoints) {
+      const kota = wilayahDki(p.lng, p.lat, polys);
+      if (kota) hasil.push({ ...p, city: kota });
+    }
+    return hasil;
+  }, [allPoints, polys]);
+  const outsideCount = allPoints.length - points.length;
+  const cities = useMemo(() => [...new Set(points.map((p) => p.city).filter(Boolean))].sort(), [points]);
+
+  useEffect(() => { markerCache.current.clear(); }, [points]);
 
   /**
    * Kepadatan per kecamatan: seluruh titik dari kategori aktif. Titik
@@ -466,6 +518,7 @@ export function GmtiMapView() {
           </div>
           <span role="status" className="ml-auto apple-caption tabular text-ink-muted-48">
             {idNum(pins.length)} / {idNum(points.length)} titik
+            {outsideCount > 0 && ` · ${idNum(outsideCount)} titik di luar DKI tidak ditampilkan`}
           </span>
         </div>
       <div className="frosted border-b border-hairline">

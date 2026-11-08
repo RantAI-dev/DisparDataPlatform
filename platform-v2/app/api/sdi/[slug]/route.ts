@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import * as store from "@/lib/ch/store";
+import { PESAN_KOSONG_DI_SDI } from "@/lib/sdi";
 import { FilterError, isFiltered, parseRowQuery } from "@/lib/ch/query-filter";
 import { SUMBER_DATA, secondaryDatasets } from "@/lib/secondary";
 
@@ -40,8 +41,15 @@ export async function GET(
   try {
     const cols = await store.displayColumns(slug);
     if (!cols.length) {
+      // Terdaftar di SDI tetapi kosong di sana: bukan kegagalan lakehouse.
+      const meta = await store.sync(slug);
+      const kosong = meta?.total === 0;
       return NextResponse.json(
-        { source: "lakehouse", slug, error: "Dataset belum tersedia di lakehouse", columns: [], rows: [], total: 0, count: 0, offset, limit },
+        {
+          source: "lakehouse", slug, title: meta?.title ?? null,
+          error: kosong ? PESAN_KOSONG_DI_SDI : "Dataset belum tersedia di lakehouse",
+          kosongDiSdi: kosong, columns: [], rows: [], total: 0, count: 0, offset, limit,
+        },
         { status: 404 },
       );
     }

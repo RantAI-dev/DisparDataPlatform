@@ -40,7 +40,7 @@ export async function GET() {
       const lat = pick(["lat", "latitude", "lintang"]);
       const lng = pick(["lon", "lng", "longitude", "bujur", "long"]);
       if (!lat || !lng) continue;
-      const name = pick(["nama", "name", "nama_usaha", "nama_dagang", "nama_tempat", "nama_hotel", "hotel_name", "venue", "nama_masjid"]);
+      const name = pick(["nama", "name", "nama_usaha", "nama_dagang", "nama_tempat", "nama_hotel", "hotel_name", "venue", "nama_masjid", "nama_destinasi_wisata", "obyek_wisata", "nama_desa_wisata", "nama_event"]);
       const city = pick(["kota", "city", "wilayah", "kabupaten_kota", "kota_administrasi"]);
       const address = pick(["alamat", "address", "formatted_address"]);
       const field = (column: string | undefined) => column ? `toString(\`${column}\`)` : "''";
@@ -57,6 +57,8 @@ export async function GET() {
             { limit: PAGE, offset },
           );
           for (const [i, r] of rows.entries()) {
+            // Sebagian baris SDI menukar isi kolom lintang dan bujur (lintang ±106).
+            if (r.lat !== null && r.lng !== null && Math.abs(r.lat) > 90 && Math.abs(r.lng) <= 90) [r.lat, r.lng] = [r.lng, r.lat];
             const point: SpatialPoint = {
               id: `lake-${source.slug}-${offset + i}`, name: r.name || source.title,
               category: spatialCategory(source.slug), city: spatialCity(r.city || ""), address: r.address || "",

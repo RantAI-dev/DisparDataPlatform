@@ -17,6 +17,8 @@ export type KatalogItem = {
   size_label: string;
   href: string;
   external: boolean;
+  /** Dataset primer yang terdaftar di SDI tetapi belum berisi baris di sana. */
+  kosong: boolean;
   medallion: MedallionInfo | null;
 };
 export type Katalog = {

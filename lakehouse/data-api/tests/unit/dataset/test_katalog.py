@@ -21,6 +21,7 @@ def test_katalog_semua(klien):
         "size_label": "1.598 dilihat",
         "href": "/sdi/wisman",
         "external": False,
+        "kosong": False,
         "medallion": {"level": "silver"},
     }
     assert items[1]["medallion"] == {"level": "gold", "mart": "mart_event"}
@@ -115,3 +116,28 @@ def test_lakehouse_mati_503(klien, ch):
     assert r.json() == {
         "error": {"code": "UPSTREAM_UNAVAILABLE", "message": "Lakehouse tidak dapat dibaca", "detail": "palsu"}
     }
+
+
+def test_entri_opd_disembunyikan_dan_dataset_kosong_ditandai(klien, monkeypatch):
+    from data_api.shared import hitungan
+    from data_api.shared import queries as sq
+
+    asli_katalog, asli_total = sq.katalog, hitungan.total_sync
+    tambahan = [
+        {"slug": "DISPAREKRAF", "title": "Dinas Pariwisata Dan Ekonomi Kreatif", "description": "", "tags": "[]",
+         "views": "0", "updated_at": "2026-06-05", "tier": "primer", "table_name": "disparekraf"},
+        {"slug": "stakeholder", "title": "Data Stakeholder", "description": "", "tags": "[]",
+         "views": "165", "updated_at": "2026-06-01", "tier": "primer", "table_name": "t_stakeholder"},
+    ]  # fmt: skip
+    monkeypatch.setattr(sq, "katalog", lambda k: [*asli_katalog(k), *tambahan])
+    monkeypatch.setattr(hitungan, "total_sync", lambda k: {**asli_total(k), "DISPAREKRAF": 0, "stakeholder": 0})
+    d = klien.get("/v1/katalog", params={"tier": "primer"}).json()["data"]
+    per_id = {i["id"]: i for i in d["items"]}
+    assert "sdi-DISPAREKRAF" not in per_id and d["stats"]["total"] == 4
+    assert per_id["sdi-stakeholder"]["kosong"] is True
+    assert not any(i["kosong"] for kunci, i in per_id.items() if kunci != "sdi-stakeholder")
+    r = klien.get("/v1/dataset/stakeholder")
+    assert r.status_code == 404
+    assert r.json()["error"]["message"] == "Dataset ini belum berisi data di Satu Data Jakarta"
+    # beranda menghitung dataset primer dengan aturan yang sama (3 palsu + stakeholder)
+    assert klien.get("/v1/beranda/ringkasan").json()["data"]["dataset_primer"] == 4

@@ -13,6 +13,7 @@
 /v1/dataset/data-jumlah-wisatawan-mancanegara-berdasarkan-kebangsaan/baris?size=5
 /v1/dataset/penerbangan-langsung-internasional-jakarta/baris?f=negara:in:Jepang&f=negara:in:Singapura&sort=maskapai:asc&size=20
 /v1/dataset/tidak-ada
+/v1/dataset/data-stakeholder-pariwisata-dki-jakarta
 
 # plan 11 — dataset (docs/skenario/dataset.md). Slug acuan: S1 primer Silver bertanggal,
 # S2 sekunder, S3 angka besar.

@@ -18,7 +18,10 @@ PAGE = 2000
 PARALEL = 8
 LAT = ["lat", "latitude", "lintang"]
 LNG = ["lon", "lng", "longitude", "bujur", "long"]
-NAMA = ["nama", "name", "nama_usaha", "nama_dagang", "nama_tempat", "nama_hotel", "hotel_name", "venue", "nama_masjid"]
+NAMA = [
+    "nama", "name", "nama_usaha", "nama_dagang", "nama_tempat", "nama_hotel", "hotel_name", "venue", "nama_masjid",
+    "nama_destinasi_wisata", "obyek_wisata", "nama_desa_wisata", "nama_event",
+]  # fmt: skip
 KOTA = ["kota", "city", "wilayah", "kabupaten_kota", "kota_administrasi"]
 ALAMAT = ["alamat", "address", "formatted_address"]
 

@@ -78,4 +78,6 @@ export const UKURAN_HALAMAN = 50;
 
 /** Pesan error detail: teks 404 route `/api/sdi/[slug]` v2 dan kegagalan jaringan ([slug]/page.tsx:150). */
 export const PESAN_404 = "Dataset belum tersedia di lakehouse";
+/** Pesan v2 `PESAN_KOSONG_DI_SDI` (lib/sdi.ts). */
+export const PESAN_KOSONG_DI_SDI = "Dataset ini belum berisi data di Satu Data Jakarta";
 export const PESAN_GAGAL = "Gagal memuat data";

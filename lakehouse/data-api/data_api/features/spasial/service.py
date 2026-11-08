@@ -31,12 +31,13 @@ def _gabungan(k: Konteks) -> dict[str, Any]:
         ibadah = lake.baris_bronze(k, "gmti_ibadah")
         # Urutan tambahan = hasil `/api/spatial` lalu ibadah (urutan golden; di klien bergantung
         # mana fetch yang selesai dulu).
-        points = logika.gabung(statis, [*dari_lake["points"], *logika.titik_ibadah(ibadah)])
+        points, di_luar = logika.di_dki(logika.gabung(statis, [*dari_lake["points"], *logika.titik_ibadah(ibadah)]))
         return angka_js(
             {
                 "points": points,
                 "per_id": {p["id"]: p for p in points},
                 "cities": logika.kota(points),
+                "di_luar_dki": di_luar,
                 "kepadatan_berkoordinat": logika.kepadatan(points),
                 "kepadatan_tanpa_koordinat": logika.ibadah_tanpa_koordinat(ibadah),
                 "inventory": dari_lake["inventory"],
@@ -58,7 +59,8 @@ def spasial(k: Konteks) -> tuple[dict[str, Any], dict[str, int]]:
         per_kategori[p["category"]] = per_kategori.get(p["category"], 0) + 1
     data = {
         "points": [{c: p[c] for c in ringkas} for p in g["points"]],
-        **{c: g[c] for c in ("cities", "kepadatan_berkoordinat", "kepadatan_tanpa_koordinat", "inventory")},
+        **{c: g[c] for c in ("cities", "di_luar_dki", "kepadatan_berkoordinat", "kepadatan_tanpa_koordinat")},
+        "inventory": g["inventory"],
         **{c: g[c] for c in ("failed", "complete")},
         "catatan": CATATAN,
     }

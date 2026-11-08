@@ -269,6 +269,7 @@ di kontrak yang sama.
 | `data.items[].size_label` | string | — | `"1.598 dilihat"` |
 | `data.items[].href` | string | — | `"/sdi/data-jumlah-wisatawan-mancanega…` |
 | `data.items[].external` | boolean | — | `false` |
+| `data.items[].kosong` | boolean | Dataset primer yang terdaftar di Satu Data Jakarta tetapi belum berisi baris di sana (sekunder selalu false). | `false` |
 | `data.items[].medallion` | null \| object | — |  |
 | `data.stats` | object | — |  |
 | `data.stats.total` | integer | — | `184` |
@@ -1387,6 +1388,7 @@ Respons berkas/aliran (text/csv, application/vnd.openxmlformats-officedocument.s
 | `data.points[].kind` | null \| string | — |  |
 | `data.points[].source` | null \| string | — |  |
 | `data.cities` | array<string> | — |  |
+| `data.di_luar_dki` | integer | Jumlah titik berkoordinat di luar DKI Jakarta (daratan + Kepulauan Seribu) yang tidak ditampilkan di peta. | `0` |
 | `data.kepadatan_berkoordinat` | object | — |  |
 | `data.inventory` | array<object> | — |  |
 | `data.inventory[].slug` | string | — | `"jumlah-kunjungan-wisatawan-ke-obyek-…` |

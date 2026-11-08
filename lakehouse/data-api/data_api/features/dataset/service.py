@@ -173,7 +173,8 @@ def katalog(
 
     `sumber` dan `tag` menyaring seperti filter Sumber dan Tag di halaman; tag dicocokkan utuh,
     tanpa beda huruf besar-kecil."""
-    primer = [r for r in _katalog_lake(k) if r["tier"] == "primer"]
+    primer = [r for r in _katalog_lake(k) if r["tier"] == "primer" and not hitungan.entri_opd(r["title"])]
+    total = hitungan.total_sync(k)
     # `/api/sdi`: urut updated_at menurun (sort stabil; kosong paling akhir).
     primer.sort(key=lambda r: r["updated_at"] or "", reverse=True)
     medal = _medallion_katalog(k)
@@ -190,6 +191,8 @@ def katalog(
             "size_label": f"{angka_id(r['views'])} dilihat",
             "href": f"/sdi/{r['slug']}",
             "external": False,
+            # Terdaftar di SDI tetapi belum berisi baris di sana.
+            "kosong": total.get(r["slug"]) == 0,
             "_medal": r["slug"],
         }
         for r in primer
@@ -207,6 +210,7 @@ def katalog(
                 "size_label": f"{angka_id(n)} baris",
                 "href": e.href,
                 "external": e.external,
+                "kosong": False,
                 "_medal": e.slug_lake or e.id,
             }
         )
@@ -273,6 +277,8 @@ def _kolom_tampil(k: Konteks, slug: str) -> list[dict[str, Any]]:
 def _wajib_ada(k: Konteks, slug: str) -> list[dict[str, Any]]:
     cols = _kolom_tampil(k, slug)
     if not cols:
+        if hitungan.total_sync(k).get(slug) == 0:
+            raise NotFound("Dataset ini belum berisi data di Satu Data Jakarta")
         raise NotFound("Dataset belum tersedia di lakehouse")
     return cols
 

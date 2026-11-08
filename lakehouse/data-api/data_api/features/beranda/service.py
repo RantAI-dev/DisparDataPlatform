@@ -16,7 +16,7 @@ SUMBER = [sq.META, sq.META_SEC, "lake.bronze_meta*.dataset_sync", "lake.bronze_f
 
 
 def ringkasan(k: Konteks) -> dict[str, Any]:
-    primer = sum(1 for r in sq.katalog(k) if r["tier"] == "primer")
+    primer = sum(1 for r in sq.katalog(k) if r["tier"] == "primer" and not hitungan.entri_opd(r["title"]))
     sekunder = hitungan.baris_sekunder(k)
     indikator = indikator_sumber.daftar(k)
     per_fw = {fw: sum(1 for i in indikator if i["framework"] == fw) for fw in ("GCI", "GPCI")}

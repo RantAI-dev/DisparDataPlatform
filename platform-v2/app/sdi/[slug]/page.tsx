@@ -82,6 +82,9 @@ export default function DatasetDetailPage({
   const [rows, setRows] = useState<Row[]>([]);
   const [count, setCount] = useState(0); // baris cocok filter aktif
   const [error, setError] = useState<string | null>(null);
+  /** Judul dari metadata saat dataset tidak punya baris (mis. kosong di SDI). */
+  const [judulGalat, setJudulGalat] = useState<string | null>(null);
+  const [kosongDiSdi, setKosongDiSdi] = useState(false);
   const [loading, setLoading] = useState(true); // muat awal
   const [loadingMore, setLoadingMore] = useState(false);
   // Muat ulang karena pencarian/filter/sort: konten lama tetap tampil (panel
@@ -146,6 +149,8 @@ export default function DatasetDetailPage({
         if (id !== reqSeq.current) return;
         if (json.error) {
           setError(json.error);
+          setJudulGalat(json.title ?? null);
+          setKosongDiSdi(json.kosongDiSdi === true);
           return;
         }
         setError(null);
@@ -239,7 +244,7 @@ export default function DatasetDetailPage({
             ← Katalog Pariwisata &amp; Ekraf
           </Link>
           <h1 className="mt-3 text-[26px] md:text-[32px] font-bold tracking-tight max-w-[30ch]">
-            {meta?.title ?? humanize(slug)}
+            {meta?.title ?? judulGalat ?? humanize(slug)}
           </h1>
           {meta?.description && (
             <p className="mt-2 text-white/75 max-w-[75ch] text-[15px]">
@@ -262,7 +267,20 @@ export default function DatasetDetailPage({
       </section>
 
       <section className="mx-auto max-w-[1320px] px-6 py-8 pb-20">
-        {error && (
+        {error && kosongDiSdi && (
+          <div className="bg-white rounded-xl border border-slate-200 p-8 text-center text-slate-600">
+            {error}. Data akan tampil di sini setelah diisi di SDI.{" "}
+            <a
+              href={`https://satudata.jakarta.go.id/open-data/${slug}`}
+              target="_blank"
+              rel="noreferrer"
+              className="underline"
+            >
+              Lihat di portal SDI ↗
+            </a>
+          </div>
+        )}
+        {error && !kosongDiSdi && (
           <div className="bg-white rounded-xl border border-red-200 p-8 text-center text-red-600">
             {error}. Coba{" "}
             <a

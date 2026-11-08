@@ -205,6 +205,7 @@ Dihasilkan dari `lakehouse/data-api/tests` (fungsi `test_*` dan baris pertama do
 | `test_halaman_dan_tier_salah` | — |
 | `test_urutan_stabil` | — |
 | `test_lakehouse_mati_503` | — |
+| `test_entri_opd_disembunyikan_dan_dataset_kosong_ditandai` | — |
 
 ## `tests/unit/gmti/test_gmti.py`
 
@@ -323,6 +324,9 @@ Dihasilkan dari `lakehouse/data-api/tests` (fungsi `test_*` dan baris pertama do
 | `test_kecamatan_titik_dan_ibadah_tanpa_koordinat` | — |
 | `test_tebakan_kolom_lat_lon_berurutan_dan_huruf_kecil` | — |
 | `test_penemuan_titik_lake_berhalaman_dan_urut_sumber` | — |
+| `test_kota_dki_dari_koordinat` | — |
+| `test_di_dki_mengganti_wilayah_dan_membuang_titik_luar` | — |
+| `test_titik_lake_menukar_lintang_bujur_tertukar_dan_kolom_nama_sdi` | — |
 
 ## `tests/unit/test_aplikasi.py`
 

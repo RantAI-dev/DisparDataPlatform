@@ -112,6 +112,9 @@ paths:
                               type: string
                             external:
                               type: boolean
+                            kosong:
+                              type: boolean
+                              description: Dataset primer yang terdaftar di Satu Data Jakarta tetapi belum berisi baris di sana (sekunder selalu false).
                             medallion:
                               oneOf:
                               - type: 'null'
@@ -134,6 +137,7 @@ paths:
                           - size_label
                           - href
                           - external
+                          - kosong
                           - medallion
                       stats:
                         type: object
@@ -194,6 +198,7 @@ paths:
                     size_label: 1.598 dilihat
                     href: /sdi/data-jumlah-wisatawan-mancanegara-berdasarkan-kebangsaan
                     external: false
+                    kosong: false
                     medallion:
                       level: silver
                   - id: sdi-nilai-kepuasan-pengunjung-objek-wisata
@@ -211,6 +216,7 @@ paths:
                     size_label: 936 dilihat
                     href: /sdi/nilai-kepuasan-pengunjung-objek-wisata
                     external: false
+                    kosong: false
                     medallion:
                       level: silver
                   stats:
@@ -6927,6 +6933,9 @@ paths:
                         type: array
                         items:
                           type: string
+                      di_luar_dki:
+                        type: integer
+                        description: Jumlah titik berkoordinat di luar DKI Jakarta (daratan + Kepulauan Seribu) yang tidak ditampilkan di peta.
                       kepadatan_berkoordinat:
                         type: object
                         additionalProperties:
@@ -6987,6 +6996,7 @@ paths:
                     required:
                     - points
                     - cities
+                    - di_luar_dki
                     - kepadatan_berkoordinat
                     - inventory
                     - failed
@@ -7017,8 +7027,13 @@ paths:
                     kind: null
                     source: null
                   cities:
-                  - Copenhagen
-                  - Frankfurt Am Main, Germany
+                  - Jakarta Barat
+                  - Jakarta Pusat
+                  - Jakarta Selatan
+                  - Jakarta Timur
+                  - Jakarta Utara
+                  - Kepulauan Seribu
+                  di_luar_dki: 0
                   kepadatan_berkoordinat:
                     pasarminggu:
                       total: 86
