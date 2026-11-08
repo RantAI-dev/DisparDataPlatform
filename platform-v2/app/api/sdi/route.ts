@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import type { SdiDataset } from "@/lib/sdi";
+import { isEntriOpd, type SdiDataset } from "@/lib/sdi";
 import * as store from "@/lib/ch/store";
 
 const CDN_CACHE = {
@@ -13,7 +13,8 @@ const CDN_CACHE = {
  */
 export async function GET() {
   try {
-    const rows = (await store.catalog()).filter((r) => r.tier === "primer");
+    const rows = (await store.catalog()).filter((r) => r.tier === "primer" && !isEntriOpd(r.title));
+    const totals = await store.syncTotals();
     const datasets: SdiDataset[] = rows.map((r) => ({
       id: 0,
       title: r.title,
@@ -24,6 +25,7 @@ export async function GET() {
       datasetCount: 0,
       createdAt: null,
       updatedAt: r.updated_at,
+      kosong: totals.get(r.slug) === 0,
     }));
     datasets.sort((a, b) =>
       String(b.updatedAt ?? "").localeCompare(String(a.updatedAt ?? "")),

@@ -47,6 +47,19 @@ CATATAN = {
     "data-hutan-di-provinsi-dki-jakarta": "Koordinat di sumber tidak valid (pemisah ribuan tercampur); kolom latitude/longitude disimpan apa adanya sebagai teks.",
 }
 
+# Koreksi koordinat yang kesalahannya pasti, bukan tebakan atas angka rusak: barisnya
+# tetap dari SDI, hanya lintang/bujur yang diganti, dan setiap koreksi disebut di
+# deskripsi dataset. Ditemukan lewat pengecekan manual peta Spatial (Nov 2026).
+KOREKSI = {
+    "data-museum-di-provinsi-dki-jakarta": {
+        "MUSEUM BANK TABUNGAN NEGARA": ("-6.16689", "106.82030", "tanda minus lintang hilang di sumber"),
+        "LIVING MUSEUM ROEMAH TOEGOE": (
+            "-6.12350", "106.92420",
+            "lintang sumber -5.96575 jatuh di laut; diganti lokasi Jl. Raya Tugu No.7 di samping Gereja Tugu (OpenStreetMap)",
+        ),
+    },
+}
+
 # Kolom teknis portal yang tidak bermakna untuk pembaca.
 SKIP_COLS = {"id", "user_id", "tanggal_upload", "tanggal_update", "uid_upload",
              "batch_upload", "jadwal_rilis", "created_at", "updated_at"}
@@ -91,6 +104,12 @@ def build(sdi_slug: str, slug: str, c: dict) -> dict:
         for k in num:
             if isinstance(r[k], float) and r[k].is_integer():
                 r[k] = int(r[k])
+    koreksi = KOREKSI.get(sdi_slug, {})
+    for r in rows:
+        if r.get("nama") in koreksi:
+            lat, lon, _ = koreksi[r["nama"]]
+            r["latitude"] = float(lat) if "latitude" in num else lat
+            r["longitude"] = float(lon) if "longitude" in num else lon
     periode = sorted({str(r.get("periode_data")) for r in rows if r.get("periode_data")})
     sumber = ", ".join(c["sumber_data"]) or "OPD terkait"
     return {
@@ -102,6 +121,7 @@ def build(sdi_slug: str, slug: str, c: dict) -> dict:
             + (f", periode {', '.join(periode)}" if periode else "")
             + f"; snapshot diambil {c['diambil']}. {PORTAL.format(sdi_slug)}"
             + (f" {CATATAN[sdi_slug]}" if sdi_slug in CATATAN else "")
+            + (" Koordinat dikoreksi: " + "; ".join(f"{n} ({a})" for n, (_, _, a) in koreksi.items()) + "." if koreksi else "")
         ),
         "columns": columns,
         "rows": rows,

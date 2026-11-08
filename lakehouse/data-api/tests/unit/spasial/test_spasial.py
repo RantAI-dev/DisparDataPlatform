@@ -188,3 +188,43 @@ def test_penemuan_titik_lake_berhalaman_dan_urut_sumber():
     assert p[0]["name"] == "Museum" and p[0]["href"] == "/sdi/museum-jakarta" and p[0]["category"] == "budaya"
     assert p[-1]["id"] == "lake-museum-jakarta-2000" and p[-1]["source"] == "Museum"
     assert not any("hilang" in s or "x-y" in s for s in k.log)
+
+
+@pytest.mark.parametrize(
+    ("lng", "lat", "kota"),
+    [
+        (106.8272, -6.1754, "Jakarta Pusat"),  # Monas: di dalam poligon
+        (106.744847, -6.092703, "Jakarta Utara"),  # PIK: reklamasi di luar poligon, dalam toleransi
+        (106.735, -6.034, "Kepulauan Seribu"),  # Pulau Onrust
+        (106.65785, -6.12554, None),  # Bandara Soekarno-Hatta, Tangerang (±3 km dari batas)
+        (12.5682, 55.6722, None),  # Copenhagen
+        (106.94435, -5.96575, None),  # laut Teluk Jakarta, timur gugusan Seribu
+    ],
+)
+def test_kota_dki_dari_koordinat(lng, lat, kota):
+    assert peta.kota_dki(lng, lat) == kota
+
+
+def test_di_dki_mengganti_wilayah_dan_membuang_titik_luar():
+    points = [
+        _p(id="a", city="Kota Adm. Jakarta Timur", lat=-6.1754, lng=106.8272),
+        _p(id="b", city="Copenhagen", lat=55.6722, lng=12.5682),
+        _p(id="c", city="", lat=-6.034, lng=106.735),
+    ]
+    dalam, luar = logika.di_dki(points)
+    assert [(p["id"], p["city"]) for p in dalam] == [("a", "Jakarta Pusat"), ("c", "Kepulauan Seribu")]
+    assert luar == 1
+    assert points[0]["city"] == "Kota Adm. Jakarta Timur"  # masukan tidak diubah
+
+
+def test_titik_lake_menukar_lintang_bujur_tertukar_dan_kolom_nama_sdi():
+    sumber = {"slug": "data-uji", "title": "Data Uji", "href": "/sdi/data-uji"}
+    baris = [
+        {"name": "Pulau Pramuka", "city": "", "address": "", "lat": 106.6156, "lng": -5.7453},
+        {"name": "", "city": "", "address": "", "lat": -6.1, "lng": 106.8},
+    ]
+    p = logika.titik_lake(sumber, 0, baris)
+    assert (p[0]["lat"], p[0]["lng"]) == (-5.7453, 106.6156)
+    assert p[1]["name"] == "Data Uji"  # tanpa nama tetap jatuh ke judul dataset
+    for k in ("nama_destinasi_wisata", "obyek_wisata", "nama_desa_wisata", "nama_event"):
+        assert queries._pilih(["periode_data", k, "lat", "lon"], queries.NAMA) == k

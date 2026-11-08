@@ -23,9 +23,9 @@ function pantauError(page: Page) {
 
 test("DS-E01 /katalog: cari mengurangi baris; tak ada yang cocok → pesan kosong", async ({ page }) => {
   await buka(page, "/katalog");
-  await expect(penghitung(page)).toHaveText("228 baris");
+  await expect(penghitung(page)).toHaveText("227 baris");
   await page.getByLabel("Cari dataset").fill("wisatawan mancanegara");
-  await expect(penghitung(page)).not.toHaveText("228 baris");
+  await expect(penghitung(page)).not.toHaveText("227 baris");
   await page.getByLabel("Cari dataset").fill("zzz-tidak-ada");
   await expect(page.getByText("Tidak ada dataset yang cocok.")).toBeVisible();
 });
@@ -42,7 +42,7 @@ test("DS-E02 /katalog: filter tier dan lapisan", async ({ page }) => {
 test("DS-E03 /sdi → Lihat data → detail S1 dengan hero, meta, dan tabel", async ({ page }) => {
   const err = pantauError(page);
   await buka(page, "/sdi");
-  await expect(penghitung(page)).toHaveText("183 baris");
+  await expect(penghitung(page)).toHaveText("182 baris");
   await page.locator(`a[href="/sdi/${S1}"]`).click();
   await expect(page).toHaveURL(new RegExp(`/sdi/${S1}$`));
   await expect(page.getByRole("heading", { name: "Data Jumlah Wisatawan Mancanegara Berdasarkan Kebangsaan" })).toBeVisible();
@@ -115,10 +115,22 @@ test("DS-E09 /sdi/tidak-ada → pesan 404 v2", async ({ page }) => {
   await expect(page.getByText("Dataset belum tersedia di lakehouse. Coba buka di portal SDI ↗.")).toBeVisible();
 });
 
+test("DS-E11 dataset SDI yang masih kosong: label katalog dan pesan netral di detail", async ({ page }) => {
+  await buka(page, "/sdi");
+  const baris = page.locator("tbody tr", { hasText: "Data Stakeholder Pariwisata DKI Jakarta" });
+  await expect(baris.getByText("Belum ada data di SDI")).toBeVisible();
+  await expect(page.locator("tbody").getByText("Belum ada data di SDI")).toHaveCount(1);
+  await expect(page.locator("tbody").getByText("Dinas Pariwisata Dan Ekonomi Kreatif", { exact: true })).toHaveCount(0);
+  await page.goto("/sdi/data-stakeholder-pariwisata-dki-jakarta");
+  await expect(page.getByRole("heading", { level: 1 })).toHaveText("Data Stakeholder Pariwisata DKI Jakarta");
+  await expect(page.getByText("Dataset ini belum berisi data di Satu Data Jakarta. Data akan tampil di sini setelah diisi di SDI.")).toBeVisible();
+  await expect(page.getByText("Dataset belum tersedia di lakehouse")).toHaveCount(0);
+});
+
 test("BR-E01 beranda: angka dari API dan tautan kartu", async ({ page }) => {
   await buka(page, "/");
   await expect(page.getByText("Dataset primer SDI")).toBeVisible();
-  await expect(page.getByText("183 + 45 dataset")).toBeVisible();
+  await expect(page.getByText("182 + 45 dataset")).toBeVisible();
   await expect(page.getByText("28", { exact: true })).toBeVisible();
   await page.getByRole("link", { name: /Katalog Data.*dataset/ }).click();
   await expect(page).toHaveURL(/\/katalog$/);

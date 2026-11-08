@@ -20,6 +20,7 @@ const muatDetail = (id: string) => titik(id) as Promise<SpasialDetail>;
   <SpatialMap
     :points="data?.[0].points ?? []"
     :cities="data?.[0].cities ?? []"
+    :di-luar-dki="data?.[0].di_luar_dki ?? 0"
     :kepadatan-berkoordinat="data?.[0].kepadatan_berkoordinat ?? {}"
     :kepadatan-tanpa-koordinat="data?.[0].kepadatan_tanpa_koordinat ?? {}"
     :kecamatan-tanpa-poligon="data?.[1].meta.kecamatan_tanpa_poligon ?? []"

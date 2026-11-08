@@ -33,6 +33,8 @@ type CatalogRow = {
   external: boolean;
   /** Kunci pencarian lapisan medallion: slug (primer) atau id (sekunder). */
   medalKey: string;
+  /** Terdaftar di SDI tetapi belum berisi data di sana. */
+  kosong?: boolean;
 };
 
 /** Warna & keterangan tiap lapisan medallion (arsitektur lakehouse). */
@@ -72,6 +74,7 @@ function buildCatalog(sdi: SdiDataset[]): CatalogRow[] {
     href: `/sdi/${r.slug}`,
     external: false,
     medalKey: r.slug,
+    kosong: r.kosong,
   }));
   const sekunder: CatalogRow[] = secondaryDatasets().map((s) => ({
     id: s.id,
@@ -381,6 +384,11 @@ export function CatalogView({ primaryOnly = false }: { primaryOnly?: boolean }) 
                           {r.title}
                         </span>
                         <TierBadge tier={r.tier} />
+                        {r.kosong && (
+                          <span className="text-[10px] font-semibold uppercase tracking-wide px-1.5 py-0.5 rounded bg-slate-100 text-slate-600">
+                            Belum ada data di SDI
+                          </span>
+                        )}
                       </div>
                       {r.description && (
                         <div className="text-[13px] text-slate-500 mt-0.5 max-w-[60ch] line-clamp-2">

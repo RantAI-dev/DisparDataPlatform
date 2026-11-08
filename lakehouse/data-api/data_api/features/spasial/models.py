@@ -33,6 +33,7 @@ class Inventaris(BaseModel):
 class Spasial(BaseModel):
     points: list[TitikRingkas]
     cities: list[str]
+    di_luar_dki: int
     kepadatan_berkoordinat: dict[str, Kepadatan]
     kepadatan_tanpa_koordinat: dict[str, int]
     inventory: list[Inventaris]

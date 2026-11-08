@@ -34,6 +34,8 @@ type KecCount = { total: number; byCat: Partial<Record<SpatialCategory, number>>
 const props = defineProps<{
   points: SpasialTitik[];
   cities: string[];
+  /** Titik berkoordinat di luar DKI yang tidak ditampilkan (wilayah dihitung server dari koordinat). */
+  diLuarDki?: number;
   kepadatanBerkoordinat: Record<string, KecCount>;
   kepadatanTanpaKoordinat: Record<string, number>;
   kecamatanTanpaPoligon: string[];
@@ -380,7 +382,7 @@ function reset() {
             {{ SPATIAL_CATEGORIES[p].label }}
           </button>
         </div>
-        <span role="status" class="ml-auto apple-caption tabular text-ink-muted-48">{{ idfmt(pins.length) }} / {{ idfmt(points.length) }} titik</span>
+        <span role="status" class="ml-auto apple-caption tabular text-ink-muted-48">{{ idfmt(pins.length) }} / {{ idfmt(points.length) }} titik<template v-if="diLuarDki"> · {{ idfmt(diLuarDki) }} titik di luar DKI tidak ditampilkan</template></span>
       </div>
       <div class="frosted border-b border-hairline">
         <div class="mx-auto max-w-[1280px] px-6 py-3 flex flex-wrap items-center gap-3">

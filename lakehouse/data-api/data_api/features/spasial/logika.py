@@ -189,6 +189,9 @@ def titik_lake(sumber: dict[str, str], offset: int, baris: list[dict]) -> list[T
     """Baris query `/api/spatial` satu halaman → titik (yang tanpa koordinat sah dibuang)."""
     hasil = []
     for i, r in enumerate(baris):
+        # Sebagian baris SDI menukar isi kolom lintang dan bujur (lintang ±106).
+        if r["lat"] is not None and r["lng"] is not None and abs(r["lat"]) > 90 and abs(r["lng"]) <= 90:
+            r = {**r, "lat": r["lng"], "lng": r["lat"]}
         p = _titik(
             f"lake-{sumber['slug']}-{offset + i}",
             r["name"] or sumber["title"],
@@ -250,6 +253,16 @@ def gabung(statis: list[Titik], tambahan: list[Titik]) -> list[Titik]:
         seen.add(k)
         hasil.append(p)
     return hasil
+
+
+def di_dki(points: list[Titik]) -> tuple[list[Titik], int]:
+    """Memo `points` GmtiMapView: wilayah dari koordinat, titik di luar DKI dibuang (beserta jumlahnya)."""
+    dalam = []
+    for p in points:
+        nama = peta.kota_dki(p["lng"], p["lat"])
+        if nama:
+            dalam.append({**p, "city": nama})
+    return dalam, len(points) - len(dalam)
 
 
 def kota(points: list[Titik]) -> list[str]:

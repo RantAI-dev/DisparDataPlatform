@@ -31,6 +31,7 @@ class KatalogItem(BaseModel):
     size_label: str
     href: str
     external: bool
+    kosong: bool
     medallion: Medallion | None
 
 

@@ -3,12 +3,12 @@
  * Detail dataset (app/sdi/[slug]/page.tsx v2 @ 6b858eb): hero + meta, grafik, filter, tabel dengan
  * sort per kolom dan muat bertahap saat digulir, unduhan CSV/XLSX yang membawa filter aktif.
  */
-import { GOLD, KOLOM_TERSEMBUNYI, NAVY } from "../../constants";
-import type { Facet, Kolom } from "../../composables/useDataset";
+import { GOLD, KOLOM_TERSEMBUNYI, NAVY, PESAN_404, PESAN_KOSONG_DI_SDI } from "../../constants";
+import type { Facet, KatalogItem, Kolom } from "../../composables/useDataset";
 
 const route = useRoute();
 const slug = computed(() => String(route.params.slug));
-const { facet, urlEkspor } = useDataset();
+const { facet, urlEkspor, katalog } = useDataset();
 const t = useDatasetBaris(slug);
 const { meta, rows, count, error, loading, loadingMore, refreshing, q, filters, sort, filterQuery, query, filtered, hasMore } = t;
 
@@ -34,6 +34,20 @@ const columns = computed<Kolom[]>(() => {
     .map((k) => ({ key: k, desc: null, type: null }));
 });
 const facetTampil = computed(() => facets.value.filter((f) => columns.value.some((c) => c.key === f.key)));
+// 404 untuk dataset yang terdaftar di SDI tetapi kosong di sana bukan kegagalan lakehouse (v2
+// `kosongDiSdi`). Laravel menyeragamkan pesan 404, jadi penandanya diambil dari katalog primer.
+const kosongDiSdi = ref<KatalogItem | null>(null);
+watch(error, (e) => {
+  kosongDiSdi.value = null;
+  if (e !== PESAN_404) return;
+  const s = slug.value;
+  katalog("primer")
+    .then((r) => {
+      const item = r.data.items.find((i) => i.id === `sdi-${s}`);
+      if (s === slug.value && item?.kosong) kosongDiSdi.value = item;
+    })
+    .catch(() => {});
+});
 const portalSdi = computed(() => `https://satudata.jakarta.go.id/open-data/${slug.value}`);
 const fmt = (n: number) => n.toLocaleString("id-ID");
 const arahSort = (key: string) => (sort.value?.col === key ? sort.value.dir : null);
@@ -55,7 +69,7 @@ const tombolUnduh =
   <main class="min-h-screen bg-[#faf6f2]">
     <HeroDark pad="pt-7 pb-10">
       <NuxtLink to="/sdi" class="text-[12px] font-mono uppercase tracking-widest text-white/60 hover:text-white">← Katalog Pariwisata &amp; Ekraf</NuxtLink>
-      <h1 class="mt-3 text-[26px] md:text-[32px] font-bold tracking-tight max-w-[30ch]">{{ meta?.title ?? humanizeKolom(slug) }}</h1>
+      <h1 class="mt-3 text-[26px] md:text-[32px] font-bold tracking-tight max-w-[30ch]">{{ meta?.title ?? kosongDiSdi?.title ?? humanizeKolom(slug) }}</h1>
       <p v-if="meta?.description" class="mt-2 text-white/75 max-w-[75ch] text-[15px]">{{ meta.description }}</p>
       <div v-if="meta" class="mt-5 flex flex-wrap gap-x-6 gap-y-2 text-[13px] text-white/80">
         <span><span class="text-white/50 uppercase text-[11px] tracking-wider">Baris data: </span><span class="font-medium" :style="{ color: GOLD }">{{ fmt(meta.total_bronze) }}</span></span>
@@ -68,7 +82,11 @@ const tombolUnduh =
     </HeroDark>
 
     <section class="mx-auto max-w-[1320px] px-6 py-8 pb-20">
-      <div v-if="error" class="bg-white rounded-xl border border-red-200 p-8 text-center text-red-600">
+      <div v-if="error && kosongDiSdi" class="bg-white rounded-xl border border-slate-200 p-8 text-center text-slate-600">
+        {{ PESAN_KOSONG_DI_SDI }}. Data akan tampil di sini setelah diisi di SDI.
+        <a :href="portalSdi" target="_blank" rel="noreferrer" class="underline">Lihat di portal SDI ↗</a>
+      </div>
+      <div v-else-if="error" class="bg-white rounded-xl border border-red-200 p-8 text-center text-red-600">
         {{ error }}. Coba <a :href="portalSdi" target="_blank" rel="noreferrer" class="underline">buka di portal SDI ↗</a>.
       </div>
 

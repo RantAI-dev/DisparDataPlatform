@@ -18,6 +18,8 @@ export type SdiDataset = {
   datasetCount: number;
   createdAt: string | null;
   updatedAt: string | null;
+  /** Dataset terdaftar di SDI tetapi belum berisi baris di sana. */
+  kosong?: boolean;
 };
 
 export const SDI_ORG_UID = "org8";
@@ -27,6 +29,17 @@ export const SDI_SEARCH_API =
   "https://satudata.jakarta.go.id/backend/api/v2/satudata/search";
 
 export const SDI_DATASETS: SdiDataset[] = sdiData as SdiDataset[];
+
+/**
+ * Entri katalog SDI yang hanya bernama OPD (mis. slug `DISPAREKRAF`), bukan dataset:
+ * tanpa kolom dan tanpa baris. Disembunyikan dari katalog.
+ */
+export function isEntriOpd(title: string): boolean {
+  return title.trim().toLowerCase() === SDI_ORG_NAME.toLowerCase();
+}
+
+/** Pesan untuk dataset yang terdaftar di SDI tetapi belum diisi di sana. */
+export const PESAN_KOSONG_DI_SDI = "Dataset ini belum berisi data di Satu Data Jakarta";
 
 export function datasetUrl(slug: string): string {
   return `${SDI_PORTAL}/open-data/${slug}`;

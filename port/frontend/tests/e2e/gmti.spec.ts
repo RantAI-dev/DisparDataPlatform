@@ -52,17 +52,21 @@ test("GM-E03 /spatial: choropleth, chip, cari, wilayah, reset, popup", async ({ 
   await buka(page, "/spatial");
   const strip = await stripFilter(page);
   const jumlah = strip.getByRole("status");
-  await expect(jumlah).toContainText(/^4\.920 \/ 4\.920 titik$/);
+  await expect(jumlah).toContainText(/^5\.083 \/ 5\.083 titik · 52 titik di luar DKI tidak ditampilkan$/);
   const choro = strip.getByRole("button", { name: "Kepadatan kecamatan" });
   const awal = await choro.getAttribute("aria-pressed");
   await choro.click();
   await expect(choro).not.toHaveAttribute("aria-pressed", awal!);
   await strip.getByRole("button", { name: "Hotel", exact: true }).click();
-  await expect(jumlah).not.toContainText(/^4\.920 \//);
+  await expect(jumlah).not.toContainText(/^5\.083 \//);
   await strip.getByRole("button", { name: "Reset filter" }).click();
-  await expect(jumlah).toContainText(/^4\.920 \//);
+  await expect(jumlah).toContainText(/^5\.083 \//);
+  // Wilayah dari koordinat: 5 kota + Kepulauan Seribu, tanpa ejaan sumber atau kota luar DKI.
+  await expect(strip.getByRole("combobox", { name: "Wilayah" }).locator("option")).toHaveText([
+    "Semua wilayah", "Jakarta Barat", "Jakarta Pusat", "Jakarta Selatan", "Jakarta Timur", "Jakarta Utara", "Kepulauan Seribu",
+  ]);
   await strip.getByRole("combobox", { name: "Wilayah" }).selectOption("Jakarta Selatan");
-  await expect(jumlah).not.toContainText(/^4\.920 \//);
+  await expect(jumlah).not.toContainText(/^5\.083 \//);
   await strip.getByRole("button", { name: "Reset filter" }).click();
   await strip.getByRole("textbox", { name: "Cari tempat" }).fill("Canary Coffee Shop");
   await expect(jumlah).toContainText(/^1 \//);
@@ -84,7 +88,7 @@ test("GM-E04 /spatial: API gagal → peringatan, Coba lagi memuat ulang", async 
   await expect(page.getByRole("alert").filter({ hasText: "Titik lakehouse belum dapat dimuat." })).toBeVisible();
   await page.getByRole("button", { name: "Coba lagi" }).first().click();
   await expect(page.getByRole("alert").filter({ hasText: "Titik lakehouse" })).toHaveCount(0);
-  await expect((await stripFilter(page)).getByRole("status")).toContainText("4.920");
+  await expect((await stripFilter(page)).getByRole("status")).toContainText("5.083");
 });
 
 test("GM-E05 /scraped-hotels: data Bronze tampil, baris dibuka memperlihatkan tipe kamar", async ({ page }) => {

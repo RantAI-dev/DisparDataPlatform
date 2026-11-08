@@ -17,6 +17,14 @@ from .konteks import Konteks
 
 TOML_SEKUNDER = Path(__file__).with_name("katalog_sekunder.toml")
 
+# `SDI_ORG_NAME` (lib/sdi.ts). Entri katalog SDI yang hanya bernama OPD (slug `DISPAREKRAF`) bukan
+# dataset — tanpa kolom dan tanpa baris — sehingga tidak ikut katalog maupun hitungan (`isEntriOpd`).
+NAMA_OPD = "Dinas Pariwisata Dan Ekonomi Kreatif"
+
+
+def entri_opd(title: str) -> bool:
+    return title.strip().lower() == NAMA_OPD.lower()
+
 
 @dataclass(frozen=True)
 class EntriSekunder:

@@ -1,7 +1,7 @@
 {
   "slug": "museum-jakarta",
   "title": "Data Museum di Provinsi DKI Jakarta",
-  "description": "Data museum yang berada di Provinsi DKI Jakarta yang dikelola Pemerintah Pusat, Pemerintah Daerah, setiap orang (perseorangan, kelompok orang, masyarakat, badan usaha berbadan hukum, dan/atau badan usaha bukan berbadan hukum), dan masyarakat hukum adat. Sumber: Satu Data Jakarta (Dinas Kebudayaan), dataset 'data-museum-di-provinsi-dki-jakarta', periode 2024; snapshot diambil 2026-10-14. https://satudata.jakarta.go.id/open-data/detail?kategori=dataset&page_url=data-museum-di-provinsi-dki-jakarta&data_no=1 Koordinat sebagian baris di sumber tidak valid (format desimal rusak); kolom latitude/longitude disimpan apa adanya sebagai teks.",
+  "description": "Data museum yang berada di Provinsi DKI Jakarta yang dikelola Pemerintah Pusat, Pemerintah Daerah, setiap orang (perseorangan, kelompok orang, masyarakat, badan usaha berbadan hukum, dan/atau badan usaha bukan berbadan hukum), dan masyarakat hukum adat. Sumber: Satu Data Jakarta (Dinas Kebudayaan), dataset 'data-museum-di-provinsi-dki-jakarta', periode 2024; snapshot diambil 2026-10-14. https://satudata.jakarta.go.id/open-data/detail?kategori=dataset&page_url=data-museum-di-provinsi-dki-jakarta&data_no=1 Koordinat sebagian baris di sumber tidak valid (format desimal rusak); kolom latitude/longitude disimpan apa adanya sebagai teks. Koordinat dikoreksi: MUSEUM BANK TABUNGAN NEGARA (tanda minus lintang hilang di sumber); LIVING MUSEUM ROEMAH TOEGOE (lintang sumber -5.96575 jatuh di laut; diganti lokasi Jl. Raya Tugu No.7 di samping Gereja Tugu (OpenStreetMap)).",
   "columns": [
     {
       "key": "periode_data",
@@ -391,7 +391,7 @@
       "nama": "MUSEUM BANK TABUNGAN NEGARA",
       "alamat": "JL. GAJAH MADA NO.1, RT.2/RW.8, PETOJO UTARA, KECAMATAN GAMBIR, KOTA ADMINISTRASI JAKARTA PUSAT",
       "longitude": "106.82030",
-      "latitude": "6.16689",
+      "latitude": "-6.16689",
       "deskripsi": "MUSEUM BANK TABUNGAN NEGARA (BTN) MERUPAKAN MUSEUM KHUSUS YANG DIDIRIKAN SEBAGAI WADAH UNTUK MENAMPILKAN SEJARAH PERJALANAN BISNIS SEKALIGUS SEJARAH BTN. MUSEUMMENEMPATI GEDUNG POST PAARBANK YANG TELAH DIGUNAKAN SEBAGAI KANTOR BTN SEJAK ZAMAN PEMERINTAHAN HINDIA BELANDA. CIKAL BAKAL BTN DIMULAI DENGAN DIDIRIKANNYA POST PAARBANK DI BATAVIA PADA TAHUN 1897. TAHUN 1942 SAAT PENDUDUKAN JEPANG DI INDONESIA, BANK INI DIBEKUKAN DAN DIGANTI DENGAN TYOKIN KYOKU ATAU CHOKINKYOKU. PADA TAHUN 1950 BERUBAH MENJADI BANK TABUNGAN PAS DAN PADA TAHUN 1963 MENJADI GEDUNG BANGUNAN BTN DAN SEKARANG TERDAPAT MUSEUM BTN.",
       "website": "-",
       "pengelola": "BANK TABUNGAN NEGARA"
@@ -637,8 +637,8 @@
       "kelurahan": "SEMPERBARAT",
       "nama": "LIVING MUSEUM ROEMAH TOEGOE",
       "alamat": "JL. RAYA TUGU NO.7 KOTA ADMINISTRASI JAKARTA UTARA",
-      "longitude": "106.94435",
-      "latitude": "-5.96575",
+      "longitude": "106.92420",
+      "latitude": "-6.12350",
       "deskripsi": "LIVING MUSEUM ROEMAH TOEGOE DI RINTIS MULAI AKHIR 2021 DAN DIRESMIKAN OLEH KEPALA DINAS KEBUDAYAAN DKI JAKARTA PADA 24 DESEMBER 2023.ROEMAH TOEGOE DIHARAPKAN DAPAT MENJADI JENDELA INFORMASI TENTANG SEJARAH, TRADISI DAN BUDAYA KAMPUNG TUGU DAN PERJALANAN KELOMPOK MUSIK KRONTJONG TOEGOE. BIASANYA PENGUNJUNG DARI LUAR NEGERI DATANG KE ROEMAH TOEGOE UNTUK MELAKUKAN PENELITIAN TENTANG SEJARAH ORANG-ORANG TUGU DAN  BAHASA KREOL SERTA MUSIK KERONCONG ITU SENDIRI.",
       "website": "WWW.KAMPUNGTOEGOE.COM",
       "pengelola": "YAYASAN RUMAH BUDAYA MICHIELS"

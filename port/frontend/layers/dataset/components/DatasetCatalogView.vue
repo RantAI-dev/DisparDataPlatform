@@ -214,6 +214,7 @@ const statTiles = computed(() => [
                   <div class="flex items-center gap-2 flex-wrap">
                     <span class="font-medium text-slate-900">{{ r.title }}</span>
                     <DatasetTierBadge :tier="r.tier" />
+                    <span v-if="r.kosong" class="text-[10px] font-semibold uppercase tracking-wide px-1.5 py-0.5 rounded bg-slate-100 text-slate-600">Belum ada data di SDI</span>
                   </div>
                   <div v-if="r.description" class="text-[13px] text-slate-500 mt-0.5 max-w-[60ch] line-clamp-2">{{ r.description }}</div>
                 </td>
