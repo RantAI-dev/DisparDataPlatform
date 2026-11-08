@@ -23,9 +23,9 @@ function pantauError(page: Page) {
 
 test("DS-E01 /katalog: cari mengurangi baris; tak ada yang cocok → pesan kosong", async ({ page }) => {
   await buka(page, "/katalog");
-  await expect(penghitung(page)).toHaveText("228 baris");
+  await expect(penghitung(page)).toHaveText("232 baris");
   await page.getByLabel("Cari dataset").fill("wisatawan mancanegara");
-  await expect(penghitung(page)).not.toHaveText("228 baris");
+  await expect(penghitung(page)).not.toHaveText("232 baris");
   await page.getByLabel("Cari dataset").fill("zzz-tidak-ada");
   await expect(page.getByText("Tidak ada dataset yang cocok.")).toBeVisible();
 });
@@ -33,7 +33,7 @@ test("DS-E01 /katalog: cari mengurangi baris; tak ada yang cocok → pesan koson
 test("DS-E02 /katalog: filter tier dan lapisan", async ({ page }) => {
   await buka(page, "/katalog");
   await page.getByRole("button", { name: "Sekunder", exact: true }).click();
-  await expect(penghitung(page)).toHaveText("45 baris");
+  await expect(penghitung(page)).toHaveText("49 baris");
   await page.getByRole("button", { name: /^Gold/ }).click();
   await expect(page.locator("tbody tr")).toHaveCount(2);
   await expect(page.locator("tbody").getByText("◆ Gold")).toHaveCount(2);
@@ -115,10 +115,27 @@ test("DS-E09 /sdi/tidak-ada → pesan 404 v2", async ({ page }) => {
   await expect(page.getByText("Dataset belum tersedia di lakehouse. Coba buka di portal SDI ↗.")).toBeVisible();
 });
 
+test("DS-E10 detail: kolom Sumber paling kanan berisi tag sumber dataset", async ({ page }) => {
+  await buka(page, `/sdi/${S1}`);
+  await expect(page.locator("thead th").last()).toHaveText("Sumber Data");
+  // primer: Satu Data Jakarta + judul dataset SDI-nya
+  const labelS1 = "Satu Data Jakarta · Data Jumlah Wisatawan Mancanegara Berdasarkan Kebangsaan";
+  await expect(page.locator("tbody tr").first().locator("td").last()).toHaveText(labelS1);
+  await expect(page.getByText(`Sumber: ${labelS1}`)).toBeVisible();
+  await expect(page.getByRole("link", { name: "lihat di portal ↗" })).toBeVisible();
+
+  await buka(page, "/sdi/penerbangan-langsung-internasional-jakarta");
+  // label sumber per baris (kolom `sumber`) dipindah ke paling kanan; tidak ada kolom Sumber Data tambahan
+  await expect(page.locator("thead th").last()).toHaveText(/^Sumber\s*[▲▼↕]?$/);
+  await expect(page.locator("tbody tr").first().locator("td").last()).toHaveText(/wikipedia/);
+  await expect(page.getByText("Sumber: Wikipedia + OpenFlights + Wikidata + OpenSky (Okt 2026)")).toBeVisible();
+  await expect(page.getByRole("link", { name: "lihat di portal ↗" })).toHaveCount(0);
+});
+
 test("BR-E01 beranda: angka dari API dan tautan kartu", async ({ page }) => {
   await buka(page, "/");
   await expect(page.getByText("Dataset primer SDI")).toBeVisible();
-  await expect(page.getByText("183 + 45 dataset")).toBeVisible();
+  await expect(page.getByText("183 + 49 dataset")).toBeVisible();
   await expect(page.getByText("28", { exact: true })).toBeVisible();
   await page.getByRole("link", { name: /Katalog Data.*dataset/ }).click();
   await expect(page).toHaveURL(/\/katalog$/);

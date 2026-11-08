@@ -124,6 +124,15 @@ def tk_subsektor(k: Konteks) -> Baris:
     )
 
 
+def sebaran_pelaku_dki(k: Konteks) -> Baris:
+    return k.q(
+        """SELECT subsektor, toString(count()) AS jumlah
+         FROM silver.sebaran_pelaku_ekraf_jakarta
+         WHERE subsektor IS NOT NULL
+         GROUP BY subsektor ORDER BY count() DESC"""
+    )
+
+
 def bronze(k: Konteks, tabel: str) -> Baris:
     """`target_wisman`, `target_kontribusi_ekraf_rpjmd`, `pdrb_ekraf_makro`, `pdrb_ekraf_subsektor`."""
     return sq.baris_bronze_file(k, tabel)

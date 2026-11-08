@@ -15,9 +15,9 @@ export function AiDock() {
     return (
       <button
         onClick={() => setOpen(true)}
-        aria-label="Buka Jekate"
+        aria-label="Buka Jakpar AI"
         className="ai-dock-btn"
-        title="Tanya Jekate"
+        title="Tanya Jakpar AI"
       >
         <JekateAvatar size={44} />
       </button>
@@ -32,7 +32,7 @@ export function AiDock() {
             <JekateAvatar size={32} />
           </div>
           <div>
-            <div className="title">Jekate</div>
+            <div className="title">Jakpar AI</div>
             <div className="sub">{c.mode === "bi" ? "BI mode" : "Ask mode"} · read-only</div>
           </div>
           <button
@@ -52,7 +52,7 @@ export function AiDock() {
                 <JekateAvatar size={72} />
               </div>
               <div>
-                <h2 style={{ fontSize: 18 }}>Halo, aye Jekate! 👋</h2>
+                <h2 style={{ fontSize: 18 }}>Halo, aye Jakpar AI! 👋</h2>
                 <p>Tanya data Dispar — aye cariin tabelnya, jalanin query, terus bikin grafiknya.</p>
               </div>
             </div>
@@ -83,7 +83,7 @@ export function AiDock() {
             mode={c.mode}
             onModeChange={c.setMode}
             model={c.model}
-            placeholder="Tanya Jekate…"
+            placeholder="Tanya Jakpar AI…"
           />
         </div>
       </div>

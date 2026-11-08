@@ -50,6 +50,10 @@ Contoh: data jumlah wisatawan mancanegara berdasarkan kebangsaan.
 - Bagian atas: judul, sumber, periode data, dan jumlah baris.
 - **Filter**: tambah chip filter per kolom (mis. Kebangsaan = JEPANG), hapus dengan tanda ×.
 - **Urutkan**: klik judul kolom (▲ naik, ▼ turun, ↕ tanpa urutan).
+- Kolom **Sumber Data** paling kanan menyebut asal data secara spesifik: dataset Satu Data Jakarta
+  yang mana, dokumen Dinas atau instansi penerbitnya, atau situs yang diambil beserta waktunya.
+  Dataset yang mencatat sumber per baris (mis. fasilitasi HKI 2023–2026, yang menyebut nomor nota
+  dinas tiap triwulan) menampilkan kolom **Sumber**-nya sendiri di paling kanan.
 - **Gulir** ke bawah untuk memuat 50 baris berikutnya.
 - **Unduh CSV/XLSX** mengikuti filter yang aktif (nama berkas berakhiran `-terfilter`). Ekspor
   dibatasi 100.000 baris; di atas itu portal menolak dengan pesan "terlalu besar". Persempit
@@ -93,7 +97,10 @@ kunjungan per destinasi. Pilih kota atau destinasi untuk menyaring.
 ![Tenaga kerja](gambar/dashboard-tenaga-kerja.png)
 
 Jumlah tenaga kerja ekonomi kreatif DKI, porsi terhadap nasional, sebaran per subsektor (pilih
-tahun), dan sertifikasi kompetensi.
+tahun), dan sertifikasi kompetensi. Di bawah grafik nasional ada sebaran pelaku ekonomi kreatif
+DKI per subsektor dari EKRAF Hub (hub.ekraf.go.id); angkanya jumlah pelaku terdaftar, bukan jumlah
+tenaga kerja. Bagian **Data sumber** di bawah grafik membuka tabel dataset yang dipakai, lengkap
+dengan kolom Sumber.
 
 ## PDRB Ekonomi Kreatif `/dashboard/pdrb-ekraf`
 

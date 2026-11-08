@@ -239,6 +239,11 @@ def test_tenaga_kerja_subsektor_dan_sertifikasi_q11(klien, mentah):
     assert [[p["value"] for p in s["data"]] for s in d["seri"]] == [[20, 0, 10, 0], [0, 7, 0, 5]]
 
 
+def test_tenaga_kerja_sebaran_dki(klien, mentah):
+    d = data(klien, "tenaga-kerja/sebaran-dki")
+    assert d == {"items": [{"label": "Kuliner", "value": 520}, {"label": "Fesyen", "value": 246}]}
+
+
 # ── PDRB + ringkasan ──────────────────────────────────────────────────────────
 
 

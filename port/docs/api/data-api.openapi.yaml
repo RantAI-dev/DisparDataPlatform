@@ -1,4 +1,4 @@
-# SALINAN dari repo DisparDataPlatform `lakehouse/data-api/openapi.yaml` @ ba0ec033e47ac29bb863c7476714ce5b48abd965.
+# SALINAN dari repo DisparDataPlatform `lakehouse/data-api/openapi.yaml` @ 0805cda492544bbe3ffda8db722413b7026afbc6.
 # Jangan diedit di sini: ubah sumbernya, lalu salin ulang (scripts/salin-openapi.sh).
 # Kontrak Data API — ditulis plan 01 portal; dirawat tangan sesudahnya. Jangan dibangkitkan dari kode FastAPI.
 openapi: 3.1.0
@@ -264,6 +264,8 @@ paths:
       - '`data.total_bronze` = dataset_sync.total; `meta.total` = jumlah baris Silver (usulan E `total_rows`/`count`
         diganti agar seragam).'
       - '`periode` = {min,max} periode_data di Silver, atau null.'
+      - '`sumber_label` = label tag Sumber Data di kanan tabel (primer = "Satu Data Jakarta · <judul dataset>", sekunder
+        = `sumber_detail` katalog, atau label kategorinya); `portal_url` = tautan portal SDI, null untuk dataset sekunder.'
       responses:
         '200':
           description: OK
@@ -292,6 +294,12 @@ paths:
                         type: array
                         items:
                           type: string
+                      sumber_label:
+                        type: string
+                      portal_url:
+                        type:
+                        - 'null'
+                        - string
                       frekuensi:
                         type:
                         - 'null'
@@ -339,6 +347,8 @@ paths:
                     - title
                     - description
                     - sumber_data
+                    - sumber_label
+                    - portal_url
                     - frekuensi
                     - satuan
                     - periode
@@ -355,6 +365,8 @@ paths:
                   title: Data Event Pariwisata dan Kebudayaan DKI Jakarta 2011-2019
                   description: Data ini Berisi Mengenai Data Event Pariwisata dan Kebudayaan DKI Jakarta
                   sumber_data: []
+                  sumber_label: Satu Data Jakarta · Data Event Pariwisata dan Kebudayaan DKI Jakarta 2011-2019
+                  portal_url: https://satudata.jakarta.go.id/open-data/data-event-pariwisata-dan-kebudayaan-dki-jakarta-2011-2019
                   frekuensi: 1 Tahun Sekali
                   satuan: null
                   periode:
@@ -2810,6 +2822,74 @@ paths:
                   request_id: contoh-01
         '400':
           $ref: '#/components/responses/E400'
+        '401':
+          $ref: '#/components/responses/E401'
+        '503':
+          $ref: '#/components/responses/E503'
+  /v1/dashboard/tenaga-kerja/sebaran-dki:
+    get:
+      operationId: tkSebaranDki
+      tags:
+      - dashboard
+      summary: Pelaku ekraf DKI terdaftar di EKRAF Hub per subsektor
+      parameters:
+      - $ref: '#/components/parameters/XRequestId'
+      security:
+      - bearer: []
+      x-kelas: P
+      x-sumber:
+      - silver.sebaran_pelaku_ekraf_jakarta
+      x-catatan:
+      - Jumlah pelaku terdaftar di EKRAF Hub (hub.ekraf.go.id) yang berdomisili di DKI Jakarta, bukan jumlah tenaga
+        kerja. Urut jumlah menurun; subsektor kosong dibuang.
+      - 'Warna tidak dikirim: palet tetap di layer Nuxt (KONTRAK §3.3); warna ditentukan dari label.'
+      - 'Q21 (ditiru): bila query ClickHouse gagal, respons tetap 200 dengan data kosong dan `meta.peringatan`.'
+      responses:
+        '200':
+          description: OK
+          headers:
+            X-Request-Id:
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                - data
+                - meta
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      items:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            label:
+                              type: string
+                            value:
+                              type: integer
+                          required:
+                          - label
+                          - value
+                    required:
+                    - items
+                  meta:
+                    $ref: '#/components/schemas/Meta'
+              example:
+                data:
+                  items:
+                  - label: Kuliner
+                    value: 520
+                  - label: Fesyen
+                    value: 246
+                meta:
+                  generated_at: '2026-11-07T10:00:00+07:00'
+                  source:
+                  - silver.sebaran_pelaku_ekraf_jakarta
+                  request_id: contoh-01
         '401':
           $ref: '#/components/responses/E401'
         '503':

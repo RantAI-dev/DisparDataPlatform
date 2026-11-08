@@ -35,6 +35,10 @@ const columns = computed<Kolom[]>(() => {
 });
 const facetTampil = computed(() => facets.value.filter((f) => columns.value.some((c) => c.key === f.key)));
 const portalSdi = computed(() => `https://satudata.jakarta.go.id/open-data/${slug.value}`);
+// Tag sumber di kanan tabel, kecuali kolom `sumber` dataset sudah berisi label sumber per baris (bukan tautan).
+const sumberTag = computed(() => (meta.value?.sumber_label && !rows.value.some((r) => labelSumber("sumber", r.sumber)) ? meta.value.sumber_label : null));
+// Label sumber per baris sudah ada → kolom `sumber` dipindah ke paling kanan.
+const kolomTabel = computed(() => (sumberTag.value ? columns.value : [...columns.value.filter((c) => c.key !== "sumber"), ...columns.value.filter((c) => c.key === "sumber")]));
 const fmt = (n: number) => n.toLocaleString("id-ID");
 const arahSort = (key: string) => (sort.value?.col === key ? sort.value.dir : null);
 
@@ -125,7 +129,7 @@ const tombolUnduh =
                 <tr :style="{ background: NAVY }" class="text-white text-left text-[12px] uppercase tracking-wider">
                   <th class="px-4 py-3 font-semibold w-12">#</th>
                   <th
-                    v-for="c in columns"
+                    v-for="c in kolomTabel"
                     :key="c.key"
                     class="px-4 py-3 font-semibold"
                     :title="c.desc ?? undefined"
@@ -145,12 +149,13 @@ const tombolUnduh =
                     </button>
                     <template v-else>{{ humanizeKolom(c.key) }}</template>
                   </th>
+                  <th v-if="sumberTag" class="px-4 py-3 font-semibold">Sumber Data</th>
                 </tr>
               </thead>
               <tbody>
                 <tr v-for="(row, i) in rows" :key="i" class="border-t border-slate-100 hover:bg-slate-50 transition-colors">
                   <td class="px-4 py-3 text-slate-400 tabular-nums">{{ i + 1 }}</td>
-                  <td v-for="c in columns" :key="c.key" class="px-4 py-3 text-slate-700 tabular-nums">
+                  <td v-for="c in kolomTabel" :key="c.key" class="px-4 py-3 text-slate-700 tabular-nums">
                     <a
                       v-if="labelTautan(c.key, row[c.key])"
                       :href="String(row[c.key])"
@@ -159,11 +164,13 @@ const tombolUnduh =
                       style="color: #2563eb"
                       class="hover:underline whitespace-nowrap font-medium"
                     >{{ labelTautan(c.key, row[c.key]) }}</a>
+                    <SumberTag v-else-if="labelSumber(c.key, row[c.key])" :label="String(row[c.key])" />
                     <template v-else>{{ fmtSel(row[c.key]) }}</template>
                   </td>
+                  <td v-if="sumberTag" class="px-4 py-3"><SumberTag :label="sumberTag" /></td>
                 </tr>
                 <tr v-if="rows.length === 0">
-                  <td :colspan="columns.length + 1" class="px-4 py-12 text-center text-slate-400">Tidak ada baris data.</td>
+                  <td :colspan="columns.length + 1 + (sumberTag ? 1 : 0)" class="px-4 py-12 text-center text-slate-400">Tidak ada baris data.</td>
                 </tr>
               </tbody>
             </table>
@@ -175,9 +182,11 @@ const tombolUnduh =
         </div>
 
         <p class="text-[12px] text-slate-400 mt-4">
-          Menampilkan {{ fmt(rows.length) }} dari {{ fmt(count) }} baris{{ filtered ? ` (terfilter dari ${fmt(meta.total_bronze)})` : "" }} · Sumber:
-          Satu Data Indonesia — Jakarta ·
-          <a :href="portalSdi" target="_blank" rel="noreferrer" class="underline">lihat di portal ↗</a>
+          Menampilkan {{ fmt(rows.length) }} dari {{ fmt(count) }} baris{{ filtered ? ` (terfilter dari ${fmt(meta.total_bronze)})` : "" }}<template v-if="meta.sumber_label">
+            · Sumber: {{ meta.sumber_label }}</template
+          ><template v-if="meta.portal_url">
+            · <a :href="meta.portal_url" target="_blank" rel="noreferrer" class="underline">lihat di portal ↗</a></template
+          >
         </p>
       </template>
     </section>

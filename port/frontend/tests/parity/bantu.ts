@@ -17,7 +17,7 @@ export const PRODUKSI = process.env.PRODUKSI_URL ?? "https://dispar.rantai.dev";
 
 /**
  * Selalu di-mask (SPEC §7):
- * - header nav: item asisten AI v2 (kini "Jekate", 464fc15) sengaja tidak di-port (SPEC §5.4),
+ * - header nav: item asisten AI v2 (dulu "Jekate", kini "Jakpar AI") sengaja tidak di-port (SPEC §5.4),
  *   sehingga posisi item nav lain bergeser; nav sendiri diuji plan 10. Dicatat sebagai "Nav AI".
  * - tile peta Leaflet dan iframe Google Maps: isi pihak ketiga, dimuat tak serempak.
  * Cap waktu "data per …": tidak ada elemen seperti itu di rute v2 maupun portal (diperiksa plan
@@ -70,7 +70,7 @@ export type OpsiParitas = {
  * diputuskan di plan sebelumnya, dicantumkan supaya terlihat di tiap baris laporan.
  */
 export const PENGECUALIAN = {
-  "Nav AI": "header di-mask: item asisten AI/Jekate tidak di-port, posisi item lain bergeser (SPEC §5.4; nav diuji plan 10)",
+  "Nav AI": "header di-mask: item asisten AI/Jakpar AI tidak di-port, posisi item lain bergeser (SPEC §5.4; nav diuji plan 10)",
   P1: "kicker golf: produksi menampilkan kunci literal `home.vol2_kicker` (SPEC §5.5)",
   P2: "tombol Verifikasi sumber + tautan /api/restaurants dan /api/refresh tidak di-port (SPEC §5.5)",
   P3: "isi /docs dari OpenAPI Laravel; hanya kerangka hero dibandingkan, 390 dilewati (SPEC §5.5)",
@@ -136,7 +136,7 @@ function rasioBeda(a: Buffer, b: Buffer): { rasio: number; diff?: Buffer } {
 }
 
 /**
- * Dock asisten AI v2 ("Jekate", tombol `.ai-dock-btn` + panelnya) tidak di-port (SPEC §1), jadi
+ * Dock asisten AI v2 ("Jakpar AI", tombol `.ai-dock-btn` + panelnya) tidak di-port (SPEC §1), jadi
  * dibuang dari halaman produksi sebelum dibandingkan. Portal tidak punya elemen seperti itu.
  */
 async function buangDockAi(page: Page) {

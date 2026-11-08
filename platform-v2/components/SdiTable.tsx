@@ -42,6 +42,7 @@ export function SdiTable({
   const [metaCols, setMetaCols] = useState<Column[]>([]);
   const [count, setCount] = useState(0);
   const [total, setTotal] = useState(0);
+  const [sumber, setSumber] = useState<{ label: string; portalUrl: string | null } | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
   const [loadingMore, setLoadingMore] = useState(false);
@@ -72,6 +73,8 @@ export function SdiTable({
         setCount(json.count ?? json.total ?? 0);
         setTotal(json.total ?? 0);
         setMetaCols(json.columns ?? []);
+        // Respons lama (cache) tanpa sumberLabel → tanpa tag/footer sumber, bukan "undefined".
+        setSumber(json.sumberLabel ? { label: json.sumberLabel, portalUrl: json.portalUrl ?? null } : null);
         setRows((prev) => (reset ? json.rows : [...prev, ...json.rows]));
       } catch {
         setError("Gagal memuat data");
@@ -124,6 +127,12 @@ export function SdiTable({
     }
     return cols;
   }, [metaCols, rows, onlyKeys]);
+  // Tag sumber di kanan tabel, kecuali kolom `sumber` dataset sudah berisi label sumber per baris
+  // (bukan tautan), mis. HKI gabungan SDI + nota dinas.
+  const sumberTag = sumber && !rows.some((r) => isLabelSumber("sumber", r.sumber)) ? sumber.label : null;
+  // Label sumber per baris sudah ada → kolom `sumber` dipindah ke paling kanan.
+  const kolomTabel = sumberTag ? columns : [...columns.filter((c) => c.key !== "sumber"), ...columns.filter((c) => c.key === "sumber")];
+  const nCols = columns.length + 1 + (sumberTag ? 1 : 0);
 
   if (error) {
     return (
@@ -166,17 +175,18 @@ export function SdiTable({
                 className="text-left text-[12px] uppercase tracking-wider text-white"
               >
                 <th className="w-12 px-4 py-3 font-semibold">#</th>
-                {columns.map((c) => (
+                {kolomTabel.map((c) => (
                   <th key={c.key} className="px-4 py-3 font-semibold" title={c.desc ?? undefined}>
                     {humanize(c.key)}
                   </th>
                 ))}
+                {sumberTag && <th className="px-4 py-3 font-semibold">Sumber Data</th>}
               </tr>
             </thead>
             <tbody>
               {loading && rows.length === 0 && (
                 <tr>
-                  <td colSpan={columns.length + 1} className="px-4 py-12 text-center text-slate-400">
+                  <td colSpan={nCols} className="px-4 py-12 text-center text-slate-400">
                     Memuat data…
                   </td>
                 </tr>
@@ -184,16 +194,25 @@ export function SdiTable({
               {rows.map((row, i) => (
                 <tr key={i} className="border-t border-slate-100 transition-colors hover:bg-slate-50">
                   <td className="px-4 py-3 tabular-nums text-slate-400">{i + 1}</td>
-                  {columns.map((c) => (
+                  {kolomTabel.map((c) => (
                     <td key={c.key} className="px-4 py-3 tabular-nums text-slate-700">
-                      {fmtCell(c.key, row[c.key])}
+                      {isLabelSumber(c.key, row[c.key]) ? (
+                        <SumberTag label={String(row[c.key])} />
+                      ) : (
+                        fmtCell(c.key, row[c.key])
+                      )}
                     </td>
                   ))}
+                  {sumberTag && (
+                    <td className="px-4 py-3">
+                      <SumberTag label={sumberTag} />
+                    </td>
+                  )}
                 </tr>
               ))}
               {!loading && rows.length === 0 && (
                 <tr>
-                  <td colSpan={columns.length + 1} className="px-4 py-12 text-center text-slate-400">
+                  <td colSpan={nCols} className="px-4 py-12 text-center text-slate-400">
                     Tidak ada baris data.
                   </td>
                 </tr>
@@ -214,16 +233,29 @@ export function SdiTable({
 
       <p className="mt-3 text-[12px] text-slate-400">
         Menampilkan {rows.length.toLocaleString("id-ID")} dari{" "}
-        {(total || count).toLocaleString("id-ID")} baris · Sumber: Satu Data Indonesia — Jakarta ·{" "}
-        <a
-          href={`https://satudata.jakarta.go.id/open-data/${slug}`}
-          target="_blank"
-          rel="noreferrer"
-          className="underline"
-        >
-          lihat di portal ↗
-        </a>
+        {(total || count).toLocaleString("id-ID")} baris
+        {sumber && ` · Sumber: ${sumber.label}`}
+        {sumber?.portalUrl && (
+          <>
+            {" · "}
+            <a href={sumber.portalUrl} target="_blank" rel="noreferrer" className="underline">
+              lihat di portal ↗
+            </a>
+          </>
+        )}
       </p>
     </div>
+  );
+}
+
+/** Nilai kolom `sumber` yang berupa label teks (bukan tautan) → ditampilkan sebagai tag. */
+export const isLabelSumber = (key: string, v: unknown) => key === "sumber" && !!v && !/^https?:\/\//i.test(String(v));
+
+/** Tag sumber data per baris (kolom paling kanan tabel dataset). */
+export function SumberTag({ label }: { label: string }) {
+  return (
+    <span className="inline-block min-w-[12rem] max-w-[22rem] rounded-md border border-slate-200 bg-slate-50 px-2.5 py-0.5 text-[12px] leading-snug text-slate-600">
+      {label}
+    </span>
   );
 }

@@ -10,6 +10,8 @@ def test_detail_sukses(klien):
         "title": "Wisman per Kebangsaan",
         "description": "Deskripsi wisman",
         "sumber_data": ["BPS DKI"],
+        "sumber_label": "Satu Data Jakarta · Wisman per Kebangsaan",
+        "portal_url": "https://satudata.jakarta.go.id/open-data/wisman",
         "frekuensi": "1 Bulan Sekali",
         "satuan": "Orang",
         "periode": {"min": "2026-01-01", "max": "2026-03-01"},
@@ -70,3 +72,12 @@ def test_kolom_tampil_urut_ord_angka(klien, monkeypatch):
     monkeypatch.setattr(lake, "kolom_dataset", lambda k, slug: teks)
     items = klien.get("/v1/dataset/wisman/kolom").json()["data"]["items"]
     assert [c["key"] for c in items] == ["periode_data", "kebangsaan", "jumlah", "catatan"]
+
+
+def test_detail_sumber_sekunder_tanpa_portal(klien):
+    # label sumber dataset sekunder = `sumber_detail` entri katalog (katalog_sekunder.toml), tanpa tautan portal SDI
+    d = klien.get("/v1/dataset/wisman-jakarta-per-negara").json()["data"]
+    assert d["sumber_label"] == "Satu Data Jakarta · Data Jumlah Wisman Berdasarkan Kebangsaan (Jan 2024–Apr 2026)"
+    assert d["portal_url"] is None
+    e = klien.get("/v1/dataset/event").json()["data"]
+    assert e["portal_url"] == "https://satudata.jakarta.go.id/open-data/event"

@@ -7,7 +7,9 @@
  */
 type Kolom = { key: string; desc: string | null; type: string | null };
 type Baris = Record<string, unknown>;
-type Halaman = { dataset: { total_bronze?: number | null }; kolom: { items: Kolom[] }; baris: { items: Baris[] } };
+type Halaman = {
+  dataset: { total_bronze?: number | null; sumber_label?: string; portal_url?: string | null };
+  kolom: { items: Kolom[] }; baris: { items: Baris[] } };
 
 const props = defineProps<{
   slug: string;
@@ -43,6 +45,7 @@ const q = ref("");
 const debouncedQ = ref("");
 const sentinel = ref<HTMLDivElement | null>(null);
 const portalSdi = computed(() => `https://satudata.jakarta.go.id/open-data/${props.slug}`);
+const sumber = ref<{ label: string; portalUrl: string | null } | null>(null);
 
 let tunda: ReturnType<typeof setTimeout> | undefined;
 watch(q, (v) => {
@@ -63,6 +66,7 @@ async function load(reset: boolean) {
       if (ini !== nomor) return;
       metaCols.value = data.kolom.items ?? [];
       total.value = data.dataset.total_bronze ?? 0;
+      sumber.value = data.dataset.sumber_label ? { label: data.dataset.sumber_label, portalUrl: data.dataset.portal_url ?? null } : null;
       count.value = meta.total ?? 0;
       rows.value = data.baris.items;
     } else {
@@ -123,6 +127,11 @@ const cols = computed<Kolom[]>(() => {
   }
   return c;
 });
+// Tag sumber di kanan tabel, kecuali kolom `sumber` dataset sudah berisi label sumber per baris (bukan tautan).
+const sumberTag = computed(() => (sumber.value && !rows.value.some((r) => labelSumber("sumber", r.sumber)) ? sumber.value.label : null));
+// Label sumber per baris sudah ada → kolom `sumber` dipindah ke paling kanan.
+const kolomTabel = computed(() => (sumberTag.value ? cols.value : [...cols.value.filter((c) => c.key !== "sumber"), ...cols.value.filter((c) => c.key === "sumber")]));
+const nKolom = computed(() => cols.value.length + 1 + (sumberTag.value ? 1 : 0));
 </script>
 
 <template>
@@ -148,19 +157,24 @@ const cols = computed<Kolom[]>(() => {
           <thead>
             <tr :style="{ background: ACCENT }" class="text-left text-[12px] uppercase tracking-wider text-white">
               <th class="w-12 px-4 py-3 font-semibold">#</th>
-              <th v-for="c in cols" :key="c.key" class="px-4 py-3 font-semibold" :title="c.desc ?? undefined">{{ humanize(c.key) }}</th>
+              <th v-for="c in kolomTabel" :key="c.key" class="px-4 py-3 font-semibold" :title="c.desc ?? undefined">{{ humanize(c.key) }}</th>
+              <th v-if="sumberTag" class="px-4 py-3 font-semibold">Sumber Data</th>
             </tr>
           </thead>
           <tbody>
             <tr v-if="loading && rows.length === 0">
-              <td :colspan="cols.length + 1" class="px-4 py-12 text-center text-slate-400">Memuat data…</td>
+              <td :colspan="nKolom" class="px-4 py-12 text-center text-slate-400">Memuat data…</td>
             </tr>
             <tr v-for="(row, i) in rows" :key="i" class="border-t border-slate-100 transition-colors hover:bg-slate-50">
               <td class="px-4 py-3 tabular-nums text-slate-400">{{ i + 1 }}</td>
-              <td v-for="c in cols" :key="c.key" class="px-4 py-3 tabular-nums text-slate-700">{{ fmtCell(row[c.key]) }}</td>
+              <td v-for="c in kolomTabel" :key="c.key" class="px-4 py-3 tabular-nums text-slate-700">
+                <SumberTag v-if="labelSumber(c.key, row[c.key])" :label="String(row[c.key])" />
+                <template v-else>{{ fmtCell(row[c.key]) }}</template>
+              </td>
+              <td v-if="sumberTag" class="px-4 py-3"><SumberTag :label="sumberTag" /></td>
             </tr>
             <tr v-if="!loading && rows.length === 0">
-              <td :colspan="cols.length + 1" class="px-4 py-12 text-center text-slate-400">Tidak ada baris data.</td>
+              <td :colspan="nKolom" class="px-4 py-12 text-center text-slate-400">Tidak ada baris data.</td>
             </tr>
           </tbody>
         </table>
@@ -172,9 +186,11 @@ const cols = computed<Kolom[]>(() => {
     </div>
 
     <p class="mt-3 text-[12px] text-slate-400">
-      Menampilkan {{ rows.length.toLocaleString("id-ID") }} dari {{ (total || count).toLocaleString("id-ID") }} baris · Sumber: Satu Data
-      Indonesia — Jakarta ·
-      <a :href="portalSdi" target="_blank" rel="noreferrer" class="underline">lihat di portal ↗</a>
+      Menampilkan {{ rows.length.toLocaleString("id-ID") }} dari {{ (total || count).toLocaleString("id-ID") }} baris<template v-if="sumber">
+        · Sumber: {{ sumber.label }}</template
+      ><template v-if="sumber?.portalUrl">
+        · <a :href="sumber.portalUrl" target="_blank" rel="noreferrer" class="underline">lihat di portal ↗</a></template
+      >
     </p>
   </div>
 </template>

@@ -1,18 +1,41 @@
-import { getSertifikasi, getTenagaKerjaEkraf } from "@/lib/dashboard/data";
-import { ChartCard, ChartGrid, Kpi, KpiRow } from "@/components/pariwisata/DashboardKit";
+import { getSebaranPelakuEkrafDki, getSertifikasi, getTenagaKerjaEkraf } from "@/lib/dashboard/data";
+import * as store from "@/lib/ch/store";
+import { ChartCard, ChartGrid, Kpi, KpiRow, RawDataDisclosure } from "@/components/pariwisata/DashboardKit";
 import { BarBreakdown } from "@/components/charts/BarBreakdown";
 import { TkSubsektor } from "@/components/dashboard/TkSubsektor";
 import { ComboBarLine } from "@/components/charts/ComboBarLine";
 import { GroupedBars } from "@/components/charts/GroupedBars";
 import { SectionHead, SourceNote, idNum } from "@/components/dashboard/Kit";
+import { warnaSubsektor } from "@/lib/dashboard/subsektor-colors";
 
 // Dinamis: saat build (image Docker) ClickHouse tak terjangkau — ISR akan membekukan halaman kosong.
 export const dynamic = "force-dynamic";
 
 const titleCase = (s: string) => s.toLowerCase().replace(/\b\w/g, (c) => c.toUpperCase());
 
+/** Dataset sumber yang ditampilkan sebagai tabel di bawah grafik. */
+const DATA_SUMBER = [
+  { slug: "tenaga-kerja-ekraf-per-provinsi", title: "Tenaga kerja ekraf per provinsi (Kemenekraf)" },
+  { slug: "tenaga-kerja-ekraf-per-subsektor-nasional", title: "Tenaga kerja ekraf per subsektor, nasional (Kemenekraf)" },
+  { slug: "sebaran-pelaku-ekraf-jakarta", title: "Pelaku ekraf DKI terdaftar di EKRAF Hub" },
+  {
+    slug: "jumlah-tenaga-kerja-pariwisata-dan-ekonomi-kreatif-yang-tersertifikasi-tahun-2023-dan-2024",
+    title: "Tenaga kerja pariwisata & ekraf tersertifikasi 2023–2024 (SDI)",
+  },
+  {
+    slug: "jumlah-tenaga-kerja-pariwisata-dan-ekonomi-kreatif-yang-tersertifikasi",
+    title: "Tenaga kerja pariwisata & ekraf tersertifikasi (SDI)",
+  },
+];
+
 export default async function Page() {
-  const [tk, sert] = await Promise.all([getTenagaKerjaEkraf(), getSertifikasi()]);
+  const [tk, sert, sebaranDki, totals] = await Promise.all([
+    getTenagaKerjaEkraf(),
+    getSertifikasi(),
+    getSebaranPelakuEkrafDki(),
+    store.syncTotals().catch(() => new Map<string, number>()),
+  ]);
+  const sebaran = sebaranDki.map((r) => ({ label: r.subsektor, value: r.jumlah }));
   const dki = tk.dki.filter((r) => r.total > 0);
   const last = dki[dki.length - 1];
   const prev = dki[dki.length - 2];
@@ -52,6 +75,18 @@ export default async function Page() {
 
       <SectionHead title="2 · Rincian berdasarkan subsektor ekonomi kreatif" />
       <TkSubsektor rows={tk.subsektorNasional} />
+      <div className="mt-4">
+        <ChartCard
+          title="Sebaran Pelaku Ekonomi Kreatif per Subsektor di DKI Jakarta"
+          sub="pelaku terdaftar di EKRAF Hub (hub.ekraf.go.id) yang berdomisili di DKI Jakarta — jumlah pelaku terdaftar, bukan jumlah tenaga kerja"
+        >
+          {sebaran.length ? (
+            <BarBreakdown data={sebaran} unit=" pelaku" colors={sebaran.map((d) => warnaSubsektor(d.label))} />
+          ) : (
+            <p className="py-8 text-center text-[13px] text-ink-muted-48">Data sebaran pelaku ekraf DKI belum tersedia.</p>
+          )}
+        </ChartCard>
+      </div>
 
       <SectionHead title="3 · Tren Tenaga Kerja Sektor Ekonomi Kreatif Provinsi DKI Jakarta" desc="5 tahun terakhir" />
       <ChartGrid cols={2}>
@@ -88,9 +123,17 @@ export default async function Page() {
         </ChartCard>
       </ChartGrid>
 
+      <SectionHead title="Data sumber" desc="Tabel dataset yang dipakai grafik di atas, dengan kolom sumber di sisi kanan." />
+      <div className="space-y-2">
+        {DATA_SUMBER.map((d) => (
+          <RawDataDisclosure key={d.slug} slug={d.slug} title={d.title} count={totals.get(d.slug) ?? 0} label="Lihat data" />
+        ))}
+      </div>
+
       <SourceNote>
-        Sumber: Satu Data Ekraf (Kemenekraf, olahan Sakernas BPS dan Kemenekraf) — satudata.ekraf.go.id; Satu Data Jakarta — tenaga
-        kerja pariwisata &amp; ekraf tersertifikasi (2023–2025).
+        Sumber: Satu Data Ekraf (Kemenekraf, olahan Sakernas BPS dan Kemenekraf) — satudata.ekraf.go.id; EKRAF Hub Kementerian
+        Ekonomi Kreatif — hub.ekraf.go.id (pelaku terdaftar); Satu Data Jakarta — tenaga kerja pariwisata &amp; ekraf tersertifikasi
+        (2023–2025).
       </SourceNote>
     </>
   );

@@ -1,4 +1,4 @@
-# Katalog sekunder: 51 entri halaman /katalog (KONTRAK §2.1 catatan 1, keputusan opsi 1).
+# Katalog sekunder: 49 entri halaman /katalog (KONTRAK §2.1 catatan 1, keputusan opsi 1).
 #
 # Teks tampilan (judul, deskripsi, tag, sumber, tautan) disalin dari platform-v2 `lib/secondary.ts` @ 43dec61
 # supaya kartu katalog portal sama dengan yang tayang. Teks di lake
@@ -17,6 +17,7 @@ title = "Wisman DKI Jakarta per Negara (BPS dibersihkan)"
 description = "Kunjungan wisatawan mancanegara ke DKI Jakarta per negara asal, klasifikasi negara BPS distandarkan (mis. China≡Tiongkok, Filipina≡Philipina)."
 tags = ["wisman", "wisatawan", "mancanegara", "negara", "sekunder"]
 sumber = "sdi"
+sumber_detail = "Satu Data Jakarta · Data Jumlah Wisman Berdasarkan Kebangsaan (Jan 2024–Apr 2026)"
 href = "/sdi/wisman-jakarta-per-negara"
 external = false
 
@@ -26,6 +27,7 @@ title = "Wisman DKI Jakarta per Bulan (total)"
 description = "Total kunjungan wisatawan mancanegara ke DKI Jakarta per bulan (agregasi seluruh negara asal)."
 tags = ["wisman", "wisatawan", "mancanegara", "bulanan", "sekunder"]
 sumber = "sdi"
+sumber_detail = "Satu Data Jakarta · Data Jumlah Wisman Berdasarkan Kebangsaan (Jan 2024–Apr 2026)"
 href = "/sdi/wisman-jakarta-per-bulan"
 external = false
 
@@ -35,6 +37,7 @@ title = "Wisman per Pintu Masuk (dinormalisasi)"
 description = "Kunjungan wisman menurut pintu masuk dengan nama pintu distandarkan (mis. 'BANDAR UDARA SOEKARNO HATTA'≡'Soekarno-Hatta')."
 tags = ["wisman", "pintu-masuk", "sekunder"]
 sumber = "sdi"
+sumber_detail = "Satu Data Jakarta · Wisman menurut Pintu Masuk (2010 & 2014)"
 href = "/sdi/wisman-jakarta-per-pintu-masuk"
 external = false
 
@@ -44,6 +47,7 @@ title = "Wisman per Pintu Masuk dan Bulan (BPS DKI Jakarta)"
 description = "Kunjungan wisman bulanan menurut pintu masuk DKI Jakarta (Soekarno-Hatta, Halim Perdana Kusuma, Tanjung Priok). Sumber: tabel statistik BPS Provinsi DKI Jakarta. Periode tersedia: 2024."
 tags = ["wisman", "pintu-masuk", "bulanan", "bps", "sekunder"]
 sumber = "instansi"
+sumber_detail = "BPS Provinsi DKI Jakarta · tabel statistik wisman per pintu masuk"
 href = "/sdi/wisman-per-pintu-masuk-bulanan-bps"
 external = false
 
@@ -53,6 +57,7 @@ title = "Perjalanan Wisatawan Nusantara Menurut Kabupaten/Kota Tujuan (BPS DKI J
 description = "Jumlah perjalanan wisnus bulanan menurut kota/kabupaten TUJUAN di DKI Jakarta (mobile positioning data). Sumber: BPS Provinsi DKI Jakarta. Cakupan 2019–2025 lengkap dan Jan–Mei 2026. Tervalidasi terhadap rilis BPS TW II & TW IV 2025."
 tags = ["wisnus", "nusantara", "kota-tujuan", "bps", "sekunder"]
 sumber = "instansi"
+sumber_detail = "BPS Provinsi DKI Jakarta · perjalanan wisnus per kota tujuan (mobile positioning)"
 href = "/sdi/wisnus-perjalanan-per-kota-tujuan"
 external = false
 
@@ -62,6 +67,7 @@ title = "Tenaga Kerja Ekonomi Kreatif Menurut Provinsi dan Jenis Kelamin (Satu D
 description = "Jumlah tenaga kerja ekonomi kreatif per provinsi 2020–2024 (Total, Laki-laki, Perempuan). Sumber: Satu Data Ekraf — Kemenekraf, olahan Sakernas BPS Agustus (satudata.ekraf.go.id dataset 8w13umewjrtrk1q & hxi9b9y1vq2rf2p). DKI Jakarta 2024: 1.257.285 orang."
 tags = ["ekraf", "tenaga-kerja", "provinsi", "sakernas", "kemenekraf", "sekunder"]
 sumber = "instansi"
+sumber_detail = "Satu Data Ekraf (Kemenekraf) · olahan Sakernas BPS"
 href = "/sdi/tenaga-kerja-ekraf-per-provinsi"
 external = false
 
@@ -71,6 +77,7 @@ title = "Tenaga Kerja Ekonomi Kreatif Menurut Subsektor — Nasional (Satu Data 
 description = "Jumlah tenaga kerja ekonomi kreatif Indonesia per 16 subsektor 2020–2024; rincian subsektor per provinsi belum dipublikasikan. Sumber: Satu Data Ekraf — Kemenekraf, olahan Sakernas BPS (dataset 17o8miba9bfiyx1)."
 tags = ["ekraf", "tenaga-kerja", "subsektor", "nasional", "sakernas", "kemenekraf", "sekunder"]
 sumber = "instansi"
+sumber_detail = "Satu Data Ekraf (Kemenekraf) · olahan Sakernas BPS"
 href = "/sdi/tenaga-kerja-ekraf-per-subsektor-nasional"
 external = false
 
@@ -80,6 +87,7 @@ title = "Restoran Jakarta TripAdvisor (Kuliner GCI)"
 description = "Restoran DKI Jakarta bersumber TripAdvisor untuk indikator kuliner GCI (kriteria Kearney: TripAdvisor & Michelin). Rating, ulasan, peringkat, koordinat, URL."
 tags = ["kuliner", "restoran", "tripadvisor", "gci", "sekunder"]
 sumber = "crawling"
+sumber_detail = "Crawling TripAdvisor · restoran DKI Jakarta (Agu 2026)"
 href = "/sdi/restoran-tripadvisor-jakarta"
 external = false
 
@@ -89,6 +97,7 @@ title = "Artis Top 10 Global Chart (Billboard & Spotify, 2021–2025)"
 description = "Tabel referensi artis Top 10 Global Chart (Billboard & Spotify Year-End) 2021–2025 untuk verifikasi kriteria Kearney pada indikator seni pertunjukan."
 tags = ["seni-pertunjukan", "musik", "chart", "gci", "sekunder"]
 sumber = "crawling"
+sumber_detail = "Billboard Year-End & Spotify Global Year-End 2021–2025"
 href = "/sdi/artis-top-global-chart"
 external = false
 
@@ -98,6 +107,7 @@ title = "Hotel MICHELIN Key Indonesia (2026)"
 description = "47 hotel dan resor di Indonesia peraih MICHELIN Key edisi 2026: 3 hotel 3 Keys, 11 hotel 2 Keys, 33 hotel 1 Key (7 di DKI Jakarta). Sumber: MICHELIN Guide, diverifikasi dengan sumber publik (siaran Kemenpar)."
 tags = ["hotel", "akomodasi", "michelin", "gci", "sekunder"]
 sumber = "instansi"
+sumber_detail = "MICHELIN Guide · MICHELIN Keys 2026 Indonesia"
 href = "/sdi/michelin-keys-indonesia"
 external = false
 
@@ -107,6 +117,7 @@ title = "Lokasi Syuting Film di DKI Jakarta"
 description = "116 pasangan film–lokasi syuting dari 75 film layar lebar (1957–2025, nasional dan internasional) di 92 lokasi DKI Jakarta. Kurasi riset publik: setiap baris menyertakan URL sumber dan kutipan bukti (92 sumber terverifikasi). Titik lokasi dari OpenStreetMap; titik yang hanya perkiraan diberi keterangan."
 tags = ["film", "lokasi-syuting", "perfilman", "ekraf", "pariwisata-film", "jakarta", "kurasi-riset", "sekunder"]
 sumber = "crawling"
+sumber_detail = "Riset publik (berita, Wikipedia; URL per baris) + koordinat OpenStreetMap"
 href = "/sdi/lokasi-syuting-film-jakarta"
 external = false
 
@@ -116,6 +127,7 @@ title = "Penerbangan Langsung Internasional ke Jakarta (rute nonstop CGK)"
 description = "125 pasangan maskapai–bandara pada 58 rute nonstop internasional yang terhubung ke Soekarno-Hatta. Diturunkan dari tabel destinasi Wikipedia EN & ID, disilang OpenFlights, dilabeli IATA/ICAO/negara lewat Wikidata, dan diverifikasi dengan pengamatan aktual OpenSky (7 hari). Menutup gap indikator GPCI AC-DF."
 tags = ["penerbangan", "rute", "bandara", "CGK", "internasional", "konektivitas", "gpci", "AC-DF", "opensky", "sekunder"]
 sumber = "crawling"
+sumber_detail = "Wikipedia + OpenFlights + Wikidata + OpenSky (Okt 2026)"
 href = "/sdi/penerbangan-langsung-internasional-jakarta"
 external = false
 
@@ -125,6 +137,7 @@ title = "Penerbangan Langsung Domestik ke Jakarta (rute nonstop CGK)"
 description = "209 pasangan maskapai–bandara pada 49 rute nonstop domestik yang terhubung ke Soekarno-Hatta. Diturunkan dari tabel destinasi Wikipedia EN & ID, disilang OpenFlights, dilabeli IATA/ICAO/negara lewat Wikidata, dan diverifikasi dengan pengamatan aktual OpenSky (7 hari)."
 tags = ["penerbangan", "rute", "bandara", "CGK", "domestik", "konektivitas", "opensky", "sekunder"]
 sumber = "crawling"
+sumber_detail = "Wikipedia + OpenFlights + Wikidata + OpenSky (Okt 2026)"
 href = "/sdi/penerbangan-langsung-domestik-jakarta"
 external = false
 
@@ -134,6 +147,7 @@ title = "Venue MICE Jakarta (2026)"
 description = "Inventori 114 venue MICE: 35 venue khusus (convention/exhibition center, gedung serbaguna, arena indoor) dan 79 hotel bintang 4–5 berfasilitas ballroom/ruang pertemuan; 111 di DKI Jakarta, sisanya venue berlabel 'Jakarta' di luar DKI. Kapasitas & luas dari situs resmi venue/hotel; tiap baris punya sumber dan status verifikasi."
 tags = ["mice", "venue", "ballroom", "hotel", "konvensi", "pameran", "sekunder"]
 sumber = "crawling"
+sumber_detail = "Riset situs resmi venue MICE & hotel bintang 4–5 (Okt 2026)"
 href = "/sdi/venue-mice-jakarta"
 external = false
 
@@ -143,6 +157,7 @@ title = "Kegiatan di Venue MICE Jakarta 2026"
 description = "374 acara (pameran, konferensi, konser, festival, olahraga, dll.) yang berlangsung di venue MICE sepanjang 2026; 256 di DKI Jakarta. Sumber: kalender resmi JIExpo, ICE BSD, NICE PIK2 dan Balai Kartini, kalender penyelenggara, berita, serta data izin event Disparekraf DKI. Cakupan venue tanpa kalender resmi masih parsial."
 tags = ["mice", "event", "pameran", "konferensi", "konser", "2026", "sekunder"]
 sumber = "crawling"
+sumber_detail = "Kalender JIExpo, ICE BSD, NICE PIK2, Balai Kartini + data izin event 2026"
 href = "/sdi/kegiatan-mice-jakarta-2026"
 external = false
 
@@ -152,6 +167,7 @@ title = "Museum di DKI Jakarta (SDI, Dinas Kebudayaan)"
 description = "Daftar museum di DKI Jakarta beserta wilayah, alamat, pengelola, dan situs web; periode 2024. Sumber: Satu Data Jakarta (data-museum-di-provinsi-dki-jakarta). Koordinat sebagian baris di sumber tidak valid."
 tags = ["museum", "budaya", "atraksi", "satu-data-jakarta", "sekunder"]
 sumber = "sdi"
+sumber_detail = "Satu Data Jakarta · Data Museum di Provinsi DKI Jakarta (Dinas Kebudayaan)"
 href = "/sdi/museum-jakarta"
 external = false
 
@@ -161,6 +177,7 @@ title = "Jalur Hijau Kota DKI Jakarta (SDI, Distamhut)"
 description = "Jalur hijau yang dikelola Dinas Pertamanan dan Hutan Kota per wilayah dan kecamatan, dengan klasifikasi dan luas; periode 2024–2025. Sumber: Satu Data Jakarta (data-jalur-hijau-kota)."
 tags = ["ruang-terbuka-hijau", "jalur-hijau", "lingkungan", "satu-data-jakarta", "sekunder"]
 sumber = "sdi"
+sumber_detail = "Satu Data Jakarta · Data Jalur Hijau Kota (Dinas Pertamanan dan Hutan Kota)"
 href = "/sdi/jalur-hijau-jakarta"
 external = false
 
@@ -170,6 +187,7 @@ title = "Hutan di DKI Jakarta (SDI)"
 description = "Hutan kota, hutan lindung, dan kawasan hutan di DKI Jakarta beserta lokasi, luas (ha), dan tahun pembebasan; periode 2012. Sumber: Satu Data Jakarta (data-hutan-di-provinsi-dki-jakarta). Koordinat di sumber tidak valid."
 tags = ["ruang-terbuka-hijau", "hutan", "lingkungan", "satu-data-jakarta", "sekunder"]
 sumber = "sdi"
+sumber_detail = "Satu Data Jakarta · Data Hutan di Provinsi DKI Jakarta"
 href = "/sdi/hutan-kota-jakarta"
 external = false
 
@@ -179,6 +197,7 @@ title = "Jumlah dan Luas Taman per Jenis dan Kota (SDI)"
 description = "Jumlah dan luas taman menurut jenis taman dan kabupaten/kota administrasi DKI Jakarta; periode 2014. Sumber: Satu Data Jakarta (data-jumlah-dan-luas-taman-menurut-jenis-dan-kabupatenkota-administrasi-di-provinsi-dki-jakarta)."
 tags = ["ruang-terbuka-hijau", "taman", "lingkungan", "satu-data-jakarta", "sekunder"]
 sumber = "sdi"
+sumber_detail = "Satu Data Jakarta · Jumlah dan Luas Taman menurut Jenis dan Kota"
 href = "/sdi/taman-jakarta"
 external = false
 
@@ -188,6 +207,7 @@ title = "Restoran & Zona KHAS Tersertifikasi Halal Jakarta"
 description = "Restoran/rumah makan & sentra Zona KHAS di DKI Jakarta tersertifikasi halal (BPJPH/LPPOM MUI) — profil, titik koordinat, dan nomor sertifikat halal bila tersedia."
 tags = ["halal", "restoran", "kuliner", "zona-khas", "ramah-muslim", "sekunder"]
 sumber = "crawling"
+sumber_detail = "BPJPH / LPPOM MUI · sertifikasi halal"
 href = "/sdi/restoran-halal-jakarta"
 external = false
 
@@ -197,6 +217,7 @@ title = "Hotel Ramah Muslim Jakarta"
 description = "Hotel syariah & ramah muslim DKI Jakarta (arah kiblat, musholla, tempat wudhu, restoran halal) — profil, koordinat, dan nomor sertifikat halal restoran bila tersedia."
 tags = ["halal", "hotel", "ramah-muslim", "pariwisata", "sekunder"]
 sumber = "crawling"
+sumber_detail = "Riset web, URL sumber per baris (Agu 2026)"
 href = "/sdi/hotel-ramah-muslim-jakarta"
 external = false
 
@@ -206,6 +227,7 @@ title = "Inovasi & Program Wisata Ramah Muslim Jakarta"
 description = "Inovasi, program unggulan, dan praktik baik pendukung wisatawan muslim — desa/kampung wisata ramah muslim, kampung halal, aplikasi digital, event/festival, branding, paket wisata."
 tags = ["halal", "inovasi", "program", "ramah-muslim", "sekunder"]
 sumber = "crawling"
+sumber_detail = "Riset web, URL sumber per baris (Agu 2026)"
 href = "/sdi/inovasi-wisata-ramah-muslim-jakarta"
 external = false
 
@@ -215,6 +237,7 @@ title = "Mall & Fasilitas Ramah Muslim Jakarta"
 description = "Mall/pusat perbelanjaan DKI Jakarta dengan fasilitas ramah muslim (musholla, tempat wudhu, restoran halal, toko produk halal) — profil, koordinat, dan foto fasilitas bila tersedia."
 tags = ["halal", "mall", "fasilitas", "ramah-muslim", "sekunder"]
 sumber = "crawling"
+sumber_detail = "Riset web, URL sumber per baris (Agu 2026)"
 href = "/sdi/mall-ramah-muslim-jakarta"
 external = false
 
@@ -224,6 +247,7 @@ title = "RPH Tersertifikasi Halal Jakarta"
 description = "Rumah Potong Hewan/Unggas (RPH/RPU) tersertifikasi halal di DKI Jakarta — profil, pengelola, koordinat, dan nomor sertifikat halal bila tersedia."
 tags = ["halal", "rph", "ramah-muslim", "sekunder"]
 sumber = "crawling"
+sumber_detail = "Riset web, URL sumber per baris (Agu 2026)"
 href = "/sdi/rph-halal-jakarta"
 external = false
 
@@ -233,6 +257,7 @@ title = "Produk Kreatif Makanan Tersertifikasi Halal Jakarta"
 description = "Produk kreatif makanan/UMKM kuliner asal DKI Jakarta yang tersertifikasi halal — profil, penyelenggara, dan nomor sertifikat halal bila tersedia."
 tags = ["halal", "produk", "ekraf", "kuliner", "sekunder"]
 sumber = "crawling"
+sumber_detail = "Riset web, URL sumber per baris (Agu 2026)"
 href = "/sdi/produk-kreatif-makanan-halal-jakarta"
 external = false
 
@@ -242,6 +267,7 @@ title = "Bandara Ramah Muslim (melayani Jakarta)"
 description = "Bandara yang melayani DKI Jakarta beserta fasilitas ramah muslim (masjid/musholla, tempat wudhu, arah kiblat, restoran halal) dan penghargaan terkait."
 tags = ["halal", "bandara", "ramah-muslim", "sekunder"]
 sumber = "crawling"
+sumber_detail = "Riset web, URL sumber per baris (Agu 2026)"
 href = "/sdi/bandara-ramah-muslim-jakarta"
 external = false
 
@@ -251,6 +277,7 @@ title = "Pengakuan & Capaian Pariwisata Ramah Muslim"
 description = "Pengakuan, penghargaan, dan capaian pengembangan pariwisata ramah muslim yang relevan dengan Jakarta/Indonesia (mis. Global Muslim Travel Index)."
 tags = ["halal", "pengakuan", "penghargaan", "ramah-muslim", "sekunder"]
 sumber = "crawling"
+sumber_detail = "Riset web, URL sumber per baris (Agu 2026)"
 href = "/sdi/capaian-pariwisata-ramah-muslim"
 external = false
 
@@ -260,6 +287,7 @@ title = "Warisan Islam & Wisata Budaya Muslim Jakarta"
 description = "Daya tarik wisata budaya muslim & warisan Islam unggulan di DKI Jakarta (masjid bersejarah, museum, kampung, situs — alam & buatan): profil, lokasi, dan nilai sejarah."
 tags = ["halal", "warisan-islam", "wisata-budaya", "religi", "sekunder"]
 sumber = "crawling"
+sumber_detail = "Riset web, URL sumber per baris (Agu 2026)"
 href = "/sdi/warisan-islam-wisata-budaya-muslim-jakarta"
 external = false
 
@@ -279,6 +307,7 @@ title = "Atraksi Wisata Air DKI Jakarta"
 description = "Inventaris 28 venue atraksi wisata air di DKI Jakarta (bersumber SDI, dilengkapi pemetaan koordinat dan OpenStreetMap). Kategori mengikuti standar Kemenpar 'Aktivitas Wisata Air'."
 tags = ["atraksi-air", "water-attractions", "kemenpar", "pantai", "marina", "waterpark", "jakarta", "sekunder"]
 sumber = "sdi"
+sumber_detail = "Satu Data Jakarta · Data Destinasi Pariwisata + OpenStreetMap"
 href = "/sdi/water-attractions-jakarta"
 external = false
 
@@ -288,6 +317,7 @@ title = "Venue Wellness DKI Jakarta"
 description = "Inventaris 84 venue wellness DKI Jakarta dari OpenStreetMap dan Google Places. Distribusi kategori: 34 Spa & Pijat, 20 Hotel Spa Premium, 16 Fitness & Gym, 12 Klinik Kecantikan & Estetika, 1 Pengobatan Tradisional & Alternatif, 1 Kesehatan Mental & Nutrisi. Distribusi kota adm: 40 JakSel, 38 JakPus, 4 JakBar, 2 JakTim."
 tags = ["wellness", "wellness-tourism", "spa", "hotel-spa", "fitness", "kecantikan", "klinik", "jakarta", "sekunder"]
 sumber = "crawling"
+sumber_detail = "OpenStreetMap + Google Maps (Sep 2026)"
 href = "/sdi/wellness-jakarta"
 external = false
 
@@ -297,6 +327,7 @@ title = "Usaha Penyedia dan Tempat Layanan Wellness Tourism DKI Jakarta"
 description = "Perluasan dataset wellness-jakarta (84 venue) dengan fokus 'usaha terdaftar': nama_dagang (brand), jenis_usaha (Rantai/Bermerek/Independen), asosiasi, dan status_usaha. Distribusi jenis usaha: 6 Rantai/Franchise, 19 Hotel Spa Premium (bermerek), 59 Independen. Catatan: kolom asosiasi dan status usaha bersifat indikatif dan belum diverifikasi dengan data perizinan resmi (NIB)."
 tags = ["wellness", "wellness-tourism", "usaha", "nib", "legalitas", "jakarta", "sekunder"]
 sumber = "crawling"
+sumber_detail = "OpenStreetMap + Google Maps (Sep 2026)"
 href = "/sdi/usaha-wellness-jakarta"
 external = false
 
@@ -306,6 +337,7 @@ title = "Asosiasi/Organisasi/Badan/EO Ekonomi Kreatif DKI Jakarta"
 description = "Inventaris asosiasi, organisasi, badan, dan EO (event organizer) yang berkaitan dengan ekonomi kreatif di DKI Jakarta. Sumber: EKRAF Hub dan situs resmi/Dispar DKI. Distribusi kategori: 23 Asosiasi, 2 Badan, 6 EO, 3 Organisasi."
 tags = ["ekraf", "asosiasi", "organisasi", "event-organizer", "jakarta", "ekraf-hub", "sekunder"]
 sumber = "crawling"
+sumber_detail = "EKRAF Hub (hub.ekraf.go.id) + kurasi manual (Sep 2026)"
 href = "/sdi/asosiasi-organisasi-badan-eo-ekraf-jakarta"
 external = false
 
@@ -315,6 +347,7 @@ title = "Asosiasi/Organisasi/Badan/EO Pariwisata DKI Jakarta"
 description = "Inventaris asosiasi, organisasi, badan, dan EO (event organizer) yang berkaitan dengan pariwisata di DKI Jakarta. Sumber: direktori Dispar DKI, situs resmi asosiasi, dan press release publik; baris yang kontaknya tidak tersedia publik ditandai '—'. Distribusi kategori: 11 Asosiasi, 4 Badan, 8 EO, 3 Organisasi."
 tags = ["pariwisata", "asosiasi", "organisasi", "event-organizer", "jakarta", "sekunder"]
 sumber = "crawling"
+sumber_detail = "Kurasi direktori publik asosiasi wisata (Sep 2026)"
 href = "/sdi/asosiasi-organisasi-badan-eo-pariwisata-jakarta"
 external = false
 
@@ -324,6 +357,7 @@ title = "Desa/Kampung Wisata DKI Jakarta (SDI + Perluasan)"
 description = "Inventaris desa/kampung wisata di DKI Jakarta dari Satu Data Jakarta (dataset data-desa-wisata, id 9984). DKI Jakarta tidak memiliki banyak 'desa' administratif — banyak entri berupa kampung wisata atau kelurahan wisata (mis. Kampung Bhinneka, Agro Edu Wisata Ragunan, Kampung Samtama). Distribusi kota: 7 Jakarta Pusat, 8 Jakarta Selatan, 8 Kepulauan Seribu, 6 Jakarta Barat, 14 Jakarta Timur, 5 Jakarta Utara. Distribusi tipe: 23 Kampung Wisata, 17 Destinasi Wisata, 8 Desa Wisata."
 tags = ["desa-wisata", "kampung-wisata", "satu-data-jakarta", "jakarta", "sdi", "sekunder"]
 sumber = "sdi"
+sumber_detail = "Satu Data Jakarta · Data Desa Wisata + perluasan"
 href = "/sdi/desa-wisata-jakarta"
 external = false
 
@@ -333,6 +367,7 @@ title = "Hotel Transit DKI Jakarta (≤5 km dari simpul transport)"
 description = "Inventaris hotel dalam buffer 5 km dari 24 simpul transport utama DKI Jakarta (bandara, stasiun KAI, terminal bus, halte MRT/LRT). Basis: registry 120 hotel resmi Satu Data Jakarta. Koordinat diperoleh dari pencarian alamat; hotel yang alamatnya tidak dapat dipetakan tidak ditampilkan."
 tags = ["hotel", "transit", "transportasi", "satu-data-jakarta", "jakarta", "sekunder"]
 sumber = "sdi"
+sumber_detail = "Satu Data Jakarta · registri hotel, disaring ≤5 km dari simpul transport"
 href = "/sdi/hotel-transit-jakarta"
 external = false
 
@@ -342,6 +377,7 @@ title = "Jumlah Pengunjung Event Jakarta 2026"
 description = "Jumlah pengunjung event pariwisata & ekraf DKI Jakarta (Semester I 2026), diperkaya alamat, titik koordinat (lat/lon), dan sumber alamat via geocoding."
 tags = ["event", "pengunjung", "pariwisata", "geocoded", "sekunder"]
 sumber = "internal"
+sumber_detail = "Data internal Dinas · pengunjung event Semester I 2026 + geocoding"
 href = "/sdi/jumlah-pengunjung-event-2026"
 external = false
 
@@ -351,6 +387,7 @@ title = "Toko Suvenir Jakarta (TripAdvisor)"
 description = "Toko suvenir, oleh-oleh & kerajinan DKI Jakarta yang terdaftar di TripAdvisor (Gift & Specialty Shops, Antique Stores, Flea & Street Markets) — alamat, koordinat, rating, dan penandaan mana yang benar-benar toko suvenir. Mendukung indikator GPCI CI-SH (daya tarik belanja)."
 tags = ["suvenir", "oleh-oleh", "kerajinan", "belanja", "tripadvisor", "sekunder"]
 sumber = "crawling"
+sumber_detail = "Crawling TripAdvisor · toko suvenir Jakarta (Agu 2026)"
 href = "/sdi/toko-suvenir-tripadvisor-2026"
 external = false
 
@@ -360,6 +397,7 @@ title = "Hotel & Jumlah Kamar DKI Jakarta (terkini)"
 description = "Data hotel DKI Jakarta dari tiga sumber — SDI hotel 2020, rekap usaha-kamar hotel 2023, dan riset web per hotel (2026); tiap baris mencantumkan jumlah kamar terkini beserta sumber & tahun angkanya, dan hotel yang tutup tetap dicatat dengan status operasionalnya."
 tags = ["hotel", "kamar", "akomodasi", "gpci", "sekunder"]
 sumber = "internal"
+sumber_detail = "Satu Data Jakarta 2020 + rekap usaha & kamar hotel 2023 + riset web"
 href = "/sdi/hotel-kamar-jakarta"
 external = false
 
@@ -369,6 +407,7 @@ title = "Hotel per Kota DKI Jakarta"
 description = "Pendataan usaha hotel per kota administrasi DKI Jakarta: NIB, pelaku usaha, klasifikasi, alamat, kontak, jumlah kamar, dan tenaga kerja."
 tags = ["hotel", "akomodasi", "kontak", "sekunder"]
 sumber = "internal"
+sumber_detail = "Data internal Dinas · pendataan hotel per kota (Okt 2026)"
 href = "/sdi/hotel-per-kota-jakarta"
 external = false
 
@@ -378,34 +417,18 @@ title = "Usaha Hiburan per Kota DKI Jakarta"
 description = "Pendataan usaha hiburan (bar, karaoke, dan diskotek) per kota administrasi DKI Jakarta: jenis usaha, NIB, pelaku usaha, alamat, kontak, kapasitas, dan tenaga kerja."
 tags = ["hiburan", "bar", "karaoke", "diskotek", "kontak", "sekunder"]
 sumber = "internal"
+sumber_detail = "Data internal Dinas · pendataan usaha hiburan per kota (Okt 2026)"
 href = "/sdi/hiburan-per-kota-jakarta"
 external = false
 
 [[entri]]
-id = "sec-fasilitasi-hki-ekraf-2026-tw1"
-title = "Fasilitasi HKI Pelaku Ekonomi Kreatif 2026 Triwulan I"
-description = "Pelaku ekonomi kreatif DKI Jakarta yang difasilitasi pendaftaran hak kekayaan intelektual pada triwulan I 2026: nama pemohon, merek/ciptaan, alamat, dan subsektor."
+id = "sec-fasilitasi-hki-ekraf-2023-2026"
+title = "Fasilitasi HKI Pelaku Ekonomi Kreatif 2023–2026"
+description = "Pelaku ekonomi kreatif DKI Jakarta yang difasilitasi pendaftaran hak kekayaan intelektual, 2023–2026 dalam satu tabel: 2023–2025 dari portal SDI, 2026 triwulan I–III dari nota dinas/laporan triwulan. Kolom Triwulan dan Sumber menandai asal tiap baris."
 tags = ["hki", "kekayaan-intelektual", "ekraf", "sekunder"]
 sumber = "internal"
-href = "/sdi/fasilitasi-hki-ekraf-2026-tw1"
-external = false
-
-[[entri]]
-id = "sec-fasilitasi-hki-ekraf-2026-tw2"
-title = "Fasilitasi HKI Pelaku Ekonomi Kreatif 2026 Triwulan II"
-description = "Pelaku ekonomi kreatif DKI Jakarta yang difasilitasi pendaftaran hak kekayaan intelektual pada triwulan II 2026: nama pemohon, merek/ciptaan, alamat, dan subsektor."
-tags = ["hki", "kekayaan-intelektual", "ekraf", "sekunder"]
-sumber = "internal"
-href = "/sdi/fasilitasi-hki-ekraf-2026-tw2"
-external = false
-
-[[entri]]
-id = "sec-fasilitasi-hki-ekraf-2026-tw3"
-title = "Fasilitasi HKI Pelaku Ekonomi Kreatif 2026 Triwulan III"
-description = "Pelaku ekonomi kreatif DKI Jakarta yang difasilitasi pendaftaran hak kekayaan intelektual pada triwulan III 2026: nama merek/ciptaan, subsektor, dan jenis HKI (Hak Merek atau Hak Cipta)."
-tags = ["hki", "kekayaan-intelektual", "ekraf", "sekunder"]
-sumber = "internal"
-href = "/sdi/fasilitasi-hki-ekraf-2026-tw3"
+sumber_detail = "Satu Data Jakarta (2023–2025) + Nota Dinas monev fasilitasi HKI TW I–III 2026"
+href = "/sdi/fasilitasi-hki-ekraf-2023-2026"
 external = false
 
 [[entri]]
@@ -414,6 +437,7 @@ title = "Sebaran Pelaku Ekonomi Kreatif DKI Jakarta (EKRAF Hub)"
 description = "Pelaku ekonomi kreatif berdomisili DKI Jakarta yang terdaftar di EKRAF Hub Kementerian Ekonomi Kreatif: nama, subsektor, kabupaten/kota, tipe pengguna, usaha atau tempat kerja, dan tahun pembaruan data."
 tags = ["ekraf", "pelaku-kreatif", "subsektor", "sekunder"]
 sumber = "crawling"
+sumber_detail = "EKRAF Hub Kemenekraf (hub.ekraf.go.id), diambil Nov 2026"
 href = "/sdi/sebaran-pelaku-ekraf-jakarta"
 external = false
 

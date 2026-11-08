@@ -31,5 +31,8 @@ describe("warnaSubsektor", () => {
     expect(warnaSubsektor("TV & Radio")).toBe("#0369a1");
     expect(warnaSubsektor("Aplikasi & Game Developer")).toBe("#2563eb");
     expect(warnaSubsektor("lainnya")).toBe(SUBSEKTOR_FALLBACK);
+    // penulisan EKRAF Hub/Kemenekraf
+    expect(warnaSubsektor("Fesyen")).toBe(warnaSubsektor("Fashion"));
+    expect(warnaSubsektor("Aplikasi")).toBe("#2563eb");
   });
 });

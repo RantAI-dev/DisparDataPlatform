@@ -18,7 +18,7 @@ data_api/
     lake.py            metadata dan baris lake (Silver, Bronze ber-cache) yang dipakai >1 fitur
     atlas_gabungan.py  gabung + dedup Restoran GCI dan Direktori (katalog, atlas, spasial)
     peta.py            peta kecamatan DKI (dki-jakarta.geojson) dan uji titik-dalam-poligon
-    katalog_sekunder.toml  51 entri katalog sekunder (teks app, baris dari lake)
+    katalog_sekunder.toml  49 entri katalog sekunder (teks app, baris dari lake)
   features/<fitur>/    router.py, service.py, models.py (response_model), queries.py (satu-satunya
                        tempat SQL fitur), logika.py (port logika Next.js murni, bila ada)
                        fitur: dataset, beranda, dashboard, indikator, atlas, gmti, spasial, hotel_scraped

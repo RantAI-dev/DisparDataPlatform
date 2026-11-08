@@ -24,6 +24,21 @@ export const NEGARA_COLORS: Record<string, string> = {
 /** Warna deret year-on-year (WismanStat.tsx:190, WisnusStat.tsx:166). */
 export const WARNA_YOY = ["#f4a672", "#ed6b23", "#0e7c42"];
 
+/** app/dashboard/tenaga-kerja/page.tsx (DATA_SUMBER) — dataset sumber yang tampil sebagai tabel di bawah grafik. */
+export const TK_DATA_SUMBER = [
+  { slug: "tenaga-kerja-ekraf-per-provinsi", title: "Tenaga kerja ekraf per provinsi (Kemenekraf)" },
+  { slug: "tenaga-kerja-ekraf-per-subsektor-nasional", title: "Tenaga kerja ekraf per subsektor, nasional (Kemenekraf)" },
+  { slug: "sebaran-pelaku-ekraf-jakarta", title: "Pelaku ekraf DKI terdaftar di EKRAF Hub" },
+  {
+    slug: "jumlah-tenaga-kerja-pariwisata-dan-ekonomi-kreatif-yang-tersertifikasi-tahun-2023-dan-2024",
+    title: "Tenaga kerja pariwisata & ekraf tersertifikasi 2023–2024 (SDI)",
+  },
+  {
+    slug: "jumlah-tenaga-kerja-pariwisata-dan-ekonomi-kreatif-yang-tersertifikasi",
+    title: "Tenaga kerja pariwisata & ekraf tersertifikasi (SDI)",
+  },
+];
+
 /** WisnusStat.tsx:13-14 */
 export const SEMUA_KOTA = "Semua kota";
 export const SELURUH_JAKARTA = "Seluruh Jakarta";

@@ -72,6 +72,12 @@ export function useDashboard() {
     destinasiBulanan: (jenis: Jenis, destinasi?: string) => d<{ items: Titik[] }>("destinasi/bulanan", { jenis, destinasi }),
     tkDki: () => d<{ rows: { tahun: string; total: number; porsi_pct: number | null; laki: number; perempuan: number }[]; kpi: Kpi[] }>("tenaga-kerja/dki"),
     tkSubsektor: (tahun?: string) => d<{ tahun_list: string[]; tahun: string; items: Titik[] }>("tenaga-kerja/subsektor", { tahun }),
+    tkSebaranDki: () => d<{ items: Titik[] }>("tenaga-kerja/sebaran-dki"),
+    /** Jumlah baris dataset (dataset_sync.total) untuk judul tabel data sumber; gagal → 0, seperti syncTotals v2. */
+    jumlahBaris: (slug: string) =>
+      api<{ total_bronze: number }>(`dataset/${slug}`)
+        .then((r) => r.data.total_bronze)
+        .catch(() => 0),
     tkSertifikasi: () => d<{ per_tahun: Titik[]; bidang: string[]; seri: Seri[] }>("tenaga-kerja/sertifikasi"),
     pdrbMakro: () => d<PdrbMakro>("pdrb-ekraf/makro"),
     pdrbSebaran: (periode: string) => d<PdrbSebaran>("pdrb-ekraf/subsektor/sebaran", { periode }),

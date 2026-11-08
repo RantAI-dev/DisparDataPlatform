@@ -56,7 +56,7 @@ export function AiComposer({
                 ? "Topik apa yang ingin dianalisis? mis. “wisman 2024–2026”"
                 : "Tanya data pariwisata Jakarta…")
             }
-            aria-label="Pesan untuk Jekate"
+            aria-label="Pesan untuk Jakpar AI"
           />
           <div className="composer-bar">
             <div className="mode-toggle" role="radiogroup" aria-label="Mode">

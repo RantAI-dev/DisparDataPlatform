@@ -167,7 +167,7 @@ Pembanding: produksi \`${PRODUKSI}\`. Definisi lulus (SPEC §7): beda piksel ≤
 pada 1440×900 dan 390×844, himpunan angka DOM identik (kecuali whitelist P4), interaksi lulus. Tangkapan
 produksi, portal, dan peta beda ada di HTML Playwright (\`frontend/playwright-report/parity/\`, artefak).
 
-Pengecualian yang diizinkan hanya P1–P5 dan item Nav "AI"/"Jekate" (SPEC §5.4–5.5). Tile peta
+Pengecualian yang diizinkan hanya P1–P5 dan item Nav "AI"/"Jakpar AI" (SPEC §5.4–5.5). Tile peta
 Leaflet dan iframe Google Maps selalu di-mask (SPEC §7.1). Label di kolom "Pengecualian":
 
 ${Object.entries(PENGECUALIAN).map(([k, a]) => `- **${k}**: ${a}`).join("\n")}

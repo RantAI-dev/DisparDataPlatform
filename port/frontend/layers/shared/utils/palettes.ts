@@ -32,6 +32,8 @@ const WARNA: Record<string, string> = {
 /** Variasi penulisan nama (mis. dari sumber Kemenekraf) → kunci ternormalisasi di atas. */
 const ALIAS: Record<string, string> = {
   "aplikasi dan game developer": "aplikasi dan pengembang permainan",
+  aplikasi: "aplikasi dan pengembang permainan",
+  fesyen: "fashion",
   "aplikasi game": "aplikasi dan pengembang permainan",
   "pengembang permainan": "aplikasi dan pengembang permainan",
   dkv: "desain komunikasi visual",

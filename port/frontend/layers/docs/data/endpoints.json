@@ -636,6 +636,22 @@
     ]
   },
   {
+    "id": "dashboard-tenaga-kerja-sebaran-dki",
+    "method": "GET",
+    "path": "/api/v1/dashboard/tenaga-kerja/sebaran-dki",
+    "title": "Sebaran pelaku ekraf DKI",
+    "desc": "Pelaku ekonomi kreatif berdomisili DKI Jakarta yang terdaftar di EKRAF Hub, per subsektor. Jumlah pelaku terdaftar, bukan jumlah tenaga kerja.",
+    "params": [],
+    "contoh": "/api/v1/dashboard/tenaga-kerja/sebaran-dki",
+    "respons": "json",
+    "errors": [
+      {
+        "code": "401",
+        "when": "Token tidak ada atau tidak valid."
+      }
+    ]
+  },
+  {
     "id": "dashboard-tenaga-kerja-sertifikasi",
     "method": "GET",
     "path": "/api/v1/dashboard/tenaga-kerja/sertifikasi",

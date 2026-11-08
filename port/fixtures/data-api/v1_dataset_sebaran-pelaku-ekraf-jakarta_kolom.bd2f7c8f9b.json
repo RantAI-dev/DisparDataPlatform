@@ -1,0 +1,8 @@
+{
+  "kunci": "/v1/dataset/sebaran-pelaku-ekraf-jakarta/kolom",
+  "status": 200,
+  "headers": {
+    "content-type": "application/json"
+  },
+  "body": "{\"data\":{\"items\":[{\"key\":\"nama\",\"desc\":\"Nama sesuai EKRAF Hub.\",\"type\":\"string\"},{\"key\":\"subsektor\",\"desc\":\"Subsektor sesuai EKRAF Hub.\",\"type\":\"string\"},{\"key\":\"provinsi\",\"desc\":\"Provinsi sesuai EKRAF Hub.\",\"type\":\"string\"},{\"key\":\"kabupaten_kota\",\"desc\":\"Kabupaten/Kota sesuai EKRAF Hub.\",\"type\":\"string\"},{\"key\":\"tipe_user\",\"desc\":\"Tipe User sesuai EKRAF Hub.\",\"type\":\"string\"},{\"key\":\"usaha_tempat_kerja\",\"desc\":\"Usaha/Tempat Kerja/Nama Asosiasi/Umum sesuai EKRAF Hub.\",\"type\":\"string\"},{\"key\":\"tahun_update\",\"desc\":\"Tahun Update sesuai EKRAF Hub.\",\"type\":\"string\"},{\"key\":\"tautan_profil\",\"desc\":\"Tautan Profil sesuai EKRAF Hub.\",\"type\":\"string\"}]},\"meta\":{\"generated_at\":\"2026-11-07T23:12:47+07:00\",\"source\":[\"lake.bronze_meta*.dataset_column\",\"silver.<tabel>\"],\"request_id\":\"9d04d23844c042f8b0d4c34b21aa3384\"}}"
+}

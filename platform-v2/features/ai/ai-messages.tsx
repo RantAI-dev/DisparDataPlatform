@@ -96,7 +96,7 @@ function Thinking({ text }: { text?: string }) {
   return (
     <div className="think-body">
       <span className="dots"><i /><i /><i /></span>
-      <span>{text ?? "Jekate lagi ngulik datanya…"}</span>
+      <span>{text ?? "Jakpar AI lagi ngulik datanya…"}</span>
     </div>
   );
 }
@@ -108,7 +108,7 @@ function BotTurn({ m, compact }: { m: Msg; compact?: boolean }) {
         <div className="bot-ava mascot" aria-hidden><JekateAvatar size={30} /></div>
         <div className="bot-body">
           <div className="bot-name">
-            <b>Jekate</b>
+            <b>Jakpar AI</b>
             <span className="tag">{m.mode === "bi" ? "bi" : "ask"}</span>
           </div>
           <Steps steps={m.steps ?? []} live={!!m.streaming} />

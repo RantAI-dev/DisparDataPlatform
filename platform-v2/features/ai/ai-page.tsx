@@ -31,7 +31,7 @@ export function AiPage() {
     <div className="ai-shell">
       <div className="ai-app">
         <div className="ai-topbar">
-          <h1>Jekate</h1>
+          <h1>Jakpar AI</h1>
           <span className="crumb">
             <span className="chan-dot" />
             Dispar Lakehouse{c.model?.configured ? ` · ${c.model.model}` : ""}
@@ -53,7 +53,7 @@ export function AiPage() {
                 <JekateAvatar size={96} />
               </div>
               <div>
-                <h2>Halo, aye Jekate!</h2>
+                <h2>Halo, aye Jakpar AI!</h2>
                 <p>
                   {c.mode === "bi"
                     ? "Mode BI: sebut aja topiknya, aye susunin dashboard — KPI, beberapa grafik, dan insight."
