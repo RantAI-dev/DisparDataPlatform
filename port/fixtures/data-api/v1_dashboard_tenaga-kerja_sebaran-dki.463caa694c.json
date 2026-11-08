@@ -1,0 +1,8 @@
+{
+  "kunci": "/v1/dashboard/tenaga-kerja/sebaran-dki",
+  "status": 200,
+  "headers": {
+    "content-type": "application/json"
+  },
+  "body": "{\"data\":{\"items\":[{\"label\":\"Kuliner\",\"value\":520},{\"label\":\"Fesyen\",\"value\":246},{\"label\":\"Aplikasi\",\"value\":207},{\"label\":\"Film, Animasi dan Video\",\"value\":166},{\"label\":\"Desain Komunikasi Visual\",\"value\":148},{\"label\":\"Kriya\",\"value\":125},{\"label\":\"Fotografi\",\"value\":94},{\"label\":\"Musik\",\"value\":89},{\"label\":\"Desain Produk\",\"value\":70},{\"label\":\"Periklanan\",\"value\":57},{\"label\":\"Gim\",\"value\":50},{\"label\":\"Lainnya\",\"value\":50},{\"label\":\"Seni Pertunjukan\",\"value\":47},{\"label\":\"Televisi dan Radio\",\"value\":45},{\"label\":\"Arsitektur\",\"value\":37},{\"label\":\"Penerbitan\",\"value\":24},{\"label\":\"Desain Interior\",\"value\":23},{\"label\":\"Seni Rupa\",\"value\":17}]},\"meta\":{\"generated_at\":\"2026-11-07T23:08:50+07:00\",\"source\":[\"silver.sebaran_pelaku_ekraf_jakarta\"],\"request_id\":\"f265a7fd73374b57b36d17c8e2f0d464\"}}"
+}

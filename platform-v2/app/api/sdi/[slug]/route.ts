@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import * as store from "@/lib/ch/store";
 import { PESAN_KOSONG_DI_SDI } from "@/lib/sdi";
 import { FilterError, isFiltered, parseRowQuery } from "@/lib/ch/query-filter";
+import { SUMBER_DATA, secondaryDatasets } from "@/lib/secondary";
 
 const CDN_CACHE = {
   "Cache-Control": "public, s-maxage=86400, stale-while-revalidate=604800",
@@ -56,6 +57,13 @@ export async function GET(
     const sync = await store.sync(slug);
     const medal = (await store.medallion()).get(slug) ?? null;
     const periode = await store.periode(slug);
+    // Label tag "Sumber Data" di tabel: primer = "Satu Data Jakarta · <judul dataset>",
+    // sekunder = asal spesifik di katalog (lib/secondary.ts `sumberDetail`), atau kategorinya.
+    const sekunder = (await store.tiers([slug])).get(slug) === "sekunder";
+    const sec = sekunder ? secondaryDatasets().find((d) => d.href === `/sdi/${slug}`) : undefined;
+    const sumberLabel = !sekunder
+      ? `Satu Data Jakarta · ${sync?.title ?? slug}`
+      : (sec?.sumberDetail ?? SUMBER_DATA[sec?.sumber ?? "internal"]);
     return NextResponse.json(
       {
         source: "lakehouse",
@@ -63,6 +71,8 @@ export async function GET(
         title: sync?.title ?? slug,
         description: sync?.description ?? "",
         sumberData: sync?.sumberData ?? [],
+        sumberLabel,
+        portalUrl: sekunder ? null : `https://satudata.jakarta.go.id/open-data/${slug}`,
         frekuensi: sync?.frekuensi ?? null,
         satuan: sync?.satuan ?? null,
         // Rentang periode_data di Silver: {min, max} ("2025-01-01" / "2018").

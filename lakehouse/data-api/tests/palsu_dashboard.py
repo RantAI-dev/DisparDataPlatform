@@ -97,6 +97,10 @@ def mentah_bawaan() -> dict[str, list[dict]]:
             {"tahun": "2024", "subsektor": "Fesyen", "jumlah": "500"},
             {"tahun": "2023", "subsektor": "Kuliner", "jumlah": "280"},
         ],
+        "sebaran_pelaku_dki": [
+            {"subsektor": "Kuliner", "jumlah": "520"},
+            {"subsektor": "Fesyen", "jumlah": "246"},
+        ],
     }
 
 

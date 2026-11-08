@@ -7,7 +7,7 @@ Satu tes per ID, nama tes diawali ID-nya. Pola: `docs/pola-fitur.md`. Sumber tam
 
 | ID | Skenario |
 |---|---|
-| DB-B01 | Ke-23 endpoint KONTRAK §2.2 diteruskan dengan `data` byte-identik (fixture rekaman) |
+| DB-B01 | Ke-24 endpoint KONTRAK §2.2 (termasuk `tenaga-kerja/sebaran-dki`, revisi Dinas Nov 2026) diteruskan dengan `data` byte-identik (fixture rekaman) |
 | DB-B02 | Kelas T (mis. `lama-menginap/seri`) dari snapshot, kelas P (mis. `wisman/kebangsaan`) dari cache; urutan parameter tidak membuat entri ganda |
 | DB-B03 | Parameter di luar kontrak → 422 tanpa memanggil Data API (`tamu`/`jenis` wajib atau tak dikenal, tahun/periode salah bentuk, `top` > 50) |
 | DB-B04 | Data API mati → 503 `UPSTREAM_UNAVAILABLE` |
@@ -31,6 +31,7 @@ Satu tes per ID, nama tes diawali ID-nya. Pola: `docs/pola-fitur.md`. Sumber tam
 | DB-E04 | Tenaga kerja: pilih tahun subsektor |
 | DB-E05 | PDRB: toggle sebaran dan pertumbuhan dengan periode berbeda |
 | DB-E06 | Perbesar grafik: modal, Esc menutup |
+| DB-E07 | Tenaga kerja: grafik sebaran pelaku ekraf DKI (EKRAF Hub, "bukan jumlah tenaga kerja") di bawah grafik nasional; 5 tabel data sumber, dibuka berisi kolom Sumber Data paling kanan |
 
 ## Paritas (`frontend/tests/parity/dashboard.spec.ts`)
 

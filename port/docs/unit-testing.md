@@ -8,13 +8,13 @@ dicari dari isi `backend/tests` dan `frontend/tests`; kolom *Status* dari lapora
 jalankan ulang `scripts/ekspor-dokumen.sh`). Paritas (`*-P*`) hanya dijalankan lokal melawan
 produksi (SPEC §7), jadi statusnya tidak ada di laporan CI.
 
-Asal laporan: run **lokal**, bukan CI: laporan terbaru 2026-10-29 01:04 UTC, checkout `40be871` ditambah perubahan backend/frontend yang belum di-commit.
+Asal laporan: belum ada laporan; status dan cakupan kosong.
 
 ## Laporan JUnit
 
 | Suite | Berkas | Waktu | Lulus | Gagal | Dilewati | Total |
 |---|---|---|---|---|---|---|
-| Pest | `backend/storage/logs/pest-junit.xml` | 2026-10-29 01:04 UTC | 59 | 0 | 0 | 59 |
+| Pest | `backend/storage/logs/pest-junit.xml` | belum ada laporan | | | | |
 | Vitest | `frontend/test-results/vitest-junit.xml` | belum ada laporan | | | | |
 | Playwright e2e | `frontend/test-results/e2e-junit.xml` | belum ada laporan | | | | |
 
@@ -33,12 +33,12 @@ Cakupan backend dari Pest (pcov, `app/`); cakupan frontend dari Vitest saja (`ap
 | Fitur (`docs/skenario/…`) | Skenario |
 |---|---|
 | `atlas.md` | 35 |
-| `dashboard.md` | 30 |
-| `dataset.md` | 46 |
+| `dashboard.md` | 31 |
+| `dataset.md` | 47 |
 | `gmti.md` | 31 |
 | `indikator.md` | 29 |
 | `sistem.md` | 24 |
-| **Total** | **195** |
+| **Total** | **197** |
 
 ## Fitur `atlas`
 
@@ -98,7 +98,7 @@ Cakupan backend dari Pest (pcov, `app/`); cakupan frontend dari Vitest saja (`ap
 
 | ID | Skenario | Berkas tes | Status |
 |---|---|---|---|
-| DB-B01 | Ke-23 endpoint KONTRAK §2.2 diteruskan dengan `data` byte-identik (fixture rekaman) | `backend/tests/Feature/Dashboard/DashboardTest.php` | belum dijalankan |
+| DB-B01 | Ke-24 endpoint KONTRAK §2.2 (termasuk `tenaga-kerja/sebaran-dki`, revisi Dinas Nov 2026) diteruskan dengan `data` byte-identik (fixture rekaman) | `backend/tests/Feature/Dashboard/DashboardTest.php` | belum dijalankan |
 | DB-B02 | Kelas T (mis. `lama-menginap/seri`) dari snapshot, kelas P (mis. `wisman/kebangsaan`) dari cache; urutan parameter tidak membuat entri ganda | `backend/tests/Feature/Dashboard/DashboardTest.php` | belum dijalankan |
 | DB-B03 | Parameter di luar kontrak → 422 tanpa memanggil Data API (`tamu`/`jenis` wajib atau tak dikenal, tahun/periode salah bentuk, `top` > 50) | `backend/tests/Feature/Dashboard/DashboardTest.php` | belum dijalankan |
 | DB-B04 | Data API mati → 503 `UPSTREAM_UNAVAILABLE` | `backend/tests/Feature/Dashboard/DashboardTest.php` | belum dijalankan |
@@ -122,6 +122,7 @@ Cakupan backend dari Pest (pcov, `app/`); cakupan frontend dari Vitest saja (`ap
 | DB-E04 | Tenaga kerja: pilih tahun subsektor | `frontend/tests/e2e/dashboard.spec.ts`<br>`frontend/tests/parity/interaksi.spec.ts` | belum dijalankan |
 | DB-E05 | PDRB: toggle sebaran dan pertumbuhan dengan periode berbeda | `frontend/tests/e2e/dashboard.spec.ts`<br>`frontend/tests/parity/interaksi.spec.ts` | belum dijalankan |
 | DB-E06 | Perbesar grafik: modal, Esc menutup | `frontend/tests/e2e/dashboard.spec.ts`<br>`frontend/tests/parity/interaksi.spec.ts` | belum dijalankan |
+| DB-E07 | Tenaga kerja: grafik sebaran pelaku ekraf DKI (EKRAF Hub, "bukan jumlah tenaga kerja") di bawah grafik nasional; 5 tabel data sumber, dibuka berisi kolom Sumber Data paling kanan | `frontend/tests/e2e/dashboard.spec.ts` | belum dijalankan |
 
 ### Paritas (`frontend/tests/parity/dashboard.spec.ts`)
 
@@ -192,6 +193,7 @@ Cakupan backend dari Pest (pcov, `app/`); cakupan frontend dari Vitest saja (`ap
 | DS-E07 | Detail: unduh CSV terfilter → nama `…-terfilter.csv`, diawali BOM | `frontend/tests/e2e/dataset.spec.ts`<br>`frontend/tests/parity/ekspor.spec.ts` | belum dijalankan |
 | DS-E08 | Detail: chart builder "+ Tambah grafik" → kartu chart dengan canvas, bertahan setelah reload | `frontend/tests/e2e/dataset.spec.ts`<br>`frontend/tests/parity/interaksi.spec.ts` | belum dijalankan |
 | DS-E09 | `/sdi/tidak-ada` → "Dataset belum tersedia di lakehouse. Coba buka di portal SDI ↗." | `frontend/tests/e2e/dataset.spec.ts` | belum dijalankan |
+| DS-E10 | Detail: kolom Sumber Data paling kanan berisi asal data spesifik (S1 "Satu Data Jakarta · <judul dataset SDI>" + tautan portal); S2 yang punya label sumber per baris: kolom `sumber` dipindah ke paling kanan, footer menyebut asal spesifiknya (Wikipedia + OpenFlights + …) tanpa tautan portal | `frontend/tests/e2e/dataset.spec.ts` | belum dijalankan |
 | BR-E01 | `/` merender hero dengan angka dari API dan tautan kartu | `frontend/tests/e2e/dataset.spec.ts` | belum dijalankan |
 | DC-E01 | `/docs` merender daftar endpoint dari OpenAPI; tanpa `sistem/*` | `frontend/tests/e2e/dataset.spec.ts` | belum dijalankan |
 

@@ -58,6 +58,8 @@ class Detail(BaseModel):
     title: str
     description: str
     sumber_data: list[str]
+    sumber_label: str
+    portal_url: str | None
     frekuensi: str | None
     satuan: str | None
     periode: Periode | None

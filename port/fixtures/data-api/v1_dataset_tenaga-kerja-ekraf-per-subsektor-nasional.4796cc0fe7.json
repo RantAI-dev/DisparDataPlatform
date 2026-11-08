@@ -1,0 +1,8 @@
+{
+  "kunci": "/v1/dataset/tenaga-kerja-ekraf-per-subsektor-nasional",
+  "status": 200,
+  "headers": {
+    "content-type": "application/json"
+  },
+  "body": "{\"data\":{\"slug\":\"tenaga-kerja-ekraf-per-subsektor-nasional\",\"title\":\"Jumlah Tenaga Kerja Ekonomi Kreatif Menurut Subsektor (Nasional)\",\"description\":\"Tenaga kerja ekonomi kreatif INDONESIA per subsektor 2020–2024 — belum tersedia per provinsi. Sumber: Satu Data Ekraf (Kemenekraf, olahan Sakernas BPS) — https://satudata.ekraf.go.id/dataset/17o8miba9bfiyx1.\",\"sumber_data\":[],\"sumber_label\":\"Satu Data Ekraf (Kemenekraf) · olahan Sakernas BPS\",\"portal_url\":null,\"frekuensi\":null,\"satuan\":null,\"periode\":null,\"klasifikasi\":null,\"kontak\":null,\"author\":\"Dinas Pariwisata & Ekonomi Kreatif DKI Jakarta\",\"medallion\":{\"level\":\"silver\",\"table\":\"tenaga_kerja_ekraf_per_subsektor_nasional\"},\"total_bronze\":80},\"meta\":{\"generated_at\":\"2026-11-08T00:04:01+07:00\",\"source\":[\"lake.bronze_meta*.dataset_catalog\",\"lake.bronze_meta*.dataset_sync\",\"silver.<tabel>\"],\"request_id\":\"829ba4c320994224a949495344c2e7c6\",\"total\":80}}"
+}

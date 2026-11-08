@@ -305,6 +305,20 @@ def _jumlah_silver(k: Konteks, slug: str, rq: RowQuery | None = None) -> int:
     return queries.hitung(k, t[0], kl.where, kl.params)
 
 
+def _sumber(k: Konteks, slug: str, judul: str) -> tuple[str, str | None]:
+    """Label tag "Sumber Data" di tabel + tautan portal SDI untuk dataset primer.
+
+    Primer: "Satu Data Jakarta · <judul dataset SDI>". Sekunder: `sumber_detail` entri katalog
+    (penerbit · dokumen/dataset · waktu ambil), atau label kategorinya bila belum diisi."""
+    sekunder = any(r["slug"] == slug and r["tier"] == "sekunder" for r in _katalog_lake(k))
+    if not sekunder:
+        return f"Satu Data Jakarta · {judul}", f"https://satudata.jakarta.go.id/open-data/{slug}"
+    e = next((e for e in hitungan.entri_sekunder() if e.href == f"/sdi/{slug}"), None)
+    if e is None:
+        return SUMBER_DATA["internal"], None
+    return e.sumber_detail or SUMBER_DATA[e.sumber], None
+
+
 def detail(k: Konteks, slug: str) -> tuple[dict[str, Any], int]:
     _wajib_ada(k, slug)
 
@@ -319,11 +333,15 @@ def detail(k: Konteks, slug: str) -> tuple[dict[str, Any], int]:
         else:
             total = jumlah
         teks = lambda kol: s.get(kol) or None  # noqa: E731 — `r.x || null` store.sync
+        judul = s["title"] if s.get("title") is not None else slug
+        sumber_label, portal_url = _sumber(k, slug, judul)
         data = {
             "slug": slug,
-            "title": s["title"] if s.get("title") is not None else slug,
+            "title": judul,
             "description": s["description"] if s.get("description") is not None else "",
             "sumber_data": _json_array(s.get("sumber_data")),
+            "sumber_label": sumber_label,
+            "portal_url": portal_url,
             "frekuensi": teks("frekuensi"),
             "satuan": teks("satuan"),
             "periode": _periode(k, slug),

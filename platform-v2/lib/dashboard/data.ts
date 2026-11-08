@@ -234,3 +234,17 @@ export async function getTenagaKerjaEkraf(): Promise<TkEkraf> {
     subsektorNasional: sub.map((r) => ({ tahun: r.tahun, subsektor: r.subsektor, jumlah: Number(r.jumlah) })),
   };
 }
+
+/** Pelaku ekraf berdomisili DKI yang terdaftar di EKRAF Hub, per subsektor (bukan jumlah tenaga kerja). */
+export async function getSebaranPelakuEkrafDki(): Promise<{ subsektor: string; jumlah: number }[]> {
+  const rows = await safe(
+    q<{ subsektor: string; jumlah: string }>(
+      `SELECT subsektor, toString(count()) AS jumlah
+       FROM silver.sebaran_pelaku_ekraf_jakarta
+       WHERE subsektor IS NOT NULL
+       GROUP BY subsektor ORDER BY count() DESC`,
+    ),
+    "silver.sebaran_pelaku_ekraf_jakarta",
+  );
+  return rows.map((r) => ({ subsektor: r.subsektor, jumlah: Number(r.jumlah) }));
+}

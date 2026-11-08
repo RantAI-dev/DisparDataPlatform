@@ -1,0 +1,8 @@
+{
+  "kunci": "/v1/dataset/jumlah-tenaga-kerja-pariwisata-dan-ekonomi-kreatif-yang-tersertifikasi-tahun-2023-dan-2024/kolom",
+  "status": 200,
+  "headers": {
+    "content-type": "application/json"
+  },
+  "body": "{\"data\":{\"items\":[{\"key\":\"periode_data\",\"desc\":null,\"type\":null},{\"key\":\"wilayah\",\"desc\":\"komponen\",\"type\":\"varchar\"},{\"key\":\"bidang\",\"desc\":\"komponen\",\"type\":\"varchar\"},{\"key\":\"jumlah_peserta\",\"desc\":\"komponen\",\"type\":\"varchar\"}]},\"meta\":{\"generated_at\":\"2026-11-07T23:12:48+07:00\",\"source\":[\"lake.bronze_meta*.dataset_column\",\"silver.<tabel>\"],\"request_id\":\"7d84790f36ce434784a5d24778532528\"}}"
+}

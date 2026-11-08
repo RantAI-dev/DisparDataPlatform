@@ -82,6 +82,7 @@
 /v1/dashboard/tenaga-kerja/dki
 /v1/dashboard/tenaga-kerja/subsektor
 /v1/dashboard/tenaga-kerja/subsektor?tahun=2022
+/v1/dashboard/tenaga-kerja/sebaran-dki
 /v1/dashboard/tenaga-kerja/sertifikasi
 /v1/dashboard/pdrb-ekraf/makro
 /v1/dashboard/pdrb-ekraf/subsektor/sebaran?periode=2024
@@ -148,3 +149,20 @@
 /v1/spasial
 /v1/spasial/titik/gci-osm-w-370539428
 /v1/hotel-scraped
+
+# revisi Dinas Nov 2026 — tabel data sumber halaman /dashboard/tenaga-kerja (DB-E07)
+/v1/dataset/tenaga-kerja-ekraf-per-provinsi
+/v1/dataset/tenaga-kerja-ekraf-per-provinsi/kolom
+/v1/dataset/tenaga-kerja-ekraf-per-provinsi/baris?page=1&size=50
+/v1/dataset/tenaga-kerja-ekraf-per-subsektor-nasional
+/v1/dataset/tenaga-kerja-ekraf-per-subsektor-nasional/kolom
+/v1/dataset/tenaga-kerja-ekraf-per-subsektor-nasional/baris?page=1&size=50
+/v1/dataset/sebaran-pelaku-ekraf-jakarta
+/v1/dataset/sebaran-pelaku-ekraf-jakarta/kolom
+/v1/dataset/sebaran-pelaku-ekraf-jakarta/baris?page=1&size=50
+/v1/dataset/jumlah-tenaga-kerja-pariwisata-dan-ekonomi-kreatif-yang-tersertifikasi-tahun-2023-dan-2024
+/v1/dataset/jumlah-tenaga-kerja-pariwisata-dan-ekonomi-kreatif-yang-tersertifikasi-tahun-2023-dan-2024/kolom
+/v1/dataset/jumlah-tenaga-kerja-pariwisata-dan-ekonomi-kreatif-yang-tersertifikasi-tahun-2023-dan-2024/baris?page=1&size=50
+/v1/dataset/jumlah-tenaga-kerja-pariwisata-dan-ekonomi-kreatif-yang-tersertifikasi
+/v1/dataset/jumlah-tenaga-kerja-pariwisata-dan-ekonomi-kreatif-yang-tersertifikasi/kolom
+/v1/dataset/jumlah-tenaga-kerja-pariwisata-dan-ekonomi-kreatif-yang-tersertifikasi/baris?page=1&size=50

@@ -1006,37 +1006,15 @@ asal = "Disparekraf DKI Jakarta (data/sumber/disparekraf/hiburan-per-kota.tsv) s
 pembangun = "scripts/pisah_hotel_hiburan.py"
 
 [[sumber]]
-id = "fasilitasi-hki-ekraf-2026-tw1"
+id = "fasilitasi-hki-ekraf-2023-2026"
 jenis = "sekunder"
-path = "data/sekunder/fasilitasi-hki-ekraf-2026-tw1.json"
+path = "data/sekunder/fasilitasi-hki-ekraf-2023-2026.json"
 namespace = "bronze_sec"
-tabel = "fasilitasi_hki_ekraf_2026_tw1"
+tabel = "fasilitasi_hki_ekraf_2023_2026"
 kelas_refresh = "saat_berubah"
-tanggal_ambil = "2026-11-02"
-asal = "Disparekraf DKI Jakarta, lampiran nota dinas monev subkegiatan fasilitasi HKI nomor 1967/PW.04.02 (30 Maret 2026); ditranskripsi dari pindaian ke data/sumber/disparekraf/fasilitasi-hki-2026-tw1.tsv"
-pembangun = "scripts/fasilitasi_hki_2026.py"
-
-[[sumber]]
-id = "fasilitasi-hki-ekraf-2026-tw2"
-jenis = "sekunder"
-path = "data/sekunder/fasilitasi-hki-ekraf-2026-tw2.json"
-namespace = "bronze_sec"
-tabel = "fasilitasi_hki_ekraf_2026_tw2"
-kelas_refresh = "saat_berubah"
-tanggal_ambil = "2026-11-02"
-asal = "Disparekraf DKI Jakarta, lampiran nota dinas monev subkegiatan fasilitasi HKI nomor 3870/PW.04.02 (23 Juni 2026); ditranskripsi dari pindaian ke data/sumber/disparekraf/fasilitasi-hki-2026-tw2.tsv"
-pembangun = "scripts/fasilitasi_hki_2026.py"
-
-[[sumber]]
-id = "fasilitasi-hki-ekraf-2026-tw3"
-jenis = "sekunder"
-path = "data/sekunder/fasilitasi-hki-ekraf-2026-tw3.json"
-namespace = "bronze_sec"
-tabel = "fasilitasi_hki_ekraf_2026_tw3"
-kelas_refresh = "saat_berubah"
-tanggal_ambil = "2026-11-02"
-asal = "Disparekraf DKI Jakarta, lampiran nota dinas monev subkegiatan fasilitasi HKI nomor 6234/PW.04.02 (29 September 2026); ditranskripsi dari pindaian ke data/sumber/disparekraf/fasilitasi-hki-2026-tw3.tsv"
-pembangun = "scripts/fasilitasi_hki_2026.py"
+tanggal_ambil = "2026-11-07"
+asal = "Gabungan: dataset SDI jumlah produk/jasa ekraf yang didaftarkan kekayaan intelektualnya (2023–2025, snapshot Silver 7 Nov 2026) dan lampiran nota dinas monev subkegiatan fasilitasi HKI 1967/PW.04.02 (30 Mar 2026), 3870/PW.04.02 (23 Jun 2026), 6234/PW.04.02 (29 Sep 2026) yang ditranskripsi ke data/sumber/disparekraf/fasilitasi-hki-2026-tw{1,2,3}.tsv"
+pembangun = "scripts/fasilitasi_hki_ekraf.py"
 
 [[sumber]]
 id = "sebaran-pelaku-ekraf-jakarta"
@@ -1387,12 +1365,12 @@ alasan = "berkas asli 10 sheet (pembaca xlsx Bronze hanya membaca sheet pertama)
 
 [[abaikan]]
 path = "data/sumber/disparekraf/fasilitasi-hki-2026-tw1.tsv"
-alasan = "transkripsi lampiran nota monev HKI TW 1; masuk Bronze lewat dataset sekunder fasilitasi-hki-ekraf-2026-tw1 (scripts/fasilitasi_hki_2026.py)"
+alasan = "transkripsi lampiran nota monev HKI TW 1; masuk Bronze lewat dataset sekunder fasilitasi-hki-ekraf-2023-2026 (scripts/fasilitasi_hki_ekraf.py)"
 
 [[abaikan]]
 path = "data/sumber/disparekraf/fasilitasi-hki-2026-tw2.tsv"
-alasan = "transkripsi lampiran nota monev HKI TW 2; masuk Bronze lewat dataset sekunder fasilitasi-hki-ekraf-2026-tw2 (scripts/fasilitasi_hki_2026.py)"
+alasan = "transkripsi lampiran nota monev HKI TW 2; masuk Bronze lewat dataset sekunder fasilitasi-hki-ekraf-2023-2026 (scripts/fasilitasi_hki_ekraf.py)"
 
 [[abaikan]]
 path = "data/sumber/disparekraf/fasilitasi-hki-2026-tw3.tsv"
-alasan = "transkripsi lampiran nota monev HKI TW 3; masuk Bronze lewat dataset sekunder fasilitasi-hki-ekraf-2026-tw3 (scripts/fasilitasi_hki_2026.py)"
+alasan = "transkripsi lampiran nota monev HKI TW 3; masuk Bronze lewat dataset sekunder fasilitasi-hki-ekraf-2023-2026 (scripts/fasilitasi_hki_ekraf.py)"

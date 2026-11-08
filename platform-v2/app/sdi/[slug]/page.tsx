@@ -6,6 +6,7 @@ import { DatasetCharts } from "@/components/DatasetCharts";
 import { DatasetFilters } from "@/components/DatasetFilters";
 import { rowQueryParams, type Facet, type Filter, type Sort } from "@/lib/ch/query-filter";
 import { fmtCell } from "@/lib/format-sel";
+import { SumberTag, isLabelSumber } from "@/components/SdiTable";
 
 const NAVY = "#ed6b23";
 const GOLD = "#f0a13a";
@@ -19,6 +20,8 @@ type DatasetMeta = {
   title: string;
   description: string;
   sumberData: string[];
+  sumberLabel: string;
+  portalUrl: string | null;
   frekuensi: string | null;
   satuan: string | null;
   periode: { min: string; max: string } | null;
@@ -157,6 +160,8 @@ export default function DatasetDetailPage({
           title: json.title,
           description: json.description,
           sumberData: json.sumberData ?? [],
+          sumberLabel: json.sumberLabel,
+          portalUrl: json.portalUrl ?? null,
           frekuensi: json.frekuensi,
           satuan: json.satuan,
           periode: json.periode ?? null,
@@ -220,6 +225,10 @@ export default function DatasetDetailPage({
       .filter((k) => !HIDDEN.has(k))
       .map((k) => ({ key: k, desc: null, type: null }));
   }, [meta, rows]);
+  // Tag sumber di kanan tabel, kecuali kolom `sumber` dataset sudah berisi label sumber per baris.
+  const sumberTag = meta?.sumberLabel && !rows.some((r) => isLabelSumber("sumber", r.sumber)) ? meta.sumberLabel : null;
+  // Label sumber per baris sudah ada → kolom `sumber` dipindah ke paling kanan.
+  const kolomTabel = sumberTag ? columns : [...columns.filter((c) => c.key !== "sumber"), ...columns.filter((c) => c.key === "sumber")];
 
   return (
     <main className="min-h-screen bg-[#faf6f2]">
@@ -357,7 +366,7 @@ export default function DatasetDetailPage({
                       className="text-white text-left text-[12px] uppercase tracking-wider"
                     >
                       <th className="px-4 py-3 font-semibold w-12">#</th>
-                      {columns.map((c) => {
+                      {kolomTabel.map((c) => {
                         const dir = sort?.col === c.key ? sort.dir : null;
                         return (
                           <th
@@ -384,6 +393,7 @@ export default function DatasetDetailPage({
                           </th>
                         );
                       })}
+                      {sumberTag && <th className="px-4 py-3 font-semibold">Sumber Data</th>}
                     </tr>
                   </thead>
                   <tbody>
@@ -393,17 +403,22 @@ export default function DatasetDetailPage({
                         className="border-t border-slate-100 hover:bg-slate-50 transition-colors"
                       >
                         <td className="px-4 py-3 text-slate-400 tabular-nums">{i + 1}</td>
-                        {columns.map((c) => (
+                        {kolomTabel.map((c) => (
                           <td key={c.key} className="px-4 py-3 text-slate-700 tabular-nums">
                             {renderCell(c.key, row[c.key])}
                           </td>
                         ))}
+                        {sumberTag && (
+                          <td className="px-4 py-3">
+                            <SumberTag label={sumberTag} />
+                          </td>
+                        )}
                       </tr>
                     ))}
                     {rows.length === 0 && (
                       <tr>
                         <td
-                          colSpan={columns.length + 1}
+                          colSpan={columns.length + 1 + (sumberTag ? 1 : 0)}
                           className="px-4 py-12 text-center text-slate-400"
                         >
                           Tidak ada baris data.
@@ -428,15 +443,16 @@ export default function DatasetDetailPage({
             <p className="text-[12px] text-slate-400 mt-4">
               Menampilkan {rows.length.toLocaleString("id-ID")} dari{" "}
               {count.toLocaleString("id-ID")} baris
-              {filtered && meta && ` (terfilter dari ${meta.total.toLocaleString("id-ID")})`} · Sumber: Satu Data Indonesia — Jakarta ·{" "}
-              <a
-                href={`https://satudata.jakarta.go.id/open-data/${slug}`}
-                target="_blank"
-                rel="noreferrer"
-                className="underline"
-              >
-                lihat di portal ↗
-              </a>
+              {filtered && meta && ` (terfilter dari ${meta.total.toLocaleString("id-ID")})`}
+              {meta?.sumberLabel && ` · Sumber: ${meta.sumberLabel}`}
+              {meta?.portalUrl && (
+                <>
+                  {" · "}
+                  <a href={meta.portalUrl} target="_blank" rel="noreferrer" className="underline">
+                    lihat di portal ↗
+                  </a>
+                </>
+              )}
             </p>
           </>
         )}
@@ -545,6 +561,7 @@ function renderCell(key: string, v: unknown) {
       </a>
     );
   }
+  if (isLabelSumber(key, s)) return <SumberTag label={s} />;
   return fmtCell(key, v);
 }
 

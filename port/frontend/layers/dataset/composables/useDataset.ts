@@ -34,6 +34,8 @@ export type DatasetMeta = {
   title: string;
   description: string;
   sumber_data: string[];
+  sumber_label: string;
+  portal_url: string | null;
   frekuensi: string | null;
   satuan: string | null;
   periode: { min: string; max: string } | null;

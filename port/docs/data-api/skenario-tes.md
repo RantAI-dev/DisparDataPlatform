@@ -132,6 +132,7 @@ Dihasilkan dari `lakehouse/data-api/tests` (fungsi `test_*` dan baris pertama do
 | `test_wisnus_per_kota` | — |
 | `test_tenaga_kerja_dki` | — |
 | `test_tenaga_kerja_subsektor_dan_sertifikasi_q11` | — |
+| `test_tenaga_kerja_sebaran_dki` | — |
 | `test_pdrb_sama_dengan_golden_statis` | — |
 | `test_ringkasan` | — |
 | `test_q21_query_gagal_data_kosong_dan_peringatan` | — |
@@ -165,6 +166,7 @@ Dihasilkan dari `lakehouse/data-api/tests` (fungsi `test_*` dan baris pertama do
 | `test_metadata_ada_silver_tidak` | — |
 | `test_kolom_tampil_periode_depan_ekstra_belakang` | — |
 | `test_kolom_tampil_urut_ord_angka` | — |
+| `test_detail_sumber_sekunder_tanpa_portal` | — |
 
 ## `tests/unit/dataset/test_ekspor.py`
 

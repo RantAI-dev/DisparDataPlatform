@@ -1,0 +1,8 @@
+{
+  "kunci": "/v1/dataset/jumlah-tenaga-kerja-pariwisata-dan-ekonomi-kreatif-yang-tersertifikasi-tahun-2023-dan-2024",
+  "status": 200,
+  "headers": {
+    "content-type": "application/json"
+  },
+  "body": "{\"data\":{\"slug\":\"jumlah-tenaga-kerja-pariwisata-dan-ekonomi-kreatif-yang-tersertifikasi-tahun-2023-dan-2024\",\"title\":\"Jumlah Tenaga Kerja Pariwisata dan Ekonomi Kreatif yang Tersertifikasi Tahun 2023 dan 2024\",\"description\":\"Dataset ini berisikan data jumlah tenaga kerja sektor pariwisata dan ekonomi kreatif yang lulus sertifikasi profesi oleh Lembaga Sertifikasi Profesi (LSP) melalui fasilitasi yang diberikan oleh Dinas Pariwisata dan Ekonomi Kreatif\",\"sumber_data\":[\"Dinas Pariwisata Dan Ekonomi Kreatif\"],\"sumber_label\":\"Satu Data Jakarta · Jumlah Tenaga Kerja Pariwisata dan Ekonomi Kreatif yang Tersertifikasi Tahun 2023 dan 2024\",\"portal_url\":\"https://satudata.jakarta.go.id/open-data/jumlah-tenaga-kerja-pariwisata-dan-ekonomi-kreatif-yang-tersertifikasi-tahun-2023-dan-2024\",\"frekuensi\":\"1 Tahun Sekali\",\"satuan\":null,\"periode\":{\"min\":\"2023\",\"max\":\"2024\"},\"klasifikasi\":null,\"kontak\":\"disparekraf@jakarta.go.id\",\"author\":\"Lena Datinbangdes\",\"medallion\":{\"level\":\"silver\",\"table\":\"jumlah_tenaga_kerja_pariwisata_dan_ekonomi_kreatif_yang_tersertifikasi_tahun_2023_dan_2024\"},\"total_bronze\":16},\"meta\":{\"generated_at\":\"2026-11-08T00:04:02+07:00\",\"source\":[\"lake.bronze_meta*.dataset_catalog\",\"lake.bronze_meta*.dataset_sync\",\"silver.<tabel>\"],\"request_id\":\"a96df7f69963401597148433fbb02e9a\",\"total\":16}}"
+}

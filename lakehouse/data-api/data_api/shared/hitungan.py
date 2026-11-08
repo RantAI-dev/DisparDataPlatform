@@ -38,6 +38,8 @@ class EntriSekunder:
     external: bool
     # `bronze_file:<tabel>` / `gabungan:<nama>`; kosong = dataset_sync.total slug di href
     hitung: str = ""
+    # asal data spesifik untuk tag Sumber Data di tabel; kosong = label kategori `sumber`
+    sumber_detail: str = ""
 
     @property
     def slug_lake(self) -> str | None:

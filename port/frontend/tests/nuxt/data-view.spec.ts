@@ -22,6 +22,22 @@ registerEndpoint("/_api/dataset/ada/baris", (event) => {
   const q = new URL(event.path, "http://x").searchParams.get("q");
   return q ? envelope({ items: baris(2) }, { total: 2 }) : envelope({ items: baris(50, 50) }, { total: 120 });
 });
+registerEndpoint("/_api/dataset/sekunder/halaman", () =>
+  envelope(
+    { dataset: { total_bronze: 2, sumber_label: "Crawling", portal_url: null }, kolom: { items: [{ key: "nama", desc: null, type: null }] }, baris: { items: baris(2) } },
+    { total: 2 },
+  ),
+);
+registerEndpoint("/_api/dataset/gabungan/halaman", () =>
+  envelope(
+    {
+      dataset: { total_bronze: 1, sumber_label: "Data internal Dispar", portal_url: null },
+      kolom: { items: [{ key: "sumber", desc: null, type: null }, { key: "nama", desc: null, type: null }] },
+      baris: { items: [{ nama: "A", sumber: "Portal SDI (Satu Data Jakarta)" }] },
+    },
+    { total: 1 },
+  ),
+);
 registerEndpoint("/_api/dataset/hilang/halaman", (event) => {
   event.node.res.statusCode = 404;
   return { success: false, message: "Dataset tidak ditemukan.", errors: { code: "NOT_FOUND" }, meta: { request_id: "r" } };
@@ -47,6 +63,22 @@ describe("SdiTable", () => {
     // Debounce 350 ms memakai timer sungguhan.
     await vi.waitFor(() => expect(w.text()).toContain("2 / 2 baris (hasil pencarian)"), { timeout: 3000 });
     expect(w.findAll("thead th").map((t) => t.text())).toEqual(["#", "Nama"]);
+  });
+
+  it("kolom Sumber paling kanan berisi label sumber dataset; tanpa tautan portal untuk sekunder", async () => {
+    const w = await mountSuspended(SdiTable, { props: { slug: "sekunder" } });
+    await vi.waitFor(() => expect(w.findAll("tbody tr")).toHaveLength(2));
+    expect(w.findAll("thead th").map((t) => t.text())).toEqual(["#", "Nama", "Sumber Data"]);
+    expect(w.find("tbody td:last-child").text()).toBe("Crawling");
+    expect(w.text()).toContain("Sumber: Crawling");
+    expect(w.text()).not.toContain("lihat di portal");
+  });
+
+  it("dataset dengan label sumber per baris di kolom `sumber` tidak mendapat kolom Sumber Data tambahan", async () => {
+    const w = await mountSuspended(SdiTable, { props: { slug: "gabungan" } });
+    await vi.waitFor(() => expect(w.text()).toContain("1 / 1 baris"));
+    expect(w.findAll("thead th").map((t) => t.text())).toEqual(["#", "Nama", "Sumber"]);
+    expect(w.find("tbody td:last-child").text()).toBe("Portal SDI (Satu Data Jakarta)");
   });
 
   it("menampilkan pesan error API dengan tautan ke portal SDI", async () => {

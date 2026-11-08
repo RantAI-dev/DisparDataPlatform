@@ -124,7 +124,7 @@ menyamakan keadaan (font, `networkidle`, animasi), lalu:
    Playwright) harus ≤ 2%. Halaman ber-canvas memakai viewport setinggi dokumen.
 3. **Performa** (dicatat, bukan gate): LCP dan total transfer kedua sisi.
 
-Selalu: header di-mask (item asisten AI/Jekate tidak di-port), tile peta dan iframe Google Maps
+Selalu: header di-mask (item asisten AI/Jakpar AI tidak di-port), tile peta dan iframe Google Maps
 di-mask, dock AI dibuang dari produksi. Data yang tidak deterministik (baris tanpa ORDER BY)
 disamakan dengan `samakanBaris`, bukan di-mask. Pengecualian lain (P1–P5) ditulis sebagai `mask` +
 komentar alasannya di spec, dan dicatat lewat `pengecualian: ["P…"]` supaya muncul di laporan.

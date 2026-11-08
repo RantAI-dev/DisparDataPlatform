@@ -35,6 +35,7 @@ final class DashboardService
         'destinasi/bulanan' => 'P',
         'tenaga-kerja/dki' => 'T',
         'tenaga-kerja/subsektor' => 'P',
+        'tenaga-kerja/sebaran-dki' => 'T',
         'tenaga-kerja/sertifikasi' => 'T',
         'pdrb-ekraf/makro' => 'T',
         'pdrb-ekraf/subsektor/sebaran' => 'P',

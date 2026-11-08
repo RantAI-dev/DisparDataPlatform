@@ -1,12 +1,16 @@
 <script setup lang="ts">
 /** Tenaga kerja ekonomi kreatif (app/dashboard/tenaga-kerja/page.tsx + TkSubsektor @ 464fc15). */
+import { TK_DATA_SUMBER } from "../../constants";
+
 definePageMeta({ layout: "dashboard" });
 const api = useDashboard();
 const tahun = ref<string | undefined>(undefined);
-const [{ data: dki }, { data: sub }, { data: sert }] = await Promise.all([
+const [{ data: dki }, { data: sub }, { data: sebaran }, { data: sert }, { data: jumlah }] = await Promise.all([
   useAsyncData("tk-dki", () => api.tkDki()),
   useAsyncData("tk-subsektor", () => api.tkSubsektor(tahun.value), { watch: [tahun] }),
+  useAsyncData("tk-sebaran-dki", () => api.tkSebaranDki()),
   useAsyncData("tk-sertifikasi", () => api.tkSertifikasi()),
+  useAsyncData("tk-jumlah-baris", () => Promise.all(TK_DATA_SUMBER.map((d) => api.jumlahBaris(d.slug)))),
 ]);
 const rows = computed(() => dki.value?.rows ?? []);
 const tahunAktif = computed({ get: () => sub.value?.tahun ?? "", set: (v: string) => (tahun.value = v) });
@@ -32,6 +36,15 @@ const tahunAktif = computed({ get: () => sub.value?.tahun ?? "", set: (v: string
   <ChartCard :title="`Tenaga Kerja Ekonomi Kreatif per Subsektor di Tingkat Nasional - Tahun ${sub?.tahun ?? ''}`">
     <BarBreakdown :data="sub?.items ?? []" unit=" orang" :colors="(sub?.items ?? []).map((d) => warnaSubsektor(d.label))" />
   </ChartCard>
+  <div class="mt-4">
+    <ChartCard
+      title="Sebaran Pelaku Ekonomi Kreatif per Subsektor di DKI Jakarta"
+      sub="pelaku terdaftar di EKRAF Hub (hub.ekraf.go.id) yang berdomisili di DKI Jakarta — jumlah pelaku terdaftar, bukan jumlah tenaga kerja"
+    >
+      <BarBreakdown v-if="sebaran?.items.length" :data="sebaran.items" unit=" pelaku" :colors="sebaran.items.map((d) => warnaSubsektor(d.label))" />
+      <p v-else class="py-8 text-center text-[13px] text-ink-muted-48">Data sebaran pelaku ekraf DKI belum tersedia.</p>
+    </ChartCard>
+  </div>
 
   <SectionHead title="3 · Tren Tenaga Kerja Sektor Ekonomi Kreatif Provinsi DKI Jakarta" desc="5 tahun terakhir" />
   <ChartGrid :cols="2">
@@ -67,8 +80,13 @@ const tahunAktif = computed({ get: () => sub.value?.tahun ?? "", set: (v: string
       <GroupedBars :series="sert?.seri ?? []" :categories="sert?.bidang ?? []" unit=" orang" :colors="['#f4a672', '#ed6b23', '#0e7c42']" />
     </ChartCard>
   </ChartGrid>
+  <SectionHead title="Data sumber" desc="Tabel dataset yang dipakai grafik di atas, dengan kolom sumber di sisi kanan." />
+  <div class="space-y-2">
+    <RawDataDisclosure v-for="(d, i) in TK_DATA_SUMBER" :key="d.slug" :slug="d.slug" :title="d.title" :count="jumlah?.[i] ?? 0" label="Lihat data" />
+  </div>
+
   <SourceNote>
-    Sumber: Satu Data Ekraf (Kemenekraf, olahan Sakernas BPS dan Kemenekraf) — satudata.ekraf.go.id; Satu Data Jakarta — tenaga kerja pariwisata
-    &amp; ekraf tersertifikasi (2023–2025).
+    Sumber: Satu Data Ekraf (Kemenekraf, olahan Sakernas BPS dan Kemenekraf) — satudata.ekraf.go.id; EKRAF Hub Kementerian Ekonomi Kreatif —
+    hub.ekraf.go.id (pelaku terdaftar); Satu Data Jakarta — tenaga kerja pariwisata &amp; ekraf tersertifikasi (2023–2025).
   </SourceNote>
 </template>
