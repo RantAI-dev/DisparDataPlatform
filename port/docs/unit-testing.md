@@ -34,11 +34,11 @@ Cakupan backend dari Pest (pcov, `app/`); cakupan frontend dari Vitest saja (`ap
 |---|---|
 | `atlas.md` | 35 |
 | `dashboard.md` | 31 |
-| `dataset.md` | 47 |
+| `dataset.md` | 48 |
 | `gmti.md` | 31 |
 | `indikator.md` | 29 |
 | `sistem.md` | 24 |
-| **Total** | **197** |
+| **Total** | **198** |
 
 ## Fitur `atlas`
 
@@ -194,6 +194,7 @@ Cakupan backend dari Pest (pcov, `app/`); cakupan frontend dari Vitest saja (`ap
 | DS-E08 | Detail: chart builder "+ Tambah grafik" → kartu chart dengan canvas, bertahan setelah reload | `frontend/tests/e2e/dataset.spec.ts`<br>`frontend/tests/parity/interaksi.spec.ts` | belum dijalankan |
 | DS-E09 | `/sdi/tidak-ada` → "Dataset belum tersedia di lakehouse. Coba buka di portal SDI ↗." | `frontend/tests/e2e/dataset.spec.ts` | belum dijalankan |
 | DS-E10 | Detail: kolom Sumber Data paling kanan berisi asal data spesifik (S1 "Satu Data Jakarta · <judul dataset SDI>" + tautan portal); S2 yang punya label sumber per baris: kolom `sumber` dipindah ke paling kanan, footer menyebut asal spesifiknya (Wikipedia + OpenFlights + …) tanpa tautan portal | `frontend/tests/e2e/dataset.spec.ts` | belum dijalankan |
+| DS-E11 | Dataset SDI yang masih kosong (S "Data Stakeholder Pariwisata DKI Jakarta"): baris katalog berlabel "Belum ada data di SDI" (satu-satunya), entri "Dinas Pariwisata Dan Ekonomi Kreatif" tidak tampil; detail menampilkan "Dataset ini belum berisi data di Satu Data Jakarta. …", bukan "Dataset belum tersedia di lakehouse" | `frontend/tests/e2e/dataset.spec.ts` | belum dijalankan |
 | BR-E01 | `/` merender hero dengan angka dari API dan tautan kartu | `frontend/tests/e2e/dataset.spec.ts` | belum dijalankan |
 | DC-E01 | `/docs` merender daftar endpoint dari OpenAPI; tanpa `sistem/*` | `frontend/tests/e2e/dataset.spec.ts` | belum dijalankan |
 
