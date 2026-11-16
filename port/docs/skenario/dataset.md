@@ -64,6 +64,7 @@ Nuxt hasil build + Laravel + fixture-server (rekaman `fixtures/data-api`).
 | DS-E08 | Detail: chart builder "+ Tambah grafik" → kartu chart dengan canvas, bertahan setelah reload |
 | DS-E09 | `/sdi/tidak-ada` → "Dataset belum tersedia di lakehouse. Coba buka di portal SDI ↗." |
 | DS-E10 | Detail: kolom Sumber Data paling kanan berisi asal data spesifik (S1 "Satu Data Jakarta · <judul dataset SDI>" + tautan portal); S2 yang punya label sumber per baris: kolom `sumber` dipindah ke paling kanan, footer menyebut asal spesifiknya (Wikipedia + OpenFlights + …) tanpa tautan portal |
+| DS-E11 | Dataset SDI yang masih kosong (S "Data Stakeholder Pariwisata DKI Jakarta"): baris katalog berlabel "Belum ada data di SDI" (satu-satunya), entri "Dinas Pariwisata Dan Ekonomi Kreatif" tidak tampil; detail menampilkan "Dataset ini belum berisi data di Satu Data Jakarta. …", bukan "Dataset belum tersedia di lakehouse" |
 | BR-E01 | `/` merender hero dengan angka dari API dan tautan kartu |
 | DC-E01 | `/docs` merender daftar endpoint dari OpenAPI; tanpa `sistem/*` |
 
