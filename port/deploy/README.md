@@ -4,6 +4,11 @@ Paket untuk server Kominfo (SPEC §9). Cara deploy di sana belum diketahui, jadi
 **container** (`compose.yaml`) atau **bare metal**. Untuk pengembangan lokal pakai
 `../compose.dev.yaml`, bukan isi folder ini.
 
+Uji coba sebelum server Kominfo siap: `scripts/deploy-portal.sh` (root repo) memakai kedua
+Dockerfile ini untuk men-deploy portal ke server 192.168.18.148 lewat Portainer, dengan Oracle XE
+sebagai container di server itu dan Data API `dispar-data-api` di jaringan yang sama. Frontend di
+port 13041; hostname publik ditambah lewat dashboard Cloudflare.
+
 | Berkas | Isi |
 |---|---|
 | `backend.Dockerfile` | Laravel di php-fpm 8.2 + nginx dalam satu container, Oracle Instant Client 19 (basic) + oci8, port 8080, non-root |
